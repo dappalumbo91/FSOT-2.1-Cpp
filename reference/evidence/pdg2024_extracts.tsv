@@ -75,3 +75,10 @@ rev-qcd	2178	                    αs (m2Z ) = 0.1175 ± 0.0010      (PDG 2023 wi
 rev-cosmological-parameters	397	(73.0 ± 1.0) km s−1 Mpc−1 [21].
 sum-gauge-higgs-bosons	125	ℓ+ ℓ−                                     [c]     ( 3.3658± 0.0023) %                             –
 rev-bbang-nucleosynthesis	40	Ωb = ρb /ρcrit ≃ η10 h−2 /274 = (0.02244 ± 0.00069)h−2 , where h ≡ H0 /100 km s−1 Mpc−1 is the
+sum-gauge-higgs-bosons	35	                 Full width Γ = 2.085 ± 0.042 GeV
+sum-gauge-higgs-bosons	71	             Γ ℓ+ ℓ− = 83.984 ± 0.086 MeV [c]
+sum-gauge-higgs-bosons	72	             Γ invisible = 499.2 ± 1.5 MeV [f ]
+rev-standard-model	1559	     σhad [nb]               41.481 ± 0.033                   41.481 ± 0.009                  0.0
+sum-leptons	23	              Mean life τ = (2.1969811 ± 0.0000022) × 10−6 s
+sum-leptons	72	              Mean life τ = (290.3 ± 0.5) × 10−15 s
+sum-leptons	132	  e − ν e ντ                                 [g ]     (17.82 ± 0.04 ) %                        888

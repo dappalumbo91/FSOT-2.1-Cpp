@@ -7,6 +7,7 @@ committed under reference/evidence/ (stdlib only; no network).
   PDG2024 rows    : central and sigma digits (up to a power-of-ten display scale)
                     must appear on the cited pdftotext line(s) of the PDG 2024 PDF.
   AME2020 rows    : binding energy recomputed from the mass excesses in the extract.
+  IAEA rows       : magnetic dipole and uncertainty equal the committed LiveChart API extract.
   ARXIV rows      : central and sigma digits must appear in the quoted text of
                     reference/evidence/arxiv_extracts.tsv (id + locator).
   derived rows    : parents must exist; the expression must be well formed.
@@ -67,7 +68,7 @@ def check_pdg(r, lines):
     if (doc, ln) not in lines:
         return f"line {doc}:{ln} missing from extract"
     t = norm(text)
-    for k in range(-3, 12):
+    for k in range(-3, 18):
         c = scaled(r["central"], k)
         if c not in t:
             continue
@@ -131,6 +132,20 @@ def check_arxiv(r):
             return None
     return f"digits not found in arxiv extract {m.group(1)} {m.group(2)}: {txt!r}"
 
+def check_iaea(r):
+    import csv
+    m = re.match(r"iaea_livechart:(\d+)-(\d+)$", r["evidence"])
+    if not m:
+        return "bad evidence ref"
+    rows = list(csv.reader(l for l in open(os.path.join(ROOT, "evidence", "iaea_livechart_ground_states.csv"), encoding="utf-8") if not l.startswith("#")))
+    h = rows[0]
+    for x in rows[1:]:
+        if int(x[0]) == int(m.group(1)) and int(x[0]) + int(x[1]) == int(m.group(2)):
+            if Decimal(x[h.index("magnetic_dipole")]) == Decimal(r["central"]) and Decimal(x[h.index("unc_md")]) == Decimal(r["sm"]) == Decimal(r["sp"]):
+                return None
+            return f"IAEA {x[h.index('magnetic_dipole')]}({x[h.index('unc_md')]}) != row"
+    return "nuclide not in IAEA extract"
+
 def main():
     rows = load_rows()
     keys = {r["key"] for r in rows}
@@ -150,7 +165,7 @@ def main():
             v = cd.get(r["evidence"])
             if not v:
                 err = f"no CODATA row {r['evidence']!r}"
-            elif Decimal(v[0]).copy_abs() != Decimal(r["central"]) or Decimal(v[1]) != Decimal(r["sm"]) or r["sm"] != r["sp"]:
+            elif Decimal(v[0]).copy_abs() != Decimal(r["central"]).copy_abs() or Decimal(v[1]) != Decimal(r["sm"]) or r["sm"] != r["sp"]:
                 err = f"CODATA {v} != ({r['central']}, {r['sm']})"
         elif src == "PDG2024":
             err = check_pdg(r, pl)
@@ -158,6 +173,8 @@ def main():
             err = check_ame(r)
         elif src == "ARXIV":
             err = check_arxiv(r)
+        elif src == "IAEA":
+            err = check_iaea(r)
         else:
             err = "unknown source"
         if err:

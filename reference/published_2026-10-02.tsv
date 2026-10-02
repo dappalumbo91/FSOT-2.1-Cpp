@@ -121,3 +121,23 @@ BR_Z_inv	direct	0.20000	0.00055	0.00055	1	PDG2024:sum-gauge-higgs-bosons	pdg2024
 BR_Z_had	direct	0.69911	0.00056	0.00056	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:128	Gamma(hadrons)/Gamma_Z
 R_ell_derived	ratio:BR_Z_had/BR_Z_ll				1	derived		sigma propagated as uncorrelated (overestimate)
 T0_CO_fit	direct	2.725	0.002	0.002	K	ARXIV:1012.3164	arxiv_extracts:1012.3164:abstract	Noterdaeme et al. 2011 T(z) normalisation (CO + previous constraints; not independent of FIRAS)
+mu_n_over_mu_N	direct	-1.91304276	0.00000045	0.00000045	1	CODATA2022	neutron mag. mom. to nuclear magneton ratio	02d new row
+mu_t_over_mu_N	direct	2.9789624650	0.0000000059	0.0000000059	1	CODATA2022	triton mag. mom. to nuclear magneton ratio	02d new row
+mu_h_over_mu_N	direct	-2.1276253498	0.0000000017	0.0000000017	1	CODATA2022	helion mag. mom. to nuclear magneton ratio	02d new row (unshielded helion)
+G_F_GeVm2	direct	1.1663787e-5	0.0000006e-5	0.0000006e-5	GeV^-2	CODATA2022	Fermi coupling constant	02d diagnostic of seed G_F
+Gamma_W_GeV	direct	2.085	0.042	0.042	GeV	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:35	02d new row
+Gamma_ll_MeV	direct	83.984	0.086	0.086	MeV	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:71	02d Gamma_Z held-out
+Gamma_inv_MeV	direct	499.2	1.5	1.5	MeV	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:72	02d Gamma_Z held-out
+sigma_had0_nb	direct	41.481	0.033	0.033	nb	PDG2024:rev-standard-model	pdg2024_extracts:rev-standard-model:1559	02d Gamma_Z held-out
+tau_mu_s	direct	2.1969811e-6	0.0000022e-6	0.0000022e-6	s	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:23	02d new row
+tau_tau_s	direct	290.3e-15	0.5e-15	0.5e-15	s	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:72	02d new row
+BR_tau_enunu	direct	0.1782	0.0004	0.0004	1	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:132	02d external input to tau_tau (marked)
+mu_Li7	direct	3.256407	0.000012	0.000012	1	IAEA	iaea_livechart:3-7	02d moments class (Damian §67 #1038)
+mu_B11	direct	2.688378	0.000001	0.000001	1	IAEA	iaea_livechart:5-11	02d moments class (§67 #1039)
+mu_C13	direct	0.702369	0.000004	0.000004	1	IAEA	iaea_livechart:6-13	02d moments class (§67 #1040)
+mu_N14	direct	0.403573	0.000002	0.000002	1	IAEA	iaea_livechart:7-14	02d moments class (§67 #1041)
+mu_F19	direct	2.628321	0.000004	0.000004	1	IAEA	iaea_livechart:9-19	02d moments class (§67 #1042)
+mu_Na23	direct	2.2175	0.00003	0.00003	1	IAEA	iaea_livechart:11-23	02d moments class (§67 #1043)
+mu_Al27	direct	3.6407	0.00002	0.00002	1	IAEA	iaea_livechart:13-27	02d moments class (§67 #1044)
+mu_P31	direct	1.130925	0.000005	0.000005	1	IAEA	iaea_livechart:15-31	02d moments class (§67 #1045)
+mu_Mn55	direct	3.4467	0.0016	0.0016	1	IAEA	iaea_livechart:25-55	02d moments class held-out (§67 #1046)
