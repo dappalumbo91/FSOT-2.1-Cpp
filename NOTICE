@@ -1,0 +1,14 @@
+FSOT-2.1-Cpp
+Copyright 2026 Damian Arthur Palumbo
+
+This product is a C++20 port of the FSOT 2.1 computational engine,
+whose authority is vendor/fsot_compute.py in
+https://github.com/dappalumbo91/FSOT-2.1-Lean (pin AEB2AD), also by
+Damian Arthur Palumbo and licensed under the Apache License 2.0.
+
+The trinary core reproduces the behaviour of the trit implementations in
+the public repositories FSOT-Genetics, fsot-neuron-zig, FSOT-GPU,
+FSOT-Quantum and FSOT-Reality-OS by the same author.
+
+Optional build dependencies (not bundled): Boost.Multiprecision / Boost.Math
+headers (Boost Software License 1.0) and GCC libquadmath (LGPL, runtime library).

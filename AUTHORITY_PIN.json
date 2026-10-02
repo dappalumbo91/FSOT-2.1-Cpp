@@ -1,0 +1,9 @@
+{
+  "github_repo": "https://github.com/dappalumbo91/FSOT-2.1-Lean",
+  "path": "vendor/fsot_compute.py",
+  "hub_commit": "d127c07e518ae349f500d68d9e32b6236349c8f9",
+  "raw_url": "https://raw.githubusercontent.com/dappalumbo91/FSOT-2.1-Lean/d127c07e518ae349f500d68d9e32b6236349c8f9/vendor/fsot_compute.py",
+  "pin_prefix": "AEB2AD",
+  "authority_sha256": "AEB2ADAD6E80F487772C5DF90A2E3DDA71624AB831A6A83B94AB471AC9AAC170",
+  "note": "Mirror of vendor/fsot_compute_AUTHORITY_PIN.json. The C++ port is regenerated and golden-tested against this exact file; a different SHA stops the build."
+}

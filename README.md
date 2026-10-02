@@ -1,0 +1,112 @@
+# FSOT-2.1-Cpp
+
+[![CI](https://github.com/dappalumbo91/FSOT-2.1-Cpp/actions/workflows/ci.yml/badge.svg)](https://github.com/dappalumbo91/FSOT-2.1-Cpp/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+
+A C++20 port of the **FSOT 2.1** computational engine, plus a balanced-ternary (trinary) core.
+The authority stays in the hub, **[FSOT-2.1-Lean](https://github.com/dappalumbo91/FSOT-2.1-Lean)**:
+`vendor/fsot_compute.py` at pin **AEB2AD**. This repo reproduces that file's numbers in C++, golden-checks
+every value against it, and runs it 2–2900× faster depending on the precision you pick.
+
+The law is S = K(T1 + T2 + T3), built from five seeds (π, e, φ, γ, Catalan G) with zero free parameters:
+D_eff comes from the 20-generation nest, look/hits/observed are named fold laws, and the Ledger B
+amplitude is f = ALPHA.
+
+## What is ported (v0.1)
+- All of `fsot_compute.py`: seeds, layer-1/2 constants, the 24-input scalar law, nest → D_eff, the fold laws,
+  the 35 domain scalars, all 26 closed-form sections (368 rows: waves 1–10, validation, leptons,
+  dynamical systems, neural, consciousness, homeostasis, soliton/STDP, cross-species, trinary, predictions,
+  chemistry), and the Ledger B correction c = m(1 + |S|·ALPHA).
+- Trinary core (`include/fsot/trit.hpp`) with the same semantics as the trit code in
+  [FSOT-Genetics](https://github.com/dappalumbo91/FSOT-Genetics) / [fsot-neuron-zig](https://github.com/dappalumbo91/fsot-neuron-zig) (Zig T1 packing, Rust codon packing),
+  [FSOT-GPU](https://github.com/dappalumbo91/FSOT-GPU) / [FSOT-Quantum](https://github.com/dappalumbo91/FSOT-Quantum) (code {0,1,2}, collapse at C_EFF·P_VAR, consensus similarity, H/CX/Bell analogs).
+  It adds bit-sliced 32-trit word ops and a 27-trit balanced-ternary integer.
+- The FSOTB 27-opcode / 25-register VM core from [FSOT-Reality-OS](https://github.com/dappalumbo91/FSOT-Reality-OS) (`include/fsot/fsotb_vm.hpp`).
+  Its EVAL_PANEL reads the live 35-domain nest.
+
+Header-only: `#include "fsot/engine.hpp"`, then `fsot::Engine<double> e; e.domain_scalar("Thermodynamics");`.
+
+## Build (verified on Linux: Debian, GCC 14.2, CMake 4.4, Boost 1.83; CI on ubuntu-latest)
+```bash
+sudo apt-get install -y libboost-dev ninja-build     # Boost headers are optional (enables the 169-bit type)
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+ctest --test-dir build --output-on-failure           # golden + trit tests
+./build/fsot_report                                  # full report at authority precision
+./build/bench_cpp                                    # timings
+```
+Requirements: a C++20 compiler and CMake ≥ 3.20. Boost headers (Boost Software License) and GCC libquadmath are optional.
+Nothing paid.
+
+## How the golden tests tie to the authority
+1. `AUTHORITY_PIN.json` records the hub commit `d127c07e`, the raw URL, and SHA-256 `AEB2ADAD…AAC170` of `vendor/fsot_compute.py`.
+2. `tools/fetch_authority.py` downloads that exact file and refuses to continue if the SHA doesn't match.
+3. `tools/gen_closed_forms.py` checks the SHA again, then translates the authority's closed-form sections from the Python AST
+   into `include/fsot/closed_forms.gen.inc`. No number is typed by hand. The few Python-only loops are hand snippets
+   bound to a hash of the exact source statement, so if the authority edits one of them, generation fails instead of drifting.
+4. `tools/dump_golden.py` runs the authority with mpmath at mp.dps = 50 and writes `golden/golden_AEB2AD.tsv`:
+   643 checks covering every constant, every domain's D_eff/hits/observed/look/C/S, Ledger B corrections, all 368 rows,
+   and the 5 % pass counts.
+5. `tests/test_golden.cpp` compares the C++ engine to the golden file at every available number type.
+   CI's `regen-diff` job repeats steps 2–4 and fails if the generated files differ from what's committed.
+
+When the hub moves its pin, update `AUTHORITY_PIN.json`, run `cmake --build build --target fsot_regen`
+(configure with `-DFSOT_AUTHORITY=<path>`), and commit the regenerated files together.
+
+## Precision (vs the 50-digit golden, 643 checks, all pass)
+| Number type | Max relative deviation | Excluding the one cancellation row¹ | Rounded to double = `float(mpmath)` |
+|---|---|---|---|
+| `double` | 1.2e-12 | 1.1e-14 | 265/536 (others within a few ulp) |
+| `long double` (x87 80-bit) | 5.6e-15 | 4.8e-18 | — |
+| `__float128` | 2.4e-30 | 4.8e-33 | **536/536** |
+| Boost `cpp_bin_float<169 bits>` (same precision as mpmath dps 50) | 1.9e-46 | 1.8e-49 | **536/536** |
+
+¹ `Chain_consistency_%` subtracts two nearly equal ratios, so it magnifies rounding.
+Example: S_thermo = 0.93638756406297475802… (169-bit), and 0.9363875640629747 when rounded to double, matching Python exactly.
+
+## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
+| Workload | Python mpmath | double | long double | __float128 | 169-bit |
+|---|---|---|---|---|---|
+| Engine init (constants + nest + cached S) | 6.66 ms | 2.4 µs | 5.8 µs | 38 µs | 343 µs |
+| 35 domain scalars | 4.93 ms | 2.0 µs (2460×) | 24.8 µs (199×) | 261 µs (19×) | 1.97 ms (2.5×) |
+| All 26 sections (368 rows) | 5.05 ms | 39.6 µs (128×) | 55.4 µs (91×) | 217 µs (23×) | 1.61 ms (3.1×) |
+| One S evaluation | 108 µs | 37 ns (2900×) | 510 ns | 7.4 µs (15×) | 54 µs (2.0×) |
+
+| Ternary: consensus similarity, 4096 × 256 trits | Time |
+|---|---|
+| FSOT-GPU `trinary.py` (pure Python) | 58.1 ms |
+| C++ lane loop | 4.94 ms (12×) |
+| C++ bit-packed, 32 trits/u64 + popcount | 29 µs (~2000×) |
+
+Details are in [docs/BENCHMARKS.md](docs/BENCHMARKS.md). `__float128` is the practical sweet spot: 33 digits, and it reproduces Python's doubles exactly.
+
+## Windows / MSVC caveat
+MSVC has no `__float128`, and its `long double` is the same as `double`. On MSVC the CMake script builds the
+`double` and 169-bit Boost types only (get Boost headers from vcpkg: `boost-multiprecision boost-math`).
+Use the 169-bit type when you need values that match Python exactly. MinGW-w64 GCC does support `__float128`. (The MSVC build has not been tested yet; CI covers Linux only.)
+
+## Roadmap (from [docs/PORT_PLAN.md](docs/PORT_PLAN.md))
+1. Ledger B panel re-scorer over the hub's `data/*benchmark*.json` (recompute c = m(1+|S|·ALPHA), pooled medians, gate) — 2–3 days
+2. Ledger A closed-form emit + property routing — about 1 day
+3. Trinary syntax rows, opcode registry loader, wire-format FSOTB loader — 1–2 days
+4. Extend the codegen to the hub's pure-math modules (seed_flavor, gr_sm, matter_antimatter, uniqueness_confinement, ckm_pmns, complex_interaction) — 1–2 weeks
+5. Numeric kernels (nse3d, path_sum, dynamics) — about 1 week
+6. Data panels and gauntlet modules — 3–4 weeks
+7. Python binding (pybind11) and a CUDA bridge for ternary attention; a C++ replay alongside the hub's multiprover — about 1 week
+
+A survey of the engine and of every trinary implementation is in [docs/INVENTORY.md](docs/INVENTORY.md).
+
+## Layout
+| Path | What |
+|---|---|
+| `include/fsot/engine.hpp` | engine, templated on the number type |
+| `include/fsot/closed_forms.gen.inc` | generated sections (do not edit) |
+| `include/fsot/real.hpp` | number-type shim (double / long double / __float128 / Boost 169-bit) |
+| `include/fsot/trit.hpp`, `fsotb_vm.hpp` | trinary core, FSOTB VM |
+| `tools/` | pinned fetch, codegen, golden export |
+| `golden/golden_AEB2AD.tsv` | golden values |
+| `tests/`, `bench/`, `apps/` | tests, benchmarks, report CLI |
+
+## License and citation
+Apache License 2.0. Copyright 2026 Damian Arthur Palumbo. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+Citation metadata is in [CITATION.cff](CITATION.cff).

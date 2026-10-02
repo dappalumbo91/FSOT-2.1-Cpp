@@ -1,0 +1,40 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: sudo apt-get update -q && sudo apt-get install -y -q libboost-dev ninja-build
+      - name: Configure
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build
+      - name: Test (golden at double / long double / __float128 / 169-bit, trit)
+        run: ctest --test-dir build --output-on-failure
+  regen-diff:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install mpmath
+        run: pip install mpmath==1.4.1
+      - name: Fetch pinned authority (commit + SHA-256 check)
+        run: python tools/fetch_authority.py --out authority/fsot_compute.py
+      - name: Regenerate closed forms and golden values
+        run: |
+          python tools/gen_closed_forms.py --authority authority/fsot_compute.py
+          python tools/dump_golden.py --authority authority/fsot_compute.py
+      - name: Generated files must match the committed ones
+        run: git diff --exit-code -- include/fsot/closed_forms.gen.inc golden/golden_AEB2AD.tsv
