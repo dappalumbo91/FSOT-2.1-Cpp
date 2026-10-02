@@ -15,16 +15,17 @@ namespace fsot::gate {
 inline constexpr double Z_MAX = 1.0;        // pass iff z <= Z_MAX
 inline constexpr double OLD_REL_PCT = 2.0;  // legacy relative check, reported only
 
-struct Ref { long double central; long double sigma_minus; long double sigma_plus; };
-struct Score { long double z; long double rel_pct; long double ppm; bool pass_z; bool pass_old; };
+// IEEE double throughout (2026-10-02i portability): the same arithmetic with GCC/Clang and MSVC.
+struct Ref { double central; double sigma_minus; double sigma_plus; };
+struct Score { double z; double rel_pct; double ppm; bool pass_z; bool pass_old; };
 
-inline Score score(long double value, const Ref& r) {
-  const long double d = value - r.central;
-  const long double sig = d >= 0 ? r.sigma_plus : r.sigma_minus;
+inline Score score(double value, const Ref& r) {
+  const double d = value - r.central;
+  const double sig = d >= 0 ? r.sigma_plus : r.sigma_minus;
   Score s;
   s.z = std::fabs(d) / sig;
-  s.rel_pct = std::fabs(d) / std::fabs(r.central) * 100.0L;
-  s.ppm = s.rel_pct * 1.0e4L;
+  s.rel_pct = std::fabs(d) / std::fabs(r.central) * 100.0;
+  s.ppm = s.rel_pct * 1.0e4;
   s.pass_z = s.z <= Z_MAX;
   s.pass_old = s.rel_pct <= OLD_REL_PCT;
   return s;

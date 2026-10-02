@@ -20,6 +20,24 @@ jobs:
         run: cmake --build build
       - name: Test (golden at every type, trit, balanced-ternary engine, freestanding symbols)
         run: ctest --test-dir build --output-on-failure
+  build-test-msvc:
+    # Native Windows / MSVC (windows-latest, free for public repos). Non-blocking until its first green run is
+    # recorded in docs/AUDIT_LOG.md; the Linux jobs stay the gate.
+    runs-on: windows-latest
+    continue-on-error: true
+    timeout-minutes: 45
+    steps:
+      - name: Keep LF line endings
+        run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - name: Install Boost.Multiprecision, Boost.Math, nlohmann-json (vcpkg)
+        run: '& "$env:VCPKG_INSTALLATION_ROOT\vcpkg.exe" install boost-multiprecision boost-math nlohmann-json --triplet x64-windows'
+      - name: Configure (MSVC, Visual Studio generator)
+        run: cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE="$env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-windows
+      - name: Build
+        run: cmake --build build --config Release
+      - name: Test (precision report must be byte-identical to the Linux golden)
+        run: ctest --test-dir build -C Release --output-on-failure
   regen-diff:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -122,6 +140,12 @@ jobs:
           python tools/score_2026_10_02h.py --hub hub --out /tmp/score_h.tsv
           diff -q /tmp/score_h.tsv audit/score_2026-10-02h.tsv
           python tools/verify_freeze_files_h.py
+      - name: Re-run the 2026-10-02i branch scoring (HAD-1, HAD-2, GZ-1 H1-i) with the hub engine and diff; verify freeze i and owner decisions
+        run: |
+          python tools/score_2026_10_02i.py --hub hub --out /tmp/score_i.tsv
+          diff -q /tmp/score_i.tsv audit/score_2026-10-02i.tsv
+          python tools/verify_freeze_files_i.py
+          head -1 audit/OWNER_DECISIONS_2026-10-02i.sha256 | sha256sum -c -
       - name: Build and run the C++ re-scorer against the golden
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$PWD/hub

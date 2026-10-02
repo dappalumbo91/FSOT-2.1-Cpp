@@ -106,6 +106,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02i (audit/OWNER_DECISIONS_2026-10-02i.md): owner decisions OD-1 (score the Δm² ratio against Δm²21/Δm²31) and OD-2 (Quantum_Mechanics D_eff = 6, the pre-2026-09-11 value), added as labelled owner-decision rows next to the pinned rows. The gate is **87/91 confirmed** (85/91 pinned only).
 
+2026-10-02i (audit/FREEZE_2026-10-02i.md): two light-hadron routes (constituent-quark m_ρ, quark–hadron-duality Δα_had) fail their PDG-input validations, so no FSOT-native hadron sector exists yet. GZ-1 with the duality Δα_had gives Γ_Z/M_Z z 0.68 (frozen-pending, not confirmed).
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|
@@ -125,7 +127,7 @@ Details are in [docs/BENCHMARKS.md](docs/BENCHMARKS.md). `__float128` is the pra
 ## Windows / MSVC caveat
 MSVC has no `__float128`, and its `long double` is the same as `double`. On MSVC the CMake script builds the
 `double` and 169-bit Boost types only (get Boost headers from vcpkg: `boost-multiprecision boost-math`).
-Use the 169-bit type when you need values that match Python exactly. MinGW-w64 GCC does support `__float128`. (The MSVC build has not been tested yet; CI covers Linux only.)
+Use the 169-bit type when you need values that match Python exactly. MinGW-w64 GCC does support `__float128`. Damian reproduced the MSVC build on MSVC 19.44 (2026-10-02). The portability fixes are listed in docs/AUDIT_LOG.md H-33, and CI job `build-test-msvc` (windows-latest, non-blocking for now) builds it and checks that the precision report is byte-identical. Windows steps are in docs/REPRODUCE.md §1.
 
 Full reproduction guide (WSL2 recommended on Windows, with expected outputs for every check): [docs/REPRODUCE.md](docs/REPRODUCE.md).
 One-shot Linux/WSL2 check of all four CI jobs: `bash xval/cpp_check.sh`.

@@ -558,3 +558,34 @@ These are **owner decisions**, dated 2026-10-02 18:10 EDT and made by Damian Pal
 
 The remaining four non-confirmed record rows are T_CMB (z 1.31), Deuteron_binding_MeV (z 3.59), Gamma_Z/M_Z (z 4.89) and Deuteron_mu_muN (z 2.1e4).
 
+### 2026-10-02i (a)/(b): FSOT light-hadron sector, native hadronic Δα, deuteron (FREEZE_2026-10-02i, commit 75628a7, 18:22:01 EDT, before any number)
+
+**FSOT inventory.**
+- Present: m_π± (z 0.27), m_K±, m_D±, m_p, m_n, m_n−m_p, μ_p, r_p, B(⁴He), B(³H), α_s(M_Z) seed 0.117909 (z 0.10), m_u/m_d, m_s/m_d, m_c/m_b, and Quark_condensate = 1/4. The last is dimensionless; reading it in GeV would be a unit assumption.
+- **Absent:** f_π, g_A, g_πNN, m_ρ/m_ω/m_φ, any Γ_ee, an absolute light-quark mass, absolute m_c and m_b, any B meson, the gluon condensate, μ_n and P_D.
+
+| route | construction (source) | PDG-input validation (criterion fixed in the freeze) | FSOT-input result | status |
+|---|---|---|---|---|
+| HAD-1 | De Rújula–Georgi–Glashow constituent quark model with one-gluon-exchange colour ratio A_B = A_M/2 (PRD 12, 147 (1975), doi:10.1103/PhysRevD.12.147); m, A from m_π, m_p → m_ρ | 1111.46 MeV vs 775.26(23), +43.4 %: **FAIL** (criterion ≤ 5 %) | 1111.46 MeV | rejected. The pion is a Goldstone boson and the hyperfine model cannot describe it. |
+| HAD-2 | Global quark–hadron duality R-ratio. Open-flavour thresholds 2m_π, 2m_K, 2m_D, 2m_B; massless O(α_s³) non-singlet K (PDG eq. 9.7); 4-loop α_s from α_s(M_Z), frozen below m_τ; dispersive PV integral (integrator checked against the analytic K=1 case to 3e-10) | Δα_had = 0.026725 vs 0.02783(6), −4.0 %: **FAIL** (criterion \|dev\| ≤ 0.00029). α_s(m_τ) = 0.3241 vs PDG 0.314(14). | Δα_had = 0.026722 (m_B external) | not validated. It misses the resonance enhancement (ρ, ω, φ, J/ψ, ϒ), which local duality only averages over. |
+| GZ-1 H1-i | Round-h GZ-1 (ACFW Δr + Freitas Γ_Z) with Δα_had from HAD-2 | V1 and V2 passed in round h; HAD-2 failed | G_F 1.166131e-5 (−0.021 %); **Γ_Z/M_Z 0.0273494, z 0.68**; Γ_Z 2.49392 GeV, z 0.69 | **frozen-pending, not confirmed.** The HAD-2 validation failed, and m_B is external. The pass comes partly from two known offsets cancelling: Δα_had −0.0011 (−4 %) lowers G_F, while the FSOT m_W leaf (the measured world average, 16 MeV above the SM M_W) raises it. |
+
+**Considered, not scored.**
+- **f_π routes:**
+  - GMOR (needs an absolute m̂)
+  - Goldberger–Treiman (g_A, g_πNN absent)
+  - large-N_c lowest-meson dominance, m_ρ² ≈ 8π²f_π² (needs f_π or m_ρ)
+  - Weinberg sum rules + KSRF + vacuum-saturated dim-6 condensate (one equation in f_π²m_ρ⁴)
+  - SVZ/FESR for the ρ (needs the gluon condensate)
+  - Pagels–Stokar/NJL (needs a cutoff)
+- **Λ^(5)** is computable from the FSOT α_s, but a hadron mass from it needs a lattice ratio.
+- **VMD Γ_ee** needs f_V.
+
+**Answer on a native light-hadron sector: none exists with current FSOT quantities.** No standard-physics route turns FSOT's present quantities into f_π, m_ρ or Γ_ee without a new hadronic input. The two scored routes fail their PDG-input validations.
+
+**(b) Deuteron:** 4 routes considered, 0 scored. A μ_n pion-cloud term, P_D from the one-pion-exchange tensor force, meson-exchange currents, and the binding from an NN potential all need g_πNN and f_π, which (a) did not produce. MUD-1 (SU(6), round h) remains failed.
+
+**Look-elsewhere (round i):** light-hadron routes 9 considered / 2 scored / 1 able to confirm; deuteron routes 4 / 0. Disclosure: rough evaluations of HAD-1 (~1.11 GeV) and HAD-2 (~0.0264, without QCD factors) were seen before the freeze.
+
+**Totals:** **87/91 confirmed** (owner decisions OD-1 and OD-2; 85/91 pinned only). **89/91 if the frozen-pending items were adopted:** C-TCMB (T_CMB z 0.999) and GZ-1 H1-i (Γ_Z/M_Z z 0.68). The C++ gate's own frozen-pending line shows 88/91 because it does not carry GZ-1 H1-i, which lives in audit/score_2026-10-02i.tsv. Still open: Deuteron_binding_MeV and Deuteron_mu_muN.
+

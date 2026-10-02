@@ -1,6 +1,7 @@
 // Golden-value harness: every constant, domain fold, domain S, Ledger-B
 // correction and closed-form row of vendor/fsot_compute.py (pin AEB2AD)
 // compared to the C++ port at each precision.
+#include <cfloat>
 #include <cstdio>
 #include <fstream>
 #include <map>
@@ -137,7 +138,11 @@ int main(int argc, char** argv) {
   if (rows.empty()) { std::printf("no golden rows in %s\n", path); return 2; }
   bool ok = true;
   ok &= report<double>(rows, 1e-12);
+#if LDBL_MANT_DIG > DBL_MANT_DIG
   ok &= report<long double>(rows, 1e-15);
+#else
+  std::printf("long double: skipped (LDBL_MANT_DIG %d <= DBL_MANT_DIG %d on this platform; the 1e-15 bar needs 80-bit long double)\n", LDBL_MANT_DIG, DBL_MANT_DIG);
+#endif
 #if defined(FSOT_HAVE_FLOAT128)
   ok &= report<f128>(rows, 1e-28);
 #endif

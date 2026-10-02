@@ -452,6 +452,30 @@ These are owner decisions by Damian Palumbo, dated 2026-10-02 18:10 EDT, and rec
 - **Implementation:** a new gate route `owner` re-evaluates the same Engine with QM D_eff = 6 (S_quant 0.9552893401 vs pinned 0.9501974702). The pinned rows stay with record=0, tagged [OD-superseded]. Pins, vendor and parity goldens are unchanged.
 - **Gate:** 87/91 confirmed (85/91 pinned only; 88/91 with frozen-pending C-TCMB).
 
+### H-32 · 2026-10-02i: light-hadron routes (HAD-1 DGG m_rho, HAD-2 duality Delta alpha_had) fail their PDG-input validations; GZ-1 H1-i z 0.68, frozen-pending
+Under FREEZE_2026-10-02i (75628a7, before any number):
+- **HAD-1** (De Rujula-Georgi-Glashow constituent quark model) gives m_rho = 1111.5 MeV vs 775.26 (+43 %). Validation failed.
+- **HAD-2** (quark-hadron duality R-ratio with FSOT thresholds and alpha_s) gives Delta alpha_had = 0.026725 with PDG inputs vs 0.02783 (-4.0 %). The frozen criterion |dev| <= 0.00029 failed.
+- **GZ-1 H1-i:** with the FSOT-input HAD-2 value (0.026722, m_B external), Gamma_Z/M_Z = 0.0273494 (z 0.68). It is frozen-pending only, because HAD-2 did not validate; the agreement is partly a cancellation between the -4 % Delta alpha_had and the W-mass offset.
+- There is no FSOT-native f_pi, m_rho or Gamma_ee route with current FSOT quantities. Deuteron mu_n beyond SU(6), P_D, MEC and binding stay blocked on g_piNN and f_pi.
+- **Counts:** 87/91 confirmed (85 pinned only); 89/91 including frozen-pending.
+
+### H-33 · 2026-10-02i: Windows/MSVC portability (reproduced by Damian on MSVC 19.44); precision report made platform-independent (formatting-only change)
+- `tests/test_ternary.cpp`: when `__int128` is absent, the 2-word product check uses `_mul128`/`_umul128` (MSVC x64).
+- `tests/test_golden.cpp`: the 80-bit `long double` bar (1e-15) is skipped when `LDBL_MANT_DIG <= DBL_MANT_DIG`.
+- `apps/fsot_look_elsewhere.cpp`, `apps/fsot_precision.cpp`: `#define _USE_MATH_DEFINES` before `<cmath>`.
+- `apps/fsot_freeze_domain.cpp`: `localtime_s`/`gmtime_s` on `_WIN32`.
+- `apps/fsot_precision.cpp` + `include/fsot/host/precision_gate.hpp`:
+  - Outputs are opened `"wb"` (LF on every platform).
+  - No `long double` and no `%Lg`.
+  - References are parsed exactly into mp169. The gate arithmetic (z, rel, ppm and the z ≤ 1 / 2 % comparisons) runs in mp169.
+  - The printed values are IEEE doubles (mp169 → 17-significant-digit string → strtod) at the same `%.15g` / `%.4g` / `%.6g` formats.
+  - `Score`/`Ref` are now `double`. The gate rule itself (Z_MAX = 1, OLD_REL_PCT = 2) is unchanged.
+- **Effect on the Linux golden:** one line changed in each of `audit/precision_2026-10-02.{tsv,md}`, the printed last digit of the non-record row `pin:wave4|mu_p_muN` (2.79285221626412 → 2.79285221626411). It is a formatting-only change: the golden was regenerated, and **no PASS/FAIL changed in any column** (z ≤ 1, 2 %, refined). Counts are unchanged at 87/91 (85/91 pinned only; 88/91 with frozen-pending).
+- `.gitattributes` forces LF on checkout. The CI job `build-test-msvc` (windows-latest + vcpkg) is non-blocking until its first green run.
+- The Linux paths (`__int128`, 80-bit `long double`, `M_PI`) stay.
+- **CTest counts:** 31 Linux / 30 MSVC with `-DFSOT_HUB_DATA` (29/28 before `round_freeze_h`/`round_freeze_i`); 27 / 26 without hub data.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests

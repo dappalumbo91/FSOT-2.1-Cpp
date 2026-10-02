@@ -31,8 +31,13 @@ static std::string today() {
   std::time_t t = std::time(nullptr);
   char a[16], b[16];
   std::tm lt{}, ut{};
+#if defined(_WIN32)
+  localtime_s(&lt, &t);
+  gmtime_s(&ut, &t);
+#else
   localtime_r(&t, &lt);
   gmtime_r(&t, &ut);
+#endif
   std::strftime(a, sizeof a, "%Y-%m-%d", &lt);
   std::strftime(b, sizeof b, "%Y-%m-%d", &ut);
   return std::max(std::string(a), std::string(b));

@@ -5,6 +5,9 @@
 //  3. Engine<BTFloat<P>>: the FSOT core evaluated with ternary arithmetic doing all of the math, compared
 //     to golden/golden_AEB2AD.tsv (mpmath, dps=50, from the pinned authority). The relative error is itself
 //     computed in balanced ternary from the golden decimal strings (no binary float in the comparison).
+#if defined(_MSC_VER)
+#include <intrin.h>
+#endif
 #include <algorithm>
 #include <array>
 #include <cstdio>
@@ -76,9 +79,25 @@ static void test_words() {
     const long long a = (long long)(g() >> 2) - (1LL << 61), b = (long long)(g() >> 2) - (1LL << 61);
     const BigT<1> A = from_binary<1>(a), B = from_binary<1>(b);
     const BigT<2> P = mul(A, B);
+#if defined(__SIZEOF_INT128__)
     __int128 v = 0;
     for (int i = P.top(); i >= 0; --i) v = v * 3 + P.trit(i);
     CHECK(v == (__int128)a * b, "bigt mul");
+#elif defined(_MSC_VER) && defined(_M_X64)
+    // MSVC: no __int128. Horner in two's-complement (hi, lo) with _umul128; reference product from _mul128.
+    unsigned long long hi = 0, lo = 0;
+    for (int i = P.top(); i >= 0; --i) {
+      unsigned long long carry = 0;
+      lo = _umul128(lo, 3ULL, &carry); hi = hi * 3ULL + carry;
+      const long long t = P.trit(i);
+      const unsigned long long tlo = (unsigned long long)t, thi = t < 0 ? ~0ULL : 0ULL;
+      const unsigned long long nlo = lo + tlo; hi += thi + (nlo < lo ? 1ULL : 0ULL); lo = nlo;
+    }
+    long long rhi = 0; const long long rlo = _mul128(a, b, &rhi);
+    CHECK(lo == (unsigned long long)rlo && hi == (unsigned long long)rhi, "bigt mul");
+#else
+#error "test_ternary needs __int128 or MSVC x64 _mul128/_umul128"
+#endif
   }
   std::printf("Word40 / BigT: 200000 random add/sub/mul/div/cmp/shift + 20000 double-width products\n");
 }

@@ -66,12 +66,31 @@ Optional native Windows builds, as an extra data point only:
 - **MinGW-w64 (MSYS2 UCRT64, free):** `pacman -S mingw-w64-ucrt-x86_64-{gcc,cmake,ninja,boost,nlohmann-json,python}`.
   GCC there supports `__float128`, so all four precision types are tested. MSYS2 provides `sh` and `nm` for the
   two shell-based tests.
-- **MSVC (VS 2022 Build Tools, free) + vcpkg `boost-multiprecision boost-math nlohmann-json`:** README.md
-  "Windows / MSVC caveat". MSVC has no `__float128` and `long double == double`, so only the `double` and
-  169-bit types are built. The `freestanding_symbols` test is skipped (GNU/Clang only).
-  `freeze_core_sha_matches_hub_freeze` needs `sh` on PATH (Git for Windows ships one). MSVC is **untested
-  upstream**. Report what happens; don't patch around it.
+- **MSVC (VS 2022 Build Tools, free) + vcpkg: native Windows, supported since 2026-10-02i.** Damian reproduced the build on
+  MSVC 19.44, and CI runs it as job `build-test-msvc` on `windows-latest` (non-blocking until its first green run is
+  logged). The portability changes:
+  - `test_ternary` uses `_mul128`/`_umul128` when `__int128` is absent.
+  - `test_golden` skips the 80-bit `long double` bar when `LDBL_MANT_DIG <= DBL_MANT_DIG`.
+  - `_USE_MATH_DEFINES` is set for `M_PI`.
+  - `fsot_freeze_domain` uses `localtime_s`/`gmtime_s`.
+  - The precision report does its gate arithmetic in mp169 and prints IEEE doubles (no `%Lg`). It is written in binary mode (LF), so it is byte-identical to the Linux golden.
+
+  The Linux paths (`__int128`, 80-bit `long double`, `M_PI`) are unchanged. Steps (Developer PowerShell for VS 2022):
+  ```powershell
+  git clone -c core.autocrlf=false https://github.com/dappalumbo91/FSOT-2.1-Cpp; cd FSOT-2.1-Cpp
+  git clone https://github.com/microsoft/vcpkg $HOME\vcpkg; & $HOME\vcpkg\bootstrap-vcpkg.bat
+  & $HOME\vcpkg\vcpkg.exe install boost-multiprecision boost-math nlohmann-json --triplet x64-windows
+  cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE="$HOME\vcpkg\scripts\buildsystems\vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-windows
+  cmake --build build --config Release
+  ctest --test-dir build -C Release --output-on-failure
+  ```
+  MSVC has no `__float128`, and `long double == double`, so `test_golden` checks `double` and mp169 only. `freestanding_symbols` is
+  not registered (GNU/Clang only). `freeze_core_sha_matches_hub_freeze` needs `sh` on PATH (Git for Windows ships one). Python 3 must
+  be on PATH for the freeze/reference tests. `.gitattributes` forces LF on checkout.
+  **Expected CTest counts** with `-DFSOT_HUB_DATA`: **31 on Linux** and **30 on MSVC** (the difference is `freestanding_symbols`). Without hub data the counts are 27 and 26, the CI `build-test` configuration. Before rounds h/i added `round_freeze_h` and `round_freeze_i`, the counts were 29 and 28.
 - Native Windows: clone with `-c core.autocrlf=false`. Run the Python byte-identical diffs (step 3) in WSL2 only.
+
+**Current precision gate** (`audit/precision_2026-10-02.md`): **87/91 confirmed** at z ≤ 1, including the owner decisions OD-1/OD-2 (audit/OWNER_DECISIONS_2026-10-02i.md). Without them (pinned rows only) it is 85/91; with the frozen-pending refinements it is 88/91.
 
 ### 2. Fastest path: one script
 From the repo root in WSL2:
@@ -91,14 +110,14 @@ cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$HOME/fs
 cmake --build build -j3
 ctest --test-dir build --output-on-failure
 ```
-Expected: `100% tests passed, 0 tests failed out of 16`. The tests are:
+Expected (2026-10-02i): `100% tests passed` with **31 tests** when `-DFSOT_HUB_DATA` is given, or **27** without it (Linux; 30 / 26 on MSVC). The original 16 are listed below. Since then the precision-gate, reference and freeze-verification tests (`seed_leaves`, `precision_report*`, `references_check`, `refinement_freeze*`, `refinements_b_crosscheck`, `derivations_freeze_e/f/g`, `round_freeze_h/i`) were added. The original 16 are:
 - `golden`, `trit`, `ternary`, `core_vs_engine`, `core_closed_forms_vs_golden`, `predict_closed_form_smoke`;
 - `ledger_a_routing`, `look_elsewhere_smoke`, `freestanding_symbols`;
 - `freeze_core_sha_matches_hub_freeze`, `freeze_verify_domain_freeze_2026-10-02_AEB2AD`,
   `freeze_verify_py_domain_freeze_2026-10-02_AEB2AD`;
 - `ledger_b`, `evidence_tiers_report`, `ledger_b_corrected_report`, `ledger_b_genuine_misses`.
 
-Without `-DFSOT_HUB_DATA` the last four are not registered (12 tests). Boost's `cpp_int.hpp` prints
+Without `-DFSOT_HUB_DATA` the last four are not registered. Boost's `cpp_int.hpp` prints
 `-Wstringop-overread` warnings with GCC 14. They are harmless and the build still succeeds.
 
 **3.2 Parity vs the pinned Python engine (bit-for-bit S values): `./build/test_golden`**

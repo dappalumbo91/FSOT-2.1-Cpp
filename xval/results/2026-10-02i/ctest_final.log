@@ -1,0 +1,69 @@
+Internal ctest changing into directory: /workspace/fsot-cpp/build
+Test project /workspace/fsot-cpp/build
+      Start  1: golden
+ 1/31 Test  #1: golden .............................................   Passed    0.03 sec
+      Start  2: trit
+ 2/31 Test  #2: trit ...............................................   Passed    0.21 sec
+      Start  3: ternary
+ 3/31 Test  #3: ternary ............................................   Passed    1.83 sec
+      Start  4: core_vs_engine
+ 4/31 Test  #4: core_vs_engine .....................................   Passed    0.40 sec
+      Start  5: core_closed_forms_vs_golden
+ 5/31 Test  #5: core_closed_forms_vs_golden ........................   Passed    0.14 sec
+      Start  6: predict_closed_form_smoke
+ 6/31 Test  #6: predict_closed_form_smoke ..........................   Passed    0.10 sec
+      Start  7: ledger_a_routing
+ 7/31 Test  #7: ledger_a_routing ...................................   Passed    1.83 sec
+      Start  8: look_elsewhere_smoke
+ 8/31 Test  #8: look_elsewhere_smoke ...............................   Passed    0.51 sec
+      Start  9: seed_leaves
+ 9/31 Test  #9: seed_leaves ........................................   Passed    0.00 sec
+      Start 10: precision_report
+10/31 Test #10: precision_report ...................................   Passed    0.02 sec
+      Start 11: precision_report_tsv
+11/31 Test #11: precision_report_tsv ...............................   Passed    0.01 sec
+      Start 12: precision_report_md
+12/31 Test #12: precision_report_md ................................   Passed    0.01 sec
+      Start 13: references_check
+13/31 Test #13: references_check ...................................   Passed    0.04 sec
+      Start 14: refinement_freeze
+14/31 Test #14: refinement_freeze ..................................   Passed    0.02 sec
+      Start 15: refinement_freeze_b
+15/31 Test #15: refinement_freeze_b ................................   Passed    0.02 sec
+      Start 16: refinements_b_crosscheck
+16/31 Test #16: refinements_b_crosscheck ...........................   Passed    0.01 sec
+      Start 17: refinement_freeze_c
+17/31 Test #17: refinement_freeze_c ................................   Passed    0.02 sec
+      Start 18: refinement_freeze_d
+18/31 Test #18: refinement_freeze_d ................................   Passed    0.02 sec
+      Start 19: derivations_freeze_e
+19/31 Test #19: derivations_freeze_e ...............................   Passed    0.02 sec
+      Start 20: derivations_freeze_f
+20/31 Test #20: derivations_freeze_f ...............................   Passed    0.02 sec
+      Start 21: derivations_freeze_g
+21/31 Test #21: derivations_freeze_g ...............................   Passed    0.02 sec
+      Start 22: round_freeze_h
+22/31 Test #22: round_freeze_h .....................................   Passed    0.02 sec
+      Start 23: round_freeze_i
+23/31 Test #23: round_freeze_i .....................................   Passed    0.02 sec
+      Start 24: freestanding_symbols
+24/31 Test #24: freestanding_symbols ...............................   Passed    0.00 sec
+      Start 25: freeze_core_sha_matches_hub_freeze
+25/31 Test #25: freeze_core_sha_matches_hub_freeze .................   Passed    0.03 sec
+      Start 26: freeze_verify_domain_freeze_2026-10-02_AEB2AD
+26/31 Test #26: freeze_verify_domain_freeze_2026-10-02_AEB2AD ......   Passed    0.04 sec
+      Start 27: freeze_verify_py_domain_freeze_2026-10-02_AEB2AD
+27/31 Test #27: freeze_verify_py_domain_freeze_2026-10-02_AEB2AD ...   Passed    0.04 sec
+      Start 28: ledger_b
+28/31 Test #28: ledger_b ...........................................   Passed    9.13 sec
+      Start 29: evidence_tiers_report
+29/31 Test #29: evidence_tiers_report ..............................   Passed    0.01 sec
+      Start 30: ledger_b_corrected_report
+30/31 Test #30: ledger_b_corrected_report ..........................   Passed    0.01 sec
+      Start 31: ledger_b_genuine_misses
+31/31 Test #31: ledger_b_genuine_misses ............................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 31
+
+Total Test time (real) =  14.62 sec
+exit 0

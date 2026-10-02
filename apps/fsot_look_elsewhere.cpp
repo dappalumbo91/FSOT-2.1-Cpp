@@ -13,6 +13,7 @@
 // The grammars are deliberately small. Typical FSOT expressions such as (a - b)/(c + d) are richer, so these
 // counts are a LOWER BOUND on the effective number of alternatives.
 //   fsot_look_elsewhere [--tsv out.tsv]
+#define _USE_MATH_DEFINES  // M_PI, M_E on MSVC (must precede <cmath>)
 #include <algorithm>
 #include <cmath>
 #include <cstdio>
