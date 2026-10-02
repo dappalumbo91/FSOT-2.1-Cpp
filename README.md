@@ -110,6 +110,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02j (audit/FREEZE_2026-10-02j.md): walk-down from FSOT's absolute scale to the strong sector. Λ^(5) from the FSOT α_s(M_Z) is 209.5 MeV vs FLAG 213(8) (z 0.43, validated method; not one of the 91 rows). No FSOT-native f_π, g_A or g_πNN: the NDA and quark-model routes fail their validations, and GMOR and Goldberger–Treiman validate but lack FSOT inputs. Hence the KSRF/Δα and deuteron chains were not run, and the gate stays at 87/91.
 
+2026-10-02k (audit/FREEZE_2026-10-02k.md): θ_S = sin(ψ_con η_eff) has no known physical counterpart. The pion, kaon, D, W, Z, H and nuclear-binding leaves are pure numbers read in MeV and are not tied to the m_e anchor; the missing factor contains the SI-defined value of e. F_π (91.8 MeV) and g_πNN (12.92) come out only as hybrids with lattice ratios. m_ρ by lowest-meson dominance misses its 1 % gate, so the Δα and deuteron chains were not run. The gate stays at 87/91.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

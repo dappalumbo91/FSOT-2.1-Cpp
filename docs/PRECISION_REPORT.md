@@ -653,3 +653,97 @@ Damian approved branching from FSOT's existing absolute scale. Trace: `audit/tra
 - **87/91 confirmed** (85/91 pinned only).
 - 88/91 C++ gate with frozen-pending; 89/91 counting GZ-1 H1-i.
 - Λ^(5) agrees, but it is not one of the 91 rows.
+
+## 2026-10-02k: physical representation of θ_S and the MeV leaves; f_π, g_A, g_πNN from FSOT m_π, m_N and Λ_QCD (FREEZE_2026-10-02k, commit a1a530c, before any branch number; logs in `xval/results/2026-10-02k/`)
+
+Trace: `audit/trace_2026-10-02k.tsv` (61 rows, `tools/trace_2026_10_02k.py`). Scores: `audit/score_2026-10-02k.tsv` (`tools/score_2026_10_02k.py`).
+
+### θ_S back to the seeds
+
+| piece | value | what it is (mathematics) | physical counterpart |
+|---|---|---|---|
+| ψ_con = 1 − e⁻¹ | 0.6321205588 | P(N ≥ 1) for a Poisson count of mean 1; the fraction of a first-order relaxation completed after one time constant | none in particle physics (hub label: consciousness parameter) |
+| η_eff = 1/(π − 1) | 0.4669422069 | diameter / (circumference − diameter) of a circle | none (hub label: efficiency) |
+| ψ_con·η_eff | 0.2951637688 rad = 16.9116° | – | – |
+| θ_S = sin(ψ_con η_eff) | 0.2908965405 | A sine value. The hub then also uses it as an angle: sin θ_S in C_eff and B_in; cos θ_S in P_var and Suction; the Lean lemma `phase_variance = cos theta_S` | **None known.** Not sin θ_C (0.2250), not sin²θ_W (0.2313), not the QCD θ̄ (< 1e-10) |
+
+### Why the pion and kaon come out in MeV (unit audit)
+
+**Two kinds of mass leaf:**
+- **Tied to the anchor:** m_e (h ν_Cs/c² · exp(23.32158…)), m_μ, m_τ, m_p, m_n. Each is m_e times a seed ratio.
+- **Pure numbers read in a human unit:**
+  - in MeV: m_π±, m_K±, m_D±, m_W, m_Z, m_H, B(⁴He), B(³H), B(²H) = √e/e + φ
+  - in other units: r_p (fm), Δm²₃₂ (eV²), T_CMB (K), H0 (km/s/Mpc)
+
+**The missing factor.** To tie an MeV-read leaf to the m_e anchor you need 1 MeV/(m_e c²) = 1/m_e[MeV] = 1.95695118122 on the FSOT anchor (CODATA z 0.50). That factor equals [10⁶ e/(h ν_Cs)]/exp(23.3215823…), with 10⁶ e/(h ν_Cs) = 2.63035581386e10 (SI-exact). It contains e = 1.602176634e-19 C, a number fixed by definition in 2019 to continue the historical coulomb. So the numerical value of any mass in MeV depends on that convention, and a pure-number formula equal to m/MeV carries it implicitly.
+
+**Hub history of the pion leaf (git, 6f9c2560):**
+1. FSOT SMILES Lab dataset §66 (imported 2026-07-14): e⁵ − π² = 138.54 vs 139.57 (0.74 %).
+2. The particle benchmark JSON of 2026-07-11/12, a catalogue of θ/Ω/Poof power combinations: θ_S⁻⁴ − θ_S² = 139.5669.
+3. 2026-09-29: α/(π − 1) added (gap/α = 0.474 ≈ η_eff = 0.467), giving 139.570341, z 0.27.
+
+The target at every stage was the PDG number in MeV, so the MeV is the unit of the search target. No stage multiplies by m_e, m_p or any scale.
+
+**Link tests.**
+
+| candidate link | FSOT | counterpart | z | finding |
+|---|---|---|---|---|
+| m_π/m_e | 273.132344 | 273.132440 | 0.27 | holds only because the leaf matches 139.57 in MeV |
+| m_π/m_p | 0.14875252 | 0.14875258 | 0.27 | same. The pin `m_pi/m_p` = K P_new ln π = 0.14442 is a different closed form |
+| m_π/Λ^(5) | 0.66613 | 0.6553(246) | 0.44 | Λ's 3.8 % uncertainty can't test an exact factor. In QCD m_π/Λ measures m_ud/Λ, a free parameter |
+| m_π/Λ^(3) | 0.41423 | 0.4129(122) | 0.11 | ≈ √2 − 1 (noted, not claimed: many simple numbers fit inside 3 %) |
+| any AEB2AD pin within 1 ppm of these ratios or of 1/m_e[MeV] | – | – | – | none of 204 pins |
+
+**Answer to (1):**
+- No FSOT quantity supplies the factor between the MeV-read leaves and the m_e anchor. The leaves match because they were fitted to PDG MeV values.
+- To give the pion a physical representation, its formula would have to be restated as a ratio, m_π/m_e = 273.1323 or m_π/Λ. In QCD the latter is set by the light-quark mass. That restatement is a new formula, so it is Damian's call.
+
+### Branches (15 routes considered, 8 scored)
+
+Every result here is either HYBRID (FSOT input plus an external dimensionless QCD number) or EXTERNAL. None can confirm a row.
+
+| branch | validation (tolerance fixed in the freeze) | FSOT-input result | status |
+|---|---|---|---|
+| K-1a F_π = (F_π/Λ^(3))_lattice × Λ^(3) | 93.48 vs 92.07, +1.54 % (3.5 %): PASS. Weak, since the ratio comes from FLAG | **91.78 MeV, −0.31 %** (z 0.51) | HYBRID; FSOT supplies α_s, M_Z; thresholds external |
+| K-1b same with Λ^(5) | 93.00, +1.02 % (4 %): PASS | 90.56 MeV, −1.63 % | HYBRID |
+| K-2 Skyrme (Adkins–Nappi–Witten 1983) | F_π 64.5 (−30 %), g_A 0.61 (−52 %): FAIL | not computable (needs m_Δ) | rejected |
+| K-3 g_A from lattice (FLAG 1.263(10)) | −0.97 % (2 %): PASS | no FSOT input | EXTERNAL. SU(6) and MIT bag failed in round j |
+| K-4 Goldberger–Treiman | 12.881 vs 13.226, −2.61 % (3 %): PASS | **12.921, −2.31 %** | HYBRID |
+| K-5 GMOR absolute m_ud | 4.102 vs 3.387, +21.1 % (10 %): **FAIL**. LO with the physical F_π; FSOT has no F/F₀ | (a) lattice Σ ratio 4.115; (b) pin 0.25 GeV 5.250 | not validated |
+| D-1 m_ρ = √(24π²/N_c) F_π (Peris–Perrottet–de Rafael) | 818.07 vs 775.26, +5.52 % (1 %, the Δα_had accuracy): **FAIL** | 815.51 | not validated |
+
+**Downstream:**
+- **Δα_had and Γ_Z/M_Z: not run.** The frozen gate required D-1 to validate, and it failed.
+- **Deuteron: not run.** The frozen precision gate applies: the rows need 2e-7 (binding) and 2.6e-9 (μ_d) relative precision. Chiral EFT takes B_d as an input to its fitted contact terms, and its μ_d uncertainty is ~1e-3. P_D is not an observable, and μ_n needs the LEC c₆.
+
+**Disclosure:** rough values for each branch (listed in the freeze) were seen before freezing.
+
+### m_s/m_ud gap (z 5.4)
+- FSOT m_u/m_d = 0.46003 (FLAG 2+1+1 z 0.21) and m_s/m_d = 20.1965 (z 0.76 vs 19.94(33), derived from FLAG). FLAG does not average m_s/m_d, and the hub's SS-407 "20.203(76) FLAG" is not in FLAG 2024 Table 1.
+- The pair satisfies the isospin ratios R = 36.05 (FLAG 35.9(1.7), z 0.09) and Q = 22.73 (22.5(0.5), z 0.46).
+- The miss is the precise combination m_s/m_ud = 27.666 vs 27.227(81). That combination is fixed by the isospin-averaged K/π masses (pure QCD, 0.3 %).
+- Closing it needs m_s/m_d = 19.876 (−1.6 %) or m_u/m_d = 0.4836. The latter equals FLAG 2+1 0.485(19), z 0.08.
+
+### Cosmology consistency (T_CMB)
+
+| relation (standard, PDG conventions) | FSOT | compare | gap |
+|---|---|---|---|
+| Ω_m h² vs Ω_b h² + Ω_DM h² | 0.14772 | 0.14305 | +3.27 % (neutrino mass ~0.0006 can't close it) |
+| Ω_r from T, H0, N_eff | 8.919e-5 | pin 9.168e-5 | −2.71 % |
+| z_eq = Ω_m/Ω_r − 1 (pins) | 3438.6 | pin 3393.8 | +1.32 % |
+| z_eq from Ω_m and Ω_r(T, H0, N_eff) | 3534.4 | pin 3393.8 (Planck 3387(21)) | +4.14 % |
+| T implied by z_eq, Ω_m, H0, N_eff | 2.7525 K | FIRAS 2.7255(6) | z 45 |
+| T implied by z_eq, Ω_b h² + Ω_DM h², N_eff | 2.7304 K | | z 8.2 |
+| T implied by Ω_r, H0, N_eff | 2.7435 K | | z 30 |
+| T implied by η_b, Ω_b h² | 2.7277 K | | z 3.6 |
+| T_CMB leaf φ² + P_base·\|S_cosm\| | 2.72471 K | | z 1.31 |
+
+- The cosmology pins disagree with each other by 1–4 % under the standard relations.
+- The T_CMB leaf is closer to FIRAS than any temperature those pins imply. It is also a pure number read in kelvin.
+- No replacement candidate was frozen, so nothing here is scored.
+
+**Totals:** unchanged.
+- **87/91 confirmed** (85/91 pinned only).
+- 88/91 in the C++ gate with frozen-pending; 89/91 counting GZ-1 H1-i.
+
+**Next C++ re-pin round:** hub pin 2C9442B7… (OD-1, OD-2 live, Γ_Z/M_Z target 0.027366) sits on Damian's unpushed Lean branch. The C++ side stays on AEB2AD until that branch is pushed.

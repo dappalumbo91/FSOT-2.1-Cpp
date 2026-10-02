@@ -152,6 +152,13 @@ jobs:
           python tools/score_2026_10_02j.py --hub hub --out /tmp/score_j.tsv
           diff -q /tmp/score_j.tsv audit/score_2026-10-02j.tsv
           python tools/verify_freeze_files_j.py
+      - name: Re-run the 2026-10-02k trace tables (theta_S, unit audit, m_s/m_ud, cosmology) and branch scoring (K-1..K-5, D-1) and diff; verify freeze k
+        run: |
+          python tools/trace_2026_10_02k.py --hub hub --out /tmp/trace_k.tsv
+          diff -q /tmp/trace_k.tsv audit/trace_2026-10-02k.tsv
+          python tools/score_2026_10_02k.py --hub hub --out /tmp/score_k.tsv
+          diff -q /tmp/score_k.tsv audit/score_2026-10-02k.tsv
+          python tools/verify_freeze_files_k.py
       - name: Build and run the C++ re-scorer against the golden
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$PWD/hub

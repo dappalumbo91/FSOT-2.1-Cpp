@@ -492,6 +492,22 @@ Under FREEZE_2026-10-02j (ff259d4, before any number). Trace: audit/trace_2026-1
 - `continue-on-error: true` was removed from `build-test-msvc`, so MSVC is now part of the gate.
 - **CTest counts after round j:** 32 Linux / 31 MSVC with `-DFSOT_HUB_DATA`; 27 / 26 without.
 
+### H-36 · 2026-10-02k: theta_S and the MeV-read leaves have no physical tie to the m_e anchor; F_pi and g_piNN obtainable only as hybrids with lattice ratios; downstream not run
+Under FREEZE_2026-10-02k (a1a530c, before any number). Trace: audit/trace_2026-10-02k.tsv (61 rows). Scores: audit/score_2026-10-02k.tsv.
+- **theta_S:** sin(psi_con eta_eff) with psi_con = 1 - 1/e and eta_eff = 1/(pi-1). It has no known physical counterpart.
+- **Unit audit:** pi, K, D, W, Z, H and the light-nucleus bindings are pure numbers read in MeV; r_p in fm, T_CMB in K, H0 in km/s/Mpc, dm2 in eV^2. Only m_e, m_mu, m_tau, m_p and m_n follow the m_e anchor.
+- **Missing factor:** tying an MeV-read leaf to the anchor needs 1/m_e[MeV] = 1.95695118 = [1e6 e/(h nu_Cs)]/exp(23.3216). This contains the defined value of e. No pin equals any tested ratio to 1 ppm.
+- **Pion lineage (hub git):** e^5 - pi^2, then theta^-4 - theta^2 (a formula-search catalogue), then +alpha/(pi-1), always against the PDG MeV value.
+- **Branches:**
+  - K-1a F_pi (lattice ratio x FSOT Lambda3) = 91.78 MeV (-0.31 %), HYBRID.
+  - K-4 GT g_piNN = 12.92 (-2.3 %), HYBRID with lattice g_A.
+  - K-2 Skyrme fails. K-5 GMOR m_ud fails validation (+21 %).
+  - D-1 m_rho by lowest-meson dominance fails its 1 % gate (+5.5 %), so Delta alpha_had and Gamma_Z were not run.
+  - Deuteron not run (frozen precision gate).
+- **m_s/m_ud z 5.4:** the FSOT pair satisfies R and Q; the gap is the precise m_s/m_ud combination (needs m_s/m_d -1.6 % or m_u/m_d 0.484).
+- **Cosmology:** the pins are mutually inconsistent at 1-4 %; the T_CMB leaf (z 1.31) is the closest to FIRAS.
+- **Look-elsewhere:** 15 routes considered / 8 scored. **Counts unchanged:** 87/91.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests
