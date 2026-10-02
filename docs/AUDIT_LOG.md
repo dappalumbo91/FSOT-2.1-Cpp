@@ -424,6 +424,9 @@ The H1 quark loop with constituent m_p/3 light quarks gives Delta alpha_had = 0.
 ### H-28 · 2026-10-02f lost-route search: no route for mu_n, mu_t, f_pi, P_D, Delta r, alpha(M_Z)
 All 40 dappalumbo91 repositories (every ref, full history, deleted files) were searched. The only finds are older parallel sec. 67 versions in the hub's vendor/cosmology/database copy (5d0d5f31, 2026-07-10): H-2 E/PI (+0.91 %) and He-3 -(E-GAMMA) (+0.63 %). Both fail. The dependent tau_pi+ and two-nucleon mu_d builds are not possible.
 
+### H-29 · 2026-10-02g: effective Z couplings (LEPTOP); pre-declared PDG-input validation failed (+1.92 MeV)
+Under DERIVATIONS_2026-10-02g (frozen first, 0eba00a), the LEPTOP construction (hep-ph/9503308) with PDG inputs gives Gamma_Z = 2.49592 GeV against the SM 2.4940 +- 0.0009. That fails the pre-declared criterion, so no round-g row is confirmed. FSOT inputs: Gamma_Z/M_Z z 7.99 (H1), 4.02 (H2), 0.16 (H2c, CODATA G_F, diagnostic). sin2_eff_lept (held-out) z 6.75 (H1). R_b, R_c, sigma_had0 and Gamma_inv are within z 1 under H1 (frozen-pending, unconfirmable).
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests

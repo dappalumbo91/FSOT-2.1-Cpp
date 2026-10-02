@@ -411,3 +411,27 @@ S1 misses by about the size of the omitted on-shell Δr (PDG 0.03685): G_F is �
 - **Deuteron binding:** only the known √e/e + φ (copied across repos) and Ledger B #72.
 
 **Pass counts:** 85/91 confirmed, 88/91 including frozen-pending (unchanged). CTest 28/28; `xval/cpp_check.sh` passed.
+
+## 2026-10-02g: effective Z couplings (LEPTOP) in Γ_Z; pre-declared validation FAILED (logs in `xval/results/2026-10-02g/`)
+
+`docs/freezes/DERIVATIONS_2026-10-02g` (commit 0eba00a, 16:43:54 EDT) was committed before any round-g number (PDG- or FSOT-input) was computed.
+- **Construction:** LEPTOP, Novikov–Okun–Rozanov–Vysotsky, hep-ph/9503308. Every Z → f f̄ channel uses one-loop effective couplings g_Af, g_Vf (V_i = t + T_i + H_i + C_i + δV_i) with LEPTOP's leading two-loop terms (α α_s, α α_s² t, α² t², α² h), the t-dependent Z→b b̄ vertex (φ + δφ), the QED/QCD radiators R_V, R_A, and two-loop running m̂_b, m̂_c at M_Z. This is the effective-coupling form of PDG 2024 EW review eqs. 10.53, 10.54, 10.76c and 10.77. Code: `tools/zwidth_g.py` (equation labels in comments). The Denner Δr code is not used; G_μ is round f's frozen G_F.
+- **Transcription checks** against LEPTOP's printed numbers (m_t = 175) all agree to the printed digit, with one exception: δ_tα/α (eq. 308). The exact formula gives −0.00792; the printed −0.00768 is the leading 1/t term LEPTOP quotes.
+- **Validation** (PDG/CODATA inputs only; criterion |Γ_Z − 2.4940| ≤ 0.0009): **Γ_Z = 2.49592 GeV, deviation +1.92 MeV: FAILED.** The partial widths are uniformly about 0.07 % above the PDG 2024 SM column (Γ_e 83.991 vs 83.955; Γ_inv 501.70 vs 501.435; Γ_u 300.18 vs 299.87; Γ_d 383.12 vs 382.75; Γ_b 375.92 vs 375.73). That is consistent with LEPTOP's 1995 truncation: the full two-loop fermionic terms are missing. Informational comparisons: R_e 20.745 (SM 20.736), R_b 0.21574 (0.21583), R_c 0.17223 (0.17221), σ_had⁰ 41.473 nb (41.481), sin²θ_eff 0.23150 (0.23161). Per the freeze the construction is **not validated**, so no round-g row is confirmed. The construction was not changed after the validation.
+- **Look-elsewhere:** 72 configurations considered, 3 scored (H1, H2, H2c), 1 able to confirm (H1).
+
+| row | H1 (primary) value / z | H2 (secondary) value / z | H2c (diagnostic, CODATA G_F) value / z |
+|---|---|---|---|
+| Γ_Z/M_Z | 0.0271650, **z 7.99** | 0.0272650, z 4.02 | 0.0273707, z 0.16 |
+| Γ_Z | 2.47710 GeV, z 8.00 | 2.48622 GeV, z 4.03 | 2.49586 GeV, z 0.16 |
+| Γ_inv | 498.39 MeV, z 0.54 | 500.27 MeV, z 0.71 | 501.71 MeV, z 1.67 |
+| Γ_ll | 83.395 MeV, z 6.85 | 83.706 MeV, z 3.23 | 83.992 MeV, z 0.10 |
+| R_ell | 20.729, z 1.91 | 20.728, z 1.99 | 20.744, z 1.22 |
+| R_b | 0.215767, z 0.79 | 0.215760, z 0.80 | 0.215720, z 0.86 |
+| R_c | 0.172177, z 0.03 | 0.172175, z 0.02 | 0.172231, z 0.04 |
+| σ_had⁰ | 41.4774 nb, z 0.11 | 41.4779 nb, z 0.09 | 41.4737 nb, z 0.22 |
+| sin²θ_eff^lept (held-out) | 0.232368, z 6.75 | 0.232442, z 7.32 | 0.231496, z 0.05 |
+
+Γ_Z/M_Z does **not** pass under H1 (z 7.99), and the validation failed anyway, so nothing is confirmed. The H1 shortfall comes from G_μ(H1), which is 0.66 % low (round f). It enters Γ_Z directly and moves s² through eq. 303, which is why sin²θ_eff is high under H1 and H2. With the CODATA G_F (H2c, diagnostic only), the FSOT m_Z, m_t, m_H, α_s, m_b and m_c give Γ_Z within 0.16σ. Part of that agreement is the +1.9 MeV construction offset seen in validation.
+
+**Pass counts:** 85/91 confirmed, 88/91 including frozen-pending (unchanged). The new round-g rows are frozen-pending and unconfirmable because validation failed. CTest 29/29; `xval/cpp_check.sh` passed.
