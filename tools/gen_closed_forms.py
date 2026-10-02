@@ -64,8 +64,15 @@ class Untranslatable(Exception):
     pass
 
 
+_SRC = ""
+
+
 def h(node: ast.AST) -> str:
-    return hashlib.sha256(ast.dump(node).encode()).hexdigest()[:16]
+    """Fingerprint of the exact source text of a node (independent of the Python version's AST layout)."""
+    seg = ast.get_source_segment(_SRC, node)
+    if seg is None:
+        raise Untranslatable("no source segment")
+    return hashlib.sha256(seg.encode("utf-8")).hexdigest()[:16]
 
 
 def is_int_const(n: ast.AST) -> bool:
@@ -202,7 +209,9 @@ def main() -> int:
     if sha != pin["authority_sha256"]:
         print(f"PIN MISMATCH: authority sha {sha[:6]} != expected {pin['pin_prefix']}", file=sys.stderr)
         return 2
-    tree = ast.parse(src_bytes.decode("utf-8"))
+    global _SRC
+    _SRC = src_bytes.decode("utf-8")
+    tree = ast.parse(_SRC)
     funcs = {n.name: n for n in tree.body if isinstance(n, ast.FunctionDef)}
 
     # Bind hand snippets to exact AST statements.
