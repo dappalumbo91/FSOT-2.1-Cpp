@@ -81,6 +81,10 @@ static void resolve(std::map<std::string, RefRow>& refs) {
         r.sm = r.sp = std::fabs(r.c) * std::sqrt((sa / a.c) * (sa / a.c) + (sb / b.c) * (sb / b.c));
       } else if (op == "inv") {
         r.c = 1.0L / a.c; r.sm = r.sp = sa / (a.c * a.c);
+      } else if (op == "frac") {  // a/(a+b), exact propagation, uncorrelated (OD-1: Dm2_21/Dm2_31 = Dm2_21/(Dm2_32+Dm2_21))
+        auto& b = refs.at(parts[1]); if (!b.ok) continue;
+        const LD sb = std::max(b.sm, b.sp), t = a.c + b.c;
+        r.c = a.c / t; r.sm = r.sp = std::sqrt((b.c * sa) * (b.c * sa) + (a.c * sb) * (a.c * sb)) / (t * t);
       } else if (op == "pi") {
         const LD pi = 3.141592653589793238462643383279502884L;
         r.c = a.c * pi; r.sm = a.sm * pi; r.sp = a.sp * pi;
@@ -91,7 +95,7 @@ static void resolve(std::map<std::string, RefRow>& refs) {
 
 struct Out {
   std::string id, route, source, ref_key, unit, src_link, pin_target, hist, cause;
-  bool record = false; LD value = 0; gate::Ref ref{}; gate::Score s{};
+  bool record = false, od_superseded = false; LD value = 0; gate::Ref ref{}; gate::Score s{};
   std::string rid; LD rvalue = 0; gate::Score rs{};  // frozen-pending refinement (REFINEMENTS_2026-10-02b)
 };
 
@@ -149,6 +153,15 @@ int main(int argc, char** argv) {
     for (auto& r : (eng.*fn)())
       pinv[std::string(name) + "|" + r.name] = {static_cast<LD>(r.computed), r.measured ? static_cast<LD>(*r.measured) : 0.0L};
 
+  // owner decision OD-2 (audit/OWNER_DECISIONS_2026-10-02i.md): same Engine, Quantum_Mechanics D_eff = 6 (pre-FE23A2).
+  // The pinned Engine `eng` above is unchanged and is the one the pin-parity checks use.
+  Engine<R> eng6;
+  for (auto& d : eng6.DOMAINS) if (d.name == "Quantum_Mechanics") d.D_eff = 6;
+  eng6.S_QUANT = eng6.domain_scalar("Quantum_Mechanics");
+  std::map<std::string, LD> ownerv;
+  for (auto& [name, fn] : eng6.sections())
+    for (auto& r : (eng6.*fn)()) ownerv[std::string(name) + "|" + r.name] = static_cast<LD>(r.computed);
+
   std::vector<Out> outs;
   for (auto& f : read_tsv(map_p)) {
     Out o; o.id = f.at(0); o.route = f.at(1); o.source = f.at(2); o.ref_key = f.at(3);
@@ -160,6 +173,9 @@ int main(int argc, char** argv) {
     if (o.route == "leaf") {
       auto it = leafv.find(o.source); if (it == leafv.end()) { std::fprintf(stderr, "no leaf %s\n", o.source.c_str()); return 2; }
       o.value = it->second * scale;
+    } else if (o.route == "owner") {
+      auto it = ownerv.find(o.source); if (it == ownerv.end()) { std::fprintf(stderr, "no owner row %s\n", o.source.c_str()); return 2; }
+      o.value = it->second * scale;
     } else if (o.route == "seed") {
       auto it = seedv.find(o.source); if (it == seedv.end()) { std::fprintf(stderr, "no seed %s\n", o.source.c_str()); return 2; }
       o.value = it->second * scale;
@@ -168,10 +184,14 @@ int main(int argc, char** argv) {
       o.value = it->second.first * scale; o.pin_target = fmt("%.10Lg", it->second.second * scale);
     }
     o.s = gate::score(o.value, o.ref);
+    o.od_superseded = note.rfind("[OD-superseded]", 0) == 0;
     if (auto ri = refined.find(o.id); ri != refined.end()) {
       o.rid = ri->second.first; o.rvalue = ri->second.second(o.value); o.rs = gate::score(o.rvalue, o.ref);
     }
-    if (o.route == "seed") {
+    if (o.route == "owner") {
+      o.hist = "pinned AEB2AD value " + fmt("%.15Lg", pinv.at(o.source).first * scale) + " z=" + fz(gate::score(pinv.at(o.source).first * scale, o.ref).z);
+      o.cause = note;
+    } else if (o.route == "seed") {
       o.hist = note;
       o.cause = o.s.pass_z ? "channel fix: committed hub seed route (REFINEMENTS_2026-10-02b F2)" : "seed outside the PDG 2024 sigma";
     } else if (o.route == "leaf") {
@@ -209,10 +229,12 @@ int main(int argc, char** argv) {
   }
 
   // summary
-  auto summarize = [&](bool record_only, FILE* fp, const char* label, bool with_refined = false) {
+  auto summarize = [&](bool record_only, FILE* fp, const char* label, bool with_refined = false, bool pinned_only = false) {
     std::vector<LD> ppm; int n = 0, pz = 0, p2 = 0; LD worst = -1; std::string worst_id;
     for (auto& o : outs) {
-      if (record_only && !o.record) continue;
+      const bool is_od = o.id.rfind("od", 0) == 0;
+      if (pinned_only) { if (!((o.record && !is_od) || o.od_superseded)) continue; }
+      else if (record_only && !o.record) continue;
       const gate::Score& sc = (with_refined && !o.rid.empty() && o.rs.pass_z) ? o.rs : o.s;  // failing candidates are not adopted
       ++n; pz += sc.pass_z; p2 += sc.pass_old; ppm.push_back(sc.ppm);
       if (sc.ppm > worst) { worst = sc.ppm; worst_id = o.id; }
@@ -265,7 +287,9 @@ int main(int argc, char** argv) {
   std::fprintf(md, "Gate: z = |value - central| / sigma <= %.0f (include/fsot/host/precision_gate.hpp); legacy check |rel| <= %.0f%% reported alongside.\n\n",
                gate::Z_MAX, gate::OLD_REL_PCT);
   std::fprintf(md, "```\n"); summarize(true, md, "record set (scored)"); summarize(false, md, "all rows (incl. superseded/alternate)");
-  summarize(true, md, "record set if the passing frozen-pending refinements were adopted (NOT confirmed)", true); std::fprintf(md, "```\n\n");
+  summarize(true, md, "record set if the passing frozen-pending refinements were adopted (NOT confirmed)", true);
+  summarize(true, md, "record set without the owner decisions OD-1/OD-2 (pinned rows only; audit/OWNER_DECISIONS_2026-10-02i.md)", false, true);
+  std::fprintf(md, "```\n\n");
   std::fprintf(md, "| id | route | rec | confirmed value | unit | central | sigma (-/+) | ppm | z | z<=1 | 2%% | frozen-pending refined (id: value, z) | historical best | cause / note | source |\n");
   std::fprintf(md, "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n");
   for (auto& o : outs) {
@@ -290,6 +314,7 @@ int main(int argc, char** argv) {
   summarize(true, stdout, "record set (scored)");
   summarize(false, stdout, "all rows");
   summarize(true, stdout, "record set with passing frozen-pending refinements (NOT confirmed)", true);
+  summarize(true, stdout, "record set without owner decisions (pinned only)", false, true);
   return 0;
 #endif
 }

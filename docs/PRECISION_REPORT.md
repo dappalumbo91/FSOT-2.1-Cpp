@@ -536,3 +536,25 @@ The hub and the 40 repos contain no ρ-meson, f_π, R-ratio or hadronic-VP leaf.
 ### Pass counts
 Unchanged: **85/91 confirmed; 88/91 including frozen-pending** (C-TCMB, C-MHW-1, C-DM-1). Round h adds no confirmation: GZ-1 H1 fails. GZ-1 H2 and DM-R1 pass but are an external-input branch and a reference-object decision, respectively.
 
+## 2026-10-02i: owner decisions OD-1 and OD-2 (audit/OWNER_DECISIONS_2026-10-02i.md, commit e023f46, recorded before rescoring)
+
+These are **owner decisions**, dated 2026-10-02 18:10 EDT and made by Damian Palumbo, with rationale and evidence. They are not tuning. No formula, constant, f, gate, pin, frozen value, freeze or prereg changed, and `vendor/fsot_compute.py` is untouched.
+
+| decision | row(s) | what changed | evidence | before | after |
+|---|---|---|---|---|---|
+| **OD-1** | Δm²21/Δm²·· = γ³·Poof | Reference object: Δm²21/Δm²31 (NO), with Δm²31 = Δm²32 + Δm²21 from PDG 2024 (rpp2024-sum-leptons); 0.0297593(765) | The hub's `scripts/atmospheric_neutrino_seed_check.py` names the seed's atmospheric splitting dm2_31. DM-R1 was frozen in FREEZE_2026-10-02h (eee8141). | z 1.422 vs Δm²21/Δm²32 | **z 0.317** |
+| **OD-2** | m_H/m_W, Omega_Lambda, sigma_8 (every record row using S_quant) | Quantum_Mechanics D_eff = 6, the pre-Sept-11 value. QM D_eff was assigned 6 in pins D1D38A (hub 012e5c64, 2026-08-04) and 3090BC (ba6a8288, 2026-09-11 15:19). Hub 3c74a180 (2026-09-11 15:28, "Derive D_eff from nest generations… Pin FE23A2") replaced it with the derived round(5·5^{1/34}) = 5. | The round-h trace (step 2′) and the pin lineage (the 3090BC column equals the D_eff-6 values to all digits) | m_H/m_W z 5.007; Ω_Λ z 0.323; σ_8 z 0.436 | **m_H/m_W z 0.960**; Ω_Λ z 0.056; σ_8 z 0.010 |
+
+**How the owner-decision rows differ from the pin:**
+- The `od2:` rows (route `owner`) are computed by the same C++ Engine (mp169, parity mode). The only change is that the Quantum_Mechanics DomainConfig D_eff is set to 6 before S_QUANT is formed: S_quant = 0.9552893401 instead of the pinned 0.9501974702. Nothing else differs.
+- The pin-parity checks (C++ vs pinned Python AEB2AD/D1D38A goldens) still run on the unmodified Engine.
+- The pinned rows stay in the gate with record=0 and the tag `[OD-superseded]`.
+- The `od1:` row carries the same pinned value as before, against the new reference key `dm2_21_over_dm2_31`.
+
+**Gate after the decisions** (`audit/precision_2026-10-02.md`):
+- Record set: **87/91 confirmed** at z ≤ 1 (89/91 at |rel| ≤ 2%).
+- With the passing frozen-pending refinements: 88/91 (C-TCMB).
+- Without the owner decisions (pinned rows only): 85/91.
+
+The remaining four non-confirmed record rows are T_CMB (z 1.31), Deuteron_binding_MeV (z 3.59), Gamma_Z/M_Z (z 4.89) and Deuteron_mu_muN (z 2.1e4).
+

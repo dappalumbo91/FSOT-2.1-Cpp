@@ -159,7 +159,7 @@ def main():
         if r["kind"] != "direct":
             op, _, arg = r["kind"].partition(":")
             parents = arg.split("/")
-            if op not in ("ratio", "inv", "pi") or any(p not in keys for p in parents):
+            if op not in ("ratio", "inv", "pi", "frac") or any(p not in keys for p in parents):
                 err = f"bad derived expr {r['kind']}"
         elif src == "CODATA2022":
             v = cd.get(r["evidence"])

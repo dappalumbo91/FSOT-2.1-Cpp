@@ -104,6 +104,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02h (audit/FREEZE_2026-10-02h.md): each miss was traced to its first break step, then diagnosed and branched. GZ-1 (complete Δr + Freitas Γ_Z) passes its PDG-input validations but fails with FSOT's own Δα_had (z 3.84). No FSOT-native Δα_had route exists yet. Counts are unchanged at 85/91 confirmed; see PRECISION_REPORT §2026-10-02h.
 
+2026-10-02i (audit/OWNER_DECISIONS_2026-10-02i.md): owner decisions OD-1 (score the Δm² ratio against Δm²21/Δm²31) and OD-2 (Quantum_Mechanics D_eff = 6, the pre-2026-09-11 value), added as labelled owner-decision rows next to the pinned rows. The gate is **87/91 confirmed** (85/91 pinned only).
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

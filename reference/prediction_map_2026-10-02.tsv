@@ -66,10 +66,12 @@ pin:validation_suite|M_Z/M_W	pin	validation_suite|M_Z/M_W	M_Z_over_M_W	1	0	super
 pin:wave2|1/alpha_em	pin	wave2|1/alpha_em	alpha_inv	1	0	superseded by alpha_inv
 pin:wave2|sin2_theta_W	pin	wave2|sin2_theta_W	sin2_theta_W_MSbar	1	0	superseded by sin2_theta_W_MSbar
 pin:wave2|M_W/M_Z	pin	wave2|M_W/M_Z	W_over_Z	1	0	superseded by m_W_over_m_Z
-pin:wave2|Omega_Lambda	pin	wave2|Omega_Lambda	Omega_L	1	1	
+pin:wave2|Omega_Lambda	pin	wave2|Omega_Lambda	Omega_L	1	0	[OD-superseded] pinned AEB2AD value (QM D_eff 5); record row is od2:wave2|Omega_Lambda (owner decision OD-2 2026-10-02)
+od2:wave2|Omega_Lambda	owner	wave2|Omega_Lambda	Omega_L	1	1	owner decision OD-2 (2026-10-02 18:10 EDT): Quantum_Mechanics D_eff = 6 (pre-FE23A2 value, pins D1D38A/3090BC); differs from the pin only in that D_eff
 pin:wave2|Omega_m	pin	wave2|Omega_m	Omega_m	1	1	
 pin:wave2|Omega_DM_h2	pin	wave2|Omega_DM_h2	Omega_c_h2	1	1	
-pin:wave2|sigma_8	pin	wave2|sigma_8	sigma_8	1	1	
+pin:wave2|sigma_8	pin	wave2|sigma_8	sigma_8	1	0	[OD-superseded] pinned AEB2AD value (QM D_eff 5); record row is od2:wave2|sigma_8 (owner decision OD-2 2026-10-02)
+od2:wave2|sigma_8	owner	wave2|sigma_8	sigma_8	1	1	owner decision OD-2 (2026-10-02 18:10 EDT): Quantum_Mechanics D_eff = 6 (pre-FE23A2 value, pins D1D38A/3090BC); differs from the pin only in that D_eff
 pin:wave2|tau_reion	pin	wave2|tau_reion	tau_reion	1	1	
 pin:wave2|m_pi/m_p	pin	wave2|m_pi/m_p	m_pi_over_m_p	1	0	superseded by m_pi_over_m_p
 pin:wave2|N_eff	pin	wave2|N_eff	N_eff	1	1	
@@ -81,12 +83,14 @@ pin:wave3|r_star_Mpc	pin	wave3|r_star_Mpc	r_star_Mpc	1	1
 pin:wave3|Deuteron_binding_MeV	pin	wave3|Deuteron_binding_MeV	B_H2_MeV	1	1	
 pin:wave3|Neutron_lifetime_s	pin	wave3|Neutron_lifetime_s	tau_n_s	1	1	
 pin:wave3|m_t/m_W	pin	wave3|m_t/m_W	m_t_over_m_W	1	0	superseded by m_t_over_m_W
-pin:wave3|m_H/m_W	pin	wave3|m_H/m_W	m_H_over_m_W	1	1	
+pin:wave3|m_H/m_W	pin	wave3|m_H/m_W	m_H_over_m_W	1	0	[OD-superseded] pinned AEB2AD value (QM D_eff 5); record row is od2:wave3|m_H/m_W (owner decision OD-2 2026-10-02)
+od2:wave3|m_H/m_W	owner	wave3|m_H/m_W	m_H_over_m_W	1	1	owner decision OD-2 (2026-10-02 18:10 EDT): Quantum_Mechanics D_eff = 6 (pre-FE23A2 value, pins D1D38A/3090BC); differs from the pin only in that D_eff
 pin:wave3|m_tau/m_e	pin	wave3|m_tau/m_e	m_tau_over_m_e	1	0	superseded by m_tau_over_m_e
 pin:wave4|sin2_theta12	pin	wave4|sin2_theta12	sin2_12	1	1	
 pin:wave4|sin2_theta23	pin	wave4|sin2_theta23	sin2_23	1	1	
 pin:wave4|sin2_theta13	pin	wave4|sin2_theta13	sin2_13	1	1	
-pin:wave4|Dm2_21/Dm2_32	pin	wave4|Dm2_21/Dm2_32	dm2_21_over_dm2_32	1	1	
+pin:wave4|Dm2_21/Dm2_32	pin	wave4|Dm2_21/Dm2_32	dm2_21_over_dm2_32	1	0	[OD-superseded] pre-decision reference object Dm2_32; record row is od1 (owner decision OD-1 2026-10-02)
+od1:wave4|Dm2_21/Dm2_31	pin	wave4|Dm2_21/Dm2_32	dm2_21_over_dm2_31	1	1	owner decision OD-1 (2026-10-02 18:10 EDT): reference object Dm2_21/Dm2_31 (NO); same pinned AEB2AD value
 pin:wave4||V_ub|	pin	wave4||V_ub|	CKM_V_ub	1	0	superseded by CKM_V_ub
 pin:wave4||V_td|	pin	wave4||V_td|	CKM_V_td	1	0	superseded by CKM_V_td
 pin:wave4||V_ts|	pin	wave4||V_ts|	CKM_V_ts	1	0	superseded by CKM_V_ts

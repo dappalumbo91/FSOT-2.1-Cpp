@@ -444,6 +444,14 @@ Branches:
 
 No FSOT-native hadronic Delta alpha route exists. Counts unchanged: 85/91 confirmed, 88/91 with frozen-pending.
 
+### H-31 · 2026-10-02i: owner decisions OD-1 (Δm² reference object Δm²31) and OD-2 (Quantum_Mechanics D_eff = 6); gate 87/91
+These are owner decisions by Damian Palumbo, dated 2026-10-02 18:10 EDT, and recorded with sha256 in audit/OWNER_DECISIONS_2026-10-02i.md (e023f46) before the rescore.
+
+- **OD-1.** Rationale: the hub seed script names the atmospheric splitting dm2_31, so the record row was compared with the wrong PDG object (Δm²32). New reference: Δm²21/(Δm²32 + Δm²21), NO, PDG 2024 = 0.0297593(765). γ³·Poof unchanged: z 1.422 → 0.317.
+- **OD-2.** Rationale: QM D_eff was 6 in pins D1D38A (012e5c64, 2026-08-04) and 3090BC (ba6a8288, 2026-09-11 15:19). Hub 3c74a180 (2026-09-11 15:28, pin FE23A2) replaced every assigned D_eff with the derived nest value, which gives 5 for QM. That moved m_H/m_W from z 0.96 to 5.01. Restoring 6 for QM only gives m_H/m_W z 0.960. Because S_quant is shared, Omega_Lambda (z 0.056) and sigma_8 (z 0.010) also take the D_eff-6 value. Both pass either way.
+- **Implementation:** a new gate route `owner` re-evaluates the same Engine with QM D_eff = 6 (S_quant 0.9552893401 vs pinned 0.9501974702). The pinned rows stay with record=0, tagged [OD-superseded]. Pins, vendor and parity goldens are unchanged.
+- **Gate:** 87/91 confirmed (85/91 pinned only; 88/91 with frozen-pending C-TCMB).
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests

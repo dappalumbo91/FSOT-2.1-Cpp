@@ -104,6 +104,7 @@ m_pi_over_m_p	ratio:m_pi_pm_MeV/m_p_MeV				1	derived
 M_Z_over_M_W	inv:W_over_Z				1	derived		
 Gamma_Z_over_M_Z	ratio:Gamma_Z_GeV/m_Z_GeV				1	derived		
 dm2_21_over_dm2_32	ratio:dm2_21/dm2_32				1	derived		
+dm2_21_over_dm2_31	frac:dm2_21/dm2_32				1	derived		Dm2_21/(Dm2_32+Dm2_21) = Dm2_21/Dm2_31 (NO); owner decision OD-1 2026-10-02
 delta_CP_rad	pi:delta_CP_over_pi				rad	derived		
 H0_CMB_BAO	direct	68.43	0.27	0.27	km s^-1 Mpc^-1	ARXIV:2503.14452	arxiv_extracts:2503.14452:abstract	ACT DR6 P-ACT-LB with DESI DR2 (FSOT channel per hub seed_h0_global docstring, 00ca7f1f)
 H0_PACT_LB_DR1	direct	68.22	0.36	0.36	km s^-1 Mpc^-1	ARXIV:2503.14452	arxiv_extracts:2503.14452:sec. II	held-out: P-ACT-LB with DESI DR1
