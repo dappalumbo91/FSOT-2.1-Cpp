@@ -26,3 +26,9 @@ excluding the one cancellation row `Chain_consistency_%` (difference of two near
 double 1.2e-12 / 1.1e-14; long double 5.6e-15 / 4.8e-18; __float128 2.4e-30 / 4.8e-33;
 cpp_bin_float<169> 1.9e-46 / 1.8e-49. __float128 and mp169 results rounded to double are
 bit-identical to `float(mpmath)` for 536/536 real-valued rows (plain double: 265/536, within a few ulp).
+
+## Balanced-ternary vs binary (milestone 1)
+See [TERNARY.md](TERNARY.md) for the full table (`build/bench_ternary`). In short: Engine build + 35 S takes BT110 89 ms vs cpp_bin_float<169> 2.69 ms, BT72 52 ms vs `__float128` 0.34 ms, and BT40 18 ms vs long double 0.039 ms, at matched precision.
+
+## Ledger B re-scorer
+`fsot_ledger_b` over 478 benchmark files (~197 MB JSON) takes 6.5 s, vs about 6 s for `tools/dump_ledger_b_golden.py`. Both are dominated by JSON parsing. The output is byte-identical.

@@ -24,14 +24,28 @@ amplitude is f = ALPHA.
 - The FSOTB 27-opcode / 25-register VM core from [FSOT-Reality-OS](https://github.com/dappalumbo91/FSOT-Reality-OS) (`include/fsot/fsotb_vm.hpp`).
   Its EVAL_PANEL reads the live 35-domain nest.
 
+- **Ledger B / benchmark-margin re-scorer** (`include/fsot/host/ledger_b.hpp`, `apps/fsot_ledger_b.cpp`): a C++ port of
+  the hub's `benchmark_margin_lib.analyze_benchmark` (scalar/classifier/structural classification, literature-aware
+  error, contested rows, gates) plus a re-score of every Ledger B record with the live law. Over all 478
+  `data/*_benchmark.json` files at hub commit 6f9c2560, it is **bit-identical to the hub's Python**: 13,841 of 13,841 golden lines,
+  477 active / 477 green, 140,088 routed Ledger B records. Runtime is 6.5 s, vs about 6 s for Python, and is dominated by JSON parsing.
+- **Balanced-ternary arithmetic** (`include/fsot/ternary.hpp`, see [docs/TERNARY.md](docs/TERNARY.md)): trit/tryte words and a
+  balanced-ternary floating-point type. Ternary operations do the actual math. `Engine<BTFloat<110>>` evaluates the whole
+  FSOT core in ternary and matches the 50-digit golden to 9.5e-50. The header is freestanding: no heap, exceptions, iostream or libm.
+- Specs and audit: [docs/TRIT_SPEC.md](docs/TRIT_SPEC.md) (canonical trit wire format + codon mapping, cross-repo
+  mismatches and proposed fixes) and [docs/AUDIT_LOG.md](docs/AUDIT_LOG.md) (neutral rigor log with evidence).
+
 Header-only: `#include "fsot/engine.hpp"`, then `fsot::Engine<double> e; e.domain_scalar("Thermodynamics");`.
 
 ## Build (verified on Linux: Debian, GCC 14.2, CMake 4.4, Boost 1.83; CI on ubuntu-latest)
 ```bash
-sudo apt-get install -y libboost-dev ninja-build     # Boost headers are optional (enables the 169-bit type)
+sudo apt-get install -y libboost-dev nlohmann-json3-dev ninja-build   # Boost: 169-bit type; nlohmann: Ledger B tool (both optional)
 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 cmake --build build
-ctest --test-dir build --output-on-failure           # golden + trit tests
+ctest --test-dir build --output-on-failure           # golden, trit, ternary, freestanding tests
+# Ledger B re-scorer against a hub checkout at AUTHORITY_PIN.json ledger_b_data_commit:
+./build/fsot_ledger_b --hub /path/to/FSOT-2.1-Lean --golden golden/ledger_b_6f9c2560.tsv
+./build/bench_ternary                                # ternary vs binary results + speed
 ./build/fsot_report                                  # full report at authority precision
 ./build/bench_cpp                                    # timings
 ```

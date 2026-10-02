@@ -13,12 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install deps
-        run: sudo apt-get update -q && sudo apt-get install -y -q libboost-dev ninja-build
+        run: sudo apt-get update -q && sudo apt-get install -y -q libboost-dev nlohmann-json3-dev ninja-build
       - name: Configure
         run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
       - name: Build
         run: cmake --build build
-      - name: Test (golden at double / long double / __float128 / 169-bit, trit)
+      - name: Test (golden at every type, trit, balanced-ternary engine, freestanding symbols)
         run: ctest --test-dir build --output-on-failure
   regen-diff:
     runs-on: ubuntu-latest
@@ -38,3 +38,31 @@ jobs:
           python tools/dump_golden.py --authority authority/fsot_compute.py
       - name: Generated files must match the committed ones
         run: git diff --exit-code -- include/fsot/closed_forms.gen.inc golden/golden_AEB2AD.tsv
+  ledger-b:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q libboost-dev nlohmann-json3-dev ninja-build
+          pip install mpmath==1.4.1
+      - name: Sparse-clone hub data at the pinned commit
+        run: |
+          COMMIT=$(python -c "import json;print(json.load(open('AUTHORITY_PIN.json'))['ledger_b_data_commit'])")
+          git clone -q --filter=blob:none --no-checkout https://github.com/dappalumbo91/FSOT-2.1-Lean hub
+          cd hub
+          git sparse-checkout set --no-cone '/data/*_benchmark.json' '/data/literature_uncertainty_anchors.json' '/data/stumped_observables_reference.json' '/scripts/' '/vendor/fsot_compute.py'
+          git checkout -q "$COMMIT"
+      - name: Regenerate the Ledger B golden with the hub's own Python and diff
+        run: |
+          python tools/dump_ledger_b_golden.py --hub hub --out /tmp/ledger_b.tsv
+          diff -q /tmp/ledger_b.tsv golden/ledger_b_6f9c2560.tsv
+      - name: Build and run the C++ re-scorer against the golden
+        run: |
+          cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$PWD/hub
+          cmake --build build --target fsot_ledger_b
+          ctest --test-dir build -R ledger_b --output-on-failure
