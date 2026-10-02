@@ -1,0 +1,34 @@
+{
+  "freeze": "REFINEMENTS_2026-10-02d",
+  "date": "2026-10-02",
+  "derivations_freeze": "DERIVATIONS_2026-10-02d (commit 73f89a5, 08:53:29 EDT)",
+  "derivations_sha256": {
+    "DERIVATIONS_2026-10-02d.json": "325ec7bd372b208aff81fb806537dbe9d0b70843265d96f11add5e8340295fdb",
+    "DERIVATIONS_2026-10-02d.md": "b4d003c1f900e8ea44a82a2182f9e02ec3be269f7ae8ed92c67c33c0c8a9be86"
+  },
+  "c1_verdicts": {
+    "W2_widths": {
+      "accepted": false,
+      "alpha_power_agree": "5/9",
+      "n": 9,
+      "p3_full_selection": "none",
+      "p3_loo_pass": "6/9",
+      "p4_best": "-",
+      "sign_agree": "5/9"
+    },
+    "M2_moments": {
+      "accepted": false,
+      "alpha_power_agree": "6/13",
+      "n": 13,
+      "p3_full_selection": "none",
+      "p3_loo_pass": "0/13",
+      "p4_best": "1 0/12",
+      "sign_agree": "7/13"
+    }
+  },
+  "accepted_rules": [],
+  "patterns_examined_c1": 218,
+  "training_output_sha256": "fba8371b8c438669af42a335019f5426df4ee979d73e266941fb19d18bff53ec",
+  "rows_output_sha256": "542551581987d0df5e01c327fd30f8a6c017ebcd32f13a3f526a8d83f7185c30",
+  "note": "No C1 target (mu_d pin, sec.67 #1036, two-nucleon mu_d, Gamma_Z/M_Z pin) and no C1 held-out member (Mn-55, R_ell) has been evaluated at this point. Part A and part B rows were scored under DERIVATIONS_2026-10-02d (audit/rows_2026-10-02d.tsv)."
+}
