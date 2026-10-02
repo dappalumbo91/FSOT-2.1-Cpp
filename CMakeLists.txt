@@ -117,6 +117,7 @@ if(Python3_Interpreter_FOUND)
   add_test(NAME refinements_b_crosscheck COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/crosscheck_refinements_b.py)
   add_test(NAME refinement_freeze_c COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_freeze_files_c.py)
   add_test(NAME refinement_freeze_d COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_freeze_files_d.py)
+  add_test(NAME derivations_freeze_e COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_freeze_files_e.py)
 endif()
 
 # Freestanding check: the balanced-ternary core compiles without a hosted library and references no

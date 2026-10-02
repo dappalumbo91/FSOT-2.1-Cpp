@@ -408,6 +408,15 @@ For 6 of 11 sec. 67 Nuclear muN entries (#1036 H-2, #1037 He-3, #1038 Li-7, #103
 ### H-24 · 2026-10-02d class search: still no rule
 Enlarged widths (n 9) and moments (n 13) classes: 0/2 meet the round-c criterion. 218 patterns. The deuteron stays open. The two-nucleon formula with an external AV18 P_D reproduces the AV18 impulse value only when the CODATA mu_n is used. The FSOT mu_n row (SU(6)) is 2.7 % low.
 
+### H-25 · 2026-10-02e: seed_vev_GeV bug fixed in this repo (documented relation); scheme S1 primary
+seed_vev_GeV() returns 58.24 GeV, against its own docstring relation v = 2 m_W s_W/sqrt(4 pi alpha). This is an erroneous implementation. This repo implements the documented relation (tools/score_2026_10_02e.py); the hub is not edited.
+Under the a-priori primary scheme S1 (on-shell, alpha(0), FSOT-only), G_F is 3.6 % low, which matches the omitted Delta r = 0.03685. Gamma_Z/M_Z z 43, so it is not confirmed.
+The secondary scheme S2 (MS-bar s^2, external alpha_hat(M_Z)) gives G_F -0.34 % and Gamma_W z 0.08. The secondary scheme is never confirmed.
+
+### H-26 · 2026-10-02e: alpha_s(m_tau) and BR(tau -> e nu nu) from FSOT inputs pass (frozen-pending)
+4-loop running of the seed alpha_s(M_Z), with decoupling at the FSOT m_b and m_c thresholds, gives 0.3134 (PDG 0.314(14), z 0.04). BR(tau -> e nu nu) = 0.17829 (z 0.23).
+No FSOT route exists for mu_n, mu_t or f_pi, so these rows (and tau_pi+ and the two-nucleon mu_d) are not constructed.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests

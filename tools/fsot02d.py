@@ -57,11 +57,11 @@ def sec67(hub, F):
                        source="recomputed" if use is v else "stored (recompute differs)")
     return out
 
-def compute(hub, F):
+def compute(hub, F, GF_override=None):
     L, P = leaves(), pins()
     E, PHI, CF, THS = F.E, F.PHI, F.C_FACTOR, F.THETA_S
     v = (THS + E**3) / CF**6 / 1000 * PHI
-    GF = 1 / (sqrt(2) * v * v)
+    GF = 1 / (sqrt(2) * v * v) if GF_override is None else GF_override
     MZ, MW = L["m_Z_MeV"] / 1000, L["m_W_MeV"] / 1000
     s2, al = L["sin2_theta_W_MSbar"], 1 / L["alpha_inv"]
     als = 2 * (F.POOF / F.PSI_CON) ** 2

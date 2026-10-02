@@ -337,3 +337,34 @@ Look-elsewhere counts: A 4, B 15, C1 218, C2 2.
 - A two-nucleon B_d is not constructible from FSOT leaves (it needs m_d or a_t, r_t).
 
 **Pass counts unchanged:** 85/91 confirmed, 88/91 including frozen-pending. The precision report is byte-identical. CTest 26/26 (adds `refinement_freeze_d`); `xval/cpp_check.sh` passed.
+
+## 2026-10-02e: v/G_F bug fix and missing pieces (logs in `xval/results/2026-10-02e/`)
+
+`docs/freezes/DERIVATIONS_2026-10-02e` (commit b401c0d, 09:08:39 EDT) was committed before any downstream number.
+- **Bug fix:** hub `seed_vev_GeV()` returns 58.24 GeV against its own docstring relation v = 2 m_W s_W/√(4πα). This repo implements the documented relation; the hub fix is left to Grok Build.
+- **Scheme, decided a priori:** S1 (primary, FSOT-only) is on-shell s² = 1 − (m_W/m_Z)² from the leaves with α(0). S2 (secondary) is the MS-bar s² leaf with α̂(M_Z) = 1/127.930, an **external** PDG input.
+- **Look-elsewhere:** scheme 4, α_s(m_τ) 3, BR/τ_τ 3. All rows are produced by `tools/score_2026_10_02e.py` into `audit/score_2026-10-02e.tsv`.
+
+| row | S1 (primary) value / z | S2 (secondary) value / z |
+|---|---|---|
+| v | 250.775 GeV (+1.85 %) | 246.640 GeV (+0.17 %) |
+| G_F | 1.12439e-5 (−3.60 %), z 7.0e4 | 1.16241e-5 (−0.34 %), z 6.6e3 |
+| Γ_Z/M_Z (A1) | 0.026282, **z 43.0** | 0.027171, z 7.8 |
+| Γ_inv | 479.73 MeV, z 13.0 | 495.95 MeV, z 2.2 |
+| Γ_ll | 80.544 MeV, z 40.0 | 83.267 MeV, z 8.3 |
+| σ_had⁰ (G_F-free) | 41.472 nb, z 0.29 | same |
+| R_ell (G_F-free) | 20.799, z 1.29 | same |
+| Γ_W | 2.0199 GeV, z 1.55 | 2.0882 GeV, **z 0.08** |
+| τ_μ | 2.3641 μs, z 7.6e4 | 2.2120 μs, z 6.8e3 |
+| τ_τ (external BR) | 313.08 fs, z 45.6 | 292.94 fs, z 5.3 |
+
+S1 misses by about the size of the omitted on-shell Δr (PDG 0.03685): G_F is −3.6 %. Under the frozen rule Γ_Z/M_Z does **not** pass, so the record set is unchanged.
+
+**Step 2 results:**
+- **α_s(m_τ), nf = 3:** run with 4 loops from the seed α_s(M_Z) = 0.117909, with 3-loop decoupling at the FSOT thresholds m_b = 4.222 GeV and m_c = 1.284 GeV. Result 0.31339 vs PDG 0.314(14), **z 0.04**.
+- **BR(τ→eνν̄)** from that α_s (fixed-order δ_P through a⁴, leading-log S_EW, FSOT V_ud and V_us; G_F-free): 0.17829 vs 17.82(4) %, **z 0.23**.
+- **τ_τ with the FSOT BR:** S1 313.19 fs (z 45.8); S2 293.04 fs (z 5.5).
+- **Not constructed:** μ_n, μ_t, f_π, τ_π⁺ and the two-nucleon μ_d. No FSOT route exists in the seeds, the §66/§67 database or the data, and none was invented.
+- **§67 entries that don't reproduce** (recomputed − stored, stored values kept): #1036 −287 ppm, #1037 −78 ppm, #1038 −1074 ppm, #1039 +36948 ppm, #1041 +170 ppm, #1045 +10846 ppm. In every case the stored value is closer to the measurement.
+
+**Pass counts:** 85/91 confirmed, 88/91 including frozen-pending (unchanged). The new frozen-pending rows that pass are α_s(m_τ) and BR(τ→eνν̄), plus Γ_W under the secondary scheme only. CTest 27/27; `xval/cpp_check.sh` passed.
