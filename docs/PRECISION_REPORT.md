@@ -296,3 +296,44 @@ Scoring (`tools/score_2026_10_02c.py`, `audit/score_2026-10-02c.tsv`):
   - Discriminating power |cand − bare|/σ is 0.69 (Noterdaeme) and 0.84 (internal). Neither check can confirm or kill the polish, so it stays frozen-pending.
 
 Pass counts are unchanged: **85/91 confirmed, 88/91 including frozen-pending**. The precision report was regenerated and is byte-identical. CTest passes 25/25 (adds `refinement_freeze_c`), and `xval/cpp_check.sh` passed.
+
+## 2026-10-02d: re-derivations through Damian's building blocks (logs in `xval/results/2026-10-02d/`)
+
+Order of work:
+1. `docs/freezes/DERIVATIONS_2026-10-02d` (commit 73f89a5, 08:53:29 EDT) froze every construction, input and alternative count before any number was computed.
+2. Part A and the part-B rows were scored, and the C1 training was run (`tools/train_2026_10_02d.py`, `audit/rows_2026-10-02d.tsv`, `audit/train_2026-10-02d.tsv`).
+3. `REFINEMENTS_2026-10-02d` (commit 417b524, 08:54:34 EDT) froze the training before any C1 target was scored.
+4. The targets were scored (`tools/score_2026_10_02d.py`, `audit/score_2026-10-02d.tsv`).
+
+Look-elsewhere counts: A 4, B 15, C1 218, C2 2.
+
+**A. Γ_Z structural route (A1).** Σ_f N_c G_F M_Z³/(6√2π)[(T3−2Qs²)²+T3²](1+3Q²α/4π)(1+α_s/π)_quarks, using Damian's seed G_F, the m_Z, sin²θ_W(MS-bar) and α leaves, and the α_s seed.
+- **Result:** Γ_Z/M_Z = 0.4872, z 1.8e4. **FAIL**: the seed G_F is the cause.
+- `seed_vev_GeV()` (hub `vendor/fsot_seed_flavor.py`; not scored in the hub suite) returns v = 58.24 GeV against v = 246.22 GeV. So seed G_F = 2.084e-4 GeV⁻², 17.9× the CODATA value 1.1663787(6)e-5, and every G_F-normalised width is high by that factor.
+- **G_F-free held-outs:** σ_had⁰ = 41.472 nb vs 41.481(33), **z 0.29 (pass)**; R_ell = 20.799 vs 20.771(22), z 1.29.
+- **G_F-normalised held-outs fail** by the same factor: Γ_inv z 5.6e3, Γ_ll z 1.6e4.
+
+**B. New rows (frozen-pending; all fail z ≤ 1):**
+
+| row | inputs | value | measured | z |
+|---|---|---|---|---|
+| G_F (diagnostic) | seed v | 2.0844e-4 GeV⁻² | 1.1663787(6)e-5 | 3.3e7 |
+| Γ_W | seed G_F, m_W leaf, α_s seed | 37.44 GeV | 2.085(42) | 842 |
+| τ_μ | seed G_F, m_μ, m_e, α leaves | 6.880e-9 s | 2.1969811(22)e-6 | 1.0e6 |
+| τ_τ | τ_μ row, m_μ/m_τ leaves, BR(τ→eνν̄) **external** PDG | 9.11e-16 s | 290.3(5)e-15 | 579 |
+| τ_π⁺ | not constructed: FSOT has no f_π | – | 26.033 ns | – |
+| μ_n | −(2/3)μ_p leaf (SU(6)) | −1.861898 | −1.91304276(45) | 1.1e5 (−2.7 %) |
+| μ_t | μ_p leaf (Schmidt, S state) | 2.792847 | 2.9789624650(59) | 3.2e7 (−6.2 %) |
+| μ_h | Damian §67 #1037 P_VAR⁻⁷−C_FAC⁻¹ (stored value) | −2.126588 | −2.1276253498(17) | 6.1e5 (−488 ppm) |
+
+**C1. Class search, enlarged classes, round-c criterion:** 0/2 accepted, so no rule is applied.
+- W2 (9 members): sign 5/9, α-power 5/9, P3 LOO 6/9, full selection "none".
+- M2 (13 members): sign 7/13, α-power 6/13, P3 LOO 0/13, P4 (v ∈ {1, A, A^-1/3, J}) LOO 0/12.
+- Targets, bare: μ_d pin z 2.13e4 (−54.6 ppm); Damian's §67 #1036 μ_d route C_EFF⁻⁶/A_BLEED⁹ z 6.7e3 (−17.2 ppm); Γ_Z/M_Z pin z 4.88.
+- Held-out: Mn-55 (§67) z 13.7; R_ell z 0.33.
+
+**C2. Two-nucleon deuteron:** μ_d = μ_S − (3/2)(μ_S − ½)P_D, with μ_S = μ_p(leaf) + μ_n(row) and P_D = 5.76 % **external** (AV18).
+- Result: 0.89372, z 1.6e7 (+4.2 %). The error comes from the μ_n row: with the CODATA μ_n the same formula gives 0.84699, which is the AV18 impulse value 0.847 (diagnostic only).
+- A two-nucleon B_d is not constructible from FSOT leaves (it needs m_d or a_t, r_t).
+
+**Pass counts unchanged:** 85/91 confirmed, 88/91 including frozen-pending. The precision report is byte-identical. CTest 26/26 (adds `refinement_freeze_d`); `xval/cpp_check.sh` passed.

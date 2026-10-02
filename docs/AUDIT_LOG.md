@@ -398,6 +398,16 @@ at the 1e-3 level, and no scaling in 1, A, A^-1/3 or B/A predicts them leave-one
 ### H-21 · T_CMB polish: neither confirmed nor killed
 The thermal-class sign (all bare-high) is opposite to the T_CMB direction. Available checks (the FSOT-internal η/Ω_b-implied T0, and the Noterdaeme 2011 T(z) normalisation) have under 1σ of discriminating power, so the polish stays frozen-pending.
 
+### H-22 · 2026-10-02d: Damian's seed G_F is 17.9x the CODATA value
+`seed_vev_GeV()` in hub vendor/fsot_seed_flavor.py returns (theta_S+e^3)/C_factor^6/1000*phi = 58.24 GeV (the docstring states the tree relation v = 2 m_W sin(theta_W)/sqrt(4 pi alpha), but the code returns a different expression). seed_G_F() is not scored in the hub suite.
+Every G_F-normalised 02d construction (A1 Gamma_Z, Gamma_W, tau_mu, tau_tau) fails by that factor under the frozen rule. Nothing was re-tuned. The G_F-free A1 content passes: sigma_had0 z 0.29.
+
+### H-23 · Sec. 67 database values vs current fsot_compute constants
+For 6 of 11 sec. 67 Nuclear muN entries (#1036 H-2, #1037 He-3, #1038 Li-7, #1039 B-11, #1041 N-14, #1045 P-31), recomputing the formula with the current fsot_compute constants does not reproduce the stored Value. As frozen, the stored Value was used.
+
+### H-24 · 2026-10-02d class search: still no rule
+Enlarged widths (n 9) and moments (n 13) classes: 0/2 meet the round-c criterion. 218 patterns. The deuteron stays open. The two-nucleon formula with an external AV18 P_D reproduces the AV18 impulse value only when the CODATA mu_n is used. The FSOT mu_n row (SU(6)) is 2.7 % low.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests

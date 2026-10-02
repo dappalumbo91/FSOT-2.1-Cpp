@@ -97,6 +97,7 @@ causes and the 6 remaining misses (3 with a frozen-pending candidate, 3 open: Γ
 Post-hoc refinements are frozen as tier frozen-pending in [docs/freezes/REFINEMENTS_2026-10-02.md](docs/freezes/REFINEMENTS_2026-10-02.md) and
 [docs/freezes/REFINEMENTS_2026-10-02b.md](docs/freezes/REFINEMENTS_2026-10-02b.md) (committed before scoring) and are never counted as confirmed.
 A pre-registered train/test search for class-level dressing rules (docs/freezes/PROTOCOL_2026-10-02c.md, REFINEMENTS_2026-10-02c.md; 539 patterns, 5 classes) accepted **no** rule; see PRECISION_REPORT §2026-10-02c.
+2026-10-02d re-derivations (docs/freezes/DERIVATIONS_2026-10-02d.md): Γ_Z built from partial widths, plus new rows Γ_W, τ_μ, τ_τ, μ_n, μ_t, μ_h and a two-nucleon μ_d, all frozen before scoring. None passes. The G_F-normalised rows fail because Damian's seed v = 58.24 GeV; see PRECISION_REPORT §2026-10-02d.
 
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |

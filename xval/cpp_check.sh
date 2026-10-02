@@ -16,7 +16,7 @@ if [ ! -d "$W/hub/.git" ]; then
   git clone -q --filter=blob:none --no-checkout https://github.com/dappalumbo91/FSOT-2.1-Lean "$W/hub"
   git -C "$W/hub" sparse-checkout set --no-cone '/data/*_benchmark.json' '/data/literature_uncertainty_anchors.json' '/data/stumped_observables_reference.json' '/data/extension_folds_derived.json' '/data/domain_table_freeze.json' '/predictions/' '/scripts/' '/vendor/fsot_compute.py' '/vendor/fsot_seed_flavor.py'
 fi
-git -C "$W/hub" sparse-checkout add '/vendor/fsot_seed_flavor.py'
+git -C "$W/hub" sparse-checkout add '/vendor/fsot_seed_flavor.py' '/vendor/fsot_aggregate/FSOT_Mathematical_Database_Unified.json'
 git -C "$W/hub" checkout -q "$COMMIT"; echo "hub @ $(git -C "$W/hub" rev-parse --short HEAD), authority sha256 $(sha256sum "$W/hub/vendor/fsot_compute.py" | cut -c1-6)"
 cmake -S . -B build -DFSOT_HUB_DATA="$W/hub" >/dev/null
 nice -n 10 cmake --build build -j"$J"
@@ -46,6 +46,8 @@ $P tools/score_refinements_2026_10_02b.py --hub "$W/hub" --out "$W/refinements_b
 diff -q "$W/refinements_b.tsv" audit/refinements_2026-10-02b.tsv; ok "2026-10-02b re-score byte-identical"
 $P tools/train_2026_10_02c.py --hub "$W/hub" --out "$W/train_c.tsv" && $P tools/score_2026_10_02c.py --hub "$W/hub" --out "$W/score_c.tsv"
 diff -q "$W/train_c.tsv" audit/train_2026-10-02c.tsv && diff -q "$W/score_c.tsv" audit/score_2026-10-02c.tsv; ok "2026-10-02c train/score byte-identical"
+$P tools/train_2026_10_02d.py --hub "$W/hub" --rows-out "$W/rows_d.tsv" --out "$W/train_d.tsv" && $P tools/score_2026_10_02d.py --hub "$W/hub" --out "$W/score_d.tsv"
+diff -q "$W/rows_d.tsv" audit/rows_2026-10-02d.tsv && diff -q "$W/train_d.tsv" audit/train_2026-10-02d.tsv && diff -q "$W/score_d.tsv" audit/score_2026-10-02d.tsv; ok "2026-10-02d rows/train/score byte-identical"
 python3 tools/check_references.py; ok "every reference value matches its committed evidence"
 step "4. C++ Ledger B re-score vs golden, corrected + genuine misses"
 ./build/fsot_ledger_b --hub "$W/hub" --golden golden/ledger_b_6f9c2560.tsv \
