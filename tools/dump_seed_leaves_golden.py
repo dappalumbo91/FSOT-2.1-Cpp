@@ -79,7 +79,7 @@ def main() -> int:
     ap.add_argument("--out", default=str(ROOT / "golden" / "seed_leaves_6f9c2560.tsv"))
     ap.add_argument("--python", default=sys.executable)
     a = ap.parse_args()
-    hub = Path(a.hub)
+    hub = Path(a.hub).resolve()
     pin = json.loads((ROOT / "AUTHORITY_PIN.json").read_text())
     sha = hashlib.sha256((hub / "vendor" / "fsot_compute.py").read_bytes()).hexdigest().upper()
     if sha != pin["authority_sha256"]:

@@ -1,0 +1,3 @@
+CI run 36987554451 on 6141c786 (push 2026-10-02 05:03 EDT): build-test success, regen-diff success, bare-metal success, ledger-b FAILURE
+cause: tools/dump_seed_leaves_golden.py ran the hub scripts with cwd=hub and a relative --hub path (hub/hub/scripts/... not found)
+fix: resolve --hub to an absolute path; verified locally with a relative path in a clean mpmath==1.4.1 venv: seed-leaf golden and pin lineage byte-identical
