@@ -1,0 +1,4740 @@
+{
+ "arxiv:1111.2048": {
+  "authors": "Boylan-Kolchin; Bullock; Kaplinghat",
+  "id": "1111.2048",
+  "kind": "arxiv",
+  "status": "OK",
+  "title": "The Milky Way's bright satellites as an apparent failure of LCDM",
+  "year": 2011
+ },
+ "arxiv:1710.11129": {
+  "authors": "Cooke; Pettini; Steidel",
+  "id": "1710.11129",
+  "kind": "arxiv",
+  "status": "OK",
+  "title": "One percent determination of the primordial deuterium abundance",
+  "year": 2017
+ },
+ "arxiv:1807.06209": {
+  "authors": "Collaboration; Aghanim; Akrami",
+  "id": "1807.06209",
+  "kind": "arxiv",
+  "status": "OK",
+  "title": "Planck 2018 results. VI. Cosmological parameters",
+  "year": 2018
+ },
+ "arxiv:2007.06422": {
+  "authors": "Athenodorou; Teper",
+  "id": "2007.06422",
+  "kind": "arxiv",
+  "status": "OK",
+  "title": "The glueball spectrum of SU(3) gauge theory in 3+1 dimension",
+  "year": 2020
+ },
+ "arxiv:2112.04510": {
+  "authors": "Riess; Yuan; Macri",
+  "id": "2112.04510",
+  "kind": "arxiv",
+  "status": "OK",
+  "title": "A Comprehensive Measurement of the Local Value of the Hubble Constant with 1 km/s/Mpc Uncertainty from the Hubble Space Telescope and the SH0ES Team",
+  "year": 2021
+ },
+ "arxiv:2408.00065": {
+  "authors": "Li; Anand; Riess",
+  "id": "2408.00065",
+  "kind": "arxiv",
+  "status": "OK",
+  "title": "Tip of the Red Giant Branch Distances with JWST. II. I-band Measurements in a Sample of Hosts of 10 SN Ia Match HST Cepheids",
+  "year": 2024
+ },
+ "arxiv:2410.05380": {
+  "authors": "Esteban; Gonzalez-Garcia; Maltoni",
+  "id": "2410.05380",
+  "kind": "arxiv",
+  "status": "OK",
+  "title": "NuFit-6.0: Updated global analysis of three-flavor neutrino oscillations",
+  "year": 2024
+ },
+ "arxiv:2412.00568": {
+  "authors": "Ohana; McCabe; Meyer",
+  "id": "2412.00568",
+  "kind": "arxiv",
+  "status": "OK",
+  "title": "The Well: a Large-Scale Collection of Diverse Physics Simulations for Machine Learning",
+  "year": 2024
+ },
+ "arxiv:2503.14452": {
+  "authors": "Louis; Posta; Atkins",
+  "id": "2503.14452",
+  "kind": "arxiv",
+  "status": "OK",
+  "title": "The Atacama Cosmology Telescope: DR6 Power Spectra, Likelihoods and $\u039b$CDM Parameters",
+  "year": 2025
+ },
+ "arxiv:2503.14738": {
+  "authors": "Collaboration; Abdul-Karim; Aguilar",
+  "id": "2503.14738",
+  "kind": "arxiv",
+  "status": "OK",
+  "title": "DESI DR2 Results II: Measurements of Baryon Acoustic Oscillations and Cosmological Constraints",
+  "year": 2025
+ },
+ "arxiv:2505.21476": {
+  "authors": "Aliberti; Aoyama; Balzani",
+  "id": "2505.21476",
+  "kind": "arxiv",
+  "status": "OK",
+  "title": "The anomalous magnetic moment of the muon in the Standard Model: an update",
+  "year": 2025
+ },
+ "arxiv:2509.01667": {
+  "authors": "Riess; Li; Anand",
+  "id": "2509.01667",
+  "kind": "arxiv",
+  "status": "OK",
+  "title": "The Perfect Host: JWST Cepheid Observations in a Background-Free SN Ia Host Confirm No Bias in Hubble-Constant Measurements",
+  "year": 2025
+ },
+ "arxiv:2601.14559": {
+  "authors": "Collaboration; Abbott; Adamow",
+  "id": "2601.14559",
+  "kind": "arxiv",
+  "status": "OK",
+  "title": "Dark Energy Survey Year 6 Results: Cosmological Constraints from Galaxy Clustering and Weak Lensing",
+  "year": 2026
+ },
+ "arxiv:2602.12238": {
+  "authors": "Pantos; Perivolaropoulos",
+  "id": "2602.12238",
+  "kind": "arxiv",
+  "status": "OK",
+  "title": "Status of the $S_8$ Tension: A 2026 Review of Probe Discrepancies",
+  "year": 2026
+ },
+ "doi:10.1001/archinte.1962.03620190072011": {
+  "authors": "HANDELSMAN",
+  "container": "Archives of Internal Medicine",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1001/archinte.1962.03620190072011",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Skin Vascular Alterations in Diabetes Mellitus",
+  "year": 1962
+ },
+ "doi:10.1001/jama.1959.03000260008002": {
+  "authors": "Wilkerson",
+  "container": "Journal of the American Medical Association",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1001/jama.1959.03000260008002",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "DIABETES IN A NEW ENGLAND TOWN",
+  "year": 1959
+ },
+ "doi:10.1002/9781119584414.ch4": {
+  "authors": "",
+  "container": "Blackwell's Five\u2010Minute Veterinary Consult Clinical Companion",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1002/9781119584414.ch4",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Complete Dental Cleaning",
+  "year": 2021
+ },
+ "doi:10.1007/978-0-387-30160-0_1141": {
+  "authors": "",
+  "container": "Encyclopedic Dictionary of Polymers",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1007/978-0-387-30160-0_1141",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Becke test",
+  "year": 2007
+ },
+ "doi:10.1007/978-0-387-74759-0_163": {
+  "authors": "Nagurney",
+  "container": "Encyclopedia of Optimization",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1007/978-0-387-74759-0_163",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Equilibrium Networks",
+  "year": 2008
+ },
+ "doi:10.1007/978-3-031-23161-2": {
+  "authors": "",
+  "container": "",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1007/978-3-031-23161-2",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Encyclopedia of Computer Graphics and Games",
+  "year": 2024
+ },
+ "doi:10.1007/978-3-031-23161-2_300726": {
+  "authors": "",
+  "container": "Encyclopedia of Computer Graphics and Games",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1007/978-3-031-23161-2_300726",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Loot Crates",
+  "year": 2024
+ },
+ "doi:10.1007/978-3-031-28170-9_6": {
+  "authors": "Balestrino",
+  "container": "Population Economics",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1007/978-3-031-28170-9_6",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "The Fiscal Treatment of Family Size: A\u00a0Further Look",
+  "year": 2023
+ },
+ "doi:10.1007/978-3-658-17671-6": {
+  "authors": "",
+  "container": "",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1007/978-3-658-17671-6",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Handbuch Innovationsforschung",
+  "year": 2020
+ },
+ "doi:10.1007/978-3-658-17671-6_18-1": {
+  "authors": "Howaldt; Schwarz",
+  "container": "Handbuch Innovationsforschung",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1007/978-3-658-17671-6_18-1",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Soziale Innovation",
+  "year": 2018
+ },
+ "doi:10.1007/978-981-16-8679-5_306": {
+  "authors": "Ginsburg; Mass\u00f3n Cruz; Rodr\u00edguez Alfonso",
+  "container": "Encyclopedia of Teacher Education",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1007/978-981-16-8679-5_306",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Teaching Comparative Education in Cuba and the United States",
+  "year": 2022
+ },
+ "doi:10.1007/bf02021500": {
+  "authors": "Dam; Christensen; Prange",
+  "container": "Zeitschrift f\u00fcr Ern\u00e4hrungswissenschaft",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1007/bf02021500",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "The relationship between diet and composition of bladder bile in mice",
+  "year": 1969
+ },
+ "doi:10.1007/bfb0086411": {
+  "authors": "Barros",
+  "container": "Lecture Notes in Mathematics",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1007/bfb0086411",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Spherical finite type submanifolds.Applications",
+  "year": 1989
+ },
+ "doi:10.1007/s10586-023-04231-3": {
+  "authors": "Chafai; Nacer; Lekadir",
+  "container": "Cluster Computing",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1007/s10586-023-04231-3",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "A performance evaluation model for users\u2019 satisfaction in federated clouds",
+  "year": 2024
+ },
+ "doi:10.1007/s11259-005-3081-7": {
+  "authors": "K\u00fcrt\u00fcl; Bozkurt; Asian",
+  "container": "Veterinary Research Communications",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1007/s11259-005-3081-7",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Extrinsic Cardiac Nerve Distribution in Goitred Gazelle (Gazella subgutturosa)",
+  "year": 2005
+ },
+ "doi:10.1016/0048-721x(78": {
+  "exists": false,
+  "handle_status": 404,
+  "id": "10.1016/0048-721x(78",
+  "kind": "doi",
+  "status": "NOT_FOUND"
+ },
+ "doi:10.1016/0048-721x(78)90038-6": {
+  "authors": "CALVERT",
+  "container": "Religion",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1016/0048-721x(78)90038-6",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "The cultural heritage of Ladakh: Volume I David L. Snellgrove, Tadeusz Skorupski, Warminster, Aris and Phillips, 1977. xvi + 144 pp. Illus: 20 colour plates and 144 black and white. E12.50",
+  "year": 1978
+ },
+ "doi:10.1016/0140-6736(91": {
+  "exists": false,
+  "handle_status": 404,
+  "id": "10.1016/0140-6736(91",
+  "kind": "doi",
+  "status": "NOT_FOUND"
+ },
+ "doi:10.1016/0140-6736(91)90874-o": {
+  "authors": "",
+  "container": "The Lancet",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1016/0140-6736(91)90874-o",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Stress proteins and myocardial protection",
+  "year": 1991
+ },
+ "doi:10.1016/b978-0-08-102696-0.00020-8": {
+  "authors": "Zonta",
+  "container": "Sensor Technologies for Civil Infrastructures",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1016/b978-0-08-102696-0.00020-8",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Sensor data analysis, reduction, and fusion for assessing and monitoring civil infrastructures",
+  "year": 2022
+ },
+ "doi:10.1016/j.denabs.2017.11.037": {
+  "authors": "",
+  "container": "Dental Abstracts",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1016/j.denabs.2017.11.037",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Pulp exposure during carious tissue removal in adults",
+  "year": 2018
+ },
+ "doi:10.1016/j.ijlcj.2013.08.003": {
+  "authors": "Ahn-Redding; Allison; Semon",
+  "container": "International Journal of Law, Crime and Justice",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1016/j.ijlcj.2013.08.003",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "What do students really know about criminal justice?",
+  "year": 2013
+ },
+ "doi:10.1016/j.partic.2014.05.004": {
+  "authors": "Di; Ge",
+  "container": "Particuology",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1016/j.partic.2014.05.004",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Simulation of dynamic fluid\u2013solid interactions with an improved direct-forcing immersed boundary method",
+  "year": 2015
+ },
+ "doi:10.1016/s0026-0576(03": {
+  "exists": false,
+  "handle_status": 404,
+  "id": "10.1016/s0026-0576(03",
+  "kind": "doi",
+  "status": "NOT_FOUND"
+ },
+ "doi:10.1016/s0026-0576(03)80495-6": {
+  "authors": "",
+  "container": "Metal Finishing",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1016/s0026-0576(03)80495-6",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Powder transfer apparatus",
+  "year": 2003
+ },
+ "doi:10.1016/s0926-6593(65": {
+  "exists": false,
+  "handle_status": 404,
+  "id": "10.1016/s0926-6593(65",
+  "kind": "doi",
+  "status": "NOT_FOUND"
+ },
+ "doi:10.1016/s0926-6593(65)80241-7": {
+  "authors": "Cabello; Prajoux; Plaza",
+  "container": "Biochimica et Biophysica Acta (BBA) - Enzymology and Biological Oxidation",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1016/s0926-6593(65)80241-7",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Immunodiffusion studies on human liver and erythrocyte arginases",
+  "year": 1965
+ },
+ "doi:10.1017/cbo9780511761942.026": {
+  "authors": "",
+  "container": "Networks, Crowds, and Markets",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1017/cbo9780511761942.026",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Bibliography",
+  "year": 2010
+ },
+ "doi:10.1038/nmat2090": {
+  "authors": "Snyder; Toberer",
+  "container": "Nature Materials",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1038/nmat2090",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Complex thermoelectric materials",
+  "year": 2008
+ },
+ "doi:10.1038/s41587-026-03166-5": {
+  "authors": "Maddipatla; Sellam Bojan; Bojan",
+  "container": "Nature Biotechnology",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1038/s41587-026-03166-5",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Experiment-guided AlphaFold3 resolves measurement-consistent protein ensembles",
+  "year": 2026
+ },
+ "doi:10.1042/bst0051540": {
+  "authors": "MABOOD; NEWMAN; NIMMO",
+  "container": "Biochemical Society Transactions",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1042/bst0051540",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "The Nature of the Random Experimental Error Encountered when the Kinetics of Acetylcholine Hydrolase are Determined",
+  "year": 1977
+ },
+ "doi:10.1051/0004-6361/202556861": {
+  "authors": "Euclid Collaboration; Ca\u00f1as-Herrera; Goh",
+  "container": "Astronomy &amp; Astrophysics",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1051/0004-6361/202556861",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "<i>Euclid</i>\n                    preparation",
+  "year": 2026
+ },
+ "doi:10.1073/pnas.2511397123": {
+  "authors": "Binder; Ruprecht; Rabe",
+  "container": "Proceedings of the National Academy of Sciences",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1073/pnas.2511397123",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Diets, dominance hierarchies, and kleptoparasitism drive asymmetrical interactions between wolves and cougars",
+  "year": 2026
+ },
+ "doi:10.1080/00221344408987009": {
+  "authors": "Blanchard",
+  "container": "Journal of Geography",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1080/00221344408987009",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Interest-Stimulating Device",
+  "year": 1944
+ },
+ "doi:10.1080/01496398408068585": {
+  "authors": "Peterson; Myers; Giddings",
+  "container": "Separation Science and Technology",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1080/01496398408068585",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Characterization of Steric Field-Flow Fractionation Using Particles to 100 \u03bcm Diameter",
+  "year": 1984
+ },
+ "doi:10.1088/1742-6596/1382/1/012030": {
+  "authors": "Pavlenko; Zanin; Bykov",
+  "container": "Journal of Physics: Conference Series",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1088/1742-6596/1382/1/012030",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Flow around the wing models with straight and swept leading edge in case of contact with turbulent wake",
+  "year": 2019
+ },
+ "doi:10.1088/1742-6596/1524/1/012118": {
+  "authors": "Yusika; Widyawati; Suryono",
+  "container": "Journal of Physics: Conference Series",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1088/1742-6596/1524/1/012118",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "The role of information systems towards the success of the family planning program: a literature review",
+  "year": 2020
+ },
+ "doi:10.1093/jn/57.4.469": {
+  "authors": "Herting; Steenbock",
+  "container": "The Journal of Nutrition",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1093/jn/57.4.469",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Vitamin D and Gastric Secretion",
+  "year": 1955
+ },
+ "doi:10.1093/nq/cxcvi.mar31.151a": {
+  "authors": "Long-Brown",
+  "container": "Notes and Queries",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1093/nq/cxcvi.mar31.151a",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Leveson of Whornes place in Halling, Kent",
+  "year": 1951
+ },
+ "doi:10.1093/nq/s6-ii.28.26b": {
+  "authors": "James",
+  "container": "Notes and Queries",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1093/nq/s6-ii.28.26b",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "The changes in grain",
+  "year": 1880
+ },
+ "doi:10.1097/00000441-192504000-00002": {
+  "authors": "Minot; Buckman",
+  "container": "The American Journal of the Medical Sciences",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1097/00000441-192504000-00002",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "THE BLOOD PLATELETS IN THE LEUKEMIAS",
+  "year": 1925
+ },
+ "doi:10.1097/00007611-194708000-00018": {
+  "authors": "&NA;",
+  "container": "Southern Medical Journal",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1097/00007611-194708000-00018",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "MASSIVE DOSES OF PURE ANTIRACHITIC VITAMIN",
+  "year": 1947
+ },
+ "doi:10.1103/physrevd.112.083515": {
+  "exists": false,
+  "handle_status": 404,
+  "id": "10.1103/PhysRevD.112.083515",
+  "kind": "doi",
+  "status": "NOT_FOUND"
+ },
+ "doi:10.1107/s2052252526004100": {
+  "authors": "Danev; Yanagisawa; Yamashita",
+  "container": "IUCrJ",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1107/S2052252526004100",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Atomic resolution cryo-EM at 200\u2005keV",
+  "year": 2026
+ },
+ "doi:10.1109/ccdc.2010.5498169": {
+  "authors": "Hosseini Toodeshki; Askari; Hosseinnia",
+  "container": "2010 Chinese Control and Decision Conference",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/ccdc.2010.5498169",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Asymptotic stability of time delay systems with unknown uncertainty bounds using adaptive robust control",
+  "year": 2010
+ },
+ "doi:10.1109/ccdc.2011.5968776": {
+  "authors": "Jingmin; Jiafu; Huanjie",
+  "container": "2011 Chinese Control and Decision Conference (CCDC)",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/ccdc.2011.5968776",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "A fuzzy neural network algorithm based on GA",
+  "year": 2011
+ },
+ "doi:10.1109/contel.2015.7231229": {
+  "authors": "Soikkeli; Riikonen",
+  "container": "2015 13th International Conference on Telecommunications (ConTEL)",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/contel.2015.7231229",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Session level network usage patterns of mobile handsets",
+  "year": 2015
+ },
+ "doi:10.1109/energytech.2013.6645333": {
+  "authors": "Yue Juan Li; Cheng; Bakhoum",
+  "container": "2013 IEEE Energytech",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/energytech.2013.6645333",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Operation of energy harvesting devices in different vibration modes",
+  "year": 2013
+ },
+ "doi:10.1109/iccad.2010.5653805": {
+  "authors": "Murmann; Xiong",
+  "container": "2010 IEEE/ACM International Conference on Computer-Aided Design (ICCAD)",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/iccad.2010.5653805",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Design of analog circuits using organic field-effect transistors",
+  "year": 2010
+ },
+ "doi:10.1109/iceeccot.2016.7955241": {
+  "authors": "Rao; Prakash; Thalluri",
+  "container": "2016 International Conference on Electrical, Electronics, Communication, Computer and Optimization Techniques (ICEECCOT)",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/iceeccot.2016.7955241",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Cantilever and circular disc structure based capacitive shunt RF MEMS switches",
+  "year": 2016
+ },
+ "doi:10.1109/iceee.2010.5660408": {
+  "authors": "Guo; Li; Gao",
+  "container": "2010 International Conference on E-Product E-Service and E-Entertainment",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/iceee.2010.5660408",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Hole-Filling by Rank Sparsity Tensor Decomposition for Medical Imaging",
+  "year": 2010
+ },
+ "doi:10.1109/iciecs.2010.5678199": {
+  "authors": "Ren",
+  "container": "2010 2nd International Conference on Information Engineering and Computer Science",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/iciecs.2010.5678199",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Underwater Robot Path Planning Methods Based on Immunization Genetic Algorithms",
+  "year": 2010
+ },
+ "doi:10.1109/icimw.2002.1076202": {
+  "authors": "Singh; Valfells; Kolander",
+  "container": "Twenty Seventh International Conference on Infrared and Millimeter Waves",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/icimw.2002.1076202",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Effects of successive generations of backscattered electrons on the performance of depressed collectors in megawatt class gyrotrons",
+  "year": null
+ },
+ "doi:10.1109/icniconsmcl.2006.166": {
+  "authors": "Jun Bi; Xiaoxiang Leng; Jianping Wu",
+  "container": "International Conference on Networking, International Conference on Systems and International Conference on Mobile Communications and Learning Technologies (ICNICONSMCL'06)",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/icniconsmcl.2006.166",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "OSPF-TE Scalability Study based on Internal Performance Measurement",
+  "year": null
+ },
+ "doi:10.1109/icuwb.2010.5614210": {
+  "authors": "Adamiuk; Zwirello; Reichardt",
+  "container": "2010 IEEE International Conference on Ultra-Wideband",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/icuwb.2010.5614210",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "UWB cross-polarization discrimination with differentially fed, mirrored antenna elements",
+  "year": 2010
+ },
+ "doi:10.1109/ipsn.2006.244131": {
+  "authors": "Rachlin; Negi; Khosla",
+  "container": "2006 5th International Conference on Information Processing in Sensor Networks",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/ipsn.2006.244131",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "On the interdependence of sensing and estimation complexity in sensor networks",
+  "year": 2006
+ },
+ "doi:10.1109/meta.2012.6464961": {
+  "authors": "Yang; Lu; Wu",
+  "container": "2012 International Workshop on Metamaterials (Meta)",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/meta.2012.6464961",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "A novel helical metamaterial absorber: Simulation study with the FDTD method",
+  "year": 2012
+ },
+ "doi:10.1109/mwscas.2015.7282039": {
+  "authors": "Moshnyaga; Nita",
+  "container": "2015 IEEE 58th International Midwest Symposium on Circuits and Systems (MWSCAS)",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/mwscas.2015.7282039",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "STG-based detection of power virus inputs in FSM",
+  "year": 2015
+ },
+ "doi:10.1109/nds.2017.8070629": {
+  "authors": "Zhao; Yan; Matsushita",
+  "container": "2017 10th International Workshop on Multidimensional (nD) Systems (nDS)",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/nds.2017.8070629",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Order reduction for roesser state-space model based on a certain system of equations",
+  "year": 2017
+ },
+ "doi:10.1109/nssmic.2007.4436951": {
+  "authors": "Sharma; Kapadia; Harrawood",
+  "container": "2007 IEEE Nuclear Science Symposium Conference Record",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/nssmic.2007.4436951",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Optimization of a rotating modulation collimator for neutron stimulated emission computed tomography (NSECT) imaging",
+  "year": 2007
+ },
+ "doi:10.1109/srii.2012.46": {
+  "authors": "Zephir; Johannsen; Vidou",
+  "container": "2012 Annual SRII Global Conference",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1109/srii.2012.46",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Innovation Contests as Support Systems for New Service Value",
+  "year": 2012
+ },
+ "doi:10.1111/j.1440-1681.1996.tb02797.x": {
+  "authors": "Kapuscinski; Nemoto; Ueyama",
+  "container": "Clinical and Experimental Pharmacology and Physiology",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1111/j.1440-1681.1996.tb02797.x",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "LOW AFFINITY NERVE GROWTH FACTOR RECEPTOR GENE CO\u2010SEGREGATES WITH DECREASED BODYWEIGHT AND INCREASED LEFT VENTRICULAR WEIGHT IN SPONTANEOUSLY HYPERTENSIVE RATS",
+  "year": 1996
+ },
+ "doi:10.1111/j.1474-919x.1928.tb08740.x": {
+  "authors": "Wilkes",
+  "container": "Ibis",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1111/j.1474-919x.1928.tb08740.x",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "XXXVI.\u2014<i>The Birds of the Region South of Lake Nyasa</i>.\u2014Part I. <i>Non\u2010Passerine Birds</i>",
+  "year": 1928
+ },
+ "doi:10.1111/joim.1898.31.issue-18": {
+  "authors": "",
+  "container": "Nordiskt Medicinskt Arkiv",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1111/joim.1898.31.issue-18",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "",
+  "year": 1898
+ },
+ "doi:10.1128/jcm.12.1.60-62.1980": {
+  "authors": "Gannon; Surgalla; Fitzpatrick",
+  "container": "Journal of Clinical Microbiology",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1128/jcm.12.1.60-62.1980",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Immunoglobulin G and immunoglobulin M antibody responses of patients with malignancies to the O antigens of bacteria causing bacteremia",
+  "year": 1980
+ },
+ "doi:10.1136/bmj.2.2646.593": {
+  "authors": "Sherren",
+  "container": "BMJ",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1136/bmj.2.2646.593",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Remarks ON EXTERNAL POLYPOID TUMOURS OF THE STOMACH",
+  "year": 1911
+ },
+ "doi:10.1152/physrev.00019.2014": {
+  "exists": false,
+  "handle_status": 404,
+  "id": "10.1152/physrev.00019.2014",
+  "kind": "doi",
+  "status": "NOT_FOUND"
+ },
+ "doi:10.1161/01.res.12.2.145": {
+  "authors": "SURAWICZ; KUNIN; SIMS",
+  "container": "Circulation Research",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1161/01.res.12.2.145",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Effects of Hemodialysis and of Glucose-Insulin Administration on Plasma Potassium and on the Electrocardiogram",
+  "year": 1963
+ },
+ "doi:10.1175/2007jcli1900.1": {
+  "authors": "Williams; Brooks",
+  "container": "Journal of Climate",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1175/2007jcli1900.1",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Initial Tendencies of Cloud Regimes in the Met Office Unified Model",
+  "year": 2008
+ },
+ "doi:10.1177/014459879801600522": {
+  "authors": "",
+  "container": "Energy Exploration &amp; Exploitation",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1177/014459879801600522",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Book Review: The Petrobras Monopoly and the Regulation of Oil Prices in Brazil",
+  "year": 1998
+ },
+ "doi:10.1177/0888325488002001005": {
+  "authors": "Hare",
+  "container": "East European Politics and Societies: and Cultures",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1177/0888325488002001005",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Industrial Development of Hungary Since World War II",
+  "year": 1987
+ },
+ "doi:10.1183/13993003.congress-2020.1632": {
+  "authors": "Ceylan; Bat\u0131han; Kaya",
+  "container": "Lung cancer",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1183/13993003.congress-2020.1632",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Comparison of perioperative and early postoperative results of VATS and thoracotomy in patients underwent pneumonectomy",
+  "year": 2020
+ },
+ "doi:10.1192/bja.2023.10": {
+  "authors": "",
+  "container": "BJPsych Advances",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1192/bja.2023.10",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "BJA volume 29 issue 2 Cover and Back matter",
+  "year": 2023
+ },
+ "doi:10.1201/9781439863725-18": {
+  "authors": "",
+  "container": "Computational Aspects of Polynomial Identities",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1201/9781439863725-18",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Unified Theory of Identities",
+  "year": 2005
+ },
+ "doi:10.13058/raep.2016.v17n3.344": {
+  "authors": "Barbosa; Mendon\u00e7a; Cassund\u00e9",
+  "container": "Administra\u00e7\u00e3o: Ensino e Pesquisa",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.13058/raep.2016.v17n3.344",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Compet\u00eancias Gerenciais (esperadas &lt;i&gt;versus&lt;/i&gt; percebidas) de Professores-gestores de Institui\u00e7\u00f5es Federais de Ensino Superior: percep\u00e7\u00f5es dos professores de uma Universidade Federal",
+  "year": 2016
+ },
+ "doi:10.1353/ajh.2017.0007": {
+  "authors": "Yalen",
+  "container": "American Jewish History",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1353/ajh.2017.0007",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Ekphrasis at the Historical Society",
+  "year": 2017
+ },
+ "doi:10.1353/lut.2017.0045": {
+  "authors": "Nygard",
+  "container": "Lutheran Quarterly",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1353/lut.2017.0045",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "The Routledge Companion to Christianity in Africa ed. by Elias Kifon Bongmba",
+  "year": 2017
+ },
+ "doi:10.1353/mar.2018.0005": {
+  "authors": "Abtan",
+  "container": "The Massachusetts Review",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1353/mar.2018.0005",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Have I Told You Enough How Much I Love You?",
+  "year": 2018
+ },
+ "doi:10.1353/plc.2017.0015": {
+  "authors": "Pryor",
+  "container": "Pleiades: Literature in Context",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1353/plc.2017.0015",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "The Horror",
+  "year": 2017
+ },
+ "doi:10.1353/plc.2017.0200": {
+  "authors": "Namey",
+  "container": "Pleiades: Literature in Context",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1353/plc.2017.0200",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Fine, Fine, Fine, Fine, Fine by Diane Williams",
+  "year": 2017
+ },
+ "doi:10.1353/rhe.1990.0016": {
+  "authors": "",
+  "container": "The Review of Higher Education",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1353/rhe.1990.0016",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Title and Author Index to Volume 13",
+  "year": 1990
+ },
+ "doi:10.1353/tho.2001.0023": {
+  "authors": "Butler",
+  "container": "The Thomist: A Speculative Quarterly Review",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1353/tho.2001.0023",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Feminist Reconstructions of Christian Doctrine: Narrative Analysis and Appraisal by Kathryn Greene-Mccreight",
+  "year": 2001
+ },
+ "doi:10.14423/smj.0000000000001387": {
+  "authors": "Torres; Reviglio; Basanta",
+  "container": "Southern Medical Journal",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.14423/smj.0000000000001387",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Webinars and Continuing Medical Education: Pros, Cons, and Controversies",
+  "year": 2022
+ },
+ "doi:10.1515/9780889779198-fm": {
+  "authors": "",
+  "container": "We Are the Stars",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1515/9780889779198-fm",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Frontmatter",
+  "year": 2022
+ },
+ "doi:10.1515/9781894725415-019": {
+  "authors": "",
+  "container": "Sweat Equity",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1515/9781894725415-019",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "5. Excerpts from the National Housing Acts, 1949 and 1954",
+  "year": 2017
+ },
+ "doi:10.1515/9782766303809-003": {
+  "authors": "",
+  "container": "Donn\u00e9es personnelles : reprenons le pouvoir!",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.1515/9782766303809-003",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "1. Ce que refl\u00e8tent nos \u00e9crans",
+  "year": 2024
+ },
+ "doi:10.15760/etd.6294": {
+  "authors": "McFarland",
+  "container": "",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.15760/etd.6294",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "A study of the narrative skills in kindergarten children with normal, impaired, and late developing language development",
+  "year": 2000
+ },
+ "doi:10.17238/issn2072-909x.2019.3": {
+  "authors": "",
+  "container": "RUSSIAN JUSTICE",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.17238/issn2072-909x.2019.3",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "",
+  "year": 2019
+ },
+ "doi:10.18203/2320-6012.ijrms20171277": {
+  "authors": "G. S.; S.; Venkatachalam",
+  "container": "International Journal of Research in Medical Sciences",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.18203/2320-6012.ijrms20171277",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "An analysis of stromal expression of CD10 in invasive ductal carcinoma of breast and its correlation with histological grade",
+  "year": 2017
+ },
+ "doi:10.21015/vtcs.v9i1.1001": {
+  "authors": "Alam",
+  "container": "VAWKUM Transactions on Computer Sciences",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.21015/vtcs.v9i1.1001",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Specification of Operating Rules for Water Reservoir to Manage Flood Using Z-Notation",
+  "year": 2021
+ },
+ "doi:10.21125/iceri.2016.0535": {
+  "authors": "Sierpi\u0144ski; Staniek",
+  "container": "ICERI proceedings",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.21125/iceri.2016.0535",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "EDUCATION BY ACCESS TO VISUAL INFORMATION \u2013 METHODOLOGY OF MOULDING BEHAVIOUR BASED ON INTERNATIONAL RESEARCH PROJECT EXPERIENCES",
+  "year": 2016
+ },
+ "doi:10.2118/0215-0079-jpt": {
+  "authors": "Carpenter",
+  "container": "Journal of Petroleum Technology",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.2118/0215-0079-jpt",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Drilling of Multilateral Wells in Kuwait Aided With Geochemical Analysis",
+  "year": 2015
+ },
+ "doi:10.21203/rs.3.rs-4840802/v1": {
+  "authors": "Chiowchanwisawakit; Ratta-apha; Meannui",
+  "container": "",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.21203/rs.3.rs-4840802/v1",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Construct validity and reliability of the Thai version of the Brief Illness Perception Questionnaire and its association with overall functioning and health in patients with ankylosing spondylitis",
+  "year": 2024
+ },
+ "doi:10.21236/ada461282": {
+  "authors": "Chu; Ganjam; Ng",
+  "container": "",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.21236/ada461282",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Early Experience with an Internet Broadcast System Based on Overlay Multicast",
+  "year": 2003
+ },
+ "doi:10.2165/00128413-200414590-00002": {
+  "authors": "&NA;",
+  "container": "Inpharma Weekly",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.2165/00128413-200414590-00002",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "CBT better value than SSRIs in paediatric patients",
+  "year": 2004
+ },
+ "doi:10.2172/5086730": {
+  "authors": "Dosch",
+  "container": "",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.2172/5086730",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Assessment of potential radionuclide transport in site-specific geologic formations",
+  "year": 1980
+ },
+ "doi:10.22478/ufpb.1807-8214.2023v36n1.68948": {
+  "authors": "Rivera Casellas",
+  "container": "Revista \u00c1rtemis",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.22478/ufpb.1807-8214.2023v36n1.68948",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "La interseccionalidad imaginaria en la escritura l\u00e9sbica de Yolanda Arroyo Pizarro",
+  "year": 2023
+ },
+ "doi:10.2307/529639": {
+  "authors": "Jacobsen; King; Rosenthal",
+  "container": "Journal of Field Archaeology",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.2307/529639",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "News and Short Contributions",
+  "year": 1977
+ },
+ "doi:10.2307/jj.18530845.12": {
+  "authors": "CLINTON",
+  "container": "Home Girls, 40th Anniversary Edition",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.2307/jj.18530845.12",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Debra",
+  "year": 2023
+ },
+ "doi:10.2307/jj.18530902.10": {
+  "authors": "",
+  "container": "Locker Room Talk",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.2307/jj.18530902.10",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Chapter Seven",
+  "year": 2024
+ },
+ "doi:10.2307/jj.18530904.7": {
+  "authors": "",
+  "container": "Elena, Princesa of the Periphery",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.2307/jj.18530904.7",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "On-Site Performance of Latinidad from East Coast to West Coast",
+  "year": 2023
+ },
+ "doi:10.2307/jj.18530966.13": {
+  "authors": "",
+  "container": "There She Goes Again",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.2307/jj.18530966.13",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "INDEX",
+  "year": 2023
+ },
+ "doi:10.2307/jj.18530966.4": {
+  "authors": "",
+  "container": "There She Goes Again",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.2307/jj.18530966.4",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "WHY FEMININE INTUITION?:",
+  "year": 2023
+ },
+ "doi:10.2307/jj.18531016.15": {
+  "authors": "",
+  "container": "Checkbook Zionism",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.2307/jj.18531016.15",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Selected Bibliography",
+  "year": 2024
+ },
+ "doi:10.2307/jj.423450.7": {
+  "authors": "",
+  "container": "Eigi Einhamr",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.2307/jj.423450.7",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "GULDET I NORDEN \u2013 KONTEKST OG FORSKNINGSHISTORIE",
+  "year": 2021
+ },
+ "doi:10.2307/jj.490870.5": {
+  "authors": "",
+  "container": "Boss Rule in the Gilded Age",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.2307/jj.490870.5",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "From These Roots:",
+  "year": 1981
+ },
+ "doi:10.2514/1.j055215": {
+  "authors": "Kuether; Allen; Hollkamp",
+  "container": "AIAA Journal",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.2514/1.j055215",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Modal Substructuring of Geometrically Nonlinear Finite Element Models with Interface Reduction",
+  "year": 2017
+ },
+ "doi:10.31168/2305-6754.2023.1.05": {
+  "authors": "Vinogradov Russian Language Institute, Russian Academy of Sciences; Knyazev; Dyachenko",
+  "container": "Slovene",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.31168/2305-6754.2023.1.05",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Phrase Prosody of Two Eastern Middle-Russian Dialects",
+  "year": 2023
+ },
+ "doi:10.32609/0042-8736-2007-5-117-137": {
+  "authors": "Klyukin",
+  "container": "Voprosy Ekonomiki",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.32609/0042-8736-2007-5-117-137",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Revision of the Neo-Ricardian Theory of Value and Distribution: New Evidence and New Perspectives",
+  "year": 2007
+ },
+ "doi:10.3323/jcorr1991.44.37": {
+  "authors": "Imai",
+  "container": "Zairyo-to-Kankyo",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.3323/jcorr1991.44.37",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "High Temperature Corrosion Resistance of Silicide Ceramics",
+  "year": 1995
+ },
+ "doi:10.3406/bmsap.1965.1316": {
+  "authors": "Ducos; Fernet; Vergnes",
+  "container": "Bulletins et M\u00e9moires de la Soci\u00e9t\u00e9 d'anthropologie de Paris",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.3406/bmsap.1965.1316",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "\u00c9tude h\u00e9motypologique des populations du Tidikelt ; les groupes s\u00e9riques.",
+  "year": 1965
+ },
+ "doi:10.3412/jsb.14.211": {
+  "authors": "NAKAYAMA",
+  "container": "Nippon Saikingaku Zasshi",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.3412/jsb.14.211",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Studies on Shigella flexneri type 6",
+  "year": 1959
+ },
+ "doi:10.36269/jtr.v4i1.988": {
+  "authors": "Dasweptia; Hamdani; Kurniawan",
+  "container": "Jurnal Ilmiah Teknik Elektro",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.36269/jtr.v4i1.988",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Pengaruh Penempatan Lightning Arrester Sebelum Dan Sesudah Fuse Cut Out Terhadap Tegangan Lebih Pada Transformator Distribusi 20 Kv Di PT. PLN (Persero) Rayon Tanjung Karang",
+  "year": 2022
+ },
+ "doi:10.3847/2041-8213/ae0ad6": {
+  "authors": "Riess; Li; Anand",
+  "container": "The Astrophysical Journal Letters",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.3847/2041-8213/ae0ad6",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "The Perfect Host: JWST Cepheid Observations in a Background-free Type Ia Supernova Host Confirm No Bias in Hubble-constant Measurements",
+  "year": 2025
+ },
+ "doi:10.4324/9781003054429-nan-9": {
+  "authors": "Henry",
+  "container": "War Through Italian Eyes",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.4324/9781003054429-nan-9",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Conclusion: A hopeful future?",
+  "year": 2021
+ },
+ "doi:10.52340/splogos.2025.08": {
+  "authors": "Baghaturia; Japaridze",
+  "container": "SOCIOPOLITOLOGOS",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.52340/splogos.2025.08",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "The New World Order and the Peculiarities of its Formation",
+  "year": 2025
+ },
+ "doi:10.53738/revmed.2014.10.444.1835": {
+  "authors": "Mendelzweig; Chappuis; Vuilleumier",
+  "container": "Revue M\u00e9dicale Suisse",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.53738/revmed.2014.10.444.1835",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Le risque chez les personnes \u00e2g\u00e9es \u00e0 domicile : un objet relationnel",
+  "year": 2014
+ },
+ "doi:10.54751/revistafoco.v16n2-195": {
+  "authors": "Fa\u00e7anha; Fa\u00e7anha Neto",
+  "container": "REVISTA FOCO",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.54751/revistafoco.v16n2-195",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "PODER JUDICI\u00c1RIO E LEI MARIA DA PENHA: O ENFRENTAMENTO \u00c0 VIOL\u00caNCIA DOM\u00c9STICA E FAMILIAR CONTRA A MULHER",
+  "year": 2023
+ },
+ "doi:10.5575/geosoc.2022.0051": {
+  "authors": "Furumoto",
+  "container": "The Journal of the Geological Society of Japan",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.5575/geosoc.2022.0051",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Supernovae and the Earth",
+  "year": 2023
+ },
+ "doi:10.5962/bhl.title.55633": {
+  "authors": "Steffen; Steffen",
+  "container": "",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.5962/bhl.title.55633",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Special veterinary therapy",
+  "year": 1914
+ },
+ "doi:10.62919/mert2332": {
+  "authors": "",
+  "container": "CONFERENCE PROCEEDING",
+  "exists": true,
+  "handle_status": 200,
+  "id": "10.62919/mert2332",
+  "kind": "doi",
+  "registry": "crossref",
+  "status": "OK",
+  "title": "Industry 4.0 Revolution in Automobile Manufacturing: Innovations and Applications",
+  "year": 2024
+ },
+ "url:http://simbad.cds.unistra.fr/simbad/sim-tap/sync": {
+  "http": 400,
+  "id": "http://simbad.cds.unistra.fr/simbad/sim-tap/sync",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:http://www.nu-fit.org/": {
+  "http": 200,
+  "id": "http://www.nu-fit.org/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://alphafold.ebi.ac.uk/api/prediction/P04637": {
+  "http": 200,
+  "id": "https://alphafold.ebi.ac.uk/api/prediction/P04637",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://api.crossref.org/": {
+  "http": 200,
+  "id": "https://api.crossref.org/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://api.crossref.org/funders?query=national+science+foundation&rows=3": {
+  "http": 200,
+  "id": "https://api.crossref.org/funders?query=national+science+foundation&rows=3",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://api.fda.gov/drug/label.json?limit=5": {
+  "http": 200,
+  "id": "https://api.fda.gov/drug/label.json?limit=5",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://api.gbif.org/v1/": {
+  "http": 200,
+  "id": "https://api.gbif.org/v1/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://api.gbif.org/v1/occurrence/search": {
+  "http": 200,
+  "id": "https://api.gbif.org/v1/occurrence/search",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://api.gbif.org/v1/occurrence/search?limit=5&hasCoordinate=true": {
+  "http": 200,
+  "id": "https://api.gbif.org/v1/occurrence/search?limit=5&hasCoordinate=true",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://api.inaturalist.org/": {
+  "http": 200,
+  "id": "https://api.inaturalist.org/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://api.nasa.gov/": {
+  "http": 200,
+  "id": "https://api.nasa.gov/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://api.obis.org/v3/occurrence": {
+  "http": 200,
+  "id": "https://api.obis.org/v3/occurrence",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://api.openalex.org/": {
+  "http": 429,
+  "id": "https://api.openalex.org/",
+  "kind": "url",
+  "status": "BLOCKED_OR_AUTH"
+ },
+ "url:https://api.openalex.org/works": {
+  "http": 429,
+  "id": "https://api.openalex.org/works",
+  "kind": "url",
+  "status": "BLOCKED_OR_AUTH"
+ },
+ "url:https://api.openalex.org/works?search=cosmology&per_page=3": {
+  "http": 429,
+  "id": "https://api.openalex.org/works?search=cosmology&per_page=3",
+  "kind": "url",
+  "status": "BLOCKED_OR_AUTH"
+ },
+ "url:https://api.tidesandcurrents.noaa.gov/api/prod/datagetter": {
+  "http": 400,
+  "id": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://api.worldbank.org/v2/": {
+  "http": 404,
+  "id": "https://api.worldbank.org/v2/",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://api.worldbank.org/v2/country/USA/indicator/SP.POP.TOTL?format=json&per_page=5": {
+  "http": 200,
+  "id": "https://api.worldbank.org/v2/country/USA/indicator/SP.POP.TOTL?format=json&per_page=5",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://api.worldbank.org/v2/country/{iso": {
+  "http": 200,
+  "id": "https://api.worldbank.org/v2/country/{iso",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://archive-api.open-meteo.com/v1/archive": {
+  "http": 200,
+  "id": "https://archive-api.open-meteo.com/v1/archive",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://archive.stsci.edu/": {
+  "http": 200,
+  "id": "https://archive.stsci.edu/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://astroquery.readthedocs.io/en/latest/mast/mast.html": {
+  "http": 200,
+  "id": "https://astroquery.readthedocs.io/en/latest/mast/mast.html",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://bazaar.abuse.ch/export/csv/recent/": {
+  "http": 200,
+  "id": "https://bazaar.abuse.ch/export/csv/recent/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://cdsarc.cds.unistra.fr/viz-bin/votable": {
+  "http": 401,
+  "id": "https://cdsarc.cds.unistra.fr/viz-bin/votable",
+  "kind": "url",
+  "status": "BLOCKED_OR_AUTH"
+ },
+ "url:https://clinicaltrials.gov/api/v2/": {
+  "http": 404,
+  "id": "https://clinicaltrials.gov/api/v2/",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://data.rcsb.org/": {
+  "http": 200,
+  "id": "https://data.rcsb.org/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://data.rcsb.org/rest/v1/core/entry/1CRN": {
+  "http": 200,
+  "id": "https://data.rcsb.org/rest/v1/core/entry/1CRN",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://data.rcsb.org/rest/v1/core/entry/{pdb_id": {
+  "http": 400,
+  "id": "https://data.rcsb.org/rest/v1/core/entry/{pdb_id",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://earthquake.usgs.gov/fdsnws/event/1/": {
+  "http": 200,
+  "id": "https://earthquake.usgs.gov/fdsnws/event/1/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://earthquake.usgs.gov/fdsnws/event/1/query": {
+  "http": 200,
+  "id": "https://earthquake.usgs.gov/fdsnws/event/1/query",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=20&orderby=time&minmagnitude=4.5": {
+  "http": 200,
+  "id": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=20&orderby=time&minmagnitude=4.5",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=Hubble+tension&retmode=json&retmax=5": {
+  "http": 200,
+  "id": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=Hubble+tension&retmode=json&retmax=5",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://exoplanetarchive.ipac.caltech.edu/": {
+  "http": 200,
+  "id": "https://exoplanetarchive.ipac.caltech.edu/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://exoplanetarchive.ipac.caltech.edu/TAP/sync": {
+  "http": 400,
+  "id": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://exoplanetarchive.ipac.caltech.edu/docs/TAP/usingTAP.html": {
+  "http": 200,
+  "id": "https://exoplanetarchive.ipac.caltech.edu/docs/TAP/usingTAP.html",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://gea.esac.esa.int/tap-server/tap/sync": {
+  "http": 200,
+  "id": "https://gea.esac.esa.int/tap-server/tap/sync",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://genomics.senescence.info/species/dataset.zip": {
+  "http": 200,
+  "id": "https://genomics.senescence.info/species/dataset.zip",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/FloatingPragma/observer-patch-holography": {
+  "http": 200,
+  "id": "https://github.com/FloatingPragma/observer-patch-holography",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/JetBrains/kotlin": {
+  "http": 200,
+  "id": "https://github.com/JetBrains/kotlin",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/USGS/GVP": {
+  "http": 404,
+  "id": "https://github.com/USGS/GVP",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/WDS/literature": {
+  "http": 404,
+  "id": "https://github.com/WDS/literature",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/apple/swift": {
+  "http": 200,
+  "id": "https://github.com/apple/swift",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean.git": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean.git",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/build_tier_f_extension_benchmarks.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/build_tier_f_extension_benchmarks.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_anomaly_public_data.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_anomaly_public_data.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_fringe_desktop_data.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_fringe_desktop_data.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_kyoto_dst_historical.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_kyoto_dst_historical.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_mpcorb_catalog.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_mpcorb_catalog.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_planetary_jpl.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_planetary_jpl.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_stsci_mast.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_stsci_mast.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier38_public_data.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier38_public_data.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier39_propulsion_electrical.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier39_propulsion_electrical.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier58_live_catalogs.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier58_live_catalogs.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier60_live_astrometry.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier60_live_astrometry.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier62_live_astrometry.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier62_live_astrometry.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier68_live_ingest.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier68_live_ingest.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier80_government_open_data.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier80_government_open_data.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier81_public_verifiable.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier81_public_verifiable.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier82_scientific_expansion.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier82_scientific_expansion.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier84_scientific_expansion.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier84_scientific_expansion.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier85_scientific_expansion.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier85_scientific_expansion.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier86_scientific_expansion.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier86_scientific_expansion.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier87_scientific_expansion.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier87_scientific_expansion.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier88_application_wiring.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier88_application_wiring.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier89_the_well.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier89_the_well.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier90_consciousness_expansion.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier90_consciousness_expansion.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier91_foundational_ontology.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier91_foundational_ontology.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier92_alternate_base_mathematics.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier92_alternate_base_mathematics.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier93_dual_wave.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier93_dual_wave.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier94_longevity_genetics.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier94_longevity_genetics.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier95_zebrahub_development.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/scripts/ingest_tier95_zebrahub_development.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/vendor/formula_corpus/by_domain/strict_empirical.jsonl": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/vendor/formula_corpus/by_domain/strict_empirical.jsonl",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/vendor/fsot_compute.py": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/blob/main/vendor/fsot_compute.py",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/releases/tag/fsot-monograph-v1": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/releases/tag/fsot-monograph-v1",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/data/dark_energy_cpl_reference.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/data/dark_energy_cpl_reference.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/data/foundational_ontology_axioms.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/data/foundational_ontology_axioms.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/data/hardware_competitive_refine_report.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/data/hardware_competitive_refine_report.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/predictions/preregistered_predictions_manifest.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/predictions/preregistered_predictions_manifest.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/application_wiring/tier88_cache/bibliography_corpus_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/application_wiring/tier88_cache/bibliography_corpus_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/application_wiring/tier88_cache/biological_cuda_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/application_wiring/tier88_cache/biological_cuda_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/application_wiring/tier88_cache/living_fsot_hardware_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/application_wiring/tier88_cache/living_fsot_hardware_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/application_wiring/tier88_cache/tokenization_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/application_wiring/tier88_cache/tokenization_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/application_wiring/tier88_cache/vl_agent_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/application_wiring/tier88_cache/vl_agent_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/circuit_components/industry_component_catalog.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/circuit_components/industry_component_catalog.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/circuit_components/tier96_cache/industry_component_catalog_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/circuit_components/tier96_cache/industry_component_catalog_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/fluid_spacetime/cosmology_anomaly_deep_anchors.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/fluid_spacetime/cosmology_anomaly_deep_anchors.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/fusion/fusion_public_anchors.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/fusion/fusion_public_anchors.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/fusion/qce_elm_public_anchors.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/fusion/qce_elm_public_anchors.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/hardware/dzhanibekov_public_anchors.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/hardware/dzhanibekov_public_anchors.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/lab_synthesis/heavy_ion_reaction_anchors.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/lab_synthesis/heavy_ion_reaction_anchors.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/lab_synthesis/metamaterial_fluid_prereg_candidates.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/lab_synthesis/metamaterial_fluid_prereg_candidates.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier86_cache/culinary_fermentation_maillard_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier86_cache/culinary_fermentation_maillard_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/biology_developmental_structural_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/biology_developmental_structural_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/condensed_matter_superconductivity_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/condensed_matter_superconductivity_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/materials_creep_fracture_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/materials_creep_fracture_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/neuroscience_connectomics_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/neuroscience_connectomics_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/optics_interferometry_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/optics_interferometry_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/psychology_psychometrics_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/psychology_psychometrics_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/quantum_computing_math_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/quantum_computing_math_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/quantum_mechanics_entanglement_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/vendor/scientific_expansion/tier87_cache/quantum_mechanics_entanglement_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-Legacy-Physics-Connections/concept_refinement/warp_actuation_formula_fsot21.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/C:/Users/damia/Desktop/FSOT-Legacy-Physics-Connections/concept_refinement/warp_actuation_formula_fsot21.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/CRYPTOGRAPHY_RULES.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/CRYPTOGRAPHY_RULES.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/FSOT_VERIFIED_SCOPE.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/FSOT_VERIFIED_SCOPE.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/G:/FSOT-PublicData/anomaly_observables/consciousness/tier90_microtubule_observer_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/G:/FSOT-PublicData/anomaly_observables/consciousness/tier90_microtubule_observer_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/G:/FSOT-PublicData/anomaly_observables/consciousness/tier90_species_panel_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/G:/FSOT-PublicData/anomaly_observables/consciousness/tier90_species_panel_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/G:/FSOT-PublicData/fringe_desktop/symbolic_encoding/fsot_mythology_graph.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/G:/FSOT-PublicData/fringe_desktop/symbolic_encoding/fsot_mythology_graph.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/G:/FSOT-PublicData/the_well/the_well_catalog_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/G:/FSOT-PublicData/the_well/the_well_catalog_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/G:/FSOT-PublicData/the_well/the_well_spot_checks_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/G:/FSOT-PublicData/the_well/the_well_spot_checks_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/arxiv_brain_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/arxiv_brain_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/arxiv_primitives_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/arxiv_primitives_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/binary_decoder_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/binary_decoder_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/blackhole_whitehole_cycle_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/blackhole_whitehole_cycle_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/canonical_oracle_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/canonical_oracle_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/certified_agent_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/certified_agent_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/early_lean_mc_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/early_lean_mc_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/fuel_lab_live_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/fuel_lab_live_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/machine_and_molecule_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/machine_and_molecule_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/omni_theory_humanities_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/omni_theory_humanities_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/rust_lean_bridge_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/rust_lean_bridge_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/scalar_solver_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/scalar_solver_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/star_trek_transporter_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/star_trek_transporter_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/trinary_hardware_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/trinary_hardware_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/validators_intrinsic_llm_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/application_wiring/tier88_cache/validators_intrinsic_llm_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/live_cache/tier68/materials_project_live_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/live_cache/tier68/materials_project_live_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/live_cache/tier68/openneuro_full_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/live_cache/tier68/openneuro_full_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/live_cache/tier68/pubchem_live_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/live_cache/tier68/pubchem_live_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/live_cache/tier68/vizier_wds_tap_live_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/live_cache/tier68/vizier_wds_tap_live_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/scientific_expansion/tier85_cache/mechanical_engineering_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/scientific_expansion/tier85_cache/mechanical_engineering_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/verified_desktop/legacy_physics/warp_actuation_formula_fsot21.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/02_FSOT-2.1-Lean-Full/vendor/verified_desktop/legacy_physics/warp_actuation_formula_fsot21.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/04_Genetics-Longevity/tier94_anage_longevity_catalog.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/04_Genetics-Longevity/tier94_anage_longevity_catalog.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/08_Verified-Desktop-Projects/star_trek_transporter/pattern_buffer_scan_results.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/I:/FSOT-Physical-Archive/08_Verified-Desktop-Projects/star_trek_transporter/pattern_buffer_scan_results.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/PROGRAMMING_LANGUAGE_RULES.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/PROGRAMMING_LANGUAGE_RULES.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/acoustic_resonance_materials_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/acoustic_resonance_materials_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/actuarial_science_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/actuarial_science_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/adjacent_rung_coupling_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/adjacent_rung_coupling_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/adversarial_fractal_break_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/adversarial_fractal_break_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/agriculture_agroecology_gap_fill_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/agriculture_agroecology_gap_fill_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/ai_galactic_orbital_bridge_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/ai_galactic_orbital_bridge_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/alternate_base_mathematics_explorer_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/alternate_base_mathematics_explorer_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/alternate_base_mathematics_spine_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/alternate_base_mathematics_spine_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/anthropology_extension_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/anthropology_extension_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/architecture_building_science_gap_fill_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/architecture_building_science_gap_fill_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/arxiv_brain_knowledge_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/arxiv_brain_knowledge_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/arxiv_gravitational_waves_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/arxiv_gravitational_waves_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/arxiv_primitives_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/arxiv_primitives_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/arxiv_primitives_v14_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/arxiv_primitives_v14_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/astrophysical_structure_crosswalk_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/astrophysical_structure_crosswalk_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/atmospheric_physics_gap_fill_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/atmospheric_physics_gap_fill_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/atomic_physics_gap_fill_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/atomic_physics_gap_fill_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/bibliography_corpus_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/bibliography_corpus_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/bibliography_lean_corpus_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/bibliography_lean_corpus_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/binary_decoder_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/binary_decoder_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/binary_decoder_rendlesham_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/binary_decoder_rendlesham_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/biological_cuda_physarum_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/biological_cuda_physarum_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/biology_developmental_structural_depth_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/biology_developmental_structural_depth_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/biophysics_public_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/biophysics_public_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/blackhole_whitehole_cycle_live_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/blackhole_whitehole_cycle_live_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/botany_extension_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/botany_extension_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/boundary_partition_tightening_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/boundary_partition_tightening_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/breakthrough_discoveries_2024_2026_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/breakthrough_discoveries_2024_2026_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/canonical_oracle_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/canonical_oracle_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cardiology_extension_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cardiology_extension_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cardiology_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cardiology_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cartography_gis_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cartography_gis_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cern_open_data_lhc_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cern_open_data_lhc_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/certificate.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/certificate.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/certified_agent_formal_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/certified_agent_formal_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/certified_agent_qwen_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/certified_agent_qwen_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/chaos_mediated_phase_transitions_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/chaos_mediated_phase_transitions_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/chemical_engineering_extension_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/chemical_engineering_extension_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cisa_kev_summary.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cisa_kev_summary.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/code_genome_structure_cybersecurity_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/code_genome_structure_cybersecurity_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cold_fusion_candidate_prereg_scaffold_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cold_fusion_candidate_prereg_scaffold_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cold_fusion_lab_synthesis_crosswalk_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cold_fusion_lab_synthesis_crosswalk_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/compactification_ladder_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/compactification_ladder_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/compactification_ladder_manifest.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/compactification_ladder_manifest.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/compare_full_20260526.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/compare_full_20260526.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/compare_optimax_wave_20260715.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/compare_optimax_wave_20260715.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/computational_reasoning_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/computational_reasoning_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/consciousness_reference_observables.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/consciousness_reference_observables.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/core_formula_fractal_branch_index.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/core_formula_fractal_branch_index.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cosmology_anomalies_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cosmology_anomalies_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cosmology_anomaly_deep_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cosmology_anomaly_deep_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cosmology_extended_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cosmology_extended_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cryptography_technology_cybersecurity_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/cryptography_technology_cybersecurity_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/culinary_arts_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/culinary_arts_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/dark_sector_open_problems_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/dark_sector_open_problems_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/data/*_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/data/*_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/data/cosmology_extended_benchmark.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/data/cosmology_extended_benchmark.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/data/living_fsot_hardware_verification_report.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/data/living_fsot_hardware_verification_report.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/domain_coupling_simulation_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/domain_coupling_simulation_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/domain_orbital_prediction_report.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/domain_orbital_prediction_report.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/electrical_power_systems_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/electrical_power_systems_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/existence_simulation_failure_clusters_manifest.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/existence_simulation_failure_clusters_manifest.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/extension_domains_manifest.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/extension_domains_manifest.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/external_data_manifest.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/external_data_manifest.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/external_oss_code_genome_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/external_oss_code_genome_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fluid_phase_current_spine_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fluid_phase_current_spine_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fluid_spacetime_observable_spine_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fluid_spacetime_observable_spine_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fold_depth_metrics_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fold_depth_metrics_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/food_microbiology_gap_fill_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/food_microbiology_gap_fill_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fpc_fluidlink_timing_deep_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fpc_fluidlink_timing_deep_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fpc_temporal_coupling_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fpc_temporal_coupling_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fractal_constant_recursion.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fractal_constant_recursion.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fsot_aggregate_unified_db_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fsot_aggregate_unified_db_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fsot_formula_spine.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fsot_formula_spine.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fsot_species_catalog.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fsot_species_catalog.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fsot_verification_progress.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fsot_verification_progress.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fuel_thermochemistry_public_anchors_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fuel_thermochemistry_public_anchors_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fusion_decay_chain_prereg_scaffold_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fusion_decay_chain_prereg_scaffold_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fusion_lab_certificate_spine_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fusion_lab_certificate_spine_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fusion_physics_public_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/fusion_physics_public_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/galactic_structure_sample.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/galactic_structure_sample.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/galactic_structure_sample_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/galactic_structure_sample_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/geomagnetism_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/geomagnetism_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/github_oss_adversarial_manifest.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/github_oss_adversarial_manifest.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/gwosc_live_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/gwosc_live_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/heavy_ion_lab_synthesis_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/heavy_ion_lab_synthesis_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/higgs_branching_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/higgs_branching_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/https://services.swpc.noaa.gov/json/goes/primary/xrays-6-hour.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/https://services.swpc.noaa.gov/json/goes/primary/xrays-6-hour.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/hubble_bubble_tension_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/hubble_bubble_tension_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/hubble_dark_sector_crosswalk_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/hubble_dark_sector_crosswalk_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/igem_live_fasta_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/igem_live_fasta_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/igem_synthetic_biology_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/igem_synthetic_biology_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/knowledge_base_formula_verification_summary.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/knowledge_base_formula_verification_summary.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/lab_synthesis_metamaterial_spine_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/lab_synthesis_metamaterial_spine_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/linguistics_formal_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/linguistics_formal_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/longevity_telomere_repair_anchors.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/longevity_telomere_repair_anchors.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/magnetosphere_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/magnetosphere_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/magnetosphere_extended_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/magnetosphere_extended_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/maillard_chemistry_gap_fill_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/maillard_chemistry_gap_fill_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/malware_threat_intelligence_cybersecurity_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/malware_threat_intelligence_cybersecurity_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/material_compatibility_comparison.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/material_compatibility_comparison.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/materials_engineering_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/materials_engineering_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/materials_species_bridge_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/materials_species_bridge_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/math_generator_airfoil_rmse_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/math_generator_airfoil_rmse_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/mechanistic_coupling_manifest.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/mechanistic_coupling_manifest.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/multi_hero_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/multi_hero_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/music_harmonics_public_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/music_harmonics_public_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/network_internet_protocols_cybersecurity_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/network_internet_protocols_cybersecurity_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/nist_codata_constants_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/nist_codata_constants_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/openneuro_summary.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/openneuro_summary.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/orbital_predictions_registry.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/orbital_predictions_registry.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/particle_physics_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/particle_physics_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/periodic_table_completion_spine_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/periodic_table_completion_spine_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/pharmacology_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/pharmacology_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/plasma_physics_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/plasma_physics_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/prediction_rederivation_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/prediction_rederivation_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/preregistered_predictions_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/preregistered_predictions_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/preregistered_predictions_manifest.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/preregistered_predictions_manifest.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/preregistered_predictions_verification_scaffold_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/preregistered_predictions_verification_scaffold_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/proof_ledger.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/proof_ledger.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/pubchem_compound_properties_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/pubchem_compound_properties_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/pubchem_summary.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/pubchem_summary.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/public_fuel_property_catalog.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/public_fuel_property_catalog.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/quantum_materials_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/quantum_materials_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/rcsb_pdb_summary.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/rcsb_pdb_summary.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/reality_folding_spine_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/reality_folding_spine_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/refined_grounded_hemp.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/refined_grounded_hemp.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/results/competitive/beat_cuda.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/results/competitive/beat_cuda.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/results/competitive/flash_attention_track.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/results/competitive/flash_attention_track.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/results/competitive/long_seq_and_norm.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/results/competitive/long_seq_and_norm.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/results/industry_lm/fsot21_verify.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/results/industry_lm/fsot21_verify.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/results/parity/parity_ledger.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/results/parity/parity_ledger.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/results/phase0/fsot_scalar_gpu.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/results/phase0/fsot_scalar_gpu.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/results/phase0/gpu_probe.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/results/phase0/gpu_probe.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/rust_lean_bridge_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/rust_lean_bridge_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/scientific_domain_expansion_map.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/scientific_domain_expansion_map.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/secure_software_engineering_cybersecurity_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/secure_software_engineering_cybersecurity_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/space_weather_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/space_weather_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/stellar_multiplicity_catalog_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/stellar_multiplicity_catalog_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/stumped_observables_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/stumped_observables_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/stumped_observables_reference.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/stumped_observables_reference.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/stumped_observables_spine_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/stumped_observables_spine_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/superheavy_element_stability_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/superheavy_element_stability_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/superheavy_island_completion_spine_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/superheavy_island_completion_spine_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/symbolic_archetype_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/symbolic_archetype_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/term3_acoustic_bleed_depth_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/term3_acoustic_bleed_depth_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/thermochemistry_public_anchors.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/thermochemistry_public_anchors.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier65_prereg_channels_manifest.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier65_prereg_channels_manifest.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier92_base_analysis_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier92_base_analysis_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier93_consciousness_genetics_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier93_consciousness_genetics_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier93_experimental_base_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier93_experimental_base_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier94_anage_longevity_catalog.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier94_anage_longevity_catalog.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier94_extreme_species_ncbi_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier94_extreme_species_ncbi_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier94_megadeep_extreme_ncbi_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier94_megadeep_extreme_ncbi_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier94_telomere_repair_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier94_telomere_repair_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier95_zebrahub_gpu_imaging_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier95_zebrahub_gpu_imaging_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier95_zebrahub_tracks_cache.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/tier95_zebrahub_tracks_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/time_domain_crosswalk_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/time_domain_crosswalk_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/time_emergence_manifest.yaml": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/time_emergence_manifest.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/time_emergence_simulation_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/time_emergence_simulation_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/toe_unification_spine_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/toe_unification_spine_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/undiscovered_element_candidate_prereg_scaffold_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/undiscovered_element_candidate_prereg_scaffold_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/unified_db_domain_index.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/unified_db_domain_index.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/uniprot_summary.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/uniprot_summary.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/arxiv_primitives/v14_run_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/arxiv_primitives/v14_run_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/bibliography_corpus/bibliography_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/bibliography_corpus/bibliography_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/binary_decoder/rendlesham_page14_trace.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/binary_decoder/rendlesham_page14_trace.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/certified_agent/certified_agent_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/certified_agent/certified_agent_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/certified_agent/fsot_workspace.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/certified_agent/fsot_workspace.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/cosmology/database/FSOT_Mathematical_Database_Unified.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/cosmology/database/FSOT_Mathematical_Database_Unified.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/cybersecurity/samples/secure_buffer.c": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/cybersecurity/samples/secure_buffer.c",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/evolution/biological_mt_operons.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/evolution/biological_mt_operons.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fringe_desktop/intelligence_compressor_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fringe_desktop/intelligence_compressor_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fringe_desktop/soul_simulator_manifest_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fringe_desktop/soul_simulator_manifest_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fringe_desktop/symbolic_encoding_graph_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fringe_desktop/symbolic_encoding_graph_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fringe_desktop/vibrafsot_progress_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fringe_desktop/vibrafsot_progress_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fsot_aggregate/FSOT_Mathematical_Database_Unified.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fsot_aggregate/FSOT_Mathematical_Database_Unified.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fsot_aggregate/FSOT_UNIFIED.db": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fsot_aggregate/FSOT_UNIFIED.db",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fsot_aggregate/prediction_rederivation_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fsot_aggregate/prediction_rederivation_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fuel/public_fuel_property_catalog.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/fuel/public_fuel_property_catalog.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/github_oss/adversarial/broken_memcpy_chain.c": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/github_oss/adversarial/broken_memcpy_chain.c",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/github_oss/adversarial/double_free_pattern.c": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/github_oss/adversarial/double_free_pattern.c",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/github_oss/adversarial/prototype_pollution.js": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/github_oss/adversarial/prototype_pollution.js",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/github_oss/adversarial/race_unsafe.go": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/github_oss/adversarial/race_unsafe.go",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/github_oss/adversarial/xss_eval_sink.js": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/github_oss/adversarial/xss_eval_sink.js",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/igem/fastas": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/igem/fastas",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/igem/igem_parts_registry.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/igem/igem_parts_registry.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/intrinsic_llm/benchmark_results_final.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/intrinsic_llm/benchmark_results_final.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/knowledge_base/kb_portable_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/knowledge_base/kb_portable_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/linguistics/data/LINGUISTIC_TARGETS.csv": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/linguistics/data/LINGUISTIC_TARGETS.csv",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/linguistics/linguistics_derivations.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/linguistics/linguistics_derivations.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/materials_live/materials_project_bundled.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/materials_live/materials_project_bundled.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/math_generator/benchmark_reports": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/math_generator/benchmark_reports",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/math_generator/benchmark_reports/airfoil_three_seed_report.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/math_generator/benchmark_reports/airfoil_three_seed_report.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/math_generator/benchmark_reports/hubble_report.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/math_generator/benchmark_reports/hubble_report.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/math_generator/datasets/airfoil_self_noise.csv": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/math_generator/datasets/airfoil_self_noise.csv",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/math_generator/generated_formula_comparison_report.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/math_generator/generated_formula_comparison_report.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/math_generator/rules": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/math_generator/rules",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/neuron_cohort/cells.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/neuron_cohort/cells.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/neuron_cohort/inconsistency_rerun_report.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/neuron_cohort/inconsistency_rerun_report.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/omni_theory/analysis/genesis/genesis_per_verse_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/omni_theory/analysis/genesis/genesis_per_verse_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/physarum/genome_data/cuda_benchmark_results.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/physarum/genome_data/cuda_benchmark_results.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/physarum/genome_data/genomics_slime_mold_refined.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/physarum/genome_data/genomics_slime_mold_refined.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/physarum/genome_data/physarum_codon_weights.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/physarum/genome_data/physarum_codon_weights.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/physarum/physarum_v5_states.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/physarum/physarum_v5_states.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/consciousness/openneuro_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/consciousness/openneuro_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/nasa_exoplanet/nasa_exoplanet_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/nasa_exoplanet/nasa_exoplanet_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/oph_challenge_public_anchors.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/oph_challenge_public_anchors.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/pubchem/pubchem_auto_expansion.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/pubchem/pubchem_auto_expansion.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/pubchem/pubchem_auto_seed_manifest.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/pubchem/pubchem_auto_seed_manifest.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/pubchem/pubchem_culinary_expansion.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/pubchem/pubchem_culinary_expansion.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/pubchem/pubchem_preregistered_panel.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/pubchem/pubchem_preregistered_panel.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/pubchem/pubchem_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/public_data/pubchem/pubchem_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/rust_lean_bridge/rust_lean_bridge_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/rust_lean_bridge/rust_lean_bridge_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/smiles/FSOT_SMILES_Lab_Dataset.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/smiles/FSOT_SMILES_Lab_Dataset.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/species/fsot_species_catalog.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/species/fsot_species_catalog.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/stellar_structures/galactic_structure_sample.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/stellar_structures/galactic_structure_sample.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/stellar_structures/gwosc_public_events.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/stellar_structures/gwosc_public_events.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/stellar_structures/public_multiplicity_catalog.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/stellar_structures/public_multiplicity_catalog.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/tokenization/smoke_cases.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/tokenization/smoke_cases.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/tokenization/vocab.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/tokenization/vocab.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/trinary_hardware/motif_influence_profile_stable.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/trinary_hardware/motif_influence_profile_stable.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/trinary_os/fixtures": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/trinary_os/fixtures",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/trinary_os/isa/fsotb_opcode_registry.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/trinary_os/isa/fsotb_opcode_registry.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/trinary_os/round_trip": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/trinary_os/round_trip",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/trinary_os/target": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/trinary_os/target",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/trinary_os/target/": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/trinary_os/target/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/vl_distill/distill_dataset.meta.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/vl_distill/distill_dataset.meta.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/vl_distill/fsot_atlas_summary.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/vl_distill/fsot_atlas_summary.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/vl_distill/fsot_competitive_report.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/vl_distill/fsot_competitive_report.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/vl_distill/fsot_domain_registry.json": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/vendor/vl_distill/fsot_domain_registry.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/wds_live_multiplicity_deep_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/wds_live_multiplicity_deep_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/wds_multiplicity_expanded.json": {
+  "http": 404,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Lean/tree/main/wds_multiplicity_expanded.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-2.1-Neural": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-2.1-Neural",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-GPU": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-GPU",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-Genetics": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-Genetics",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-Materials": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-Materials",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-Quantum": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-Quantum",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/FSOT-Reality-OS": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/FSOT-Reality-OS",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/fsot-millennium-measured": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/fsot-millennium-measured",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/fsot-millennium-measured.git": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/fsot-millennium-measured.git",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/dappalumbo91/fsot-neuron-zig": {
+  "http": 200,
+  "id": "https://github.com/dappalumbo91/fsot-neuron-zig",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/data/acoustic_resonance_materials_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/acoustic_resonance_materials_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/adjacent_rung_coupling_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/adjacent_rung_coupling_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/adversarial_fractal_break_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/adversarial_fractal_break_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/agriculture_agroecology_gap_fill_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/agriculture_agroecology_gap_fill_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/ai_galactic_orbital_bridge_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/ai_galactic_orbital_bridge_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/alternate_base_mathematics_explorer_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/alternate_base_mathematics_explorer_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/alternate_base_mathematics_spine_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/alternate_base_mathematics_spine_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/anthropology_extension_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/anthropology_extension_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/architecture_building_science_gap_fill_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/architecture_building_science_gap_fill_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/arxiv_brain_knowledge_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/arxiv_brain_knowledge_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/arxiv_primitives_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/arxiv_primitives_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/arxiv_primitives_v14_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/arxiv_primitives_v14_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/astrophysical_structure_crosswalk_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/astrophysical_structure_crosswalk_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/atomic_physics_gap_fill_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/atomic_physics_gap_fill_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/bibliography_lean_corpus_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/bibliography_lean_corpus_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/binary_decoder_rendlesham_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/binary_decoder_rendlesham_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/biological_cuda_physarum_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/biological_cuda_physarum_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/biology_developmental_structural_depth_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/biology_developmental_structural_depth_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/biology_strict_empirical.json": {
+  "http": 404,
+  "id": "https://github.com/data/biology_strict_empirical.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/boundary_partition_tightening_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/boundary_partition_tightening_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/breakthrough_discoveries_2024_2026_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/breakthrough_discoveries_2024_2026_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/canonical_constants.json": {
+  "http": 404,
+  "id": "https://github.com/data/canonical_constants.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/chaos_mediated_phase_transitions_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/chaos_mediated_phase_transitions_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/climate_observed_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/climate_observed_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/consciousness_econ_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/consciousness_econ_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/consciousness_reference_observables.json": {
+  "http": 404,
+  "id": "https://github.com/data/consciousness_reference_observables.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/consciousness_resonance_reference.json": {
+  "http": 404,
+  "id": "https://github.com/data/consciousness_resonance_reference.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/consciousness_soul_bridge_reference.json": {
+  "http": 404,
+  "id": "https://github.com/data/consciousness_soul_bridge_reference.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/cosmology_extended_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/cosmology_extended_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/culinary_recipe_observables.json": {
+  "http": 404,
+  "id": "https://github.com/data/culinary_recipe_observables.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/dark_energy_cpl_reference.json": {
+  "http": 404,
+  "id": "https://github.com/data/dark_energy_cpl_reference.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/external_oss_code_genome_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/external_oss_code_genome_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/founding_unmapped_laws_reference.json": {
+  "http": 404,
+  "id": "https://github.com/data/founding_unmapped_laws_reference.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/higgs_mass_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/higgs_mass_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/higgs_mass_reference_observables.json": {
+  "http": 404,
+  "id": "https://github.com/data/higgs_mass_reference_observables.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/immunology_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/immunology_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/materials_species_bridge_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/materials_species_bridge_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/observer_channel_derivation_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/observer_channel_derivation_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/particle_physics_gap_fill_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/particle_physics_gap_fill_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/planetary_jpl_cache.json": {
+  "http": 404,
+  "id": "https://github.com/data/planetary_jpl_cache.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/planetary_structure_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/planetary_structure_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/programming_language_laws_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/programming_language_laws_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/quantum_computing_math_depth_panel_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/quantum_computing_math_depth_panel_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/sh0es_host_coordinates.json": {
+  "http": 404,
+  "id": "https://github.com/data/sh0es_host_coordinates.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/stumped_observables_reference.json": {
+  "http": 404,
+  "id": "https://github.com/data/stumped_observables_reference.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/symbolic_archetype_reference.json": {
+  "http": 404,
+  "id": "https://github.com/data/symbolic_archetype_reference.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/synthetic_biology_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/synthetic_biology_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/trinary_os_isa_rebuild_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/trinary_os_isa_rebuild_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/trinary_os_manifest.yaml": {
+  "http": 404,
+  "id": "https://github.com/data/trinary_os_manifest.yaml",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/trinary_os_portable_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/trinary_os_portable_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/data/trinary_os_round_trip_benchmark.json": {
+  "http": 404,
+  "id": "https://github.com/data/trinary_os_round_trip_benchmark.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/docs/CONSCIOUSNESS_OBSERVER_ARCHITECTURE.md": {
+  "http": 404,
+  "id": "https://github.com/docs/CONSCIOUSNESS_OBSERVER_ARCHITECTURE.md",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/docs/ENGINEERING_HARDWARE_CODE_DIRECTION.md": {
+  "http": 404,
+  "id": "https://github.com/docs/ENGINEERING_HARDWARE_CODE_DIRECTION.md",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/docs/NEURON_ZIG_TO_OS_ROADMAP.md": {
+  "http": 404,
+  "id": "https://github.com/docs/NEURON_ZIG_TO_OS_ROADMAP.md",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/docs/OPH_FSOT_CHALLENGE_RESPONSE.md": {
+  "http": 404,
+  "id": "https://github.com/docs/OPH_FSOT_CHALLENGE_RESPONSE.md",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/docs/T3_T4_GR_SM_DEEPENING.md": {
+  "http": 404,
+  "id": "https://github.com/docs/T3_T4_GR_SM_DEEPENING.md",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/docs/TOE_CLAIM_BOUNDARIES.md": {
+  "http": 404,
+  "id": "https://github.com/docs/TOE_CLAIM_BOUNDARIES.md",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/expressjs/express": {
+  "http": 200,
+  "id": "https://github.com/expressjs/express",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/facebook/react": {
+  "http": 200,
+  "id": "https://github.com/facebook/react",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/golang/go": {
+  "http": 200,
+  "id": "https://github.com/golang/go",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/haskell/bytestring": {
+  "http": 200,
+  "id": "https://github.com/haskell/bytestring",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/kubernetes/client-go": {
+  "http": 200,
+  "id": "https://github.com/kubernetes/client-go",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/leanprover/elan": {
+  "http": 200,
+  "id": "https://github.com/leanprover/elan",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/leanprover/lean4": {
+  "http": 200,
+  "id": "https://github.com/leanprover/lean4",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/nodejs/node": {
+  "http": 200,
+  "id": "https://github.com/nodejs/node",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/openjdk/jdk": {
+  "http": 200,
+  "id": "https://github.com/openjdk/jdk",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/openssl/openssl": {
+  "http": 200,
+  "id": "https://github.com/openssl/openssl",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/parity/golden.json": {
+  "http": 404,
+  "id": "https://github.com/parity/golden.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/predictions/sector_h0_seed.json": {
+  "http": 404,
+  "id": "https://github.com/predictions/sector_h0_seed.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/psutil/host": {
+  "http": 404,
+  "id": "https://github.com/psutil/host",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/python/cpython": {
+  "http": 200,
+  "id": "https://github.com/python/cpython",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/pytorch/pytorch": {
+  "http": 200,
+  "id": "https://github.com/pytorch/pytorch",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/redis/redis": {
+  "http": 200,
+  "id": "https://github.com/redis/redis",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/rust-lang/rust": {
+  "http": 200,
+  "id": "https://github.com/rust-lang/rust",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/scripts/build_cosmology_bubble_bleed_benchmark.py": {
+  "http": 404,
+  "id": "https://github.com/scripts/build_cosmology_bubble_bleed_benchmark.py",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/scripts/consciousness_econ_lib.py": {
+  "http": 404,
+  "id": "https://github.com/scripts/consciousness_econ_lib.py",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/scripts/consciousness_soul_bridge_lib.py": {
+  "http": 404,
+  "id": "https://github.com/scripts/consciousness_soul_bridge_lib.py",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/scripts/dark_energy_dual_readout_lib.py": {
+  "http": 404,
+  "id": "https://github.com/scripts/dark_energy_dual_readout_lib.py",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/scripts/higgs_mass_formula_eval.py": {
+  "http": 404,
+  "id": "https://github.com/scripts/higgs_mass_formula_eval.py",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/scripts/math_generator_benchmark_formula_eval.py": {
+  "http": 404,
+  "id": "https://github.com/scripts/math_generator_benchmark_formula_eval.py",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/scripts/symbolic_archetype_lib.py": {
+  "http": 404,
+  "id": "https://github.com/scripts/symbolic_archetype_lib.py",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/simonmar/async": {
+  "http": 200,
+  "id": "https://github.com/simonmar/async",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/sqlite/sqlite": {
+  "http": 200,
+  "id": "https://github.com/sqlite/sqlite",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/torvalds/linux": {
+  "http": 200,
+  "id": "https://github.com/torvalds/linux",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://github.com/vendor/bibliography_corpus": {
+  "http": 404,
+  "id": "https://github.com/vendor/bibliography_corpus",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/vendor/certified_agent": {
+  "http": 404,
+  "id": "https://github.com/vendor/certified_agent",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/vendor/cybersecurity": {
+  "http": 404,
+  "id": "https://github.com/vendor/cybersecurity",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/vendor/formula_corpus_cnc": {
+  "http": 404,
+  "id": "https://github.com/vendor/formula_corpus_cnc",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/vendor/fsot_compute.py": {
+  "http": 404,
+  "id": "https://github.com/vendor/fsot_compute.py",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/vendor/physarum": {
+  "http": 404,
+  "id": "https://github.com/vendor/physarum",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/vendor/propulsion_electrical": {
+  "http": 404,
+  "id": "https://github.com/vendor/propulsion_electrical",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/vendor/public_data": {
+  "http": 404,
+  "id": "https://github.com/vendor/public_data",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/vendor/reference_anchors": {
+  "http": 404,
+  "id": "https://github.com/vendor/reference_anchors",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/vendor/rust_lean_bridge": {
+  "http": 404,
+  "id": "https://github.com/vendor/rust_lean_bridge",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/vendor/thesis": {
+  "http": 404,
+  "id": "https://github.com/vendor/thesis",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/vendor/tokenization": {
+  "http": 404,
+  "id": "https://github.com/vendor/tokenization",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/vendor/trinary_os": {
+  "http": 404,
+  "id": "https://github.com/vendor/trinary_os",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/vendor/vl_distill": {
+  "http": 404,
+  "id": "https://github.com/vendor/vl_distill",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://github.com/ziglang/zig": {
+  "http": 200,
+  "id": "https://github.com/ziglang/zig",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://huggingface.co/collections/polymathic-ai/the-well": {
+  "http": 200,
+  "id": "https://huggingface.co/collections/polymathic-ai/the-well",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://kauai.ccmc.gsfc.nasa.gov/DONKI/WS/get/FLR?startDate=2024-06-01&endDate=2024-06-14": {
+  "http": 200,
+  "id": "https://kauai.ccmc.gsfc.nasa.gov/DONKI/WS/get/FLR?startDate=2024-06-01&endDate=2024-06-14",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://mast.stsci.edu/api/v0/invoke": {
+  "http": 500,
+  "id": "https://mast.stsci.edu/api/v0/invoke",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://minorplanetcenter.net/": {
+  "http": 200,
+  "id": "https://minorplanetcenter.net/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://minorplanetcenter.net/data": {
+  "http": 403,
+  "id": "https://minorplanetcenter.net/data",
+  "kind": "url",
+  "status": "BLOCKED_OR_AUTH"
+ },
+ "url:https://neuromorpho.org/": {
+  "http": 200,
+  "id": "https://neuromorpho.org/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://open-meteo.com/": {
+  "http": 200,
+  "id": "https://open-meteo.com/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://opendata.cern.ch/": {
+  "http": 200,
+  "id": "https://opendata.cern.ch/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://opendata.cern.ch/api/records/": {
+  "http": 200,
+  "id": "https://opendata.cern.ch/api/records/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://opendata.cern.ch/api/records/?q=collision&size=3": {
+  "http": 200,
+  "id": "https://opendata.cern.ch/api/records/?q=collision&size=3",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://openneuro.org/": {
+  "http": 200,
+  "id": "https://openneuro.org/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://openneuro.org/crn/graphql": {
+  "http": 400,
+  "id": "https://openneuro.org/crn/graphql",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://paleobiodb.org/data1.2/occs/list.json": {
+  "http": 400,
+  "id": "https://paleobiodb.org/data1.2/occs/list.json",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://parts.igem.org/fasta/parts/{part_id": {
+  "http": 403,
+  "id": "https://parts.igem.org/fasta/parts/{part_id",
+  "kind": "url",
+  "status": "BLOCKED_OR_AUTH"
+ },
+ "url:https://pdg.lbl.gov/": {
+  "http": 200,
+  "id": "https://pdg.lbl.gov/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://physics.nist.gov/cuu/Constants/": {
+  "http": 200,
+  "id": "https://physics.nist.gov/cuu/Constants/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://physics.nist.gov/cuu/Constants/Table/allascii.txt": {
+  "http": 200,
+  "id": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://portal.brain-map.org/": {
+  "http": 200,
+  "id": "https://portal.brain-map.org/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://pubchem.ncbi.nlm.nih.gov/docs/pug-rest": {
+  "http": 200,
+  "id": "https://pubchem.ncbi.nlm.nih.gov/docs/pug-rest",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2244/property/MolecularWeight": {
+  "http": 400,
+  "id": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2244/property/MolecularWeight",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/{cid": {
+  "http": 400,
+  "id": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/{cid",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/main": {
+  "http": 404,
+  "id": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/main",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-codebook.csv": {
+  "http": 200,
+  "id": "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-codebook.csv",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://rest.ensembl.org/": {
+  "http": 200,
+  "id": "https://rest.ensembl.org/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://rest.ensembl.org/lookup/id/ENSG00000139618?content-type=application/json": {
+  "http": 200,
+  "id": "https://rest.ensembl.org/lookup/id/ENSG00000139618?content-type=application/json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://rest.uniprot.org/uniprotkb/{accession": {
+  "http": 400,
+  "id": "https://rest.uniprot.org/uniprotkb/{accession",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://services.swpc.noaa.gov/json/goes/primary/xrays-6-hour.json": {
+  "http": 200,
+  "id": "https://services.swpc.noaa.gov/json/goes/primary/xrays-6-hour.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://ssd.jpl.nasa.gov/": {
+  "http": 200,
+  "id": "https://ssd.jpl.nasa.gov/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://ssd.jpl.nasa.gov/api/horizons.api": {
+  "http": 200,
+  "id": "https://ssd.jpl.nasa.gov/api/horizons.api",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://ssd.jpl.nasa.gov/horizons/": {
+  "http": 200,
+  "id": "https://ssd.jpl.nasa.gov/horizons/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://string-db.org/api/json/version": {
+  "http": 200,
+  "id": "https://string-db.org/api/json/version",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://ui.adsabs.harvard.edu/": {
+  "http": 202,
+  "id": "https://ui.adsabs.harvard.edu/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.brainspan.org/": {
+  "http": 200,
+  "id": "https://www.brainspan.org/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.brenda-enzymes.org/": {
+  "http": 200,
+  "id": "https://www.brenda-enzymes.org/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json": {
+  "http": 200,
+  "id": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.claymath.org/millennium-problems/": {
+  "http": 200,
+  "id": "https://www.claymath.org/millennium-problems/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.claymath.org/millennium-problems/rules/": {
+  "http": 200,
+  "id": "https://www.claymath.org/millennium-problems/rules/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.claymath.org/wp-content/uploads/2022/03/millennium_prize_rules_0.pdf": {
+  "http": 200,
+  "id": "https://www.claymath.org/wp-content/uploads/2022/03/millennium_prize_rules_0.pdf",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.cosmos.esa.int/web/planck": {
+  "http": 200,
+  "id": "https://www.cosmos.esa.int/web/planck",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.ebi.ac.uk/chembl/": {
+  "http": 200,
+  "id": "https://www.ebi.ac.uk/chembl/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL25.json": {
+  "http": 200,
+  "id": "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL25.json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.ebi.ac.uk/gwas/rest/api/studies?size=5": {
+  "http": 204,
+  "id": "https://www.ebi.ac.uk/gwas/rest/api/studies?size=5",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.gfz.de/en/sections/geomagnetism/data-products-and-services/indices/kp-index": {
+  "http": 404,
+  "id": "https://www.gfz.de/en/sections/geomagnetism/data-products-and-services/indices/kp-index",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://www.gw-openscience.org/eventapi/json/": {
+  "http": 200,
+  "id": "https://www.gw-openscience.org/eventapi/json/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.humanconnectome.org/": {
+  "http": 200,
+  "id": "https://www.humanconnectome.org/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.ncbi.nlm.nih.gov/books/NBK25501/": {
+  "http": 200,
+  "id": "https://www.ncbi.nlm.nih.gov/books/NBK25501/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.ncei.noaa.gov/": {
+  "http": 200,
+  "id": "https://www.ncei.noaa.gov/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.ncei.noaa.gov/cdo-web/api/v2/data": {
+  "http": 400,
+  "id": "https://www.ncei.noaa.gov/cdo-web/api/v2/data",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://www.ngdc.noaa.gov/stp/space-weather/geomagnetic-data/INDICES/DST/": {
+  "http": 200,
+  "id": "https://www.ngdc.noaa.gov/stp/space-weather/geomagnetic-data/INDICES/DST/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.nist.gov/pml/journal-physical-and-chemical-reference-data": {
+  "http": 404,
+  "id": "https://www.nist.gov/pml/journal-physical-and-chemical-reference-data",
+  "kind": "url",
+  "status": "HTTP_ERROR"
+ },
+ "url:https://www.noaa.gov/": {
+  "http": 403,
+  "id": "https://www.noaa.gov/",
+  "kind": "url",
+  "status": "BLOCKED_OR_AUTH"
+ },
+ "url:https://www.osti.gov/api/v1/records": {
+  "http": 200,
+  "id": "https://www.osti.gov/api/v1/records",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.routledge.com/": {
+  "http": 200,
+  "id": "https://www.routledge.com/",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.ssa.gov/oact/STATS/table4c6.html": {
+  "http": 403,
+  "id": "https://www.ssa.gov/oact/STATS/table4c6.html",
+  "kind": "url",
+  "status": "BLOCKED_OR_AUTH"
+ },
+ "url:https://www.uniprot.org/help/api": {
+  "http": 200,
+  "id": "https://www.uniprot.org/help/api",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://www.war.gov/UFO/": {
+  "http": 403,
+  "id": "https://www.war.gov/UFO/",
+  "kind": "url",
+  "status": "BLOCKED_OR_AUTH"
+ },
+ "url:https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q167&format=json": {
+  "http": 200,
+  "id": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q167&format=json",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://x.com/dr_logvinovich/status/2084655064602358240": {
+  "http": 200,
+  "id": "https://x.com/dr_logvinovich/status/2084655064602358240",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://x.com/muellerberndt/status/2079877767416709231": {
+  "http": 200,
+  "id": "https://x.com/muellerberndt/status/2079877767416709231",
+  "kind": "url",
+  "status": "OK"
+ },
+ "url:https://zenodo.org/api/records/?q=subject:physics&size=3&sort=mostrecent": {
+  "http": 200,
+  "id": "https://zenodo.org/api/records/?q=subject:physics&size=3&sort=mostrecent",
+  "kind": "url",
+  "status": "OK"
+ }
+}

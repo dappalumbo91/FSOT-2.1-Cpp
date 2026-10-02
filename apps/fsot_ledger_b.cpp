@@ -1,7 +1,7 @@
 // fsot_ledger_b: C++ re-run of the FSOT-2.1-Lean benchmark margin audit + Ledger B re-score.
 // Output format is identical to tools/dump_ledger_b_golden.py (every line after the header).
 //   fsot_ledger_b --hub /path/to/FSOT-2.1-Lean [--out out.tsv] [--golden golden/ledger_b_XXXXXXXX.tsv]
-//                 [--corrected-out corrected.tsv]
+//                 [--corrected-out corrected.tsv] [--tier-evidence golden/tier_evidence_X.json --tiers-out tiers.tsv]
 // --corrected-out writes the corrected-mode report (docs/AUDIT_LOG.md "Fixed in C++"): gate errors recomputed
 // from computed/measured (old vs new counts), Ledger B structural corrections vs genuine predictions,
 // round(c,6) vs significant-digit emitter reproducibility, and NaN/Infinity tokens read per file.
@@ -12,10 +12,13 @@
 #include <filesystem>
 #include <fstream>
 #include <map>
+#include <set>
 #include <sstream>
 
 #include "fsot/engine.hpp"
+#include "fsot/host/ledger_a.hpp"
 #include "fsot/host/ledger_b.hpp"
+#include "fsot/host/tiers.hpp"
 
 namespace fs = std::filesystem;
 using namespace fsot;
@@ -50,13 +53,15 @@ static std::optional<json> load(const fs::path& p, fsot::py::NonFiniteLog* log =
 }
 
 int main(int argc, char** argv) {
-  std::string hub, out, golden, corrected_out;
+  std::string hub, out, golden, corrected_out, tier_evidence, tiers_out;
   for (int i = 1; i + 1 < argc; i += 2) {
     std::string a = argv[i];
     if (a == "--hub") hub = argv[i + 1];
     else if (a == "--out") out = argv[i + 1];
     else if (a == "--golden") golden = argv[i + 1];
     else if (a == "--corrected-out") corrected_out = argv[i + 1];
+    else if (a == "--tier-evidence") tier_evidence = argv[i + 1];
+    else if (a == "--tiers-out") tiers_out = argv[i + 1];
   }
   if (hub.empty()) { std::fprintf(stderr, "usage: fsot_ledger_b --hub DIR [--out F] [--golden F]\n"); return 2; }
   const auto t0 = std::chrono::steady_clock::now();
@@ -82,6 +87,13 @@ int main(int argc, char** argv) {
   long active = 0, green = 0;
   fsot::ledger_b::LedgerBStats tot;
   auto add = [&](const std::string& f, const std::string& k, const std::string& v) { lines.push_back(f + "\t" + k + "\t" + v); };
+  fsot::tiers::Report TR;
+  const bool do_tiers = !tier_evidence.empty() && !tiers_out.empty();
+  if (do_tiers) {
+    auto ev = load(tier_evidence);
+    if (!ev) { std::fprintf(stderr, "cannot read %s\n", tier_evidence.c_str()); return 2; }
+    TR.load(*ev, eng, AUTHORITY_PIN_PREFIX);
+  }
   std::vector<std::string> corr{"#file\tkey\tvalue  (corrected mode; pin " + std::string(AUTHORITY_PIN_PREFIX) + ")"};
   auto cadd = [&](const std::string& f, const std::string& k, const std::string& v) { corr.push_back(f + "\t" + k + "\t" + v); };
   struct { long files_nonfinite = 0, nan = 0, inf = 0, scalars = 0, stored_over = 0, gate_over = 0, disagree = 0, stored_only = 0,
@@ -149,6 +161,13 @@ int main(int argc, char** argv) {
       }
       cadd(name, "green_parity_vs_corrected", fmt(m.green) + " -> " + fmt(mc.green));
     }
+    if (do_tiers && !m.excluded)
+      for (const auto& r : fsot::ledger_b::material_records(*doc)) {
+        if (fsot::ledger_b::classify_record(r, name) != "scalar") continue;
+        auto ep = fsot::ledger_b::get(r, "error_pct");
+        if (fsot::ledger_b::is_none(ep) || !fsot::py::to_float(*ep)) continue;
+        TR.record(r, name, S);
+      }
     auto st = fsot::ledger_b::rescore(*doc, S, alpha);
     C.emit_dp += st.emit_dp_irreproducible; C.emit_sig += st.emit_sig_irreproducible;
     if (st.lb || st.unrouted) {
@@ -185,6 +204,50 @@ int main(int argc, char** argv) {
     cadd("#summary", "lb_emit_irreproducible_round6_vs_sig12", fmt(C.emit_dp) + " -> " + fmt(C.emit_sig) + " of " + fmt(tot.lb));
     std::ofstream o(corrected_out, std::ios::binary);
     for (auto& l : corr) o << l << "\n";
+  }
+  if (do_tiers) {
+    using fsot::tiers::Tier;
+    std::vector<std::string> T{"#section\tkey\tvalue  (evidence tiers; definitions in docs/EVIDENCE_TIERS.md; pin " + std::string(AUTHORITY_PIN_PREFIX) + ")"};
+    auto tadd = [&](const std::string& a, const std::string& b, const std::string& c) { T.push_back(a + "\t" + b + "\t" + c); };
+    for (auto* z : {&TR.domain_freeze, &TR.ledger_a_freeze, &TR.toe_freeze, &TR.prereg_manifest})
+      tadd("freeze", z->id, std::string(z->usable ? "USABLE " : "NOT-USABLE ") + z->reason);
+    const char* names[4] = {"TIER1_EXPLORATORY", "TIER2_FROZEN_PENDING", "TIER3_CONFIRMED_HELD_OUT", "STRUCTURAL_IDENTITY"};
+    for (int i = 0; i < 4; ++i) tadd("records", names[i], fmt(TR.records.t[i]));
+    for (auto& [why, n] : TR.records.reasons) tadd("records_reason", why, fmt(n));
+    // domains: union of core and attributed
+    std::set<std::string> doms(TR.core.begin(), TR.core.end());
+    for (auto& [d, c] : TR.by_domain) doms.insert(d);
+    long dt[4] = {0, 0, 0, 0};
+    for (auto& d : doms) {
+      std::string why;
+      Tier t = TR.domain_tier(d, why);
+      ++dt[int(t)];
+      auto it = TR.by_domain.find(d);
+      std::string cnt = "records T1=0 T2=0 T3=0 STRUCT=0";
+      if (it != TR.by_domain.end())
+        cnt = "records T1=" + fmt(it->second.t[0]) + " T2=" + fmt(it->second.t[1]) + " T3=" + fmt(it->second.t[2]) + " STRUCT=" + fmt(it->second.t[3]);
+      tadd("domain", d, std::string(names[int(t)]) + " | " + cnt + " | " + why);
+    }
+    for (int i = 0; i < 3; ++i) tadd("domains", names[i], fmt(dt[i]));
+    // Ledger A and closed-form rows
+    long la[4] = {0, 0, 0, 0}, cf[4] = {0, 0, 0, 0};
+    for (const auto& sp : fsot::ledger_a::LEDGER_A) {
+      ++la[0];
+      tadd("ledger_a", sp.id, std::string(names[0]) + " | " + TR.ledger_a_freeze.reason);
+    }
+    for (int i = 0; i < 4; ++i) tadd("ledger_a_rows", names[i], fmt(la[i]));
+    for (auto& [sec, fn] : eng.sections())
+      for (auto& r : (eng.*fn)()) {
+        if (!r.measured || *r.measured == RS(0)) continue;
+        if (r.computed == *r.measured) { ++cf[3]; tadd("closed_form", r.name, std::string(names[3]) + " | target equals computed"); }
+        else ++cf[0];
+      }
+    for (int i = 0; i < 4; ++i) tadd("closed_form_rows_with_target", names[i], fmt(cf[i]));
+    tadd("closed_form_rows_with_target", "reason", "TIER1: no hashed freeze covers the closed-form section expressions (Ledger A rows: " + TR.ledger_a_freeze.reason + ")");
+    std::ofstream o(tiers_out, std::ios::binary);
+    for (auto& l : T) o << l << "\n";
+    std::printf("tiers: records T1=%ld T2=%ld T3=%ld STRUCT=%ld; domains T1=%ld T2=%ld T3=%ld\n", TR.records.t[0], TR.records.t[1], TR.records.t[2],
+                TR.records.t[3], dt[0], dt[1], dt[2]);
   }
   if (golden.empty()) return 0;
   std::ifstream g(golden);

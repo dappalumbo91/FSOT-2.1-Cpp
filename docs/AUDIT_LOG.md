@@ -128,7 +128,27 @@ the Python, 13,841/13,841 lines).
 - `GAMMA` and `G_CAT` (lines 44-45) are typed as 50-digit decimals. Both equal mpmath's `euler` and
   `catalan` to all 50 digits. No discrepancy.
 
-## C. Citations (sample; full pass is planned)
+## C. Citations (full pass: `tools/check_citations.py`, results in `audit/citations.tsv` and `audit/citations_summary.json`)
+
+**Scope.** At hub 6f9c2560:
+- Text docs: `docs/`, `papers/`, `predictions/`, `results/*.md` and the root `*.md`.
+- Every `data/*.json`, scanned line by line.
+- Distinct identifiers were resolved on 2026-10-01 (ET):
+  - DOIs via the doi.org handle API, then Crossref or DataCite for metadata.
+  - arXiv ids via the export API.
+  - URLs by HTTP status from the box.
+- Rerun with the same command. The cache in `audit/.citation_cache.json` makes reruns cheap.
+
+| Identifier | Occurrences | Distinct | Resolve | Fail |
+|---|---|---|---|---|
+| DOI | 557 | 117 | 115 | 2 |
+| arXiv | 543 | 14 | 14 | 0 |
+| URL (docs + citation-like JSON fields) | 2,467 | 534 | 203 OK, 9 blocked/auth | 322 with HTTP ≥ 400 |
+
+Many DOIs in `data/` are scored panel items, not citations (e.g. `crossref_scholarly_panel_benchmark.json`
+`name` fields). So the context check (resolved title vs surrounding text) is only meaningful for the
+physics references. A manual pass over those (e.g. arXiv 1111.2048, 1710.11129, 2503.14452, 2505.21476,
+2007.06422, 2410.05380) found the resolved titles consistent with what they are cited for.
 
 ### C-01 · A DOI that does not resolve, although the paper exists
 - **Observed.** `docs/OBJECT_SCORING.md:43` (hub @ 9700f9dd) cites `doi:10.1103/PhysRevD.112.083515` together
@@ -136,10 +156,68 @@ the Python, 13,841/13,841 lines).
   "DESI DR2 Results II", journal_ref *Phys. Rev. D 112, 083515 (2025)*, with registered DOI **10.1103/tr6y-kpc6**.
   APS issues opaque DOIs for 2025 articles. The citation is real, but the DOI string looks constructed
   from the journal reference.
-- **Scope.** All 9 unique DOIs in the hub's top two directory levels of Markdown were resolved: 8 resolve.
-  The 3 in `docs/THESIS_APPENDIX_XII.md` (lines 9219-9223, 11964) are metadata rows in a data table
-  (encyclopedia entries such as "Loot Crates"), not supporting citations. The rest of the hub (deeper
-  docs, JSON `reference` fields, paper drafts) is not yet checked. See the next milestone.
+- **Status.** Still present at 6f9c2560, confirmed by the full pass above.
+
+
+### C-02 · A second DOI that does not resolve
+- **Observed.** `data/toe_contested_sector_refresh.json:335` and `:592` give `"url": "https://doi.org/10.1152/physrev.00019.2014"` next to
+  `"reference": "Human brain metabolic power (physiology)"`. The doi.org handle API returns responseCode 100
+  (not found). The prefix 10.1152 belongs to the American Physiological Society (Physiological Reviews).
+  The intended article wasn't identified.
+
+### C-03 · Self-links into the hub that 404
+- **Observed.** 168 distinct `github.com/dappalumbo91/FSOT-2.1-Lean/...` links (372 occurrences) return HTTP 404 at main.
+  Most omit the `data/` folder, e.g. `.../tree/main/acoustic_resonance_materials_benchmark.json`; the file is
+  `data/acoustic_resonance_materials_benchmark.json`.
+- A further 55 distinct links embed local Windows paths, e.g.
+  `.../tree/main/C:/Users/damia/Desktop/FSOT-2.1-Lean/data/dark_energy_cpl_reference.json` and
+  `.../tree/main/G:/FSOT-PublicData/...`.
+- `.../releases/tag/fsot-monograph-v1` also returns 404.
+- The occurrence list is in `audit/citations.tsv` (`self_link`, `self_link_with_local_windows_path`).
+
+### C-04 · Most citation fields carry no resolvable identifier
+- **Observed.** JSON keys matching reference/citation/doi/literature hold 5,212 string values. 640 of them (12 %)
+  contain a DOI, arXiv id or URL. Of the 560 distinct values, 9 do.
+- The most frequent values are free text, e.g. `"MAST CAOM cone"` (485 occurrences), `"CRC Handbook"`, `"NIST / CRC"`,
+  `"Planck2018"`.
+- Of the remaining web references, 88 distinct URLs returned HTTP ≥ 400 and 5 were blocked or required auth.
+  API endpoints and URL templates are counted separately (43) and are not citations.
+- **Why it matters.** A reader can't check a value against its source without an edition, table or identifier.
+
+## G. Ledger A, freezes and look-elsewhere (milestone 2)
+
+### G-01 · A mathematical constant is labelled FORECAST
+- **Observed.** `predictions/LEDGER_A_FREEZE.yaml:29-31`: `First_Riemann_zero`, kind `FORECAST`, expression
+  `e/gamma**3`, kill band "If tabulated Im(rho1) leaves [14.13, 14.14]". Im(ρ₁) = 14.134725… is a fixed
+  mathematical constant, computed to many digits and not subject to future measurement. The authority row
+  is `vendor/fsot_compute.py:765` (target `mpf("14.135")`).
+
+### G-02 · m_μ/m_e uses integer coefficients and a 12-digit exponent
+- **Observed.** `vendor/fsot_compute.py:814`: `v3 = (35*PHI**(-5) + 145) * E**mpf("0.333333333333")`. The coefficients 35
+  and 145 aren't derived in the file. The exponent is 1/3 truncated at 12 digits (rows 812 and 987 likewise).
+- The C++ corrected mode (see "Fixed in C++") evaluates the exponent as 1/3. m_mu/m_e then moves by 3.3e−13
+  relative, which is below the 1.4e−6 error against the anchor.
+
+### G-03 · Ledger A anchors are literature values written into the code
+- **Observed.** `scripts/fsot_ledger_a_lib.py` carries the 21 anchors as literals, e.g. T_CMB 2.72548, H0 67.4,
+  1/α 137.036 (`include/fsot/ledger_a.gen.inc` mirrors them with their `anchor_source` strings).
+- These are rounded values. CODATA 2022 gives 1/α = 137.035999177(21), for example. The kill bands are wider than the
+  measurement uncertainties by orders of magnitude: [136.9, 137.2] for 1/α, and [−1.05, −0.60] for w_a.
+- The look-elsewhere count (G-05) shows these bands contain 10²–10⁵ simple seed monomials.
+
+### G-04 · Freezes: what is hashed, what is dated, what git shows
+- **Observed (`golden/tier_evidence_6f9c2560.json`):**
+  - **Domain-table freeze.** The hash is re-derived exactly. The file claims freeze date 2026-09-14, but the hash `8e30e85e` is
+    already in git at `3c74a18` (2026-09-11, pin FE23A2).
+  - **Ledger A freeze.** Not hashed.
+  - **ToE prereg freeze.** Hashed, but at pin D1D38A. It lists `PRED-wa` = −1.018, while Ledger A's `Dark_energy_wa` value is −0.80811
+    (`predictions/toe_prereg_freeze.json:24`, `LEDGER_A_FREEZE.yaml` `Dark_energy_wa`).
+  - **Prereg manifest.** Dated `registered_at: "2026-07-10"`, but first committed on 2026-08-06 (`7f29b18`), and it carries no hash.
+- **Why it matters.** Under the evidence-tier rules (docs/EVIDENCE_TIERS.md), no gated record is TIER 3 and only 3 are TIER 2.
+
+### G-05 · Look-elsewhere: how many seed formulas match as well
+- **Observed (`docs/LOOK_ELSEWHERE.md`, `audit/look_elsewhere.tsv`).** For 325 of 343 targets, a monomial grammar of about 4 million seed formulas contains at least one value as close as the FSOT expression. The median is 66 such values. For T_CMB the count (196) equals the density expectation (195). inv_alpha_em and m_mu_over_m_e have none in that grammar (expected about 0.5).
+- **Why it matters.** Closeness alone is not evidence when the formula space is large. The grammar here is a lower bound on the space FSOT expressions come from.
 
 ## D. Cross-repo constants and pins (details and fixes in `docs/TRIT_SPEC.md` §4)
 - **D-01.** FSOT-GPU / FSOT-Quantum / CUDA / quantum.zig use C_EFF 0.9577022026205613, K 0.42022166416069665

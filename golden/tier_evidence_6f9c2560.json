@@ -1,0 +1,3079 @@
+{
+ "benchmark_files": {
+  "acoustic_resonance_materials_benchmark.json": {
+   "first_added_commit": "5d21518abc58353333379a99167a64e42e64e847",
+   "first_added_date": "2026-07-10T10:31:39-04:00",
+   "last_changed_commit": "529f46aa0c3ca68ca05c8f20c4cd7b8e73b9e787",
+   "last_changed_date": "2026-10-01T19:40:33-04:00"
+  },
+  "actuarial_science_panel_benchmark.json": {
+   "first_added_commit": "b9660cd5267601611eb9a4e338d1af78e34f80df",
+   "first_added_date": "2026-07-12T11:00:19-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "adjacent_rung_coupling_benchmark.json": {
+   "first_added_commit": "dd65ea5f9cd4520c2f21fe02897cda7daddf65e2",
+   "first_added_date": "2026-07-10T11:00:23-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "adversarial_fractal_break_benchmark.json": {
+   "first_added_commit": "6de8694cdd0e50f7c951c6fba514348b7c73ae92",
+   "first_added_date": "2026-07-10T10:19:50-04:00",
+   "last_changed_commit": "786f09c83ac04ee3eaf26d1676980fc76dedcdc9",
+   "last_changed_date": "2026-09-17T18:42:13-04:00"
+  },
+  "agriculture_agroecology_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "ai_galactic_orbital_bridge_benchmark.json": {
+   "first_added_commit": "a18fd849cb7edc445544d08f9aeeb5d614682fd9",
+   "first_added_date": "2026-07-10T10:41:54-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "alphafold_batch_meta_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "alternate_base_mathematics_explorer_panel_benchmark.json": {
+   "first_added_commit": "39ba10382928f73eadd6732c4d6dd5cc0baf1fbb",
+   "first_added_date": "2026-07-12T13:36:40-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "alternate_base_mathematics_spine_benchmark.json": {
+   "first_added_commit": "39ba10382928f73eadd6732c4d6dd5cc0baf1fbb",
+   "first_added_date": "2026-07-12T13:36:40-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "anthropology_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "architecture_building_science_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "arxiv_brain_knowledge_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "1de55f6a44e5e688a825d5a08dd833f4994bd588",
+   "last_changed_date": "2026-07-16T11:53:14-04:00"
+  },
+  "arxiv_gravitational_waves_panel_benchmark.json": {
+   "first_added_commit": "2040826b0b8c21062c2802c26d9324b2dcf6e3a3",
+   "first_added_date": "2026-07-12T11:23:50-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "arxiv_primitives_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "1de55f6a44e5e688a825d5a08dd833f4994bd588",
+   "last_changed_date": "2026-07-16T11:53:14-04:00"
+  },
+  "arxiv_primitives_v14_benchmark.json": {
+   "first_added_commit": "19879cfbf449cccf43a0ed12a0213e59c550be90",
+   "first_added_date": "2026-07-08T10:02:58-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "astrophysical_structure_crosswalk_benchmark.json": {
+   "first_added_commit": "0bf2156c173b74fa8c3b1ee90f8b94ab45901731",
+   "first_added_date": "2026-07-10T14:06:59-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "atmospheric_physics_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "43d1fe4d55109967908529409b6b55b5ada12ff9",
+   "last_changed_date": "2026-07-14T11:43:40-04:00"
+  },
+  "atomic_physics_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "68936e6d6fb45d47b07cc8bd8f576c32f8183bb5",
+   "last_changed_date": "2026-09-29T08:56:48-04:00"
+  },
+  "between_scale_interconnect_benchmark.json": {
+   "first_added_commit": "9239bd9f03c2f6e07eab3a3b5442c33db0afaa20",
+   "first_added_date": "2026-08-24T19:36:47-04:00",
+   "last_changed_commit": "529f46aa0c3ca68ca05c8f20c4cd7b8e73b9e787",
+   "last_changed_date": "2026-10-01T19:40:33-04:00"
+  },
+  "bibliography_corpus_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "bibliography_lean_corpus_benchmark.json": {
+   "first_added_commit": "a75c3d8d7329b663f495ee7f30a50b58d917ad38",
+   "first_added_date": "2026-07-08T12:41:32-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "binary_decoder_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "binary_decoder_rendlesham_benchmark.json": {
+   "first_added_commit": "48816053bdac6913163f3e73bbf262f437dee240",
+   "first_added_date": "2026-07-08T11:19:23-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "biological_cuda_physarum_benchmark.json": {
+   "first_added_commit": "19879cfbf449cccf43a0ed12a0213e59c550be90",
+   "first_added_date": "2026-07-08T10:02:58-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "biology_developmental_structural_depth_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "biophysics_public_panel_benchmark.json": {
+   "first_added_commit": "60939e14965f4ee4b999da2a948804c42b5c58b5",
+   "first_added_date": "2026-07-10T14:26:44-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "blackhole_whitehole_cycle_live_panel_benchmark.json": {
+   "first_added_commit": "9a8478e1c8aaa835459a24674b7863abdf07b4eb",
+   "first_added_date": "2026-07-15T07:00:07-04:00",
+   "last_changed_commit": "ac1ef731241bccb4ce125c59c12d0f0e239ebd5d",
+   "last_changed_date": "2026-09-29T17:40:37-04:00"
+  },
+  "botany_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "boundary_partition_tightening_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "breakthrough_discoveries_2024_2026_benchmark.json": {
+   "first_added_commit": "fbc629fdafd4dd1779a002675dd625367df00efd",
+   "first_added_date": "2026-07-08T14:15:32-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "breakthrough_fusion_spine_benchmark.json": {
+   "first_added_commit": "f843c39c5f601f0cc0ec5f9cea6b5c9e859cab6c",
+   "first_added_date": "2026-08-04T09:42:37-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "canonical_oracle_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "cardiology_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "cardiology_panel_benchmark.json": {
+   "first_added_commit": "2040826b0b8c21062c2802c26d9324b2dcf6e3a3",
+   "first_added_date": "2026-07-12T11:23:50-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "cartography_gis_panel_benchmark.json": {
+   "first_added_commit": "b9660cd5267601611eb9a4e338d1af78e34f80df",
+   "first_added_date": "2026-07-12T11:00:19-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "cepheid_pl_interconnect_benchmark.json": {
+   "first_added_commit": "8699f19c3778db59342be5b18b986810186cea81",
+   "first_added_date": "2026-08-17T23:52:12-04:00",
+   "last_changed_commit": "ac1ef731241bccb4ce125c59c12d0f0e239ebd5d",
+   "last_changed_date": "2026-09-29T17:40:37-04:00"
+  },
+  "cern_open_data_lhc_benchmark.json": {
+   "first_added_commit": "adfc150f5cea52c7c37203bf1149da6cc770a8df",
+   "first_added_date": "2026-07-08T12:58:46-04:00",
+   "last_changed_commit": "3c74a1803b710a193287855e70ccfc1beb0ec77b",
+   "last_changed_date": "2026-09-11T15:28:37-04:00"
+  },
+  "certified_agent_formal_panel_benchmark.json": {
+   "first_added_commit": "c48a896637ccb85efb66e69e1611a57c581c9601",
+   "first_added_date": "2026-07-12T12:21:08-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "certified_agent_qwen_benchmark.json": {
+   "first_added_commit": "48816053bdac6913163f3e73bbf262f437dee240",
+   "first_added_date": "2026-07-08T11:19:23-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "chaos_mediated_phase_transitions_benchmark.json": {
+   "first_added_commit": "5d21518abc58353333379a99167a64e42e64e847",
+   "first_added_date": "2026-07-10T10:31:39-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "chembl_deep_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "chemical_engineering_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "chemical_structure_stability_panel_benchmark.json": {
+   "first_added_commit": "a2a7c00a8fbae0290a5b23064010a359c2852e4b",
+   "first_added_date": "2026-07-10T14:15:27-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "circuit_component_emergence_panel_benchmark.json": {
+   "first_added_commit": "f47a804d877ab3bf3a52e99da88b562ad5b0add1",
+   "first_added_date": "2026-07-16T09:55:35-04:00",
+   "last_changed_commit": "0036a1ebb65a52d3909d1d9ca8b28e31fa0c61f5",
+   "last_changed_date": "2026-08-04T10:18:01-04:00"
+  },
+  "civil_engineering_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "civil_engineering_panel_benchmark.json": {
+   "first_added_commit": "7e3797f98199cc3db76ab030bd95fc2b5e316019",
+   "first_added_date": "2026-07-12T11:44:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "climate_observed_benchmark.json": {
+   "first_added_commit": "6bcf7c0948b0a04cb35e62d3dd0ff224ac174b92",
+   "first_added_date": "2026-07-01T01:40:16-04:00",
+   "last_changed_commit": "0482f3a22faad2874faa8255c3a7b1b2daeb3a63",
+   "last_changed_date": "2026-08-17T22:17:13-04:00"
+  },
+  "clinical_medicine_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "54c4bd03ec0f593fb3c8d9358904b56729930f08",
+   "last_changed_date": "2026-09-30T01:50:19-04:00"
+  },
+  "clinicaltrials_medical_panel_benchmark.json": {
+   "first_added_commit": "e74841befbee790cd80897fc006afb7383c971f0",
+   "first_added_date": "2026-07-12T09:03:33-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "cod_optimade_structures_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "codata_full_table_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "af598be7c4f8affab08739db297c025673a7b437",
+   "last_changed_date": "2026-09-29T11:17:34-04:00"
+  },
+  "code_genome_structure_cybersecurity_benchmark.json": {
+   "first_added_commit": "26bf926a1cb594179d80237e7292b449156ef9af",
+   "first_added_date": "2026-07-10T09:13:24-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "coding_structure_verifier_panel_benchmark.json": {
+   "first_added_commit": "3372167b0dbaba46a2bdfb1c8b80647dd6472dd1",
+   "first_added_date": "2026-08-03T23:20:29-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "cold_fusion_candidate_prereg_scaffold_benchmark.json": {
+   "first_added_commit": "e89dba0ca9bbf85e97d31217741f50575fa52440",
+   "first_added_date": "2026-07-10T14:51:06-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "cold_fusion_lab_synthesis_crosswalk_benchmark.json": {
+   "first_added_commit": "2fab6a7363d1e87a89c9da0018c01dc0f36e549c",
+   "first_added_date": "2026-07-10T15:05:18-04:00",
+   "last_changed_commit": "b7c0e947b36b470acb40e3c114ac95b7bb0f8b7e",
+   "last_changed_date": "2026-08-03T22:56:47-04:00"
+  },
+  "compact_object_binary_events_benchmark.json": {
+   "first_added_commit": "a4311d79b13dabc4083deebf22f5f7fc43e353d5",
+   "first_added_date": "2026-07-10T14:13:19-04:00",
+   "last_changed_commit": "f1dce44ebe2d66e37ba339a7ec4d96f24320f990",
+   "last_changed_date": "2026-08-03T23:12:25-04:00"
+  },
+  "compactification_ladder_benchmark.json": {
+   "first_added_commit": "dd65ea5f9cd4520c2f21fe02897cda7daddf65e2",
+   "first_added_date": "2026-07-10T11:00:23-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "complexity_folding_emergence_panel_benchmark.json": {
+   "first_added_commit": "39ba10382928f73eadd6732c4d6dd5cc0baf1fbb",
+   "first_added_date": "2026-07-12T13:36:40-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "computational_reasoning_benchmark.json": {
+   "first_added_commit": "3d42854422c0fffcaea9fc86adff94b7e7b72cf9",
+   "first_added_date": "2026-07-07T12:28:47-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "condensed_matter_superconductivity_depth_panel_benchmark.json": {
+   "first_added_commit": "c48a896637ccb85efb66e69e1611a57c581c9601",
+   "first_added_date": "2026-07-12T12:21:08-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "consciousness_econ_benchmark.json": {
+   "first_added_commit": "459d07fde542e74ef9460315d491fa632c45cd48",
+   "first_added_date": "2026-07-10T13:47:04-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "consciousness_expansion_spine_benchmark.json": {
+   "first_added_commit": "07e52d2a51a1e98bbffbad62a009566c245af9ca",
+   "first_added_date": "2026-07-12T13:06:18-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "consciousness_galactic_orbital_bridge_benchmark.json": {
+   "first_added_commit": "5d21518abc58353333379a99167a64e42e64e847",
+   "first_added_date": "2026-07-10T10:31:39-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "consciousness_genetics_coupling_panel_benchmark.json": {
+   "first_added_commit": "17561aba2ce229d57bc502bbf3943e2db125e059",
+   "first_added_date": "2026-07-12T13:46:25-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "consciousness_genetics_species_panel_benchmark.json": {
+   "first_added_commit": "17561aba2ce229d57bc502bbf3943e2db125e059",
+   "first_added_date": "2026-07-12T13:46:25-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "consciousness_lean_route_credibility_benchmark.json": {
+   "first_added_commit": "f47a804d877ab3bf3a52e99da88b562ad5b0add1",
+   "first_added_date": "2026-07-16T09:55:35-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "consciousness_soul_bridge_benchmark.json": {
+   "first_added_commit": "459d07fde542e74ef9460315d491fa632c45cd48",
+   "first_added_date": "2026-07-10T13:47:04-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "consciousness_species_multi_panel_benchmark.json": {
+   "first_added_commit": "07e52d2a51a1e98bbffbad62a009566c245af9ca",
+   "first_added_date": "2026-07-12T13:06:18-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "cosmology_anomalies_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "f04fd27eee664254d7c60bf596b9da5665fdaeb9",
+   "last_changed_date": "2026-08-17T22:34:44-04:00"
+  },
+  "cosmology_anomaly_deep_panel_benchmark.json": {
+   "first_added_commit": "192c857548373e7a056d5a0c85d996eddd15be73",
+   "first_added_date": "2026-07-10T15:20:57-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "cosmology_bubble_bleed_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "cosmology_extended_benchmark.json": {
+   "first_added_commit": "448a0b45d14186af02e3ade95fe9bd7408e46bc9",
+   "first_added_date": "2026-07-03T11:20:59-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "crc_handbook_properties_benchmark.json": {
+   "first_added_commit": "5c0653c11de3295d697d281bd6c5c417afad2148",
+   "first_added_date": "2026-07-11T19:14:19-04:00",
+   "last_changed_commit": "6f9c25605a52acabe662a42fc003afa5bf66b959",
+   "last_changed_date": "2026-10-01T22:16:50-04:00"
+  },
+  "creative_arts_math_spine_benchmark.json": {
+   "first_added_commit": "eaa967e7cad8f9c79747baed2c6e60bb73e9abb4",
+   "first_added_date": "2026-07-10T14:22:09-04:00",
+   "last_changed_commit": "529f46aa0c3ca68ca05c8f20c4cd7b8e73b9e787",
+   "last_changed_date": "2026-10-01T19:40:33-04:00"
+  },
+  "cross_proof_verification_benchmark.json": {
+   "first_added_commit": "9d9b8e89fe2f211fc5be56b57f2174a3c4e79329",
+   "first_added_date": "2026-07-10T16:51:39-04:00",
+   "last_changed_commit": "95a11138933922200f529a55b5a026457e8e63fd",
+   "last_changed_date": "2026-09-29T18:11:41-04:00"
+  },
+  "crossref_scholarly_panel_benchmark.json": {
+   "first_added_commit": "a5a7aaeeb0df3f401574fe5e8214e22deec4f231",
+   "first_added_date": "2026-07-12T09:58:29-04:00",
+   "last_changed_commit": "ac1ef731241bccb4ce125c59c12d0f0e239ebd5d",
+   "last_changed_date": "2026-09-29T17:40:37-04:00"
+  },
+  "cryosphere_benchmark.json": {
+   "first_added_commit": "268064f57ea4e9fd82737aa40a155c6127a10b50",
+   "first_added_date": "2026-07-03T12:11:30-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "cryptography_technology_cybersecurity_benchmark.json": {
+   "first_added_commit": "26bf926a1cb594179d80237e7292b449156ef9af",
+   "first_added_date": "2026-07-10T09:13:24-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "culinary_arts_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "529f46aa0c3ca68ca05c8f20c4cd7b8e73b9e787",
+   "last_changed_date": "2026-10-01T19:40:33-04:00"
+  },
+  "culinary_fermentation_maillard_panel_benchmark.json": {
+   "first_added_commit": "d8e049bc23a2f79573ce7f471317e1c5a2b4ae12",
+   "first_added_date": "2026-07-12T12:04:07-04:00",
+   "last_changed_commit": "90bc96e30679d870b9c8d439e1dc8f942a9864a2",
+   "last_changed_date": "2026-08-03T22:06:26-04:00"
+  },
+  "cve_codon_hole_falsification_benchmark.json": {
+   "first_added_commit": "cc47b669ef7fd8df790cf0777dbdc96b294aaea2",
+   "first_added_date": "2026-07-10T10:15:29-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "dark_energy_cpl_benchmark.json": {
+   "first_added_commit": "459d07fde542e74ef9460315d491fa632c45cd48",
+   "first_added_date": "2026-07-10T13:47:04-04:00",
+   "last_changed_commit": "55b288d2cf2c14ec228d2dd6e7be30fbdd576a03",
+   "last_changed_date": "2026-08-17T22:22:51-04:00"
+  },
+  "dark_sector_open_problems_benchmark.json": {
+   "first_added_commit": "459d07fde542e74ef9460315d491fa632c45cd48",
+   "first_added_date": "2026-07-10T13:47:04-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "desi_edr_fits_residual_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "desi_edr_table_slice_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "f04fd27eee664254d7c60bf596b9da5665fdaeb9",
+   "last_changed_date": "2026-08-17T22:34:44-04:00"
+  },
+  "desi_public_depth_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "f04fd27eee664254d7c60bf596b9da5665fdaeb9",
+   "last_changed_date": "2026-08-17T22:34:44-04:00"
+  },
+  "desi_wa_constraint_benchmark.json": {
+   "first_added_commit": "79909b7042f5c8f9f2b8ce4beed0feb2bece501b",
+   "first_added_date": "2026-07-11T18:18:47-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "desktop_application_wiring_spine_benchmark.json": {
+   "first_added_commit": "c48a896637ccb85efb66e69e1611a57c581c9601",
+   "first_added_date": "2026-07-12T12:21:08-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "desktop_observer_loop_panel_benchmark.json": {
+   "first_added_commit": "1de55f6a44e5e688a825d5a08dd833f4994bd588",
+   "first_added_date": "2026-07-16T11:53:14-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "distant_island_emergence_simulation_benchmark.json": {
+   "first_added_commit": "192c857548373e7a056d5a0c85d996eddd15be73",
+   "first_added_date": "2026-07-10T15:20:57-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "distant_island_z128_z132_deep_panel_benchmark.json": {
+   "first_added_commit": "192c857548373e7a056d5a0c85d996eddd15be73",
+   "first_added_date": "2026-07-10T15:20:57-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "domain_coupling_simulation_benchmark.json": {
+   "first_added_commit": "442ac0b0454ac875019d27e1c48d31edd88363ba",
+   "first_added_date": "2026-07-10T08:04:42-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "domain_coupling_simulation_refresh_panel_benchmark.json": {
+   "first_added_commit": "e5b5822747455636a535ecd6162ae6e400b581cd",
+   "first_added_date": "2026-07-10T15:33:18-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "domain_orbital_predictions_benchmark.json": {
+   "first_added_commit": "5d21518abc58353333379a99167a64e42e64e847",
+   "first_added_date": "2026-07-10T10:31:39-04:00",
+   "last_changed_commit": "786f09c83ac04ee3eaf26d1676980fc76dedcdc9",
+   "last_changed_date": "2026-09-17T18:42:13-04:00"
+  },
+  "dzhanibekov_intermediate_axis_fsot_panel_benchmark.json": {
+   "first_added_commit": "08656a7420540ed34d6a5b9c2db1b3c45b8f0c46",
+   "first_added_date": "2026-08-05T07:44:50-04:00",
+   "last_changed_commit": "08656a7420540ed34d6a5b9c2db1b3c45b8f0c46",
+   "last_changed_date": "2026-08-05T07:44:50-04:00"
+  },
+  "early_lean_mc_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "ecology_benchmark.json": {
+   "first_added_commit": "261dee7d8cf255eacb66eef3c376e9fbed358447",
+   "first_added_date": "2026-07-10T14:33:19-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "ecology_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "43d1fe4d55109967908529409b6b55b5ada12ff9",
+   "last_changed_date": "2026-07-14T11:43:40-04:00"
+  },
+  "econometrics_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "economics_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "43d1fe4d55109967908529409b6b55b5ada12ff9",
+   "last_changed_date": "2026-07-14T11:43:40-04:00"
+  },
+  "econophysics_benchmark.json": {
+   "first_added_commit": "261dee7d8cf255eacb66eef3c376e9fbed358447",
+   "first_added_date": "2026-07-10T14:33:19-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "electrical_power_systems_benchmark.json": {
+   "first_added_commit": "fbc629fdafd4dd1779a002675dd625367df00efd",
+   "first_added_date": "2026-07-08T14:15:32-04:00",
+   "last_changed_commit": "541b7331400c2922d0071f7d335e3b0fb0715035",
+   "last_changed_date": "2026-09-21T18:39:52-04:00"
+  },
+  "element_synthesis_condition_scaffold_benchmark.json": {
+   "first_added_commit": "2fab6a7363d1e87a89c9da0018c01dc0f36e549c",
+   "first_added_date": "2026-07-10T15:05:18-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "emergent_domains_benchmark.json": {
+   "first_added_commit": "79a77d0788b7b6119cfecd0b859db934f6a78423",
+   "first_added_date": "2026-07-01T15:02:20-04:00",
+   "last_changed_commit": "35e3c63a1004ba1c9b4870e392a8996de9c7ed09",
+   "last_changed_date": "2026-07-14T11:09:36-04:00"
+  },
+  "endf_iaea_nuclear_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "energy_ai_orbital_bridge_benchmark.json": {
+   "first_added_commit": "5d21518abc58353333379a99167a64e42e64e847",
+   "first_added_date": "2026-07-10T10:31:39-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "energy_lean_route_credibility_benchmark.json": {
+   "first_added_commit": "f47a804d877ab3bf3a52e99da88b562ad5b0add1",
+   "first_added_date": "2026-07-16T09:55:35-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "energy_neural_orbital_bridge_benchmark.json": {
+   "first_added_commit": "5d21518abc58353333379a99167a64e42e64e847",
+   "first_added_date": "2026-07-10T10:31:39-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "engineering_hardware_code_spine_benchmark.json": {
+   "first_added_commit": "3372167b0dbaba46a2bdfb1c8b80647dd6472dd1",
+   "first_added_date": "2026-08-03T23:20:29-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "entomology_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "entomology_panel_benchmark.json": {
+   "first_added_commit": "2040826b0b8c21062c2802c26d9324b2dcf6e3a3",
+   "first_added_date": "2026-07-12T11:23:50-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "environmental_engineering_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "epidemiology_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "epidemiology_panel_benchmark.json": {
+   "first_added_commit": "2040826b0b8c21062c2802c26d9324b2dcf6e3a3",
+   "first_added_date": "2026-07-12T11:23:50-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "esp32_platform_engineering_panel_benchmark.json": {
+   "first_added_commit": "3372167b0dbaba46a2bdfb1c8b80647dd6472dd1",
+   "first_added_date": "2026-08-03T23:20:29-04:00",
+   "last_changed_commit": "0036a1ebb65a52d3909d1d9ca8b28e31fa0c61f5",
+   "last_changed_date": "2026-08-04T10:18:01-04:00"
+  },
+  "ethology_panel_benchmark.json": {
+   "first_added_commit": "b9660cd5267601611eb9a4e338d1af78e34f80df",
+   "first_added_date": "2026-07-12T11:00:19-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "evolution_operon_benchmark.json": {
+   "first_added_commit": "5e991717f4f075a4922bc6c2a99919a91564c5ed",
+   "first_added_date": "2026-07-01T00:58:42-04:00",
+   "last_changed_commit": "0482f3a22faad2874faa8255c3a7b1b2daeb3a63",
+   "last_changed_date": "2026-08-17T22:17:13-04:00"
+  },
+  "existence_simulation_gap_fill_panel_benchmark.json": {
+   "first_added_commit": "c183c61564d2395a754dbf3bad24578c19227d33",
+   "first_added_date": "2026-07-16T12:07:39-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "existence_simulation_refinement_panel_benchmark.json": {
+   "first_added_commit": "c183c61564d2395a754dbf3bad24578c19227d33",
+   "first_added_date": "2026-07-16T12:07:39-04:00",
+   "last_changed_commit": "c183c61564d2395a754dbf3bad24578c19227d33",
+   "last_changed_date": "2026-07-16T12:07:39-04:00"
+  },
+  "exogeology_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "exogeology_panel_benchmark.json": {
+   "first_added_commit": "7e3797f98199cc3db76ab030bd95fc2b5e316019",
+   "first_added_date": "2026-07-12T11:44:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "exoplanet_archive_depth_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "exoplanet_system_architecture_benchmark.json": {
+   "first_added_commit": "a4311d79b13dabc4083deebf22f5f7fc43e353d5",
+   "first_added_date": "2026-07-10T14:13:19-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "experimental_base_mathematics_panel_benchmark.json": {
+   "first_added_commit": "17561aba2ce229d57bc502bbf3943e2db125e059",
+   "first_added_date": "2026-07-12T13:46:25-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "external_oss_code_genome_benchmark.json": {
+   "first_added_commit": "c6d23e4fefa982b7736f2a47b8b7f29b360fcda3",
+   "first_added_date": "2026-07-10T10:02:43-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "federal_science_registry_panel_benchmark.json": {
+   "first_added_commit": "e74841befbee790cd80897fc006afb7383c971f0",
+   "first_added_date": "2026-07-12T09:03:33-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "finance_markets_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "finance_markets_panel_benchmark.json": {
+   "first_added_commit": "7e3797f98199cc3db76ab030bd95fc2b5e316019",
+   "first_added_date": "2026-07-12T11:44:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "fluid_dynamics_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "43d1fe4d55109967908529409b6b55b5ada12ff9",
+   "last_changed_date": "2026-07-14T11:43:40-04:00"
+  },
+  "fluid_phase_current_spine_benchmark.json": {
+   "first_added_commit": "459d07fde542e74ef9460315d491fa632c45cd48",
+   "first_added_date": "2026-07-10T13:47:04-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fluid_spacetime_observable_spine_benchmark.json": {
+   "first_added_commit": "192c857548373e7a056d5a0c85d996eddd15be73",
+   "first_added_date": "2026-07-10T15:20:57-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fluid_spacetime_prereg_validation_panel_benchmark.json": {
+   "first_added_commit": "e5b5822747455636a535ecd6162ae6e400b581cd",
+   "first_added_date": "2026-07-10T15:33:18-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fold_depth_metrics_benchmark.json": {
+   "first_added_commit": "dd65ea5f9cd4520c2f21fe02897cda7daddf65e2",
+   "first_added_date": "2026-07-10T11:00:23-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "food_microbiology_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "formula_branching_fractal_benchmark.json": {
+   "first_added_commit": "cc47b669ef7fd8df790cf0777dbdc96b294aaea2",
+   "first_added_date": "2026-07-10T10:15:29-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "formula_corpus_closure_benchmark.json": {
+   "first_added_commit": "442ac0b0454ac875019d27e1c48d31edd88363ba",
+   "first_added_date": "2026-07-10T08:04:42-04:00",
+   "last_changed_commit": "c7d0b1ef7c4eaaa2a6495d7e83fd2d47ea4e3c89",
+   "last_changed_date": "2026-08-03T22:36:02-04:00"
+  },
+  "formula_corpus_cnc_benchmark.json": {
+   "first_added_commit": "19879cfbf449cccf43a0ed12a0213e59c550be90",
+   "first_added_date": "2026-07-08T10:02:58-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "formula_precision_spine_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "529f46aa0c3ca68ca05c8f20c4cd7b8e73b9e787",
+   "last_changed_date": "2026-10-01T19:40:33-04:00"
+  },
+  "foundational_ontology_spine_benchmark.json": {
+   "first_added_commit": "39ba10382928f73eadd6732c4d6dd5cc0baf1fbb",
+   "first_added_date": "2026-07-12T13:36:40-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "founding_atmospheric_ozone_panel_benchmark.json": {
+   "first_added_commit": "7ba6f4644a43e835a0ae77a89095c1fa7c2ae7ff",
+   "first_added_date": "2026-07-14T11:21:12-04:00",
+   "last_changed_commit": "ff8524ccab5fea4e1eaf10ebb56ba252c0dbbbeb",
+   "last_changed_date": "2026-08-17T23:09:06-04:00"
+  },
+  "founding_cosmic_dust_panel_benchmark.json": {
+   "first_added_commit": "7ba6f4644a43e835a0ae77a89095c1fa7c2ae7ff",
+   "first_added_date": "2026-07-14T11:21:12-04:00",
+   "last_changed_commit": "ff8524ccab5fea4e1eaf10ebb56ba252c0dbbbeb",
+   "last_changed_date": "2026-08-17T23:09:06-04:00"
+  },
+  "founding_cosmic_ray_panel_benchmark.json": {
+   "first_added_commit": "7ba6f4644a43e835a0ae77a89095c1fa7c2ae7ff",
+   "first_added_date": "2026-07-14T11:21:12-04:00",
+   "last_changed_commit": "ff8524ccab5fea4e1eaf10ebb56ba252c0dbbbeb",
+   "last_changed_date": "2026-08-17T23:09:06-04:00"
+  },
+  "founding_galactic_halo_rotation_panel_benchmark.json": {
+   "first_added_commit": "7ba6f4644a43e835a0ae77a89095c1fa7c2ae7ff",
+   "first_added_date": "2026-07-14T11:21:12-04:00",
+   "last_changed_commit": "ff8524ccab5fea4e1eaf10ebb56ba252c0dbbbeb",
+   "last_changed_date": "2026-08-17T23:09:06-04:00"
+  },
+  "founding_pulsar_glitch_panel_benchmark.json": {
+   "first_added_commit": "7ba6f4644a43e835a0ae77a89095c1fa7c2ae7ff",
+   "first_added_date": "2026-07-14T11:21:12-04:00",
+   "last_changed_commit": "ff8524ccab5fea4e1eaf10ebb56ba252c0dbbbeb",
+   "last_changed_date": "2026-08-17T23:09:06-04:00"
+  },
+  "founding_quantum_vacuum_panel_benchmark.json": {
+   "first_added_commit": "7ba6f4644a43e835a0ae77a89095c1fa7c2ae7ff",
+   "first_added_date": "2026-07-14T11:21:12-04:00",
+   "last_changed_commit": "ff8524ccab5fea4e1eaf10ebb56ba252c0dbbbeb",
+   "last_changed_date": "2026-08-17T23:09:06-04:00"
+  },
+  "founding_white_dwarf_cooling_panel_benchmark.json": {
+   "first_added_commit": "7ba6f4644a43e835a0ae77a89095c1fa7c2ae7ff",
+   "first_added_date": "2026-07-14T11:21:12-04:00",
+   "last_changed_commit": "ff8524ccab5fea4e1eaf10ebb56ba252c0dbbbeb",
+   "last_changed_date": "2026-08-17T23:09:06-04:00"
+  },
+  "fpc_fluidlink_timing_deep_panel_benchmark.json": {
+   "first_added_commit": "192c857548373e7a056d5a0c85d996eddd15be73",
+   "first_added_date": "2026-07-10T15:20:57-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fpc_temporal_coupling_benchmark.json": {
+   "first_added_commit": "459d07fde542e74ef9460315d491fa632c45cd48",
+   "first_added_date": "2026-07-10T13:47:04-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fractal_constant_recursion_benchmark.json": {
+   "first_added_commit": "6de8694cdd0e50f7c951c6fba514348b7c73ae92",
+   "first_added_date": "2026-07-10T10:19:50-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "frb_orifice_outgassing_benchmark.json": {
+   "first_added_commit": "0e4e65c8bbaa8cba85a822217ca65758ed7549a5",
+   "first_added_date": "2026-09-09T12:34:29-04:00",
+   "last_changed_commit": "5af32be587c6748a284b5835bb946c65f8557cbd",
+   "last_changed_date": "2026-09-09T17:41:29-04:00"
+  },
+  "fsot_aggregate_organized_panel_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fsot_aggregate_unified_db_benchmark.json": {
+   "first_added_commit": "eb2977718af587017dd2d956f4ecf1d3d8bd832c",
+   "first_added_date": "2026-07-08T12:35:55-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fsot_c_pack_parity_panel_benchmark.json": {
+   "first_added_commit": "7d4bdda83773c349fa45f79ee522793319d42f30",
+   "first_added_date": "2026-08-04T01:22:50-04:00",
+   "last_changed_commit": "1e536e262cb0a9dc370266ca730064ea22b0249c",
+   "last_changed_date": "2026-08-05T08:13:06-04:00"
+  },
+  "fsot_cache_hierarchy_panel_benchmark.json": {
+   "first_added_commit": "7d4bdda83773c349fa45f79ee522793319d42f30",
+   "first_added_date": "2026-08-04T01:22:50-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fsot_gpu_cuda_competitive_panel_benchmark.json": {
+   "first_added_commit": "fbdebaa79a2b9f3f3c60c31f6e205e11dbe14b9b",
+   "first_added_date": "2026-08-03T23:31:20-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fsot_gpu_engineering_spine_benchmark.json": {
+   "first_added_commit": "fbdebaa79a2b9f3f3c60c31f6e205e11dbe14b9b",
+   "first_added_date": "2026-08-03T23:31:20-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fsot_gpu_parity_verify_panel_benchmark.json": {
+   "first_added_commit": "fbdebaa79a2b9f3f3c60c31f6e205e11dbe14b9b",
+   "first_added_date": "2026-08-03T23:31:20-04:00",
+   "last_changed_commit": "0036a1ebb65a52d3909d1d9ca8b28e31fa0c61f5",
+   "last_changed_date": "2026-08-04T10:18:01-04:00"
+  },
+  "fsot_hardware_depth_spine_benchmark.json": {
+   "first_added_commit": "7d4bdda83773c349fa45f79ee522793319d42f30",
+   "first_added_date": "2026-08-04T01:22:50-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fsot_interconnect_coherence_panel_benchmark.json": {
+   "first_added_commit": "7d4bdda83773c349fa45f79ee522793319d42f30",
+   "first_added_date": "2026-08-04T01:22:50-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fsot_physics_all_solved_benchmark.json": {
+   "first_added_commit": "33a9d0c9cb90587e3ba535e753721622ba2c0a52",
+   "first_added_date": "2026-08-05T10:49:10-04:00",
+   "last_changed_commit": "33a9d0c9cb90587e3ba535e753721622ba2c0a52",
+   "last_changed_date": "2026-08-05T10:49:10-04:00"
+  },
+  "fsot_processor_function_panel_benchmark.json": {
+   "first_added_commit": "ed24cdee8646a3cc13ff0aa9b674c6daa4a3ed8a",
+   "first_added_date": "2026-08-03T23:36:20-04:00",
+   "last_changed_commit": "1e536e262cb0a9dc370266ca730064ea22b0249c",
+   "last_changed_date": "2026-08-05T08:13:06-04:00"
+  },
+  "fsot_ram_function_panel_benchmark.json": {
+   "first_added_commit": "ed24cdee8646a3cc13ff0aa9b674c6daa4a3ed8a",
+   "first_added_date": "2026-08-03T23:36:20-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fuel_candidate_prereg_scaffold_benchmark.json": {
+   "first_added_commit": "69423f16f23d81f522c10480e4f2fdb4e0ffddad",
+   "first_added_date": "2026-07-10T14:29:26-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fuel_lab_live_panel_benchmark.json": {
+   "first_added_commit": "9a8478e1c8aaa835459a24674b7863abdf07b4eb",
+   "first_added_date": "2026-07-15T07:00:07-04:00",
+   "last_changed_commit": "ac1ef731241bccb4ce125c59c12d0f0e239ebd5d",
+   "last_changed_date": "2026-09-29T17:40:37-04:00"
+  },
+  "fuel_thermochemistry_public_anchors_benchmark.json": {
+   "first_added_commit": "8754a45ccdf12343256344f16c388d142ca637ff",
+   "first_added_date": "2026-07-10T14:18:12-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fusion_decay_chain_prereg_scaffold_benchmark.json": {
+   "first_added_commit": "8ca8fad574ba538e3118d0772741696ce5a9a155",
+   "first_added_date": "2026-07-10T15:15:04-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fusion_lab_certificate_spine_benchmark.json": {
+   "first_added_commit": "e89dba0ca9bbf85e97d31217741f50575fa52440",
+   "first_added_date": "2026-07-10T14:51:06-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fusion_lean_route_credibility_benchmark.json": {
+   "first_added_commit": "f47a804d877ab3bf3a52e99da88b562ad5b0add1",
+   "first_added_date": "2026-07-16T09:55:35-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "fusion_physics_public_panel_benchmark.json": {
+   "first_added_commit": "e89dba0ca9bbf85e97d31217741f50575fa52440",
+   "first_added_date": "2026-07-10T14:51:06-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "gaia_astrometry_panel_deep_benchmark.json": {
+   "first_added_commit": "8754a45ccdf12343256344f16c388d142ca637ff",
+   "first_added_date": "2026-07-10T14:18:12-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "gaia_dr3_source_sample_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "gaia_dr3_tap_deep_benchmark.json": {
+   "first_added_commit": "60939e14965f4ee4b999da2a948804c42b5c58b5",
+   "first_added_date": "2026-07-10T14:26:44-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "galactic_structure_sample_benchmark.json": {
+   "first_added_commit": "a4311d79b13dabc4083deebf22f5f7fc43e353d5",
+   "first_added_date": "2026-07-10T14:13:19-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "gbif_species_occurrence_benchmark.json": {
+   "first_added_commit": "adfc150f5cea52c7c37203bf1149da6cc770a8df",
+   "first_added_date": "2026-07-08T12:58:46-04:00",
+   "last_changed_commit": "3c74a1803b710a193287855e70ccfc1beb0ec77b",
+   "last_changed_date": "2026-09-11T15:28:37-04:00"
+  },
+  "gbif_taxon_depth_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "genomic_sciences_benchmark.json": {
+   "first_added_commit": "261dee7d8cf255eacb66eef3c376e9fbed358447",
+   "first_added_date": "2026-07-10T14:33:19-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "geochemistry_benchmark.json": {
+   "first_added_commit": "66019c5684af555000a16a970e6d66e6cb02193f",
+   "first_added_date": "2026-07-03T13:57:02-04:00",
+   "last_changed_commit": "9030873041f4b391fee7ce3c13dbc7d3712624c2",
+   "last_changed_date": "2026-09-30T08:19:12-04:00"
+  },
+  "geology_stratigraphy_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "geomagnetism_benchmark.json": {
+   "first_added_commit": "c85a686d269ec04db7dde03e2bfab2a45b4e16c9",
+   "first_added_date": "2026-07-03T12:23:13-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "government_open_data_spine_benchmark.json": {
+   "first_added_commit": "e74841befbee790cd80897fc006afb7383c971f0",
+   "first_added_date": "2026-07-12T09:03:33-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "grace_cryosphere_benchmark.json": {
+   "first_added_commit": "51d0fe0579691a1a72ace1371648e2b3cedeafd3",
+   "first_added_date": "2026-07-03T12:42:12-04:00",
+   "last_changed_commit": "3c74a1803b710a193287855e70ccfc1beb0ec77b",
+   "last_changed_date": "2026-09-11T15:28:37-04:00"
+  },
+  "gwas_catalog_depth_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "gwosc_live_event_deep_benchmark.json": {
+   "first_added_commit": "a2a7c00a8fbae0290a5b23064010a359c2852e4b",
+   "first_added_date": "2026-07-10T14:15:27-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "gwosc_strain_metadata_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "gwtc_catalog_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "h0_planck_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "heavy_ion_lab_synthesis_panel_benchmark.json": {
+   "first_added_commit": "2fab6a7363d1e87a89c9da0018c01dc0f36e549c",
+   "first_added_date": "2026-07-10T15:05:18-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "higgs_branching_benchmark.json": {
+   "first_added_commit": "cb69ada27c1a7eee2de309a9b266b11b97066fa4",
+   "first_added_date": "2026-07-03T11:27:56-04:00",
+   "last_changed_commit": "3c74a1803b710a193287855e70ccfc1beb0ec77b",
+   "last_changed_date": "2026-09-11T15:28:37-04:00"
+  },
+  "higgs_mass_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "55b288d2cf2c14ec228d2dd6e7be30fbdd576a03",
+   "last_changed_date": "2026-08-17T22:22:51-04:00"
+  },
+  "history_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "history_panel_benchmark.json": {
+   "first_added_commit": "7e3797f98199cc3db76ab030bd95fc2b5e316019",
+   "first_added_date": "2026-07-12T11:44:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "hubble_bubble_tension_benchmark.json": {
+   "first_added_commit": "459d07fde542e74ef9460315d491fa632c45cd48",
+   "first_added_date": "2026-07-10T13:47:04-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "hubble_dark_sector_crosswalk_benchmark.json": {
+   "first_added_commit": "192c857548373e7a056d5a0c85d996eddd15be73",
+   "first_added_date": "2026-07-10T15:20:57-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "hvac_thermal_systems_benchmark.json": {
+   "first_added_commit": "fbc629fdafd4dd1779a002675dd625367df00efd",
+   "first_added_date": "2026-07-08T14:15:32-04:00",
+   "last_changed_commit": "0482f3a22faad2874faa8255c3a7b1b2daeb3a63",
+   "last_changed_date": "2026-08-17T22:17:13-04:00"
+  },
+  "hybrid_fi_sim_multi_hero_panel_benchmark.json": {
+   "first_added_commit": "e5b5822747455636a535ecd6162ae6e400b581cd",
+   "first_added_date": "2026-07-10T15:33:18-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "hybrid_fi_sim_stratum_deep_panel_benchmark.json": {
+   "first_added_commit": "d8e049bc23a2f79573ce7f471317e1c5a2b4ae12",
+   "first_added_date": "2026-07-12T12:04:07-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "hydrology_benchmark.json": {
+   "first_added_commit": "138e4a2eef5b9572b68418c353d85c5cf97878a4",
+   "first_added_date": "2026-07-03T11:59:57-04:00",
+   "last_changed_commit": "0482f3a22faad2874faa8255c3a7b1b2daeb3a63",
+   "last_changed_date": "2026-08-17T22:17:13-04:00"
+  },
+  "igem_live_fasta_benchmark.json": {
+   "first_added_commit": "fa9b0d9eb6709468ce3b01cdacfc73b0a41b8dec",
+   "first_added_date": "2026-07-07T20:14:04-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "igem_parts_expanded_benchmark.json": {
+   "first_added_commit": "a4311d79b13dabc4083deebf22f5f7fc43e353d5",
+   "first_added_date": "2026-07-10T14:13:19-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "igem_synthetic_biology_benchmark.json": {
+   "first_added_commit": "f828c4896d3178ac670b944eebef85471c0f74ea",
+   "first_added_date": "2026-07-07T19:58:59-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "immunology_benchmark.json": {
+   "first_added_commit": "6bcf7c0948b0a04cb35e62d3dd0ff224ac174b92",
+   "first_added_date": "2026-07-01T01:40:16-04:00",
+   "last_changed_commit": "54c4bd03ec0f593fb3c8d9358904b56729930f08",
+   "last_changed_date": "2026-09-30T01:50:19-04:00"
+  },
+  "immunology_panel_benchmark.json": {
+   "first_added_commit": "2040826b0b8c21062c2802c26d9324b2dcf6e3a3",
+   "first_added_date": "2026-07-12T11:23:50-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "inaturalist_observation_panel_benchmark.json": {
+   "first_added_commit": "a5a7aaeeb0df3f401574fe5e8214e22deec4f231",
+   "first_added_date": "2026-07-12T09:58:29-04:00",
+   "last_changed_commit": "ac1ef731241bccb4ce125c59c12d0f0e239ebd5d",
+   "last_changed_date": "2026-09-29T17:40:37-04:00"
+  },
+  "inertial_confinement_fusion_panel_benchmark.json": {
+   "first_added_commit": "e89dba0ca9bbf85e97d31217741f50575fa52440",
+   "first_added_date": "2026-07-10T14:51:06-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "information_theory_public_panel_benchmark.json": {
+   "first_added_commit": "60939e14965f4ee4b999da2a948804c42b5c58b5",
+   "first_added_date": "2026-07-10T14:26:44-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "initiation_transformation_archetype_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "intelligence_compression_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "3c74a1803b710a193287855e70ccfc1beb0ec77b",
+   "last_changed_date": "2026-09-11T15:28:37-04:00"
+  },
+  "interactive_media_prereg_scaffold_benchmark.json": {
+   "first_added_commit": "69423f16f23d81f522c10480e4f2fdb4e0ffddad",
+   "first_added_date": "2026-07-10T14:29:26-04:00",
+   "last_changed_commit": "ab96049fbf8bcb13e3e438c422420a6e0d26b9a7",
+   "last_changed_date": "2026-09-21T19:52:44-04:00"
+  },
+  "interdisciplinary_spine_crosswalk_benchmark.json": {
+   "first_added_commit": "a2a7c00a8fbae0290a5b23064010a359c2852e4b",
+   "first_added_date": "2026-07-10T14:15:27-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "intrinsic_llm_validators_benchmark.json": {
+   "first_added_commit": "21ff36f8e380e7805573079254ce3996d67a56bb",
+   "first_added_date": "2026-07-08T09:47:59-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "ionospheric_chemistry_coupling_benchmark.json": {
+   "first_added_commit": "5d21518abc58353333379a99167a64e42e64e847",
+   "first_added_date": "2026-07-10T10:31:39-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "island_of_stability_deep_panel_benchmark.json": {
+   "first_added_commit": "8ca8fad574ba538e3118d0772741696ce5a9a155",
+   "first_added_date": "2026-07-10T15:15:04-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "jarvis_dft_open_panel_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "knowledge_base_portable_bundle_panel_benchmark.json": {
+   "first_added_commit": "e5b5822747455636a535ecd6162ae6e400b581cd",
+   "first_added_date": "2026-07-10T15:33:18-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "lab_synthesis_metamaterial_spine_benchmark.json": {
+   "first_added_commit": "2fab6a7363d1e87a89c9da0018c01dc0f36e549c",
+   "first_added_date": "2026-07-10T15:05:18-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "law_policy_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "law_policy_panel_benchmark.json": {
+   "first_added_commit": "7e3797f98199cc3db76ab030bd95fc2b5e316019",
+   "first_added_date": "2026-07-12T11:44:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "limnology_panel_benchmark.json": {
+   "first_added_commit": "b9660cd5267601611eb9a4e338d1af78e34f80df",
+   "first_added_date": "2026-07-12T11:00:19-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "linguistics_formal_benchmark.json": {
+   "first_added_commit": "3d42854422c0fffcaea9fc86adff94b7e7b72cf9",
+   "first_added_date": "2026-07-07T12:28:47-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "live_ingest_spine_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "living_fsot_hardware_benchmark.json": {
+   "first_added_commit": "2b9e9760e2c4de59fb6d07a943e26a244f802037",
+   "first_added_date": "2026-07-11T15:45:56-04:00",
+   "last_changed_commit": "95a11138933922200f529a55b5a026457e8e63fd",
+   "last_changed_date": "2026-09-29T18:11:41-04:00"
+  },
+  "living_fsot_hardware_panel_benchmark.json": {
+   "first_added_commit": "c48a896637ccb85efb66e69e1611a57c581c9601",
+   "first_added_date": "2026-07-12T12:21:08-04:00",
+   "last_changed_commit": "020927c37f8e408c2552955a94365ac559b9a6da",
+   "last_changed_date": "2026-08-03T23:00:56-04:00"
+  },
+  "lmfdb_elliptic_curves_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "lmfdb_oeis_math_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "longevity_anage_catalog_panel_benchmark.json": {
+   "first_added_commit": "35e3c63a1004ba1c9b4870e392a8996de9c7ed09",
+   "first_added_date": "2026-07-14T11:09:36-04:00",
+   "last_changed_commit": "7e972dd16e21c850ab7151a2dcf3ee8cb6789201",
+   "last_changed_date": "2026-07-16T09:43:38-04:00"
+  },
+  "longevity_consciousness_coupling_panel_benchmark.json": {
+   "first_added_commit": "35e3c63a1004ba1c9b4870e392a8996de9c7ed09",
+   "first_added_date": "2026-07-14T11:09:36-04:00",
+   "last_changed_commit": "7e972dd16e21c850ab7151a2dcf3ee8cb6789201",
+   "last_changed_date": "2026-07-16T09:43:38-04:00"
+  },
+  "longevity_extreme_species_panel_benchmark.json": {
+   "first_added_commit": "35e3c63a1004ba1c9b4870e392a8996de9c7ed09",
+   "first_added_date": "2026-07-14T11:09:36-04:00",
+   "last_changed_commit": "7e972dd16e21c850ab7151a2dcf3ee8cb6789201",
+   "last_changed_date": "2026-07-16T09:43:38-04:00"
+  },
+  "longevity_genetic_mechanics_panel_benchmark.json": {
+   "first_added_commit": "35e3c63a1004ba1c9b4870e392a8996de9c7ed09",
+   "first_added_date": "2026-07-14T11:09:36-04:00",
+   "last_changed_commit": "7e972dd16e21c850ab7151a2dcf3ee8cb6789201",
+   "last_changed_date": "2026-07-16T09:43:38-04:00"
+  },
+  "longevity_megadeep_ncbi_panel_benchmark.json": {
+   "first_added_commit": "35e3c63a1004ba1c9b4870e392a8996de9c7ed09",
+   "first_added_date": "2026-07-14T11:09:36-04:00",
+   "last_changed_commit": "7e972dd16e21c850ab7151a2dcf3ee8cb6789201",
+   "last_changed_date": "2026-07-16T09:43:38-04:00"
+  },
+  "longevity_telomere_repair_panel_benchmark.json": {
+   "first_added_commit": "35e3c63a1004ba1c9b4870e392a8996de9c7ed09",
+   "first_added_date": "2026-07-14T11:09:36-04:00",
+   "last_changed_commit": "7e972dd16e21c850ab7151a2dcf3ee8cb6789201",
+   "last_changed_date": "2026-07-16T09:43:38-04:00"
+  },
+  "machine_and_molecule_live_panel_benchmark.json": {
+   "first_added_commit": "9a8478e1c8aaa835459a24674b7863abdf07b4eb",
+   "first_added_date": "2026-07-15T07:00:07-04:00",
+   "last_changed_commit": "aae9a7185242a55544698f90592e47ee5c27246b",
+   "last_changed_date": "2026-09-30T08:47:17-04:00"
+  },
+  "magnetic_confinement_fusion_panel_benchmark.json": {
+   "first_added_commit": "e89dba0ca9bbf85e97d31217741f50575fa52440",
+   "first_added_date": "2026-07-10T14:51:06-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "magnetosphere_benchmark.json": {
+   "first_added_commit": "d99b5c023e5eb3698d1623751c9bbf10550c1deb",
+   "first_added_date": "2026-07-03T12:28:44-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "magnetosphere_extended_benchmark.json": {
+   "first_added_commit": "37e884e9bf2a5e3407f5d16aafea73b8a455c8bc",
+   "first_added_date": "2026-07-03T13:34:59-04:00",
+   "last_changed_commit": "0482f3a22faad2874faa8255c3a7b1b2daeb3a63",
+   "last_changed_date": "2026-08-17T22:17:13-04:00"
+  },
+  "maillard_chemistry_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "ab96049fbf8bcb13e3e438c422420a6e0d26b9a7",
+   "last_changed_date": "2026-09-21T19:52:44-04:00"
+  },
+  "malware_threat_intelligence_cybersecurity_benchmark.json": {
+   "first_added_commit": "26bf926a1cb594179d80237e7292b449156ef9af",
+   "first_added_date": "2026-07-10T09:13:24-04:00",
+   "last_changed_commit": "54c4bd03ec0f593fb3c8d9358904b56729930f08",
+   "last_changed_date": "2026-09-30T01:50:19-04:00"
+  },
+  "marine_biology_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "marine_biology_panel_benchmark.json": {
+   "first_added_commit": "2040826b0b8c21062c2802c26d9324b2dcf6e3a3",
+   "first_added_date": "2026-07-12T11:23:50-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "material_in_silico_screening_scaffold_benchmark.json": {
+   "first_added_commit": "69423f16f23d81f522c10480e4f2fdb4e0ffddad",
+   "first_added_date": "2026-07-10T14:29:26-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "material_property_verification_scaffold_benchmark.json": {
+   "first_added_commit": "8754a45ccdf12343256344f16c388d142ca637ff",
+   "first_added_date": "2026-07-10T14:18:12-04:00",
+   "last_changed_commit": "a44d1f08f15bdef1d0d4055903b08f66813be079",
+   "last_changed_date": "2026-09-30T10:19:46-04:00"
+  },
+  "materials_creep_fracture_depth_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "ebc7264e41e0bbd51e0db7722c8d0d83c7f25332",
+   "last_changed_date": "2026-08-03T19:25:53-04:00"
+  },
+  "materials_engineering_benchmark.json": {
+   "first_added_commit": "3d42854422c0fffcaea9fc86adff94b7e7b72cf9",
+   "first_added_date": "2026-07-07T12:28:47-04:00",
+   "last_changed_commit": "529f46aa0c3ca68ca05c8f20c4cd7b8e73b9e787",
+   "last_changed_date": "2026-10-01T19:40:33-04:00"
+  },
+  "materials_genome_crosswalk_benchmark.json": {
+   "first_added_commit": "a4311d79b13dabc4083deebf22f5f7fc43e353d5",
+   "first_added_date": "2026-07-10T14:13:19-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "materials_project_live_panel_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "f47a804d877ab3bf3a52e99da88b562ad5b0add1",
+   "last_changed_date": "2026-07-16T09:55:35-04:00"
+  },
+  "materials_species_bridge_benchmark.json": {
+   "first_added_commit": "10ece8423f361eaefbef7e16fa24be1b60b2e6ab",
+   "first_added_date": "2026-07-07T19:15:19-04:00",
+   "last_changed_commit": "1b88844b046e135c8e49cd11b8663c3263d52960",
+   "last_changed_date": "2026-09-30T08:31:42-04:00"
+  },
+  "materials_species_bridge_live_panel_benchmark.json": {
+   "first_added_commit": "d8e049bc23a2f79573ce7f471317e1c5a2b4ae12",
+   "first_added_date": "2026-07-12T12:04:07-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "math_generator_airfoil_rmse_benchmark.json": {
+   "first_added_commit": "fa9b0d9eb6709468ce3b01cdacfc73b0a41b8dec",
+   "first_added_date": "2026-07-07T20:14:04-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "math_generator_benchmark_formula_eval_benchmark.json": {
+   "first_added_commit": "f828c4896d3178ac670b944eebef85471c0f74ea",
+   "first_added_date": "2026-07-07T19:58:59-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "math_generator_rules_benchmark.json": {
+   "first_added_commit": "79a77d0788b7b6119cfecd0b859db934f6a78423",
+   "first_added_date": "2026-07-01T15:02:20-04:00",
+   "last_changed_commit": "35e3c63a1004ba1c9b4870e392a8996de9c7ed09",
+   "last_changed_date": "2026-07-14T11:09:36-04:00"
+  },
+  "math_generator_rules_eval_benchmark.json": {
+   "first_added_commit": "10ece8423f361eaefbef7e16fa24be1b60b2e6ab",
+   "first_added_date": "2026-07-07T19:15:19-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "mathematics_computational_benchmark.json": {
+   "first_added_commit": "3d42854422c0fffcaea9fc86adff94b7e7b72cf9",
+   "first_added_date": "2026-07-07T12:28:47-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "matter_antimatter_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "f04fd27eee664254d7c60bf596b9da5665fdaeb9",
+   "last_changed_date": "2026-08-17T22:34:44-04:00"
+  },
+  "mechanical_engineering_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "mechanical_engineering_panel_benchmark.json": {
+   "first_added_commit": "7e3797f98199cc3db76ab030bd95fc2b5e316019",
+   "first_added_date": "2026-07-12T11:44:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "mechanistic_coupling_benchmark.json": {
+   "first_added_commit": "cc47b669ef7fd8df790cf0777dbdc96b294aaea2",
+   "first_added_date": "2026-07-10T10:15:29-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "medical_galactic_orbital_bridge_benchmark.json": {
+   "first_added_commit": "a18fd849cb7edc445544d08f9aeeb5d614682fd9",
+   "first_added_date": "2026-07-10T10:41:54-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "metamaterial_fluid_design_prereg_scaffold_benchmark.json": {
+   "first_added_commit": "2fab6a7363d1e87a89c9da0018c01dc0f36e549c",
+   "first_added_date": "2026-07-10T15:05:18-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "meteorology_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "43d1fe4d55109967908529409b6b55b5ada12ff9",
+   "last_changed_date": "2026-07-14T11:43:40-04:00"
+  },
+  "microtubule_quantum_consciousness_panel_benchmark.json": {
+   "first_added_commit": "07e52d2a51a1e98bbffbad62a009566c245af9ca",
+   "first_added_date": "2026-07-12T13:06:18-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "mpcorb_fsot_benchmark.json": {
+   "first_added_commit": "bbcc0c9ef2effc644e86b4b01221ceafa32e6658",
+   "first_added_date": "2026-08-03T17:39:05-04:00",
+   "last_changed_commit": "3c74a1803b710a193287855e70ccfc1beb0ec77b",
+   "last_changed_date": "2026-09-11T15:28:37-04:00"
+  },
+  "multi_hero_benchmark.json": {
+   "first_added_commit": "e2a50c50153f15b293fee4879ae794c8a5e4963d",
+   "first_added_date": "2026-07-03T19:23:33-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "music_harmonics_public_panel_benchmark.json": {
+   "first_added_commit": "eaa967e7cad8f9c79747baed2c6e60bb73e9abb4",
+   "first_added_date": "2026-07-10T14:22:09-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "mycology_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "mycology_panel_benchmark.json": {
+   "first_added_commit": "2040826b0b8c21062c2802c26d9324b2dcf6e3a3",
+   "first_added_date": "2026-07-12T11:23:50-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "nasa_donki_solar_panel_benchmark.json": {
+   "first_added_commit": "e74841befbee790cd80897fc006afb7383c971f0",
+   "first_added_date": "2026-07-12T09:03:33-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "nasa_exoplanet_archive_benchmark.json": {
+   "first_added_commit": "adfc150f5cea52c7c37203bf1149da6cc770a8df",
+   "first_added_date": "2026-07-08T12:58:46-04:00",
+   "last_changed_commit": "3c74a1803b710a193287855e70ccfc1beb0ec77b",
+   "last_changed_date": "2026-09-11T15:28:37-04:00"
+  },
+  "nasa_neo_feed_panel_benchmark.json": {
+   "first_added_commit": "e74841befbee790cd80897fc006afb7383c971f0",
+   "first_added_date": "2026-07-12T09:03:33-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "natural_formation_element_simulation_benchmark.json": {
+   "first_added_commit": "c85f8d65ec8e59311b48a8fe43f0e27ff6146550",
+   "first_added_date": "2026-07-10T14:58:32-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "ncbi_gene_public_panel_benchmark.json": {
+   "first_added_commit": "a5a7aaeeb0df3f401574fe5e8214e22deec4f231",
+   "first_added_date": "2026-07-12T09:58:29-04:00",
+   "last_changed_commit": "ac1ef731241bccb4ce125c59c12d0f0e239ebd5d",
+   "last_changed_date": "2026-09-29T17:40:37-04:00"
+  },
+  "ncei_climate_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "ncei_multivar_climate_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "network_internet_protocols_cybersecurity_benchmark.json": {
+   "first_added_commit": "26bf926a1cb594179d80237e7292b449156ef9af",
+   "first_added_date": "2026-07-10T09:13:24-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "network_science_public_panel_benchmark.json": {
+   "first_added_commit": "60939e14965f4ee4b999da2a948804c42b5c58b5",
+   "first_added_date": "2026-07-10T14:26:44-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "neural_galactic_orbital_bridge_benchmark.json": {
+   "first_added_commit": "a18fd849cb7edc445544d08f9aeeb5d614682fd9",
+   "first_added_date": "2026-07-10T10:41:54-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "neuroeconomics_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "neuroeconomics_panel_benchmark.json": {
+   "first_added_commit": "7e3797f98199cc3db76ab030bd95fc2b5e316019",
+   "first_added_date": "2026-07-12T11:44:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "neuroimmunology_benchmark.json": {
+   "first_added_commit": "66019c5684af555000a16a970e6d66e6cb02193f",
+   "first_added_date": "2026-07-03T13:57:02-04:00",
+   "last_changed_commit": "54c4bd03ec0f593fb3c8d9358904b56729930f08",
+   "last_changed_date": "2026-09-30T01:50:19-04:00"
+  },
+  "neurolab_gaps_math_spine_benchmark.json": {
+   "first_added_commit": "60939e14965f4ee4b999da2a948804c42b5c58b5",
+   "first_added_date": "2026-07-10T14:26:44-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "neurolab_residual_math_spine_benchmark.json": {
+   "first_added_commit": "261dee7d8cf255eacb66eef3c376e9fbed358447",
+   "first_added_date": "2026-07-10T14:33:19-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "neuron_zig_mind_panel_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "neuron_zig_os_path_panel_benchmark.json": {
+   "first_added_commit": "f420ea37ab392f2356b9bb4ac610d4b2a16d9bfc",
+   "first_added_date": "2026-08-05T08:24:40-04:00",
+   "last_changed_commit": "f420ea37ab392f2356b9bb4ac610d4b2a16d9bfc",
+   "last_changed_date": "2026-08-05T08:24:40-04:00"
+  },
+  "neuroscience_connectomics_depth_panel_benchmark.json": {
+   "first_added_commit": "c48a896637ccb85efb66e69e1611a57c581c9601",
+   "first_added_date": "2026-07-12T12:21:08-04:00",
+   "last_changed_commit": "ebc7264e41e0bbd51e0db7722c8d0d83c7f25332",
+   "last_changed_date": "2026-08-03T19:25:53-04:00"
+  },
+  "neuroscience_fi_precision_benchmark.json": {
+   "first_added_commit": "0210d323966d8069a57bd882e5f98ca04ca99b36",
+   "first_added_date": "2026-07-08T14:28:21-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "neutrino_physics_panel_benchmark.json": {
+   "first_added_commit": "b9660cd5267601611eb9a4e338d1af78e34f80df",
+   "first_added_date": "2026-07-12T11:00:19-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "nist_asd_multi_species_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "nist_asd_spectroscopy_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "f04fd27eee664254d7c60bf596b9da5665fdaeb9",
+   "last_changed_date": "2026-08-17T22:34:44-04:00"
+  },
+  "nist_codata_constants_benchmark.json": {
+   "first_added_commit": "adfc150f5cea52c7c37203bf1149da6cc770a8df",
+   "first_added_date": "2026-07-08T12:58:46-04:00",
+   "last_changed_commit": "f04fd27eee664254d7c60bf596b9da5665fdaeb9",
+   "last_changed_date": "2026-08-17T22:34:44-04:00"
+  },
+  "nist_dlmf_special_functions_benchmark.json": {
+   "first_added_commit": "5c0653c11de3295d697d281bd6c5c417afad2148",
+   "first_added_date": "2026-07-11T19:14:19-04:00",
+   "last_changed_commit": "0482f3a22faad2874faa8255c3a7b1b2daeb3a63",
+   "last_changed_date": "2026-08-17T22:17:13-04:00"
+  },
+  "noaa_coastal_tides_benchmark.json": {
+   "first_added_commit": "adfc150f5cea52c7c37203bf1149da6cc770a8df",
+   "first_added_date": "2026-07-08T12:58:46-04:00",
+   "last_changed_commit": "3c74a1803b710a193287855e70ccfc1beb0ec77b",
+   "last_changed_date": "2026-09-11T15:28:37-04:00"
+  },
+  "noaa_ndbc_buoy_panel_benchmark.json": {
+   "first_added_commit": "a5a7aaeeb0df3f401574fe5e8214e22deec4f231",
+   "first_added_date": "2026-07-12T09:58:29-04:00",
+   "last_changed_commit": "ac1ef731241bccb4ce125c59c12d0f0e239ebd5d",
+   "last_changed_date": "2026-09-29T17:40:37-04:00"
+  },
+  "noaa_tides_multi_station_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "nothing_perfection_friction_origin_panel_benchmark.json": {
+   "first_added_commit": "39ba10382928f73eadd6732c4d6dd5cc0baf1fbb",
+   "first_added_date": "2026-07-12T13:36:40-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "nuclear_iaea_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "nuclear_lean_route_credibility_benchmark.json": {
+   "first_added_commit": "f47a804d877ab3bf3a52e99da88b562ad5b0add1",
+   "first_added_date": "2026-07-16T09:55:35-04:00",
+   "last_changed_commit": "646d16c087c1c257a5698ede4aa4ce0adcc55685",
+   "last_changed_date": "2026-08-05T07:56:42-04:00"
+  },
+  "nufit_neutrino_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "f04fd27eee664254d7c60bf596b9da5665fdaeb9",
+   "last_changed_date": "2026-08-17T22:34:44-04:00"
+  },
+  "observer_channel_derivation_benchmark.json": {
+   "first_added_commit": "6de8694cdd0e50f7c951c6fba514348b7c73ae92",
+   "first_added_date": "2026-07-10T10:19:50-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "observer_effect_cross_species_panel_benchmark.json": {
+   "first_added_commit": "07e52d2a51a1e98bbffbad62a009566c245af9ca",
+   "first_added_date": "2026-07-12T13:06:18-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "observer_lean_route_credibility_benchmark.json": {
+   "first_added_commit": "f47a804d877ab3bf3a52e99da88b562ad5b0add1",
+   "first_added_date": "2026-07-16T09:55:35-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "oceanography_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "43d1fe4d55109967908529409b6b55b5ada12ff9",
+   "last_changed_date": "2026-07-14T11:43:40-04:00"
+  },
+  "oeis_family_sweep_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "omni_theory_genesis_benchmark.json": {
+   "first_added_commit": "48816053bdac6913163f3e73bbf262f437dee240",
+   "first_added_date": "2026-07-08T11:19:23-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "omni_theory_humanities_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "1de55f6a44e5e688a825d5a08dd833f4994bd588",
+   "last_changed_date": "2026-07-16T11:53:14-04:00"
+  },
+  "oncology_benchmark.json": {
+   "first_added_commit": "66019c5684af555000a16a970e6d66e6cb02193f",
+   "first_added_date": "2026-07-03T13:57:02-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "open_meteo_live_panel_benchmark.json": {
+   "first_added_commit": "a5a7aaeeb0df3f401574fe5e8214e22deec4f231",
+   "first_added_date": "2026-07-12T09:58:29-04:00",
+   "last_changed_commit": "ac1ef731241bccb4ce125c59c12d0f0e239ebd5d",
+   "last_changed_date": "2026-09-29T17:40:37-04:00"
+  },
+  "open_science_live_concordance_benchmark.json": {
+   "first_added_commit": "4b5aac46ad275a86275badaa22b393522f0ba3c9",
+   "first_added_date": "2026-08-03T11:24:00-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "open_science_seed_constants_benchmark.json": {
+   "first_added_commit": "4b5aac46ad275a86275badaa22b393522f0ba3c9",
+   "first_added_date": "2026-08-03T11:24:00-04:00",
+   "last_changed_commit": "68936e6d6fb45d47b07cc8bd8f576c32f8183bb5",
+   "last_changed_date": "2026-09-29T08:56:48-04:00"
+  },
+  "openalex_citation_depth_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "openalex_citation_graph_benchmark.json": {
+   "first_added_commit": "adfc150f5cea52c7c37203bf1149da6cc770a8df",
+   "first_added_date": "2026-07-08T12:58:46-04:00",
+   "last_changed_commit": "3c74a1803b710a193287855e70ccfc1beb0ec77b",
+   "last_changed_date": "2026-09-11T15:28:37-04:00"
+  },
+  "openneuro_depth_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "openneuro_full_panel_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "f47a804d877ab3bf3a52e99da88b562ad5b0add1",
+   "last_changed_date": "2026-07-16T09:55:35-04:00"
+  },
+  "oph_fsot_challenge_panel_benchmark.json": {
+   "first_added_commit": "c5eb1e25311dc6d6be8ef5e77d0f496c826e41e3",
+   "first_added_date": "2026-08-05T08:18:01-04:00",
+   "last_changed_commit": "c5eb1e25311dc6d6be8ef5e77d0f496c826e41e3",
+   "last_changed_date": "2026-08-05T08:18:01-04:00"
+  },
+  "optics_interferometry_depth_panel_benchmark.json": {
+   "first_added_commit": "c48a896637ccb85efb66e69e1611a57c581c9601",
+   "first_added_date": "2026-07-12T12:21:08-04:00",
+   "last_changed_commit": "ebc7264e41e0bbd51e0db7722c8d0d83c7f25332",
+   "last_changed_date": "2026-08-03T19:25:53-04:00"
+  },
+  "orbital_mechanics_benchmark.json": {
+   "first_added_commit": "c85a686d269ec04db7dde03e2bfab2a45b4e16c9",
+   "first_added_date": "2026-07-03T12:23:13-04:00",
+   "last_changed_commit": "f04fd27eee664254d7c60bf596b9da5665fdaeb9",
+   "last_changed_date": "2026-08-17T22:34:44-04:00"
+  },
+  "osti_doe_science_panel_benchmark.json": {
+   "first_added_commit": "e74841befbee790cd80897fc006afb7383c971f0",
+   "first_added_date": "2026-07-12T09:03:33-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "overflow_carry_emergence_panel_benchmark.json": {
+   "first_added_commit": "39ba10382928f73eadd6732c4d6dd5cc0baf1fbb",
+   "first_added_date": "2026-07-12T13:36:40-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "owid_epidemiology_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "paleoclimate_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "paleoclimate_panel_benchmark.json": {
+   "first_added_commit": "7e3797f98199cc3db76ab030bd95fc2b5e316019",
+   "first_added_date": "2026-07-12T11:44:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "paleontology_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "paleontology_panel_benchmark.json": {
+   "first_added_commit": "2040826b0b8c21062c2802c26d9324b2dcf6e3a3",
+   "first_added_date": "2026-07-12T11:23:50-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "particle_neural_orbital_bridge_benchmark.json": {
+   "first_added_commit": "5d21518abc58353333379a99167a64e42e64e847",
+   "first_added_date": "2026-07-10T10:31:39-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "particle_physics_benchmark.json": {
+   "first_added_commit": "448a0b45d14186af02e3ade95fe9bd7408e46bc9",
+   "first_added_date": "2026-07-03T11:20:59-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "particle_physics_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "pdg_live_depth_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "pdg_particle_properties_benchmark.json": {
+   "first_added_commit": "5c0653c11de3295d697d281bd6c5c417afad2148",
+   "first_added_date": "2026-07-11T19:14:19-04:00",
+   "last_changed_commit": "b1938b97847d2f96268adcdd01050dd243ab340c",
+   "last_changed_date": "2026-09-29T15:18:44-04:00"
+  },
+  "perceived_lean_route_credibility_benchmark.json": {
+   "first_added_commit": "f47a804d877ab3bf3a52e99da88b562ad5b0add1",
+   "first_added_date": "2026-07-16T09:55:35-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "periodic_extension_decay_topology_scaffold_benchmark.json": {
+   "first_added_commit": "192c857548373e7a056d5a0c85d996eddd15be73",
+   "first_added_date": "2026-07-10T15:20:57-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "periodic_table_completion_spine_benchmark.json": {
+   "first_added_commit": "c85f8d65ec8e59311b48a8fe43f0e27ff6146550",
+   "first_added_date": "2026-07-10T14:58:32-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "periodic_table_extension_closure_spine_benchmark.json": {
+   "first_added_commit": "192c857548373e7a056d5a0c85d996eddd15be73",
+   "first_added_date": "2026-07-10T15:20:57-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "periodic_table_public_panel_benchmark.json": {
+   "first_added_commit": "c85f8d65ec8e59311b48a8fe43f0e27ff6146550",
+   "first_added_date": "2026-07-10T14:58:32-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "petrology_geochemistry_panel_benchmark.json": {
+   "first_added_commit": "b9660cd5267601611eb9a4e338d1af78e34f80df",
+   "first_added_date": "2026-07-12T11:00:19-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "pharmacokinetics_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "pharmacology_benchmark.json": {
+   "first_added_commit": "268064f57ea4e9fd82737aa40a155c6127a10b50",
+   "first_added_date": "2026-07-03T12:11:30-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "phi_morphogenetic_scaling_benchmark.json": {
+   "first_added_commit": "5d21518abc58353333379a99167a64e42e64e847",
+   "first_added_date": "2026-07-10T10:31:39-04:00",
+   "last_changed_commit": "529f46aa0c3ca68ca05c8f20c4cd7b8e73b9e787",
+   "last_changed_date": "2026-10-01T19:40:33-04:00"
+  },
+  "physarum_biological_cuda_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "planetary_atmospheres_benchmark.json": {
+   "first_added_commit": "51d0fe0579691a1a72ace1371648e2b3cedeafd3",
+   "first_added_date": "2026-07-03T12:42:12-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "planetary_structure_benchmark.json": {
+   "first_added_commit": "c85a686d269ec04db7dde03e2bfab2a45b4e16c9",
+   "first_added_date": "2026-07-03T12:23:13-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "plasma_physics_benchmark.json": {
+   "first_added_commit": "6bcf7c0948b0a04cb35e62d3dd0ff224ac174b92",
+   "first_added_date": "2026-07-01T01:40:16-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "portable_clone_verify_benchmark.json": {
+   "first_added_commit": "6de8694cdd0e50f7c951c6fba514348b7c73ae92",
+   "first_added_date": "2026-07-10T10:19:50-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "prediction_rederivation_benchmark.json": {
+   "first_added_commit": "eb2977718af587017dd2d956f4ecf1d3d8bd832c",
+   "first_added_date": "2026-07-08T12:35:55-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "preregistered_outcome_tracking_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "preregistered_predictions_benchmark.json": {
+   "first_added_commit": "6de8694cdd0e50f7c951c6fba514348b7c73ae92",
+   "first_added_date": "2026-07-10T10:19:50-04:00",
+   "last_changed_commit": "ae1e8e03fac99ccc3c5ba5d8a3ccbbc725cc5fb8",
+   "last_changed_date": "2026-08-05T10:42:47-04:00"
+  },
+  "preregistered_predictions_verification_scaffold_benchmark.json": {
+   "first_added_commit": "60939e14965f4ee4b999da2a948804c42b5c58b5",
+   "first_added_date": "2026-07-10T14:26:44-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "programming_language_laws_benchmark.json": {
+   "first_added_commit": "c6d23e4fefa982b7736f2a47b8b7f29b360fcda3",
+   "first_added_date": "2026-07-10T10:02:43-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "proof_carrying_code_genome_benchmark.json": {
+   "first_added_commit": "5d21518abc58353333379a99167a64e42e64e847",
+   "first_added_date": "2026-07-10T10:31:39-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "proof_ledger_closure_spine_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "786f09c83ac04ee3eaf26d1676980fc76dedcdc9",
+   "last_changed_date": "2026-09-17T18:42:13-04:00"
+  },
+  "proton_lean_route_credibility_benchmark.json": {
+   "first_added_commit": "f47a804d877ab3bf3a52e99da88b562ad5b0add1",
+   "first_added_date": "2026-07-16T09:55:35-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "psychology_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "43d1fe4d55109967908529409b6b55b5ada12ff9",
+   "last_changed_date": "2026-07-14T11:43:40-04:00"
+  },
+  "psychology_psychometrics_depth_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "pubchem_compound_properties_benchmark.json": {
+   "first_added_commit": "adfc150f5cea52c7c37203bf1149da6cc770a8df",
+   "first_added_date": "2026-07-08T12:58:46-04:00",
+   "last_changed_commit": "ac1ef731241bccb4ce125c59c12d0f0e239ebd5d",
+   "last_changed_date": "2026-09-29T17:40:37-04:00"
+  },
+  "pubchem_depth_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "pubchem_live_deep_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "pubchem_stability_panel_benchmark.json": {
+   "first_added_commit": "a4311d79b13dabc4083deebf22f5f7fc43e353d5",
+   "first_added_date": "2026-07-10T14:13:19-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "public_verifiable_spine_benchmark.json": {
+   "first_added_commit": "a5a7aaeeb0df3f401574fe5e8214e22deec4f231",
+   "first_added_date": "2026-07-12T09:58:29-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "published_fuel_property_panel_benchmark.json": {
+   "first_added_commit": "a2a7c00a8fbae0290a5b23064010a359c2852e4b",
+   "first_added_date": "2026-07-10T14:15:27-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "pure_mathematics_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "pure_mathematics_panel_benchmark.json": {
+   "first_added_commit": "d8e049bc23a2f79573ce7f471317e1c5a2b4ae12",
+   "first_added_date": "2026-07-12T12:04:07-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "qce_elm_fusion_edge_panel_benchmark.json": {
+   "first_added_commit": "f843c39c5f601f0cc0ec5f9cea6b5c9e859cab6c",
+   "first_added_date": "2026-08-04T09:42:37-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "quantum_computing_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "68936e6d6fb45d47b07cc8bd8f576c32f8183bb5",
+   "last_changed_date": "2026-09-29T08:56:48-04:00"
+  },
+  "quantum_computing_math_depth_panel_benchmark.json": {
+   "first_added_commit": "c48a896637ccb85efb66e69e1611a57c581c9601",
+   "first_added_date": "2026-07-12T12:21:08-04:00",
+   "last_changed_commit": "ebc7264e41e0bbd51e0db7722c8d0d83c7f25332",
+   "last_changed_date": "2026-08-03T19:25:53-04:00"
+  },
+  "quantum_information_benchmark.json": {
+   "first_added_commit": "261dee7d8cf255eacb66eef3c376e9fbed358447",
+   "first_added_date": "2026-07-10T14:33:19-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "quantum_materials_benchmark.json": {
+   "first_added_commit": "e2a50c50153f15b293fee4879ae794c8a5e4963d",
+   "first_added_date": "2026-07-03T19:23:33-04:00",
+   "last_changed_commit": "a44d1f08f15bdef1d0d4055903b08f66813be079",
+   "last_changed_date": "2026-09-30T10:19:46-04:00"
+  },
+  "quantum_mechanics_entanglement_depth_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "quantum_mechanics_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "68936e6d6fb45d47b07cc8bd8f576c32f8183bb5",
+   "last_changed_date": "2026-09-29T08:56:48-04:00"
+  },
+  "quantum_optics_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "68936e6d6fb45d47b07cc8bd8f576c32f8183bb5",
+   "last_changed_date": "2026-09-29T08:56:48-04:00"
+  },
+  "quantum_trinary_syntax_benchmark.json": {
+   "first_added_commit": "1bc8346c512336c159542a538899091cf38f96e6",
+   "first_added_date": "2026-08-05T17:06:46-04:00",
+   "last_changed_commit": "1bc8346c512336c159542a538899091cf38f96e6",
+   "last_changed_date": "2026-08-05T17:06:46-04:00"
+  },
+  "radio_astronomy_panel_benchmark.json": {
+   "first_added_commit": "b9660cd5267601611eb9a4e338d1af78e34f80df",
+   "first_added_date": "2026-07-12T11:00:19-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "rcsb_pdb_structures_benchmark.json": {
+   "first_added_commit": "adfc150f5cea52c7c37203bf1149da6cc770a8df",
+   "first_added_date": "2026-07-08T12:58:46-04:00",
+   "last_changed_commit": "3c74a1803b710a193287855e70ccfc1beb0ec77b",
+   "last_changed_date": "2026-09-11T15:28:37-04:00"
+  },
+  "rcsb_structure_batch_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "rd_interval_tightening_panel_benchmark.json": {
+   "first_added_commit": "e5b5822747455636a535ecd6162ae6e400b581cd",
+   "first_added_date": "2026-07-10T15:33:18-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "reality_folding_spine_benchmark.json": {
+   "first_added_commit": "dd65ea5f9cd4520c2f21fe02897cda7daddf65e2",
+   "first_added_date": "2026-07-10T11:00:23-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "recent_breakthroughs_expansion_panel_benchmark.json": {
+   "first_added_commit": "f843c39c5f601f0cc0ec5f9cea6b5c9e859cab6c",
+   "first_added_date": "2026-08-04T09:42:37-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "robotics_control_systems_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "robotics_control_systems_panel_benchmark.json": {
+   "first_added_commit": "2040826b0b8c21062c2802c26d9324b2dcf6e3a3",
+   "first_added_date": "2026-07-12T11:23:50-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "rust_lean_bridge_benchmark.json": {
+   "first_added_commit": "a75c3d8d7329b663f495ee7f30a50b58d917ad38",
+   "first_added_date": "2026-07-08T12:41:32-04:00",
+   "last_changed_commit": "95a11138933922200f529a55b5a026457e8e63fd",
+   "last_changed_date": "2026-09-29T18:11:41-04:00"
+  },
+  "rust_lean_bridge_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "scalar_solver_35_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "schematic_netlist_intrinsic_panel_benchmark.json": {
+   "first_added_commit": "f47a804d877ab3bf3a52e99da88b562ad5b0add1",
+   "first_added_date": "2026-07-16T09:55:35-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "scientific_expansion_depth_spine_benchmark.json": {
+   "first_added_commit": "d8e049bc23a2f79573ce7f471317e1c5a2b4ae12",
+   "first_added_date": "2026-07-12T12:04:07-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "scientific_expansion_depth_wave2_spine_benchmark.json": {
+   "first_added_commit": "c48a896637ccb85efb66e69e1611a57c581c9601",
+   "first_added_date": "2026-07-12T12:21:08-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "scientific_expansion_spine_benchmark.json": {
+   "first_added_commit": "b9660cd5267601611eb9a4e338d1af78e34f80df",
+   "first_added_date": "2026-07-12T11:00:19-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "scientific_expansion_wave2_spine_benchmark.json": {
+   "first_added_commit": "2040826b0b8c21062c2802c26d9324b2dcf6e3a3",
+   "first_added_date": "2026-07-12T11:23:50-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "scientific_expansion_wave3_spine_benchmark.json": {
+   "first_added_commit": "7e3797f98199cc3db76ab030bd95fc2b5e316019",
+   "first_added_date": "2026-07-12T11:44:34-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "secure_software_engineering_cybersecurity_benchmark.json": {
+   "first_added_commit": "26bf926a1cb594179d80237e7292b449156ef9af",
+   "first_added_date": "2026-07-10T09:13:24-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "seismology_benchmark.json": {
+   "first_added_commit": "c85a686d269ec04db7dde03e2bfab2a45b4e16c9",
+   "first_added_date": "2026-07-03T12:23:13-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "seismology_deep_benchmark.json": {
+   "first_added_commit": "51d0fe0579691a1a72ace1371648e2b3cedeafd3",
+   "first_added_date": "2026-07-03T12:42:12-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "semiconductor_physics_public_panel_benchmark.json": {
+   "first_added_commit": "60939e14965f4ee4b999da2a948804c42b5c58b5",
+   "first_added_date": "2026-07-10T14:26:44-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "sh0es_full_sample_benchmark.json": {
+   "first_added_commit": "03c4e709f3108e7a781c31a06d6ec678c3ab7388",
+   "first_added_date": "2026-08-24T18:19:44-04:00",
+   "last_changed_commit": "786f09c83ac04ee3eaf26d1676980fc76dedcdc9",
+   "last_changed_date": "2026-09-17T18:42:13-04:00"
+  },
+  "sh0es_ladder_chain_benchmark.json": {
+   "first_added_commit": "484893fbebcfdd7baa5e9e0b491ef01fa61d54dc",
+   "first_added_date": "2026-08-17T23:46:04-04:00",
+   "last_changed_commit": "ac1ef731241bccb4ce125c59c12d0f0e239ebd5d",
+   "last_changed_date": "2026-09-29T17:40:37-04:00"
+  },
+  "sh0es_refined_benchmark.json": {
+   "first_added_commit": "459d07fde542e74ef9460315d491fa632c45cd48",
+   "first_added_date": "2026-07-10T13:47:04-04:00",
+   "last_changed_commit": "786f09c83ac04ee3eaf26d1676980fc76dedcdc9",
+   "last_changed_date": "2026-09-17T18:42:13-04:00"
+  },
+  "simbad_identity_depth_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "simbad_stellar_identity_deep_benchmark.json": {
+   "first_added_commit": "8754a45ccdf12343256344f16c388d142ca637ff",
+   "first_added_date": "2026-07-10T14:18:12-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "small_body_orbits_benchmark.json": {
+   "first_added_commit": "d99b5c023e5eb3698d1623751c9bbf10550c1deb",
+   "first_added_date": "2026-07-03T12:28:44-04:00",
+   "last_changed_commit": "0482f3a22faad2874faa8255c3a7b1b2daeb3a63",
+   "last_changed_date": "2026-08-17T22:17:13-04:00"
+  },
+  "sociology_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "43d1fe4d55109967908529409b6b55b5ada12ff9",
+   "last_changed_date": "2026-07-14T11:43:40-04:00"
+  },
+  "soil_science_panel_benchmark.json": {
+   "first_added_commit": "b9660cd5267601611eb9a4e338d1af78e34f80df",
+   "first_added_date": "2026-07-12T11:00:19-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "solar_system_structure_deep_benchmark.json": {
+   "first_added_commit": "a4311d79b13dabc4083deebf22f5f7fc43e353d5",
+   "first_added_date": "2026-07-10T14:13:19-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "space_propulsion_systems_benchmark.json": {
+   "first_added_commit": "fbc629fdafd4dd1779a002675dd625367df00efd",
+   "first_added_date": "2026-07-08T14:15:32-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "space_weather_benchmark.json": {
+   "first_added_commit": "cb69ada27c1a7eee2de309a9b266b11b97066fa4",
+   "first_added_date": "2026-07-03T11:27:56-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "space_weather_summary_benchmark.json": {
+   "first_added_commit": "442ac0b0454ac875019d27e1c48d31edd88363ba",
+   "first_added_date": "2026-07-10T08:04:42-04:00",
+   "last_changed_commit": "43d1fe4d55109967908529409b6b55b5ada12ff9",
+   "last_changed_date": "2026-07-14T11:43:40-04:00"
+  },
+  "speleology_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "speleology_panel_benchmark.json": {
+   "first_added_commit": "7e3797f98199cc3db76ab030bd95fc2b5e316019",
+   "first_added_date": "2026-07-12T11:44:34-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "sports_biomechanics_gap_fill_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "star_trek_transporter_live_panel_benchmark.json": {
+   "first_added_commit": "9a8478e1c8aaa835459a24674b7863abdf07b4eb",
+   "first_added_date": "2026-07-15T07:00:07-04:00",
+   "last_changed_commit": "ac1ef731241bccb4ce125c59c12d0f0e239ebd5d",
+   "last_changed_date": "2026-09-29T17:40:37-04:00"
+  },
+  "statistical_mechanics_public_panel_benchmark.json": {
+   "first_added_commit": "60939e14965f4ee4b999da2a948804c42b5c58b5",
+   "first_added_date": "2026-07-10T14:26:44-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "stellar_multiplicity_catalog_benchmark.json": {
+   "first_added_commit": "a4311d79b13dabc4083deebf22f5f7fc43e353d5",
+   "first_added_date": "2026-07-10T14:13:19-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "stellar_multiplicity_live_deep_benchmark.json": {
+   "first_added_commit": "a2a7c00a8fbae0290a5b23064010a359c2852e4b",
+   "first_added_date": "2026-07-10T14:15:27-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "structure_calibration_benchmark.json": {
+   "first_added_commit": "377c7e520aef2590ba2a46ddfb75fc53c42ec943",
+   "first_added_date": "2026-07-05T13:00:34-04:00",
+   "last_changed_commit": "f4be2a27bc7e61d08d30f6003333202f7dc2e14b",
+   "last_changed_date": "2026-09-29T12:05:02-04:00"
+  },
+  "stsci_mast_telescope_panel_benchmark.json": {
+   "first_added_commit": "4d1d87cb87fe7e793f6b233a248f088540e3acf0",
+   "first_added_date": "2026-07-11T19:50:24-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "stumped_observables_panel_benchmark.json": {
+   "first_added_commit": "459d07fde542e74ef9460315d491fa632c45cd48",
+   "first_added_date": "2026-07-10T13:47:04-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "stumped_observables_spine_benchmark.json": {
+   "first_added_commit": "459d07fde542e74ef9460315d491fa632c45cd48",
+   "first_added_date": "2026-07-10T13:47:04-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "superheavy_element_stability_panel_benchmark.json": {
+   "first_added_commit": "c85f8d65ec8e59311b48a8fe43f0e27ff6146550",
+   "first_added_date": "2026-07-10T14:58:32-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "superheavy_island_completion_spine_benchmark.json": {
+   "first_added_commit": "8ca8fad574ba538e3118d0772741696ce5a9a155",
+   "first_added_date": "2026-07-10T15:15:04-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "superheavy_island_emergence_simulation_benchmark.json": {
+   "first_added_commit": "8ca8fad574ba538e3118d0772741696ce5a9a155",
+   "first_added_date": "2026-07-10T15:15:04-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "supply_chain_logistics_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "supply_chain_logistics_panel_benchmark.json": {
+   "first_added_commit": "7e3797f98199cc3db76ab030bd95fc2b5e316019",
+   "first_added_date": "2026-07-12T11:44:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "symbolic_archetype_panel_benchmark.json": {
+   "first_added_commit": "459d07fde542e74ef9460315d491fa632c45cd48",
+   "first_added_date": "2026-07-10T13:47:04-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "synthetic_biology_benchmark.json": {
+   "first_added_commit": "e2a50c50153f15b293fee4879ae794c8a5e4963d",
+   "first_added_date": "2026-07-03T19:23:33-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "tectonics_benchmark.json": {
+   "first_added_commit": "c85a686d269ec04db7dde03e2bfab2a45b4e16c9",
+   "first_added_date": "2026-07-03T12:23:13-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "term3_acoustic_bleed_depth_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "529f46aa0c3ca68ca05c8f20c4cd7b8e73b9e787",
+   "last_changed_date": "2026-10-01T19:40:33-04:00"
+  },
+  "the_well_outcomes_verification_panel_benchmark.json": {
+   "first_added_commit": "6d9c9137eb49d11ee2470e8e94729e6f613e1fc7",
+   "first_added_date": "2026-07-12T12:48:02-04:00",
+   "last_changed_commit": "d0594093c385ac5be177f872cdf5fb44452148f3",
+   "last_changed_date": "2026-07-14T21:01:01-04:00"
+  },
+  "the_well_spot_check_panel_benchmark.json": {
+   "first_added_commit": "6d9c9137eb49d11ee2470e8e94729e6f613e1fc7",
+   "first_added_date": "2026-07-12T12:48:02-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "the_well_verification_spine_benchmark.json": {
+   "first_added_commit": "6d9c9137eb49d11ee2470e8e94729e6f613e1fc7",
+   "first_added_date": "2026-07-12T12:48:02-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "theory_completeness_spine_benchmark.json": {
+   "first_added_commit": "cc47b669ef7fd8df790cf0777dbdc96b294aaea2",
+   "first_added_date": "2026-07-10T10:15:29-04:00",
+   "last_changed_commit": "786f09c83ac04ee3eaf26d1676980fc76dedcdc9",
+   "last_changed_date": "2026-09-17T18:42:13-04:00"
+  },
+  "thesis_simulation_benchmark.json": {
+   "first_added_commit": "79a77d0788b7b6119cfecd0b859db934f6a78423",
+   "first_added_date": "2026-07-01T15:02:20-04:00",
+   "last_changed_commit": "35e3c63a1004ba1c9b4870e392a8996de9c7ed09",
+   "last_changed_date": "2026-07-14T11:09:36-04:00"
+  },
+  "tier_93_dual_wave_spine_benchmark.json": {
+   "first_added_commit": "17561aba2ce229d57bc502bbf3943e2db125e059",
+   "first_added_date": "2026-07-12T13:46:25-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "tier_94_longevity_spine_benchmark.json": {
+   "first_added_commit": "35e3c63a1004ba1c9b4870e392a8996de9c7ed09",
+   "first_added_date": "2026-07-14T11:09:36-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "tier_95_zebrafish_spine_benchmark.json": {
+   "first_added_commit": "2a8e7b81cc3a8b8644acda9b250bb10ac6f9723a",
+   "first_added_date": "2026-07-13T11:29:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "tier_96_circuit_spine_benchmark.json": {
+   "first_added_commit": "f47a804d877ab3bf3a52e99da88b562ad5b0add1",
+   "first_added_date": "2026-07-16T09:55:35-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "time_domain_crosswalk_benchmark.json": {
+   "first_added_commit": "459d07fde542e74ef9460315d491fa632c45cd48",
+   "first_added_date": "2026-07-10T13:47:04-04:00",
+   "last_changed_commit": "1de55f6a44e5e688a825d5a08dd833f4994bd588",
+   "last_changed_date": "2026-07-16T11:53:14-04:00"
+  },
+  "time_emergence_deep_panel_benchmark.json": {
+   "first_added_commit": "192c857548373e7a056d5a0c85d996eddd15be73",
+   "first_added_date": "2026-07-10T15:20:57-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "time_emergence_simulation_benchmark.json": {
+   "first_added_commit": "459d07fde542e74ef9460315d491fa632c45cd48",
+   "first_added_date": "2026-07-10T13:47:04-04:00",
+   "last_changed_commit": "1de55f6a44e5e688a825d5a08dd833f4994bd588",
+   "last_changed_date": "2026-07-16T11:53:14-04:00"
+  },
+  "toe_ckm_pmns_benchmark.json": {
+   "first_added_commit": "5f45197c0f9b1ffec6baae0d75c1d7eadfb58c97",
+   "first_added_date": "2026-08-03T19:55:57-04:00",
+   "last_changed_commit": "95a11138933922200f529a55b5a026457e8e63fd",
+   "last_changed_date": "2026-09-29T18:11:41-04:00"
+  },
+  "toe_claim_certificate_bundle_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "786f09c83ac04ee3eaf26d1676980fc76dedcdc9",
+   "last_changed_date": "2026-09-17T18:42:13-04:00"
+  },
+  "toe_dynamics_benchmark.json": {
+   "first_added_commit": "10c2bb1d28bc2ba7e295eb35a20b913ee4464692",
+   "first_added_date": "2026-08-03T19:12:37-04:00",
+   "last_changed_commit": "529f46aa0c3ca68ca05c8f20c4cd7b8e73b9e787",
+   "last_changed_date": "2026-10-01T19:40:33-04:00"
+  },
+  "toe_gap_closure_spine_benchmark.json": {
+   "first_added_commit": "6de8694cdd0e50f7c951c6fba514348b7c73ae92",
+   "first_added_date": "2026-07-10T10:19:50-04:00",
+   "last_changed_commit": "786f09c83ac04ee3eaf26d1676980fc76dedcdc9",
+   "last_changed_date": "2026-09-17T18:42:13-04:00"
+  },
+  "toe_gr_sm_deep_benchmark.json": {
+   "first_added_commit": "8c3be7e759c41ce338551ac346d547e456475fcb",
+   "first_added_date": "2026-08-03T19:47:07-04:00",
+   "last_changed_commit": "9f7d82cf25ee04ce3ef380cfa47622012bca764c",
+   "last_changed_date": "2026-09-21T19:19:46-04:00"
+  },
+  "toe_limit_recovery_benchmark.json": {
+   "first_added_commit": "10c2bb1d28bc2ba7e295eb35a20b913ee4464692",
+   "first_added_date": "2026-08-03T19:12:37-04:00",
+   "last_changed_commit": "3c74a1803b710a193287855e70ccfc1beb0ec77b",
+   "last_changed_date": "2026-09-11T15:28:37-04:00"
+  },
+  "toe_unification_spine_benchmark.json": {
+   "first_added_commit": "a18fd849cb7edc445544d08f9aeeb5d614682fd9",
+   "first_added_date": "2026-07-10T10:41:54-04:00",
+   "last_changed_commit": "786f09c83ac04ee3eaf26d1676980fc76dedcdc9",
+   "last_changed_date": "2026-09-17T18:42:13-04:00"
+  },
+  "tokenization_live_panel_benchmark.json": {
+   "first_added_commit": "c48a896637ccb85efb66e69e1611a57c581c9601",
+   "first_added_date": "2026-07-12T12:21:08-04:00",
+   "last_changed_commit": "60be1eb05e6febbb39cb8f1467403ac742c54d27",
+   "last_changed_date": "2026-08-03T22:28:08-04:00"
+  },
+  "tokenization_smoke_benchmark.json": {
+   "first_added_commit": "21ff36f8e380e7805573079254ce3996d67a56bb",
+   "first_added_date": "2026-07-08T09:47:59-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "toxicology_panel_benchmark.json": {
+   "first_added_commit": "b9660cd5267601611eb9a4e338d1af78e34f80df",
+   "first_added_date": "2026-07-12T11:00:19-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "trinary_hardware_live_panel_benchmark.json": {
+   "first_added_commit": "c48a896637ccb85efb66e69e1611a57c581c9601",
+   "first_added_date": "2026-07-12T12:21:08-04:00",
+   "last_changed_commit": "1de55f6a44e5e688a825d5a08dd833f4994bd588",
+   "last_changed_date": "2026-07-16T11:53:14-04:00"
+  },
+  "trinary_hardware_motif_benchmark.json": {
+   "first_added_commit": "21ff36f8e380e7805573079254ce3996d67a56bb",
+   "first_added_date": "2026-07-08T09:47:59-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "trinary_os_isa_rebuild_benchmark.json": {
+   "first_added_commit": "f828c4896d3178ac670b944eebef85471c0f74ea",
+   "first_added_date": "2026-07-07T19:58:59-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "trinary_os_portable_benchmark.json": {
+   "first_added_commit": "10ece8423f361eaefbef7e16fa24be1b60b2e6ab",
+   "first_added_date": "2026-07-07T19:15:19-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "trinary_os_round_trip_benchmark.json": {
+   "first_added_commit": "fa9b0d9eb6709468ce3b01cdacfc73b0a41b8dec",
+   "first_added_date": "2026-07-07T20:14:04-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "trinary_os_tier_e_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "uap_war_gov_release_panel_benchmark.json": {
+   "first_added_commit": "e74841befbee790cd80897fc006afb7383c971f0",
+   "first_added_date": "2026-07-12T09:03:33-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "undiscovered_element_candidate_prereg_scaffold_benchmark.json": {
+   "first_added_commit": "c85f8d65ec8e59311b48a8fe43f0e27ff6146550",
+   "first_added_date": "2026-07-10T14:58:32-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "unified_db_candidate_crosswalk_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "unified_db_crosswalk_spine_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "uniprot_protein_annotations_benchmark.json": {
+   "first_added_commit": "adfc150f5cea52c7c37203bf1149da6cc770a8df",
+   "first_added_date": "2026-07-08T12:58:46-04:00",
+   "last_changed_commit": "3c74a1803b710a193287855e70ccfc1beb0ec77b",
+   "last_changed_date": "2026-09-11T15:28:37-04:00"
+  },
+  "uniprot_proteome_slice_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "uniprot_structure_annotations_deep_benchmark.json": {
+   "first_added_commit": "a4311d79b13dabc4083deebf22f5f7fc43e353d5",
+   "first_added_date": "2026-07-10T14:13:19-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "usgs_seismic_history_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "validators_intrinsic_llm_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "1de55f6a44e5e688a825d5a08dd833f4994bd588",
+   "last_changed_date": "2026-07-16T11:53:14-04:00"
+  },
+  "virology_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "54c4bd03ec0f593fb3c8d9358904b56729930f08",
+   "last_changed_date": "2026-09-30T01:50:19-04:00"
+  },
+  "virology_panel_benchmark.json": {
+   "first_added_commit": "2040826b0b8c21062c2802c26d9324b2dcf6e3a3",
+   "first_added_date": "2026-07-12T11:23:50-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "vizier_wds_tap_live_deep_benchmark.json": {
+   "first_added_commit": "007af1b3dda69f21beffd1d9111d2c5380152999",
+   "first_added_date": "2026-07-10T14:39:17-04:00",
+   "last_changed_commit": "f47a804d877ab3bf3a52e99da88b562ad5b0add1",
+   "last_changed_date": "2026-07-16T09:55:35-04:00"
+  },
+  "vl_agent_distill_panel_benchmark.json": {
+   "first_added_commit": "de821f89c16325a3c2b7660fab33e8794c1a858e",
+   "first_added_date": "2026-07-15T01:20:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "vl_distill_atlas_benchmark.json": {
+   "first_added_commit": "a75c3d8d7329b663f495ee7f30a50b58d917ad38",
+   "first_added_date": "2026-07-08T12:41:32-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "volcanology_panel_benchmark.json": {
+   "first_added_commit": "b9660cd5267601611eb9a4e338d1af78e34f80df",
+   "first_added_date": "2026-07-12T11:00:19-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "warp_bh_wh_portal_benchmark.json": {
+   "first_added_commit": "add5a8b10ddaa3348c4ceae641749604b92876db",
+   "first_added_date": "2026-07-11T11:17:37-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "wds_live_multiplicity_deep_benchmark.json": {
+   "first_added_commit": "60939e14965f4ee4b999da2a948804c42b5c58b5",
+   "first_added_date": "2026-07-10T14:26:44-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "weather_observed_benchmark.json": {
+   "first_added_commit": "5e991717f4f075a4922bc6c2a99919a91564c5ed",
+   "first_added_date": "2026-07-01T00:58:42-04:00",
+   "last_changed_commit": "5e991717f4f075a4922bc6c2a99919a91564c5ed",
+   "last_changed_date": "2026-07-01T00:58:42-04:00"
+  },
+  "world_bank_development_benchmark.json": {
+   "first_added_commit": "adfc150f5cea52c7c37203bf1149da6cc770a8df",
+   "first_added_date": "2026-07-08T12:58:46-04:00",
+   "last_changed_commit": "3c74a1803b710a193287855e70ccfc1beb0ec77b",
+   "last_changed_date": "2026-09-11T15:28:37-04:00"
+  },
+  "world_bank_macro_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "xr_interactive_media_math_scaffold_benchmark.json": {
+   "first_added_commit": "eaa967e7cad8f9c79747baed2c6e60bb73e9abb4",
+   "first_added_date": "2026-07-10T14:22:09-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "z120_z126_beam_synthesis_panel_benchmark.json": {
+   "first_added_commit": "8ca8fad574ba538e3118d0772741696ce5a9a155",
+   "first_added_date": "2026-07-10T15:15:04-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  },
+  "z164_distant_island_prereg_scaffold_benchmark.json": {
+   "first_added_commit": "192c857548373e7a056d5a0c85d996eddd15be73",
+   "first_added_date": "2026-07-10T15:20:57-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "zebrafish_cell_tracking_panel_benchmark.json": {
+   "first_added_commit": "2a8e7b81cc3a8b8644acda9b250bb10ac6f9723a",
+   "first_added_date": "2026-07-13T11:29:17-04:00",
+   "last_changed_commit": "7e972dd16e21c850ab7151a2dcf3ee8cb6789201",
+   "last_changed_date": "2026-07-16T09:43:38-04:00"
+  },
+  "zebrafish_developmental_mechanics_panel_benchmark.json": {
+   "first_added_commit": "2a8e7b81cc3a8b8644acda9b250bb10ac6f9723a",
+   "first_added_date": "2026-07-13T11:29:17-04:00",
+   "last_changed_commit": "7e972dd16e21c850ab7151a2dcf3ee8cb6789201",
+   "last_changed_date": "2026-07-16T09:43:38-04:00"
+  },
+  "zebrafish_longevity_genetics_coupling_panel_benchmark.json": {
+   "first_added_commit": "2a8e7b81cc3a8b8644acda9b250bb10ac6f9723a",
+   "first_added_date": "2026-07-13T11:29:17-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "zebrafish_predictive_validation_panel_benchmark.json": {
+   "first_added_commit": "2a8e7b81cc3a8b8644acda9b250bb10ac6f9723a",
+   "first_added_date": "2026-07-13T11:29:17-04:00",
+   "last_changed_commit": "17f4cbec98923bfc1ac48df99baf9dd0d25f390a",
+   "last_changed_date": "2026-09-22T08:17:36-04:00"
+  },
+  "zenodo_records_depth_open_benchmark.json": {
+   "first_added_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "first_added_date": "2026-08-05T16:50:48-04:00",
+   "last_changed_commit": "453a00bf650bd8dcebdb58985e68d47c6c2650a8",
+   "last_changed_date": "2026-08-05T16:50:48-04:00"
+  },
+  "zero_boundary_not_entity_panel_benchmark.json": {
+   "first_added_commit": "39ba10382928f73eadd6732c4d6dd5cc0baf1fbb",
+   "first_added_date": "2026-07-12T13:36:40-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "zero_day_risk_evaluator_cybersecurity_benchmark.json": {
+   "first_added_commit": "26bf926a1cb594179d80237e7292b449156ef9af",
+   "first_added_date": "2026-07-10T09:13:24-04:00",
+   "last_changed_commit": "ca236688e49744b7512aa9ef63f88d836ae7afe7",
+   "last_changed_date": "2026-08-04T10:50:32-04:00"
+  },
+  "zoology_extension_benchmark.json": {
+   "first_added_commit": "5d0d5f313656bdd6f0d38063f8091f35709b6b3e",
+   "first_added_date": "2026-07-10T00:52:34-04:00",
+   "last_changed_commit": "8555b13b7209b4faf1953d46319512a9708b0e50",
+   "last_changed_date": "2026-07-15T01:11:38-04:00"
+  }
+ },
+ "benchmark_files_without_add_commit": [],
+ "freezes": [
+  {
+   "claimed_date": "2026-09-14",
+   "covers": "core_domain_table",
+   "file": "data/domain_table_freeze.json",
+   "hash": "8e30e85e72091462c4d66df2d498afb36ccbc2d40eb5df01b4e083947c79dad3",
+   "hash_field": "domain_table_sha256",
+   "hash_first_commit": "3c74a1803b710a193287855e70ccfc1beb0ec77b",
+   "hash_first_commit_date": "2026-09-11T15:28:37-04:00",
+   "id": "domain_table_freeze",
+   "ids": [
+    "Acoustics",
+    "Astronomy",
+    "Astrophysics",
+    "Atmospheric_Physics",
+    "Atomic_Physics",
+    "Biochemistry",
+    "Biology",
+    "Chemistry",
+    "Condensed_Matter",
+    "Cosmology",
+    "Ecology",
+    "Economics",
+    "Electromagnetism",
+    "Fluid_Dynamics",
+    "Geophysics",
+    "High_Energy_Physics",
+    "Materials_Science",
+    "Meteorology",
+    "Molecular_Chemistry",
+    "Neuroscience",
+    "Nuclear_Physics",
+    "Oceanography",
+    "Optics",
+    "Particle_Astrophysics",
+    "Particle_Physics",
+    "Physical_Chemistry",
+    "Planetary_Science",
+    "Psychology",
+    "Quantum_Computing",
+    "Quantum_Gravity",
+    "Quantum_Mechanics",
+    "Quantum_Optics",
+    "Seismology",
+    "Sociology",
+    "Thermodynamics"
+   ],
+   "pin_prefix": "AEB2AD"
+  },
+  {
+   "claimed_date": "2026-09-14T22:02:50.487368+00:00",
+   "covers": "ledger_a",
+   "file": "predictions/LEDGER_A_FREEZE.yaml",
+   "file_first_commit": "f183c8309cdec314d3fb08dd01f9fcfbb7496e8a",
+   "file_first_commit_date": "2026-09-14T17:20:39-04:00",
+   "hash": null,
+   "hash_field": null,
+   "hash_first_commit": null,
+   "hash_first_commit_date": null,
+   "id": "ledger_a_freeze",
+   "ids": [
+    "BP_H2O",
+    "Dark_energy_wa",
+    "First_Riemann_zero",
+    "H0_PLANCK_CLASS",
+    "H2O_bond_angle",
+    "IE_H",
+    "N_eff",
+    "Omega_DM_h2",
+    "Omega_Lambda",
+    "Omega_b_h2",
+    "T_CMB",
+    "Water_triple_K",
+    "alpha_s_MZ",
+    "inv_alpha_em",
+    "m_mu_over_m_e",
+    "m_pi_over_m_p",
+    "m_tau_over_m_e",
+    "n_s",
+    "sigma_8",
+    "sin2_theta_W",
+    "tau_reion"
+   ],
+   "pin_prefix": "AEB2AD"
+  },
+  {
+   "claimed_date": "2026-09-09T16:11:09.786611+00:00",
+   "covers": "toe_sector_predictions",
+   "file": "predictions/toe_prereg_freeze.json",
+   "hash": "1c5cde08ed91a4f14ed41666366b92aa6e178607ded566e9e0129a2548923376",
+   "hash_field": "bundle_sha256",
+   "hash_first_commit": "0e4e65c8bbaa8cba85a822217ca65758ed7549a5",
+   "hash_first_commit_date": "2026-09-09T12:34:29-04:00",
+   "id": "toe_prereg_freeze",
+   "ids": [
+    "PRED-H0-bridge",
+    "PRED-S8",
+    "PRED-wa",
+    "PRED-Neffective",
+    "PRED-mH",
+    "PRED-sigma8-central",
+    "PRED-Omega-Lambda",
+    "PRED-tau-reion",
+    "PRED-H0-Planck-sector",
+    "PRED-cusp-core-rc",
+    "PRED-lithium-factor",
+    "PRED-FRB-DM-excess",
+    "PRED-DarkEnergy-CPL-wa-sign",
+    "PRED-Zebrafish-panel-hold"
+   ],
+   "pin_prefix": "D1D38A"
+  },
+  {
+   "claimed_date": "2026-07-10",
+   "covers": "prereg_ids",
+   "file": "predictions/preregistered_predictions_manifest.yaml",
+   "file_first_commit": "7f29b189fb50c5c23b4fbe7afda95f4e4320bd3d",
+   "file_first_commit_date": "2026-08-06T09:25:17-04:00",
+   "hash": null,
+   "hash_field": null,
+   "hash_first_commit": null,
+   "hash_first_commit_date": null,
+   "id": "preregistered_predictions_manifest",
+   "ids": [
+    "PRED-001",
+    "PRED-002",
+    "PRED-003",
+    "PRED-004",
+    "PRED-005",
+    "PRED-006",
+    "PRED-007",
+    "PRED-008",
+    "PRED-009",
+    "PRED-010",
+    "PRED-011",
+    "PRED-012",
+    "PRED-013",
+    "PRED-014",
+    "PRED-015",
+    "PRED-016",
+    "PRED-017",
+    "PRED-018",
+    "PRED-019",
+    "PRED-020",
+    "PRED-021",
+    "PRED-022",
+    "PRED-023",
+    "PRED-024",
+    "PRED-025",
+    "PRED-032",
+    "PRED-033",
+    "PRED-034",
+    "PRED-035",
+    "PRED-036",
+    "PRED-039",
+    "PRED-040",
+    "PRED-041",
+    "PRED-038",
+    "PRED-037",
+    "PRED-042",
+    "PRED-043",
+    "PRED-044",
+    "PRED-046",
+    "PRED-047",
+    "PRED-048",
+    "PRED-049",
+    "PRED-050",
+    "PRED-051",
+    "PRED-052",
+    "PRED-053",
+    "PRED-054",
+    "PRED-055",
+    "PRED-056",
+    "PRED-057",
+    "PRED-058",
+    "PRED-059",
+    "PRED-060",
+    "PRED-061",
+    "PRED-062",
+    "PRED-063",
+    "PRED-064",
+    "PRED-065",
+    "PRED-066",
+    "PRED-067",
+    "PRED-068",
+    "PRED-069",
+    "PRED-070",
+    "PRED-071",
+    "PRED-072",
+    "PRED-073",
+    "PRED-074",
+    "PRED-075",
+    "PRED-076",
+    "PRED-084",
+    "PRED-077",
+    "PRED-078",
+    "PRED-079",
+    "PRED-080",
+    "PRED-081",
+    "PRED-082",
+    "PRED-083"
+   ],
+   "pin_prefix": null
+  }
+ ],
+ "hub_commit": "6f9c25605a52acabe662a42fc003afa5bf66b959"
+}

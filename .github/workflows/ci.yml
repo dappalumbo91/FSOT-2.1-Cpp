@@ -55,7 +55,7 @@ jobs:
           COMMIT=$(python -c "import json;print(json.load(open('AUTHORITY_PIN.json'))['ledger_b_data_commit'])")
           git clone -q --filter=blob:none --no-checkout https://github.com/dappalumbo91/FSOT-2.1-Lean hub
           cd hub
-          git sparse-checkout set --no-cone '/data/*_benchmark.json' '/data/literature_uncertainty_anchors.json' '/data/stumped_observables_reference.json' '/data/extension_folds_derived.json' '/scripts/' '/vendor/fsot_compute.py'
+          git sparse-checkout set --no-cone '/data/*_benchmark.json' '/data/literature_uncertainty_anchors.json' '/data/stumped_observables_reference.json' '/data/extension_folds_derived.json' '/data/domain_table_freeze.json' '/predictions/' '/scripts/' '/vendor/fsot_compute.py'
           git checkout -q "$COMMIT"
       - name: Regenerate the Ledger B golden with the hub's own Python and diff
         run: |
@@ -67,6 +67,10 @@ jobs:
           python tools/dump_ledger_a_routing_golden.py --hub hub --out /tmp/ledger_a_routing.tsv
           git diff --exit-code -- include/fsot/ledger_a.gen.inc include/fsot/routing.gen.inc
           diff -q /tmp/ledger_a_routing.tsv golden/ledger_a_routing.tsv
+      - name: Regenerate the dated tier evidence from hub git history and diff
+        run: |
+          python tools/gen_tier_evidence.py --hub hub
+          git diff --exit-code -- golden/tier_evidence_6f9c2560.json
       - name: Build and run the C++ re-scorer against the golden
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$PWD/hub

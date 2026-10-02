@@ -72,6 +72,9 @@ if(Boost_FOUND OR FSOT_WITH_FLOAT128)
   target_link_libraries(test_ledger_a_routing PRIVATE fsot)
   target_compile_definitions(test_ledger_a_routing PRIVATE FSOT_LA_GOLDEN="${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_a_routing.tsv")
   add_test(NAME ledger_a_routing COMMAND test_ledger_a_routing)
+  add_executable(fsot_look_elsewhere apps/fsot_look_elsewhere.cpp)
+  target_link_libraries(fsot_look_elsewhere PRIVATE fsot)
+  add_test(NAME look_elsewhere_smoke COMMAND fsot_look_elsewhere)
 endif()
 
 # Freestanding check: the balanced-ternary core compiles without a hosted library and references no
@@ -95,7 +98,12 @@ if(nlohmann_json_FOUND AND (Boost_FOUND OR FSOT_WITH_FLOAT128))
   target_link_libraries(fsot_ledger_b PRIVATE fsot nlohmann_json::nlohmann_json)
   if(FSOT_HUB_DATA)
     add_test(NAME ledger_b COMMAND fsot_ledger_b --hub ${FSOT_HUB_DATA} --golden ${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_b_6f9c2560.tsv
-             --corrected-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_corrected.tsv)
+             --corrected-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_corrected.tsv
+             --tier-evidence ${CMAKE_CURRENT_SOURCE_DIR}/golden/tier_evidence_6f9c2560.json
+             --tiers-out ${CMAKE_CURRENT_BINARY_DIR}/evidence_tiers.tsv)
+    add_test(NAME evidence_tiers_report COMMAND ${CMAKE_COMMAND} -E compare_files
+             ${CMAKE_CURRENT_BINARY_DIR}/evidence_tiers.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/evidence_tiers_6f9c2560.tsv)
+    set_tests_properties(evidence_tiers_report PROPERTIES DEPENDS ledger_b)
     add_test(NAME ledger_b_corrected_report COMMAND ${CMAKE_COMMAND} -E compare_files
              ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_corrected.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_b_corrected_6f9c2560.tsv)
     set_tests_properties(ledger_b_corrected_report PROPERTIES DEPENDS ledger_b)

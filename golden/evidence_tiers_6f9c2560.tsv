@@ -1,0 +1,135 @@
+#section	key	value  (evidence tiers; definitions in docs/EVIDENCE_TIERS.md; pin AEB2AD)
+freeze	domain_table_freeze	USABLE data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11)
+freeze	ledger_a_freeze	NOT-USABLE predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+freeze	toe_prereg_freeze	NOT-USABLE predictions/toe_prereg_freeze.json: hashed at pin D1D38A, not the live pin AEB2AD (does not cover the live mapping)
+freeze	preregistered_predictions_manifest	NOT-USABLE predictions/preregistered_predictions_manifest.yaml is dated (2026-07-10) but carries no hash
+records	TIER1_EXPLORATORY	17406
+records	TIER2_FROZEN_PENDING	3
+records	TIER3_CONFIRMED_HELD_OUT	0
+records	STRUCTURAL_IDENTITY	165787
+records_reason	STRUCTURAL_IDENTITY: Ledger B correction c = m(1+|S|ALPHA)	139400
+records_reason	STRUCTURAL_IDENTITY: target equals computed	26387
+records_reason	TIER1_EXPLORATORY: PRED id: predictions/preregistered_predictions_manifest.yaml is dated (2026-07-10) but carries no hash	61
+records_reason	TIER1_EXPLORATORY: no hashed+dated freeze covers this record's mapping	17345
+records_reason	TIER2_FROZEN_PENDING: scored with frozen domain table; data first used 2026-08 <= freeze 2026-09-14	3
+domain	(unattributed)	TIER1_EXPLORATORY | records T1=14158 T2=0 T3=0 STRUCT=32840 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	*	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=2 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Acoustic_Resonance_Materials	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=2 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Acoustics	TIER2_FROZEN_PENDING | records T1=75 T2=0 T3=0 STRUCT=0 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Astronomy	TIER2_FROZEN_PENDING | records T1=2 T2=1 T3=0 STRUCT=33183 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Astrophysics	TIER2_FROZEN_PENDING | records T1=80 T2=0 T3=0 STRUCT=40320 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Atmospheric_Physics	TIER2_FROZEN_PENDING | records T1=0 T2=0 T3=0 STRUCT=150 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Atomic_Physics	TIER2_FROZEN_PENDING | records T1=76 T2=0 T3=0 STRUCT=174 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Biochemistry	TIER2_FROZEN_PENDING | records T1=0 T2=0 T3=0 STRUCT=216 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Biology	TIER2_FROZEN_PENDING | records T1=1720 T2=0 T3=0 STRUCT=2152 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Chemistry	TIER2_FROZEN_PENDING | records T1=462 T2=0 T3=0 STRUCT=2409 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Code_Genome_Structure	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=2 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Cold_Fusion_Candidate_Prereg_Scaffold	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=6 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Condensed_Matter	TIER2_FROZEN_PENDING | records T1=0 T2=0 T3=0 STRUCT=65 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Cosmology	TIER2_FROZEN_PENDING | records T1=91 T2=0 T3=0 STRUCT=32241 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Distant_Island_Z128_Z132_Deep_Panel	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=2 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Ecology	TIER2_FROZEN_PENDING | records T1=0 T2=0 T3=0 STRUCT=625 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Economics	TIER2_FROZEN_PENDING | records T1=0 T2=0 T3=0 STRUCT=772 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Electromagnetism	TIER2_FROZEN_PENDING | records T1=46 T2=0 T3=0 STRUCT=1515 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	FPC_Fluidlink_Timing_Deep_Panel	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=2 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Fluid_Dynamics	TIER2_FROZEN_PENDING | records T1=53 T2=0 T3=0 STRUCT=149 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Fusion_Decay_Chain_Prereg_Scaffold	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=4 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Geophysics	TIER2_FROZEN_PENDING | records T1=0 T2=0 T3=0 STRUCT=254 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Heavy_Ion_Lab_Synthesis_Panel	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=2 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	High_Energy_Physics	TIER2_FROZEN_PENDING | records T1=0 T2=0 T3=0 STRUCT=75 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Hubble_Dark_Sector_Crosswalk	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=2 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	IGEM_Parts_Expanded	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=1 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Ionospheric_Chemistry_Coupling	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=2 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Materials_Genome_Crosswalk	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=1 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Materials_Science	TIER2_FROZEN_PENDING | records T1=0 T2=0 T3=0 STRUCT=1119 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Metamaterial_Fluid_Design_Prereg_Scaffold	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=4 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Meteorology	TIER2_FROZEN_PENDING | records T1=1 T2=0 T3=0 STRUCT=1216 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Molecular_Chemistry	TIER2_FROZEN_PENDING | records T1=1 T2=0 T3=0 STRUCT=0 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Natural_Formation_Element_Simulation	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=2 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Neuroscience	TIER2_FROZEN_PENDING | records T1=257 T2=1 T3=0 STRUCT=431 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Nuclear_Physics	TIER2_FROZEN_PENDING | records T1=33 T2=0 T3=0 STRUCT=1004 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Oceanography	TIER2_FROZEN_PENDING | records T1=0 T2=0 T3=0 STRUCT=2347 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Optics	TIER2_FROZEN_PENDING | records T1=0 T2=0 T3=0 STRUCT=17 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Particle_Astrophysics	TIER2_FROZEN_PENDING | records T1=1 T2=0 T3=0 STRUCT=2408 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Particle_Physics	TIER2_FROZEN_PENDING | records T1=197 T2=0 T3=0 STRUCT=696 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Periodic_Extension_Decay_Topology_Scaffold	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=2 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Phi_Morphogenetic_Scaling	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=2 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Physical_Chemistry	TIER2_FROZEN_PENDING | records T1=0 T2=0 T3=0 STRUCT=28 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Planetary_Science	TIER2_FROZEN_PENDING | records T1=18 T2=0 T3=0 STRUCT=2816 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Psychology	TIER2_FROZEN_PENDING | records T1=78 T2=0 T3=0 STRUCT=203 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	PubChem_Stability_Panel	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=1 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Quantum_Computing	TIER2_FROZEN_PENDING | records T1=19 T2=0 T3=0 STRUCT=5590 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Quantum_Gravity	TIER2_FROZEN_PENDING | records T1=0 T2=0 T3=0 STRUCT=0 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Quantum_Mechanics	TIER2_FROZEN_PENDING | records T1=3 T2=1 T3=0 STRUCT=39 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Quantum_Optics	TIER2_FROZEN_PENDING | records T1=0 T2=0 T3=0 STRUCT=14 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Seismology	TIER2_FROZEN_PENDING | records T1=1 T2=0 T3=0 STRUCT=338 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Sociology	TIER2_FROZEN_PENDING | records T1=0 T2=0 T3=0 STRUCT=190 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Solar_System_Structure_Deep	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=1 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Thermodynamics	TIER2_FROZEN_PENDING | records T1=34 T2=0 T3=0 STRUCT=129 | row hashed in data/domain_table_freeze.json sha256 8e30e85e7209 re-derived; frozen 2026-09-14 (hash in git since 2026-09-11); no non-structural record scored with it on data first used after the freeze
+domain	Undiscovered_Element_Candidate_Prereg_Scaffold	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=4 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Warp_BH_WH_Portal_Panel	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=4 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Z120_Z126_Beam_Synthesis_Panel	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=2 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	Z164_Distant_Island_Prereg_Scaffold	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=2 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	ai	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=1 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	chemical	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=1 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	cmb	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=1 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	cosmological	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=1 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	dark_energy	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=1 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	electron	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=1 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	medical	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=1 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	neural	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=1 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	particle	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=1 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domain	quantum	TIER1_EXPLORATORY | records T1=0 T2=0 T3=0 STRUCT=1 | not in a hashed freeze (domain_table_freeze covers the 35 core domains)
+domains	TIER1_EXPLORATORY	33
+domains	TIER2_FROZEN_PENDING	35
+domains	TIER3_CONFIRMED_HELD_OUT	0
+ledger_a	T_CMB	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	H0_PLANCK_CLASS	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	alpha_s_MZ	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	n_s	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	Omega_b_h2	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	Omega_DM_h2	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	First_Riemann_zero	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	Dark_energy_wa	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	sigma_8	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	N_eff	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	inv_alpha_em	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	sin2_theta_W	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	Omega_Lambda	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	m_pi_over_m_p	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	m_mu_over_m_e	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	m_tau_over_m_e	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	IE_H	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	H2O_bond_angle	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	Water_triple_K	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	BP_H2O	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a	tau_reion	TIER1_EXPLORATORY | predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
+ledger_a_rows	TIER1_EXPLORATORY	21
+ledger_a_rows	TIER2_FROZEN_PENDING	0
+ledger_a_rows	TIER3_CONFIRMED_HELD_OUT	0
+ledger_a_rows	STRUCTURAL_IDENTITY	0
+closed_form	Proton_radius	STRUCTURAL_IDENTITY | target equals computed
+closed_form	Richardson_D=25	STRUCTURAL_IDENTITY | target equals computed
+closed_form	Quark_condensate	STRUCTURAL_IDENTITY | target equals computed
+closed_form	Mandelbrot_boundary	STRUCTURAL_IDENTITY | target equals computed
+closed_form	N_Layers	STRUCTURAL_IDENTITY | target equals computed
+closed_form	N_Lobes	STRUCTURAL_IDENTITY | target equals computed
+closed_form	N_Columns	STRUCTURAL_IDENTITY | target equals computed
+closed_form	WM_Capacity	STRUCTURAL_IDENTITY | target equals computed
+closed_form	N_Attention_Heads	STRUCTURAL_IDENTITY | target equals computed
+closed_form	N_Drives	STRUCTURAL_IDENTITY | target equals computed
+closed_form	Binding_Window	STRUCTURAL_IDENTITY | target equals computed
+closed_form	Seq_Predict_Period	STRUCTURAL_IDENTITY | target equals computed
+closed_form	Metatron_Spheres	STRUCTURAL_IDENTITY | target equals computed
+closed_form	Metatron_Pathways	STRUCTURAL_IDENTITY | target equals computed
+closed_form	Replay_Passes	STRUCTURAL_IDENTITY | target equals computed
+closed_form	STDP_Tau_Plus_ms	STRUCTURAL_IDENTITY | target equals computed
+closed_form	STDP_Tau_Minus_ms	STRUCTURAL_IDENTITY | target equals computed
+closed_form	Max_Trits	STRUCTURAL_IDENTITY | target equals computed
+closed_form	Cross_Opt_QO	STRUCTURAL_IDENTITY | target equals computed
+closed_form	pH_water	STRUCTURAL_IDENTITY | target equals computed
+closed_form_rows_with_target	TIER1_EXPLORATORY	323
+closed_form_rows_with_target	TIER2_FROZEN_PENDING	0
+closed_form_rows_with_target	TIER3_CONFIRMED_HELD_OUT	0
+closed_form_rows_with_target	STRUCTURAL_IDENTITY	20
+closed_form_rows_with_target	reason	TIER1: no hashed freeze covers the closed-form section expressions (Ledger A rows: predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash)
