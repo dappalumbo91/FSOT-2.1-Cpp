@@ -73,6 +73,7 @@ Optional native Windows builds, as an extra data point only:
   - `test_golden` skips the 80-bit `long double` bar when `LDBL_MANT_DIG <= DBL_MANT_DIG`.
   - `_USE_MATH_DEFINES` is set for `M_PI`.
   - `fsot_freeze_domain` uses `localtime_s`/`gmtime_s`.
+  - CMake passes `/utf-8` for MSVC. Formula text and names (`BP_H₂O`, middle dot, Greek) are UTF-8 in the sources. Without that flag MSVC uses code page 1252: goldens fail on the names, and `nlohmann::json::dump` throws `type_error.316` (byte `0xB7`) so `fsot_freeze_domain` exits `0xC0000409` before it prints the core-table hash.
   - The precision report does its gate arithmetic in mp169 and prints IEEE doubles (no `%Lg`). It is written in binary mode (LF), so it is byte-identical to the Linux golden.
 
   The Linux paths (`__int128`, 80-bit `long double`, `M_PI`) are unchanged. Steps (Developer PowerShell for VS 2022):

@@ -8,6 +8,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
+if(MSVC)
+  # Formulas use UCNs. Without /utf-8 the ones that fit in code page 1252 become single
+  # bytes (U+00B7 -> 0xB7); nlohmann::json::dump throws type_error.316 and fsot_freeze_domain
+  # exits 0xC0000409. Names such as BP_H₂O are replaced with '?' and fail the goldens.
+  add_compile_options(/utf-8)
+endif()
 
 option(FSOT_WITH_BOOST_MP "Use Boost.Multiprecision cpp_bin_float<169> (header-only, matches mpmath dps=50)" ON)
 option(FSOT_WITH_FLOAT128 "Use GCC __float128 / libquadmath where available" ON)
