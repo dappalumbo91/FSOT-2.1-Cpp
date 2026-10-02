@@ -105,6 +105,11 @@ jobs:
           python tools/score_2026_10_02e.py --hub hub --out /tmp/score_e.tsv
           diff -q /tmp/score_e.tsv audit/score_2026-10-02e.tsv
           python tools/verify_freeze_files_e.py
+      - name: Re-run the 2026-10-02f scoring (Delta r, alpha(M_Z), G_F H1/H2) with the hub engine and diff
+        run: |
+          python tools/score_2026_10_02f.py --hub hub --out /tmp/score_f.tsv
+          diff -q /tmp/score_f.tsv audit/score_2026-10-02f.tsv
+          python tools/verify_freeze_files_f.py
       - name: Build and run the C++ re-scorer against the golden
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$PWD/hub

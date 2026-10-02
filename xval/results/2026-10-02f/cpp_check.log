@@ -1,0 +1,262 @@
+
+== toolchain (0 s)
+g++ (Debian 14.2.0-19) 14.2.0
+cmake version 3.31.6
+Python 3.13.5
+
+== 1. build-test (0 s)
+
+== 2. hub sparse clone at ledger_b_data_commit (0 s)
+hub @ 6f9c256, authority sha256 aeb2ad
+ninja: no work to do.
+ 1/28 Test #10: precision_report ...................................   Passed    0.01 sec
+ 2/28 Test  #7: ledger_a_routing ...................................   Passed    1.90 sec
+ 3/28 Test  #3: ternary ............................................   Passed    1.79 sec
+ 4/28 Test  #4: core_vs_engine .....................................   Passed    0.42 sec
+ 5/28 Test  #8: look_elsewhere_smoke ...............................   Passed    0.47 sec
+ 6/28 Test  #2: trit ...............................................   Passed    0.20 sec
+ 7/28 Test #20: derivations_freeze_f ...............................   Passed    0.02 sec
+ 8/28 Test  #5: core_closed_forms_vs_golden ........................   Passed    0.14 sec
+ 9/28 Test  #6: predict_closed_form_smoke ..........................   Passed    0.10 sec
+10/28 Test #19: derivations_freeze_e ...............................   Passed    0.02 sec
+11/28 Test #18: refinement_freeze_d ................................   Passed    0.03 sec
+12/28 Test #23: freeze_verify_domain_freeze_2026-10-02_AEB2AD ......   Passed    0.04 sec
+13/28 Test #13: references_check ...................................   Passed    0.04 sec
+14/28 Test #17: refinement_freeze_c ................................   Passed    0.02 sec
+15/28 Test #24: freeze_verify_py_domain_freeze_2026-10-02_AEB2AD ...   Passed    0.03 sec
+16/28 Test #22: freeze_core_sha_matches_hub_freeze .................   Passed    0.03 sec
+17/28 Test #15: refinement_freeze_b ................................   Passed    0.03 sec
+18/28 Test #14: refinement_freeze ..................................   Passed    0.03 sec
+19/28 Test  #1: golden .............................................   Passed    0.02 sec
+20/28 Test #16: refinements_b_crosscheck ...........................   Passed    0.02 sec
+21/28 Test #11: precision_report_tsv ...............................   Passed    0.01 sec
+22/28 Test #12: precision_report_md ................................   Passed    0.01 sec
+23/28 Test #21: freestanding_symbols ...............................   Passed    0.00 sec
+24/28 Test  #9: seed_leaves ........................................   Passed    0.00 sec
+25/28 Test #25: ledger_b ...........................................   Passed    8.05 sec
+26/28 Test #26: evidence_tiers_report ..............................   Passed    0.01 sec
+27/28 Test #28: ledger_b_genuine_misses ............................   Passed    0.01 sec
+28/28 Test #27: ledger_b_corrected_report ..........................   Passed    0.01 sec
+100% tests passed, 0 tests failed out of 28
+OK  ctest
+
+== 3. regen-diff + ledger-b Python goldens (mpmath==1.4.1) (8 s)
+authority AEB2AD @ d127c07e -> authority/fsot_compute.py
+wrote include/fsot/closed_forms.gen.inc: 26 sections, pin AEB2AD
+wrote include/fsot/closed_forms_core.gen.inc: 26 sections (freestanding)
+wrote /workspace/fsot-cpp/golden/golden_AEB2AD.tsv: 644 lines, pin AEB2AD, 343 targets, 342 within 5%
+OK  closed forms + golden_AEB2AD regenerate byte-identical
+wrote /home/box/fsot-cpp-work/ledger_b.tsv: active=477 green=477 ledgerB={'lb': 140088, 'unrouted': 7168, 'c_match': 14634, 's_match': 3667, 'e_match': 4223}
+OK  hub Python Ledger B golden byte-identical
+ledger A: 21 rows (6 translated emitters); routing: 161 properties, 30 elements
+wrote /home/box/fsot-cpp-work/ledger_a_routing.tsv: A=21 MASS=1268 ROUTE=3339 REC=8496 (of 127438 distinct)
+OK  Ledger A / routing byte-identical
+wrote golden/tier_evidence_6f9c2560.json: 4 hub freezes, 1 cpp freezes, 478 benchmark files dated, 0 undated
+OK  tier evidence byte-identical
+wrote /home/box/fsot-cpp-work/seed_leaves.tsv: 50 leaves from 29 hub scripts, authority AEB2AD
+OK  seed-leaf golden (hub scripts run unchanged) byte-identical
+wrote /home/box/fsot-cpp-work/pin_lineage.tsv: 204 rows x 5 pins
+OK  pin lineage byte-identical
+candidates scored; family hits 18/416 = 0.0433
+OK  2026-10-02b re-score byte-identical
+W_widths {'n': 6, 'sign_agree': '4/6', 'alpha_power_agree': '5/6', 'p3_loo_pass': '6/6', 'p3_full_selection': 'none', 'p4_best': '-', 'accepted': False}
+M_moments {'n': 2, 'sign_agree': '1/2', 'alpha_power_agree': '1/2', 'p3_loo_pass': '0/2', 'p3_full_selection': 'none', 'p4_best': '-', 'accepted': False}
+B1_binding_leaves {'n': 2, 'sign_agree': '1/2', 'alpha_power_agree': '2/2', 'p3_loo_pass': '0/2', 'p3_full_selection': 'none', 'p4_best': '-', 'accepted': False}
+B2_binding_ledgerB {'n': 13, 'sign_agree': '7/13', 'alpha_power_agree': '9/13', 'p3_loo_pass': '0/13', 'p3_full_selection': 'none', 'p4_best': '1 0/13', 'accepted': False}
+T_thermal {'n': 3, 'sign_agree': '3/3', 'alpha_power_agree': '3/3', 'p3_loo_pass': '3/3', 'p3_full_selection': 'none', 'p4_best': '-', 'accepted': False}
+target | Gamma_Z/M_Z | phi^5/e^6 (bare; no rule) | 0.0274897828876688 | 0.0273665394569 | 2.523e-5 | 4.8848 | FAIL | none accepted (REFINEMENTS_2026-10-02c)
+target | Deuteron_binding_MeV | sqrt(e)/e+phi (bare; no rule) | 2.22456464846253 | 2.224566229 | 4.4e-7 | 3.5921 | FAIL | none accepted (REFINEMENTS_2026-10-02c)
+target | Deuteron_mu_muN | G^4+POOF (bare; no rule) | 0.857391418128038 | 0.8574382335 | 2.2e-9 | 21280.0 | FAIL | none accepted (REFINEMENTS_2026-10-02c)
+target | LedgerB_H-2_B/A | geochemistry #72 (bare) | 1.11192859825147 | 1.1122831 | 2.0e-7 | 1772.5 | FAIL | none accepted (REFINEMENTS_2026-10-02c); AME2020 2H B/A 1112.2831(2) keV
+held_out | R_ell | G^3/gamma^6 (bare) | 20.7782434234984 | 20.770990552 | 0.02187 | 0.33164 | PASS | class W held-out; no rule to apply
+held_out | Y_p | theta_S*sin(1) (bare) | 0.244780998449757 | 0.2448 | 0.0033 | 0.005758 | PASS | class T held-out; no rule to apply
+held_out | LedgerB_He-3_B/A | geochemistry #73 (bare) | 2.56479961356459 | 2.57268044 | 1.5e-7 | 52539.0 | FAIL | class B2 held-out; no rule to apply
+tcmb_check | T_CMB bare | vs FIRAS (PDG 2024) | 2.72471169034307 | 2.7255 | 0.0006 | 1.3138 | FAIL | 
+tcmb_check | T_CMB bare | vs FSOT-internal T0 from eta_b and Omega_b_h2 pins (PDG BBN eta10 = 274 Omega_b h^2 at 2.7255 K; sigma from rounding of 274) | 2.72471169034307 | 2.72767855967 | 0.0016592 | 1.7882 | FAIL | internal, systematic only
+tcmb_check | T_CMB bare | vs Noterdaeme 2011 T(z) normalisation | 2.72471169034307 | 2.725 | 0.002 | 0.14415 | PASS | not independent of FIRAS
+tcmb_check | T_CMB C-TCMB (02b) | vs FIRAS (PDG 2024) | 2.72609931538602 | 2.7255 | 0.0006 | 0.99886 | PASS | 
+tcmb_check | T_CMB C-TCMB (02b) | vs FSOT-internal T0 from eta_b and Omega_b_h2 pins (PDG BBN eta10 = 274 Omega_b h^2 at 2.7255 K; sigma from rounding of 274) | 2.72609931538602 | 2.72767855967 | 0.0016592 | 0.95183 | PASS | internal, systematic only
+tcmb_check | T_CMB C-TCMB (02b) | vs Noterdaeme 2011 T(z) normalisation | 2.72609931538602 | 2.725 | 0.002 | 0.54966 | PASS | not independent of FIRAS
+tcmb_check | discrimination | |cand-bare|/sigma | 0.6938 | Noterdaeme | 0.002 | 0.8363 | internal | power to separate the two T_CMB values
+OK  2026-10-02c train/score byte-identical
+A | Gamma_Z/M_Z (A1, candidate) | G_F seed, m_Z, sin2_MSbar, alpha leaves, alpha_s seed | 0.487210868680533 | 0.0273665394569 | 2.523e-5 | 18226.0 | FAIL | 1.68032e+7 | frozen-pending candidate
+A | Gamma_Z GeV (A1) | same | 44.4274779255203 | 2.4955 | 0.0023 | 18231.0 | FAIL | 1.6803e+7 | 
+A_alt | Gamma_Z GeV (A2 = 3Gll+Ginv+R_ell(pin)Gll) | reported, not a candidate | 44.3960740786282 | 2.4955 | 0.0023 | 18218.0 | FAIL | 1.67905e+7 | alternative (look-elsewhere 4)
+A_alt | Gamma_Z GeV (A3 = Gee/BR_Z_ee(pin)) | reported, not a candidate | 44.3507786066708 | 2.4955 | 0.0023 | 18198.0 | FAIL | 1.67723e+7 | alternative (look-elsewhere 4)
+A_alt | Gamma_Z GeV (A4 = Ginv/BR_Z_inv(pin)) | reported, not a candidate | 44.4702967336733 | 2.4955 | 0.0023 | 18250.0 | FAIL | 1.68202e+7 | alternative (look-elsewhere 4)
+A_heldout | Gamma_inv MeV | 3 Gamma_nunu(A1) | 8893.06059375415 | 499.2 | 1.5 | 5595.9 | FAIL | 1.68146e+7 | 
+A_heldout | Gamma_ll MeV | Gamma_ee(A1) | 1493.08815006027 | 83.984 | 0.086 | 16385.0 | FAIL | 1.67782e+7 | 
+A_heldout | sigma_had0 nb | A1 widths, m_Z | 41.4715699556933 | 41.481 | 0.033 | 0.28576 | PASS | -227.334 | 
+A_heldout | R_ell | Gamma_had(A1)/Gamma_ee(A1) | 20.799276238534 | 20.770990552 | 0.02187 | 1.2934 | FAIL | 1361.79 | 
+A_heldout | Gamma_had MeV (info) | A1 | 31055.1528815853 | 1744.4 | 2.0 | 14655.0 | FAIL | 1.68028e+7 | PDG 1744.4(2.0) MeV, same table (sum-gauge-higgs-bosons line 75); info only
+B | G_F GeV^-2 (diagnostic) | seed v = (theta_S+e^3)/C_factor^6/1000*phi | 0.000208435667712018 | 1.1663787e-5 | 6.0e-12 | 3.2795e+7 | FAIL | 1.68703e+7 | 
+B | Gamma_W GeV | G_F seed, m_W leaf, alpha_s seed | 37.4449171055795 | 2.085 | 0.042 | 841.9 | FAIL | 1.69592e+7 | 
+B | tau_mu s | G_F seed, m_mu, m_e, alpha leaves | 6.87960814830865e-9 | 2.1969811e-6 | 2.2e-12 | 9.955e+5 | FAIL | -996869.0 | 
+B | tau_tau s | tau_mu(B), m_mu, m_tau leaves, BR(tau->e nu nu) EXTERNAL PDG | 9.11070305558285e-16 | 2.903e-13 | 5.0e-16 | 578.78 | FAIL | -996862.0 | 1 external input
+B | tau_pi+ s | not constructed (FSOT has no f_pi) | - | 2.6033e-8 | - | - | n/a | - | NOT CONSTRUCTED
+B | mu_n/mu_N | -(2/3) mu_p leaf (SU(6)) | -1.86189822962383 | -1.91304276 | 4.5e-7 | 1.1365e+5 | FAIL | -26734.7 | 
+B | mu_t/mu_N | mu_p leaf (Schmidt, S state) | 2.79284734443575 | 2.978962465 | 5.9e-9 | 3.1545e+7 | FAIL | -62476.5 | 
+B | mu_h/mu_N | Damian sec.67 #1037 P_VAR⁻⁷-C_FAC⁻¹ (stored (recompute differs)) | -2.12658783448793 | -2.1276253498 | 1.7e-9 | 6.103e+5 | FAIL | -487.64 | 
+W2_widths {'n': 9, 'sign_agree': '5/9', 'alpha_power_agree': '5/9', 'p3_loo_pass': '6/9', 'p3_full_selection': 'none', 'p4_best': '-', 'accepted': False}
+M2_moments {'n': 13, 'sign_agree': '7/13', 'alpha_power_agree': '6/13', 'p3_loo_pass': '0/13', 'p3_full_selection': 'none', 'p4_best': '1 0/12', 'accepted': False}
+C1_target | mu_d (pin G^4+POOF) | bare | 0.857391418128038 | 0.8574382335 | 2.2e-9 | 21280.0 | FAIL | -54.5991 | no C1 rule accepted (REFINEMENTS_2026-10-02d)
+C1_target | mu_d (Damian sec.67 #1036 C_EFF^-6/A_BLEED^9) | bare, stored (recompute differs) | 0.857423516359112 | 0.8574382335 | 2.2e-9 | 6689.6 | FAIL | -17.1641 | no C1 rule accepted (REFINEMENTS_2026-10-02d)
+C1_target | Gamma_Z/M_Z (pin phi^5/e^6) | bare | 0.0274897828876688 | 0.0273665394569 | 2.523e-5 | 4.8848 | FAIL | 4503.43 | no C1 rule accepted (REFINEMENTS_2026-10-02d)
+C1_heldout | mu Mn-55 (sec.67 #1046 G^-3+OMEGA^3) | bare, recomputed | 3.4686315021001 | 3.4467 | 0.0016 | 13.707 | FAIL | 6363.04 | no C1 rule accepted (REFINEMENTS_2026-10-02d); IAEA 3.4467(16)
+C1_heldout | R_ell (pin G^3/gamma^6) | bare | 20.7782434234984 | 20.770990552 | 0.02187 | 0.33164 | PASS | 349.183 | no C1 rule accepted (REFINEMENTS_2026-10-02d)
+C2 | mu_d two-nucleon (candidate) | mu_p leaf + mu_n row(-2/3 mu_p), P_D = 5.76 % EXTERNAL (AV18) | 0.893715111292167 | 0.8574382335 | 2.2e-9 | 1.6489e+7 | FAIL | 42308.4 | frozen-pending; 1 external input
+C2_alt | mu_d two-nucleon, P_D = 0 | mu_p leaf + mu_n row | 0.930949114811916 | 0.8574382335 | 2.2e-9 | 3.3414e+7 | FAIL | 85733.2 | alternative, not a candidate
+C2_diag | mu_d two-nucleon with CODATA mu_n | diagnostic only: mu_p leaf + CODATA mu_n, P_D 5.76 % | 0.8469894683405 | 0.8574382335 | 2.2e-9 | 4.7494e+6 | FAIL | -12186.0 | diagnostic; separates the mu_n-row error from the formula error (AV18 impulse value 0.847)
+diag_vev | v from seed_vev_GeV docstring relation 2 m_W sin(theta_W)/sqrt(4 pi alpha), s2 MSbar leaf | post-freeze diagnostic, not a candidate | 255.266739523501 | 246.21965 | 6.0e-5 | 1.5078e+5 | FAIL | 36744.0 | reference v = (sqrt2 G_F)^-1/2 from CODATA G_F; tree level, no Delta r
+diag_vev | v from seed_vev_GeV docstring relation 2 m_W sin(theta_W)/sqrt(4 pi alpha), s2 on-shell 1-(m_W/m_Z)^2 from leaves | post-freeze diagnostic, not a candidate | 250.774829486381 | 246.21965 | 6.0e-5 | 75920.0 | FAIL | 18500.5 | reference v = (sqrt2 G_F)^-1/2 from CODATA G_F; tree level, no Delta r
+diag_vev | v from seed_vev_GeV as implemented (theta_S+e^3)/C_factor^6/1000*phi | hub function value | 58.2447093143908 | 246.21965 | 6.0e-5 | 3.1329e+6 | FAIL | -763444.0 | explains the part-A/B G_F failure
+OK  2026-10-02d rows/train/score byte-identical
+step1_S1 | v GeV | on-shell s2 from leaves, alpha(0) leaf [PRIMARY, FSOT-only] | 250.774829486381 | 246.219650794 | 6.3329e-5 | 71929.0 | FAIL | 18500.5 | reference v = (sqrt2 G_F,CODATA)^-1/2
+step1_S1 | G_F GeV^-2 | on-shell s2 from leaves, alpha(0) leaf [PRIMARY, FSOT-only] | 1.1243903628029e-5 | 1.1663787e-5 | 6.0e-12 | 69981.0 | FAIL | -35998.9 | frozen-pending; only S1 can confirm Gamma_Z/M_Z
+step1_S1 | Gamma_Z/M_Z (A1) | round-d A1 unchanged, G_F(S1) | 0.0262822199007754 | 0.0273665394569 | 2.523e-5 | 42.978 | FAIL | -39622.1 | frozen-pending; only S1 can confirm Gamma_Z/M_Z
+step1_S1 | Gamma_Z GeV (A1) |  | 2.39660651996047 | 2.4955 | 0.0023 | 42.997 | FAIL | -39628.7 | 
+step1_S1_alt | Gamma_Z GeV (A2) | reported, not a candidate | 2.39491246331517 | 2.4955 | 0.0023 | 43.734 | FAIL | -40307.6 | 
+step1_S1_alt | Gamma_Z GeV (A3) | reported, not a candidate | 2.39246903351707 | 2.4955 | 0.0023 | 44.796 | FAIL | -41286.7 | 
+step1_S1_alt | Gamma_Z GeV (A4) | reported, not a candidate | 2.39891634801257 | 2.4955 | 0.0023 | 41.993 | FAIL | -38703.1 | 
+step1_S1 | Gamma_inv MeV | held-out | 479.729392632299 | 499.2 | 1.5 | 12.98 | FAIL | -39003.6 | 
+step1_S1 | Gamma_ll MeV | held-out | 80.5435051098111 | 83.984 | 0.086 | 40.006 | FAIL | -40966.1 | 
+step1_S1 | sigma_had0 nb | held-out (G_F-free) | 41.4715699556933 | 41.481 | 0.033 | 0.28576 | PASS | -227.334 | 
+step1_S1 | R_ell | held-out (G_F-free) | 20.799276238534 | 20.770990552 | 0.02187 | 1.2934 | FAIL | 1361.79 | 
+step1_S1 | Gamma_W GeV | round-d unchanged | 2.01993758513719 | 2.085 | 0.042 | 1.5491 | FAIL | -31205.0 | 
+step1_S1 | tau_mu s | round-d unchanged | 2.364141947096e-6 | 2.1969811e-6 | 2.2e-12 | 75982.0 | FAIL | 76086.6 | 
+step1_S1 | tau_tau s (external BR) | round-d unchanged | 3.13084623381268e-13 | 2.903e-13 | 5.0e-16 | 45.569 | FAIL | 78486.5 | 
+step1_S2 | v GeV | MS-bar s2 leaf, alpha_hat(M_Z)=1/127.930 EXTERNAL [secondary] | 246.639763818521 | 246.219650794 | 6.3329e-5 | 6633.8 | FAIL | 1706.25 | reference v = (sqrt2 G_F,CODATA)^-1/2
+step1_S2 | G_F GeV^-2 | MS-bar s2 leaf, alpha_hat(M_Z)=1/127.930 EXTERNAL [secondary] | 1.16240858953244e-5 | 1.1663787e-5 | 6.0e-12 | 6616.9 | FAIL | -3403.79 | frozen-pending; never confirmed (external alpha_hat)
+step1_S2 | Gamma_Z/M_Z (A1) | round-d A1 unchanged, G_F(S2) | 0.0271708822623527 | 0.0273665394569 | 2.523e-5 | 7.755 | FAIL | -7149.5 | frozen-pending; never confirmed (external alpha_hat)
+step1_S2 | Gamma_Z GeV (A1) |  | 2.47764130385013 | 2.4955 | 0.0023 | 7.7647 | FAIL | -7156.36 | 
+step1_S2_alt | Gamma_Z GeV (A2) | reported, not a candidate | 2.47588996724961 | 2.4955 | 0.0023 | 8.5261 | FAIL | -7858.16 | 
+step1_S2_alt | Gamma_Z GeV (A3) | reported, not a candidate | 2.47336391946479 | 2.4955 | 0.0023 | 9.6244 | FAIL | -8870.4 | 
+step1_S2_alt | Gamma_Z GeV (A4) | reported, not a candidate | 2.48002923250633 | 2.4955 | 0.0023 | 6.7264 | FAIL | -6199.47 | 
+step1_S2 | Gamma_inv MeV | held-out | 495.950147826654 | 499.2 | 1.5 | 2.1666 | FAIL | -6510.12 | 
+step1_S2 | Gamma_ll MeV | held-out | 83.2668664442351 | 83.984 | 0.086 | 8.3388 | FAIL | -8538.93 | 
+step1_S2 | sigma_had0 nb | held-out (G_F-free) | 41.4715699556933 | 41.481 | 0.033 | 0.28576 | PASS | -227.334 | 
+step1_S2 | R_ell | held-out (G_F-free) | 20.799276238534 | 20.770990552 | 0.02187 | 1.2934 | FAIL | 1361.79 | 
+step1_S2 | Gamma_W GeV | round-d unchanged | 2.08823632517603 | 2.085 | 0.042 | 0.077055 | PASS | 1552.19 | 
+step1_S2 | tau_mu s | round-d unchanged | 2.21202564169467e-6 | 2.1969811e-6 | 2.2e-12 | 6838.4 | FAIL | 6847.82 | 
+step1_S2 | tau_tau s (external BR) | round-d unchanged | 2.92939777068115e-13 | 2.903e-13 | 5.0e-16 | 5.2796 | FAIL | 9093.27 | 
+step2 | alpha_s(m_tau) nf=3 | seed alpha_s(M_Z)=0.117909, 4-loop, thresholds m_b=4.22199 m_c=1.28424 GeV (FSOT) | 0.313393186081564 | 0.314 | 0.014 | 0.043344 | PASS | -1932.53 | frozen-pending new row
+step2 | BR(tau->e nu nu) | alpha_s(m_tau) row, V_ud, V_us leaves, S_EW leading log (G_F-free) | 0.178293082481543 | 0.1782 | 0.0004 | 0.23271 | PASS | 522.348 | frozen-pending new row
+step2 | tau_tau s (FSOT BR, G_F S1) | BR row, G_F(S1), m_tau leaf | 3.1318956929845e-13 | 2.903e-13 | 5.0e-16 | 45.779 | FAIL | 78848.0 | frozen-pending new row (primary)
+step2 | tau_tau s (FSOT BR, G_F S2) | BR row, G_F(S2), m_tau leaf | 2.93037970435939e-13 | 2.903e-13 | 5.0e-16 | 5.4759 | FAIL | 9431.52 | frozen-pending new row (secondary, external alpha_hat)
+step2 | mu_n, mu_t, f_pi, tau_pi+, two-nucleon mu_d | no FSOT route exists (searched seeds, sec.66/67, data) | - | - | - | - | n/a | - | NOT CONSTRUCTED
+sec67 | #1036 H-2 C_EFF⁻⁶/A_BLEED⁹ | stored 0.857423516359112 | 0.8571774306676 | 0.8574382335 | 2.2e-9 | stored z 6689.6 / recomputed z 1.1855e+5 | report | -287.006 | recomputed - stored (ppm); stored value kept
+sec67 | #1037 He-3 P_VAR⁻⁷-C_FAC⁻¹ | stored -2.12658783448793 | -2.12642149224537 | -2.1276253498 | 1.7e-9 | stored z 6.103e+5 / recomputed z 7.0815e+5 | report | -78.2203 | recomputed - stored (ppm); stored value kept
+sec67 | #1038 Li-7 K⁴/P_BASE³ | stored 3.25673838281894 | 3.25323985520281 | 3.256407 | 1.2e-5 | stored z 27.615 / recomputed z 263.93 | report | -1074.24 | recomputed - stored (ppm); stored value kept
+sec67 | #1039 B-11 S_quant⁻⁷+S_quant⁻⁶ | stored 2.6892076319513 | 2.78856967414866 | 2.688378 | 1.0e-6 | stored z 829.63 / recomputed z 1.0019e+5 | report | 36948.4 | recomputed - stored (ppm); stored value kept
+sec67 | #1041 N-14 OMEGA⁻⁷+B_IN⁶ | stored 0.403805594239664 | 0.403874297467848 | 0.403573 | 2.0e-6 | stored z 116.3 / recomputed z 150.65 | report | 170.139 | recomputed - stored (ppm); stored value kept
+sec67 | #1045 P-31 S_quant⁻²-CHAOS³ | stored 1.13157214192949 | 1.1438453856094 | 1.130925 | 5.0e-6 | stored z 129.43 / recomputed z 2584.1 | report | 10846.2 | recomputed - stored (ppm); stored value kept
+OK  2026-10-02e score byte-identical
+inputs | s2 on-shell | 1-(m_W/m_Z)^2 leaves | 0.223207427118685 | - | - | - | info | - | 
+inputs | m_t GeV | m_t/m_W leaf * m_W | 172.774004648301 | - | - | - | info | - | 
+inputs | m_b GeV | m_t / wave8|m_t/m_b | 4.22198968281551 | - | - | - | info | - | 
+inputs | m_c GeV | m_c/m_b leaf * m_b | 1.28423826762261 | - | - | - | info | - | 
+inputs | m_H GeV | leaf | 125.158097744339 | - | - | - | info | - | 
+inputs | m_u=m_d=m_s GeV | m_p/3 constituent (FSOT m_p leaf) | 0.312757363090114 | - | - | - | info | - | 
+inputs | alpha_s(M_Z) | seed 2(POOF/psi_con)^2 | 0.117908816617884 | - | - | - | info | - | 
+pieces | Delta alpha_lep 1-loop | e, mu, tau leaves | 0.0314207928792193 | - | - | - | info | - | 
+pieces | Delta alpha_lep 2-loop |  | 7.75678623334451e-5 | - | - | - | info | - | 
+pieces | Delta alpha_lep | 1+2 loop (3-loop ~1.5e-6 omitted) | 0.0314983607415527 | - | - | - | info | - | 
+pieces | Delta alpha_top | m_t leaf | -5.75142576224705e-5 | - | - | - | info | - | 
+pieces | Delta alpha_had^(5) H1 | FSOT quark loop (1+alpha_s/pi), constituent light quarks | 0.0241044885083033 | 0.02783 | 6.0e-5 | 62.092 | FAIL | -133867.0 | H1 primary vs PDG dispersive
+pieces | Delta alpha_had^(5) H2 | PDG 2024 EXTERNAL | 0.02783 | - | - | - | info | - | 
+pieces | Delta r_rem top log | Hioki eq. 2.3 non-leading | -0.00518404666220519 | - | - | - | info | - | 
+pieces | Delta r_rem Higgs | Hioki eq. 2.4 | 0.00151036971984936 | - | - | - | info | - | 
+pieces | Delta r_rem constant | (alpha/4pi s2)[6+(7-4s2)/(2s2) ln c2] | 0.00662001706834608 | - | - | - | info | - | 
+pieces | Delta r_rem | sum | 0.00294634012599025 | - | - | - | info | - | 
+dr_H1 | Delta rho | 3G_F m_t^2/(8sqrt2 pi^2) x QCD 0.892663; iterations 20 | 0.00829539970377453 | - | - | - | info | - | 
+dr_H1 | -(c2/s2) Delta rho |  | -0.0288691329054547 | - | - | - | info | - | 
+dr_H1 | Delta alpha (lep+had+top) |  | 0.0555453349922335 | - | - | - | info | - | 
+dr_H1 | Delta r | PRIMARY (FSOT-only) | 0.0296225422127691 | 0.03685 | 0.0002 | 36.137 | FAIL | -196132.0 | vs PDG SM evaluation (consistency anchor)
+dr_H1 | 1/alpha(M_Z) on-shell | alpha/(1-Delta alpha_lep-Delta alpha_had) | 129.416407162516 | - | - | - | info | - | 
+dr_H1 | 1/alpha(M_Z) incl. top | alpha/(1-Delta alpha) | 129.424288686275 | - | - | - | info | - | 
+dr_H1 | G_F GeV^-2 | PRIMARY (FSOT-only) | 1.15871442991562e-5 | 1.1663787e-5 | 6.0e-12 | 12774.0 | FAIL | -6571.0 | frozen-pending new row
+dr_H1 | Gamma_Z/M_Z (A1) | round-d A1 unchanged, G_F(H1) | 0.0270845326113688 | 0.0273665394569 | 2.523e-5 | 11.178 | FAIL | -10304.8 | frozen-pending; confirms Gamma_Z/M_Z only if z<=1 (H1)
+dr_H1 | Gamma_Z GeV (A1) |  | 2.46976730624544 | 2.4955 | 0.0023 | 11.188 | FAIL | -10311.6 | 
+dr_H1 | Gamma_inv MeV | held-out | 494.374007539534 | 499.2 | 1.5 | 3.2173 | FAIL | -9667.45 | 
+dr_H1 | Gamma_ll MeV | held-out | 83.0022425433046 | 83.984 | 0.086 | 11.416 | FAIL | -11689.8 | 
+dr_H1 | sigma_had0 nb | held-out (G_F-free) | 41.4715699556933 | 41.481 | 0.033 | 0.28576 | PASS | -227.334 | 
+dr_H1 | R_ell | held-out (G_F-free) | 20.799276238534 | 20.770990552 | 0.02187 | 1.2934 | FAIL | 1361.79 | 
+dr_H1 | Gamma_W GeV | round-d unchanged | 2.0815998650085 | 2.085 | 0.042 | 0.080956 | PASS | -1630.76 | 
+dr_H1 | tau_mu s | round-d unchanged | 2.22615268060111e-6 | 2.1969811e-6 | 2.2e-12 | 13260.0 | FAIL | 13278.0 | 
+dr_H1 | tau_tau s (external BR) | round-d unchanged | 2.94810628630538e-13 | 2.903e-13 | 5.0e-16 | 9.0213 | FAIL | 15537.8 | 
+dr_H2 | Delta rho | 3G_F m_t^2/(8sqrt2 pi^2) x QCD 0.892663; iterations 20 | 0.00832643998454907 | - | - | - | info | - | 
+dr_H2 | -(c2/s2) Delta rho |  | -0.0289771573555237 | - | - | - | info | - | 
+dr_H2 | Delta alpha (lep+had+top) |  | 0.0592708464839303 | - | - | - | info | - | 
+dr_H2 | Delta r | secondary (external Delta alpha_had) | 0.0332400292543968 | 0.03685 | 0.0002 | 18.05 | FAIL | -97963.9 | vs PDG SM evaluation (consistency anchor)
+dr_H2 | 1/alpha(M_Z) on-shell | alpha/(1-Delta alpha_lep-Delta alpha_had) | 128.905877972847 | - | - | - | info | - | 
+dr_H2 | 1/alpha(M_Z) incl. top | alpha/(1-Delta alpha) | 128.913759496606 | - | - | - | info | - | 
+dr_H2 | G_F GeV^-2 | secondary (external Delta alpha_had) | 1.16305018497583e-5 | 1.1663787e-5 | 6.0e-12 | 5547.5 | FAIL | -2853.72 | frozen-pending new row
+dr_H2 | Gamma_Z/M_Z (A1) | round-d A1 unchanged, G_F(H2) | 0.0271858793248396 | 0.0273665394569 | 2.523e-5 | 7.1606 | FAIL | -6601.5 | frozen-pending; never confirmed (external)
+dr_H2 | Gamma_Z GeV (A1) |  | 2.47900884654142 | 2.4955 | 0.0023 | 7.1701 | FAIL | -6608.36 | 
+dr_H2 | Gamma_inv MeV | held-out | 496.223889226933 | 499.2 | 1.5 | 1.9841 | FAIL | -5961.76 | 
+dr_H2 | Gamma_ll MeV | held-out | 83.3128258793057 | 83.984 | 0.086 | 7.8044 | FAIL | -7991.69 | 
+dr_H2 | sigma_had0 nb | held-out (G_F-free) | 41.4715699556933 | 41.481 | 0.033 | 0.28576 | PASS | -227.334 | 
+dr_H2 | R_ell | held-out (G_F-free) | 20.799276238534 | 20.770990552 | 0.02187 | 1.2934 | FAIL | 1361.79 | 
+dr_H2 | Gamma_W GeV | round-d unchanged | 2.08938893444185 | 2.085 | 0.042 | 0.1045 | PASS | 2105.0 | 
+dr_H2 | tau_mu s | round-d unchanged | 2.20958579149123e-6 | 2.1969811e-6 | 2.2e-12 | 5729.4 | FAIL | 5737.28 | 
+dr_H2 | tau_tau s (external BR) | round-d unchanged | 2.92616666358546e-13 | 2.903e-13 | 5.0e-16 | 4.6333 | FAIL | 7980.25 | 
+dr_H1 | tau_tau s (FSOT BR, round e) | round-e BR row unchanged, G_F(H1) | 2.94909449107515e-13 | 2.903e-13 | 5.0e-16 | 9.2189 | FAIL | 15878.2 | frozen-pending
+dr_H2 | tau_tau s (FSOT BR, round e) | round-e BR row unchanged, G_F(H2) | 2.9271475141971e-13 | 2.903e-13 | 5.0e-16 | 4.8295 | FAIL | 8318.12 | frozen-pending
+lost_routes | H-2 mu E/PI (historical #1036) | hub 5d0d5f31 2026-07-10, vendor/cosmology/database | 0.865255979432265 | 0.8574382335 | 2.2e-9 | 3.5535e+6 | FAIL | 9117.56 | historical version; current #1036 already scored
+lost_routes | He-3 mu -(E-GAMMA) (historical #1037) | hub 5d0d5f31 2026-07-10, vendor/cosmology/database | -2.14106616355751 | -2.1276253498 | 1.7e-9 | 7.9064e+6 | FAIL | 6317.28 | historical version; current #1037 already scored
+lost_routes | mu_n, mu_t, f_pi, P_D, Delta r, alpha(M_Z) | 40 repos, all refs, full history (678 raw hits inspected) | - | - | - | - | n/a | - | NONE FOUND; tau_pi+ and two-nucleon mu_d not possible
+OK  2026-10-02f score byte-identical
+references: 145 rows {'CODATA2022': 33, 'derived': 14, 'PDG2024': 79, 'AME2020': 3, 'ARXIV': 7, 'IAEA': 9}; failures: 0
+OK  every reference value matches its committed evidence
+
+== 4. C++ Ledger B re-score vs golden, corrected + genuine misses (28 s)
+note: frb_orifice_outgassing_benchmark.json: read 257 non-standard JSON tokens (NaN/Infinity) tolerantly, first at line 785
+fsot_ledger_b: 478 files, active=477 green=477 ledgerB=140088 unrouted=7168 c_match=14634 s_match=3667 e_match=4223 (7.84 s)
+golden compare: 13842 lines, 0 mismatches
+OK  corrected + genuine-miss reports byte-identical
+ 153  zero_target        data_handling
+  14  inequality_bound   data_handling
+  12  computed_rounded   data_handling
+   7  formula_miss       formula
+   1  float_noise_gate   data_handling
+   1  contraction        data_handling
+ 188  total
+OK  PRECISION_M3 188-row classification byte-identical
+
+== 5. closed forms, corrected mode, freeze (36 s)
+Total constants with targets: 343
+Within 5% of target: 342
+Flagged non-predictions (computed=target or measured input): 21 (21 within 5%)
+Genuine predictions with targets: 322
+Genuine predictions within 5%: 321
+Rows changed by corrected mode: 11
+predict_closed_form: 2 rows (BTFloat<110>, parity mode, pin AEB2AD)
+wave1                        H0                                 = 6.84449955638e+01  target 6.74000000000e+01  err% 1.550e+00
+validation_suite             V25_H0                             = 6.84449955638e+01  target 6.74000000000e+01  err% 1.550e+00
+OK freezes/domain_freeze_2026-10-02_AEB2AD.json: 796 rows, freeze_date 2026-10-02, selection_sha256 580eb6e72ca75e2995b4331828b7a9f513978ce5c5aa3d7a798c2b83de4182dd
+OK freezes/domain_freeze_2026-10-02_AEB2AD.json: 796 rows, 0 bad row hashes, selection 580eb6e72ca75e29, core 8e30e85e72091462
+OK  core sha = hub domain_table_sha256
+
+== 5b. precision gate (z <= 1, include/fsot/host/precision_gate.hpp) (36 s)
+record set (scored): n=91  pass z<=1: 85/91  pass |rel|<=2%: 88/91  median ppm=93.03  worst ppm=37659.2 (pin:wave4|Dm2_21/Dm2_32)
+all rows: n=123  pass z<=1: 97/123  pass |rel|<=2%: 115/123  median ppm=178.6  worst ppm=62397.3 (pin:wave1|H0 vs SH0ES)
+record set with passing frozen-pending refinements (NOT confirmed): n=91  pass z<=1: 88/91  pass |rel|<=2%: 89/91  median ppm=93.03  worst ppm=34691.3 (pin:wave8|delta_CP_PMNS)
+OK  precision report byte-identical
+refinement freeze: 4 refinements, tier frozen-pending, failures 0
+
+== 6. bare-metal (QEMU) (36 s)
+ld: warning: build-kernel/fsot_kernel64.elf has a LOAD segment with RWX permissions
+built build-kernel/fsot_kernel.elf
+kernel serial: 35 domain S values, worst relative error 7.57e-41; 368/368 closed forms, worst 4.70e-40 vs 50-digit golden -> PASS
+OK  serial byte-identical to docs/bare_metal_serial_AEB2AD.txt
+ M .github/workflows/ci.yml
+ M CMakeLists.txt
+ M reference/evidence/pdg2024_extracts.tsv
+ M reference/published_2026-10-02.tsv
+ M tools/check_references.py
+ M xval/cpp_check.sh
+?? audit/score_2026-10-02f.tsv
+?? tools/score_2026_10_02f.py
+?? xval/results/2026-10-02f/
+
+ALL CPP CHECKS PASSED in 53 s

@@ -417,6 +417,13 @@ The secondary scheme S2 (MS-bar s^2, external alpha_hat(M_Z)) gives G_F -0.34 % 
 4-loop running of the seed alpha_s(M_Z), with decoupling at the FSOT m_b and m_c thresholds, gives 0.3134 (PDG 0.314(14), z 0.04). BR(tau -> e nu nu) = 0.17829 (z 0.23).
 No FSOT route exists for mu_n, mu_t or f_pi, so these rows (and tau_pi+ and the two-nucleon mu_d) are not constructed.
 
+### H-27 · 2026-10-02f: Delta r from FSOT leaves; G_F -0.66 % (H1), Gamma_Z/M_Z still open
+Under DERIVATIONS_2026-10-02f (frozen first), Delta r(H1, FSOT-only) = 0.02962 and Delta r(H2, PDG Delta alpha_had) = 0.03324, against the PDG SM 0.03685. G_F is -0.66 % (H1) and -0.29 % (H2). Gamma_Z/M_Z z 11.2 (H1), 7.2 (H2): not confirmed. Gamma_W z 0.08 (H1), 0.10 (H2), frozen-pending.
+The H1 quark loop with constituent m_p/3 light quarks gives Delta alpha_had = 0.02410 (-13 %). The remainder (Hioki non-leading top log + Higgs log + classic one-loop constant) is 0.00295. Two-loop rho^(2) and resummation are omitted.
+
+### H-28 · 2026-10-02f lost-route search: no route for mu_n, mu_t, f_pi, P_D, Delta r, alpha(M_Z)
+All 40 dappalumbo91 repositories (every ref, full history, deleted files) were searched. The only finds are older parallel sec. 67 versions in the hub's vendor/cosmology/database copy (5d0d5f31, 2026-07-10): H-2 E/PI (+0.91 %) and He-3 -(E-GAMMA) (+0.63 %). Both fail. The dependent tau_pi+ and two-nucleon mu_d builds are not possible.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests

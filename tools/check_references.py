@@ -52,7 +52,7 @@ def pdg_lines():
     return d
 
 def norm(s):
-    return s.replace("−", "-").replace(" ", "")
+    return s.replace("−", "-").replace("∓", "±").replace(" ", "")
 
 def scaled(x, k):
     v = (Decimal(x) * (Decimal(10) ** k)).normalize()

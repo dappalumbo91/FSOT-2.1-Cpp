@@ -99,6 +99,7 @@ Post-hoc refinements are frozen as tier frozen-pending in [docs/freezes/REFINEME
 A pre-registered train/test search for class-level dressing rules (docs/freezes/PROTOCOL_2026-10-02c.md, REFINEMENTS_2026-10-02c.md; 539 patterns, 5 classes) accepted **no** rule; see PRECISION_REPORT §2026-10-02c.
 2026-10-02d re-derivations (docs/freezes/DERIVATIONS_2026-10-02d.md): Γ_Z built from partial widths, plus new rows Γ_W, τ_μ, τ_τ, μ_n, μ_t, μ_h and a two-nucleon μ_d, all frozen before scoring. None passes. The G_F-normalised rows fail because Damian's seed v = 58.24 GeV; see PRECISION_REPORT §2026-10-02d.
 2026-10-02e (docs/freezes/DERIVATIONS_2026-10-02e.md): seed v fixed to its documented relation. On the primary on-shell scheme G_F is −3.6 % (tree level, no Δr), so Γ_Z/M_Z is still open. The new α_s(m_τ) and BR(τ→eνν̄) rows pass (frozen-pending).
+2026-10-02f (docs/freezes/DERIVATIONS_2026-10-02f.md): Δr built from FSOT leaves (FSOT-only hadronic H1: 0.0296; with PDG Δα_had H2: 0.0332). G_F is −0.66 % (H1), Γ_Z/M_Z z 11.2, still open. The lost-route search across all repositories found no route for μ_n, μ_t, f_π, P_D, Δr or α(M_Z).
 
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |

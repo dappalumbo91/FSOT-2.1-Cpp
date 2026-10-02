@@ -85,3 +85,5 @@ sum-leptons	132	  e − ν e ντ                                 [g ]     (17.8
 rev-qcd	1739	the first input for determining the world average value of αs (m2Z ). This corresponds to αs (m2τ ) =
 rev-qcd	1740	0.314 ± 0.014.
 rev-standard-model	224	b (5) (MZ )−1 = 127.930 ± 0.008. The latter corresponds to a quark sector contribution (without the
+rev-standard-model	478	         corrections7 . One has ∆r = 0.03685 ∓ 0.00020 ± 0.00006, where the first uncertainty is from
+rev-standard-model	231	of ∆αhad (MZ ) = 0.02783 ± 0.00006. These values are updated with respect to Ref. [33] with

@@ -368,3 +368,46 @@ S1 misses by about the size of the omitted on-shell Δr (PDG 0.03685): G_F is �
 - **§67 entries that don't reproduce** (recomputed − stored, stored values kept): #1036 −287 ppm, #1037 −78 ppm, #1038 −1074 ppm, #1039 +36948 ppm, #1041 +170 ppm, #1045 +10846 ppm. In every case the stored value is closer to the measurement.
 
 **Pass counts:** 85/91 confirmed, 88/91 including frozen-pending (unchanged). The new frozen-pending rows that pass are α_s(m_τ) and BR(τ→eνν̄), plus Γ_W under the secondary scheme only. CTest 27/27; `xval/cpp_check.sh` passed.
+
+## 2026-10-02f: Δr and α(M_Z) from FSOT leaves; lost-route search (logs in `xval/results/2026-10-02f/`)
+
+`docs/freezes/DERIVATIONS_2026-10-02f` (commit 16de0bc, 16:21:08 EDT) was committed before any FSOT-input Δr, G_F or weak-row number was computed.
+- **Decomposition:** Δr = Δα − (c²/s²)Δρ + Δr_rem. Sources: Hioki hep-ph/9511224 eqs. 2.1–2.4, PDG 2024 EW review eq. 10.23, and the one-loop constant as written in arXiv:1001.1759 eq. 12.
+- **Hadronic part:** H1 (primary, FSOT-only) is a perturbative quark loop with constituent light quarks m_p/3 and the FSOT m_c and m_b. H2 (secondary) uses the external PDG 0.02783.
+- **Disclosed:** a back-of-envelope H1 ≈ 0.024 was seen while designing it, and the choice was not changed. ρ^(2)(m_H/m_t) and the 3-loop leptonic term are omitted.
+- **Look-elsewhere:** hadronic 2, light-quark choice 3, α_s scale 2, remainder constant 2, resummation 2.
+- **Δr reference σ:** the freeze named σ 0.00021 (quadrature). The reference row uses the printed 0.00020 because the reference checker requires printed digits. z changes by less than 5 %.
+- **Rows:** all produced by `tools/score_2026_10_02f.py` into `audit/score_2026-10-02f.tsv`, byte-identical in both venvs.
+
+| piece | value |
+|---|---|
+| Δα_lep (1+2 loop) | 0.0314984 (2-loop 7.76e-5) |
+| Δα_top | −5.75e-5 |
+| Δα_had H1 / H2 | 0.024104 (PDG 0.02783(6): −13.4 %, z 62) / 0.02783 |
+| Δρ (QCD factor 0.8927) | 0.008295 (H1) / 0.008326 (H2) |
+| Δr_rem: top log / Higgs / constant | −0.005184 / +0.001510 / +0.006620 → 0.002946 |
+| **Δr** | **H1 0.029623 (z 36 vs PDG SM 0.03685)** / H2 0.033240 (z 18) |
+| 1/α(M_Z) on-shell (lep+had) | H1 129.416 / H2 128.906 |
+
+| row | H1 (primary) value / z | H2 (secondary) value / z |
+|---|---|---|
+| G_F | 1.15871e-5 (−0.66 %), z 1.3e4 | 1.16305e-5 (−0.29 %), z 5.5e3 |
+| Γ_Z/M_Z (A1) | 0.0270845, **z 11.2** | 0.0271859, z 7.2 |
+| Γ_Z (A1) | 2.46977 GeV, z 11.2 | 2.47901 GeV, z 7.2 |
+| Γ_inv | 494.37 MeV, z 3.2 | 496.22 MeV, z 2.0 |
+| Γ_ll | 83.002 MeV, z 11.4 | 83.313 MeV, z 7.8 |
+| σ_had⁰ / R_ell (G_F-free) | 41.472 nb z 0.29 / 20.799 z 1.29 | same |
+| Γ_W | 2.0816 GeV, **z 0.08** | 2.0894 GeV, z 0.10 |
+| τ_μ | 2.2262 μs, z 1.3e4 | 2.2096 μs, z 5.7e3 |
+| τ_τ (external BR / FSOT BR) | 294.81 fs z 9.0 / 294.91 fs z 9.2 | 292.62 fs z 4.6 / 292.71 fs z 4.8 |
+
+Δr closes most of the round-e gap (G_F goes from −3.60 % to −0.66 % under H1). The rest of the Δr shortfall is about 0.0037 in H1 from the hadronic part and about 0.0036 in both from the remainder/higher orders. Γ_Z/M_Z does **not** pass under H1 (z 11.2), so the record set is unchanged.
+
+**Lost-route search** (40 dappalumbo91 repositories, every ref and the full history, read-only; 678 raw hits inspected):
+- **No route found** for μ_n, the triton moment, f_π, P_D, Δr or α(M_Z). τ_π⁺ and the two-nucleon μ_d therefore can't be built.
+- **Older parallel §67 versions** in the hub's `vendor/cosmology/database` copy (commit 5d0d5f31, 2026-07-10 00:52 EDT) were ported unchanged:
+  - H-2 E/π = 0.865256 (+0.91 %, fail)
+  - He-3 −(e−γ) = −2.141066 (+0.63 %, fail)
+- **Deuteron binding:** only the known √e/e + φ (copied across repos) and Ledger B #72.
+
+**Pass counts:** 85/91 confirmed, 88/91 including frozen-pending (unchanged). CTest 28/28; `xval/cpp_check.sh` passed.
