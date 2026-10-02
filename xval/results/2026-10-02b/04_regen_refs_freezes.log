@@ -1,0 +1,10 @@
+wrote /tmp/sl.tsv: 50 leaves from 29 hub scripts, authority AEB2AD
+seed leaves identical
+wrote /tmp/pl.tsv: 204 rows x 5 pins
+lineage identical
+candidates scored; family hits 18/416 = 0.0433
+02b rescore identical
+references: 115 rows {'CODATA2022': 29, 'derived': 13, 'PDG2024': 64, 'AME2020': 3, 'ARXIV': 6}; failures: 0
+refinement freeze: 4 refinements, tier frozen-pending, failures 0
+refinement freeze 02b: 7 candidates, N=420, failures 0
+crosscheck 02b: 8 values, failures 0

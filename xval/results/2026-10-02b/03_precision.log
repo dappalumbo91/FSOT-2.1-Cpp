@@ -1,0 +1,3 @@
+record set (scored): n=91  pass z<=1: 85/91  pass |rel|<=2%: 88/91  median ppm=93.03  worst ppm=37659.2 (pin:wave4|Dm2_21/Dm2_32)
+all rows: n=123  pass z<=1: 97/123  pass |rel|<=2%: 115/123  median ppm=178.6  worst ppm=62397.3 (pin:wave1|H0 vs SH0ES)
+record set with passing frozen-pending refinements (NOT confirmed): n=91  pass z<=1: 88/91  pass |rel|<=2%: 89/91  median ppm=93.03  worst ppm=34691.3 (pin:wave8|delta_CP_PMNS)

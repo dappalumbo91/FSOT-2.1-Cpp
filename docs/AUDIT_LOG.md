@@ -341,6 +341,51 @@ finished with lean_build_ok = false. Outputs from that run (regenerated Priors, 
 - The `alpha_FSOT` name reused for a different number (H-09).
 - The PDG API value for M_W (H-08), which an automated reference fetch would have used silently.
 
+### H-13 · H0 was scored against the wrong channel (bug fix, 2026-10-02b F1)
+The scored H0 row used Planck 2018 CMB-only 67.4 ± 0.5 (PDG 2024 astrophysical constants), which gave z = 2.09. Damian decided the physical channel on
+2026-09-15 (hub `vendor/fsot_seed_flavor.py` `seed_h0_global`, commit 00ca7f1f): "Global CMB-background H0 … Not SH0ES. Not Planck-2018-only 67.4. Live
+CMB+BAO class is P-ACT-LB2 … 68.43±0.27". That value is verified against the arXiv:2503.14452 abstract ("Including the DESI DR2 data tightens the Hubble constant
+to H0 = 68.43 ± 0.27 km/s/Mpc"; evidence `reference/evidence/arxiv_extracts.tsv`). The formula and pin are unchanged: 68.444996, z = **0.056**. Planck (z 2.09) and SH0ES
+73.0 ± 1.0 (PDG 2024 cosmological parameters, z 4.56) are printed as `rec = -` alternates. Held-out results: P-ACT-LB with DESI DR1 68.22 ± 0.36 gives z 0.62 (pass), and P-ACT alone
+67.62 ± 0.50 gives z 1.65 (fail). The pin's own target of 67.4 stays frozen.
+
+### H-14 · α_s(M_Z): the wrong object was scored (bug fix, 2026-10-02b F2)
+PDG 2024 α_s(M_Z²) = 0.1180 ± 0.0009 is MS-bar at μ = M_Z with five flavours (rev-qcd eq. 9.25). The wave1 pin row 1/(eπ) = 0.117100 (z 1.0004) is, in Damian's words,
+"a different object". Hub `seed_alpha_s_MZ` (commit 8760d403, 2026-08-03) defines the QCD-process coupling as 2(POOF/ψ_con)². The scored row now uses that seed (new
+map route `seed`, mp169): 0.1179088, z = **0.10**. The pin row is kept as a `rec = -` alternate. Held-out checks, which are the two inputs of the PDG average and so correlated
+with it: without lattice 0.1175 ± 0.0010 gives z 0.41; FLAG 2021 0.1184 ± 0.0008 gives z 0.61. This value was not computed in this repo before the freeze commit ce282e0.
+
+### H-15 · Δm²₂₁/Δm²₃₂: the label and the target disagree (hub item, not changed)
+The pin target 0.0295 is the Δm²₂₁/Δm²₃₁ convention. With PDG 2024 inputs, 21/31 = 0.02976 ± 0.00076. The row label and the 2026-09-29 atmospheric script say Δm²₃₂,
+but `seed_dm2()` names the same formula `dm2_31_abs`. The C++ keeps the latest explicit label (32), so this remains a formula item. Frozen-pending candidate C-DM-1
+(seed Δm²₂₁ over the committed atmospheric leaf) gives z 0.14 against 21/32. Against 21/31 it gives z 1.34. Damian needs to decide which label is right (Grok Build prompt 2026-10-02b).
+
+### H-16 · The seven Ledger B "formula misses" are data handling (diagnosis; the Ledger B gate and its data are unchanged)
+- `tau_reion` (dark sector #7): `error_pct` 0.006335 was computed against Planck 0.0544, but `measured` holds 0.0561 (Planck 2018 Table 2, TT,TE,EE+lowE+lensing+BAO,
+  ± 0.0071, arXiv:1807.06209). Computed value 0.0543966: z 0.24 against 0.0561(71), 0.0005 against 0.0544(73), 0.057 against PDG 0.054(7).
+- `D_H_ratio` (#8): `error_pct` 0.090986 was computed against PDG 2.547e-5, but `measured` holds Cooke et al. 2018, 2.527(30)e-5 (arXiv:1710.11129). z 0.59 against Cooke,
+  0.08 against PDG.
+- `Mean_dependency_length_EN` ×3: `error_pct` matches measured = 2.4, but `measured` holds 2.3. The hub row cites no published source. Against the row's own 8.7 % band (σ = 0.2),
+  z = 0.50.
+- `FRB20121102A` / `FRB20200929C` `frb_p34_periodicity`: "measured" 1/1020 and 1/980 Hz sit symmetrically ±2 % around the computed 1/1000 Hz. The cited "Fonseca et al.
+  2022; contested" reports no such periodicity. The CHIME/FRB 2023 repeater paper (doi:10.3847/1538-4357/acc6c1) reports that its periodicity search found no detections, and FRB 20121102A's published
+  periodicity is ~157 days (Rajwade et al. 2020). The values are unsupported and cannot be put through a z gate. Suspected unsupported data (hub item).
+Under the z gate, 5 of the 7 pass. The 0.5 % Ledger B gate is a tolerance and was not touched, so those rows still show as misses there.
+
+### H-17 · Units and definitions checked, no bug
+- μ_d is in nuclear magnetons, and CODATA 2022 μ_d/μ_N = 0.8574382335(22) is the right quantity (not μ_d/μ_B). The z of 2.1e4 is a real 54.6 ppm miss against a 2.6 ppb σ.
+- T_CMB is in kelvin.
+- Γ_Z is the total width. PDG M_Z and Γ_Z are both quoted in the s-dependent Breit-Wigner convention, so their ratio is consistent.
+- α_s scheme: see H-14.
+- The pole vs MS-bar question does not apply to m_H/m_W: PDG quotes both as pole/physical masses.
+
+### H-18 · 2026-10-02b refinements (frozen-pending; not confirmed)
+`docs/freezes/REFINEMENTS_2026-10-02b.{md,json,sha256}` was committed as ce282e0 (2026-10-02 08:22 EDT) before any candidate was evaluated. It holds 7 candidates and N = 420
+forms in total (a 104-form look-elsewhere family for each of 4 items), with a-priori rules S1 and S2. Scores are in `audit/refinements_2026-10-02b.tsv`
+(`tools/score_refinements_2026_10_02b.py`, hub engine) and in the `refined_*` columns of `audit/precision_2026-10-02.tsv` (C++). The two agree to 15 digits (CTest `refinements_b_crosscheck`).
+Passing, frozen-pending: m_H/m_W C-MHW-1 z 0.37 (held-out: m_H/m_Z 0.37, m_H/m_t 0.80); Δm² ratio C-DM-1 z 0.14 (held-out: Δm²₂₁ 0.03); T_CMB C-TCMB z 0.999 (no held-out;
+11.5 % of its family hits by chance). Failing under the frozen rule, so these stay open: Γ_Z/M_Z C-GZ z 5.44, deuteron binding C-BD z 590, μ_d C-MUD z 1.8e5.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests
@@ -365,6 +410,9 @@ next to the parity ones.
 | H-02 stale pin targets as references; 2 % relative check | pin `measured`, err < 2 %/5 % | one verified reference table; gate z ≤ 1 (σ from PDG 2024 / CODATA 2022 / AME2020), 2 % and ppm reported alongside; CTests `precision_report*`, `references_check` | `include/fsot/host/precision_gate.hpp`, `apps/fsot_precision.cpp`, `reference/` |
 | H-03 V_cs alias | (not used) | second-row identity, as the hub CKM script | `seed_leaves.hpp::ckm_double` |
 | H-12 post-hoc refinements | (not present) | frozen-pending with dated sha256, exploratory numbers only; CTest `refinement_freeze` | `docs/freezes/REFINEMENTS_2026-10-02.*` |
+| H-13 H0 channel | Planck 67.4(5) | CMB+BAO 68.43(27) per hub `seed_h0_global` (Planck, SH0ES printed as alternates) | `reference/prediction_map_2026-10-02.tsv`, `reference/evidence/arxiv_extracts.tsv` |
+| H-14 α_s object | pin 1/(eπ) scored as MS-bar α_s(M_Z) | hub `seed_alpha_s_MZ` route `seed` (pin row kept as alternate) | `apps/fsot_precision.cpp`, map |
+| H-18 refinements 02b | (not present) | frozen-pending columns, never counted as confirmed; CTests `refinement_freeze_b`, `refinements_b_crosscheck` | `docs/freezes/REFINEMENTS_2026-10-02b.*`, `audit/refinements_2026-10-02b.tsv` |
 
 Trit-format fixes T-1 to T-5 were applied in the affected repos in Milestone 3 (one push each). Status, SHAs and
 the items deliberately left unchanged are in `docs/TRIT_SPEC.md` §4a. The 188-miss breakdown is in `docs/PRECISION_M3.md`.

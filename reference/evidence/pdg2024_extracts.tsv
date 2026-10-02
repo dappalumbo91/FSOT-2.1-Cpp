@@ -70,3 +70,6 @@ sum-quarks	17	m u /m d = 0.462 ± 0.020, CL = 90%
 sum-quarks	36	m c = 1.2730 ± 0.0046 GeV, CL = 90%                       Charge = 32 e            Charm = +1
 sum-quarks	42	m b = 4.183 ± 0.007 GeV, CL = 90%                     Charge = − 31 e           Bottom = −1
 sum-quarks	56	Mass (direct measurements) m = 172.57 ± 0.29 GeV [a,b] (S = 1.5)
+rev-qcd	2155	                       αs (m2Z ) = 0.1184 ± 0.0008       (FLAG 2021 estimate) ,                   (9.23)
+rev-qcd	2178	                    αs (m2Z ) = 0.1175 ± 0.0010      (PDG 2023 without lattice) .                 (9.24)
+rev-cosmological-parameters	397	(73.0 ± 1.0) km s−1 Mpc−1 [21].

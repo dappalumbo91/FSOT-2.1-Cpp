@@ -1,6 +1,7 @@
 # Prediction -> reference map for the z<=1 gate (apps/fsot_precision.cpp). record=1 rows form the scored set:
 # the hub seed leaf when Damian committed one (2026-09-29..10-01), else the pinned AEB2AD closed form (first
 # occurrence in full_report order). Never chosen by lowest z. record=0 rows are still reported.
+# route seed = a committed hub vendor/fsot_seed_flavor.py function evaluated in mp169 (2026-10-02b channel fix F2).
 #id	route	source	ref_key	scale	record	history_note
 alpha_inv	leaf	alpha_inv	alpha_inv	1	1	hub 1f151ed3 2026-09-29 printed z=0.53
 g_e	leaf	g_e	g_e_abs	1	1	hub 69710678 2026-09-29 printed z=0.071
@@ -52,8 +53,11 @@ CKM_V_cb	leaf	CKM_V_cb	CKM_V_cb	1	1	hub 4c270461 2026-09-29 printed z=0.081
 CKM_V_td	leaf	CKM_V_td	CKM_V_td	1	1	hub 4c270461 2026-09-29 printed z=0.112
 CKM_V_ts	leaf	CKM_V_ts	CKM_V_ts	1	1	hub 4c270461 2026-09-29 printed z=0.078
 CKM_V_tb	leaf	CKM_V_tb	CKM_V_tb	1	1	hub 4c270461 2026-09-29 printed z=0.153
-pin:wave1|alpha_s(M_Z)	pin	wave1|alpha_s(M_Z)	alpha_s_MZ	1	1	
-pin:wave1|H0	pin	wave1|H0	H0	1	1	
+alpha_s_MZ	seed	seed_alpha_s_MZ	alpha_s_MZ	1	1	channel fix F2 (REFINEMENTS_2026-10-02b): hub seed_alpha_s_MZ 8760d403 2026-08-03, the QCD-process coupling
+pin:wave1|alpha_s(M_Z)	pin	wave1|alpha_s(M_Z)	alpha_s_MZ	1	0	alternate: Wave-1 geometric 1/(e pi), 'a different object' per the seed_alpha_s_MZ docstring (F2)
+pin:wave1|H0	pin	wave1|H0	H0_CMB_BAO	1	1	channel fix F1 (REFINEMENTS_2026-10-02b): global CMB+BAO H0 per hub seed_h0_global docstring 00ca7f1f; ref ACT DR6 P-ACT-LB + DESI DR2
+pin:wave1|H0 vs Planck2018	pin	wave1|H0	H0	1	0	alternate reference (Planck 2018 CMB-only); not the FSOT channel (F1)
+pin:wave1|H0 vs SH0ES	pin	wave1|H0	H0_SH0ES	1	0	alternate reference (distance ladder); not the FSOT channel (F1)
 pin:wave1|T_CMB	pin	wave1|T_CMB	T0_K	1	1	
 pin:wave1|n_s	pin	wave1|n_s	n_s	1	1	
 pin:wave1|Omega_b_h2	pin	wave1|Omega_b_h2	Omega_b_h2	1	1	

@@ -79,6 +79,12 @@ jobs:
           diff -q /tmp/seed_leaves.tsv golden/seed_leaves_6f9c2560.tsv
           python tools/pin_lineage.py --hub hub --out /tmp/pin_lineage.tsv
           diff -q /tmp/pin_lineage.tsv reference/pin_lineage_2026-10-02.tsv
+      - name: Re-score the 2026-10-02b freeze with the hub engine (candidates, look-elsewhere family, held-out, Ledger B) and diff
+        run: |
+          python tools/score_refinements_2026_10_02b.py --hub hub --out /tmp/refinements_b.tsv
+          diff -q /tmp/refinements_b.tsv audit/refinements_2026-10-02b.tsv
+          python tools/verify_refinement_freeze_b.py
+          python tools/crosscheck_refinements_b.py
       - name: Build and run the C++ re-scorer against the golden
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$PWD/hub

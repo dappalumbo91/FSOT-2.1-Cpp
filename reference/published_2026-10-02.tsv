@@ -105,3 +105,13 @@ M_Z_over_M_W	inv:W_over_Z				1	derived
 Gamma_Z_over_M_Z	ratio:Gamma_Z_GeV/m_Z_GeV				1	derived		
 dm2_21_over_dm2_32	ratio:dm2_21/dm2_32				1	derived		
 delta_CP_rad	pi:delta_CP_over_pi				rad	derived		
+H0_CMB_BAO	direct	68.43	0.27	0.27	km s^-1 Mpc^-1	ARXIV:2503.14452	arxiv_extracts:2503.14452:abstract	ACT DR6 P-ACT-LB with DESI DR2 (FSOT channel per hub seed_h0_global docstring, 00ca7f1f)
+H0_PACT_LB_DR1	direct	68.22	0.36	0.36	km s^-1 Mpc^-1	ARXIV:2503.14452	arxiv_extracts:2503.14452:sec. II	held-out: P-ACT-LB with DESI DR1
+H0_PACT	direct	67.62	0.50	0.50	km s^-1 Mpc^-1	ARXIV:2503.14452	arxiv_extracts:2503.14452:sec. II	held-out: P-ACT (no lensing, no BAO)
+H0_SH0ES	direct	73.0	1.0	1.0	km s^-1 Mpc^-1	PDG2024:rev-cosmological-parameters	pdg2024_extracts:rev-cosmological-parameters:397	SH0ES (distance ladder); different physical channel, printed only
+alpha_s_MZ_nolattice	direct	0.1175	0.0010	0.0010	1	PDG2024:rev-qcd	pdg2024_extracts:rev-qcd:2178	eq. 9.24 (input to the average; correlated)
+alpha_s_MZ_FLAG2021	direct	0.1184	0.0008	0.0008	1	PDG2024:rev-qcd	pdg2024_extracts:rev-qcd:2155	eq. 9.23 (input to the average; correlated)
+tau_reion_PlanckBAO	direct	0.0561	0.0071	0.0071	1	ARXIV:1807.06209	arxiv_extracts:1807.06209:Table 2 col. 6 (TT,TE,EE+lowE+lensing+BAO), tau row	Planck 2018 Table 2 col. 6 (the Ledger B 'measured' 0.0561)
+tau_reion_Planck	direct	0.0544	0.0073	0.0073	1	ARXIV:1807.06209	arxiv_extracts:1807.06209:Table 2 col. 5 (TT,TE,EE+lowE+lensing), tau row	Planck 2018 Table 2 col. 5
+D_H_Cooke2018	direct	2.527e-5	0.030e-5	0.030e-5	1	ARXIV:1710.11129	arxiv_extracts:1710.11129:abstract	Cooke, Pettini & Steidel 2018 (the Ledger B 'measured' 2.527e-5)
+m_H_over_m_Z	ratio:m_H_GeV/m_Z_GeV				1	derived		

@@ -1,0 +1,6 @@
+#id	locator	quoted text (verbatim from the arXiv abstract page or the pdftotext of the PDF; fetched 2026-10-02)	url
+2503.14452	abstract	a Hubble constant of $H_{0}=68.22\pm 0.36$ km/s/Mpc ... Including the DESI DR2 data tightens the Hubble constant to $H_{0}=68.43\pm 0.27$ km/s/Mpc	https://arxiv.org/abs/2503.14452
+2503.14452	sec. II	The local Hubble constant is estimated to be $H_{0}=67.62\pm 0.50$ km/s/Mpc from P-ACT, and $68.22\pm 0.36$ km/s/Mpc combined with CMB lensing data and BAO from DESI DR1	https://arxiv.org/abs/2503.14452
+1807.06209	Table 2 col. 6 (TT,TE,EE+lowE+lensing+BAO), tau row	0.0561 ± 0.0071	https://arxiv.org/pdf/1807.06209v4
+1807.06209	Table 2 col. 5 (TT,TE,EE+lowE+lensing), tau row	0.0544 ± 0.0073	https://arxiv.org/pdf/1807.06209v4
+1710.11129	abstract	(D/H)_P = (2.527+/-0.030)x10^-5	https://arxiv.org/abs/1710.11129

@@ -7,12 +7,15 @@
 // AEB2AD closed forms (Engine sections, parity mode). References: one table, every entry verified against
 // committed evidence by tools/check_references.py. "record" rows are the scored set (see the map header).
 // The exploratory section evaluates the frozen-pending refinements of docs/freezes/REFINEMENTS_2026-10-02.md;
-// they are printed separately and never counted.
+// they are printed separately and never counted. The refined_* columns carry the frozen-pending candidates of
+// docs/freezes/REFINEMENTS_2026-10-02b.md (committed before scoring); they are never counted as confirmed.
+// route "seed" = a committed hub vendor/fsot_seed_flavor.py function, evaluated here in mp169 (channel fix F2).
 #include <algorithm>
 #include <cmath>
 #include <cstdio>
 #include <cstring>
 #include <fstream>
+#include <functional>
 #include <map>
 #include <sstream>
 #include <string>
@@ -44,6 +47,7 @@ struct RefRow { std::string key, kind, unit, source, evidence, note; LD c = 0, s
 
 static std::string source_link(const RefRow& r, const std::map<std::string, RefRow>& refs) {
   if (r.source == "CODATA2022") return "CODATA 2022 \"" + r.evidence + "\" https://physics.nist.gov/cuu/Constants/Table/allascii.txt";
+  if (r.source.rfind("ARXIV:", 0) == 0) return "arXiv:" + r.source.substr(6) + " https://arxiv.org/abs/" + r.source.substr(6) + " (" + r.evidence.substr(r.evidence.rfind(':') + 1) + ")";
   if (r.source == "AME2020") return "AME2020 mass excesses https://www-nds.iaea.org/amdc/ame2020/mass_1.mas20.txt";
   if (r.source.rfind("PDG2024:", 0) == 0) {
     std::string doc = r.source.substr(8);
@@ -88,6 +92,7 @@ static void resolve(std::map<std::string, RefRow>& refs) {
 struct Out {
   std::string id, route, source, ref_key, unit, src_link, pin_target, hist, cause;
   bool record = false; LD value = 0; gate::Ref ref{}; gate::Score s{};
+  std::string rid; LD rvalue = 0; gate::Score rs{};  // frozen-pending refinement (REFINEMENTS_2026-10-02b)
 };
 
 static std::string fmt(const char* f, LD v) { char b[64]; std::snprintf(b, sizeof b, f, v); return b; }
@@ -128,6 +133,17 @@ int main(int argc, char** argv) {
   for (auto& [id, v] : L.mp_values()) leafv[id] = static_cast<LD>(v);
   const auto ckm = leaves::ckm_double(eng);
   for (auto& [k, v] : ckm.mags) leafv["CKM_" + k] = v;
+  // seed route (hub vendor/fsot_seed_flavor.py seed_alpha_s_MZ, 8760d403 2026-08-03): 2 (POOF/psi_con)^2
+  std::map<std::string, LD> seedv = {{"seed_alpha_s_MZ", static_cast<LD>(R(2) * (eng.POOF / eng.PSI_CON) * (eng.POOF / eng.PSI_CON))}};
+  // frozen-pending candidates of docs/freezes/REFINEMENTS_2026-10-02b.json (row id -> candidate id, value)
+  const R yy = L.yy();
+  std::map<std::string, std::pair<std::string, std::function<LD(LD)>>> refined = {
+      {"pin:wave3|m_H/m_W", {"C-MHW-1", [&](LD) { return leafv.at("m_H_MeV") / leafv.at("m_W_MeV"); }}},
+      {"pin:wave4|Dm2_21/Dm2_32", {"C-DM-1", [&](LD) { return static_cast<LD>(m::ipow(eng.POOF * eng.G_CAT * eng.P_NEW, 3)) / leafv.at("dm2_32"); }}},
+      {"pin:wave1|T_CMB", {"C-TCMB", [&](LD b) { return b * static_cast<LD>(R(1) + yy); }}},
+      {"pin:wave5|Gamma_Z/M_Z", {"C-GZ", [&](LD b) { return b * static_cast<LD>(R(1) + yy); }}},
+      {"pin:wave3|Deuteron_binding_MeV", {"C-BD", [&](LD b) { return b * static_cast<LD>(R(1) + yy * eng.GAMMA * eng.PSI_CON * eng.PSI_CON); }}},
+      {"pin:wave8|Deuteron_mu_muN", {"C-MUD", [&](LD b) { return b * static_cast<LD>(R(1) + yy); }}}};
   std::map<std::string, std::pair<LD, LD>> pinv;  // value, target
   for (auto& [name, fn] : eng.sections())
     for (auto& r : (eng.*fn)())
@@ -144,12 +160,21 @@ int main(int argc, char** argv) {
     if (o.route == "leaf") {
       auto it = leafv.find(o.source); if (it == leafv.end()) { std::fprintf(stderr, "no leaf %s\n", o.source.c_str()); return 2; }
       o.value = it->second * scale;
+    } else if (o.route == "seed") {
+      auto it = seedv.find(o.source); if (it == seedv.end()) { std::fprintf(stderr, "no seed %s\n", o.source.c_str()); return 2; }
+      o.value = it->second * scale;
     } else {
       auto it = pinv.find(o.source); if (it == pinv.end()) { std::fprintf(stderr, "no pin row %s\n", o.source.c_str()); return 2; }
       o.value = it->second.first * scale; o.pin_target = fmt("%.10Lg", it->second.second * scale);
     }
     o.s = gate::score(o.value, o.ref);
-    if (o.route == "leaf") {
+    if (auto ri = refined.find(o.id); ri != refined.end()) {
+      o.rid = ri->second.first; o.rvalue = ri->second.second(o.value); o.rs = gate::score(o.rvalue, o.ref);
+    }
+    if (o.route == "seed") {
+      o.hist = note;
+      o.cause = o.s.pass_z ? "channel fix: committed hub seed route (REFINEMENTS_2026-10-02b F2)" : "seed outside the PDG 2024 sigma";
+    } else if (o.route == "leaf") {
       o.hist = note;
       o.cause = o.s.pass_z ? "restored: hub seed leaf (2026-09-29) absent from the C++ port (H-01)"
                            : "leaf outside the PDG 2024/CODATA 2022 sigma";
@@ -184,12 +209,13 @@ int main(int argc, char** argv) {
   }
 
   // summary
-  auto summarize = [&](bool record_only, FILE* fp, const char* label) {
+  auto summarize = [&](bool record_only, FILE* fp, const char* label, bool with_refined = false) {
     std::vector<LD> ppm; int n = 0, pz = 0, p2 = 0; LD worst = -1; std::string worst_id;
     for (auto& o : outs) {
       if (record_only && !o.record) continue;
-      ++n; pz += o.s.pass_z; p2 += o.s.pass_old; ppm.push_back(o.s.ppm);
-      if (o.s.ppm > worst) { worst = o.s.ppm; worst_id = o.id; }
+      const gate::Score& sc = (with_refined && !o.rid.empty() && o.rs.pass_z) ? o.rs : o.s;  // failing candidates are not adopted
+      ++n; pz += sc.pass_z; p2 += sc.pass_old; ppm.push_back(sc.ppm);
+      if (sc.ppm > worst) { worst = sc.ppm; worst_id = o.id; }
     }
     std::sort(ppm.begin(), ppm.end());
     const LD med = ppm.empty() ? 0 : (ppm.size() % 2 ? ppm[ppm.size() / 2] : 0.5L * (ppm[ppm.size() / 2 - 1] + ppm[ppm.size() / 2]));
@@ -198,12 +224,15 @@ int main(int argc, char** argv) {
   };
 
   FILE* tsv = tsv_p.empty() ? stdout : std::fopen(tsv_p.c_str(), "w");
-  std::fprintf(tsv, "#id\troute\trecord\tvalue\tunit\tref_key\tcentral\tsigma_minus\tsigma_plus\tppm\tz\tpass_z<=1\trel_pct\tpass_2pct\tpin_target\thistorical_best\tcause\tsource\n");
-  for (auto& o : outs)
-    std::fprintf(tsv, "%s\t%s\t%d\t%.15Lg\t%s\t%s\t%.15Lg\t%.6Lg\t%.6Lg\t%.6Lg\t%.4Lg\t%s\t%.6Lg\t%s\t%s\t%s\t%s\t%s\n", o.id.c_str(), o.route.c_str(),
+  std::fprintf(tsv, "#id\troute\trecord\tvalue\tunit\tref_key\tcentral\tsigma_minus\tsigma_plus\tppm\tz\tpass_z<=1\trel_pct\tpass_2pct\tpin_target\thistorical_best\tcause\tsource\trefined_id\trefined_value\trefined_z\trefined_pass_z<=1\n");
+  for (auto& o : outs) {
+    std::fprintf(tsv, "%s\t%s\t%d\t%.15Lg\t%s\t%s\t%.15Lg\t%.6Lg\t%.6Lg\t%.6Lg\t%.4Lg\t%s\t%.6Lg\t%s\t%s\t%s\t%s\t%s", o.id.c_str(), o.route.c_str(),
                  o.record, o.value, o.unit.c_str(), o.ref_key.c_str(), o.ref.central, o.ref.sigma_minus, o.ref.sigma_plus, o.s.ppm, o.s.z,
                  o.s.pass_z ? "PASS" : "FAIL", o.s.rel_pct, o.s.pass_old ? "PASS" : "FAIL", o.pin_target.c_str(), o.hist.c_str(),
                  o.cause.c_str(), o.src_link.c_str());
+    if (o.rid.empty()) std::fprintf(tsv, "\t\t\t\t\n");
+    else std::fprintf(tsv, "\t%s\t%.15Lg\t%.4Lg\t%s\n", o.rid.c_str(), o.rvalue, o.rs.z, o.rs.pass_z ? "PASS (frozen-pending)" : "FAIL (open)");
+  }
   if (tsv != stdout) std::fclose(tsv);
 
   // exploratory: frozen-pending refinements (docs/freezes/REFINEMENTS_2026-10-02.md), NOT scored
@@ -235,16 +264,18 @@ int main(int argc, char** argv) {
   std::fprintf(md, "<!-- generated by apps/fsot_precision.cpp; do not edit by hand -->\n");
   std::fprintf(md, "Gate: z = |value - central| / sigma <= %.0f (include/fsot/host/precision_gate.hpp); legacy check |rel| <= %.0f%% reported alongside.\n\n",
                gate::Z_MAX, gate::OLD_REL_PCT);
-  std::fprintf(md, "```\n"); summarize(true, md, "record set (scored)"); summarize(false, md, "all rows (incl. superseded/alternate)"); std::fprintf(md, "```\n\n");
-  std::fprintf(md, "| id | route | rec | value | unit | central | sigma (-/+) | ppm | z | z<=1 | 2%% | historical best | cause / note | source |\n");
-  std::fprintf(md, "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n");
+  std::fprintf(md, "```\n"); summarize(true, md, "record set (scored)"); summarize(false, md, "all rows (incl. superseded/alternate)");
+  summarize(true, md, "record set if the passing frozen-pending refinements were adopted (NOT confirmed)", true); std::fprintf(md, "```\n\n");
+  std::fprintf(md, "| id | route | rec | confirmed value | unit | central | sigma (-/+) | ppm | z | z<=1 | 2%% | frozen-pending refined (id: value, z) | historical best | cause / note | source |\n");
+  std::fprintf(md, "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n");
   for (auto& o : outs) {
     std::string sig = o.ref.sigma_minus == o.ref.sigma_plus ? fmt("%.4Lg", o.ref.sigma_plus) : fmt("-%.4Lg", o.ref.sigma_minus) + "/+" + fmt("%.4Lg", o.ref.sigma_plus);
     std::string cause = o.cause; std::replace(cause.begin(), cause.end(), '|', '/');
     std::string id = o.id; std::replace(id.begin(), id.end(), '|', '/');
-    std::fprintf(md, "| %s | %s | %s | %.15Lg | %s | %.15Lg | %s | %.4Lg | %s | %s | %s | %s | %s | %s |\n", id.c_str(), o.route.c_str(), o.record ? "Y" : "-",
+    std::string rcol = o.rid.empty() ? "" : o.rid + ": " + fmt("%.15Lg", o.rvalue) + ", z=" + fz(o.rs.z) + (o.rs.pass_z ? " (frozen-pending)" : " (fails; open)");
+    std::fprintf(md, "| %s | %s | %s | %.15Lg | %s | %.15Lg | %s | %.4Lg | %s | %s | %s | %s | %s | %s | %s |\n", id.c_str(), o.route.c_str(), o.record ? "Y" : "-",
                  o.value, o.unit.c_str(), o.ref.central, sig.c_str(), o.s.ppm, fz(o.s.z).c_str(), o.s.pass_z ? "PASS" : "**FAIL**", o.s.pass_old ? "PASS" : "FAIL",
-                 o.hist.c_str(), cause.c_str(), o.src_link.c_str());
+                 rcol.c_str(), o.hist.c_str(), cause.c_str(), o.src_link.c_str());
   }
   std::fprintf(md, "\n### EXPLORATORY (tier frozen-pending; not counted above; docs/freezes/REFINEMENTS_2026-10-02.md)\n\n```\n");
   std::fprintf(md, "R1 |V_us| Chemistry route theta_S/phi+(1-S_Chemistry) = %.12g  z_fit=%.4f  z_direct=%.4f\n", chem, zfit(chem, vus_fit), zfit(chem, vus_dir));
@@ -258,6 +289,7 @@ int main(int argc, char** argv) {
   if (md != stdout) std::fclose(md);
   summarize(true, stdout, "record set (scored)");
   summarize(false, stdout, "all rows");
+  summarize(true, stdout, "record set with passing frozen-pending refinements (NOT confirmed)", true);
   return 0;
 #endif
 }

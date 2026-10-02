@@ -7,6 +7,8 @@ committed under reference/evidence/ (stdlib only; no network).
   PDG2024 rows    : central and sigma digits (up to a power-of-ten display scale)
                     must appear on the cited pdftotext line(s) of the PDG 2024 PDF.
   AME2020 rows    : binding energy recomputed from the mass excesses in the extract.
+  ARXIV rows      : central and sigma digits must appear in the quoted text of
+                    reference/evidence/arxiv_extracts.tsv (id + locator).
   derived rows    : parents must exist; the expression must be well formed.
 Exit status 0 only if every row verifies.
 """
@@ -108,6 +110,27 @@ def check_ame(r):
         return f"sigma={sig} != {r['sm']}"
     return None
 
+def check_arxiv(r):
+    m = re.match(r"arxiv_extracts:([^:]+):(.+)$", r["evidence"])
+    if not m or r["source"] != "ARXIV:" + m.group(1):
+        return "bad evidence ref"
+    txt = None
+    for line in open(os.path.join(ROOT, "evidence", "arxiv_extracts.tsv"), encoding="utf-8"):
+        if line.startswith("#"):
+            continue
+        f = line.rstrip("\n").split("\t")
+        if f[0] == m.group(1) and f[1] == m.group(2):
+            txt = f[2]
+    if txt is None:
+        return "no arxiv extract row"
+    t = norm(txt).replace("\\pm", "±").replace("+/-", "±").replace("$", "").replace("{", "").replace("}", "")
+    for k in range(0, 8):
+        c = scaled(r["central"], k)
+        if all(re.search(re.escape(c) + r"\)?±\(?" + re.escape(scaled(sg, k)) + r"0*(?![0-9])", t) or
+               re.search(r"\(" + re.escape(c) + r"0*±" + re.escape(scaled(sg, k)) + r"0*\)", t) for sg in {r["sm"], r["sp"]}):
+            return None
+    return f"digits not found in arxiv extract {m.group(1)} {m.group(2)}: {txt!r}"
+
 def main():
     rows = load_rows()
     keys = {r["key"] for r in rows}
@@ -133,6 +156,8 @@ def main():
             err = check_pdg(r, pl)
         elif src == "AME2020":
             err = check_ame(r)
+        elif src == "ARXIV":
+            err = check_arxiv(r)
         else:
             err = "unknown source"
         if err:
