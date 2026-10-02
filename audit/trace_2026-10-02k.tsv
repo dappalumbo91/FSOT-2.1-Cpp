@@ -1,0 +1,63 @@
+# round-k trace (diagnostics, not branches); FSOT values from hub 6f9c2560 leaves / AEB2AD pins; Lambda from audit/score_2026-10-02j.tsv
+section	step	quantity	FSOT	counterpart	sigma	source	z	note
+A theta_S	1	psi_con = 1 - e^-1	0.632120558829	-	-	-	-	math: P(N>=1) for a Poisson count of mean 1; the fraction of a first-order relaxation completed after one time constant. Hub label: consciousness parameter. No particle-physics counterpart
+A theta_S	2	eta_eff = 1/(pi - 1)	0.466942206924	-	-	-	-	math: diameter / (circumference - diameter) of a circle. Hub label: efficiency. No particle-physics counterpart
+A theta_S	3	argument psi_con * eta_eff [rad]	0.295163768782	-	-	-	-	= 16.911638 deg
+A theta_S	4	theta_S = sin(psi_con eta_eff)	0.290896540545	-	-	-	-	a sine VALUE that the hub then also uses as an ANGLE (sin theta_S in C_eff, B_in; cos theta_S in P_var, Suction; Lean lemma phase_variance = cos theta_S)
+A theta_S	5	comparison: sin theta_C = |V_us|	0.290896540545	0.22501	0.00068	PDG 2024	96.89	not the Cabibbo angle; listed only to exclude it
+A theta_S	6	comparison: sin^2 theta_W (MSbar)	0.290896540545	0.23129	4.0e-5	PDG 2024	1490.0	not the weak angle; excluded
+A theta_S	7	comparison: QCD vacuum angle theta-bar	0.290896540545	-	-	-	-	|theta-bar| < 1e-10 (neutron EDM); excluded. No known physical angle equals 0.2909: theta_S has no established physical representation
+B unit audit	0	1 MeV / (h nu_Cs) = 1e6 e[C] / (h nu_Cs) (SI 2019 exact)	26303558138.6	-	-	-	-	contains e = 1.602176634e-19 C, a defined number fixed in 2019 to continue the historical coulomb: a convention, not physics
+B unit audit	0b	1 MeV / (m_e c^2) = 1/m_e[MeV] on the FSOT anchor	1.95695118122	1.956951181	6.127e-10	CODATA 2022	0.4978	= SI factor / exp(23.3215823...): the factor every MeV-read leaf would need to be tied to the m_e anchor
+B unit audit	1	m_e [MeV]	0.51099895061	-	-	-	-	anchor: h nu_Cs/c^2 exp(...); ratio to FSOT m_e = 1.0
+B unit audit	2	m_mu [MeV]	105.658374905	-	-	-	-	m_e x seed ratio; ratio to FSOT m_e = 206.768281576
+B unit audit	3	m_tau [MeV]	1777.00164018	-	-	-	-	m_e x seed ratio; ratio to FSOT m_e = 3477.50545879
+B unit audit	4	m_p [MeV]	938.27208927	-	-	-	-	m_e x seed ratio; ratio to FSOT m_e = 1836.15267341
+B unit audit	5	m_n [MeV]	939.565421802	-	-	-	-	m_p x (1 + excess); ratio to FSOT m_e = 1838.68366203
+B unit audit	6	m_pi+- [MeV]	139.57034107	-	-	-	-	UNIT-READ pure number; ratio to FSOT m_e = 273.132343821
+B unit audit	7	m_K+- [MeV]	493.680211322	-	-	-	-	UNIT-READ; ratio to FSOT m_e = 966.108072693
+B unit audit	8	m_D+- [MeV]	1869.6602588	-	-	-	-	UNIT-READ; ratio to FSOT m_e = 3658.83385195
+B unit audit	9	m_W [MeV]	80368.7519242	-	-	-	-	UNIT-READ; ratio to FSOT m_e = 157277.724011
+B unit audit	10	m_Z [MeV]	91187.3703594	-	-	-	-	UNIT-READ (W leaf / cos); ratio to FSOT m_e = 178449.232137
+B unit audit	11	m_H [MeV]	125158.097744	-	-	-	-	UNIT-READ; ratio to FSOT m_e = 244928.28722
+B unit audit	12	B(4He) [MeV]	28.2956623786	-	-	-	-	UNIT-READ; ratio to FSOT m_e = 55.3732299152
+B unit audit	13	B(3H) [MeV]	8.48179631631	-	-	-	-	UNIT-READ; ratio to FSOT m_e = 16.5984613201
+B unit audit	14	B(2H) sqrt(e)/e + phi [MeV]	2.22456464846	-	-	-	-	UNIT-READ; ratio to FSOT m_e = 4.35336441651
+B unit audit	15	r_p [fm]	0.84124854097	-	-	-	-	UNIT-READ (femtometre)
+B unit audit	16	dm2_32 [eV^2]	0.00244405957969	-	-	-	-	UNIT-READ
+B unit audit	17	T_CMB [K]	2.72471169034	-	-	-	-	UNIT-READ (kelvin; k_B defined)
+B unit audit	18	H0 [km/s/Mpc]	68.4449955638	-	-	-	-	UNIT-READ
+C link tests	1	m_pi/m_e	273.132343821	273.1324395	0.0003523	PDG/CODATA	0.2717	unit-free; reproduces only because the leaf matches 139.57 in MeV
+C link tests	2	m_pi/m_p	0.148752523566	0.1487525757	1.918e-7	PDG	0.2717	hub pin wave2|m_pi/m_p = K P_new ln(pi) = 0.14441869 is a different closed form (pi0/p 0.14386)
+C link tests	3	m_pi/Lambda^(5) (FSOT Lambda from J-1)	0.666131049413	0.6552600469	0.02461	FLAG 2024 Lambda^(5) 213(8)	0.4417	QCD: m_pi^2 ~ 2 B m_ud, so m_pi/Lambda measures m_ud/Lambda (a free QCD parameter); the 3.8 % Lambda error cannot test an exact factor
+C link tests	4	m_pi/Lambda^(3) (FSOT Lambda, external thresholds)	0.414229067582	0.4129301479	0.01222	FLAG 2024 Lambda^(3) 338(10)	0.1063	close to sqrt2 - 1 = 0.41421 (noted; one of many simple numbers inside the 3 % band: not claimed)
+C link tests	5	m_K/m_e	966.108072693	966.1017881	0.02935	PDG	0.2141	
+C link tests	6	m_K/Lambda^(3)	1.46518731739	1.46058284	0.04321	FLAG	0.1066	
+C link tests	7	any AEB2AD pin within 1 ppm of m_pi/m_e?	273.132343821	-	-	-	-	none of 204 pins
+C link tests	8	any AEB2AD pin within 1 ppm of m_pi/m_p?	0.148752523566	-	-	-	-	none of 204 pins
+C link tests	9	any AEB2AD pin within 1 ppm of m_pi/Lambda5?	0.666131049413	-	-	-	-	none of 204 pins
+C link tests	10	any AEB2AD pin within 1 ppm of m_pi/Lambda3?	0.414229067582	-	-	-	-	none of 204 pins
+C link tests	11	any AEB2AD pin within 1 ppm of m_K/m_e?	966.108072693	-	-	-	-	none of 204 pins
+C link tests	12	any AEB2AD pin within 1 ppm of 1/m_e[MeV]?	1.95695118122	-	-	-	-	none of 204 pins
+D pion lineage	1	2026-07-14 856694ca (archive import)	-	-	-	hub git log	-	FSOT SMILES Lab dataset (Damian desktop project) S66 Particle Masses Tier 18: pion_pm = e^5 - pi^2 = 138.5436 'MeV' vs target 139.57 (0.74 %), same formula for pi0
+D pion lineage	2	2026-07-11 5c0653c1 / 07-12 b9660cd5	-	-	-	hub git log	-	data/pdg_particle_properties_benchmark.json: pion_pm 'THETA^-4 - THETA^2' = 139.5669 vs measured 139.57 MeV; the file holds many THETA/OMEGA/POOF power combinations (a formula-search catalog)
+D pion lineage	3	2026-09-29 71fa2e3f	-	-	-	hub git log	-	added alpha/(pi-1): the gap / alpha was 0.474 and eta_eff = 0.467; 139.570341, z 0.27
+D pion lineage	4	all stages	-	-	-	hub git log	-	the target was the PDG number in MeV, so the MeV is the unit of the search target; no stage multiplies by m_e, m_p or any scale
+E m_s/m_ud	1	m_u/m_d (pin sqrt3 - sqrt phi)	0.460031158055	0.465	0.024	FLAG 2024 2+1+1	0.207	2+1: 0.485(19), z 1.31
+E m_s/m_ud	2	m_s/m_d (pin e^3 + gamma^4)	20.1965444521	19.9437775	0.3321	derived from FLAG 2+1+1 m_s/m_ud and m_u/m_d	0.7612	FLAG does not average m_s/m_d; the hub SS-407 note quotes '20.203(76) FLAG' (not found in FLAG 2024 Table 1)
+E m_s/m_ud	3	m_s/m_ud = (m_s/m_d) 2/(1 + m_u/m_d)	27.6659088276	27.227	0.081	FLAG 2024 2+1+1	5.419	2+1: 27.42(12), z 2.05
+E m_s/m_ud	4	R = (m_s - m_ud)/(m_d - m_u)	36.0512077011	35.9	1.7	FLAG 2024 eq. 52 (2+1+1)	0.08895	
+E m_s/m_ud	5	Q = sqrt((m_s^2 - m_ud^2)/(m_d^2 - m_u^2))	22.7314829376	22.5	0.5	FLAG 2024 eq. 52 (2+1+1)	0.463	eta->3pi: 22.1(0.7)
+E m_s/m_ud	6	m_s/m_d that m_s/m_ud = 27.227 needs at FSOT m_u/m_d	19.8761341702	-	-	-	-	-1.6 % from the pin
+E m_s/m_ud	7	m_u/m_d that m_s/m_ud = 27.227 needs at FSOT m_s/m_d	0.483567374452	0.485	0.019	FLAG 2+1 m_u/m_d	0.0754	vs 2+1+1 0.465(24): z 0.774
+E m_s/m_ud	8	physics	none	-	-	-	-	m_s/m_ud is fixed by the isospin-averaged K/pi masses (QCD only; lattice-precise, 0.3 %); m_u/m_d needs the EM-corrected kaon splitting (5 %). The FSOT pair satisfies Q and R; the z 5.4 is the precise m_s/m_ud combination
+F cosmology	1	T_CMB leaf phi^2 + P_base|S_cosm| [K]	2.72471169034	2.7255	0.0006	FIRAS (PDG 2024)	1.314	pure number read in kelvin (k_B defined): same unit question as the MeV leaves
+F cosmology	2	Omega_m h^2 = Omega_m (H0/100)^2	0.147722814049	0.1430474415	-	FSOT Omega_b h^2 + Omega_DM h^2	-	3.268 % apart (nu mass ~0.0006 cannot close it); Planck 2018 0.1430(11)
+F cosmology	3	Omega_r from T, H0, N_eff: 2.4728e-5 (T/2.7255)^4 (1 + 0.22711 N_eff)/h^2	8.91927374128e-5	9.16772888e-5	-	FSOT pin wave9|Omega_r	-	-2.71 %
+F cosmology	4	z_eq = Omega_m / Omega_r - 1 (pins)	3438.55621268	3393.81031	-	FSOT pin wave3|z_eq	-	1.318 %
+F cosmology	5	z_eq = Omega_m / Omega_r(T, H0, N_eff) - 1	3534.36843236	3393.81031	-	FSOT pin z_eq	-	4.142 %; Planck 2018 z_eq 3387(21)
+F cosmology	6	T implied by z_eq, Omega_m, H0, N_eff	2.7524874463	2.7255	0.0006	FIRAS	44.98	
+F cosmology	7	T implied by z_eq, Omega_b h^2 + Omega_DM h^2, N_eff	2.73044528067	2.7255	0.0006	FIRAS	8.242	
+F cosmology	8	T implied by Omega_r, H0, N_eff	2.74349151993	2.7255	0.0006	FIRAS	29.99	
+F cosmology	9	T implied by eta_b, Omega_b h^2 (eta10 = 274 Omega_b h^2 at 2.7255 K)	2.72767855967	2.7255	0.0006	FIRAS	3.631	as in round h; systematic only (274 rounded)
+F cosmology	10	conclusion	none	-	-	-	-	the FSOT cosmology pins are mutually inconsistent at the 1-4 % level under standard relations; the T_CMB leaf itself (z 1.31) is closer to FIRAS than any T they imply

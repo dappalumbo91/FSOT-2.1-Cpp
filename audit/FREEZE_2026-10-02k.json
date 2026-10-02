@@ -1,0 +1,66 @@
+{
+ "freeze": "FREEZE_2026-10-02k",
+ "date": "2026-10-02",
+ "authority_pin": "AEB2AD (unchanged; a new hub pin 2C9442 exists on an unpushed Lean branch: next re-pin round)",
+ "hub_data_commit": "6f9c2560 (unchanged)",
+ "scope": "Damian: every FSOT quantity should have a physical representation. (1) trace theta_S and the MeV-read leaves (audit/trace_2026-10-02k.tsv, diagnostics); (2) derive f_pi, g_A, g_piNN (and an absolute light-quark mass) by physically motivated relations from FSOT m_pi, m_N and the round-j FSOT Lambda_QCD, no new fitted constants, validated first; (3) downstream only through the gates below; (4) m_s/m_ud gap and the cosmology-pin consistency are diagnostics in the trace (no replacement candidates are frozen, so nothing there can be scored).",
+ "trace_findings_fixed_before_scoring": "theta_S has no established physical counterpart; the pion/kaon/D/W/Z/H/binding leaves are pure numbers read in MeV (r_p in fm, T_CMB in K, H0 in km/s/Mpc, dm2 in eV^2), unlike m_e, m_mu, m_tau, m_p, m_n which follow the m_e anchor; tying a MeV-read leaf to the anchor needs the SI factor 1e6 e/(h nu_Cs) (e is a defined number) or a physical scale; no AEB2AD pin equals any tested ratio to 1 ppm; the pion leaf was built against the PDG MeV number (hub git history). Consequence for branches: FSOT m_pi is used at its numeric MeV value, which is physically the PDG mass, so it adds no FSOT information beyond the match itself.",
+ "references": {
+  "FLAG 2024": "F_pi = 130.2(8)/sqrt2 = 92.07(57) MeV; Lambda^(5) 213(8), Lambda^(3) 338(10) MeV; g_A^(u-d) 1.263(10) (2+1+1); m_ud 3.387(39) (2+1)",
+  "FLAG 2019": "Sigma^(1/3) 272(5) MeV (2+1)",
+  "PDG 2024": "g_A 1.2754(13); m_pi+- 139.57039; m_rho 775.26(23); m_N = (m_p+m_n)/2",
+  "Reinert-Krebs-Epelbaum 2021": "g_piNN 13.226(89) from f_c^2 0.0769(10) (as in round j)",
+  "round j": "FSOT Lambda^(5) 209.524, Lambda^(3) 336.940 MeV (audit/score_2026-10-02j.tsv); the method validation passed"
+ },
+ "classification": "HYBRID = FSOT input + an external dimensionless QCD number (lattice ratio or lattice g_A). A hybrid result can at best be frozen-pending; it can never confirm a row. FSOT-native = FSOT inputs and standard relations only.",
+ "branches": {
+  "K-1a F_pi = (F_pi/Lambda^(3))_lattice x Lambda^(3)": {
+   "ratio": "92.07(57)/338(10) = 0.27239 (3.1 %)",
+   "validation": "J-1 Lambda^(3) from FLAG alpha_s (method of round j) x ratio vs 92.07: pass iff within 3.5 % (ratio uncertainty)",
+   "note": "the ratio is built from FLAG F_pi and Lambda^(3), so the validation tests only the alpha_s -> Lambda conversion; disclosed as weak",
+   "score": "FSOT Lambda^(3) (external m_b, m_c thresholds) x ratio vs 92.07(57); HYBRID"
+  },
+  "K-1b F_pi = (F_pi/Lambda^(5))_lattice x Lambda^(5)": {
+   "ratio": "92.07/213(8) = 0.43225 (3.9 %)",
+   "validation": "J-1 Lambda^(5) from FLAG alpha_s x ratio: pass iff within 4 % of 92.07",
+   "score": "FSOT Lambda^(5) x ratio; HYBRID (no external thresholds)"
+  },
+  "K-2 Skyrme model (Adkins-Nappi-Witten, NPB 228 (1983) 552)": {
+   "physics": "chiral soliton; F_pi and e fixed by m_N and m_Delta",
+   "validation": "literature predictions F_pi = 64.5 MeV (F convention; 129 MeV in theirs) and g_A = 0.61: pass iff within 10 % of 92.07 and 1.2754",
+   "score": "not computable with FSOT (needs m_Delta, absent); recorded with its validation only"
+  },
+  "K-3 g_A from lattice QCD (FLAG 2024 2+1+1 1.263(10))": {
+   "validation": "pass iff within 2 % of PDG 1.2754",
+   "score": "no FSOT input enters: EXTERNAL (listed so the GT chain is explicit); large-N_c/SU(6) 5/3 and MIT bag already failed in round j"
+  },
+  "K-4 Goldberger-Treiman g_piNN = g_A m_N / F_pi": {
+   "validation": "FLAG lattice g_A, PDG m_N, FLAG F_pi: pass iff within 3 % of 13.226",
+   "score": "K-3 g_A, FSOT m_N, K-1a F_pi vs 13.226(89); HYBRID"
+  },
+  "K-5 absolute m_ud from GMOR m_ud = F_pi^2 m_pi^2 / (2 Sigma)": {
+   "variants": "(a) Sigma^(1/3) = (272/338) Lambda^(3) (lattice ratio); (b) Sigma^(1/3) = 0.25 GeV (pin 1/4, hub reading)",
+   "validation": "FLAG F_pi, FLAG 2019 Sigma, PDG m_pi: pass iff within 10 % of FLAG 2+1 m_ud 3.387(39) (LO GMOR with physical F_pi; FSOT has no F/F_0)",
+   "score": "K-1a F_pi, FSOT m_pi, Sigma (a)/(b) vs 3.387; m_s = FSOT m_s/m_ud x m_ud reported as information"
+  },
+  "D-1 m_rho by lowest-meson dominance M_V = sqrt(24 pi^2 / N_c) F_pi (Peris-Perrottet-de Rafael, JHEP 05 (1998) 011)": {
+   "gate_in": "runs only if K-1a validates and scores within its tolerance",
+   "validation": "FLAG F_pi: pass iff within 1 % of 775.26 -- the accuracy a VMD Delta alpha_had needs to move Gamma_Z/M_Z by less than 1 sigma (round-i criterion 0.00029/0.02783 = 1.0 %)",
+   "gate_out": "Delta alpha_had (VMD) and the Gamma_Z/M_Z rescore run only if D-1 validates"
+  }
+ },
+ "deuteron_gate": "Not run unless the rows' precision is reachable: B_d sigma 4.4e-7 MeV (2e-7 relative) and mu_d sigma 2.2e-9 (2.6e-9 relative). Chiral EFT fits its contact LECs to NN data that include the deuteron (B_d is an input there), its mu_d uncertainty is ~1e-3, P_D is not an observable (unitary-transformation dependent), and the isovector mu_n needs the LEC c6. Recorded as considered, not run.",
+ "considered_not_scored": [
+  "KSRF m_rho^2 = 2 g_rhopipi^2 F_pi^2 (needs g_rhopipi, absent; from Gamma_rho it would be measured input)",
+  "Skyrme with FSOT inputs (needs m_Delta)",
+  "NLO GMOR (needs F_0 and LECs)",
+  "deuteron: binding, P_D, mu_n pion cloud, MEC (gate above)"
+ ],
+ "look_elsewhere": {
+  "routes considered": 15,
+  "branches scored": 8,
+  "link tests (diagnostic, trace)": 4
+ },
+ "disclosure": "rough values seen before this freeze: K-1a ~91.8 (validation ~93.5), K-1b ~90.6 (validation ~93.0), K-2 literature numbers, K-3 -1.0 %, K-4 ~12.9 (validation -2.6 %), K-5 validation ~+20 %, D-1 validation ~818 MeV (+5.5 %)",
+ "counting": "confirmed only per the round-g convention (validations pass and z <= 1, FSOT-only inputs); hybrid at best frozen-pending"
+}
