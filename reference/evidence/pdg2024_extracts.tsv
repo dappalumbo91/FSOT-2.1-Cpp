@@ -82,3 +82,6 @@ rev-standard-model	1559	     σhad [nb]               41.481 ± 0.033           
 sum-leptons	23	              Mean life τ = (2.1969811 ± 0.0000022) × 10−6 s
 sum-leptons	72	              Mean life τ = (290.3 ± 0.5) × 10−15 s
 sum-leptons	132	  e − ν e ντ                                 [g ]     (17.82 ± 0.04 ) %                        888
+rev-qcd	1739	the first input for determining the world average value of αs (m2Z ). This corresponds to αs (m2τ ) =
+rev-qcd	1740	0.314 ± 0.014.
+rev-standard-model	224	b (5) (MZ )−1 = 127.930 ± 0.008. The latter corresponds to a quark sector contribution (without the

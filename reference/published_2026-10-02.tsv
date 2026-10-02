@@ -141,3 +141,5 @@ mu_Na23	direct	2.2175	0.00003	0.00003	1	IAEA	iaea_livechart:11-23	02d moments cl
 mu_Al27	direct	3.6407	0.00002	0.00002	1	IAEA	iaea_livechart:13-27	02d moments class (§67 #1044)
 mu_P31	direct	1.130925	0.000005	0.000005	1	IAEA	iaea_livechart:15-31	02d moments class (§67 #1045)
 mu_Mn55	direct	3.4467	0.0016	0.0016	1	IAEA	iaea_livechart:25-55	02d moments class held-out (§67 #1046)
+alpha_s_mtau	direct	0.314	0.014	0.014	1	PDG2024:rev-qcd	pdg2024_extracts:rev-qcd:1740	02e alpha_s(m_tau^2) from tau decays (PDG QCD review sec. 9.4.1)
+alpha_hat_inv_MZ	direct	127.930	0.008	0.008	1	PDG2024:rev-standard-model	pdg2024_extracts:rev-standard-model:224	02e EXTERNAL input to secondary scheme S2 only (MS-bar alpha^(5)(M_Z)^-1)
