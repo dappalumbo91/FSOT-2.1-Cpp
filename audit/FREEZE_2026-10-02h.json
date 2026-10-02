@@ -1,0 +1,60 @@
+{
+ "freeze": "FREEZE_2026-10-02h",
+ "date": "2026-10-02",
+ "authority_pin": "AEB2AD (unchanged)",
+ "hub_data_commit": "6f9c2560 (unchanged)",
+ "scope": "round h: trace / diagnose / branch for the 6 non-confirmed record rows (T_CMB, Deuteron_binding_MeV, m_H/m_W, Dm2_21/Dm2_32, Gamma_Z/M_Z, Deuteron_mu_muN) and the open gaps (G_F 0.66 % low: hadronic Delta alpha and the two-loop Delta r remainder; deuteron mu). No record value, pin, constant, f, domain parameter, gate, existing freeze or the prereg is changed. Branch values are reported in separate columns.",
+ "branches": {
+  "GZ-1 (H1 primary, H2 secondary)": {
+   "row": "Gamma_Z/M_Z (G_F route); also G_F",
+   "physics": "Replace round f's approximate Delta r remainder by the complete SM Delta r through two loops plus leading three/four-loop terms, taken from the Awramik-Czakon-Freitas-Weiglein M_W parametrisation (hep-ph/0311148, eqs. fitformula/pardef with the coefficient set eq. fitparams, valid 10 GeV <= M_H <= 1 TeV, accuracy 0.5 MeV): M_W^fit(M_H, m_t, M_Z, Delta alpha, alpha_s) at the paper's G_mu = 1.166379e-5, alpha^-1 = 137.03599976. Delta r is read back from the defining relation (eq. MW) M_W^2 (1 - M_W^2/M_Z^2) = pi alpha (1 + Delta r)/(sqrt2 G_mu), evaluated with complex-pole masses Mbar = M/sqrt(1 + Gamma^2/M^2) (the paper's convention; Gamma_Z = 2.4952 GeV as in the paper, Gamma_W = 3 G_mu M_W^3/(2 sqrt2 pi) (1 + 2 alpha_s/(3 pi)), one-loop QCD, as the paper states).",
+   "G_F": "G_F(H) = pi alpha (1 + Delta r(H)) / (sqrt2 Mbar_W^2 (1 - Mbar_W^2/Mbar_Z^2)) with the FSOT leaves alpha(0), m_W, m_Z; pole conversion with Gamma_W from the same one-loop formula at G_F(H) and alpha_s(FSOT), Gamma_Z from this branch's own Gamma_Z (iterated to convergence). Approximation disclosed: Delta r is evaluated at the SM-consistent M_W^fit, not at the FSOT m_W leaf.",
+   "Gamma_Z": "Freitas 2014 (arXiv:1401.2447) extended parametrisation eq. par2, Table tab:fit2 row Gamma_Z (complete fermionic two-loop EW + known higher orders, G_mu = 1.16638e-5 internally), evaluated at FSOT M_H, m_t, alpha_s, M_Z and Delta alpha(H); then Gamma_Z(H) = Gamma_Z^fit * [G_F(H)/1.16638e-5] * [1 + d_s * (s2_OS(leaf) - s2_OS(M_W^fit))], where the first factor is the Born G_mu M_Z^3 normalisation and the second maps the fit's internal M_W to the FSOT m_W leaf at Born level: d_s = sum_f w_f 2 g_Vf (-2 Q_f) / sum_f w_f (g_Vf^2 + g_Af^2), g_Vf = T3f - 2 Q_f s2, g_Af = T3f, s2 = FSOT sin2_theta_W_MSbar leaf, w = N_c (1 + alpha_s/pi) for quarks, 1 for leptons, neutrinos included with zero derivative; M_W^fit from the ACFW formula at the same inputs.",
+   "inputs": {
+    "H1": "FSOT-only: Delta alpha = Delta alpha_lep (round f 1+2 loop, FSOT leptons) + Delta alpha_had(H1) 0.0241044885083033 (round f)",
+    "H2": "as H1 but Delta alpha_had = 0.02783 (PDG, EXTERNAL); reported, never confirmed",
+    "common": "M_H, m_Z, m_W, alpha(0), sin2_theta_W_MSbar leaves; m_t = (m_t/m_W leaf) m_W; alpha_s = 2(POOF/psi_con)^2"
+   },
+   "validation (pre-declared, run first, PDG/CODATA inputs only)": {
+    "V1": "ACFW M_W at M_H 125.10, m_t 172.61, M_Z 91.1880, alpha_s 0.1180, Delta alpha_had 0.02783, Delta alpha_lep from the round-f formula with PDG lepton masses: PASS if |M_W - 80.353| <= 0.006 GeV (PDG 2024 EW review, SM M_W with M_H 125.10 and no M_W/Gamma_W constraint).",
+    "V2": "Freitas Gamma_Z at M_H 125.20, m_t 172.57, alpha_s 0.1180, M_Z 91.1880, same Delta alpha: PASS if |Gamma_Z - 2.4940| <= 0.0009 GeV.",
+    "V3 (informational)": "G_F from this branch with PDG inputs and the measured M_W 80.3692 vs CODATA G_F.",
+    "rule": "If V1 or V2 fails, GZ-1 is not validated and nothing from it is confirmed."
+   },
+   "confirmation": "Gamma_Z/M_Z confirmed only if V1 and V2 pass and H1 gives z <= 1 (round-g convention). All other GZ-1 rows frozen-pending.",
+   "range note": "H1 Delta alpha (about 0.0556) lies outside both fits' stated Delta alpha range (0.05907 +- 2 sigma; 0.0590 +- 0.0005): linear extrapolation, disclosed."
+  },
+  "DM-R1": {
+   "row": "Dm2_21/Dm2_32 (reference-object branch; formula gamma^3 Poof unchanged)",
+   "physics": "The hub's own seed file names the atmospheric splitting dm2_31 while the PDG quotes Delta m^2_32 (scripts/atmospheric_neutrino_seed_check.py). Score gamma^3 Poof against Delta m^2_21/Delta m^2_31 (normal ordering), Delta m^2_31 = Delta m^2_32 + Delta m^2_21 from the PDG 2024 rows dm2_32 and dm2_21 (uncorrelated propagation).",
+   "status": "Not adoptable by this repo: which object the record row means is a theory/bookkeeping decision for Damian. Record set unchanged."
+  },
+  "T-1": {
+   "row": "T_CMB",
+   "physics": "Radiation-matter equality: 1 + z_eq = Omega_m h^2 / Omega_r h^2, Omega_r = Omega_gamma (1 + (7/8)(4/11)^(4/3) N_eff), N_eff = 3.044 (Bennett et al. arXiv:2012.02726), Omega_gamma h^2 = (pi^2/15)(k_B T)^4/(hbar^3 c^5) / (3 (100 km/s/Mpc)^2/(8 pi G)) with exact SI k_B, hbar, c, the IAU au and pc = 648000/pi au. Solved for T with FSOT inputs: z_eq = pin wave3|z_eq (pi^5 phi^5), Omega_m = pin wave2|Omega_m, h = pin H0/100 (wave1|H0), G = FSOT G_N leaf."
+  },
+  "MUD-1": {
+   "row": "Deuteron_mu_muN",
+   "physics": "Impulse approximation, S-state only (P_D = 0, because FSOT has no D-state probability): mu_d = mu_p + mu_n (Krane, Introductory Nuclear Physics, 1988, sec. 4.2), with mu_n from the SU(6) quark model mu_n/mu_p = -2/3 (Beg, Lee, Pais, PRL 13, 514 (1964)) and mu_p the FSOT leaf."
+  }
+ },
+ "considered_not_scored": {
+  "Gamma_Z/M_Z": "Delta r sources: round-f approximate remainder (scored in f), exact one-loop Denner + leading two-loop pieces (not scored); width models: round-d A1 (fails at CODATA G_F, z 4.1), LEPTOP (failed validation in g); ACFW coefficient set fitparams2 (100 GeV-1 TeV)",
+  "Delta alpha_had (FSOT-native)": "(a) constituent quark loop m_p/3 (round f H1, 13 % low); (b) pQCD with duality threshold at 2 m_pi (threshold arbitrary, resonance region not described); (c) vector-meson dominance (needs FSOT m_rho, m_omega, m_phi and leptonic widths or f_pi: none exist); (d) Euclidean Adler-function split (needs a non-perturbative Delta alpha(-Q0^2): lattice or data, external); (e) GMOR current-quark masses (needs an FSOT absolute light-quark mass scale: none). No FSOT-native route exists; none scored.",
+  "Deuteron_binding_MeV": "(a) B = m_p + m_n - m_d (no FSOT m_d); (b) effective-range B from a_t, r_t (no FSOT values); (c) Tjon/Phillips correlations (relate B_H3, B_He4, a_nd, not B_d). None scored.",
+  "m_H/m_W": "(a) restoring the pre-FE23A2 Quantum_Mechanics D_eff = 6 (forbidden: domain parameter); (b) leaf ratio m_H/m_W (already frozen-pending as C-MHW-1 in REFINEMENTS_2026-10-02b). None newly scored.",
+  "Deuteron_mu_muN": "(b) SU(6) mu_n with a D-state (no FSOT P_D); (c) constituent-quark moments with isospin breaking (no FSOT absolute m_u, m_d)",
+  "T_CMB": "C-TCMB (yy dressing) already frozen-pending; no other physical route"
+ },
+ "look_elsewhere": {
+  "Gamma_Z/M_Z": "36 configurations considered (2 hadronic x 3 Delta r sources x 3 width models x 2 coefficient sets), 2 scored, 1 confirmable",
+  "Dm2_21/Dm2_32": "5 reference objects considered (Dm2_32 NO [current], Dm2_31 NO, |Dm2_32| IO, |Dm2_31| IO, NuFIT 6.0 Dm2_3l NO), 1 new scored",
+  "T_CMB": "2 considered (T-1, C-TCMB existing), 1 new scored",
+  "Deuteron_mu_muN": "3 considered, 1 scored",
+  "Deuteron_binding_MeV": "3 considered, 0 scored",
+  "m_H/m_W": "2 considered, 0 new scored",
+  "Delta alpha_had": "5 considered, 0 scored"
+ },
+ "disclosure": "While diagnosing (before this freeze) back-of-envelope estimates were seen for: DM-R1 (z about 0.3), T-1 (about +0.9 %, fails), MUD-1 (= mu_p/3 about 0.931, +8.6 %, fails), GZ-1 (H1 expected G_F about -0.4 % from Delta alpha_had alone, Gamma_Z/M_Z z about 4; H2 about +0.1 %, z about 1). These estimates did not change the branch definitions. Trace tables (audit/trace_2026-10-02h.tsv) compare existing frozen values and leaves with cited references; they are diagnostics, not branches.",
+ "order": "1) this freeze committed; 2) trace tables; 3) GZ-1 validations V1, V2; 4) branch scoring (tools/score_2026_10_02h.py); one push at the end"
+}
