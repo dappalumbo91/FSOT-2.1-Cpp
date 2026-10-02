@@ -1,0 +1,7 @@
+== Fri Oct  2 05:01:25 EDT 2026
+ld: warning: build-kernel/fsot_kernel64.elf has a LOAD segment with RWX permissions
+built build-kernel/fsot_kernel.elf
+qemu exit=33 (expect 33)
+kernel serial: 35 domain S values, worst relative error 7.57e-41; 368/368 closed forms, worst 4.70e-40 vs 50-digit golden -> PASS
+OK serial byte-identical to docs/bare_metal_serial_AEB2AD.txt
+DONE CF 368

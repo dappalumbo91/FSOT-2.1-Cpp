@@ -1,0 +1,7 @@
+== regen-diff Fri Oct  2 04:50:08 EDT 2026
+authority AEB2AD @ d127c07e -> authority/fsot_compute.py
+aeb2adad6e80f487772c5df90a2e3dda71624ab831a6a83b94ab471ac9aac170  authority/fsot_compute.py
+wrote include/fsot/closed_forms.gen.inc: 26 sections, pin AEB2AD
+wrote include/fsot/closed_forms_core.gen.inc: 26 sections (freestanding)
+wrote /workspace/fsot-cpp/golden/golden_AEB2AD.tsv: 644 lines, pin AEB2AD, 343 targets, 342 within 5%
+OK closed forms + golden_AEB2AD regenerate byte-identical

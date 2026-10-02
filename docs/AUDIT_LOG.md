@@ -260,6 +260,87 @@ physics references. A manual pass over those (e.g. arXiv 1111.2048, 1710.11129, 
    and 6,242 gated errors are not reproducible from their own fields (A-04). The pinned code is
    deterministic and this repo reproduces it bit-for-bit. The data files are not reproducible.
 
+## H. Precision forensics, 2026-10-02 (where the sub-sigma precision went)
+
+Method: every physics row was rerun under each of the five hub pins between 2026-08-04 and 2026-09-14
+(`tools/pin_lineage.py` → `reference/pin_lineage_2026-10-02.tsv`). The 29 hub `scripts/*_seed_check.py` committed
+2026-09-29 were rerun unchanged (`tools/dump_seed_leaves_golden.py`). Every number was then scored with one gate,
+z = |value − central|/σ ≤ 1 (`include/fsot/host/precision_gate.hpp`), against one verified reference table
+(`reference/published_2026-10-02.tsv`; `tools/check_references.py` checks each entry against committed PDG 2024 / CODATA 2022 /
+AME2020 evidence). The full table is in `docs/PRECISION_REPORT.md`. Nothing in the hub, `vendor/` or any pin was edited.
+
+### H-01 · The C++ verification never contained Damian's sub-sigma leaves (main cause)
+The 50 hub seed leaves (29 scripts, all committed 2026-09-29, documented in hub `docs/TOE_ACCURACY_GOALS.md`) were not in the C++ port.
+They are α⁻¹, g_e, m_e, the Rydberg family, m_p, m_n, G, g_p, m_μ, u, M(¹²C), Z, W, W/Z, H, τ, r_p, π±, K±, D±, m_c/m_b, m_t/m_W,
+ŝ²_Z, Δm²₃₂, ⁴He and ³H bindings, and the nine CKM magnitudes. The port covered only `vendor/fsot_compute.py`. So the C++
+"verification" scored the older pin closed forms against the pins' own targets with a 2 %/5 % relative check. Examples: 1/α_em pin row
+137.0361976 (z = 9447) where the hub leaf gives 137.035999166 (z = 0.53); |V_us| 0.2296 (z = 6.73) where the leaf gives 0.225150 (z = 0.21);
+M_W/M_Z 0.87537 (z = 39.9) where the leaf gives 0.881358 (z = 0.011). The hub itself did not regress: the seed scripts, `vendor/fsot_compute.py`
+and `vendor/fsot_seed_flavor.py` are unchanged since 09-29, 09-14 and 09-17. **Fixed here:** `include/fsot/host/seed_leaves.hpp` ports all 50
+leaves (mp169; CKM in IEEE double). `tests/test_seed_leaves.cpp` checks them against the hub's own printed values (worst relative 2.2e-48; CKM 9/9 bit-identical).
+CI regenerates that golden from the hub scripts.
+
+### H-02 · Stale or unsourced targets inside the pin were being used as the measurement
+The pin's `measured` fields are frozen and stay untouched. They are no longer used as the reference. Stale ones found include:
+sin²θ_W 0.23122 (LHC-only, not PDG ŝ²_Z 0.23129(4)); r_p 0.8414 (CODATA 2018); m_τ/m_e 3477.48 (the formula's own rounded value);
+m_c/m_b 0.291 (own anchor; PDG 2024 ratio 0.30433(121)); 1/α_em 137.036 (rounded); m_n−m_p 1.29333 (rounded, 6.6 σ off CODATA 2022);
+μ_p 2.79285 (rounded, 3240 σ); m_μ/m_e 206.768 (rounded, 61 σ); ⁴He 28.3, ³H 8.482 (rounded); |V_ud| 0.9737 and |V_cd| 0.221 (4–6 σ off the 2024 fit);
+α_s 0.1179 (PDG 2022). Unsourced: m_π/m_p 0.14446 matches neither π±/p (0.148753) nor π⁰/p (0.143855). Γ_Z/M_Z 0.02749 against PDG
+2.4955/91.1880 = 0.027367(25). Δm²₂₁/Δm²₃₂ 0.0295 against PDG 2024 0.03067(81). **Fixed here:** one cited reference table, verified against evidence.
+
+### H-03 · `|V_cs|` alias in hub `vendor/fsot_seed_flavor.py`
+`seed_ckm_magnitudes()` returns `"V_cs": v_ud`. This has been present since hub fb6c8155 (2026-08-03, "Close CKM/flavor residuals"). Any consumer of the raw dict
+gets |V_cs| = |V_ud| = 0.97432, and the second CKM row then fails to close (Σ = 1.0018). `ckm_magnitude_seed_check.py` and the review script override it with
+√(1 − λ² − A²λ⁴) = 0.973423 (z = 0.42). The C++ uses the override. The hub file is not ours to edit, so a Lean-side prompt was written for Damian's Grok Build agent.
+
+### H-04 · Re-pin regressions (deliberate theory changes; not reverted)
+Values that passed z ≤ 1 under an earlier pin and fail under AEB2AD (scored against the same 2024 references):
+|V_us| 0.758 → 6.73, M_W/M_Z 1.05 → 39.9 and m_H/m_W 0.96 → 5.01, all at 3090BC → FE23A2 (hub 3c74a180, 2026-09-11, "Derive D_eff from nest
+generations", Quantum_Mechanics D 6 → 5). |V_ub| went 0.974 → 2.10 at D1D38A → 3090BC (ba6a8288, 2026-09-11, "Replace decimal knobs with π
+identities; f_domain = ALPHA"). Rows that still pass but lost margin include Ω_Λ (0.044 → 0.32), σ₈ (0.010 → 0.44) and Ω_DM h² (0.0006 → 0.49).
+Under the hard rules pins are never edited. These are listed as theory decisions for Damian. |V_us|, M_W/M_Z and |V_ub| are now covered by
+the hub leaves (H-01). m_H/m_W has no committed leaf, so it remains a scored miss.
+
+### H-05 · fsot_scalar 0.886264 vs 0.887330 is a pin difference, not a bug
+0.88626405664670 is the High_Energy_Physics domain scalar under pin D1D38A. 0.887329522 is the same scalar under AEB2AD (D = 6, hits = 1,
+look 1 − POOF/π). The WSL runner regenerated data JSONs under AEB2AD (never pushed), so the two values come from two pins. No action.
+
+### H-06 · Hub `charm_bottom_seed_check.py` uses σ(m_c) = 0.0028, σ(m_b) = 0.004
+PDG 2024 prints m_c = 1.2730 ± 0.0046 GeV and m_b = 4.183 ± 0.007 GeV (`reference/evidence/pdg2024_extracts.tsv`). The smaller bars are not in
+PDG 2024 (suspected AI-introduced or stale). With the printed bars the leaf is z = 0.12 instead of 0.20, so it still passes.
+
+### H-07 · Hub K± bar 0.013 MeV vs PDG 2024 0.015 MeV (S = 2.8)
+The hub average is z = 0.247 against ±0.013. Against the printed ±0.015 it is z = 0.214. It passes either way.
+
+### H-08 · Reference-value discrepancies found while building the table
+- W mass: the PDG Python API sqlite (pdg 0.1.4, 2024 file) returns 80.377 ± 0.012. The printed 2024 Summary Table says 80.3692 ± 0.0133.
+  The printed table is cited.
+- Proton mass: PDG 2024 reprints 938.27208816 (CODATA 2018). CODATA 2022 938.27208943(29) is used.
+- Δm²₃₂: the hub leaf uses 2.438e-3 (NuFIT / PDG 2026 listing). PDG 2024 prints 2.455 ± 0.028 e-3 (normal order). The leaf passes both (z 0.29 / 0.39).
+- D/H: PDG 2024 BBN review Eq. (24.2) 25.47 ± 0.29 (S-scaled). The unscaled 0.25 appears in the text.
+- m_τ/m_e: CODATA 2022 3477.23(23) is built on the older τ mass. The table uses PDG 2024 m_τ over CODATA m_e, 3477.365(176), as the hub does.
+  Against CODATA's ratio the leaf is z = 1.20.
+
+### H-09 · Naming clash: `alpha_FSOT` in the overnight review scripts
+`fsot_precision_kill.py` uses `alpha_FSOT = 1/(φG/C_factor)³ = 1/136.827`. That is neither the pin's `ALPHA` = 8.08e-4 (`validation_suite|alpha_FSOT`)
+nor the α⁻¹ leaf 137.035999166. Anyone reading "alpha_FSOT" across the two files would conflate three numbers. The refinement freeze spells it α_seed.
+
+### H-10 · Rounded "measured" values in hub `data/pdg_particle_properties_benchmark.json`
+Examples: electron 0.511, proton 938.272, neutron 939.565 MeV. A z or ppm against these rounded figures says nothing about sub-ppm leaves. The C++ gate
+does not use them.
+
+### H-11 · Overnight runner input substitution
+The WSL runner's `sitecustomize.py` hook remapped missing Desktop projects to the precursor tree on G:. It ran with FSOT_ALLOW_NON_ARCHIVE=1 and
+finished with lean_build_ok = false. Outputs from that run (regenerated Priors, data JSONs) are not evidence. None were brought into this repo.
+
+### H-12 · Suspected AI hallucinations / unsupported changes (overnight and porting sessions)
+- Post-hoc route changes presented as fixes: |V_us| → Chemistry, the min-z route selector, the α/(π√2) first-row deficit term and the |V_ud| exemption rule.
+  These are legitimate refinements but untested. They are frozen as `frozen-pending` in `docs/freezes/REFINEMENTS_2026-10-02.md` and not scored.
+- The σ values in H-06 and H-07 that do not match the printed PDG 2024 tables.
+- The `"V_cs": v_ud` alias (H-03).
+- The `alpha_FSOT` name reused for a different number (H-09).
+- The PDG API value for M_W (H-08), which an automated reference fetch would have used silently.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests
@@ -280,6 +361,10 @@ next to the parity ones.
 | M3 rounded `computed` (12 genuine; 6,198 in total, mostly Ledger B) | error recomputed from a rounded `computed` | not recomputable → stored value (`computed_rounded_rows_kept_stored`), d = max(repr decimals, 6) | same |
 | M3 float noise at exactly 0.5 % (1) | 0.500000000000008 > 0.5 | gate limit 0.5·(1+1e−12) in corrected mode | same |
 | M3 freezes | hub domain-table freeze only | `apps/fsot_freeze_domain` writes/verifies dated SHA-256 freezes (core, extension folds, closed forms, Ledger A); tiers count them per row | `docs/FREEZES.md`, `host/freeze.hpp`, `host/tiers.hpp` |
+| H-01 leaves missing from the port | pin closed forms only | 50 hub seed leaves ported (`seed_leaves.hpp`), CTest `seed_leaves` vs the hub's printed values | `include/fsot/host/seed_leaves.hpp`, `tests/test_seed_leaves.cpp` |
+| H-02 stale pin targets as references; 2 % relative check | pin `measured`, err < 2 %/5 % | one verified reference table; gate z ≤ 1 (σ from PDG 2024 / CODATA 2022 / AME2020), 2 % and ppm reported alongside; CTests `precision_report*`, `references_check` | `include/fsot/host/precision_gate.hpp`, `apps/fsot_precision.cpp`, `reference/` |
+| H-03 V_cs alias | (not used) | second-row identity, as the hub CKM script | `seed_leaves.hpp::ckm_double` |
+| H-12 post-hoc refinements | (not present) | frozen-pending with dated sha256, exploratory numbers only; CTest `refinement_freeze` | `docs/freezes/REFINEMENTS_2026-10-02.*` |
 
 Trit-format fixes T-1 to T-5 were applied in the affected repos in Milestone 3 (one push each). Status, SHAs and
 the items deliberately left unchanged are in `docs/TRIT_SPEC.md` §4a. The 188-miss breakdown is in `docs/PRECISION_M3.md`.

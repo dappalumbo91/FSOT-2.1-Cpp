@@ -88,6 +88,14 @@ When the hub moves its pin, update `AUTHORITY_PIN.json`, run `cmake --build buil
 ¹ `Chain_consistency_%` subtracts two nearly equal ratios, so it magnifies rounding.
 Example: S_thermo = 0.93638756406297475802… (169-bit), and 0.9363875640629747 when rounded to double, matching Python exactly.
 
+## Precision against published uncertainties (z ≤ 1 gate, 2026-10-02)
+`apps/fsot_precision` scores every physics prediction with z = |value − central|/σ ≤ 1. σ comes from PDG 2024, CODATA 2022 and AME2020
+(`reference/published_2026-10-02.tsv`; every entry is checked against committed evidence by `tools/check_references.py`). The gate is configured
+once, in `include/fsot/host/precision_gate.hpp`. The legacy 2 % check and ppm are reported next to it. Record set: **83/91 pass z ≤ 1**
+(88/91 under 2 %), median 93 ppm. All 50 hub seed leaves (`include/fsot/host/seed_leaves.hpp`, ported 2026-10-02) pass. Full table, regression
+causes and the 8 remaining misses are in [docs/PRECISION_REPORT.md](docs/PRECISION_REPORT.md). Post-hoc refinements are frozen as tier
+frozen-pending in [docs/freezes/REFINEMENTS_2026-10-02.md](docs/freezes/REFINEMENTS_2026-10-02.md) and are not scored.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

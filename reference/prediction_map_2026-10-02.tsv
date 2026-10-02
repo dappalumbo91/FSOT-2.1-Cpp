@@ -1,0 +1,124 @@
+# Prediction -> reference map for the z<=1 gate (apps/fsot_precision.cpp). record=1 rows form the scored set:
+# the hub seed leaf when Damian committed one (2026-09-29..10-01), else the pinned AEB2AD closed form (first
+# occurrence in full_report order). Never chosen by lowest z. record=0 rows are still reported.
+#id	route	source	ref_key	scale	record	history_note
+alpha_inv	leaf	alpha_inv	alpha_inv	1	1	hub 1f151ed3 2026-09-29 printed z=0.53
+g_e	leaf	g_e	g_e_abs	1	1	hub 69710678 2026-09-29 printed z=0.071
+m_e_kg	leaf	m_e_kg	m_e_kg	1	1	hub 6a2355a4 2026-09-29 printed z=0.518
+R_inf	leaf	R_inf	R_inf	1	1	hub 6a2355a4 2026-09-29 printed z=0.108
+a_0	leaf	a_0	a_0	1	1	hub 6a2355a4 2026-09-29 printed z=0.497
+lambda_C	leaf	lambda_C	lambda_C	1	1	hub 6a2355a4 2026-09-29 printed z=0.514
+r_e	leaf	r_e	r_e	1	1	hub 6a2355a4 2026-09-29 printed z=0.480
+sigma_T	leaf	sigma_T	sigma_T	1	1	hub 6a2355a4 2026-09-29 printed z=0.507
+E_h	leaf	E_h	E_h	1	1	hub 6a2355a4 2026-09-29 printed z=0.113
+mu_B	leaf	mu_B	mu_B	1	1	hub 6a2355a4 2026-09-29 printed z=0.527
+m_p_over_m_e	leaf	m_p_over_m_e	m_p_over_m_e	1	1	hub 85f78c34 2026-09-29 printed z=0.656
+m_p_kg	leaf	m_p_kg	m_p_kg	1	1	hub 85f78c34 2026-09-29 printed z=0.541
+mu_N	leaf	mu_N	mu_N	1	1	hub 85f78c34 2026-09-29 printed z=0.514
+m_n_over_m_p	leaf	m_n_over_m_p	m_n_over_m_p	1	1	hub df369d55 2026-09-29 printed z=0.068
+m_n_kg	leaf	m_n_kg	m_n_kg	1	1	hub df369d55 2026-09-29 printed z=0.276
+G_N	leaf	G_N	G_N	1	1	hub f9289f0b 2026-09-29 printed z=0.057
+g_p	leaf	g_p	g_p	1	1	hub 221a3562 2026-09-29 printed z=0.268
+m_mu_over_m_e	leaf	m_mu_over_m_e	m_mu_over_m_e	1	1	hub 0f4882cc 2026-09-29 printed z=0.244
+m_mu_kg	leaf	m_mu_kg	m_mu_kg	1	1	hub 0f4882cc 2026-09-29 printed z=0.251
+u_over_m_e	leaf	u_over_m_e	u_over_m_e	1	1	hub af598be7 2026-09-29 printed z=0.611
+u_kg	leaf	u_kg	u_kg	1	1	hub af598be7 2026-09-29 printed z=0.552
+M_12C	leaf	M_12C	M_12C	1	1	hub af598be7 2026-09-29 printed z=0.556
+m_Z_MeV	leaf	m_Z_MeV	m_Z_GeV	0.001	1	hub a4e2a07b 2026-09-29 printed z=0.315
+m_tau_MeV	leaf	m_tau_MeV	m_tau_MeV	1	1	hub 76adcf9b 2026-09-29 printed z=0.796
+r_p_fm	leaf	r_p_fm	r_p_fm	1	1	hub 24c5be5b 2026-09-29 printed z=0.871
+m_pi_pm_MeV	leaf	m_pi_pm_MeV	m_pi_pm_MeV	1	1	hub 71fa2e3f 2026-09-29 printed z=0.272
+m_D_pm_MeV	leaf	m_D_pm_MeV	m_D_pm_MeV	1	1	hub 1c4110ec 2026-09-29 printed z=0.005
+m_K_pm_MeV	leaf	m_K_pm_MeV	m_K_pm_MeV	1	1	hub 22fe031a 2026-09-29 printed z=0.247 (bar 0.013)
+m_c_over_m_b	leaf	m_c_over_m_b	m_c_over_m_b	1	1	hub 25820df0 2026-09-29 printed z=0.204 (bar 0.00073)
+m_W_MeV	leaf	m_W_MeV	m_W_GeV	0.001	1	hub 4afc9aad 2026-09-29 printed z=0.034
+m_W_over_m_Z	leaf	m_W_over_m_Z	W_over_Z	1	1	hub 52ad2ee9 2026-09-29 printed z=0.008 (bar 0.000147)
+m_pi_over_m_p	leaf	m_pi_over_m_p	m_pi_over_m_p	1	1	hub d049ffff 2026-09-29 printed z=0.272
+mu_p_over_mu_N	leaf	mu_p_over_mu_N	mu_p_over_mu_N	1	1	hub daab5eb6 2026-09-29 printed z=0.237
+m_n_minus_m_p_MeV	leaf	m_n_minus_m_p_MeV	m_n_minus_m_p_MeV	1	1	hub 9e418a66 2026-09-29 printed z=0.058
+m_H_MeV	leaf	m_H_MeV	m_H_GeV	0.001	1	hub 6b3ce06c 2026-09-29 printed z=0.381
+m_t_over_m_W	leaf	m_t_over_m_W	m_t_over_m_W	1	1	hub 37c6bfc9 2026-09-29 printed z=0.703
+sin2_theta_W_MSbar	leaf	sin2_theta_W_MSbar	sin2_theta_W_MSbar	1	1	hub 684bb8b2 2026-09-29 printed z=0.368
+m_tau_over_m_e	leaf	m_tau_over_m_e	m_tau_over_m_e	1	1	hub 87897c4f 2026-09-29 printed z=0.796
+dm2_32	leaf	dm2_32	dm2_32	1	1	hub b1938b97 2026-09-29 printed z=0.289 (vs 2.438e-3 +- 2.1e-5)
+B_He4_MeV	leaf	B_He4_MeV	B_He4_MeV	1	1	hub 3d0e7678 2026-09-29 printed z=0.027 (rounded total)
+B_H3_MeV	leaf	B_H3_MeV	B_H3_MeV	1	1	hub 79cd6cf0 2026-09-29 printed z=0.037
+CKM_V_ud	leaf	CKM_V_ud	CKM_V_ud	1	1	hub 4c270461 2026-09-29 printed z=0.161
+CKM_V_us	leaf	CKM_V_us	CKM_V_us	1	1	hub 4c270461 2026-09-29 printed z=0.205
+CKM_V_ub	leaf	CKM_V_ub	CKM_V_ub	1	1	hub 4c270461 2026-09-29 printed z=0.111
+CKM_V_cd	leaf	CKM_V_cd	CKM_V_cd	1	1	hub 4c270461 2026-09-29 printed z=0.411
+CKM_V_cs	leaf	CKM_V_cs	CKM_V_cs	1	1	hub 4c270461 2026-09-29 printed z=0.418
+CKM_V_cb	leaf	CKM_V_cb	CKM_V_cb	1	1	hub 4c270461 2026-09-29 printed z=0.081
+CKM_V_td	leaf	CKM_V_td	CKM_V_td	1	1	hub 4c270461 2026-09-29 printed z=0.112
+CKM_V_ts	leaf	CKM_V_ts	CKM_V_ts	1	1	hub 4c270461 2026-09-29 printed z=0.078
+CKM_V_tb	leaf	CKM_V_tb	CKM_V_tb	1	1	hub 4c270461 2026-09-29 printed z=0.153
+pin:wave1|alpha_s(M_Z)	pin	wave1|alpha_s(M_Z)	alpha_s_MZ	1	1	
+pin:wave1|H0	pin	wave1|H0	H0	1	1	
+pin:wave1|T_CMB	pin	wave1|T_CMB	T0_K	1	1	
+pin:wave1|n_s	pin	wave1|n_s	n_s	1	1	
+pin:wave1|Omega_b_h2	pin	wave1|Omega_b_h2	Omega_b_h2	1	1	
+pin:validation_suite|sin2_theta_W	pin	validation_suite|sin2_theta_W	sin2_theta_W_MSbar	1	0	superseded by sin2_theta_W_MSbar
+pin:validation_suite|M_Z/M_W	pin	validation_suite|M_Z/M_W	M_Z_over_M_W	1	0	superseded by m_W_over_m_Z
+pin:wave2|1/alpha_em	pin	wave2|1/alpha_em	alpha_inv	1	0	superseded by alpha_inv
+pin:wave2|sin2_theta_W	pin	wave2|sin2_theta_W	sin2_theta_W_MSbar	1	0	superseded by sin2_theta_W_MSbar
+pin:wave2|M_W/M_Z	pin	wave2|M_W/M_Z	W_over_Z	1	0	superseded by m_W_over_m_Z
+pin:wave2|Omega_Lambda	pin	wave2|Omega_Lambda	Omega_L	1	1	
+pin:wave2|Omega_m	pin	wave2|Omega_m	Omega_m	1	1	
+pin:wave2|Omega_DM_h2	pin	wave2|Omega_DM_h2	Omega_c_h2	1	1	
+pin:wave2|sigma_8	pin	wave2|sigma_8	sigma_8	1	1	
+pin:wave2|tau_reion	pin	wave2|tau_reion	tau_reion	1	1	
+pin:wave2|m_pi/m_p	pin	wave2|m_pi/m_p	m_pi_over_m_p	1	0	superseded by m_pi_over_m_p
+pin:wave2|N_eff	pin	wave2|N_eff	N_eff	1	1	
+pin:wave3||V_us|	pin	wave3||V_us|	CKM_V_us	1	0	superseded by CKM_V_us
+pin:wave3||V_cb|	pin	wave3||V_cb|	CKM_V_cb	1	0	superseded by CKM_V_cb
+pin:wave3|Age_Gyr	pin	wave3|Age_Gyr	t0_Gyr	1	1	
+pin:wave3|z_eq	pin	wave3|z_eq	z_eq	1	1	
+pin:wave3|r_star_Mpc	pin	wave3|r_star_Mpc	r_star_Mpc	1	1	
+pin:wave3|Deuteron_binding_MeV	pin	wave3|Deuteron_binding_MeV	B_H2_MeV	1	1	
+pin:wave3|Neutron_lifetime_s	pin	wave3|Neutron_lifetime_s	tau_n_s	1	1	
+pin:wave3|m_t/m_W	pin	wave3|m_t/m_W	m_t_over_m_W	1	0	superseded by m_t_over_m_W
+pin:wave3|m_H/m_W	pin	wave3|m_H/m_W	m_H_over_m_W	1	1	
+pin:wave3|m_tau/m_e	pin	wave3|m_tau/m_e	m_tau_over_m_e	1	0	superseded by m_tau_over_m_e
+pin:wave4|sin2_theta12	pin	wave4|sin2_theta12	sin2_12	1	1	
+pin:wave4|sin2_theta23	pin	wave4|sin2_theta23	sin2_23	1	1	
+pin:wave4|sin2_theta13	pin	wave4|sin2_theta13	sin2_13	1	1	
+pin:wave4|Dm2_21/Dm2_32	pin	wave4|Dm2_21/Dm2_32	dm2_21_over_dm2_32	1	1	
+pin:wave4||V_ub|	pin	wave4||V_ub|	CKM_V_ub	1	0	superseded by CKM_V_ub
+pin:wave4||V_td|	pin	wave4||V_td|	CKM_V_td	1	0	superseded by CKM_V_td
+pin:wave4||V_ts|	pin	wave4||V_ts|	CKM_V_ts	1	0	superseded by CKM_V_ts
+pin:wave4|Jarlskog_J	pin	wave4|Jarlskog_J	J_CKM	1	1	
+pin:wave4|r_p_fm	pin	wave4|r_p_fm	r_p_fm	1	0	superseded by r_p_fm
+pin:wave4|m_n-m_p_MeV	pin	wave4|m_n-m_p_MeV	m_n_minus_m_p_MeV	1	0	superseded by m_n_minus_m_p_MeV
+pin:wave4|mu_p_muN	pin	wave4|mu_p_muN	mu_p_over_mu_N	1	0	superseded by mu_p_over_mu_N
+pin:wave4|w0	pin	wave4|w0	w_DE	1	1	
+pin:wave4|m_c/m_b	pin	wave4|m_c/m_b	m_c_over_m_b	1	0	superseded by m_c_over_m_b
+pin:wave5|Gamma_Z/M_Z	pin	wave5|Gamma_Z/M_Z	Gamma_Z_over_M_Z	1	1	
+pin:wave5|R_b	pin	wave5|R_b	R_b	1	1	
+pin:wave5|R_c	pin	wave5|R_c	R_c	1	1	
+pin:wave5|A_FB_ell	pin	wave5|A_FB_ell	A_FB_0l	1	1	
+pin:wave5|A_ell_SLD	pin	wave5|A_ell_SLD	A_e	1	1	
+pin:wave5|m_H/m_t	pin	wave5|m_H/m_t	m_H_over_m_t	1	1	
+pin:wave5|Y_p_He4	pin	wave5|Y_p_He4	Y_p	1	1	
+pin:wave5|D_H_ratio	pin	wave5|D_H_ratio	D_H	1	1	
+pin:wave7|m_u/m_d	pin	wave7|m_u/m_d	m_u_over_m_d	1	1	
+pin:wave7|m_tau/m_mu	pin	wave7|m_tau/m_mu	m_tau_over_m_mu	1	1	
+pin:wave8||V_ud|	pin	wave8||V_ud|	CKM_V_ud	1	0	superseded by CKM_V_ud
+pin:wave8||V_cd|	pin	wave8||V_cd|	CKM_V_cd	1	0	superseded by CKM_V_cd
+pin:wave8||V_cs|	pin	wave8||V_cs|	CKM_V_cs	1	0	superseded by CKM_V_cs
+pin:wave8|delta_CP_PMNS	pin	wave8|delta_CP_PMNS	delta_CP_rad	1	1	
+pin:wave8|BR_Z_ee	pin	wave8|BR_Z_ee	BR_Z_ee	1	1	
+pin:wave8|BR_Z_had	pin	wave8|BR_Z_had	BR_Z_had	1	1	
+pin:wave8|BR_Z_inv	pin	wave8|BR_Z_inv	BR_Z_inv	1	1	
+pin:wave8|He4_binding_MeV	pin	wave8|He4_binding_MeV	B_He4_MeV	1	0	superseded by B_He4_MeV
+pin:wave8|Triton_binding_MeV	pin	wave8|Triton_binding_MeV	B_H3_MeV	1	0	superseded by B_H3_MeV
+pin:wave8|Deuteron_mu_muN	pin	wave8|Deuteron_mu_muN	mu_d_over_mu_N	1	1	
+pin:wave8|S_8	pin	wave8|S_8	S_8	1	1	
+pin:wave8|z_reion	pin	wave8|z_reion	z_reion	1	1	
+pin:wave9||V_tb|	pin	wave9||V_tb|	CKM_V_tb	1	0	superseded by CKM_V_tb
+pin:wave10|m_mu/m_e	pin	wave10|m_mu/m_e	m_mu_over_m_e	1	0	superseded by m_mu_over_m_e
+pin:wave10|(g-2)/2_electron	pin	wave10|(g-2)/2_electron	a_e	1	0	superseded by g_e (a_e = |g_e|/2 - 1; the g_e leaf is the record route)
+pin:wave10|eta_baryon_photon	pin	wave10|eta_baryon_photon	eta_b	1	1	
+pin:lepton_ratios|m_tau/m_e_lepton	pin	lepton_ratios|m_tau/m_e_lepton	m_tau_over_m_e	1	0	superseded by m_tau_over_m_e
+pin:lepton_ratios|m_tau/m_mu_lepton	pin	lepton_ratios|m_tau/m_mu_lepton	m_tau_over_m_mu	1	0	superseded by wave7|m_tau/m_mu (first occurrence)
+pin:lepton_ratios|m_mu/m_e_lepton	pin	lepton_ratios|m_mu/m_e_lepton	m_mu_over_m_e	1	0	superseded by m_mu_over_m_e
+pin:predictions|CMB_tau	pin	predictions|CMB_tau	tau_reion	1	0	superseded by wave2|tau_reion (first occurrence)

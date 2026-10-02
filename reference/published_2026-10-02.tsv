@@ -1,0 +1,107 @@
+# FSOT-2.1-Cpp precision gate references (one place). Sources: see reference/README.md. Checked by tools/check_references.py.
+#key	kind	central	sigma_minus	sigma_plus	unit	source	evidence	note
+alpha_inv	direct	137.035999177	0.000000021	0.000000021	1	CODATA2022	inverse fine-structure constant	
+g_e_abs	direct	2.00231930436092	0.00000000000036	0.00000000000036	1	CODATA2022	electron g factor	magnitude of the CODATA g_e (sign convention negative)
+a_e	direct	1.15965218046e-3	0.00000000018e-3	0.00000000018e-3	1	CODATA2022	electron mag. mom. anomaly	
+m_e_kg	direct	9.1093837139e-31	0.0000000028e-31	0.0000000028e-31	kg	CODATA2022	electron mass	
+m_e_MeV	direct	0.51099895069	0.00000000016	0.00000000016	MeV	CODATA2022	electron mass energy equivalent in MeV	
+R_inf	direct	10973731.568157	0.000012	0.000012	m^-1	CODATA2022	Rydberg constant	
+a_0	direct	5.29177210544e-11	0.00000000082e-11	0.00000000082e-11	m	CODATA2022	Bohr radius	
+lambda_C	direct	2.42631023538e-12	0.00000000076e-12	0.00000000076e-12	m	CODATA2022	Compton wavelength	
+r_e	direct	2.8179403205e-15	0.0000000013e-15	0.0000000013e-15	m	CODATA2022	classical electron radius	
+sigma_T	direct	6.6524587051e-29	0.0000000062e-29	0.0000000062e-29	m^2	CODATA2022	Thomson cross section	
+E_h	direct	4.3597447222060e-18	0.0000000000048e-18	0.0000000000048e-18	J	CODATA2022	Hartree energy	
+mu_B	direct	9.2740100657e-24	0.0000000029e-24	0.0000000029e-24	J T^-1	CODATA2022	Bohr magneton	
+m_p_over_m_e	direct	1836.152673426	0.000000032	0.000000032	1	CODATA2022	proton-electron mass ratio	
+m_p_kg	direct	1.67262192595e-27	0.00000000052e-27	0.00000000052e-27	kg	CODATA2022	proton mass	
+m_p_MeV	direct	938.27208943	0.00000029	0.00000029	MeV	CODATA2022	proton mass energy equivalent in MeV	
+mu_N	direct	5.0507837393e-27	0.0000000016e-27	0.0000000016e-27	J T^-1	CODATA2022	nuclear magneton	
+m_n_over_m_p	direct	1.00137841946	0.00000000040	0.00000000040	1	CODATA2022	neutron-proton mass ratio	
+m_n_kg	direct	1.67492750056e-27	0.00000000085e-27	0.00000000085e-27	kg	CODATA2022	neutron mass	
+G_N	direct	6.67430e-11	0.00015e-11	0.00015e-11	m^3 kg^-1 s^-2	CODATA2022	Newtonian constant of gravitation	
+g_p	direct	5.5856946893	0.0000000016	0.0000000016	1	CODATA2022	proton g factor	
+m_mu_over_m_e	direct	206.7682827	0.0000046	0.0000046	1	CODATA2022	muon-electron mass ratio	
+m_mu_kg	direct	1.883531627e-28	0.000000042e-28	0.000000042e-28	kg	CODATA2022	muon mass	
+m_mu_MeV	direct	105.6583755	0.0000023	0.0000023	MeV	CODATA2022	muon mass energy equivalent in MeV	
+A_r_e	direct	5.485799090441e-4	0.000000000097e-4	0.000000000097e-4	1	CODATA2022	electron relative atomic mass	
+u_kg	direct	1.66053906892e-27	0.00000000052e-27	0.00000000052e-27	kg	CODATA2022	atomic mass constant	
+M_12C	direct	12.0000000126e-3	0.0000000037e-3	0.0000000037e-3	kg mol^-1	CODATA2022	molar mass of carbon-12	
+mu_p_over_mu_N	direct	2.79284734463	0.00000000082	0.00000000082	1	CODATA2022	proton mag. mom. to nuclear magneton ratio	
+m_n_minus_m_p_MeV	direct	1.29333251	0.00000038	0.00000038	MeV	CODATA2022	neutron-proton mass difference energy equivalent in MeV	
+mu_d_over_mu_N	direct	0.8574382335	0.0000000022	0.0000000022	1	CODATA2022	deuteron mag. mom. to nuclear magneton ratio	
+u_over_m_e	inv:A_r_e				1	derived		u/m_e = 1/A_r(e)
+m_W_GeV	direct	80.3692	0.0133	0.0133	GeV	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:31	
+W_over_Z	direct	0.88136	0.00015	0.00015	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:32	
+m_Z_GeV	direct	91.1880	0.0020	0.0020	GeV	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:68	
+Gamma_Z_GeV	direct	2.4955	0.0023	0.0023	GeV	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:70	
+BR_Z_ee	direct	0.033632	0.000042	0.000042	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:122	
+BR_Z_inv	direct	0.20000	0.00055	0.00055	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:127	
+BR_Z_had	direct	0.69911	0.00056	0.00056	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:128	
+A_e	direct	0.1515	0.0019	0.0019	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:97	
+A_FB_0l	direct	0.0171	0.0010	0.0010	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:105	printed in percent
+m_H_GeV	direct	125.20	0.11	0.11	GeV	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:202	
+m_tau_MeV	direct	1776.93	0.09	0.09	MeV	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:70	
+sin2_12	direct	0.307	0.013	0.013	1	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:539	
+sin2_23	direct	0.558	0.021	0.015	1	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:544+-1	+0.015 on the line above in the PDF
+sin2_13	direct	0.0219	0.0007	0.0007	1	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:552	
+dm2_21	direct	7.53e-5	0.18e-5	0.18e-5	eV^2	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:540	
+dm2_32	direct	2.455e-3	0.028e-3	0.028e-3	eV^2	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:546	
+delta_CP_over_pi	direct	1.19	0.22	0.22	pi rad	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:553	
+m_t_GeV	direct	172.57	0.29	0.29	GeV	PDG2024:sum-quarks	pdg2024_extracts:sum-quarks:56	
+m_c_GeV	direct	1.2730	0.0046	0.0046	GeV	PDG2024:sum-quarks	pdg2024_extracts:sum-quarks:36	MS-bar m_c(m_c); the hub script used 0.0028
+m_b_GeV	direct	4.183	0.007	0.007	GeV	PDG2024:sum-quarks	pdg2024_extracts:sum-quarks:42	MS-bar m_b(m_b); the hub script used 0.004
+m_u_over_m_d	direct	0.462	0.020	0.020	1	PDG2024:sum-quarks	pdg2024_extracts:sum-quarks:17	
+m_pi_pm_MeV	direct	139.57039	0.00018	0.00018	MeV	PDG2024:sum-mesons	pdg2024_extracts:sum-mesons:15	
+m_K_pm_MeV	direct	493.677	0.015	0.015	MeV	PDG2024:sum-mesons	pdg2024_extracts:sum-mesons:1345	
+m_D_pm_MeV	direct	1869.66	0.05	0.05	MeV	PDG2024:sum-mesons	pdg2024_extracts:sum-mesons:2101	
+r_p_fm	direct	0.8409	0.0004	0.0004	fm	PDG2024:sum-baryons	pdg2024_extracts:sum-baryons:29	
+tau_n_s	direct	878.4	0.5	0.5	s	PDG2024:sum-baryons	pdg2024_extracts:sum-baryons:177	
+CKM_V_ud	direct	0.97435	0.00016	0.00016	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:689+-2	global fit, Eq. (12.27)
+CKM_V_us	direct	0.22501	0.00068	0.00068	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:689+-2	global fit, Eq. (12.27)
+CKM_V_ub	direct	0.003732	0.000085	0.000090	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:689+-2	global fit, Eq. (12.27)
+CKM_V_cd	direct	0.22487	0.00068	0.00068	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:692+-2	global fit, Eq. (12.27)
+CKM_V_cs	direct	0.97349	0.00016	0.00016	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:692+-2	global fit, Eq. (12.27)
+CKM_V_cb	direct	0.04183	0.00069	0.00079	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:692+-2	global fit, Eq. (12.27)
+CKM_V_td	direct	0.00858	0.00017	0.00019	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:695+-2	global fit, Eq. (12.27)
+CKM_V_ts	direct	0.04111	0.00068	0.00077	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:695+-2	global fit, Eq. (12.27)
+CKM_V_tb	direct	0.999118	0.000034	0.000029	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:697+-2	global fit, Eq. (12.27)
+CKM_V_ud_direct	direct	0.97367	0.00032	0.00032	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:109	direct (superallowed beta), Eq. (12.7); secondary column only
+CKM_V_us_direct	direct	0.22431	0.00085	0.00085	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:146	direct (K decays), Eq. (12.8); secondary column only
+J_CKM	direct	3.12e-5	0.12e-5	0.13e-5	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:739+-2	
+sin2_theta_W_MSbar	direct	0.23129	0.00004	0.00004	1	PDG2024:rev-standard-model	pdg2024_extracts:rev-standard-model:405	
+R_b	direct	0.21629	0.00066	0.00066	1	PDG2024:rev-standard-model	pdg2024_extracts:rev-standard-model:1563	
+R_c	direct	0.1721	0.0030	0.0030	1	PDG2024:rev-standard-model	pdg2024_extracts:rev-standard-model:1564	
+alpha_s_MZ	direct	0.1180	0.0009	0.0009	1	PDG2024:rev-qcd	pdg2024_extracts:rev-qcd:2278	
+H0	direct	67.4	0.5	0.5	km s^-1 Mpc^-1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:62	h = 0.674(5)
+T0_K	direct	2.7255	0.0006	0.0006	K	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:53	
+Omega_b_h2	direct	0.02237	0.00015	0.00015	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:79	
+Omega_c_h2	direct	0.1200	0.0012	0.0012	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:80	
+tau_reion	direct	0.054	0.007	0.007	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:82	
+n_s	direct	0.965	0.004	0.004	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:84	
+Omega_m	direct	0.315	0.007	0.007	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:85	
+Omega_L	direct	0.685	0.007	0.007	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:86	
+sigma_8	direct	0.811	0.006	0.006	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:89	
+S_8	direct	0.832	0.013	0.013	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:95	
+z_eq	direct	3402	26	26	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:96	
+r_star_Mpc	direct	144.43	0.26	0.26	Mpc	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:99	
+z_reion	direct	7.7	0.7	0.7	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:101	
+t0_Gyr	direct	13.797	0.023	0.023	Gyr	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:105	
+N_eff	direct	2.99	0.17	0.17	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:106	
+w_DE	direct	-1.028	0.031	0.031	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:113	
+eta_b	direct	6.04e-10	0.12e-10	0.12e-10	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:73	
+Y_p	direct	0.2448	0.0033	0.0033	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:77	
+D_H	direct	2.547e-5	0.029e-5	0.029e-5	1	PDG2024:rev-bbang-nucleosynthesis	pdg2024_extracts:rev-bbang-nucleosynthesis:138	Eq. (24.2) recommended value (S-scaled error)
+B_H2_MeV	direct	2.224566229	0.00000044	0.00000044	MeV	AME2020	ame2020_extracts:B=Dm(1H)+Dm(n)-Dm(2H)	
+B_H3_MeV	direct	8.481796284	0.00000088	0.00000088	MeV	AME2020	ame2020_extracts:B=Dm(1H)+2Dm(n)-Dm(3H)	
+B_He4_MeV	direct	28.295662378	0.00000089	0.00000089	MeV	AME2020	ame2020_extracts:B=2Dm(1H)+2Dm(n)-Dm(4He)	
+m_tau_over_m_e	ratio:m_tau_MeV/m_e_MeV				1	derived		
+m_tau_over_m_mu	ratio:m_tau_MeV/m_mu_MeV				1	derived		
+m_t_over_m_W	ratio:m_t_GeV/m_W_GeV				1	derived		
+m_H_over_m_W	ratio:m_H_GeV/m_W_GeV				1	derived		
+m_H_over_m_t	ratio:m_H_GeV/m_t_GeV				1	derived		
+m_c_over_m_b	ratio:m_c_GeV/m_b_GeV				1	derived		ratio of MS-bar masses at their own scales, as the hub row defines it
+m_pi_over_m_p	ratio:m_pi_pm_MeV/m_p_MeV				1	derived		
+M_Z_over_M_W	inv:W_over_Z				1	derived		
+Gamma_Z_over_M_Z	ratio:Gamma_Z_GeV/m_Z_GeV				1	derived		
+dm2_21_over_dm2_32	ratio:dm2_21/dm2_32				1	derived		
+delta_CP_rad	pi:delta_CP_over_pi				rad	derived		

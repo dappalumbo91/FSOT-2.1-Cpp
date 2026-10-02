@@ -89,6 +89,32 @@ if(Boost_FOUND OR FSOT_WITH_FLOAT128)
   add_test(NAME look_elsewhere_smoke COMMAND fsot_look_elsewhere)
 endif()
 
+# Hub seed leaves (scripts/*_seed_check.py @ ledger_b_data_commit) and the z <= 1 precision gate.
+if(Boost_FOUND)
+  add_executable(test_seed_leaves tests/test_seed_leaves.cpp)
+  target_link_libraries(test_seed_leaves PRIVATE fsot)
+  target_compile_definitions(test_seed_leaves PRIVATE FSOT_SEED_LEAVES_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/seed_leaves_6f9c2560.tsv")
+  add_test(NAME seed_leaves COMMAND test_seed_leaves)
+  add_executable(fsot_precision apps/fsot_precision.cpp)
+  target_link_libraries(fsot_precision PRIVATE fsot)
+  add_test(NAME precision_report
+           COMMAND fsot_precision --refs ${CMAKE_CURRENT_SOURCE_DIR}/reference/published_2026-10-02.tsv
+                   --map ${CMAKE_CURRENT_SOURCE_DIR}/reference/prediction_map_2026-10-02.tsv
+                   --lineage ${CMAKE_CURRENT_SOURCE_DIR}/reference/pin_lineage_2026-10-02.tsv
+                   --tsv-out ${CMAKE_CURRENT_BINARY_DIR}/precision_2026-10-02.tsv
+                   --md-out ${CMAKE_CURRENT_BINARY_DIR}/precision_2026-10-02.md)
+  add_test(NAME precision_report_tsv COMMAND ${CMAKE_COMMAND} -E compare_files
+           ${CMAKE_CURRENT_BINARY_DIR}/precision_2026-10-02.tsv ${CMAKE_CURRENT_SOURCE_DIR}/audit/precision_2026-10-02.tsv)
+  set_tests_properties(precision_report_tsv PROPERTIES DEPENDS precision_report)
+  add_test(NAME precision_report_md COMMAND ${CMAKE_COMMAND} -E compare_files
+           ${CMAKE_CURRENT_BINARY_DIR}/precision_2026-10-02.md ${CMAKE_CURRENT_SOURCE_DIR}/audit/precision_2026-10-02.md)
+  set_tests_properties(precision_report_md PROPERTIES DEPENDS precision_report)
+endif()
+if(Python3_Interpreter_FOUND)
+  add_test(NAME references_check COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/check_references.py)
+  add_test(NAME refinement_freeze COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_refinement_freeze.py)
+endif()
+
 # Freestanding check: the balanced-ternary core compiles without a hosted library and references no
 # heap / exception / stdio / libm symbols.
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")

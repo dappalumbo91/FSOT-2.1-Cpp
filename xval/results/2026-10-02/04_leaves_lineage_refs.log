@@ -1,0 +1,7 @@
+== Fri Oct  2 04:50:14 EDT 2026 hub 6f9c25605a52acabe662a42fc003afa5bf66b959 authority aeb2adad6e80
+wrote xval/results/2026-10-02/seed_leaves_regen.tsv: 50 leaves from 29 hub scripts, authority AEB2AD
+OK seed-leaf golden byte-identical (hub scripts run unchanged)
+wrote xval/results/2026-10-02/pin_lineage_regen.tsv: 204 rows x 5 pins
+OK pin lineage byte-identical
+references: 105 rows {'CODATA2022': 29, 'derived': 12, 'PDG2024': 61, 'AME2020': 3}; failures: 0
+refinement freeze: 4 refinements, tier frozen-pending, failures 0

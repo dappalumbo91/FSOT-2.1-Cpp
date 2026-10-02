@@ -1,0 +1,79 @@
+{
+  "freeze": "REFINEMENTS_2026-10-02",
+  "date": "2026-10-02",
+  "tier": "frozen-pending",
+  "rule": "refine -> freeze with dated hash -> test on unseen data. Numbers below are exploratory and are not counted as confirmed predictions.",
+  "authority_pin": "AEB2AD (vendor/fsot_compute.py sha256 AEB2ADAD6E80F487772C5DF90A2E3DDA71624AB831A6A83B94AB471AC9AAC170)",
+  "hub_data_commit": "6f9c25605a52acabe662a42fc003afa5bf66b959",
+  "references": "reference/published_2026-10-02.tsv (PDG 2024, doi:10.1103/PhysRevD.110.030001)",
+  "evaluator": "apps/fsot_precision.cpp exploratory section (audit/precision_2026-10-02.md)",
+  "source_scripts_sha256": {
+    "gb-recovery/review/fsot_precision_kill.py": "6b41915f0bedb3dbf9a285892a6868009f6757029a2f6c81ed49a05221b45db8",
+    "gb-recovery/review/fsot_routing_refiner.py": "fe48687f47755c29b4d59a52b8feb97879e10710dae0d3382a56584ca8ec84db",
+    "gb-recovery/review/fsot_routing_refinement.json": "a51a3b65f271613332fbd38bb923abba9f2740835b6fd7024233c30b7e279ccb",
+    "gb-recovery/review/fsot_locked_routes.json": "cc97c7dcec96575700bb847d2aa5a96b22c6d5f01fdc26963817102480f9f418"
+  },
+  "unseen_data_tests": [
+    "R1/R4: next PDG review of |V_us| (Kl3/Kmu2 and tau inputs) and the next CKMfitter/UTfit global fit; pass iff z<=1 against the new published sigma.",
+    "R2: next superallowed 0+->0+ |V_ud| (Hardy-Towner update) and new K-decay |V_us|: the direct first-row deficit must stay within 1 sigma of 1.644994e-03.",
+    "R3: applies only if a future |V_ud| fit-vs-direct separation is re-published; record the verdict before looking at the seed z."
+  ],
+  "refinements": [
+    {
+      "id": "R1",
+      "name": "|V_us| route: Quantum_Mechanics -> Chemistry condensation",
+      "statement": "|V_us| = theta_S/phi + (1 - S_Chemistry), with theta_S, phi and S_Chemistry the AEB2AD pin values (domain_scalar(\"Chemistry\")); replaces the pin's theta_S/phi + (1 - S_Quantum_Mechanics) for this observable only.",
+      "value": "0.224494609175 (IEEE double of the mp169 expression)",
+      "exploratory": {
+        "z_vs_PDG2024_fit_0.22501(68)": 0.7579,
+        "z_vs_PDG2024_direct_0.22431(85)": 0.2172
+      },
+      "note": "Numerically equal to the pre-FE23A2 (pin 3090BC, Quantum_Mechanics at D=6) closed-form value; FE23A2 moved Quantum_Mechanics to D=5 (hub 3c74a180, 2026-09-11).",
+      "statement_sha256": "a6305088e58187feef46dcfe80491da4aec905fefd507d91a2c9b7a606691269",
+      "tier": "frozen-pending"
+    },
+    {
+      "id": "R2",
+      "name": "CKM first-row deficit term alpha/(pi*sqrt2)",
+      "statement": "1 - (|V_ud|^2 + |V_us|^2 + |V_ub|^2)_direct = alpha_seed / (pi * sqrt(2)), alpha_seed = 1/(phi*G_Catalan/C_factor)^3 (vendor/fsot_seed_flavor.py seed_alpha_inv), evaluated in IEEE double; measured side uses PDG 2024 direct |V_ud| = 0.97367(32), |V_us| = 0.22431(85) and the seed |V_ub|.",
+      "value": "1.644994e-03",
+      "exploratory": {
+        "measured": "1.637752e-03",
+        "sigma": "7.31e-04",
+        "z": 0.0099
+      },
+      "note": "alpha_seed here is 1/136.827, not the pin constant ALPHA = 8.08e-4 and not the alpha_inv leaf 137.035999166; the review script calls it alpha_FSOT (naming clash, AUDIT_LOG H-09).",
+      "statement_sha256": "7e116ea7e41854997101bbc62ccd62bf1e9fd35e010aba1d9d75c51c93416c40",
+      "tier": "frozen-pending"
+    },
+    {
+      "id": "R3",
+      "name": "|V_ud| channel_mismatch exemption rule",
+      "statement": "A CKM magnitude that passes z<=1 against the PDG 2024 global fit but fails against the direct determination is classified channel_mismatch (no coefficient may be added) iff the published fit-vs-direct separation |fit - direct|/sigma_direct is >= the prediction's own z against the direct value.",
+      "value": "seed |V_ud| = sqrt(1 - lambda^2) = 0.974324219688",
+      "exploratory": {
+        "z_fit": 0.1611,
+        "z_direct": 2.0444,
+        "published_fit_vs_direct_z": 2.125,
+        "verdict": "channel_mismatch"
+      },
+      "note": "Rule, not a number. The scored set compares |V_ud| with the global fit only (the same bar as every other CKM element), so R3 changes no count.",
+      "statement_sha256": "c9632ca8e60adf7b67e807f4326a46108ad530140b12147f968d7d2837153167",
+      "tier": "frozen-pending"
+    },
+    {
+      "id": "R4",
+      "name": "route selection by lowest z",
+      "statement": "Among candidate routes for an observable that pass z<=1 against the PDG 2024 global fit, select the one with the lowest z (fsot_precision_kill.py go_to = min(passing, key=z_global_fit)).",
+      "value": "selects seed_lambda POOF*(1+ETA_EFF) = 0.225149539041 for |V_us| (candidates: pin_qm_floor z=6.7301, condensation_chemistry z=0.7579, seed_lambda z=0.2052)",
+      "exploratory": {
+        "selected": "seed_lambda",
+        "z_fit": 0.2052
+      },
+      "note": "The scored set does NOT use this rule. It uses the CKM seed leaf because Damian committed it in scripts/ckm_magnitude_seed_check.py (hub 4c270461, 2026-09-29) before this freeze; it coincides with R4's choice here.",
+      "statement_sha256": "7c5a3b27b305d7570f9002532532b1aeca2ebe0ec044da690b1011df5846ec60",
+      "tier": "frozen-pending"
+    }
+  ],
+  "refinements_sha256": "26df93d8a796b7aa01e8f3f486e1df220e4418a7ffeff5aa263a0bbea547bf6b"
+}

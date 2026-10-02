@@ -1,0 +1,25 @@
+== Fri Oct  2 05:01:12 EDT 2026
+note: frb_orifice_outgassing_benchmark.json: read 257 non-standard JSON tokens (NaN/Infinity) tolerantly, first at line 785
+fsot_ledger_b: 478 files, active=477 green=477 ledgerB=140088 unrouted=7168 c_match=14634 s_match=3667 e_match=4223 (8.08 s)
+golden compare: 13842 lines, 0 mismatches
+OK corrected + genuine-miss reports byte-identical
+ 153  zero_target        data_handling
+  14  inequality_bound   data_handling
+  12  computed_rounded   data_handling
+   7  formula_miss       formula
+   1  float_noise_gate   data_handling
+   1  contraction        data_handling
+ 188  total
+OK PRECISION_M3 classification byte-identical
+Total constants with targets: 343
+Within 5% of target: 342
+Flagged non-predictions (computed=target or measured input): 21 (21 within 5%)
+Genuine predictions with targets: 322
+Genuine predictions within 5%: 321
+Rows changed by corrected mode: 11
+predict_closed_form: 2 rows (BTFloat<110>, parity mode, pin AEB2AD)
+wave1                        H0                                 = 6.84449955638e+01  target 6.74000000000e+01  err% 1.550e+00
+validation_suite             V25_H0                             = 6.84449955638e+01  target 6.74000000000e+01  err% 1.550e+00
+OK freezes/domain_freeze_2026-10-02_AEB2AD.json: 796 rows, freeze_date 2026-10-02, selection_sha256 580eb6e72ca75e2995b4331828b7a9f513978ce5c5aa3d7a798c2b83de4182dd
+OK freezes/domain_freeze_2026-10-02_AEB2AD.json: 796 rows, 0 bad row hashes, selection 580eb6e72ca75e29, core 8e30e85e72091462
+OK core sha = hub domain_table_sha256

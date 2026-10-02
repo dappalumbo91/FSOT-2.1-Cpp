@@ -1,0 +1,8 @@
+file	index	name	property	eval_kind	computed	measured	stored_error_pct	recomputed_error_pct	aware_kind	aware_effective	within_display	within_literature
+anthropology_extension_benchmark.json	151	Mean_dependency_length_EN			2.40001358369048	2.3	0.0005659871035364658	4.348416682194786	uncertainty_band	0.0	False	True
+cosmology_bubble_bleed_benchmark.json	103	FRB20121102A	frb_p34_periodicity		0.001	0.000980392156862745	0.0	2.0000000000000036	uncertainty_band	0.0	False	True
+cosmology_bubble_bleed_benchmark.json	104	FRB20200929C	frb_p34_periodicity		0.001	0.0010204081632653062	0.0	2.0000000000000067	uncertainty_band	0.0	False	True
+creative_arts_math_spine_benchmark.json	11	Mean_dependency_length_EN	observable	creative_relay	2.40001358369048	2.3	0.0005659871035364658	4.348416682194786	uncertainty_band	0.0	False	True
+dark_sector_open_problems_benchmark.json	7	tau_reion	reionization_optical_depth		0.05439655350230806	0.0561	0.006335	3.036446519949971	uncertainty_band	0.0	False	True
+dark_sector_open_problems_benchmark.json	8	D_H_ratio	deuterium_abundance		2.5446825859417006e-05	2.527e-05	0.090986	0.6997461789355196	uncertainty_band	0.0	False	True
+programming_language_laws_benchmark.json	61	Mean_dependency_length_EN	linguistics_formal_bridge		2.40001358369048	2.3	0.0005659871035364658	4.348416682194786	uncertainty_band	0.0	False	True

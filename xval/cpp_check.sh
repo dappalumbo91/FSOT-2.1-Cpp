@@ -14,8 +14,9 @@ step "2. hub sparse clone at ledger_b_data_commit"
 COMMIT=$(python3 -c "import json;print(json.load(open('AUTHORITY_PIN.json'))['ledger_b_data_commit'])")
 if [ ! -d "$W/hub/.git" ]; then
   git clone -q --filter=blob:none --no-checkout https://github.com/dappalumbo91/FSOT-2.1-Lean "$W/hub"
-  git -C "$W/hub" sparse-checkout set --no-cone '/data/*_benchmark.json' '/data/literature_uncertainty_anchors.json' '/data/stumped_observables_reference.json' '/data/extension_folds_derived.json' '/data/domain_table_freeze.json' '/predictions/' '/scripts/' '/vendor/fsot_compute.py'
+  git -C "$W/hub" sparse-checkout set --no-cone '/data/*_benchmark.json' '/data/literature_uncertainty_anchors.json' '/data/stumped_observables_reference.json' '/data/extension_folds_derived.json' '/data/domain_table_freeze.json' '/predictions/' '/scripts/' '/vendor/fsot_compute.py' '/vendor/fsot_seed_flavor.py'
 fi
+git -C "$W/hub" sparse-checkout add '/vendor/fsot_seed_flavor.py'
 git -C "$W/hub" checkout -q "$COMMIT"; echo "hub @ $(git -C "$W/hub" rev-parse --short HEAD), authority sha256 $(sha256sum "$W/hub/vendor/fsot_compute.py" | cut -c1-6)"
 cmake -S . -B build -DFSOT_HUB_DATA="$W/hub" >/dev/null
 nice -n 10 cmake --build build -j"$J"
@@ -37,6 +38,11 @@ diff -q "$W/ledger_a_routing.tsv" golden/ledger_a_routing.tsv; ok "Ledger A / ro
 # gen_tier_evidence reads hub git history; the blob:none clone fetches what it needs on demand
 $P tools/gen_tier_evidence.py --hub "$W/hub"
 git diff --exit-code -- golden/tier_evidence_6f9c2560.json; ok "tier evidence byte-identical"
+$P tools/dump_seed_leaves_golden.py --hub "$W/hub" --out "$W/seed_leaves.tsv"
+diff -q "$W/seed_leaves.tsv" golden/seed_leaves_6f9c2560.tsv; ok "seed-leaf golden (hub scripts run unchanged) byte-identical"
+$P tools/pin_lineage.py --hub "$W/hub" --out "$W/pin_lineage.tsv"
+diff -q "$W/pin_lineage.tsv" reference/pin_lineage_2026-10-02.tsv; ok "pin lineage byte-identical"
+python3 tools/check_references.py; ok "every reference value matches its committed evidence"
 step "4. C++ Ledger B re-score vs golden, corrected + genuine misses"
 ./build/fsot_ledger_b --hub "$W/hub" --golden golden/ledger_b_6f9c2560.tsv \
   --corrected-out "$W/ledger_b_corrected.tsv" --genuine-misses-out "$W/ledger_b_genuine_misses.tsv"
@@ -49,6 +55,11 @@ step "5. closed forms, corrected mode, freeze"
 ./build/fsot_freeze_domain --verify freezes/domain_freeze_2026-10-02_AEB2AD.json
 python3 tools/verify_freeze.py freezes/domain_freeze_2026-10-02_AEB2AD.json
 test "$(./build/fsot_freeze_domain --print-core-sha)" = 8e30e85e72091462c4d66df2d498afb36ccbc2d40eb5df01b4e083947c79dad3; ok "core sha = hub domain_table_sha256"
+step "5b. precision gate (z <= 1, include/fsot/host/precision_gate.hpp)"
+./build/fsot_precision --refs reference/published_2026-10-02.tsv --map reference/prediction_map_2026-10-02.tsv \
+  --lineage reference/pin_lineage_2026-10-02.tsv --tsv-out "$W/precision.tsv" --md-out "$W/precision.md"
+cmp "$W/precision.tsv" audit/precision_2026-10-02.tsv && cmp "$W/precision.md" audit/precision_2026-10-02.md; ok "precision report byte-identical"
+python3 tools/verify_refinement_freeze.py
 step "6. bare-metal (QEMU)"
 ./kernel/build.sh build-kernel
 set +e; timeout 300 qemu-system-x86_64 -m 64 -kernel build-kernel/fsot_kernel.elf -serial file:"$W/serial.txt" -display none -no-reboot -monitor none -device isa-debug-exit,iobase=0xf4,iosize=0x04; rc=$?; set -e

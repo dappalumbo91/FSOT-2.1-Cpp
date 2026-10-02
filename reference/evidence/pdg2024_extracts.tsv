@@ -1,0 +1,72 @@
+#doc	line	text   (pdftotext -layout of https://pdg.lbl.gov/2024/{tables|reviews}/rpp2024-<doc>.pdf; sum-* = tables, rev-* = reviews; line = 1-based newline-delimited line)
+rev-astrophysical-constants	53	present-day CMB temperature                   T0                      2.7255(6) K                                                                     [26, 27]
+rev-astrophysical-constants	62	scaling factor for Hubble expansion rate      h                       0.674(5) from CMB anisotropies (Planck)                                              [2]
+rev-astrophysical-constants	73	baryon-to-photon ratio (from BBN)             η = nb /nγ              6.04(12) × 10−10                                                                [33, 34]
+rev-astrophysical-constants	77	primordial helium fraction                    Yp                      0.2448(33)                                                                          [36]
+rev-astrophysical-constants	79	baryon density of the Universe                Ωb = ρb /ρcrit        ‡ 0.02237(15) h−2 = † 0.0493(6)                                                 [2, 3, 26]
+rev-astrophysical-constants	80	cold dark matter density of the Universe      Ωc = ρc /ρcrit        ‡ 0.1200(12) h−2 = † 0.265(7)                                                   [2, 3, 26]
+rev-astrophysical-constants	82	reionization optical depth                    τ                     ‡ 0.054(7)                                                                      [2, 3, 26]
+rev-astrophysical-constants	84	scalar spectral index                         ns                    ‡ 0.965(4)                                                                      [2, 3, 26]
+rev-astrophysical-constants	85	pressureless matter density parameter         Ωm = Ωc + Ωb          † 0.315(7)                                                                           [2, 3]
+rev-astrophysical-constants	86	dark energy density parameter                 ΩΛ                    † 0.685(7)                                                                           [2, 3]
+rev-astrophysical-constants	89	fluctuation amplitude at 8 h−1 Mpc scale      σ8                    † 0.811(6)                                                                           [2, 3]
+rev-astrophysical-constants	95	amplitude of matter fluctuations                σ8 (Ωm /0.3)0.5         † 0.832(13)                                                  [2, 3]
+rev-astrophysical-constants	96	redshift of matter-radiation equality           zeq                     † 3402(26)                                                  [2, 37]
+rev-astrophysical-constants	99	comoving size of sound horizon at z∗         r∗                      † 144.43(26) Mpc                                            [2, 39]
+rev-astrophysical-constants	101	redshift at half reionization                   zi                      † 7.7(7)                                                    [2, 40]
+rev-astrophysical-constants	105	age of the Universe today                       t0                      † 13.797(23) Gyr                                                [2]
+rev-astrophysical-constants	106	effective number of neutrinos                   Neff                    ] 2.99(17) (CMB + BAO)                                 [2, 41, 42]
+rev-astrophysical-constants	113	dark energy equation of state parameter         w                       ] −1.028(31) (CMB + BAO +SNe)                               [2, 49]
+rev-bbang-nucleosynthesis	138	D/H|p × 106 = (25.47 ± 0.29).                                (24.2)
+rev-ckm-matrix	109	|Vud | = 0.97367 ± 0.00032 .                            (12.7)
+rev-ckm-matrix	146	|Vus | = 0.22431 ± 0.00085 .                                         (12.8)
+rev-ckm-matrix	687	elements are
+rev-ckm-matrix	688	
+rev-ckm-matrix	689	0.97435 ± 0.00016 0.22501 ± 0.00068 0.003732+0.000090
+rev-ckm-matrix	690	                                                                 
+rev-ckm-matrix	691	−0.000085
+rev-ckm-matrix	692	VCKM = 0.22487 ± 0.00068 0.97349 ± 0.00016 0.04183+0.00079
+rev-ckm-matrix	693	−0.00069  ,                            (12.27)
+rev-ckm-matrix	694	                                                      
+rev-ckm-matrix	695	0.00858+0.00019
+rev-ckm-matrix	696	−0.00017   0.04111+0.00077
+rev-ckm-matrix	697	−0.00068 0.999118+0.000029
+rev-ckm-matrix	698	−0.000034
+rev-ckm-matrix	699	
+rev-ckm-matrix	737	
+rev-ckm-matrix	738	
+rev-ckm-matrix	739	and the Jarlskog invariant is J = 3.12+0.13     −5
+rev-ckm-matrix	740	
+rev-ckm-matrix	741	−0.12 × 10 . The parameters in Eq. (12.3) are
+rev-qcd	2278	αs(mZ2) = 0.1180 ± 0.0009
+rev-standard-model	405	MS                     sbZ2                0.23129       ±0.00004
+rev-standard-model	1563	Rb                     0.21629 ± 0.00066                0.21583 ± 0.00002                0.7
+rev-standard-model	1564	Rc                      0.1721 ± 0.0030                 0.17221 ± 0.00003                0.0
+sum-baryons	29	Charge radius = 0.8409 ± 0.0004 fm [d]
+sum-baryons	177	Mean life τ = 878.4 ± 0.5 s (S = 1.8)
+sum-gauge-higgs-bosons	31	m = 80.3692 ± 0.0133 GeV
+sum-gauge-higgs-bosons	32	W Z mass ratio = 0.88136 ± 0.00015
+sum-gauge-higgs-bosons	68	Mass m = 91.1880 ± 0.0020 GeV [e]
+sum-gauge-higgs-bosons	70	Γ = 2.4955 ± 0.0023 GeV
+sum-gauge-higgs-bosons	97	Ae = 0.1515 ± 0.0019
+sum-gauge-higgs-bosons	105	AFB = 1.71 ± 0.10
+sum-gauge-higgs-bosons	122	e+ e−                                             ( 3.3632± 0.0042) %                          45594
+sum-gauge-higgs-bosons	127	invisible                                         (20.000 ± 0.055 ) %                             –
+sum-gauge-higgs-bosons	128	hadrons                                           (69.911 ± 0.056 ) %                             –
+sum-gauge-higgs-bosons	202	Mass m = 125.20 ± 0.11 GeV (S = 1.4)
+sum-leptons	70	Mass m = 1776.93 ± 0.09 MeV
+sum-leptons	539	sin2 (θ12 ) = 0.307 ± 0.013
+sum-leptons	540	∆m221 = (7.53 ± 0.18) × 10−5 eV2
+sum-leptons	543	2                + 0.015
+sum-leptons	544	sin (θ23 ) = 0.558 − 0.021 (Normal order)
+sum-leptons	545	∆m232 = (−2.529 ± 0.029) × 10−3 eV2 (Inverted order)
+sum-leptons	546	∆m232 = (2.455 ± 0.028) × 10−3 eV2 (Normal order)
+sum-leptons	552	sin2 (θ13 ) = (2.19 ± 0.07) × 10−2 (S = 1.2)
+sum-leptons	553	δ, CP violating phase = 1.19 ± 0.22 π rad (S = 1.2)
+sum-mesons	15	Mass m = 139.57039 ± 0.00018 MeV (S = 1.8)
+sum-mesons	1345	Mass m = 493.677 ± 0.015 MeV [n] (S = 2.8)
+sum-mesons	2101	Mass m = 1869.66 ± 0.05 MeV
+sum-quarks	17	m u /m d = 0.462 ± 0.020, CL = 90%
+sum-quarks	36	m c = 1.2730 ± 0.0046 GeV, CL = 90%                       Charge = 32 e            Charm = +1
+sum-quarks	42	m b = 4.183 ± 0.007 GeV, CL = 90%                     Charge = − 31 e           Bottom = −1
+sum-quarks	56	Mass (direct measurements) m = 172.57 ± 0.29 GeV [a,b] (S = 1.5)

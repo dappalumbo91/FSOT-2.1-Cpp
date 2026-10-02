@@ -1,0 +1,8 @@
+== Fri Oct  2 05:00:52 EDT 2026
+wrote xval/results/2026-10-02/ledger_b_regen.tsv: active=477 green=477 ledgerB={'lb': 140088, 'unrouted': 7168, 'c_match': 14634, 's_match': 3667, 'e_match': 4223}
+OK hub Python Ledger B golden byte-identical
+ledger A: 21 rows (6 translated emitters); routing: 161 properties, 30 elements
+wrote xval/results/2026-10-02/ledger_a_routing_regen.tsv: A=21 MASS=1268 ROUTE=3339 REC=8496 (of 127438 distinct)
+OK Ledger A / routing byte-identical
+wrote golden/tier_evidence_6f9c2560.json: 4 hub freezes, 1 cpp freezes, 478 benchmark files dated, 0 undated
+OK tier evidence byte-identical

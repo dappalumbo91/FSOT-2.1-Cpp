@@ -1,0 +1,438 @@
+FSOT 2.1 C++ engine (authority pin AEB2AD), type cpp_bin_float<169>, mode parity
+ALPHA=8.082937414140404431270501176584e-04
+C_EFF=9.577480213378242677670839771735e-01
+K=4.201087636498879409153719903525e-01
+  Particle_Physics       D= 5 hits=0 obs=1 S=9.50197470167014204069e-01
+  Quantum_Mechanics      D= 5 hits=0 obs=1 S=9.50197470167014204069e-01
+  Atomic_Physics         D= 6 hits=0 obs=1 S=7.58760380298992313438e-01
+  High_Energy_Physics    D= 6 hits=1 obs=1 S=8.87329522372508776674e-01
+  Physical_Chemistry     D= 6 hits=0 obs=1 S=9.55289340091640533911e-01
+  Chemistry              D= 6 hits=0 obs=1 S=9.55289340091640533911e-01
+  Electromagnetism       D= 7 hits=0 obs=1 S=9.55728570095582708190e-01
+  Molecular_Chemistry    D= 7 hits=0 obs=1 S=9.55728570095582708190e-01
+  Optics                 D= 8 hits=0 obs=1 S=9.53659452312107887962e-01
+  Acoustics              D= 8 hits=0 obs=1 S=9.53659452312107887962e-01
+  Materials_Science      D= 8 hits=0 obs=1 S=9.53659452312107887962e-01
+  Quantum_Computing      D= 8 hits=0 obs=0 S=-6.52633520535898349737e-01
+  Quantum_Optics         D= 8 hits=0 obs=1 S=9.53659452312107887962e-01
+  Biology                D= 9 hits=0 obs=0 S=-6.45663705586761525606e-01
+  Biochemistry           D=10 hits=0 obs=1 S=9.45944080599945151809e-01
+  Neuroscience           D=11 hits=0 obs=1 S=9.41270627156304007629e-01
+  Condensed_Matter       D=11 hits=0 obs=1 S=9.41270627156304007629e-01
+  Thermodynamics         D=12 hits=0 obs=1 S=9.36387564062974758017e-01
+  Fluid_Dynamics         D=12 hits=0 obs=0 S=-6.17907138870019567985e-01
+  Nuclear_Physics        D=12 hits=0 obs=1 S=9.36387564062974758017e-01
+  Ecology                D=12 hits=0 obs=0 S=-6.17907138870019567985e-01
+  Meteorology            D=13 hits=0 obs=0 S=-6.07934191474770869258e-01
+  Psychology             D=13 hits=0 obs=1 S=9.31427311233222883334e-01
+  Atmospheric_Physics    D=14 hits=0 obs=0 S=-5.97972230192258417212e-01
+  Oceanography           D=14 hits=0 obs=0 S=-5.97972230192258417212e-01
+  Seismology             D=15 hits=0 obs=0 S=-5.88125344106830210534e-01
+  Sociology              D=15 hits=0 obs=1 S=9.21574968959988586279e-01
+  Geophysics             D=16 hits=0 obs=0 S=-5.78458166651567770868e-01
+  Astronomy              D=18 hits=0 obs=1 S=9.07488055227247822843e-01
+  Economics              D=18 hits=0 obs=1 S=9.07488055227247822843e-01
+  Planetary_Science      D=19 hits=0 obs=1 S=9.03034205379297042155e-01
+  Quantum_Gravity        D=21 hits=0 obs=0 S=-5.33706241688581361281e-01
+  Particle_Astrophysics  D=23 hits=0 obs=0 S=-5.17567335589856551366e-01
+  Astrophysics           D=23 hits=0 obs=1 S=8.86481475779154681923e-01
+  Cosmology              D=25 hits=0 obs=0 S=-5.02377318176147818682e-01
+== wave1
+  alpha_s(M_Z)                         1.170996630486383e-01  target=1.17900000e-01 err=0.6788%
+  H0                                   6.844499556382667e+01  target=6.74000000e+01 err=1.55%
+  T_CMB                                2.724711690343066e+00  target=2.72548000e+00 err=0.02819%
+  n_s                                  9.633338365954717e-01  target=9.64900000e-01 err=0.1623%
+  Omega_b_h2                           2.246162141864744e-02  target=2.23700000e-02 err=0.4096%
+== validation_suite
+  alpha_FSOT                           8.082937414140404e-04  target=8.08000000e-04 err=0.03635%
+  Tetrahedral_refined                  1.094712206344907e+02  target=1.09471000e+02 err=0.0002015%
+  Tetrahedral_FSOT                     1.067746273284562e+02  target=1.06236000e+02 err=0.507%
+  Water_bond_angle                     1.045368014998901e+02  target=1.04500000e+02 err=0.03522%
+  DNA_base_pair                        3.396453160718979e+00  target=3.40000000e+00 err=0.1043%  [non-prediction: input:a0=0.529177]
+  Golden_angle                         1.375077640500379e+02  target=1.37508000e+02 err=0.0001716%
+  Proton_radius                        8.413000000000000e-01  target=8.41300000e-01 err=0%  [non-prediction: computed=target]
+  Dark_energy_wa                       -8.081097715810810e-01  target=-8.08100000e-01 err=0.001209%
+  Richardson_D=4                       1.442699905907214e+00  target=1.44270000e+00 err=6.522e-06%
+  Richardson_D=13                      1.139723049072016e+00  target=1.13970000e+00 err=0.002022%
+  Richardson_D=25                      1.000000000000000e+00  target=1.00000000e+00 err=0%  [non-prediction: computed=target]
+  sin2_theta_W                         2.312220291479305e-01  target=2.31220000e-01 err=0.0008776%
+  M_Z/M_W                              1.134600929408702e+00  target=1.13400000e+00 err=0.05299%
+  Feigenbaum_delta                     4.669210913089719e+00  target=4.66920000e+00 err=0.0002337%
+  Feigenbaum_alpha                     2.502967135521455e+00  target=2.50290000e+00 err=0.002682%
+  Apery_zeta3                          1.202047669357749e+00  target=1.20206000e+00 err=0.001026%
+  Water_anomaly_C                      3.979973512441224e+00  target=3.98000000e+00 err=0.0006655%
+  GUT_coupling                         3.378056433259802e-02  target=3.37800000e-02 err=0.001671%
+  Identity_pi_4                        7.853981633974483e-01  target=7.85398000e-01 err=2.08e-05%
+  Identity_2sqrtpi_5                   7.089815403622064e-01  target=7.08982000e-01 err=6.483e-05%
+  Age_over_T_CMB                       5.060127930333463e+00  target=5.04300000e+00 err=0.3396%
+  CMB_asymmetry                        6.759175986636523e-02  target=7.00000000e-02 err=3.44%
+  Mantle_Vp_Vs                         1.813376492391603e+00  target=1.81000000e+00 err=0.1865%
+  V24_alpha_s(M_Z)                     1.170996630486383e-01  target=1.17900000e-01 err=0.6788%
+  V25_H0                               6.844499556382667e+01  target=6.74000000e+01 err=1.55%
+  V26_T_CMB                            2.724711690343066e+00  target=2.72548000e+00 err=0.02819%
+  V27_n_s                              9.633338365954717e-01  target=9.64900000e-01 err=0.1623%
+  V28_Omega_b_h2                       2.246162141864744e-02  target=2.23700000e-02 err=0.4096%
+== wave2
+  1/alpha_em                           1.370361975595727e+02  target=1.37036000e+02 err=0.0001442%
+  sin2_theta_W                         2.311899745996010e-01  target=2.31220000e-01 err=0.01299%
+  M_W/M_Z                              8.753736653192966e-01  target=8.81470000e-01 err=0.6916%
+  Omega_Lambda                         6.827360381352781e-01  target=6.84700000e-01 err=0.2868%
+  Omega_m                              3.153291882450067e-01  target=3.15300000e-01 err=0.009257%
+  Omega_DM_h2                          1.205858200965383e-01  target=1.20000000e-01 err=0.4882%
+  sigma_8                              8.083818394107467e-01  target=8.11100000e-01 err=0.3351%
+  tau_reion                            5.439655350230807e-02  target=5.44000000e-02 err=0.006335%
+  m_pi/m_p                             1.444186853102528e-01  target=1.44460000e-01 err=0.0286%
+  N_eff                                3.045713454288361e+00  target=3.04600000e+00 err=0.009407%
+== wave3
+  |V_us|                               2.295864790996646e-01  target=2.24300000e-01 err=2.357%
+  |V_cb|                               4.191887880725658e-02  target=4.22000000e-02 err=0.6662%
+  sin_theta_C                          2.275911542475214e-01  target=2.27590000e-01 err=0.0005072%
+  Age_Gyr                              1.378719611924532e+01  target=1.37870000e+01 err=0.001422%
+  z_eq                                 3.393810310401417e+03  target=3.40200000e+03 err=0.2407%
+  theta_star                           1.040475951507544e-02  target=1.04110000e-02 err=0.05994%
+  r_star_Mpc                           1.443998300319891e+02  target=1.44430000e+02 err=0.02089%
+  Deuteron_binding_MeV                 2.224564648462528e+00  target=2.22456600e+00 err=6.076e-05%
+  Neutron_lifetime_s                   8.785928513922832e+02  target=8.78400000e+02 err=0.02195%
+  Ising2D_beta                         3.265324013682464e-01  target=3.26530000e-01 err=0.0007354%
+  Ising2D_nu                           6.299845062655096e-01  target=6.30020000e-01 err=0.005634%
+  Ising2D_gamma                        1.248223871739745e+00  target=1.23720000e+00 err=0.891%
+  m_t/m_W                              2.149765929068164e+00  target=2.14980000e+00 err=0.001585%
+  m_H/m_W                              1.550836826006469e+00  target=1.55950000e+00 err=0.5555%
+  m_tau/m_e                            3.477505458787831e+03  target=3.47748000e+03 err=0.0007321%
+== wave4
+  sin2_theta12                         3.069644297889016e-01  target=3.07000000e-01 err=0.01159%
+  sin2_theta23                         5.457666109860249e-01  target=5.46000000e-01 err=0.04275%
+  sin2_theta13                         2.201515822114412e-02  target=2.20000000e-02 err=0.0689%
+  Dm2_21/Dm2_32                        2.951701148028642e-02  target=2.95000000e-02 err=0.05767%
+  |V_ub|                               3.921256293386137e-03  target=3.82000000e-03 err=2.651%
+  |V_td|                               8.570800980221069e-03  target=8.57000000e-03 err=0.009346%
+  |V_ts|                               4.050330471508225e-02  target=4.05000000e-02 err=0.00816%
+  Jarlskog_J                           3.072771786665467e-05  target=3.08000000e-05 err=0.2347%
+  Feigenbaum_delta                     4.669197957279608e+00  target=4.66920000e+00 err=4.375e-05%
+  Feigenbaum_alpha                     2.502908153202808e+00  target=2.50291000e+00 err=7.379e-05%
+  r_p_fm                               8.412485409697683e-01  target=8.41400000e-01 err=0.018%
+  m_n-m_p_MeV                          1.293332800554200e+00  target=1.29333000e+00 err=0.0002165%
+  mu_p_muN                             2.792852216264115e+00  target=2.79285000e+00 err=7.935e-05%
+  w0                                   -1.029981292137264e+00  target=-1.03000000e+00 err=0.001816%
+  m_c/m_b                              2.948960717765483e-01  target=2.91000000e-01 err=1.339%
+  alpha_s_ratio                        1.184688319236189e+01  target=1.18500000e+01 err=0.0263%
+== wave5
+  Gamma_Z/M_Z                          2.748978288766884e-02  target=2.74900000e-02 err=0.0007898%
+  R_ell                                2.077824342349839e+01  target=2.07670000e+01 err=0.05414%
+  R_b                                  2.162301452768092e-01  target=2.16290000e-01 err=0.02767%
+  R_c                                  1.721087988723198e-01  target=1.72100000e-01 err=0.005113%
+  A_FB_ell                             1.711189199396930e-02  target=1.71000000e-02 err=0.06954%
+  A_ell_SLD                            1.511891085131052e-01  target=1.51300000e-01 err=0.07329%
+  m_H/m_t                              7.257068201623707e-01  target=7.25600000e-01 err=0.01472%
+  BR_H_bb                              5.809035392204999e-01  target=5.80900000e-01 err=0.0006093%
+  BR_H_WW                              2.152044704820020e-01  target=2.15200000e-01 err=0.002077%
+  BR_H_tautau                          6.319375582922372e-02  target=6.32000000e-02 err=0.00988%
+  Y_p_He4                              2.447809984497570e-01  target=2.44900000e-01 err=0.04859%
+  D_H_ratio                            2.544682585941701e-05  target=2.54700000e-05 err=0.09099%
+  Khinchin_K0                          2.685451182405338e+00  target=2.68545200e+00 err=3.045e-05%
+  Glaisher_A                           1.282427924387198e+00  target=1.28242700e+00 err=7.208e-05%
+  Twin_prime_C2                        6.600788063835479e-01  target=6.60162000e-01 err=0.0126%
+  Mertens_M                            2.614936766512581e-01  target=2.61497000e-01 err=0.001271%
+  Dottie_number                        7.390857024468026e-01  target=7.39085000e-01 err=9.504e-05%
+  Omega_constant                       5.671447925724255e-01  target=5.67143000e-01 err=0.0003161%
+  Conway_lambda                        1.303578976266833e+00  target=1.30357700e+00 err=0.0001516%
+  Plastic_number                       1.324722496060228e+00  target=1.32471800e+00 err=0.0003394%
+  Landau_Ramanujan                     7.642364991979522e-01  target=7.64236000e-01 err=6.532e-05%
+  Laplace_limit                        6.631479957360466e-01  target=6.62743000e-01 err=0.06111%
+== wave6
+  zeta_5                               1.036931568941913e+00  target=1.03692800e+00 err=0.0003442%
+  zeta_7                               1.008351002165337e+00  target=1.00834900e+00 err=0.0001986%
+  Levy_constant                        3.275820784331113e+00  target=3.27582300e+00 err=6.764e-05%
+  Erdos_Borwein                        1.606660408297128e+00  target=1.60669500e+00 err=0.002153%
+  Bernstein                            2.801696215308906e-01  target=2.80169000e-01 err=0.0002218%
+  Backhouse                            1.456073929734104e+00  target=1.45607500e+00 err=7.35e-05%
+  Viswanath                            1.131989324238136e+00  target=1.13198800e+00 err=0.000117%
+  Kepler_Bouwkamp                      1.149408040989522e-01  target=1.14942000e-01 err=0.00104%
+  Sphere_packing_3D                    7.404773330949465e-01  target=7.40480000e-01 err=0.0003602%
+  Gauss_AGM                            8.346278543481726e-01  target=8.34627000e-01 err=0.0001024%
+  Lemniscate                           2.622098211248314e+00  target=2.62205800e+00 err=0.001534%
+  Hashing_bound                        1.100272166564134e-01  target=1.10028000e-01 err=0.0007119%
+  von_Karman                           3.999083415595680e-01  target=4.00000000e-01 err=0.02291%
+  Madelung_NaCl                        1.747564927627578e+00  target=1.74756500e+00 err=4.141e-06%
+  Madelung_CsCl                        1.763078244476366e+00  target=1.76267200e+00 err=0.02305%
+  Methane_angle                        1.094705542253899e+02  target=1.09471000e+02 err=0.0004072%
+  O_N_electronegativity                6.088905117204049e-01  target=6.08700000e-01 err=0.0313%
+  Water_max_density_C                  3.980092203251918e+00  target=3.98000000e+00 err=0.002317%
+  Perc_sq_site                         5.920637529852891e-01  target=5.92746000e-01 err=0.1151%
+  Polya_3D_return                      3.405341022487652e-01  target=3.40537000e-01 err=0.0008509%
+  Random_walk_CN                       1.176626319997345e+00  target=1.17628100e+00 err=0.02936%
+  Nats_per_bit                         1.442686824870478e+00  target=1.44269500e+00 err=0.0005667%
+== wave7
+  Apery_zeta3_w7                       1.202059375032043e+00  target=1.20206000e+00 err=5.199e-05%
+  Soldner                              1.451367322083228e+00  target=1.45136000e+00 err=0.0005045%
+  Mills                                1.306379265718492e+00  target=1.30637000e+00 err=0.0007093%
+  Sierpinski_const                     2.584976195674155e+00  target=2.58490000e+00 err=0.002948%
+  Niven                                1.705216840727584e+00  target=1.70520000e+00 err=0.0009876%
+  Artin                                3.739739964944940e-01  target=3.74000000e-01 err=0.006953%
+  Hafner_Sarnak                        6.079368730335913e-01  target=6.08000000e-01 err=0.01038%
+  Porter                               1.467078555431793e+00  target=1.46700000e+00 err=0.005355%
+  Thue_Morse                           4.124542472545308e-01  target=4.12500000e-01 err=0.01109%
+  MRB                                  1.878603378859313e-01  target=1.87900000e-01 err=0.02111%
+  Gauss_Kuzmin                         3.036597373661549e-01  target=3.03600000e-01 err=0.01968%
+  Universal_parabolic                  2.295659816710242e+00  target=2.29560000e+00 err=0.002606%
+  Lieb_square_ice                      1.539540766513758e+00  target=1.53960000e+00 err=0.003847%
+  Komornik_Loreti                      1.787231724281463e+00  target=1.78720000e+00 err=0.001775%
+  Bloch_Landau                         5.433021478033816e-01  target=5.43300000e-01 err=0.0003953%
+  Golden_angle_deg                     1.375060188031129e+02  target=1.37508000e+02 err=0.001441%
+  Ising3D_eta                          3.640819399713107e-02  target=3.63000000e-02 err=0.2981%
+  Ising3D_alpha                        1.100487274179035e-01  target=1.10100000e-01 err=0.04657%
+  Ising3D_delta                        4.788746753540937e+00  target=4.78980000e+00 err=0.02199%
+  XY_nu                                6.716576688003880e-01  target=6.72000000e-01 err=0.05094%
+  XY_eta                               3.814026465290003e-02  target=3.81000000e-02 err=0.1057%
+  Heisenberg_nu                        7.111607292512704e-01  target=7.11200000e-01 err=0.005522%
+  Heisenberg_eta                       3.798091065128498e-02  target=3.75000000e-02 err=1.282%
+  Perc_honeycomb_site                  6.969907479430195e-01  target=6.97000000e-01 err=0.001327%
+  Perc_SC_bond                         2.487900777821054e-01  target=2.48800000e-01 err=0.003988%
+  Perc_SC_site                         3.115975675935029e-01  target=3.11600000e-01 err=0.0007806%
+  m_u/m_d                              4.600311580548083e-01  target=4.59600000e-01 err=0.09381%
+  m_s/m_d                              2.019654445210049e+01  target=2.01960000e+01 err=0.002696%
+  m_tau/m_mu                           1.681691021202443e+01  target=1.68170000e+01 err=0.0005339%
+== wave8
+  |V_ud|                               9.737066644446277e-01  target=9.73700000e-01 err=0.0006844%
+  |V_cd|                               2.210078047913260e-01  target=2.21000000e-01 err=0.003532%
+  |V_cs|                               9.749134853131556e-01  target=9.73500000e-01 err=0.1452%
+  delta_CP_PMNS                        3.868188536328347e+00  target=3.86850000e+00 err=0.008051%
+  m_t/m_b                              4.092241280255415e+01  target=4.10800000e+01 err=0.3836%
+  BR_Z_ee                              3.366543264779788e-02  target=3.36300000e-02 err=0.1054%
+  BR_Z_had                             6.991750380984436e-01  target=6.99100000e-01 err=0.01073%
+  BR_Z_inv                             1.999775411217405e-01  target=2.00000000e-01 err=0.01123%
+  BR_H_ZZ                              2.642388139548985e-02  target=2.64000000e-02 err=0.09046%
+  BR_H_gg                              8.182274913982478e-02  target=7.85000000e-02 err=4.233%
+  BR_H_cc                              2.892545613515103e-02  target=2.89000000e-02 err=0.08808%
+  BR_H_gamgam                          2.316014462592292e-03  target=2.28000000e-03 err=1.58%
+  BR_H_Zgam                            1.525856767194207e-03  target=1.53000000e-03 err=0.2708%
+  He4_binding_MeV                      2.830071693656917e+01  target=2.83000000e+01 err=0.002533%
+  Triton_binding_MeV                   8.480800162634556e+00  target=8.48200000e+00 err=0.01415%
+  Deuteron_mu_muN                      8.573914181280383e-01  target=8.57400000e-01 err=0.001001%
+  S_8                                  8.320144347134201e-01  target=8.32000000e-01 err=0.001735%
+  z_reion                              7.671992422366703e+00  target=7.68000000e+00 err=0.1043%
+  XY_beta                              3.485875996963401e-01  target=3.48600000e-01 err=0.003557%
+  XY_gamma                             1.317731712079523e+00  target=1.31770000e+00 err=0.002407%
+  Heisenberg_beta                      3.691381810501684e-01  target=3.68900000e-01 err=0.06457%
+  Heisenberg_gamma                     1.395897923484361e+00  target=1.39620000e+00 err=0.02164%
+  Perc_BCC_bond                        1.803154214331323e-01  target=1.80300000e-01 err=0.008553%
+  Perc_FCC_site                        1.979980500967206e-01  target=1.98200000e-01 err=0.1019%
+  Perc3D_nu                            8.767170058144746e-01  target=8.75000000e-01 err=0.1962%
+  Perc3D_beta                          4.184195957949790e-01  target=4.18100000e-01 err=0.07644%
+  Perc3D_gamma                         1.793802321199428e+00  target=1.80520000e+00 err=0.6314%
+  Brun_B2                              1.902212776811461e+00  target=1.90220000e+00 err=0.0006717%
+  Copeland_Erdos                       2.357022603955158e-01  target=2.35700000e-01 err=0.000959%
+  Erdos_Tenenbaum_Ford                 8.600611374803460e-02  target=8.62000000e-02 err=0.2249%
+  Foias_alpha                          1.187068841753637e+00  target=1.18740000e+00 err=0.02789%
+  Madelung_ZnS                         1.638254340439196e+00  target=1.63810000e+00 err=0.009422%
+  Madelung_CaF2                        2.519250057582401e+00  target=2.51940000e+00 err=0.005952%
+  Madelung_TiO2                        2.408027822720168e+00  target=2.40800000e+00 err=0.001155%
+  Ice_Ih_density                       9.167587921820931e-01  target=9.17000000e-01 err=0.0263%
+  H2O_bond_angle                       1.044405425791162e+02  target=1.04500000e+02 err=0.0569%
+  Lorenz_dim                           2.059998138724155e+00  target=2.06000000e+00 err=9.035e-05%
+  Henon_dim                            1.260928952872558e+00  target=1.26100000e+00 err=0.005634%
+  Apollonian_dim                       1.305585467000882e+00  target=1.30580000e+00 err=0.01643%
+  SAW_mu_sq                            2.637709830337781e+00  target=2.63820000e+00 err=0.01858%
+  SAW_nu_3D                            5.875224021224996e-01  target=5.87700000e-01 err=0.03022%
+  SAW_gamma_3D                         1.159653566199519e+00  target=1.15750000e+00 err=0.1861%
+  Potts3_beta                          1.111111111111111e-01  target=1.11110000e-01 err=0.001%
+  KT_T/J                               8.934914156931002e-01  target=8.93500000e-01 err=0.0009608%
+  Quark_condensate                     2.500000000000000e-01  target=2.50000000e-01 err=0%  [non-prediction: computed=target]
+  Figure8_knot_vol                     2.029890388512915e+00  target=2.02990000e+00 err=0.0004735%
+  Bessel_J0_zero1                      2.404761776074798e+00  target=2.40500000e+00 err=0.009905%
+  Airy_Ai_zero1                        2.338071066428553e+00  target=2.33800000e+00 err=0.00304%
+  gamma_2_Stieltjes                    -9.686345270484219e-03  target=-9.46000000e-03 err=2.393%
+  First_Riemann_zero                   1.413449041133020e+01  target=1.41350000e+01 err=0.003605%
+  Spanning_tree_sq                     1.166078356143312e+00  target=1.16630000e+00 err=0.019%
+  Hard_sq_entropy                      1.503115184201572e+00  target=1.50310000e+00 err=0.00101%
+== wave9
+  |V_tb|                               9.990765192612288e-01  target=9.99100000e-01 err=0.00235%
+  Omega_r                              9.167728879734846e-05  target=9.15000000e-05 err=0.1938%
+  O4_nu                                7.488930539619457e-01  target=7.49000000e-01 err=0.01428%
+  Gluon_condensate                     1.283286690347067e-02  target=1.20000000e-02 err=6.941%
+  Mandelbrot_boundary                  2.000000000000000e+00  target=2.00000000e+00 err=0%  [non-prediction: computed=target]
+  Sierpinski_dim                       1.584962500721156e+00  target=1.58496300e+00 err=3.15e-05%
+  gamma1_Stieltjes                     -7.274094507053922e-02  target=-7.28160000e-02 err=0.1031%
+== wave10
+  m_mu/m_e                             2.067696385971217e+02  target=2.06768283e+02 err=0.0006556%
+  (g-2)/2_electron                     1.159659964877951e-03  target=1.15965000e-03 err=0.0008593%
+  Logistic_accum                       3.569955155551100e+00  target=3.56994600e+00 err=0.0002565%
+  Cahen_constant                       6.433794880077277e-01  target=6.43411000e-01 err=0.004898%
+  Reciprocal_Fib                       3.372628798755335e+00  target=3.35988600e+00 err=0.3793%
+  Water_triple_K                       2.731691478444030e+02  target=2.73160000e+02 err=0.003349%
+  CO2_bond_angle                       1.799986628194595e+02  target=1.80000000e+02 err=0.0007429%
+  SAW_connective_hex                   1.847758664202833e+00  target=1.84775900e+00 err=1.817e-05%
+  Bessel_J1_zero1                      3.831706521236067e+00  target=3.83170600e+00 err=1.36e-05%
+  eta_baryon_photon                    6.139749535425554e-10  target=6.14000000e-10 err=0.004079%
+== lepton_ratios
+  m_tau/m_e_lepton                     3.477513179694530e+03  target=3.47748000e+03 err=0.0009541%
+  m_tau/m_mu_lepton                    1.681728499312284e+01  target=1.68170000e+01 err=0.001695%
+  m_mu/m_e_lepton                      2.067682819227269e+02  target=2.06768000e+02 err=0.0001363%
+  Chain_consistency_%                  6.673017460260131e-03
+== dynamical_systems
+  Logistic_R_inf                       3.569946319081901e+00  target=3.56990000e+00 err=0.001297%
+  Ising2D_Tc_J                         2.269185737136681e+00  target=2.26920000e+00 err=0.0006285%
+  Ising3D_beta_dyn                     3.264189718791406e-01  target=3.26400000e-01 err=0.005812%
+  Ising3D_nu_dyn                       6.299709659923227e-01  target=6.30000000e-01 err=0.004609%
+  Henon_Lyapunov                       4.201087636498879e-01  target=4.19200000e-01 err=0.2168%
+== neural_architecture
+  N_Layers                             6.000000000000000e+00  target=6.00000000e+00 err=0%  [non-prediction: computed=target]
+  N_Lobes                              4.000000000000000e+00  target=4.00000000e+00 err=0%  [non-prediction: computed=target]
+  N_Columns                            2.000000000000000e+01  target=2.00000000e+01 err=0%  [non-prediction: computed=target]
+  WM_Capacity                          7.000000000000000e+00  target=7.00000000e+00 err=0%  [non-prediction: computed=target]
+  N_Attention_Heads                    8.000000000000000e+00  target=8.00000000e+00 err=0%  [non-prediction: computed=target]
+  N_Drives                             9.000000000000000e+00  target=9.00000000e+00 err=0%  [non-prediction: computed=target]
+  Binding_Window                       9.000000000000000e+00  target=9.00000000e+00 err=0%  [non-prediction: computed=target]
+  Seq_Predict_Period                   4.000000000000000e+00  target=4.00000000e+00 err=0%  [non-prediction: computed=target]
+  Lateral_Inhibition                   6.180339887498948e-01  target=6.18000000e-01 err=0.0055%
+  Spike_Threshold                      6.180339887498948e-01  target=6.18000000e-01 err=0.0055%
+  Prediction_Gain                      8.652559794322651e-01  target=8.65300000e-01 err=0.005087%
+  TD_BU_Ratio                          1.618033988749895e+00  target=1.61800000e+00 err=0.002101%
+  Recurrent_Decay                      3.678794411714423e-01  target=3.67900000e-01 err=0.005588%
+  Hebbian_LR                           1.837334525983080e-01  target=1.83700000e-01 err=0.01821%
+  Consciousness_Threshold              1.109016994374947e+01  target=1.10900000e+01 err=0.001532%
+  Consciousness_Gate                   6.180339887498948e-01  target=6.18000000e-01 err=0.0055%
+  Sync_Decay                           3.819660112501052e-01  target=3.82000000e-01 err=0.008898%
+  Cross_Modal_Gain                     8.652559794322651e-01  target=8.65300000e-01 err=0.005087%
+  Circulant_Spectral_R                 6.180339887498948e-01  target=6.18000000e-01 err=0.0055%
+  EEG_1_over_f                         1.618033988749895e+00  target=1.61800000e+00 err=0.002101%
+  Layer_1_thickness                    4.045084971874737e-01
+  Layer_2_thickness                    2.500000000000000e-01
+  Layer_3_thickness                    1.545084971874737e-01
+  Layer_4_thickness                    9.549150281252629e-02
+  Layer_5_thickness                    5.901699437494742e-02
+  Layer_6_thickness                    3.647450843757886e-02
+== consciousness_model
+  Metatron_Spheres                     1.300000000000000e+01  target=1.30000000e+01 err=0%  [non-prediction: computed=target]
+  Metatron_Pathways                    2.700000000000000e+01  target=2.70000000e+01 err=0%  [non-prediction: computed=target]
+  Consciousness_Gate                   6.180339887498948e-01  target=6.18000000e-01 err=0.0055%
+  Resonance_Persistence                8.652559794322651e-01  target=8.65300000e-01 err=0.005087%
+  Resonance_Rate                       2.123457762393784e-01  target=2.12400000e-01 err=0.02553%
+  Resonance_Eq_Factor                  1.575919846718791e+00  target=1.57590000e+00 err=0.001259%
+  Ignition_Coherence                   3.921734915875944e-01  target=3.92200000e-01 err=0.006759%
+  W_Integration                        1.618033988749895e+00  target=1.61800000e+00 err=0.002101%
+  W_Complexity                         6.180339887498948e-01  target=6.18000000e-01 err=0.0055%
+  W_Binding                            8.652559794322651e-01  target=8.65300000e-01 err=0.005087%
+  W_Phase_Sync                         6.180339887498948e-01  target=6.18000000e-01 err=0.0055%
+  Hub_coupling                         6.180339887498948e-01  target=6.18000000e-01 err=0.0055%
+  Inner_coupling                       3.819660112501052e-01  target=3.82000000e-01 err=0.008898%
+  Radial_coupling                      8.652559794322651e-01  target=8.65300000e-01 err=0.005087%
+  Outer_coupling                       6.180339887498948e-01  target=6.18000000e-01 err=0.0055%
+  Cross_coupling                       5.772156649015329e-01  target=5.77200000e-01 err=0.002714%
+== homeostasis
+  Replay_Passes                        6.000000000000000e+00  target=6.00000000e+00 err=0%  [non-prediction: computed=target]
+  Homeostatic_Tau                      3.020927329580347e+00
+  Novelty_Threshold                    6.180339887498948e-01  target=6.18000000e-01 err=0.0055%
+  Consolidation_Rate                   1.837334525983080e-01  target=1.83700000e-01 err=0.01821%
+  Attention_Inhibition                 7.879784892100859e-01  target=7.87900000e-01 err=0.009962%
+  Cross_Lobe_Coupling                  1.837334525983080e-01  target=1.83700000e-01 err=0.01821%
+== soliton_stdp
+  STDP_Tau_Plus_ms                     2.000000000000000e+01  target=2.00000000e+01 err=0%  [non-prediction: computed=target]
+  STDP_Tau_Minus_ms                    2.000000000000000e+01  target=2.00000000e+01 err=0%  [non-prediction: computed=target]
+  Soliton_Width                        8.669401115053212e-01
+  STDP_Learning_Rate                   2.655593864471416e-01
+  STDP_Asymmetry                       1.046973630587551e+00
+  Promotion_Threshold                  5.330577930757401e-01
+  Hebbian_Consolidation                1.837334525983080e-01
+  Oja_Learning_Rate                    1.837334525983080e-01
+  Attention_Error_Gain                 8.652559794322651e-01
+== cross_species
+  S(Human)                             9.412706271563040e-01
+  Density(Human)                       7.613821636310973e+07
+  S(Octopus)                           9.412706271563040e-01
+  Density(Octopus)                     5.311968583472772e+07
+  S(Corvid)                            9.412706271563040e-01
+  Density(Corvid)                      2.124787433389109e+08
+  S(Honeybee)                          9.412706271563040e-01
+  Density(Honeybee)                    1.019897968026772e+06
+  S(C_elegans)                         9.412706271563040e-01
+  Density(C_elegans)                   3.208429024417554e+05
+== trinary
+  Max_Trits                            2.700000000000000e+01  target=2.70000000e+01 err=0%  [non-prediction: computed=target]
+  Collapse_Threshold                   9.175102712064876e-01  target=9.17400000e-01 err=0.01202%
+== predictions
+  CMB_tau                              5.399951127994737e-02  target=5.40000000e-02 err=0.000905%
+  Dark_energy_wa                       -8.081097715810810e-01  target=-8.30000000e-01 err=2.637%
+  Tau_g-2                              1.188279013492089e-03  target=1.17700000e-03 err=0.9583%
+  Cross_Opt_QO                         1.000000000000000e+00  target=1.00000000e+00 err=0%  [non-prediction: computed=target]
+  Cross_MatSci_CM                      1.013161810002753e+00  target=1.00000000e+00 err=1.316%
+  Cross_Astro_PS                       1.004932094289917e+00  target=1.00000000e+00 err=0.4932%
+== chemistry_ionization
+  IE_H                                 1.358842989310952e+01  target=1.35980000e+01 err=0.07038%
+  IE_He                                2.460539487365023e+01  target=2.45870000e+01 err=0.07482%
+  IE_Li                                5.392103950584448e+00  target=5.39200000e+00 err=0.001928%
+  IE_Be                                9.323911577885366e+00  target=9.32300000e+00 err=0.009778%
+  IE_B                                 8.304488783765422e+00  target=8.29800000e+00 err=0.0782%
+  IE_C                                 1.125801654432499e+01  target=1.12600000e+01 err=0.01762%
+  IE_N                                 1.451489749987138e+01  target=1.45340000e+01 err=0.1314%
+  IE_O                                 1.343774919539233e+01  target=1.36180000e+01 err=1.324%
+  IE_F                                 1.741870886926441e+01  target=1.74230000e+01 err=0.02463%
+  IE_Ne                                2.153279638412537e+01  target=2.15650000e+01 err=0.1493%
+  IE_Na                                5.137168498491929e+00  target=5.13900000e+00 err=0.03564%
+  IE_Mg                                7.642080455459770e+00  target=7.64600000e+00 err=0.05126%
+  IE_Al                                5.987527757400933e+00  target=5.98600000e+00 err=0.02552%
+  IE_Si                                8.148803204816242e+00  target=8.15200000e+00 err=0.03921%
+  IE_P                                 1.048763838983925e+01  target=1.04870000e+01 err=0.006087%
+  IE_S                                 1.036013021764985e+01  target=1.03600000e+01 err=0.001257%
+  IE_Cl                                1.298459713474939e+01  target=1.29680000e+01 err=0.128%
+  IE_Ar                                1.576012377846974e+01  target=1.57600000e+01 err=0.0007854%
+  IE_K                                 4.337389161142127e+00  target=4.34100000e+00 err=0.08318%
+  IE_Ca                                6.111354264007488e+00  target=6.11300000e+00 err=0.02692%
+== chemistry_electronegativity
+  EN_H                                 2.199396921524893e+00  target=2.20000000e+00 err=0.02741%
+  EN_Li                                9.800408787877097e-01  target=9.80000000e-01 err=0.004171%
+  EN_Na                                9.301871661164543e-01  target=9.30000000e-01 err=0.02013%
+  EN_C                                 2.549857359980624e+00  target=2.55000000e+00 err=0.005594%
+  EN_N                                 3.040271469947455e+00  target=3.04000000e+00 err=0.00893%
+  EN_O                                 3.439307695910089e+00  target=3.44000000e+00 err=0.02013%
+  EN_F                                 3.980092203251918e+00  target=3.98000000e+00 err=0.002317%
+  EN_S                                 2.581048730739696e+00  target=2.58000000e+00 err=0.04065%
+  EN_Cl                                3.159908292478527e+00  target=3.16000000e+00 err=0.002902%
+  EN_Br                                2.963720456263474e+00  target=2.96000000e+00 err=0.1257%
+== chemistry_bond_lengths
+  BL_H−H                             7.401498011655587e-01  target=7.40000000e-01 err=0.02024%
+  BL_C−H                             1.089638180103040e+00  target=1.09000000e+00 err=0.03319%
+  BL_C−C                             1.540139197779449e+00  target=1.54000000e+00 err=0.009039%
+  BL_C=C                               1.339953133922381e+00  target=1.34000000e+00 err=0.003497%
+  BL_C≡C                             1.199981614864327e+00  target=1.20000000e+00 err=0.001532%
+  BL_O−H                             9.602267735144906e-01  target=9.60000000e-01 err=0.02362%
+  BL_N−H                             1.009988372577352e+00  target=1.01000000e+00 err=0.001151%
+  BL_C−N                             1.469941652373936e+00  target=1.47000000e+00 err=0.003969%
+  BL_C−O                             1.429636471278592e+00  target=1.43000000e+00 err=0.02542%
+  BL_C=O                               1.230233181255689e+00  target=1.23000000e+00 err=0.01896%
+== chemistry_bond_energies
+  BE_H−H                             4.349159090016865e+02  target=4.36000000e+02 err=0.2486%
+  BE_C−H                             4.132983978938245e+02  target=4.13000000e+02 err=0.07225%
+  BE_C−C                             3.488306434595909e+02  target=3.48000000e+02 err=0.2387%
+  BE_C=C                               6.130050760137398e+02  target=6.14000000e+02 err=0.162%
+  BE_C≡C                             8.383600994068796e+02  target=8.39000000e+02 err=0.07627%
+  BE_O−H                             4.626318484329526e+02  target=4.63000000e+02 err=0.07951%
+  BE_N−H                             3.923386235489856e+02  target=3.91000000e+02 err=0.3424%
+  BE_N≡N                             9.457825520117291e+02  target=9.45000000e+02 err=0.08281%
+  BE_O=O                               4.951502512091145e+02  target=4.98000000e+02 err=0.5722%
+  BE_F−F                             1.595033290463261e+02  target=1.59000000e+02 err=0.3166%
+== chemistry_molecular
+  BP_H₂O                             3.724225168124353e+02  target=3.73150000e+02 err=0.195%
+  BP_NH₃                             2.401375358057148e+02  target=2.39820000e+02 err=0.1324%
+  BP_CH₄                             1.117063242957824e+02  target=1.11660000e+02 err=0.04149%
+  BP_C₂H₅OH                        3.509357677671490e+02  target=3.51440000e+02 err=0.1435%
+  BP_CO₂_sub                         1.941347059982329e+02  target=1.94650000e+02 err=0.2647%
+  dipole_H₂O                         1.850185465918697e+00  target=1.85000000e+00 err=0.01003%
+  dipole_NH₃                         1.469941652373936e+00  target=1.47000000e+00 err=0.003969%
+  dipole_HCl                           1.080123757896765e+00  target=1.08000000e+00 err=0.01146%
+  pH_water                             7.000000000000000e+00  target=7.00000000e+00 err=0%  [non-prediction: computed=target]
+  pKw_water                            1.398860757482540e+01  target=1.40000000e+01 err=0.08137%
+== chemistry_radii
+  R_H                                  3.099848428288717e-01  target=3.10000000e-01 err=0.004889%
+  R_C                                  7.700130881402763e-01  target=7.70000000e-01 err=0.0017%
+  R_N                                  7.500001632454712e-01  target=7.50000000e-01 err=2.177e-05%
+  R_O                                  7.299700981022957e-01  target=7.30000000e-01 err=0.004096%
+  R_F                                  7.099600375177280e-01  target=7.10000000e-01 err=0.005629%
+  R_Na                                 1.540139197779449e+00  target=1.54000000e+00 err=0.009039%
+  R_Cl                                 9.899995557710238e-01  target=9.90000000e-01 err=4.487e-05%
+  R_Fe                                 1.250154547578453e+00  target=1.25000000e+00 err=0.01236%
+Total constants with targets: 343
+Within 5% of target: 342
+Flagged non-predictions (computed=target or measured input): 21 (21 within 5%)
+Genuine predictions with targets: 322
+Genuine predictions within 5%: 321

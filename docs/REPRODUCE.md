@@ -298,6 +298,18 @@ CTest `evidence_tiers_report` diffs `build/evidence_tiers.tsv` with `golden/evid
 
 Nothing is TIER 3 yet (`docs/PROMOTION_WATCH.md`).
 
+**3.13 Precision gate (z ≤ 1, `docs/PRECISION_REPORT.md`)**
+```
+python3 tools/check_references.py          # references: 105 rows ...; failures: 0
+python3 tools/verify_refinement_freeze.py  # refinement freeze: 4 refinements, tier frozen-pending, failures 0
+./build/test_seed_leaves                   # 50 leaves vs the hub scripts' printed values
+./build/fsot_precision --refs reference/published_2026-10-02.tsv --map reference/prediction_map_2026-10-02.tsv \
+  --lineage reference/pin_lineage_2026-10-02.tsv --tsv-out p.tsv --md-out p.md
+cmp p.tsv audit/precision_2026-10-02.tsv && cmp p.md audit/precision_2026-10-02.md
+```
+Expected: `record set (scored): n=91  pass z<=1: 83/91  pass |rel|<=2%: 88/91  median ppm=93.03`. The CI ledger-b job also regenerates
+`golden/seed_leaves_6f9c2560.tsv` (it runs the hub's `scripts/*_seed_check.py` unchanged) and `reference/pin_lineage_2026-10-02.tsv`, then diffs both.
+
 ### 4. Report format
 Give one table with these columns: check, command, expected, observed, PASS/FAIL. Also give:
 - the tool versions (compiler, CMake, Boost, nlohmann_json, Python, mpmath, QEMU, OS/WSL build);

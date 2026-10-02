@@ -57,7 +57,7 @@ jobs:
           COMMIT=$(python -c "import json;print(json.load(open('AUTHORITY_PIN.json'))['ledger_b_data_commit'])")
           git clone -q --filter=blob:none --no-checkout https://github.com/dappalumbo91/FSOT-2.1-Lean hub
           cd hub
-          git sparse-checkout set --no-cone '/data/*_benchmark.json' '/data/literature_uncertainty_anchors.json' '/data/stumped_observables_reference.json' '/data/extension_folds_derived.json' '/data/domain_table_freeze.json' '/predictions/' '/scripts/' '/vendor/fsot_compute.py'
+          git sparse-checkout set --no-cone '/data/*_benchmark.json' '/data/literature_uncertainty_anchors.json' '/data/stumped_observables_reference.json' '/data/extension_folds_derived.json' '/data/domain_table_freeze.json' '/predictions/' '/scripts/' '/vendor/fsot_compute.py' '/vendor/fsot_seed_flavor.py'
           git checkout -q "$COMMIT"
       - name: Regenerate the Ledger B golden with the hub's own Python and diff
         run: |
@@ -73,6 +73,12 @@ jobs:
         run: |
           python tools/gen_tier_evidence.py --hub hub
           git diff --exit-code -- golden/tier_evidence_6f9c2560.json
+      - name: Regenerate the seed-leaf golden (hub scripts/*_seed_check.py run unchanged) and the pin lineage, and diff
+        run: |
+          python tools/dump_seed_leaves_golden.py --hub hub --out /tmp/seed_leaves.tsv
+          diff -q /tmp/seed_leaves.tsv golden/seed_leaves_6f9c2560.tsv
+          python tools/pin_lineage.py --hub hub --out /tmp/pin_lineage.tsv
+          diff -q /tmp/pin_lineage.tsv reference/pin_lineage_2026-10-02.tsv
       - name: Build and run the C++ re-scorer against the golden
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$PWD/hub

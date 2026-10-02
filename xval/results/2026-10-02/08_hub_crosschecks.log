@@ -1,0 +1,39 @@
+== hub cross-checks on scratch clone @ 6f9c25605a52acabe662a42fc003afa5bf66b959 Fri Oct  2 05:02:06 EDT 2026
+  classifier fails: 0
+  STRICT scalar max<=0.5%: 477 pass / 0 fail
+  worst scalar max: 0.4410% — Zebrafish_Predictive_Validation_Panel
+hub margin audit: green 477/477 fail=0
+  T5_prereg_freeze: PASS
+  T6_falsification: PASS
+toe_gap: LabelA=True LabelB=True criteria 6/6
+PASS-run scripts/alpha_interface_seed_check.py
+PASS-run scripts/atmospheric_neutrino_seed_check.py
+PASS-run scripts/atomic_mass_seed_check.py
+PASS-run scripts/charged_kaon_seed_check.py
+PASS-run scripts/charged_pion_seed_check.py
+PASS-run scripts/charm_bottom_seed_check.py
+PASS-run scripts/ckm_magnitude_seed_check.py
+PASS-run scripts/d_meson_seed_check.py
+PASS-run scripts/deuteron_binding_seed_check.py
+PASS-run scripts/electron_g_seed_check.py
+PASS-run scripts/electron_mass_seed_check.py
+PASS-run scripts/helium4_binding_seed_check.py
+PASS-run scripts/higgs_mass_seed_check.py
+PASS-run scripts/muon_mass_seed_check.py
+PASS-run scripts/neutron_mass_seed_check.py
+PASS-run scripts/neutron_proton_diff_seed_check.py
+PASS-run scripts/newton_g_seed_check.py
+PASS-run scripts/pion_proton_seed_check.py
+PASS-run scripts/proton_g_seed_check.py
+PASS-run scripts/proton_mass_seed_check.py
+PASS-run scripts/proton_moment_seed_check.py
+PASS-run scripts/proton_radius_seed_check.py
+PASS-run scripts/sh0es_ladder_seed_check.py
+PASS-run scripts/tau_electron_seed_check.py
+PASS-run scripts/tau_mass_seed_check.py
+PASS-run scripts/top_w_seed_check.py
+PASS-run scripts/triton_binding_seed_check.py
+PASS-run scripts/w_boson_seed_check.py
+PASS-run scripts/w_over_z_seed_check.py
+PASS-run scripts/weak_mixing_seed_check.py
+PASS-run scripts/z_boson_seed_check.py

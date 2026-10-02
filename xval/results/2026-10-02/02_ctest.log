@@ -1,0 +1,50 @@
+Internal ctest changing into directory: /workspace/fsot-cpp/build
+Test project /workspace/fsot-cpp/build
+      Start  1: golden
+ 1/22 Test  #1: golden .............................................   Passed    0.02 sec
+      Start  2: trit
+ 2/22 Test  #2: trit ...............................................   Passed    0.21 sec
+      Start  3: ternary
+ 3/22 Test  #3: ternary ............................................   Passed    1.77 sec
+      Start  4: core_vs_engine
+ 4/22 Test  #4: core_vs_engine .....................................   Passed    0.39 sec
+      Start  5: core_closed_forms_vs_golden
+ 5/22 Test  #5: core_closed_forms_vs_golden ........................   Passed    0.15 sec
+      Start  6: predict_closed_form_smoke
+ 6/22 Test  #6: predict_closed_form_smoke ..........................   Passed    0.10 sec
+      Start  7: ledger_a_routing
+ 7/22 Test  #7: ledger_a_routing ...................................   Passed    1.90 sec
+      Start  8: look_elsewhere_smoke
+ 8/22 Test  #8: look_elsewhere_smoke ...............................   Passed    0.49 sec
+      Start  9: seed_leaves
+ 9/22 Test  #9: seed_leaves ........................................   Passed    0.01 sec
+      Start 10: precision_report
+10/22 Test #10: precision_report ...................................   Passed    0.01 sec
+      Start 11: precision_report_tsv
+11/22 Test #11: precision_report_tsv ...............................   Passed    0.01 sec
+      Start 12: precision_report_md
+12/22 Test #12: precision_report_md ................................   Passed    0.01 sec
+      Start 13: references_check
+13/22 Test #13: references_check ...................................   Passed    0.04 sec
+      Start 14: refinement_freeze
+14/22 Test #14: refinement_freeze ..................................   Passed    0.03 sec
+      Start 15: freestanding_symbols
+15/22 Test #15: freestanding_symbols ...............................   Passed    0.01 sec
+      Start 16: freeze_core_sha_matches_hub_freeze
+16/22 Test #16: freeze_core_sha_matches_hub_freeze .................   Passed    0.03 sec
+      Start 17: freeze_verify_domain_freeze_2026-10-02_AEB2AD
+17/22 Test #17: freeze_verify_domain_freeze_2026-10-02_AEB2AD ......   Passed    0.04 sec
+      Start 18: freeze_verify_py_domain_freeze_2026-10-02_AEB2AD
+18/22 Test #18: freeze_verify_py_domain_freeze_2026-10-02_AEB2AD ...   Passed    0.04 sec
+      Start 19: ledger_b
+19/22 Test #19: ledger_b ...........................................   Passed    8.75 sec
+      Start 20: evidence_tiers_report
+20/22 Test #20: evidence_tiers_report ..............................   Passed    0.01 sec
+      Start 21: ledger_b_corrected_report
+21/22 Test #21: ledger_b_corrected_report ..........................   Passed    0.01 sec
+      Start 22: ledger_b_genuine_misses
+22/22 Test #22: ledger_b_genuine_misses ............................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 22
+
+Total Test time (real) =  14.03 sec
