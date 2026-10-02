@@ -109,6 +109,9 @@ MSVC has no `__float128`, and its `long double` is the same as `double`. On MSVC
 `double` and 169-bit Boost types only (get Boost headers from vcpkg: `boost-multiprecision boost-math`).
 Use the 169-bit type when you need values that match Python exactly. MinGW-w64 GCC does support `__float128`. (The MSVC build has not been tested yet; CI covers Linux only.)
 
+Full reproduction guide (WSL2 recommended on Windows, with expected outputs for every check): [docs/REPRODUCE.md](docs/REPRODUCE.md).
+One-shot Linux/WSL2 check of all four CI jobs: `bash xval/cpp_check.sh`.
+
 ## Roadmap (from [docs/PORT_PLAN.md](docs/PORT_PLAN.md))
 1. ~~Ledger B panel re-scorer~~ (milestone 1) · ~~Ledger A emit + property routing~~ (milestone 2)
 2. ~~Closed-form sections in the freestanding core; `predict_closed_form` CLI; freezes; trit fixes T-1 to T-5~~ (milestone 3)
