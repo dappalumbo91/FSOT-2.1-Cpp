@@ -226,6 +226,7 @@ physics references. A manual pass over those (e.g. arXiv 1111.2048, 1710.11129, 
   domain table, and its QEMU serial log shows `collapse_theta = 0.917466377465`.
 - **D-03.** FSOT-2.0-code bundles hub authority 9B2450 (hub 2040826b, 2026-07-12).
 - **D-04.** The trit layouts disagree (Zig T1 vs code = t+1), and U maps to 0 in Zig but −1 in Rust. See T-1/T-2.
+- **Status (Milestone 3):** T-1/T-2 applied (Genetics, neuron-zig, GPU, Quantum), D-01 applied in FSOT-GPU only. Quantum, Reality-OS and the Genetics Zig K stay at D1D38A because their pins were not changed. See `docs/TRIT_SPEC.md` §4a.
 
 ## E. Credibility gaps a skeptical physicist would raise (connective pieces, not errors)
 1. **Look-elsewhere / formula multiplicity.** The closed forms combine about 12 seed-derived constants
@@ -273,22 +274,30 @@ next to the parity ones.
 | A-05 NaN tokens | read like Python | same values, plus each file's token counts and first line numbers in the report and on stderr | `pyjson.hpp::loads(text, NonFiniteLog*)` |
 | B-01 / B-02 non-predictions | rows unchanged | `fsot_report` tags `[non-prediction: computed=target]` (exact equality at run time) and `[non-prediction: input:a0=0.529177]` (generator taint analysis: any row whose expression depends on a local bound to a decimal literal), and prints the headline with and without them | `apps/fsot_report.cpp`, `tools/gen_closed_forms.py` → `LITERAL_INPUT_ROWS` |
 | B-03 truncated exponents | the literal as written | `Engine(Mode::corrected)`: every exponent literal that is a ≥12-digit truncation of p/q (q ≤ 12) is evaluated as p/q (generator emits `xexp(lit, p, q)`) | `include/fsot/engine.hpp`, `closed_forms.gen.inc` |
+| M3 zero-target rows (153 of the 188 genuine misses) | relative error against m = 0 | stored value kept (`zero_target_rows_kept_stored`); these rows store a residual as `computed` | `ledger_b.hpp::analyze_benchmark` |
+| M3 inequality rows (14) | c read as a point prediction | formula with `≤`/`<=`: error 0 when m ≤ c (`inequality_bound_rows`) | same |
+| M3 contraction row (1) | residual_after vs initial_offset compared as c vs m | 0 if the residual contracted, else 100 (`contraction_rows`) | same |
+| M3 rounded `computed` (12 genuine; 6,198 in total, mostly Ledger B) | error recomputed from a rounded `computed` | not recomputable → stored value (`computed_rounded_rows_kept_stored`), d = max(repr decimals, 6) | same |
+| M3 float noise at exactly 0.5 % (1) | 0.500000000000008 > 0.5 | gate limit 0.5·(1+1e−12) in corrected mode | same |
+| M3 freezes | hub domain-table freeze only | `apps/fsot_freeze_domain` writes/verifies dated SHA-256 freezes (core, extension folds, closed forms, Ledger A); tiers count them per row | `docs/FREEZES.md`, `host/freeze.hpp`, `host/tiers.hpp` |
 
-Trit-format fixes T-1 to T-5 stay as documented in `docs/TRIT_SPEC.md`.
+Trit-format fixes T-1 to T-5 were applied in the affected repos in Milestone 3 (one push each). Status, SHAs and
+the items deliberately left unchanged are in `docs/TRIT_SPEC.md` §4a. The 188-miss breakdown is in `docs/PRECISION_M3.md`.
 
 **Results, hub data @ 6f9c2560, pin AEB2AD** (full per-file report: `golden/ledger_b_corrected_6f9c2560.tsv`,
 regenerated and diffed in CI):
 
-| Quantity | Parity | Corrected |
-|---|---|---|
-| Gated scalars above 0.5 % | 0 | 6,378 (in 46 files) |
-| Green files (of 477 active) | 477 | 436 |
-| Stored `error_pct` disagreeing with its own fields (tolerance 1e−6 + 1e−4·err) | — | 56,804 |
-| Scalars gated on the stored value (`stored_only`) | — | 2,607 |
-| Ledger B structural corrections among gated scalars | — | 139,400 |
-| **Genuine predictions among gated scalars** | — | **43,796** (188 above 0.5 % after recompute) |
-| Ledger B records whose error can't be reproduced from the emitted `computed` | 47,994 of 140,088 (`round(c,6)`) | 0 (`round_sig(c,12)`) |
-| Non-standard JSON tokens | 257 NaN in 1 file, read silently | same, logged (first at line 785) |
+| Quantity | Parity | Corrected (M2) | Corrected (M3, current) |
+|---|---|---|---|
+| Gated scalars above 0.5 % | 0 | 6,378 (in 46 files) | **9 (in 7 files)**: 7 formula misses + 2 rows labelled `fsot_prediction` (see PRECISION_M3) |
+| Green files (of 477 active) | 477 | 436 | **471** |
+| Stored `error_pct` disagreeing with its own fields (tolerance 1e−6 + 1e−4·err) | — | 56,804 | 50,436 |
+| Scalars gated on the stored value (`stored_only`) | — | 2,607 | 9,735 (incl. 930 zero-target, 6,198 rounded-computed) |
+| Inequality-bound / contraction rows | — | — | 17 / 1 |
+| Ledger B structural corrections among gated scalars | — | 139,400 | 139,400 |
+| **Genuine predictions among gated scalars** | — | **43,796** (188 above 0.5 %) | **43,796 (7 above 0.5 %)** |
+| Ledger B records whose error can't be reproduced from the emitted `computed` | 47,994 of 140,088 (`round(c,6)`) | 0 (`round_sig(c,12)`) | 0 |
+| Non-standard JSON tokens | 257 NaN in 1 file, read silently | same, logged (first at line 785) | same |
 
 The A-04 entry above gives 6,242 records / 40 files from an earlier one-off Python count. That count used
 its own record selection (stored ≤ 0.5 % and recomputed > 0.5 %). The 6,378 / 46 here comes from the C++

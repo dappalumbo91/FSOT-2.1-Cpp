@@ -34,9 +34,15 @@ Nothing is promoted without dated evidence. Every rule errs toward the lower tie
    - Such a record is TIER 3 if its use date is later than the freeze date, and TIER 2 otherwise.
    - Every other record is TIER 1, with the reason recorded.
 5. **Domain tiers.**
-   - A core domain is TIER 2 if the domain-table freeze counts, and TIER 3 only if at least one of its records is TIER 3.
-   - Any other domain (extension or unattributed) is TIER 1.
-6. **Ledger A and closed-form rows.** These are TIER 1 unless a counting freeze covers their expression.
+   - A domain is TIER 2 if a counting freeze covers its row (the domain-table freeze for the 35 core domains, or a row of a counting `freezes/*.json`), and TIER 3 only if at least one of its records is TIER 3.
+   - Any other domain (unattributed, or not in any counting freeze) is TIER 1.
+   - With several counting freezes, a row takes the earliest one.
+6. **Ledger A and closed-form rows.** These are TIER 1 unless a counting freeze covers their expression and value.
+   - Rows covered by `freezes/*.json` (`la:<id>`, `cf:<section>/<row>`) are TIER 2: their anchors and targets predate the freeze.
+7. **This repo's freezes** (`freezes/*.json`, written by `apps/fsot_freeze_domain`; see `docs/FREEZES.md`) count per row. The conditions are:
+   - The file is at the live pin.
+   - The `selection_sha256` is in this repo's git history.
+   - Every `row_sha256` and the `selection_sha256` are re-derived from the live mapping.
 
 ## Result at hub 6f9c2560 / pin AEB2AD
 
@@ -47,25 +53,29 @@ Nothing is promoted without dated evidence. Every rule errs toward the lower tie
 | `predictions/toe_prereg_freeze.json` | no | `bundle_sha256` present, but frozen at pin D1D38A, not the live pin AEB2AD |
 | `predictions/preregistered_predictions_manifest.yaml` | no | `registered_at` 2026-07-10, **no hash**. The file's first commit is 2026-08-06 (`7f29b18`) |
 
+| `freezes/domain_freeze_2026-10-02_AEB2AD.json` (this repo) | yes | `selection_sha256` `580eb6e7…` re-derived over 796 rows; dated 2026-10-02 (first commit in this repo the same day) |
+
 | Class | Gated records | Domains | Ledger A rows | Closed-form rows with target |
 |---|---|---|---|---|
-| TIER 1 EXPLORATORY | 17,406 | 33 | 21 | 323 |
-| TIER 2 FROZEN-PENDING | 3 | 35 | 0 | 0 |
+| TIER 1 EXPLORATORY | 17,406 | 12 | 0 | 0 |
+| TIER 2 FROZEN-PENDING | 3 | 56 | 21 | 323 |
 | TIER 3 CONFIRMED HELD-OUT | 0 | 0 | 0 | 0 |
 | STRUCTURAL/IDENTITY | 165,787 (139,400 Ledger B, 26,387 target = computed) | — | 0 | 20 |
 
-**Why nothing is TIER 3.** All 478 benchmark files were first committed between 2026-07 and 2026-09-11. The
-only freeze that counts is dated 2026-09-14. So no scored data postdates a counting freeze.
+Before the 2026-10-02 freeze (Milestone 2), the counts were: domains 33 TIER 1 / 35 TIER 2, Ledger A 21 TIER 1, closed-form 323 TIER 1.
 
-**Why the domains are only TIER 2.** The 35-row table is frozen, but only Ledger B corrections (bucket)
-and 3 TIER 2 records have been scored with it.
+**Why nothing is TIER 3.** All 478 benchmark files were first committed between 2026-07 and 2026-09-11.
+That is before both counting freezes (2026-09-14 and 2026-10-02). So no scored data postdates a counting freeze.
 
-The 33 TIER 1 domains are the extension and other domain names that appear on records and are not in the
-hashed table. The per-domain table with counts and reasons is in the `domain` lines of the golden TSV.
+**Why the domains are only TIER 2.** The frozen rows have only been scored by Ledger B corrections (bucket)
+and by 3 TIER 2 records. The 12 TIER 1 domains are `(unattributed)`, `*` and other names that are neither
+core domains nor reachable extension folds. The per-domain table with counts and reasons is in the `domain` lines of the golden TSV.
 
 **What would change these tiers (not a recommendation, just the rule):**
-- Ledger A would become TIER 2 if `LEDGER_A_FREEZE.yaml` carried a hash of its rows.
-- Any record would become TIER 3 once scored on data first committed after its counting freeze.
+- A record becomes TIER 3 once it is scored with a frozen row on data first committed after that row's freeze.
+- A Ledger A or closed-form value becomes TIER 3 once it is compared with a number first published after 2026-10-02.
+
+Candidate data is listed in `docs/PROMOTION_WATCH.md`.
 
 Evidence is regenerated in CI from the hub's git history (`tools/gen_tier_evidence.py`) and diffed against
 `golden/tier_evidence_6f9c2560.json`.

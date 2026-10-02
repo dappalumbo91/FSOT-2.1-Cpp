@@ -37,12 +37,14 @@ jobs:
           python tools/gen_closed_forms.py --authority authority/fsot_compute.py
           python tools/dump_golden.py --authority authority/fsot_compute.py
       - name: Generated files must match the committed ones
-        run: git diff --exit-code -- include/fsot/closed_forms.gen.inc golden/golden_AEB2AD.tsv
+        run: git diff --exit-code -- include/fsot/closed_forms.gen.inc include/fsot/closed_forms_core.gen.inc golden/golden_AEB2AD.tsv
   ledger-b:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # freezes/*.json are dated by their first commit in this repo (gen_tier_evidence.py)
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"

@@ -70,6 +70,13 @@ add_test(NAME ternary COMMAND test_ternary)
 add_executable(test_core tests/test_core.cpp)
 target_link_libraries(test_core PRIVATE fsot)
 add_test(NAME core_vs_engine COMMAND test_core)
+add_executable(test_core_closed_forms tests/test_core_closed_forms.cpp)
+target_include_directories(test_core_closed_forms PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_compile_definitions(test_core_closed_forms PRIVATE FSOT_GOLDEN_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/golden_AEB2AD.tsv")
+add_test(NAME core_closed_forms_vs_golden COMMAND test_core_closed_forms)
+add_executable(predict_closed_form apps/predict_closed_form.cpp)
+target_include_directories(predict_closed_form PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+add_test(NAME predict_closed_form_smoke COMMAND predict_closed_form --name H0 --digits 12)
 
 # Ledger A emit + property routing (generated tables; needs a >=113-bit type for float(value) exactness).
 if(Boost_FOUND OR FSOT_WITH_FLOAT128)
@@ -101,9 +108,24 @@ set(FSOT_HUB_DATA "" CACHE PATH "FSOT-2.1-Lean checkout at AUTHORITY_PIN.json le
 if(nlohmann_json_FOUND AND (Boost_FOUND OR FSOT_WITH_FLOAT128))
   add_executable(fsot_ledger_b apps/fsot_ledger_b.cpp)
   target_link_libraries(fsot_ledger_b PRIVATE fsot nlohmann_json::nlohmann_json)
+  # dated SHA-256 freeze writer/verifier (docs/FREEZES.md)
+  add_executable(fsot_freeze_domain apps/fsot_freeze_domain.cpp)
+  target_link_libraries(fsot_freeze_domain PRIVATE fsot nlohmann_json::nlohmann_json)
+  add_test(NAME freeze_core_sha_matches_hub_freeze
+           COMMAND sh -c "test \"$($<TARGET_FILE:fsot_freeze_domain> --print-core-sha)\" = 8e30e85e72091462c4d66df2d498afb36ccbc2d40eb5df01b4e083947c79dad3")
+  find_package(Python3 COMPONENTS Interpreter QUIET)
+  file(GLOB FSOT_FREEZES ${CMAKE_CURRENT_SOURCE_DIR}/freezes/*.json)
+  foreach(fz ${FSOT_FREEZES})
+    get_filename_component(fzn ${fz} NAME_WE)
+    add_test(NAME freeze_verify_${fzn} COMMAND fsot_freeze_domain --verify ${fz})
+    if(Python3_Interpreter_FOUND)
+      add_test(NAME freeze_verify_py_${fzn} COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_freeze.py ${fz})
+    endif()
+  endforeach()
   if(FSOT_HUB_DATA)
     add_test(NAME ledger_b COMMAND fsot_ledger_b --hub ${FSOT_HUB_DATA} --golden ${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_b_6f9c2560.tsv
              --corrected-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_corrected.tsv
+             --genuine-misses-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_genuine_misses.tsv
              --tier-evidence ${CMAKE_CURRENT_SOURCE_DIR}/golden/tier_evidence_6f9c2560.json
              --tiers-out ${CMAKE_CURRENT_BINARY_DIR}/evidence_tiers.tsv)
     add_test(NAME evidence_tiers_report COMMAND ${CMAKE_COMMAND} -E compare_files
@@ -112,6 +134,9 @@ if(nlohmann_json_FOUND AND (Boost_FOUND OR FSOT_WITH_FLOAT128))
     add_test(NAME ledger_b_corrected_report COMMAND ${CMAKE_COMMAND} -E compare_files
              ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_corrected.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_b_corrected_6f9c2560.tsv)
     set_tests_properties(ledger_b_corrected_report PROPERTIES DEPENDS ledger_b)
+    add_test(NAME ledger_b_genuine_misses COMMAND ${CMAKE_COMMAND} -E compare_files
+             ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_genuine_misses.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_b_genuine_misses_6f9c2560.tsv)
+    set_tests_properties(ledger_b_genuine_misses PROPERTIES DEPENDS ledger_b)
   endif()
 else()
   message(STATUS "fsot: nlohmann_json not found; fsot_ledger_b disabled")

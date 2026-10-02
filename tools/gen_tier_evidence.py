@@ -6,6 +6,8 @@ itself is done in C++ (include/fsot/host/tiers.hpp) so the rules live in one pla
 Writes golden/tier_evidence_<commit8>.json:
   freezes[]: file, claimed date, explicit hash (if any) and the earliest commit whose version of the file
              already carried that hash (git pickaxe), pin, and what the freeze covers.
+  cpp_freezes[]: this repo's freezes/*.json (apps/fsot_freeze_domain), dated by the first commit of THIS repo
+             whose version of the file carries selection_sha256; per-row hashes for re-derivation in C++.
   benchmark_files{}: first commit that added data/<name> (--full-history --no-renames) and its date, and the
              last commit touching it.
 """
@@ -99,10 +101,20 @@ def main() -> int:
     present = {q.name for q in (hub / "data").glob("*_benchmark.json")}
     files = {k: v for k, v in sorted(files.items()) if k in present}
     missing = sorted(present - files.keys())
-    out = {"hub_commit": head, "freezes": freezes, "benchmark_files": files, "benchmark_files_without_add_commit": missing}
+    # 5. freezes written by this repo's apps/fsot_freeze_domain (freezes/*.json), dated by THIS repo's git
+    cpp_freezes = []
+    for q in sorted((ROOT / "freezes").glob("*.json")):
+        d = json.loads(q.read_text())
+        rel = q.relative_to(ROOT).as_posix()
+        c, cd = first_commit_with(ROOT, rel, d["selection_sha256"])
+        cpp_freezes.append({"id": "cpp:" + rel, "file": "FSOT-2.1-Cpp/" + rel, "claimed_date": d["freeze_date"],
+                            "pin_prefix": d["pin_prefix"], "hash_field": "selection_sha256", "hash": d["selection_sha256"],
+                            "hash_first_commit": c, "hash_first_commit_date": cd, "covers": "domain_rows",
+                            "rows": {r["domain"]: r["row_sha256"] for r in d["domains"]}})
+    out = {"hub_commit": head, "freezes": freezes, "cpp_freezes": cpp_freezes, "benchmark_files": files, "benchmark_files_without_add_commit": missing}
     dst = ROOT / "golden" / f"tier_evidence_{head[:8]}.json"
     dst.write_text(json.dumps(out, indent=1, sort_keys=True, ensure_ascii=False) + "\n")
-    print(f"wrote {dst.relative_to(ROOT)}: {len(freezes)} freezes, {len(files)} benchmark files dated, {len(missing)} undated")
+    print(f"wrote {dst.relative_to(ROOT)}: {len(freezes)} hub freezes, {len(cpp_freezes)} cpp freezes, {len(files)} benchmark files dated, {len(missing)} undated")
     return 0
 
 

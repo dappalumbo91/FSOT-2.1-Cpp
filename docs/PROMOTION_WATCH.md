@@ -1,0 +1,40 @@
+# Promotion watch (retrieved 2026-10-02, 00:16–00:17 ET)
+
+This page lists frozen items that public data released after their freeze could score as held-out (TIER 3).
+Two freezes are usable:
+- **Core domain table** (35 domain scalars): hub `data/domain_table_freeze.json`, frozen **2026-09-14**, hash in git since 2026-09-11.
+- **This repo's `freezes/domain_freeze_2026-10-02_AEB2AD.json`:** extension folds, closed-form rows and Ledger A expressions, frozen **2026-10-02** (`docs/FREEZES.md`).
+
+Rules for this list:
+- Only free, public sources. Nothing behind a paywall or login was downloaded.
+- Every source was fetched once with `curl` (the PDG API release via authenticated `gh api`). The sha256 is of the bytes fetched at retrieval time.
+- Rolling pages and feeds (USGS, SWPC, NCEI, ESA) change, so their checksums identify the snapshot, not a permanent file.
+- The fetched copies are not committed (third-party content). Re-fetch and compare.
+- No new data was scored in this milestone, and the hub was not modified.
+
+**Caveat that applies to most rows:** the hub pipelines for USGS, NCEI and Gaia emit Ledger B rows (`eval_kind` `fsot_prediction`, c = m(1+|S|α)).
+Those rows are STRUCTURAL: they are built from the measurement, so re-running those pipelines on new data cannot produce TIER 3.
+Held-out scoring needs a record that does not take the measured value as input. Two such kinds exist:
+- a record using the frozen domain scalar;
+- a frozen closed-form or Ledger A value compared with a newly published number.
+
+| Status | Frozen item (freeze date) | Source | Released | Link / DOI | sha256 (fetched bytes) | Scorable quantity | Held-out note |
+|---|---|---|---|---|---|---|---|
+| RELEASED_AFTER_FREEZE | core domain Cosmology (domain scalar) (2026-09-14) | arXiv:2609.17684 megamaser H0 reanalysis (MCP, 5 galaxies) | 2026-09-15 (arXiv v1) | https://arxiv.org/abs/2609.17684 | `3aed1a7eeab11a0169a752ff9fecbf641531650ead5d003c26e4495e04480756` | H0 = 71.6 +/- 3.7 km/s/Mpc (stat.); NGC 4258 D_A = 7.558 +/- 0.073 Mpc | Held-out for the 2026-09-14 core freeze if scored by a record that uses the frozen Cosmology scalar. NOT held-out for Ledger A H0_PLANCK_CLASS or closed-form H0 rows (expressions frozen 2026-10-02, after the paper). Local-ladder vs Planck-class comparability is a decision item. |
+| RELEASED_AFTER_FREEZE | core domain Cosmology (domain scalar) (2026-09-14) | arXiv:2609.29996 TRGB two-rung ladder H0 | 2026-09-24 (arXiv v1) | https://arxiv.org/abs/2609.29996 | `7bf4e909e29174921e8eb9c3aef1a6df5bc656a423520825d043ab032c585f7a` | H0 = 68.4 +/- 5.9 (equal weights) or 72.3 +/- 2.6 (evidence weights) km/s/Mpc | As above; the paper states this ladder cannot yet arbitrate the Hubble tension (two weightings, one value set by a single realisation). |
+| RELEASED_AFTER_FREEZE | core domain Geophysics (domain scalar) (2026-09-14) | IERS Bulletin A Vol. XXXIX No. 038 | 2026-09-17 | https://datacenter.iers.org/data/6/bulletina-xxxix-038.txt | `6a23623f37af07c577f79c2dd6587d05dbb7593e9abd0c3ec028df3daba8398b` | daily x/y pole, UT1-UTC (rapid values and predictions) | Held-out only through a new non-structural record; weekly issues continue (each later issue also postdates the freeze). |
+| RELEASED_AFTER_FREEZE | core domains Seismology, Geophysics (domain scalars) (2026-09-14) | USGS ComCat M4.5+ past-30-days GeoJSON feed | rolling; 295 of 528 events dated after 2026-09-14 (feed generated 2026-10-02) | https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson | `214ab574775faa4f75d24b3ff9e29d90536ee0348614bd4e734f68054f68e34e` | event magnitudes/depths after the freeze | Re-running the hub's current pipeline on these events would still give STRUCTURAL rows (target-derived); held-out scoring needs a scorer that does not take m. Snapshot checksum only (feed changes every minute). |
+| RELEASED_AFTER_FREEZE | core domain Astrophysics; extension fold Space_Weather (2026-09-14 (core) / 2026-10-02 (extension)) | NOAA SWPC observed solar-cycle indices (monthly) | 2026-09 monthly value present at retrieval | https://services.swpc.noaa.gov/json/solar-cycle/observed-solar-cycle-indices.json | `62a9c8d215831eda7580d27186b054edba47315868a10c004f37c1586c309fb4` | 2026-09: SSN 60.3, SWPC SSN 68.73, F10.7 105.41 | Postdates the core freeze; predates the 2026-10-02 extension freeze, so NOT held-out for Space_Weather. The 2026-10 value (published about 2026-11-01) would postdate both. |
+| SCHEDULED | core domain Meteorology (domain scalar) (2026-09-14) | NOAA NCEI Monthly Global Climate Report, September 2026 | page states 'September U.S. Release: Thu, Oct 8, 2026' | https://www.ncei.noaa.gov/access/monitoring/monthly-report/global/202608 | `f0b628f0649d9f311dd1fba0dacb9580f2f70b96c32c1c47679d70bd4c2dae79` | monthly global/land/ocean anomalies | Would postdate the core freeze; same STRUCTURAL caveat as USGS. The August report (2026-09-10) predates the freeze. |
+| SCHEDULED | core domains Astronomy, Astrophysics; closed-form rows (2026-09-14 / 2026-10-02) | ESA Gaia DR4 (66 months) | 2026-12-02 (scheduled) | https://www.cosmos.esa.int/web/gaia/release | `c6af4d82c5a68357ad9b63990a6c9fb02eae51f4a11f32791bf73f276ba09b56` | parallaxes, astrometry, photometry | Would postdate both freezes; same STRUCTURAL caveat. |
+| SCHEDULED | Ledger A cosmology rows (H0_PLANCK_CLASS, n_s, sigma_8, Omega_b_h2, Omega_DM_h2, Omega_Lambda, Dark_energy_wa) and core Cosmology (2026-10-02 / 2026-09-14) | ESA Euclid DR1 (Foundation release: raw data, calibrated images, catalogues, spectra) | November 2026 (scheduled); higher-level science products mid-2027 | https://www.cosmos.esa.int/web/euclid/dr1-timeline | `36fc63c5e658a37b491e74fc76ea49c1275afd8ecd559b257b03a07b379a781a` | cosmological parameters only once science products are published | Held-out for Ledger A only for parameter values first published after 2026-10-02. |
+| NOT_YET_RELEASED | Ledger A cosmology rows (2026-10-02) | DESI DR2 public spectra/redshifts | not released at retrieval (Data Releases page lists EDR 2023-06-13 and DR1 2025-03-19); DR2 cosmology chains were published 2025-10-06 | https://data.desi.lbl.gov/doc/releases/ | `d71a5a1ddb90736e0e30f4fa6347dbb8fed5829afce4b80e71f850486f10d697` | BAO distances (the DR2 cosmology results themselves predate both freezes) | DR2 cosmology numbers are NOT held-out (2025). Only results first published after 2026-10-02 would be. |
+| SCHEDULED | Ledger A inv_alpha_em, m_mu_over_m_e; closed-form constant rows (2026-10-02) | CODATA 2026 adjustment of the fundamental constants | input closing date 2026-12-31; values expected in 2027 | https://codata.org/initiatives/data-science-and-stewardship/fundamental-physical-constants/ | `577bb015cc45a7028ffdb204336b19a63131372b5a0f6fcce2cc00fd3d9a657d` | recommended values (alpha, mass ratios, Rydberg) | Held-out for Ledger A and closed-form rows frozen 2026-10-02. |
+| RELEASED_BEFORE_FREEZE | Ledger A alpha_s_MZ, sin2_theta_W, m_tau_over_m_e, m_pi_over_m_p; core Particle_Physics (2026-09-14 / 2026-10-02) | PDG Review of Particle Physics 2026 (API v2026.0) | 2026-06-01 (published_at 2026-06-01T22:08:38Z = 18:08 ET) | https://pdg.lbl.gov/2026/index.html ; https://github.com/particledatagroup/api/releases/tag/v2026.0 ; DOI 10.1142/S0217751X26300115 | `947ceb640a7bf6f20027d6677c2402984f633be3d0e402ad04809cb5139e6e02 ; 3a85691b1e49ad4e5571da1df51130b15ec7fe1f77c35a5dc8d6fe82b558b90d` | Summary Tables | NOT held-out (predates both freezes). Listed so it is not mistaken for new data; the next PDG update (2027) would be. |
+
+Machine-readable copy with the hub route for each item: `audit/promotion_watch_2026-10-02.tsv`.
+
+Checked and not new:
+- **CODATA:** the latest set is 2022; the 2026 adjustment closes on 2026-12-31.
+- **AME:** AME2020 is still the latest atomic mass evaluation, per a search on the IAEA AMDC page. That page was not fetched, so there is no checksum.
+- **CMS W mass** (Nature, published online 2026-04-08), **muon g−2 final** (June 2026) and the **PDG 2026** edition (2026-06-01) all predate both freezes.

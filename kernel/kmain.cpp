@@ -1,5 +1,6 @@
 // FSOT bare-metal demo (x86_64, no OS, no libc): evaluates the FSOT 2.1 core in balanced ternary
-// (BTFloat<110>, about 52 decimal digits) and prints the 35 domain scalars S over COM1, then exits QEMU
+// (BTFloat<110>, about 52 decimal digits) and prints the 35 domain scalars S and the 368 closed-form rows
+// over COM1, then exits QEMU
 // through the isa-debug-exit device. Every arithmetic operation on S is ternary (two bit-planes per word).
 #include "fsot/core.hpp"
 
@@ -19,6 +20,17 @@ static void putint(long long v) {
   do { b[n++] = char('0' + v % 10); v /= 10; } while (v);
   while (n) putc(b[--n]);
 }
+
+// Closed-form sink: "CF <index> <name> <value>" (40 significant digits, ternary-rendered).
+struct SerialSink {
+  int n = 0;
+  void operator()(const core::CfRow<F>& r) {
+    char nb[160], vb[160];
+    core::cf_name(r, nb, sizeof nb);
+    core::to_decimal(r.value, 40, vb, sizeof vb);
+    puts("CF "); putint(n++); putc(' '); puts(nb); putc(' '); puts(vb); putc('\n');
+  }
+};
 
 extern "C" {
 // the compiler may emit these for struct copies
@@ -44,6 +56,9 @@ void kmain() {
     puts("S "); puts(core::NEST[i].name); puts(" D_eff="); putint(eng.derived_D_eff(i)); putc(' '); puts(buf); putc('\n');
   }
   puts("DONE 35\n");
+  SerialSink sink;  // the 26 closed-form sections (closed_forms_core.gen.inc), also all ternary
+  eng.all_sections(sink);
+  puts("DONE CF "); putint(sink.n); putc('\n');
   outb(0xF4, 0x10);  // isa-debug-exit: QEMU exits with status (0x10 << 1) | 1 = 33
   for (;;) asm volatile("hlt");
 }

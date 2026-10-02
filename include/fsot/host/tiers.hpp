@@ -14,6 +14,10 @@
 //   * Data use date = first commit that added the benchmark file (a lower bound for any record in it, so the
 //     comparison "freeze < use" can only err toward NOT promoting).
 //   * TIER 3 needs use date > freeze date (strictly later calendar day). Equal day or earlier -> TIER 2.
+//   * Freezes written by apps/fsot_freeze_domain (this repo's freezes/*.json, "cpp_freezes" in the evidence
+//     file) count per row: usable only at the live pin, with the hash in this repo's git, and with EVERY frozen
+//     row_sha256 and the selection_sha256 re-derived from the live mapping (host/freeze.hpp). A domain's freeze
+//     date is the earliest usable freeze that covers it.
 #pragma once
 #include <algorithm>
 #include <cmath>
@@ -24,6 +28,7 @@
 #include <vector>
 
 #include "fsot/engine.hpp"
+#include "fsot/host/freeze.hpp"
 #include "fsot/host/ledger_b.hpp"
 #include "fsot/host/sha256.hpp"
 
@@ -61,6 +66,7 @@ inline std::string day(const json& v) { return v.is_string() ? v.get<std::string
 
 struct Freeze {
   std::string id, file, date, hash, pin, reason;
+  std::vector<std::string> rows;  // cpp freezes: covered domains
   bool usable = false;  // hashed + dated + covers the live mapping
 };
 
@@ -72,6 +78,8 @@ struct Counts {
 
 struct Report {
   Freeze domain_freeze, ledger_a_freeze, toe_freeze, prereg_manifest;
+  std::vector<Freeze> cpp_freezes;
+  std::map<std::string, const Freeze*> dom_freeze;  // domain -> earliest usable freeze covering its row
   std::map<std::string, std::string> file_first_added;  // benchmark file -> YYYY-MM-DD
   Counts records;
   std::map<std::string, Counts> by_domain;
@@ -105,6 +113,44 @@ struct Report {
       else if (z.id == "toe_prereg_freeze") toe_freeze = z;
       else if (z.id == "preregistered_predictions_manifest") prereg_manifest = z;
     }
+    if (ev.contains("cpp_freezes"))
+      for (const auto& f : ev.at("cpp_freezes")) {
+        Freeze z;
+        z.id = f.at("id").get<std::string>();
+        z.file = f.at("file").get<std::string>();
+        z.pin = f.value("pin_prefix", "");
+        z.hash = f.value("hash", "");
+        const std::string claimed = day(f.value("claimed_date", json())), git_day = day(f.value("hash_first_commit_date", json()));
+        z.date = std::max(claimed, git_day);
+        std::vector<const freeze::Row*> rows;
+        std::string bad;
+        for (auto& [name, sha] : f.at("rows").items()) {
+          const auto* L = freeze::live_row(name);
+          if (!L) { bad = name + " not in the live mapping"; break; }
+          if (L->sha != sha.get<std::string>()) { bad = name + " row hash != live row"; break; }
+          rows.push_back(L);
+        }
+        if (z.pin != live_pin) z.reason = z.file + ": frozen at pin " + z.pin + ", live pin " + std::string(live_pin);
+        else if (git_day.empty()) z.reason = z.file + ": hash not found in git history";
+        else if (!bad.empty()) z.reason = z.file + ": " + bad;
+        else if (freeze::table_sha(rows) != z.hash) z.reason = z.file + ": selection_sha256 != live rows";
+        else {
+          z.usable = true;
+          z.reason = z.file + " selection_sha256 " + z.hash.substr(0, 12) + " re-derived (" + std::to_string(rows.size()) +
+                     " rows); frozen " + z.date + " (hash in git since " + git_day + ")";
+        }
+        z.rows.reserve(rows.size());
+        for (auto* r : rows) z.rows.push_back(r->domain);
+        cpp_freezes.push_back(z);
+      }
+    if (domain_freeze.usable)
+      for (auto& d : core) dom_freeze[d] = &domain_freeze;
+    for (auto& z : cpp_freezes)
+      if (z.usable)
+        for (auto& d : z.rows) {
+          auto it = dom_freeze.find(d);
+          if (it == dom_freeze.end() || z.date < it->second->date) dom_freeze[d] = &z;
+        }
     for (auto& [k, v] : ev.at("benchmark_files").items()) file_first_added[k] = day(v.at("first_added_date"));
   }
 
@@ -130,17 +176,21 @@ struct Report {
       if (c && m && c->is_number() && m->is_number() && c->get<double>() == m->get<double>())
         return put(Tier::STRUCT, "target equals computed");
     }
-    // covered by the domain-table freeze only if the record was scored with the frozen table
-    if (domain_freeze.usable && core.count(dom)) {
+    // covered by a freeze only if the record was scored with the frozen row (fsot_scalar == round(live S, 6))
+    if (auto fz = dom_freeze.find(dom); fz != dom_freeze.end()) {
+      const Freeze& z = *fz->second;
       auto fs = ledger_b::get(r, "fsot_scalar");
-      auto it = S.find(dom);
-      std::optional<double> f;
+      std::optional<double> f, live;
       if (!ledger_b::is_none(fs)) f = ledger_b::to_float(*fs);
-      if (f && it != S.end() && *f == py::round_nd(it->second, 6)) {
+      if (auto it = S.find(dom); it != S.end()) live = it->second;
+      else if (const auto* L = freeze::live_row(dom)) live = L->scalar;
+      if (f && live && *f == py::round_nd(*live, 6)) {
         const std::string use = file_first_added.count(file) ? file_first_added.at(file) : "";
+        const std::string what = &z == &domain_freeze ? std::string("domain-table freeze ") : z.id + " ";
         if (use.empty()) return put(Tier::T1, "frozen domain table, but no dated first use of " + file);
-        if (use > domain_freeze.date) return put(Tier::T3, "domain-table freeze " + domain_freeze.date + " predates first use " + use);
-        return put(Tier::T2, "scored with frozen domain table; data first used " + use.substr(0, 7) + " <= freeze " + domain_freeze.date);
+        if (use > z.date) return put(Tier::T3, what + z.date + " predates first use " + use);
+        if (&z == &domain_freeze) return put(Tier::T2, "scored with frozen domain table; data first used " + use.substr(0, 7) + " <= freeze " + z.date);
+        return put(Tier::T2, "scored with row frozen in " + z.id + "; data first used " + use.substr(0, 7) + " <= freeze " + z.date);
       }
     }
     if (has_pred_id(r)) return put(Tier::T1, "PRED id: " + prereg_manifest.reason);
@@ -148,11 +198,16 @@ struct Report {
   }
 
   Tier domain_tier(const std::string& d, std::string& why) const {
-    if (!core.count(d)) { why = "not in a hashed freeze (domain_table_freeze covers the 35 core domains)"; return Tier::T1; }
-    if (!domain_freeze.usable) { why = domain_freeze.reason; return Tier::T1; }
+    auto fz = dom_freeze.find(d);
+    if (fz == dom_freeze.end()) {
+      if (core.count(d)) { why = domain_freeze.reason; return Tier::T1; }
+      why = "not in a hashed freeze (domain_table_freeze covers the 35 core domains; no usable freezes/*.json row)";
+      return Tier::T1;
+    }
+    const Freeze& z = *fz->second;
     auto it = by_domain.find(d);
-    if (it != by_domain.end() && it->second.t[int(Tier::T3)] > 0) { why = "frozen table; scored on data first used after " + domain_freeze.date; return Tier::T3; }
-    why = "row hashed in " + domain_freeze.reason + "; no non-structural record scored with it on data first used after the freeze";
+    if (it != by_domain.end() && it->second.t[int(Tier::T3)] > 0) { why = "frozen " + (&z == &domain_freeze ? std::string("table") : z.id) + "; scored on data first used after " + z.date; return Tier::T3; }
+    why = "row hashed in " + z.reason + "; no non-structural record scored with it on data first used after the freeze";
     return Tier::T2;
   }
 };

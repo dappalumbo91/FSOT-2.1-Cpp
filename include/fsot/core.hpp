@@ -49,6 +49,59 @@ template <class R> R ipow(const R& x, int n) {  // binary powering, as fsot::m::
   return result;
 }
 
+// One closed-form row for a freestanding sink. The displayed name is
+//   name [num] ["_" name2]   and the formula   formula [fnum] [formula2]
+// (num/fnum < 0 and null name2/formula2 mean "absent"); this rebuilds the authority's f-string names
+// (Richardson_D=4, V24_alpha_s(M_Z), Layer_1_thickness, S_neuro D=13) without a heap.
+template <class R> struct CfRow {
+  const char* section = nullptr;
+  const char* name = nullptr;
+  int num = -1;
+  const char* name2 = nullptr;
+  const char* formula = nullptr;
+  int fnum = -1;
+  const char* formula2 = nullptr;
+  R value{};
+  bool has_target = false;
+  R target{};
+  const char* sigma = nullptr;  // decimal text of the authority's sigma argument, if any
+};
+
+// validation_suite re-emits wave1 as V24_..V28_ with sigma dropped (as the authority does).
+template <class R, class S> struct CfRelay {
+  S& out;
+  const char* section;
+  int next;
+  void operator()(const CfRow<R>& r) {
+    CfRow<R> x = r;
+    x.section = section; x.name2 = r.name; x.name = "V"; x.num = next++; x.sigma = nullptr;
+    out(x);
+  }
+};
+
+inline int put_str(char* out, int k, int cap, const char* s) { while (s && *s && k + 1 < cap) out[k++] = *s++; return k; }
+inline int put_int(char* out, int k, int cap, int v) {
+  char b[12]; int n = 0;
+  if (v < 0) { k = put_str(out, k, cap, "-"); v = -v; }
+  do { b[n++] = char('0' + v % 10); v /= 10; } while (v);
+  while (n && k + 1 < cap) out[k++] = b[--n];
+  return k;
+}
+template <class R> int cf_name(const CfRow<R>& r, char* out, int cap) {
+  int k = put_str(out, 0, cap, r.name);
+  if (r.num >= 0) k = put_int(out, k, cap, r.num);
+  if (r.name2) { k = put_str(out, k, cap, "_"); k = put_str(out, k, cap, r.name2); }
+  out[k] = 0;
+  return k;
+}
+template <class R> int cf_formula(const CfRow<R>& r, char* out, int cap) {
+  int k = put_str(out, 0, cap, r.formula);
+  if (r.fnum >= 0) k = put_int(out, k, cap, r.fnum);
+  if (r.formula2) k = put_str(out, k, cap, r.formula2);
+  out[k] = 0;
+  return k;
+}
+
 template <class R> class CoreEngine {
   using T = Traits<R>;
  public:
@@ -79,6 +132,10 @@ template <class R> class CoreEngine {
   R P_NEW = P_BASE * sqrt(R(2));
   R C_FACTOR = C_EFF * P_NEW;
   R K = PHI * (GAMMA / E) * sqrt(R(2)) / log(PI) * (R(1) - R(1) / ipow(PI, 4));
+  R C_COSM = R(1) / (PHI * ipow(PI, 2));
+  // B-03 corrected mode for the closed forms (truncated 1/3 exponents evaluated as p/q), as Engine(Mode::corrected).
+  bool corrected = false;
+  R xexp(const R& literal, int p, int q) const { return corrected ? R(p) / R(q) : literal; }
 
   // D_eff(g) = round(5 * 5^{g/(G-1)}): evaluated here in R (the authority uses IEEE double; no rung is
   // near a .5 tie, and tests/test_core.cpp checks all 35 against fsot::derived_D_eff).
@@ -113,6 +170,26 @@ template <class R> class CoreEngine {
     return K * (T1 + T2 + T3);
   }
   R domain_scalar(int i) const { return scalar_from_fold(derived_D_eff(i), fold_look(i), fold_hits(i), fold_observed(i)); }
+  static int domain_index(const char* name) {
+    for (int i = 0; i < DOMAIN_COUNT; ++i) if (streq(NEST[i].name, name)) return i;
+    return -1;
+  }
+  R domain_scalar(const char* name) const { const int i = domain_index(name); return i < 0 ? R(0) : domain_scalar(i); }
+  int derived_D_eff(const char* name) const { const int i = domain_index(name); return i < 0 ? 0 : derived_D_eff(i); }
+
+  // Constants the closed forms use (same definitions as Engine).
+  R S_COSM = domain_scalar("Cosmology");
+  R S_QUANT = domain_scalar("Quantum_Mechanics");
+  R S_CHEM = domain_scalar("Chemistry");
+
+  // ---- closed-form sections (§6–§26), generated from the authority: tools/gen_closed_forms.py ----
+  static CfRow<R> cf(const char* sec, const char* n, const char* f, const R& v) {
+    CfRow<R> r; r.section = sec; r.name = n; r.formula = f; r.value = v; return r;
+  }
+  static CfRow<R> cf(const char* sec, const char* n, const char* f, const R& v, const R& t, const char* sigma = nullptr) {
+    CfRow<R> r = cf(sec, n, f, v); r.has_target = true; r.target = t; r.sigma = sigma; return r;
+  }
+#include "fsot/closed_forms_core.gen.inc"
 };
 
 // Decimal rendering with ternary arithmetic only (scale by 10, peel digits with floor) into a caller

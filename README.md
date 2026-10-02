@@ -38,9 +38,12 @@ amplitude is f = ALPHA.
 - **Evidence tiers** for every gated record and domain ([docs/EVIDENCE_TIERS.md](docs/EVIDENCE_TIERS.md)).
 - **A look-elsewhere count** ([docs/LOOK_ELSEWHERE.md](docs/LOOK_ELSEWHERE.md)).
 - **A full citation/DOI pass** (`tools/check_citations.py`).
-- **Bare metal:** a freestanding `CoreEngine` (`include/fsot/core.hpp`) and an x86_64 kernel. It boots under QEMU and prints the 35 domain S, computed in balanced ternary, over serial ([docs/BARE_METAL.md](docs/BARE_METAL.md)).
+- **Bare metal:** a freestanding `CoreEngine` (`include/fsot/core.hpp`) and an x86_64 kernel. It boots under QEMU and prints, over serial, the 35 domain S and all 368 closed-form rows (26 sections), computed in balanced ternary ([docs/BARE_METAL.md](docs/BARE_METAL.md)).
+- **`predict_closed_form`:** CLI for any closed-form row in the freestanding ternary core (`--section`, `--name`, `--digits`, `--trits 40|72|110`, `--corrected`, `--tsv`, `--list-sections`).
+- **Freezes:** `fsot_freeze_domain` writes and verifies dated SHA-256 freezes of the live mapping against AEB2AD. The tiers count them per row ([docs/FREEZES.md](docs/FREEZES.md)). New post-freeze public data is tracked in [docs/PROMOTION_WATCH.md](docs/PROMOTION_WATCH.md).
+- **Precision pass:** the 188 genuine-prediction misses are split into data handling and formula, with the data-handling causes fixed in corrected mode ([docs/PRECISION_M3.md](docs/PRECISION_M3.md)).
 - Specs and audit: [docs/TRIT_SPEC.md](docs/TRIT_SPEC.md) (canonical trit wire format + codon mapping, cross-repo
-  mismatches and proposed fixes) and [docs/AUDIT_LOG.md](docs/AUDIT_LOG.md) (neutral rigor log with evidence).
+  mismatches, and the status of fixes T-1 to T-5 in the other repos) and [docs/AUDIT_LOG.md](docs/AUDIT_LOG.md) (neutral rigor log with evidence).
 
 Header-only: `#include "fsot/engine.hpp"`, then `fsot::Engine<double> e; e.domain_scalar("Thermodynamics");`.
 
@@ -108,7 +111,7 @@ Use the 169-bit type when you need values that match Python exactly. MinGW-w64 G
 
 ## Roadmap (from [docs/PORT_PLAN.md](docs/PORT_PLAN.md))
 1. ~~Ledger B panel re-scorer~~ (milestone 1) · ~~Ledger A emit + property routing~~ (milestone 2)
-2. Closed-form sections in the freestanding core; `predict_closed_form` CLI
+2. ~~Closed-form sections in the freestanding core; `predict_closed_form` CLI; freezes; trit fixes T-1 to T-5~~ (milestone 3)
 3. Trinary syntax rows, opcode registry loader, wire-format FSOTB loader — 1–2 days
 4. Extend the codegen to the hub's pure-math modules (seed_flavor, gr_sm, matter_antimatter, uniqueness_confinement, ckm_pmns, complex_interaction) — 1–2 weeks
 5. Numeric kernels (nse3d, path_sum, dynamics) — about 1 week
@@ -126,8 +129,10 @@ A survey of the engine and of every trinary implementation is in [docs/INVENTORY
 | `include/fsot/trit.hpp`, `fsotb_vm.hpp` | trinary core, FSOTB VM |
 | `include/fsot/ternary.hpp`, `core.hpp` | balanced-ternary arithmetic, freestanding core |
 | `include/fsot/host/` | Ledger A/B, routing, tiers, Python-semantics helpers (host only) |
+| `include/fsot/closed_forms_core.gen.inc` | generated freestanding closed-form sections (do not edit) |
 | `kernel/` | x86_64 bare-metal QEMU demo |
-| `audit/` | citation pass and look-elsewhere outputs |
+| `freezes/` | dated SHA-256 freezes (`fsot_freeze_domain`) |
+| `audit/` | citation pass, look-elsewhere, precision (M3) and promotion-watch outputs |
 | `tools/` | pinned fetch, codegen, golden export |
 | `golden/golden_AEB2AD.tsv` | golden values |
 | `tests/`, `bench/`, `apps/` | tests, benchmarks, report CLI |

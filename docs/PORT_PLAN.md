@@ -23,7 +23,7 @@
 | # | Item | Source | Effort |
 |---|---|---|---|
 | 1 | ~~Ledger B panel re-scorer~~ **done (milestone 1)** | hub data/ (478 benchmark files at 6f9c2560) | — |
-| 2 | ~~Ledger A emit~~ **done (milestone 2)**; a `predict_closed_form` CLI is still open | hub scripts | 0.5 d |
+| 2 | ~~Ledger A emit~~ **done (milestone 2)**; ~~`predict_closed_form` CLI~~ **done (milestone 3)** | hub scripts | — |
 | 3 | ~~Property routing~~ **done (milestone 2)** | hub scripts | — |
 | 4 | Trinary syntax rows + opcode registry loader; Reality-OS 27-op wire FSOTB loader | hub vendor, Reality-OS fsotb.rs | 1–2 d |
 | 5 | Extend AST codegen to pure-math modules: fsot_ckm_pmns, fsot_seed_flavor (97 fns), fsot_uniqueness_confinement, fsot_matter_antimatter, fsot_complex_interaction, fsot_gr_sm | hub vendor | 1–2 wk (codegen does most; hand-port loops) |
@@ -37,7 +37,7 @@ Rough total for full parity: 6–9 weeks. Items 1–4 (~1 week) cover the hub's 
 ## Milestones (long-running workstream)
 1. **Done:** Ledger B re-scorer · balanced-ternary core · TRIT_SPEC · AUDIT_LOG v1.
 2. **Done:** Ledger A emit + property routing · Fixed-in-C++ corrected modes · evidence tiers · citation pass · look-elsewhere tool · freestanding core + QEMU x86_64 ternary demo.
-3. Closed-form sections in the freestanding core (generator target without std::string/vector), the `predict_closed_form` CLI, and the trit-spec fixes T-1 to T-5 in code.
+3. **Done:** closed-form sections in the freestanding core and on bare metal · `predict_closed_form` CLI · `fsot_freeze_domain` dated freezes + promotion watch · trit-spec fixes T-1 to T-5 in the other repos (TRIT_SPEC §4a) · precision pass on the 188 genuine misses (PRECISION_M3).
 4. Pure-math vendor modules via the generator (item 5), numeric kernels (item 6).
 5. Data panels / gauntlet (item 7).
 
@@ -52,4 +52,6 @@ Rough total for full parity: 6–9 weeks. Items 1–4 (~1 week) cover the hub's 
    run `gen_closed_forms.py` + `dump_golden.py`, fail if generated files differ from the committed ones.
 3. `ledger-b`: sparse-clone the hub at `ledger_b_data_commit` (benchmark JSONs, anchor files, scripts, authority),
    regenerate `golden/ledger_b_6f9c2560.tsv` with the hub's own Python and diff it, then build `fsot_ledger_b`
-   and require byte-identical output.
+   and require byte-identical output (Ledger B golden, corrected report, genuine misses, evidence tiers). The tier
+   evidence (incl. this repo's `freezes/`) is regenerated from git with full history (`fetch-depth: 0`).
+4. `bare-metal`: build the kernel, boot it under QEMU, check the S and CF serial lines against the golden.

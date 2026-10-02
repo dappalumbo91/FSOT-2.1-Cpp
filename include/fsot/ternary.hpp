@@ -213,7 +213,7 @@ template <int N> struct TWord {
   constexpr int sign() const { return v.sign(); }
 };
 using Tryte = TWord<9>;    // 9 trits: 19,683 states (-9841..9841)
-using Word27 = TWord<27>;  // matches Reality-OS BalancedTernary27
+using Word27 = TWord<27>;  // 27 trits = Reality-OS ISA word_width_trits; same width as fsot::trit::BalancedTernary27 (trit.hpp). Reality-OS's VM itself holds i32 registers (TRIT_SPEC T-5)
 using Word40 = TWord<40>;  // largest word whose range fits int64: |x| <= (3^40-1)/2
 
 // ============================================================ BTFloat<P>
@@ -483,6 +483,22 @@ template <int P> BTFloat<P> cos(const BTFloat<P>& x) {
 template <int P> BTFloat<P> pow(const BTFloat<P>& x, const BTFloat<P>& y) {
   if (x.sign() <= 0) return BTFloat<P>();
   return detail::exp_k<P + GUARD>(y.template to<P + GUARD>() * detail::ln_k<P + GUARD>(x.template to<P + GUARD>())).template to<P>();
+}
+// acos on (-1, 1) by Newton on cos(y) = x (no libm): y <- y + (cos y - x) / sin y, from y0 = pi/2 - x,
+// in P + GUARD trits. Out-of-domain input returns 0 (no exceptions in the core).
+template <int P> BTFloat<P> acos(const BTFloat<P>& x) {
+  using F = BTFloat<P + GUARD>;
+  const F xf = x.template to<P + GUARD>();
+  if (!(xf < F(1)) || !(F(-1) < xf)) return BTFloat<P>();
+  F y = detail::pi<P + GUARD>() / F(2) - xf;
+  for (int it = 0; it < 200; ++it) {
+    F s, c;
+    detail::sincos_k<P + GUARD>(y, s, c);
+    const F d = (c - xf) / s;
+    y = y + d;
+    if (d.is_zero() || d.e + (P + GUARD) + 2 < y.e) break;
+  }
+  return y.template to<P>();
 }
 template <int P> BTFloat<P> pi() { return detail::pi<P + GUARD>().template to<P>(); }
 template <int P> BTFloat<P> e() { return detail::exp_k<P + GUARD>(BTFloat<P + GUARD>(1)).template to<P>(); }

@@ -251,6 +251,24 @@ inline double relative_error_pct(double c, double m) {
   if (m == 0) return c == 0 ? 0.0 : 100.0;
   return std::fabs(c - m) / std::fabs(m) * 100.0;
 }
+// Number of decimals in the shortest round-trip repr of x (Python repr): "2e-06" -> 6, "0.001" -> 3,
+// "1e-10" -> 10, "0.0" -> 0. Used to recognise computed fields that were stored as round(x, d).
+inline int repr_decimals(double x) {
+  if (x == 0 || !std::isfinite(x)) return 0;
+  const std::string r = fsot::py::repr(x);
+  const auto epos = r.find_first_of("eE");
+  const std::string mant = r.substr(0, epos);
+  const int exp10 = epos == std::string::npos ? 0 : std::stoi(r.substr(epos + 1));
+  const auto dot = mant.find('.');
+  int frac = 0;
+  if (dot != std::string::npos) {
+    std::string f = mant.substr(dot + 1);
+    while (!f.empty() && f.back() == '0') f.pop_back();
+    frac = int(f.size());
+  }
+  return std::max(0, frac - exp10);
+}
+
 inline int decimals_from_float(double v) {
   if (v == 0) return 0;
   const double tol = std::max(1e-12, std::fabs(v) * 1e-12);
@@ -346,8 +364,16 @@ struct Margin {
   std::optional<double> scalar_median, max_scalar, effective_median, max_effective, worst_effective, max_gate, tier_median;
   long rounding_ghost = 0, catalog_crosswalk = 0;
   long stored_only = 0, stored_over = 0, gate_over = 0, disagree = 0;  // corrected-mode bookkeeping
+  long zero_target = 0, bound_rows = 0, contraction_rows = 0, computed_rounded = 0;  // corrected-mode data handling (M3)
   long ledger_b_scalars = 0, genuine_scalars = 0, genuine_over = 0;     // fsot_prediction vs the rest
   std::vector<double> genuine_errs;
+  struct GenuineMiss {             // corrected mode: one genuine (non-Ledger-B) scalar over the 0.5 % gate
+    long index = 0;                // position in material_records
+    double stored = 0, recomputed = 0, effective = 0;
+    std::string aware_kind;        // literature_aware_error_pct kind (display_precision, uncertainty_band, ...)
+    bool within_display = false, within_literature = false;
+  };
+  std::vector<GenuineMiss> genuine_misses;
   bool strict_pass = true, effective_pass = true, tier_pass = true, tier_max_pass = true, median_pass = true;
   long classifier_count = 0, classifier_correct = 0;
   std::optional<double> classifier_accuracy;
@@ -371,6 +397,9 @@ inline const json& material_records(const json& doc) {
 inline Margin analyze_benchmark(const json& doc, const std::string& file_name, const Literature& lit, bool recompute = false) {
   Margin out;
   if (AUDIT_EXCLUDED_BENCHMARKS.count(file_name)) { out.excluded = true; return out; }
+  // Corrected mode compares recomputed errors with a 1e-12 relative tolerance on the 0.5 % gate, so an
+  // error that is exactly 0.5 % in exact arithmetic (e.g. 1/1000 vs 1/995) is not failed by float noise.
+  const double gate_lim = recompute ? MAX_SCALAR_ERROR_PCT * (1 + 1e-12) : MAX_SCALAR_ERROR_PCT;
   const json& mat = material_records(doc);
   for (const char* k : {"pooled_median_error_pct", "median_error_pct", "headline_median_error_pct"})
     if (auto v = get(doc, k); !is_none(v)) { out.pooled_headline = to_float(*v); break; }
@@ -388,7 +417,9 @@ inline Margin analyze_benchmark(const json& doc, const std::string& file_name, c
     }
     return Aware{ef, "raw"};
   };
+  long rec_index = -1;
   for (const auto& r : mat) {
+    ++rec_index;
     if (classify_record(r, file_name) != "scalar") continue;
     auto e = get(r, "error_pct");
     if (is_none(e)) continue;
@@ -409,7 +440,51 @@ inline Margin analyze_benchmark(const json& doc, const std::string& file_name, c
                                 (!is_none(get(r, "sigma_distance")) && !is_none(get(r, "sigma"))) ||
                                 (!is_none(get(r, "expected_holes")) && !is_none(get(r, "match"))) ||
                                 str_or_empty(r, "property") == "adversarial_hole_detected";
-      if (!non_relative && cf && mf && std::isfinite(*cf) && std::isfinite(*mf)) {
+      const bool finite = cf && mf && std::isfinite(*cf) && std::isfinite(*mf);
+      // M3 data-handling rules (docs/PRECISION_M3.md). None of them touches a formula or a constant:
+      //  zero_target  measured == 0: |c-m|/|m| is undefined; these rows store a residual as `computed`
+      //               (error_pct == computed by construction, e.g. domain_pooled_residual) -> keep stored.
+      //  bound        the record's formula is an inequality (contains U+2264 / "<="): `computed` is the
+      //               bound, so the error is 0 when measured <= computed, else the relative excess.
+      //  contraction  residual_after / initial_offset present (contract checks): 0 if it contracted, else 100.
+      //  rounded      `computed` is a value with d = max(repr decimals, 6) decimals (round(x, 6) or finer) and
+      //               |c - m| <= 0.5e-d, and the recomputed error exceeds the gate: the fields
+      //               cannot resolve the error, so the row is treated as not recomputable (stored value).
+      const std::string formula = str_or_empty(r, "formula");
+      const bool is_bound = formula.find("\xE2\x89\xA4") != std::string::npos || formula.find("<=") != std::string::npos;
+      auto ra = get(r, "residual_after");
+      auto io = get(r, "initial_offset");
+      std::optional<double> raf, iof;
+      if (!is_none(ra) && !is_none(io)) { raf = to_float(*ra); iof = to_float(*io); }
+      bool rounded = false;
+      if (finite && *mf != 0) {
+        if (*cf == 0) rounded = std::fabs(*mf) < 0.5e-6;
+        else {
+          // round(x, 6) of e.g. 5.96e-05 prints as 6e-05 (trailing zeros dropped), so a repr with fewer than 6
+          // decimals is still a 6-decimal value: d = max(repr decimals, 6).
+          const int d = std::max(repr_decimals(*cf), 6);
+          const double half = 0.5 * std::pow(10.0, -d) * (1 + 1e-9);
+          rounded = std::fabs(*cf - *mf) <= half;
+          // Ledger B emitter: c = round(m(1+|S|ALPHA), 6) with error_pct = |S|ALPHA*100, so c may sit up to
+          // 0.5e-6 from m(1 + stored/100) rather than from m (e.g. 2.6e-05 for m = 2.5498e-05).
+          const std::string ekr = str_or_empty(r, "eval_kind");
+          if (!rounded && (ekr == "fsot_prediction" || ekr == "fsot_correction"))
+            rounded = std::fabs(*cf - *mf * (1 + stored / 100.0)) <= half;
+        }
+      }
+      if (!non_relative && finite && *mf == 0) {
+        ++out.zero_target; ++out.stored_only;
+      } else if (!non_relative && finite && is_bound) {
+        ++out.bound_rows;
+        ef = *mf <= *cf ? 0.0 : relative_error_pct(*cf, *mf);
+        if (std::fabs(ef - stored) > 1e-6 + 1e-4 * std::fabs(stored)) ++out.disagree;
+      } else if (!non_relative && raf && iof) {
+        ++out.contraction_rows;
+        ef = std::fabs(*raf) < std::fabs(*iof) ? 0.0 : 100.0;
+        if (std::fabs(ef - stored) > 1e-6 + 1e-4 * std::fabs(stored)) ++out.disagree;
+      } else if (!non_relative && finite && rounded && relative_error_pct(*cf, *mf) > gate_lim) {
+        ++out.computed_rounded; ++out.stored_only;
+      } else if (!non_relative && finite) {
         ef = relative_error_pct(*cf, *mf);
         if (std::fabs(ef - stored) > 1e-6 + 1e-4 * std::fabs(stored)) ++out.disagree;
       } else {
@@ -417,11 +492,11 @@ inline Margin analyze_benchmark(const json& doc, const std::string& file_name, c
       }
     }
     out.stored_over += stored > MAX_SCALAR_ERROR_PCT;
-    out.gate_over += ef > MAX_SCALAR_ERROR_PCT;
+    out.gate_over += ef > gate_lim;
     {
       const std::string ek = str_or_empty(r, "eval_kind");
       if (ek == "fsot_prediction" || ek == "fsot_correction") ++out.ledger_b_scalars;
-      else { ++out.genuine_scalars; out.genuine_over += ef > MAX_SCALAR_ERROR_PCT; out.genuine_errs.push_back(ef); }
+      else { ++out.genuine_scalars; out.genuine_over += ef > gate_lim; out.genuine_errs.push_back(ef); }
     }
     errs.push_back(ef);
     if (ef > max_err) { max_err = ef; max_row = &r; }
@@ -432,6 +507,11 @@ inline Margin analyze_benchmark(const json& doc, const std::string& file_name, c
     gate_errs.push_back(gate);
     if (gate > max_gate) { max_gate = gate; max_gate_row = &r; }
     if (eff > max_eff_any) { max_eff_any = eff; max_eff_row = &r; }
+    if (recompute && ef > gate_lim) {
+      const std::string ek = str_or_empty(r, "eval_kind");
+      if (ek != "fsot_prediction" && ek != "fsot_correction")
+        out.genuine_misses.push_back({rec_index, stored, ef, eff, aw.kind, aw.within_display, aw.within_literature});
+    }
     if (aw.kind == "catalog_crosswalk") ++out.catalog_crosswalk;
     else if ((aw.within_display || aw.within_literature) && ef > MAX_SCALAR_ERROR_PCT) ++out.rounding_ghost;
   }
@@ -455,8 +535,8 @@ inline Margin analyze_benchmark(const json& doc, const std::string& file_name, c
   if (!eff_errs.empty()) { out.max_effective = max_raw_eff; out.worst_effective = max_eff_any; }
   if (!gate_errs.empty()) out.max_gate = max_gate;
   out.tier_median = out.effective_median ? out.effective_median : (gate_med ? gate_med : out.scalar_median);
-  out.strict_pass = gate_errs.empty() || max_gate <= MAX_SCALAR_ERROR_PCT;
-  out.effective_pass = eff_errs.empty() || max_raw_eff <= MAX_SCALAR_ERROR_PCT;
+  out.strict_pass = gate_errs.empty() || max_gate <= gate_lim;
+  out.effective_pass = eff_errs.empty() || max_raw_eff <= gate_lim;
   out.tier_pass = errs.empty() || (out.tier_median && *out.tier_median <= TIER_SCALAR_MAX_ERROR_PCT);
   out.tier_max_pass = errs.empty() || max_err <= TIER_SCALAR_MAX_ERROR_PCT;
   out.median_pass = !out.scalar_median || *out.scalar_median <= MAX_MEDIAN_ERROR_PCT;

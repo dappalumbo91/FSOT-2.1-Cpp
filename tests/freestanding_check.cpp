@@ -2,6 +2,7 @@
 // proves fsot/ternary.hpp needs no heap, exceptions, iostream or libm. CTest then checks `nm -u` of the
 // object for forbidden symbols (malloc/new/throw/printf/libm).
 #include "fsot/ternary.hpp"
+#include "fsot/core.hpp"
 
 using namespace fsot::bt;
 
@@ -19,3 +20,19 @@ extern "C" int fsot_freestanding_demo(long long* out) {
   const Word27 a = Word27::from_int(123456), b = Word27::from_int(-789);
   return int((a * b + a / b).to_int() & 0x7fffffff);
 }
+
+// The freestanding closed forms (fsot/core.hpp + closed_forms_core.gen.inc): all 26 sections into a
+// counting sink, at 40 trits.
+struct CountSink {
+  int n = 0;
+  long long acc = 0;
+  void operator()(const fsot::core::CfRow<BT40>& r) { ++n; acc += r.value.sign(); }
+};
+extern "C" int fsot_freestanding_closed_forms(long long* acc) {
+  fsot::core::CoreEngine<BT40> eng;
+  CountSink s;
+  eng.all_sections(s);
+  *acc = s.acc;
+  return s.n;
+}
+

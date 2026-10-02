@@ -11,6 +11,10 @@ Translation is mechanical: no number is typed by hand. Python-only constructs
 statement, so if the authority edits one of those lines generation fails loudly
 instead of silently drifting.
 
+It also writes include/fsot/closed_forms_core.gen.inc: the same sections for the freestanding
+fsot::core::CoreEngine (no heap, no <string>/<vector>, no libm). Each row goes to a caller sink as a
+fsot::core::CfRow; Python-only loops are unrolled from the same hand snippets.
+
 Usage: python tools/gen_closed_forms.py --authority /path/to/fsot_compute.py
 """
 from __future__ import annotations
@@ -25,6 +29,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "include" / "fsot" / "closed_forms.gen.inc"
+OUT_CORE = ROOT / "include" / "fsot" / "closed_forms_core.gen.inc"
 
 SECTIONS = [
     "wave1", "validation_suite", "wave2", "wave3", "wave4", "wave5", "wave6", "wave7",
@@ -59,6 +64,35 @@ SPECIAL_SRC = {
         "    }"
     ),
 }
+
+
+# Core (freestanding) versions of the same hand snippets; names/formulas built from CfRow fields.
+SPECIAL_CORE = {
+    "richardson": (
+        "{ const int Ds[3] = {4, 13, 25}; const char* const Ts[3] = {\"1.4427\", \"1.1397\", \"1.0000\"};\n"
+        "      for (int k = 0; k < 3; ++k) {\n"
+        "        const R v = pow(R(25) / R(Ds[k]), T::lit(\"0.2\"));\n"
+        "        CfRow<R> x = cf(_sec, \"Richardson_D=\", \"(25/D)^0.2\", v, T::lit(Ts[k])); x.num = Ds[k]; out(x);\n"
+        "      } }"
+    ),
+    "w1_assign": "",
+    "w1_loop": "{ CfRelay<R, S> rs{out, _sec, 24}; wave1(rs); }",
+    "neural_total": "R total(0); for (int i = 1; i < 7; ++i) total = total + R(1) / ipow(PHI, i);",
+    "neural_layers": (
+        "for (int i = 1; i < 7; ++i) {\n"
+        "      const R t = (R(1) / ipow(PHI, i)) / total;\n"
+        "      CfRow<R> x = cf(_sec, \"Layer_\", \"(1/\\u03c6^\", t); x.num = i; x.name2 = \"thickness\"; x.fnum = i; x.formula2 = \")/\\u03a3\"; out(x);\n"
+        "    }"
+    ),
+}
+
+import re as _re
+
+
+def core_expr(e: str) -> str:
+    """Engine expression text -> CoreEngine text (unqualified math found by ADL on R; T::lit for literals)."""
+    e = e.replace("m::ln(", "log(").replace("lit<R>(", "T::lit(")
+    return _re.sub(r"m::(ipow|pow|sqrt|exp|sin|cos|acos|floor|fabs)\(", r"\1(", e)
 
 
 class Untranslatable(Exception):
@@ -121,6 +155,7 @@ def names_in(n: ast.AST) -> set[str]:
 # Rows whose computed expression depends on a local bound to a decimal literal (audit B-02).
 LITERAL_INPUT_ROWS: list[tuple[str, str, str, str]] = []
 _CUR_SECTION = [""]
+_CORE = [False]
 _TAINT: dict[str, set[str]] = {}
 _LITERALS: dict[str, str] = {}
 
@@ -189,17 +224,22 @@ def result_call(call: ast.Call) -> str:
         if not isinstance(sig, ast.Constant):
             raise Untranslatable(ast.unparse(sig))
         parts.append(repr(float(sig.value)))
+    if _CORE[0]:
+        cparts = ["_sec"] + [core_expr(x) for x in parts[:4]]
+        if len(parts) >= 5:
+            cparts.append(cstr(parts[4]))
+        return f"out(cf({', '.join(cparts)}));"
     return f"r.push_back(mk({', '.join(parts)}));"
 
 
 def stmt(s: ast.stmt, special_hashes: dict[str, str], declared: set[str]) -> str:
     key = h(s)
     if key in special_hashes:
-        return SPECIAL_SRC[special_hashes[key]]
+        return (SPECIAL_CORE if _CORE[0] else SPECIAL_SRC)[special_hashes[key]]
     if isinstance(s, ast.Assign) and len(s.targets) == 1 and isinstance(s.targets[0], ast.Name):
         name = s.targets[0].id
         if isinstance(s.value, ast.List) and not s.value.elts:
-            return "Results r;"
+            return "" if _CORE[0] else "Results r;"
         v = s.value
         if (isinstance(v, ast.Call) and getattr(v.func, "id", "") == "mpf" and isinstance(v.args[0], ast.Constant)
                 and isinstance(v.args[0].value, str)):
@@ -209,17 +249,18 @@ def stmt(s: ast.stmt, special_hashes: dict[str, str], declared: set[str]) -> str
             _TAINT[name] = set().union(*[_TAINT[x] for x in names_in(v) if x in _TAINT])
         else:
             _TAINT.pop(name, None)
+        ex = core_expr(expr(s.value)) if _CORE[0] else expr(s.value)
         if name in declared:
-            return f"{name} = {expr(s.value)};"
+            return f"{name} = {ex};"
         declared.add(name)
-        return f"R {name} = {expr(s.value)};"
+        return f"R {name} = {ex};"
     if isinstance(s, ast.Expr) and isinstance(s.value, ast.Call):
         c = s.value
         if (isinstance(c.func, ast.Attribute) and c.func.attr == "append"
                 and isinstance(c.args[0], ast.Call) and getattr(c.args[0].func, "id", "") == "Result"):
             return result_call(c.args[0])
     if isinstance(s, ast.Return):
-        return "return r;"
+        return "" if _CORE[0] else "return r;"
     if isinstance(s, ast.Expr) and isinstance(s.value, ast.Constant):
         return ""  # docstring
     raise Untranslatable(f"[{key}] " + ast.unparse(s).splitlines()[0])
@@ -327,6 +368,52 @@ def main() -> int:
         return 1
     OUT.write_text("\n".join(out) + "\n", encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}: {len(SECTIONS)} sections, pin {sha[:6]}")
+
+    # ---- freestanding twin (CoreEngine) ----
+    from decimal import Decimal
+    _CORE[0] = True
+    core = [
+        "// AUTO-GENERATED by tools/gen_closed_forms.py — do not edit. Included inside fsot::core::CoreEngine<R>.",
+        f"// Authority: vendor/fsot_compute.py sha256 {sha} (pin {sha[:6]})",
+        f"// Special-statement fingerprint {fp}; cross_species fingerprint {cs_fp}",
+        "// Freestanding: no heap, no <string>/<vector>, no libm; rows go to a sink `out(const CfRow<R>&)`.",
+        "",
+    ]
+    species = next(n for n in tree.body if isinstance(n, ast.Assign) and getattr(n.targets[0], "id", "") == "SPECIES")
+    for name in SECTIONS:
+        core.append(f"  template <class S> void {name}(S& out) const {{")
+        core.append(f"    const char* const _sec = {cstr(name)};")
+        if name == "cross_species":
+            core.append('    const R s = domain_scalar("Neuroscience");')
+            core.append('    const int d = derived_D_eff("Neuroscience");')
+            for call in species.value.elts:
+                nm, neurons, vol = (a.value for a in call.args)
+                # mpf(float) is the exact binary value of the double: emit its exact decimal expansion.
+                dn, dv = format(Decimal(float(neurons)), "f"), format(Decimal(float(vol)), "f")
+                core.append(f"    {{ const R density = T::lit({cstr(dn)}) / (fabs(s) * T::lit({cstr(dv)}));")
+                core.append(f"      CfRow<R> a = cf(_sec, {cstr('S(' + nm + ')')}, \"S_neuro D=\", s); a.fnum = d; out(a);")
+                core.append(f"      out(cf(_sec, {cstr('Density(' + nm + ')')}, {cstr('N/(|S_neuro|·V)')}, density)); }}")
+            core.append("  }")
+            core.append("")
+            continue
+        fn = funcs[name]
+        _CUR_SECTION[0] = name
+        _TAINT.clear()
+        declared: set[str] = set()
+        for st in fn.body:
+            line = stmt(st, special_hashes, declared)
+            if line:
+                core.append("    " + line)
+        core.append("  }")
+        core.append("")
+    core.append("  // Every section in full_report() order; sink receives each row.")
+    core.append("  template <class S> void all_sections(S& out) const {")
+    for name in SECTIONS:
+        core.append(f"    {name}(out);")
+    core.append("  }")
+    core.append(f"  static constexpr const char* SECTION_NAMES[] = {{{', '.join(cstr(n) for n in SECTIONS)}}};")
+    OUT_CORE.write_text("\n".join(core) + "\n", encoding="utf-8")
+    print(f"wrote {OUT_CORE.relative_to(ROOT)}: {len(SECTIONS)} sections (freestanding)")
     return 0
 
 
