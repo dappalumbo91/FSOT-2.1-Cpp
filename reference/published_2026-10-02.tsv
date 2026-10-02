@@ -152,3 +152,6 @@ R_e_SM	direct	20.736	0.010	0.010	1	PDG2024:rev-standard-model	pdg2024_extracts:r
 R_b_SM	direct	0.21583	0.00002	0.00002	1	PDG2024:rev-standard-model	pdg2024_extracts:rev-standard-model:1563	02g validation anchor (SM, Table 10.5)
 R_c_SM	direct	0.17221	0.00003	0.00003	1	PDG2024:rev-standard-model	pdg2024_extracts:rev-standard-model:1564	02g validation anchor (SM, Table 10.5)
 sin2_eff_lept_SM	direct	0.23161	0.00004	0.00004	1	PDG2024:rev-standard-model	pdg2024_extracts:rev-standard-model:1577	02g validation anchor (SM, Table 10.5)
+m_n_MeV	direct	939.56542194	0.00000048	0.00000048	MeV	CODATA2022	neutron mass energy equivalent in MeV	02h trace (deuteron binding)
+m_d_MeV	direct	1875.61294500	0.00000058	0.00000058	MeV	CODATA2022	deuteron mass energy equivalent in MeV	02h trace (deuteron binding)
+M_W_SM_GeV	direct	80.353	0.006	0.006	GeV	PDG2024:rev-standard-model	pdg2024_extracts:rev-standard-model:2070	02h GZ-1 validation V1 (SM M_W, M_H 125.10, no M_W/Gamma_W constraint)

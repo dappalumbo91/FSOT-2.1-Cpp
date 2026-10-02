@@ -435,3 +435,104 @@ S1 misses by about the size of the omitted on-shell Δr (PDG 0.03685): G_F is �
 Γ_Z/M_Z does **not** pass under H1 (z 7.99), and the validation failed anyway, so nothing is confirmed. The H1 shortfall comes from G_μ(H1), which is 0.66 % low (round f). It enters Γ_Z directly and moves s² through eq. 303, which is why sin²θ_eff is high under H1 and H2. With the CODATA G_F (H2c, diagnostic only), the FSOT m_Z, m_t, m_H, α_s, m_b and m_c give Γ_Z within 0.16σ. Part of that agreement is the +1.9 MeV construction offset seen in validation.
 
 **Pass counts:** 85/91 confirmed, 88/91 including frozen-pending (unchanged). The new round-g rows are frozen-pending and unconfirmable because validation failed. CTest 29/29; `xval/cpp_check.sh` passed.
+
+## 2026-10-02h: change of method: trace each miss to its first break, diagnose, branch (logs in `xval/results/2026-10-02h/`)
+
+`audit/FREEZE_2026-10-02h.{json,md,sha256}` (commit eee8141, 17:16:18 EDT) was committed before any round-h branch number was scored. Trace tables: `audit/trace_2026-10-02h.tsv` (`tools/trace_2026_10_02h.py`). Branch scores: `audit/score_2026-10-02h.tsv` (`tools/score_2026_10_02h.py`). Both are regenerated and diffed in CI and in `xval/cpp_check.sh`.
+
+### Trace tables (first step outside uncertainty in **bold**)
+
+**T_CMB = φ² + P_base·|S_cosm|** (unit K from dimensionless seeds)
+| step | quantity | FSOT | reference (source) | deviation |
+|---|---|---|---|---|
+| 1 | seeds φ, γ, e | exact | none | none |
+| 2 | P_base = γ/e | 0.2123458 | none | none |
+| 3 | S_cosm = K(T1+T2+T3), Cosmology D_eff 25 | −0.5023773 | none | none |
+| **4** | φ² + P_base·\|S_cosm\| | 2.724712 K | 2.7255(6) K, PDG 2024 (FIRAS, Fixsen 2009) | **−289 ppm, z 1.31** |
+Passing would need \|S_cosm\| in [0.50325, 0.50891]. The break first shows at the assembly step because no intermediate has a physical counterpart.
+
+**Deuteron binding = √e/e + φ** (unit MeV)
+| step | quantity | FSOT | reference | deviation |
+|---|---|---|---|---|
+| 1 | e^−1/2 | 0.6065307 | none | none |
+| **2** | e^−1/2 + φ | 2.2245646 MeV | 2.224566229(44e-8), AME2020 | **−0.71 ppm, z 3.59** |
+| 2b | same | | CODATA 2022 m_p+m_n−m_d 2.22456637(81e-8) | −0.77 ppm, z 2.13 |
+| P1 | m_p leaf | 938.2720893 | CODATA 2022 | z 0.55 |
+| P2 | m_n leaf | 939.5654218 | CODATA 2022 | z 0.29 |
+| P3 | m_d | **missing** | CODATA 1875.61294500(58) | none |
+
+**m_H/m_W = S_quant(1+ψ_con)**
+| step | quantity | FSOT | reference | deviation |
+|---|---|---|---|---|
+| 1 | S_quant, QM fold D_eff 5 (derived nest D_eff since hub FE23A2 / 3c74a180, 2026-09-11) | 0.9501975 | none | none |
+| **2** | S_quant(1+ψ_con) | 1.550837 | 1.557811(1393), PDG 2024 | **−4477 ppm, z 5.01** |
+| 2′ | same with D_eff 6 (diagnostic only, not adopted) | 1.559147 | same | +858 ppm, z 0.96 |
+| P1–P3 | m_H leaf 125.158, m_W leaf 80.3688, ratio | 1.557298 | PDG 2024 | z 0.38 / 0.03 / 0.37 (= C-MHW-1) |
+
+**Δm²21/Δm²32 = γ³·Poof**
+| step | quantity | FSOT | reference | deviation |
+|---|---|---|---|---|
+| 1–2 | γ³, Poof | 0.1923155, 0.1534822 | none | none |
+| **3** | γ³·Poof | 0.0295170 | 0.030672(812), PDG 2024 NO (Δm²32) | **−3.77 %, z 1.42** |
+| P1 | seed Δm²21 (Poof·G·P_new)³ | 7.5247e-5 | 7.53(18)e-5 | z 0.03 |
+| P2 | Δm²32 leaf | 2.44406e-3 | 2.455(28)e-3 | z 0.39 |
+| P3 | ratio of leaves | 0.030788 | 0.030672 | z 0.14 (= C-DM-1) |
+
+**Γ_Z/M_Z.** The closed form φ⁵/e⁶ = 0.0274898 breaks at its only non-trivial step: +4503 ppm, z 4.89. The stored hub target 0.02749 is the formula's own output; PDG 2024 gives 0.027366. The G_F route (round f H1):
+| step | quantity | FSOT | reference | deviation |
+|---|---|---|---|---|
+| 1 | 1/α(0) | 137.0359992 | CODATA 2022 | z 0.53 |
+| 2 | m_Z | 91.18737 | 91.188(2), PDG | z 0.31 |
+| 3 | m_W | 80.36875 | 80.3692(133), PDG | z 0.03 |
+| 4 | s²_OS | 0.2232074 | 0.2232095, PDG masses | z 0.008 |
+| 5 | Δα_lep | 0.0314984 | 0.0314977(15), Steinhauser | z 0.44 |
+| **6** | **Δα_had⁽⁵⁾ (constituent loop, m_q = m_p/3)** | **0.024104** | **0.02783(6), PDG 2024 EW review** | **−13.4 %, z 62** |
+| 7 | Δρ | 0.008295 | none | none |
+| 8 | Δr (round f) | 0.029623 | 0.03685(20), PDG (different convention; indicative only) | z 36 |
+| 9 | G_F | 1.158714e-5 | 1.1663787e-5, CODATA | −0.66 % |
+| 10 | Γ_Z/M_Z | 0.0270845 | 0.0273665 | z 11.2 |
+
+**Deuteron μ = G⁴ + Poof**
+| step | quantity | FSOT | reference | deviation |
+|---|---|---|---|---|
+| 1–2 | G⁴, Poof | 0.7039092, 0.1534822 | none | none |
+| **3** | G⁴ + Poof | 0.8573914 | 0.8574382335(22), CODATA 2022 | **−54.6 ppm, z 2.1e4** |
+| P1 | μ_p leaf | 2.7928473 | CODATA | z 0.24 |
+| P2 | μ_n | **missing** | −1.91304276(45) | none |
+| P3 | S-state μ_p+μ_n | missing | 0.87980458 | none |
+| P4 | D-state + MEC + relativistic | missing | −0.02236635 | none |
+
+### Diagnoses
+- **T_CMB:** this is an assembly-level miss of −289 ppm (1.3σ). The closed form has no physical intermediate. It assigns kelvin to a dimensionless combination, which is a units/bookkeeping question rather than a missing loop or correction. The physically standard route (T-1, below) fails badly. That fail points to the FSOT z_eq/Ω_m/H0 pins, not to a missing radiation term.
+- **Deuteron binding:** the closed form is dimensionless but assigned MeV. It misses by 0.71 ppm, which is 3.6σ of the AME2020 uncertainty. The physical route B = m_p + m_n − m_d has passing m_p and m_n leaves but **no FSOT m_d**. Missing physics: the NN interaction (one-pion exchange with tensor force, or pionless EFT a_t, r_t). FSOT has none of these.
+- **m_H/m_W:** the cause is a hub regression, not missing physics. The D_eff 6→5 change in hub commit 3c74a180 (FE23A2) moved S_quant. Under the earlier D_eff the row passes (z 0.96), and the physical ratio of FSOT leaves passes (z 0.37). This is a hub decision; domain parameters are not changed here.
+- **Δm² ratio:** the question is which object the formula targets. Hub `scripts/atmospheric_neutrino_seed_check.py` labels the seed's atmospheric splitting dm2_31, while the record row uses PDG's Δm²32. Against Δm²21/Δm²31 (NO), the same formula gives z 0.32 (DM-R1). The physical leaf ratio passes in either case.
+- **Γ_Z/M_Z:** (a) The closed form's stored target is its own output (a stale or self-referential target, which is a bookkeeping issue). (b) On the G_F route, the first break is hadronic vacuum polarization at step 6. Treating u, d, s, c, b as free constituent quarks with m = m_p/3 underestimates Δα_had by 13.4 %, because it lacks the ρ/ω/φ resonances, the J/ψ and ϒ families and perturbative QCD running. (c) With a correct Δα_had there is a second, smaller break: the FSOT m_W leaf (80.3688, matched to the measured world average) is 16 MeV above the SM M_W of 80.353(6). G_F inferred from it is therefore +0.10 % high. This is the known experimental-vs-SM W-mass tension, not an FSOT artifact (V3: G_F from PDG M_W gives +0.108 %).
+- **Deuteron μ:** the sum misses by 54.6 ppm (2.1e4σ). The physical chain needs μ_n (missing in FSOT), the S-state sum, and a D-state probability P_D ≈ 4–6 % with meson-exchange currents. FSOT has none of these.
+- **Origin of the closed forms:** the earliest git occurrence of each is in FSOT-2.1-Lean. √e/e+φ, S_quant(1+ψ_con) and P_base\|S_cosm\| first appear in 3a556c06 (2026-06-19); φ⁵/e⁶, G⁴+Poof and γ³·Poof in 78d220de (2026-07-04). All were imported from Damian's local `fsot_compute.py`. No derivation or literature citation is recorded in the hub, the 40 repos, or the founding-corpus "Mathematical Key" PDFs. Whether they were written by Damian or by an AI assistant cannot be determined from the record.
+
+### Branches (frozen in FREEZE_2026-10-02h before scoring)
+| branch | row | construction (source) | value | reference | z | result |
+|---|---|---|---|---|---|---|
+| GZ-1 H1 (primary, FSOT-only) | Γ_Z/M_Z | complete two-loop Δr via ACFW M_W fit (hep-ph/0311148) → G_F; Γ_Z from Freitas 2014 fit (arXiv:1401.2447) with G_F scaling and s² mapping | 0.0272697 (G_F −0.31 %) | 0.0273665(252) | **3.84** | FAIL |
+| GZ-1 H2 (secondary, external Δα_had 0.02783) | Γ_Z/M_Z | same | 0.0273830 (G_F +0.10 %) | same | 0.65 | pass (external input; cannot confirm) |
+| DM-R1 | Δm² ratio | γ³Poof vs Δm²21/Δm²31 (NO) | 0.0295170 | 0.029759(765) | 0.32 | pass (record-object decision for the hub) |
+| T-1 | T_CMB | T from z_eq, Ω_m, H0, G_N leaves; N_eff 3.044 | 2.75260 K | 2.7255(6) | 45 | FAIL |
+| MUD-1 | deuteron μ | SU(6) μ_n = −(2/3)μ_p (Bég–Lee–Pais 1964); S-state μ_p+μ_n | 0.930949 (μ_n −1.86190, z 1.1e5) | 0.85743823 | 3.3e7 | FAIL |
+Pre-declared validations with PDG inputs: V1 ACFW M_W 80.35188 vs 80.353(6), z 0.19, PASS. V2 Freitas Γ_Z 2.493636 vs 2.4940(9), z 0.40, PASS. The GZ-1 machinery is therefore validated, and the H1 failure is attributable to FSOT's Δα_had (−3.7e-3 in Δα gives −0.31 % in G_F).
+
+**Look-elsewhere:** Γ_Z/M_Z 36 considered / 2 scored / 1 able to confirm; Δm² 5 objects / 1 scored; T_CMB 2 / 1; deuteron μ 3 / 1; deuteron binding 3 / 0; m_H/m_W 2 / 0; Δα_had 5 / 0. Disclosure: before the freeze, rough estimates had been seen for DM-R1 (z≈0.3), T-1 (≈+0.9 %), MUD-1 (≈0.931) and GZ-1 (H1 z≈4, H2 z≈1).
+
+### Hadronic Δα: is there an FSOT-native route? No, not at present.
+Five routes were examined:
+1. **Constituent loop:** this is H1, which is 13 % low.
+2. **Quark-hadron duality above a 2m_π threshold:** needs m_π and an R-ratio shape.
+3. **VMD/resonance saturation:** needs m_ρ, Γ_ee and f_π.
+4. **Adler-function split:** needs lattice or e+e− data below ~2 GeV.
+5. **GMOR light-quark masses with one absolute scale:** FSOT has ratios but no absolute m_u+m_d, and pQCD would in any case only cover the region above ~2 GeV.
+
+The hub and the 40 repos contain no ρ-meson, f_π, R-ratio or hadronic-VP leaf. A native route would need FSOT leaves for the light-hadron spectrum (m_ρ, m_ω, m_φ, f_π, Γ_ee) or an absolute light-quark mass plus Λ_QCD. These are listed in the Grok Build prompt.
+
+### Pass counts
+Unchanged: **85/91 confirmed; 88/91 including frozen-pending** (C-TCMB, C-MHW-1, C-DM-1). Round h adds no confirmation: GZ-1 H1 fails. GZ-1 H2 and DM-R1 pass but are an external-input branch and a reference-object decision, respectively.
+

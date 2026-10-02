@@ -427,6 +427,23 @@ All 40 dappalumbo91 repositories (every ref, full history, deleted files) were s
 ### H-29 · 2026-10-02g: effective Z couplings (LEPTOP); pre-declared PDG-input validation failed (+1.92 MeV)
 Under DERIVATIONS_2026-10-02g (frozen first, 0eba00a), the LEPTOP construction (hep-ph/9503308) with PDG inputs gives Gamma_Z = 2.49592 GeV against the SM 2.4940 +- 0.0009. That fails the pre-declared criterion, so no round-g row is confirmed. FSOT inputs: Gamma_Z/M_Z z 7.99 (H1), 4.02 (H2), 0.16 (H2c, CODATA G_F, diagnostic). sin2_eff_lept (held-out) z 6.75 (H1). R_b, R_c, sigma_had0 and Gamma_inv are within z 1 under H1 (frozen-pending, unconfirmable).
 
+### H-30 · 2026-10-02h: trace-to-first-break for the 6 misses plus Γ_Z/M_Z and deuteron μ; branches frozen first (eee8141)
+Trace tables are in audit/trace_2026-10-02h.tsv; full tables and diagnoses are in PRECISION_REPORT §2026-10-02h. First breaks:
+- T_CMB: assembly, −289 ppm (z 1.31).
+- Deuteron binding: assembly, −0.71 ppm (z 3.59); no FSOT m_d.
+- m_H/m_W: S_quant(1+psi_con), −4477 ppm (z 5.01); caused by hub D_eff 6→5 (3c74a180/FE23A2); the leaf ratio passes.
+- Dm2: gamma³Poof, −3.77% (z 1.42); 31-vs-32 object.
+- Gamma_Z/M_Z: closed form +4503 ppm (z 4.89; stored target = own output). On the G_F route the first break is Delta alpha_had (−13.4%, z 62).
+- Deuteron mu: assembly, −54.6 ppm; no FSOT mu_n or P_D.
+
+Branches:
+- GZ-1 (ACFW Delta r + Freitas Gamma_Z): validations V1 and V2 pass. H1 z 3.84 FAIL; H2 z 0.65 (external).
+- DM-R1: z 0.32 (decision item).
+- T-1: z 45 FAIL.
+- MUD-1: FAIL.
+
+No FSOT-native hadronic Delta alpha route exists. Counts unchanged: 85/91 confirmed, 88/91 with frozen-pending.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests
