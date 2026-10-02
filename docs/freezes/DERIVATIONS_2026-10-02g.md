@@ -1,0 +1,59 @@
+# DERIVATIONS_2026-10-02g (frozen before any round-g number is computed)
+
+## Construction: effective Z couplings
+
+LEPTOP (Novikov, Okun, Rozanov, Vysotsky, hep-ph/9503308, Part I ch. 'Electroweak loop corrections'). One-electroweak-loop effective couplings g_Vf, g_Af for every Z -> f fbar channel, with the leading two-loop terms LEPTOP includes (alpha alpha_s, alpha alpha_s^2 t, alpha^2 t^2, alpha^2 h), the t-dependent Z->bb vertex, and final-state QED/QCD radiators with running b, c masses. It is the effective-coupling form of PDG 2024 EW review eqs. (10.53), (10.54), (10.76c), (10.77): sqrt(rho_f) ~ g_Af/T3, kappa_f s_W^2 ~ s_f^2 = (1 - g_Vf/g_Af)/(4|Q_f|). The leading t term of each V_i is the Delta rho of round f (3 G_F m_t^2/(8 sqrt2 pi^2), same QCD factor 1 - 2.86 alpha_s(m_t)/pi, LEPTOP eq. 72); LEPTOP's internal form is used unchanged and round f's Delta rho is reported alongside for comparison.
+
+- **angle**: s^2 c^2 = pi alpha_bar / (sqrt2 G_mu m_Z^2) (LEPTOP eq. 303), smaller root; delta_s2 = 0.23117 - s^2
+- **Gamma0**: G_mu m_Z^3 / (24 sqrt2 pi) (eq. 8)
+- **leptons**: Gamma_l = 4 Gamma0 [g_Vl^2 (1 + 3 alpha_bar/(4pi)) + g_Al^2 (1 + 3 alpha_bar/(4pi) - 6 m_l^2/m_Z^2)] (eq. 7); m_e = m_mu = 0 (as LEPTOP), m_tau = leaf
+- **neutrinos**: Gamma_nu = 8 g_nu^2 Gamma0 (eq. 9)
+- **quarks**: Gamma_q = 12 [g_Aq^2 R_Aq + g_Vq^2 R_Vq] Gamma0 (eq. 10)
+- **couplings_leptons**: g_Al = -1/2 - 3 alpha_bar V_A/(64 pi s^2 c^2); g_Vl/g_Al = 1 - 4 s^2 + 3 alpha_bar V_R/(4 pi (c^2 - s^2)); g_nu = 1/2 + 3 alpha_bar V_nu/(64 pi s^2 c^2) (eq. 31)
+- **V_i**: V_i = t + T_i(t) + H_i(h) + C_i + delta V_i, t = m_t^2/m_Z^2, h = m_H^2/m_Z^2 (eq. 33); T_m, T_A, T_R, H_m, H_A, H_R (eqs. 34-36), T_nu = T_A, H_nu = H_A (eq. 37); C_i (eqs. 501-504); F_t, F_h, F'_h (eqs. irok1-3)
+- **delta_V**: delta_1 (eqs. 405, 38, 306-308: delta_W alpha/alpha and delta_t alpha/alpha formulas); delta_2^q (eqs. 309-311); delta_2^t expansions (eqs. 312-314) with alpha_s(m_t) = alpha_s/(1 + 23 alpha_s ln t/(12 pi)) (eq. 11105a); delta_3 = -(2.38 - 0.18*5) alpha_s(m_t)^2 t (eq. 315); delta_4 = -alpha_bar A(m_H/m_t) t^2/(16 pi s^2 c^2) (eq. 316), A from LEPTOP table 1 by linear interpolation in m_H/m_t; delta_5 (eqs. 317-319). delta_4 is universal (all i); delta_1, delta_2, delta_5 for nu are those of A.
+- **couplings_quarks**: g_Aq = T3q [1 + 3 alpha_bar V_Aq/(32 pi s^2 c^2)] (eq. 320); g_Vq/g_Aq = 1 - 4|Q_q| s^2 + 3|Q_q| alpha_bar V_Rq/(4 pi (c^2 - s^2)) (eq. 321); V_Aq, V_Rq for u=c and d=s from V_A, V_R and F_Al, F_Vl, F_Au, F_Vu, F_Ad, F_Vd (eqs. 322-325, 741-746)
+- **b_vertex**: V_Ab = V_Ad - 8 s^2 c^2 (phi + delta phi)/(3(3 - 2 s^2)); V_Rb = V_Rd - 4 s^2 (c^2 - s^2)(phi + delta phi)/(3(3 - 2 s^2)) (eqs. 11109-11110); phi(t) expansion (eq. 402); delta phi (eq. 403) with tau_b^(2)(m_H/m_t) from LEPTOP table 1 by linear interpolation
+- **radiators**: R_Vq = 1 + a + (3/4) Q^2 alpha_bar/pi - (1/4) Q^2 (alpha_bar/pi) a + [1.409 + (0.065 + 0.015 ln t)/t] a^2 - 12.77 a^3 + 12 (mhat_q^2/m_Z^2) a delta_vm; R_Aq = R_Vq - (2 T3q)[I2(t) a^2 + I3(t) a^3] - 12 (mhat_q^2/m_Z^2) a delta_vm - 6 (mhat_q^2/m_Z^2) delta1_am - 10 (mhat_q^2/m_t^2) a^2 delta2_am, a = alpha_s(M_Z)/pi; delta_vm, delta1_am, delta2_am, I2, I3 as LEPTOP eqs. 11-14; mhat_u = mhat_d = mhat_s = 0 (eqs. 10-12). The O(a^4) non-singlet term is NOT added (LEPTOP does not have it): disclosed.
+- **running_masses**: mhat_b(M_Z), mhat_c(M_Z): standard two-loop MS-bar mass running (as LEPTOP, section 'Hadronic widths'): m(mu2)/m(mu1) = c(a2)/c(a1), c(a) = a^(g0/b0) [1 + (g1/b0 - b1 g0/b0^2) a], a = alpha_s/pi, b0 = (11 - 2nf/3)/4, b1 = (102 - 38nf/3)/16, g0 = 1, g1 = (202/3 - 20nf/9)/16; start m_b(m_b), m_c(m_c) (MS-bar at own scale, as in round e); c: nf=4 from m_c to m_b, then nf=5 to M_Z (no mass matching at m_b); alpha_s(mu) from the round-e 4-loop running with the round-e thresholds (tools/score_2026_10_02e.py functions, reimplemented identically)
+- **observables**: Gamma_h = sum_{u,d,s,c,b} Gamma_q; Gamma_Z = Gamma_h + 2 Gamma_e + Gamma_tau + 3 Gamma_nu; Gamma_inv = 3 Gamma_nu; Gamma_ll = Gamma_e; R_ell = Gamma_h/Gamma_e; R_b = Gamma_b/Gamma_h; R_c = Gamma_c/Gamma_h; sigma_had0 = 12 pi Gamma_e Gamma_h/(M_Z^2 Gamma_Z^2) (eq. 25); sin2_eff_lept = (1 - g_Vl/g_Al)/4 (eq. 45) [held-out check]; Gamma_Z/M_Z
+
+## Inputs
+
+- **H1_primary**: G_mu = round-f frozen G_F(H1) = 1.15871442991562e-5 (audit/score_2026-10-02f.tsv); alpha_bar = alpha(0)/(1 - Delta alpha_lep - Delta alpha_had^(5)) with alpha(0) = 1/alpha_inv leaf, Delta alpha_lep = 0.0314983607415527 (round f, 1+2 loop, FSOT lepton leaves), Delta alpha_had^(5) = H1 0.0241044885083033 (round f). All FSOT. Only H1 can confirm Gamma_Z/M_Z.
+- **H2_secondary**: as H1 but G_mu = round-f G_F(H2) = 1.16305018497583e-5 and Delta alpha_had^(5) = 0.02783 (PDG, EXTERNAL). Reported, never confirmed.
+- **H2c_diagnostic**: as H2 but G_mu = CODATA 1.1663787e-5 (EXTERNAL): tests FSOT's m_t, m_H, alpha_s, m_Z, quark-mass leaves with the measured G_F. Diagnostic only, never confirmed.
+- **common_FSOT**: m_Z = leaf m_Z_MeV; m_t = (m_t/m_W leaf) m_W; m_H = leaf; alpha_s(M_Z) = seed 2(POOF/psi_con)^2; m_b(m_b) = m_t/(AEB2AD pin wave8|m_t/m_b); m_c(m_c) = (m_c/m_b leaf) m_b; m_tau = leaf
+- **not_used**: The exact one-loop Denner Delta r code from round f's cross-check is NOT used in round g (G_mu is the round-f frozen value).
+
+## Pre-declared validation
+
+- **step**: run the identical code with PDG/CODATA inputs only (no FSOT leaf), before any FSOT-input number is printed
+- **inputs**: G_mu = 1.1663787e-5; alpha(0) = 1/137.035999177; Delta alpha_lep from the same round-f 1+2-loop formula with CODATA/PDG lepton masses (m_e 0.51099895e-3, m_mu 0.1056583755, m_tau 1.77693 GeV); Delta alpha_had^(5) = 0.02783; m_Z 91.1876; m_t 172.57; m_H 125.20; alpha_s 0.1180; m_b(m_b) 4.183; m_c(m_c) 1.2730; m_tau 1.77693
+- **criterion**: PASS if |Gamma_Z(validation) - 2.4940| <= 0.0009 GeV (PDG 2024 SM prediction, eq. 10.78). If it fails, the construction is NOT validated and no row is confirmed.
+- **also_reported**: R_b vs SM 0.21583, R_c vs 0.17221, R_e vs 20.736, sigma_had0 vs 41.481 nb, sin2_eff_lept vs 0.23161 (PDG 2024 Table 10.5 SM column), informational
+- **expectation**: LEPTOP is a 1995 one-loop + leading two-loop parametrization (its own stated theory accuracy is at the few-1e-4 level on g_A, V_R), so a deviation of order 1 MeV from the 2024 full two-loop SM is possible.
+
+## Rows
+
+- **scored**: Gamma_Z; Gamma_Z/M_Z (confirm only if H1 passes z <= 1 and validation passes); Gamma_inv; Gamma_ll; R_ell; R_b; R_c; sigma_had0; sin2_eff_lept (held-out)
+- **references**: existing reference rows (Gamma_Z_GeV, Gamma_Z_over_M_Z, Gamma_inv_MeV, Gamma_ll_MeV, R_ell_derived, R_b, R_c, sigma_had0_nb) plus new sin2_eff_lept = 0.23149(13) (PDG 2024 EW review eq. 10.75, collider average) and SM validation anchors from PDG 2024 Table 10.5 / eq. 10.78
+- **gate**: z = |value - central|/sigma <= 1 with the published sigma (unchanged gate)
+- **status**: every row other than Gamma_Z/M_Z is a new or re-derived row: frozen-pending
+
+## Disclosure
+
+Before this freeze: (1) the round-f frozen numbers were known (G_F(H1) 0.66 % and G_F(H2) 0.29 % below CODATA; Delta alpha_had(H1) 13 % below PDG), so it is expected a priori that widths proportional to G_mu come out low under H1 (about -0.6 %, Gamma_Z/M_Z z ~ 7) and under H2 (about -0.3 %); this freeze does not change G_mu to avoid that. (2) In round f a diagnostic showed that the round-d A1 width with exactly the CODATA G_F gives Gamma_Z = 2.48610 (z 4.1); that is why effective couplings are needed. (3) LEPTOP was chosen because it is the only source found with complete, explicit formulas for every channel; the Freitas 2014 (arXiv:1401.2447) and Awramik et al. 2004 (hep-ph/0407317) fit formulas were read but are NOT used (they fix G_mu internally and do not expose effective couplings). No round-g number with FSOT or PDG inputs has been computed.
+
+## Alternatives (look-elsewhere)
+
+- **hadronic / G_mu input**: H1 (primary), H2 (secondary), H2c (diagnostic): 3
+- **O(a^4) radiator term**: omitted (LEPTOP) scored; included not scored: 2
+- **mass running**: two-loop (LEPTOP) scored; one-loop not scored: 2
+- **m_b input reading**: FSOT m_b as MS-bar m_b(m_b) scored (as round e); as pole mass not scored: 2
+- **table interpolation**: linear (scored): 1
+- **construction**: LEPTOP (scored); leading-only PDG 10.54 rho/kappa not scored (known to omit non-leading terms); Freitas 2014 fits not scored: 3
+
+Look-elsewhere: {'configurations considered': 72, 'scored configurations': 3, 'confirming configuration': 1}
+
+Order: 1) this freeze committed; 2) validation run (PDG inputs); 3) FSOT scoring (tools/score_2026_10_02g.py); one push at the end
