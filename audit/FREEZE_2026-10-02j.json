@@ -1,0 +1,74 @@
+{
+ "freeze": "FREEZE_2026-10-02j",
+ "date": "2026-10-02",
+ "authority_pin": "AEB2AD (unchanged)",
+ "hub_data_commit": "6f9c2560 (unchanged)",
+ "owner_approval": "Damian approved branching from FSOT's existing absolute scale (round-j task, 2026-10-02 19:01 ET)",
+ "scope": "walk FSOT's absolute MeV (m_e = h nu_Cs/c^2 exp(...), m_p/m_e, the MeV-read pion leaf) down to the strong-sector scale: f_pi, g_A, g_piNN, absolute light-quark masses, Lambda_QCD; no new fitted constants. Trace tables (audit/trace_2026-10-02j.tsv) are diagnostics, not branches. Each branch below is validated with PDG/FLAG inputs first against the tolerance fixed here.",
+ "references": {
+  "FLAG 2024 (arXiv:2411.04268v2)": "f_pi 130.2(8) MeV (N_f=2+1) -> F_pi = f_pi/sqrt2 = 92.07(57); alpha_s(M_Z) 0.1183(7); Lambda^(5) 213(8), Lambda^(4) 295(10), Lambda^(3) 338(10) MeV; m_c(m_c) 1.280(13), m_b(m_b) 4.200(14) GeV (N_f=2+1+1); m_ud 3.427(51) MeV (2+1+1)",
+  "FLAG 2019 (arXiv:1902.08191)": "Sigma^(1/3) = 272(5) MeV, N_f=2+1, MSbar 2 GeV (FLAG 2024 omitted the LEC section)",
+  "PDG 2024": "g_A = |lambda| = 1.2754(13); m_pi+- 139.57039(18); m_p 938.27208943, m_n 939.56542194 MeV; M_Z 91.1880 GeV",
+  "Reinert-Krebs-Epelbaum PRL 126, 092501 (2021)": "f_c^2 = 0.0769(5)(9) -> g_piNN = sqrt(4 pi f_c^2) (m_p+m_n)/m_pi+- (their convention)"
+ },
+ "branches": {
+  "J-1 Lambda_QCD from FSOT alpha_s(M_Z)": {
+   "physics": "MSbar Lambda by the exact-integral definition ln(mu^2/Lambda^2) = 1/(b0 a) + (b1/b0^2) ln(b0 a) + int_0^a [1/B(x) + 1/(b0 x^2) - b1/(b0^2 x)] dx, B = -x^2 (b0 + b1 x + b2 x^2 + b3 x^3), 4-loop coefficients (PDG 2024 QCD review eq. 9.4), 48-point Gauss-Legendre; alpha_s at other scales by inverting the same relation (= exact 4-loop running). Lambda^(4), Lambda^(3): decoupling at mu = m_b(m_b), m_c(m_c) with the 3-loop MSbar relation alpha^(nl) = alpha^(nl+1)[1 + (11/72) a^2 + (564731/124416 - 82043/27648 zeta3 - 2633/31104 nl) a^3], a = alpha^(nl+1)/pi (Chetyrkin-Kniehl-Steinhauser, NPB 510 (1998) 61).",
+   "inputs": {
+    "validation": "FLAG alpha_s(M_Z) 0.1183, PDG M_Z 91.1880 GeV, FLAG m_b(m_b) 4.200, m_c(m_c) 1.280 GeV",
+    "FSOT": "alpha_s seed 2(POOF/psi_con)^2 and FSOT M_Z leaf; thresholds FLAG m_b(m_b), m_c(m_c) (EXTERNAL: FSOT has only m_c/m_b and no absolute heavy-quark mass, and meson stand-ins would leave the MSbar scheme FLAG uses)"
+   },
+   "validation": "pass iff |Lambda^(5) - 213| <= 8, |Lambda^(4) - 295| <= 10, |Lambda^(3) - 338| <= 10 MeV (FLAG sigmas; covers 4- vs 5-loop truncation)",
+   "score": "FSOT Lambda^(5) vs FLAG 213(8): FSOT-native (seed + leaf); agree iff validation passes and z <= 1. Lambda^(4), Lambda^(3): frozen-pending at best (external thresholds). Not record rows of the 91.",
+   "disclosure": "expectation stated before freeze: alpha_s 0.11791 < 0.1183 lowers Lambda^(5) by a few MeV (~-4 %); no number computed"
+  },
+  "J-2a chiral-symmetry-breaking scale m_N = 4 pi F_pi (c = 1)": {
+   "physics": "naive dimensional analysis Lambda_chi = 4 pi F_pi (Manohar-Georgi NPB 234 (1984) 189), identified with m_N, c = 1 fixed a priori; F = f/sqrt2 convention",
+   "validation": "PDG m_N = (m_p+m_n)/2: pass iff |m_N/(4 pi) - 92.07| / 92.07 <= 5 %",
+   "score": "FSOT m_N (leaves) -> F_pi vs 92.07(57)",
+   "disclosure": "m_p/(4 pi) ~ 74.7 MeV (~ -19 %) was seen before this freeze"
+  },
+  "J-2b same with f_pi = 130 convention (m_N = 4 pi f_pi)": {
+   "validation": "pass iff |m_N/(4 pi) - 130.2| / 130.2 <= 5 %",
+   "score": "FSOT m_N -> f_pi vs 130.2(8)",
+   "disclosure": "same 74.7 MeV seen"
+  },
+  "J-3a g_A = 5/3 (SU(6) non-relativistic quark model; equal to large-Nc (Nc+2)/3 at Nc=3)": {
+   "validation": "no inputs: pass iff |5/3 - 1.2754| / 1.2754 <= 5 %",
+   "score": "vs PDG 1.2754(13)",
+   "note": "the hub has no FSOT correction term for g_A; inventing one would be a new formula, so none is added",
+   "disclosure": "+31 % known"
+  },
+  "J-3b g_A = (5/3)(1 - 2 delta), MIT bag, massless ground-state quarks (Chodos et al. PRD 10 (1974) 2599): 5/3 x 0.6531 = 1.0885": {
+   "validation": "pass iff within 5 % of 1.2754",
+   "score": "vs PDG 1.2754(13)",
+   "disclosure": "-15 % known"
+  },
+  "J-4 Goldberger-Treiman g_piNN = g_A m_N / F_pi": {
+   "validation": "PDG g_A 1.2754, PDG m_N, FLAG F_pi 92.07: pass iff |g - 13.24| / 13.24 <= 3 % (GT discrepancy is ~2 %); 13.24 from f_c^2 above",
+   "score": "FSOT-input g_piNN only with a VALIDATED FSOT F_pi (J-2a/b) and a VALIDATED g_A (J-3a/b); otherwise the FSOT-input number is reported as information and the route is recorded as not closing",
+   "disclosure": "a rough PDG-input estimate (~13.0, ~-2 %) was seen before this freeze"
+  },
+  "J-5 scale readings of Quark_condensate = 1/4 and GMOR": {
+   "physics": "GMOR F_pi^2 m_pi^2 = 2 m_ud Sigma (LO, F = f/sqrt2). Readings: (a) Sigma^(1/3) = 0.25 GeV (the hub's own reference 0.250); (b) Sigma^(1/3) = m_p/4; (c) Sigma = m_p^3/4",
+   "validation": "GMOR with FLAG F_pi 92.07, FLAG m_ud 3.427, PDG m_pi+-: pass iff Sigma^(1/3) within 10 % of FLAG 2019 272(5) (LO; F/F_0 ~ 1.06)",
+   "score": "each reading vs 272(5): agree iff z <= 1, frozen-pending iff within 10 %, else fail. GMOR cannot close to F_pi with FSOT inputs (no absolute m_ud): the mixed F_pi from reading (a) + FLAG m_ud and the mixed m_ud from (a) + FLAG F_pi are information only",
+   "disclosure": "a rough GMOR-with-PDG/FLAG Sigma^(1/3) ~ 290 MeV (+7 %) and the reading values 250 / 234.6 / 591 MeV were seen before freeze"
+  }
+ },
+ "downstream_gate": "(3) KSRF/VMD m_rho^2 = 2 g^2 F_pi^2 -> hadronic Delta alpha -> Gamma_Z/M_Z rescore, and deuteron (OPE tensor force -> P_D, mu_n, MEC, binding) run ONLY if an FSOT-native F_pi AND g_piNN both pass validation and score within their tolerances; otherwise recorded as not run with the reason.",
+ "considered_not_scored": {
+  "F_pi from FSOT Lambda via a lattice ratio F_pi/Lambda^(3)": "imports F_pi from lattice (FLAG) rescaled by alpha_s; not FSOT-native",
+  "SVZ/FESR rho sum rules with the Gluon_condensate pin (C_cosm - e^-3, hub reference 0.012 GeV^4)": "the pin exists (round-i inventory wrongly listed it absent); closing m_rho or F_pi needs the dim-6 four-quark term (vacuum saturation, known to fail by factor 2-3) and the GeV unit readings",
+  "absolute light-quark masses": "QCD takes m_q as input; FSOT has only m_u/m_d and m_s/m_d; no FSOT anchor for any MSbar quark mass",
+  "NJL / Pagels-Stokar F_pi": "needs a cutoff or dynamical-mass scale (fitted)",
+  "deuteron sub-routes (4)": "P_D, mu_n pion cloud, MEC, binding: all need g_piNN and F_pi (gated above)"
+ },
+ "look_elsewhere": {
+  "routes considered (round j)": 14,
+  "branches scored": 9,
+  "FSOT-native scored outputs": "J-1 Lambda^(5); J-2a/b; J-3a/b; J-5a/b/c",
+  "able to change a record row of the 91": "only via the downstream gate"
+ },
+ "counting": "confirmed only per the round-g convention (validations pass and z <= 1, FSOT-only inputs); everything else frozen-pending or failed"
+}
