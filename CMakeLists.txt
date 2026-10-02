@@ -66,6 +66,11 @@ target_link_libraries(test_ternary PRIVATE fsot)
 target_compile_definitions(test_ternary PRIVATE FSOT_GOLDEN_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/golden_AEB2AD.tsv")
 add_test(NAME ternary COMMAND test_ternary)
 
+# Freestanding core (seeds, layers, nest, S law) vs the host engine: bit-identical in balanced ternary.
+add_executable(test_core tests/test_core.cpp)
+target_link_libraries(test_core PRIVATE fsot)
+add_test(NAME core_vs_engine COMMAND test_core)
+
 # Ledger A emit + property routing (generated tables; needs a >=113-bit type for float(value) exactness).
 if(Boost_FOUND OR FSOT_WITH_FLOAT128)
   add_executable(test_ledger_a_routing tests/test_ledger_a_routing.cpp)

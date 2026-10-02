@@ -76,3 +76,23 @@ jobs:
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$PWD/hub
           cmake --build build --target fsot_ledger_b
           ctest --test-dir build -R ledger_b --output-on-failure -j1
+
+  bare-metal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install QEMU
+        run: sudo apt-get update -q && sudo apt-get install -y -q qemu-system-x86
+      - name: Build the freestanding x86_64 kernel
+        run: ./kernel/build.sh build-kernel
+      - name: Boot under QEMU and check the 35 ternary domain S values over serial
+        run: |
+          set +e
+          timeout 120 qemu-system-x86_64 -m 64 -kernel build-kernel/fsot_kernel.elf -serial file:serial.txt \
+            -display none -no-reboot -monitor none -device isa-debug-exit,iobase=0xf4,iosize=0x04
+          code=$?
+          set -e
+          cat serial.txt
+          test "$code" -eq 33
+          python3 tools/check_kernel_serial.py serial.txt

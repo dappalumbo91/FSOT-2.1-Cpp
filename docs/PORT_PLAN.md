@@ -4,14 +4,27 @@
 - Whole of `vendor/fsot_compute.py`: seeds, layers 1–2, scalar law, nest/D_eff/look/hits/observed/C, 35 domain S, all 26 closed-form sections (368 rows), Ledger B `fsot_correct` (f = ALPHA), report CLI.
 - Ternary core (`trit.hpp`) matching Zig/Rust/Python/CUDA semantics + bit-sliced fast paths; FSOTB VM core (`fsotb_vm.hpp`) running EVAL_PANEL on the live nest.
 - **Milestone 1 (2026-10-01):** Ledger B / benchmark-margin re-scorer (`include/fsot/host/ledger_b.hpp`, `apps/fsot_ledger_b.cpp`): C++ port of the hub's `analyze_benchmark` + literature-aware error + live-law re-score; bit-identical to the hub Python on all 478 benchmark files at hub 6f9c2560 (13,841/13,841 golden lines). Balanced-ternary arithmetic core (`ternary.hpp`, docs/TERNARY.md), canonical trit spec (docs/TRIT_SPEC.md), audit log (docs/AUDIT_LOG.md).
+- **Milestone 2 (2026-10-01):**
+  - **Ledger A emit + property routing** (`include/fsot/host/ledger_a.hpp`, generated `ledger_a.gen.inc` / `routing.gen.inc`): bit-identical to the hub Python on 21 Ledger A rows, 1,268 formula masses, 3,339 routes and 8,496 records.
+  - **Fixed in C++** (parity and corrected modes; docs/AUDIT_LOG.md):
+    - recomputed gate;
+    - significant-digit emitter;
+    - structural-vs-genuine split;
+    - exact-rational exponents;
+    - logged NaN reads;
+    - non-prediction flags.
+  - **Evidence tiers** (docs/EVIDENCE_TIERS.md).
+  - **Look-elsewhere count** (docs/LOOK_ELSEWHERE.md).
+  - **Full citation/DOI pass** (`tools/check_citations.py`).
+  - **Freestanding `CoreEngine`** (`core.hpp`, bit-identical to `Engine<BTFloat>`) and the **x86_64 bare-metal QEMU demo** (docs/BARE_METAL.md).
 - Codegen (`tools/gen_closed_forms.py`) refuses to run unless the authority SHA equals the pin; no number is typed by hand.
 
 ## Next (ordered by value / effort)
 | # | Item | Source | Effort |
 |---|---|---|---|
 | 1 | ~~Ledger B panel re-scorer~~ **done (milestone 1)** | hub data/ (478 benchmark files at 6f9c2560) | — |
-| 2 | Ledger A emit (`fsot_ledger_a_lib.py`) + `predict_closed_form` CLI | hub scripts | 0.5–1 d |
-| 3 | Property routing (`fsot_api_predict_lib.py` route_property/formula_mass) | hub scripts | 0.5 d |
+| 2 | ~~Ledger A emit~~ **done (milestone 2)**; a `predict_closed_form` CLI is still open | hub scripts | 0.5 d |
+| 3 | ~~Property routing~~ **done (milestone 2)** | hub scripts | — |
 | 4 | Trinary syntax rows + opcode registry loader; Reality-OS 27-op wire FSOTB loader | hub vendor, Reality-OS fsotb.rs | 1–2 d |
 | 5 | Extend AST codegen to pure-math modules: fsot_ckm_pmns, fsot_seed_flavor (97 fns), fsot_uniqueness_confinement, fsot_matter_antimatter, fsot_complex_interaction, fsot_gr_sm | hub vendor | 1–2 wk (codegen does most; hand-port loops) |
 | 6 | Numeric kernels where C++ pays off: fsot_nse3d, fsot_path_sum, fsot_dynamics (double/f128, optional OpenMP) | hub vendor | 1 wk |
@@ -23,8 +36,8 @@ Rough total for full parity: 6–9 weeks. Items 1–4 (~1 week) cover the hub's 
 
 ## Milestones (long-running workstream)
 1. **Done:** Ledger B re-scorer · balanced-ternary core · TRIT_SPEC · AUDIT_LOG v1.
-2. Ledger A emit + property routing (items 2–3), `fsot_correct` CLI, citation pass over hub JSON `reference` fields and docs (AUDIT_LOG C), look-elsewhere enumeration tool (AUDIT_LOG E-1).
-3. Freestanding header-only core (engine without std::vector/string/exceptions; `Engine<BTFloat>` usable bare-metal) + QEMU x86_64 demo printing the 35 domain scalars computed in balanced ternary over serial.
+2. **Done:** Ledger A emit + property routing · Fixed-in-C++ corrected modes · evidence tiers · citation pass · look-elsewhere tool · freestanding core + QEMU x86_64 ternary demo.
+3. Closed-form sections in the freestanding core (generator target without std::string/vector), the `predict_closed_form` CLI, and the trit-spec fixes T-1 to T-5 in code.
 4. Pure-math vendor modules via the generator (item 5), numeric kernels (item 6).
 5. Data panels / gauntlet (item 7).
 

@@ -32,6 +32,13 @@ amplitude is f = ALPHA.
 - **Balanced-ternary arithmetic** (`include/fsot/ternary.hpp`, see [docs/TERNARY.md](docs/TERNARY.md)): trit/tryte words and a
   balanced-ternary floating-point type. Ternary operations do the actual math. `Engine<BTFloat<110>>` evaluates the whole
   FSOT core in ternary and matches the 50-digit golden to 9.5e-50. The header is freestanding: no heap, exceptions, iostream or libm.
+- **Ledger A emit and property routing** (`include/fsot/host/ledger_a.hpp`): bit-identical to the hub Python.
+- **Corrected modes** for the audit findings. Parity stays the default and is golden-tested.
+  - `fsot_ledger_b --corrected-out` and `fsot_report --corrected`: see "Fixed in C++" in [docs/AUDIT_LOG.md](docs/AUDIT_LOG.md).
+- **Evidence tiers** for every gated record and domain ([docs/EVIDENCE_TIERS.md](docs/EVIDENCE_TIERS.md)).
+- **A look-elsewhere count** ([docs/LOOK_ELSEWHERE.md](docs/LOOK_ELSEWHERE.md)).
+- **A full citation/DOI pass** (`tools/check_citations.py`).
+- **Bare metal:** a freestanding `CoreEngine` (`include/fsot/core.hpp`) and an x86_64 kernel. It boots under QEMU and prints the 35 domain S, computed in balanced ternary, over serial ([docs/BARE_METAL.md](docs/BARE_METAL.md)).
 - Specs and audit: [docs/TRIT_SPEC.md](docs/TRIT_SPEC.md) (canonical trit wire format + codon mapping, cross-repo
   mismatches and proposed fixes) and [docs/AUDIT_LOG.md](docs/AUDIT_LOG.md) (neutral rigor log with evidence).
 
@@ -100,8 +107,8 @@ MSVC has no `__float128`, and its `long double` is the same as `double`. On MSVC
 Use the 169-bit type when you need values that match Python exactly. MinGW-w64 GCC does support `__float128`. (The MSVC build has not been tested yet; CI covers Linux only.)
 
 ## Roadmap (from [docs/PORT_PLAN.md](docs/PORT_PLAN.md))
-1. Ledger B panel re-scorer over the hub's `data/*benchmark*.json` (recompute c = m(1+|S|·ALPHA), pooled medians, gate) — 2–3 days
-2. Ledger A closed-form emit + property routing — about 1 day
+1. ~~Ledger B panel re-scorer~~ (milestone 1) · ~~Ledger A emit + property routing~~ (milestone 2)
+2. Closed-form sections in the freestanding core; `predict_closed_form` CLI
 3. Trinary syntax rows, opcode registry loader, wire-format FSOTB loader — 1–2 days
 4. Extend the codegen to the hub's pure-math modules (seed_flavor, gr_sm, matter_antimatter, uniqueness_confinement, ckm_pmns, complex_interaction) — 1–2 weeks
 5. Numeric kernels (nse3d, path_sum, dynamics) — about 1 week
@@ -117,6 +124,10 @@ A survey of the engine and of every trinary implementation is in [docs/INVENTORY
 | `include/fsot/closed_forms.gen.inc` | generated sections (do not edit) |
 | `include/fsot/real.hpp` | number-type shim (double / long double / __float128 / Boost 169-bit) |
 | `include/fsot/trit.hpp`, `fsotb_vm.hpp` | trinary core, FSOTB VM |
+| `include/fsot/ternary.hpp`, `core.hpp` | balanced-ternary arithmetic, freestanding core |
+| `include/fsot/host/` | Ledger A/B, routing, tiers, Python-semantics helpers (host only) |
+| `kernel/` | x86_64 bare-metal QEMU demo |
+| `audit/` | citation pass and look-elsewhere outputs |
 | `tools/` | pinned fetch, codegen, golden export |
 | `golden/golden_AEB2AD.tsv` | golden values |
 | `tests/`, `bench/`, `apps/` | tests, benchmarks, report CLI |
