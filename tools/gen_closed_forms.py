@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import ast
+from fractions import Fraction
 import hashlib
 import json
 import sys
@@ -97,6 +98,33 @@ def pure_int(n: ast.AST) -> bool:
     return False
 
 
+def truncated_rational(n: ast.AST):
+    """mpf("0.333333333333333")-style literal that is a >=12-digit truncation of p/q (q <= 12), else None."""
+    if not (isinstance(n, ast.Call) and getattr(n.func, "id", "") == "mpf" and len(n.args) == 1
+            and isinstance(n.args[0], ast.Constant) and isinstance(n.args[0].value, str)):
+        return None
+    txt = n.args[0].value
+    if len(txt.lstrip("-").split(".")[-1]) < 12:
+        return None
+    f = Fraction(txt)
+    for q in range(2, 13):
+        p = round(f * q)
+        if p % q and f != Fraction(p, q) and abs(f - Fraction(p, q)) < Fraction(1, 10**11):
+            return p, q
+    return None
+
+
+def names_in(n: ast.AST) -> set[str]:
+    return {x.id for x in ast.walk(n) if isinstance(x, ast.Name)}
+
+
+# Rows whose computed expression depends on a local bound to a decimal literal (audit B-02).
+LITERAL_INPUT_ROWS: list[tuple[str, str, str, str]] = []
+_CUR_SECTION = [""]
+_TAINT: dict[str, set[str]] = {}
+_LITERALS: dict[str, str] = {}
+
+
 def cstr(s: str) -> str:
     return json.dumps(s, ensure_ascii=True)  # \uXXXX escapes are valid C++ too
 
@@ -109,6 +137,10 @@ def expr(n: ast.AST) -> str:
             k = int_exponent(n.right)
             if k is not None:
                 return f"m::ipow({expr(n.left)}, {k})"
+            pq = truncated_rational(n.right)
+            if pq is not None:
+                # Truncated decimal of p/q (audit B-03): parity mode keeps the literal, corrected mode uses p/q.
+                return f"m::pow({expr(n.left)}, xexp({expr(n.right)}, {pq[0]}, {pq[1]}))"
             return f"m::pow({expr(n.left)}, {expr(n.right)})"
         op = {ast.Add: "+", ast.Sub: "-", ast.Mult: "*", ast.Div: "/"}.get(type(n.op))
         if op is None:
@@ -147,6 +179,9 @@ def result_call(call: ast.Call) -> str:
     if not (isinstance(a[0], ast.Constant) and isinstance(a[1], ast.Constant)):
         raise Untranslatable("non-literal Result name: " + ast.unparse(call))
     parts = [cstr(a[0].value), cstr(a[1].value), expr(a[2])]
+    used = set().union(*[_TAINT[x] for x in names_in(a[2]) if x in _TAINT]) if names_in(a[2]) & _TAINT.keys() else set()
+    for src in sorted(used):
+        LITERAL_INPUT_ROWS.append((a[0].value, src, _LITERALS[src], _CUR_SECTION[0]))
     if len(a) >= 4:
         parts.append(expr(a[3]))
     if len(a) >= 5:
@@ -165,6 +200,15 @@ def stmt(s: ast.stmt, special_hashes: dict[str, str], declared: set[str]) -> str
         name = s.targets[0].id
         if isinstance(s.value, ast.List) and not s.value.elts:
             return "Results r;"
+        v = s.value
+        if (isinstance(v, ast.Call) and getattr(v.func, "id", "") == "mpf" and isinstance(v.args[0], ast.Constant)
+                and isinstance(v.args[0].value, str)):
+            _TAINT[name] = {name}
+            _LITERALS[name] = v.args[0].value
+        elif names_in(v) & _TAINT.keys():
+            _TAINT[name] = set().union(*[_TAINT[x] for x in names_in(v) if x in _TAINT])
+        else:
+            _TAINT.pop(name, None)
         if name in declared:
             return f"{name} = {expr(s.value)};"
         declared.add(name)
@@ -250,6 +294,8 @@ def main() -> int:
             out.append(CROSS_SPECIES)
             continue
         fn = funcs[name]
+        _CUR_SECTION[0] = name
+        _TAINT.clear()
         body = []
         declared: set[str] = set()
         for s in fn.body:
@@ -265,6 +311,13 @@ def main() -> int:
         out.extend(body)
         out.append("  }")
         out.append("")
+    out.append("  // Rows whose computed value uses a local bound to a decimal literal (a measured input, audit B-02).")
+    out.append("  struct LiteralInputRow { const char* row; const char* input; const char* literal; const char* section; };")
+    out.append("  static constexpr LiteralInputRow LITERAL_INPUT_ROWS[] = {")
+    for r in LITERAL_INPUT_ROWS:
+        out.append("      {" + ", ".join(cstr(x) for x in r) + "},")
+    out.append("  };")
+    out.append("")
     out.append("  // Ordered list of every section, matching full_report() in the authority.")
     out.append("  std::vector<std::pair<const char*, Results (Engine::*)() const>> sections() const {")
     out.append("    return {" + ", ".join(f'{{"{n}", &Engine::{n}}}' for n in SECTIONS) + "};")

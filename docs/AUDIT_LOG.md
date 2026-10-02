@@ -181,6 +181,49 @@ the Python, 13,841/13,841 lines).
    and 6,242 gated errors are not reproducible from their own fields (A-04). The pinned code is
    deterministic and this repo reproduces it bit-for-bit. The data files are not reproducible.
 
+## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
+
+Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests
+check, and adds a **corrected mode**. Frozen data is never rewritten; corrected results are reported
+next to the parity ones.
+
+| Finding | Parity mode (golden-tested) | Corrected mode | Where |
+|---|---|---|---|
+| A-04 gate trusts stored `error_pct` | `analyze_benchmark(doc, file, lit)` | `analyze_benchmark(..., recompute=true)`: gate error = \|c−m\|/\|m\| from the record's own fields. The stored value is kept only for rows whose error is not relative by design (simulation aggregates, σ-distance rows, adversarial-match rows) or whose fields aren't finite numbers (`stored_only`) | `include/fsot/host/ledger_b.hpp` |
+| A-04 emitter `round(c, 6)` | `make_fsot_record(...)` → `round(c,6)` / `round(c,4)` | `make_fsot_record(..., corrected=true)` → `round_sig(c, 12)`, `round_sig(err, 12)` | `include/fsot/host/ledger_a.hpp`, `pyfloat.hpp::round_sig` |
+| A-01 corrections counted as predictions | (not separated) | per file and in total: `ledger_b_structural_corrections` (eval_kind `fsot_prediction`/`fsot_correction`, c = m(1+\|S\|α)) vs `genuine_predictions` (all other gated scalars) | `fsot_ledger_b --corrected-out` |
+| A-05 NaN tokens | read like Python | same values, plus each file's token counts and first line numbers in the report and on stderr | `pyjson.hpp::loads(text, NonFiniteLog*)` |
+| B-01 / B-02 non-predictions | rows unchanged | `fsot_report` tags `[non-prediction: computed=target]` (exact equality at run time) and `[non-prediction: input:a0=0.529177]` (generator taint analysis: any row whose expression depends on a local bound to a decimal literal), and prints the headline with and without them | `apps/fsot_report.cpp`, `tools/gen_closed_forms.py` → `LITERAL_INPUT_ROWS` |
+| B-03 truncated exponents | the literal as written | `Engine(Mode::corrected)`: every exponent literal that is a ≥12-digit truncation of p/q (q ≤ 12) is evaluated as p/q (generator emits `xexp(lit, p, q)`) | `include/fsot/engine.hpp`, `closed_forms.gen.inc` |
+
+Trit-format fixes T-1 to T-5 stay as documented in `docs/TRIT_SPEC.md`.
+
+**Results, hub data @ 6f9c2560, pin AEB2AD** (full per-file report: `golden/ledger_b_corrected_6f9c2560.tsv`,
+regenerated and diffed in CI):
+
+| Quantity | Parity | Corrected |
+|---|---|---|
+| Gated scalars above 0.5 % | 0 | 6,378 (in 46 files) |
+| Green files (of 477 active) | 477 | 436 |
+| Stored `error_pct` disagreeing with its own fields (tolerance 1e−6 + 1e−4·err) | — | 56,804 |
+| Scalars gated on the stored value (`stored_only`) | — | 2,607 |
+| Ledger B structural corrections among gated scalars | — | 139,400 |
+| **Genuine predictions among gated scalars** | — | **43,796** (188 above 0.5 % after recompute) |
+| Ledger B records whose error can't be reproduced from the emitted `computed` | 47,994 of 140,088 (`round(c,6)`) | 0 (`round_sig(c,12)`) |
+| Non-standard JSON tokens | 257 NaN in 1 file, read silently | same, logged (first at line 785) |
+
+The A-04 entry above gives 6,242 records / 40 files from an earlier one-off Python count. That count used
+its own record selection (stored ≤ 0.5 % and recomputed > 0.5 %). The 6,378 / 46 here comes from the C++
+rule in the table above, applied to every gated scalar. Both use the same stored fields.
+
+Closed forms (`fsot_report`, mp169):
+- 343 rows have targets and 342 are within 5 %.
+- The run-time equality rule flags **20** rows whose computed value equals the target exactly: the six named in B-01 (`Proton_radius`, `STDP_Tau_Plus_ms`, `STDP_Tau_Minus_ms`, `Metatron_Spheres`, `Metatron_Pathways`, `Max_Trits`), plus `Richardson_D=25`, `Quark_condensate`, `Mandelbrot_boundary`, `N_Layers`, `N_Lobes`, `N_Columns`, `WM_Capacity`, `N_Attention_Heads`, `N_Drives`, `Binding_Window`, `Seq_Predict_Period`, `Replay_Passes`, `Cross_Opt_QO` and `pH_water`.
+- Taint analysis flags **1** row with a measured input (`DNA_base_pair`, a0).
+- Excluding these 21 rows: **321 of 322** are within 5 %.
+- Some flagged rows are correct identities, not errors (e.g. (25/25)^0.2 = 1). The flag means only "not a prediction derived from the seeds".
+- Corrected mode changes **11** rows. The largest relative shift is 5.9e−11 (`Chain_consistency_%`); the lepton mass ratios and `CMB_tau` shift by 1.8e−13 to 3.4e−13; the other seven by under 3e−16. No row crosses a 5 % boundary.
+
 ## F. This repo's own known limitations
 - The Ledger B port emulates Python `str.lower()` only for ASCII and Greek Δ/Γ
   (`include/fsot/host/ledger_b.hpp::normalize_biochem_text`). The golden test passes at 6f9c2560. A future

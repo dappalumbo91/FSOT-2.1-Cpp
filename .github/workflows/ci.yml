@@ -71,4 +71,4 @@ jobs:
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$PWD/hub
           cmake --build build --target fsot_ledger_b
-          ctest --test-dir build -R ledger_b --output-on-failure
+          ctest --test-dir build -R ledger_b --output-on-failure -j1

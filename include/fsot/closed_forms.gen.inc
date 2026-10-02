@@ -42,13 +42,13 @@
     r.push_back(mk("sin2_theta_W", "(\u03b3 \u2212 1/\u03c0\u00b2)/\u03c6^(3/2)", v, lit<R>("0.23122")));
     v = ((m::sqrt(PI) - m::ipow(GAMMA, 3)) / ((R(1) / m::sqrt(E)) + (R(1) / m::sqrt(PHI))));
     r.push_back(mk("M_Z/M_W", "(\u221a\u03c0 \u2212 \u03b3\u00b3)/(1/\u221ae + 1/\u221a\u03c6)", v, lit<R>("1.134")));
-    v = ((m::ipow(E, 2) - m::pow(GAMMA, lit<R>("0.333333333333333"))) / ((R(1) / PHI) + (R(1) / m::sqrt(PHI))));
+    v = ((m::ipow(E, 2) - m::pow(GAMMA, xexp(lit<R>("0.333333333333333"), 1, 3))) / ((R(1) / PHI) + (R(1) / m::sqrt(PHI))));
     r.push_back(mk("Feigenbaum_delta", "(e\u00b2 \u2212 \u03b3^(1/3))/(1/\u03c6 + 1/\u221a\u03c6)", v, lit<R>("4.6692")));
-    v = ((m::ipow(PI, 2) - m::ipow(PHI, 3)) / (m::pow(PI, lit<R>("0.333333333333333")) + (R(1) / m::sqrt(PHI))));
+    v = ((m::ipow(PI, 2) - m::ipow(PHI, 3)) / (m::pow(PI, xexp(lit<R>("0.333333333333333"), 1, 3)) + (R(1) / m::sqrt(PHI))));
     r.push_back(mk("Feigenbaum_alpha", "(\u03c0\u00b2 \u2212 \u03c6\u00b3)/(\u03c0^(1/3) + 1/\u221a\u03c6)", v, lit<R>("2.5029")));
-    v = ((E - (R(1) / m::sqrt(PI))) / ((R(1) / PHI) + m::pow(PHI, lit<R>("0.333333333333333"))));
+    v = ((E - (R(1) / m::sqrt(PI))) / ((R(1) / PHI) + m::pow(PHI, xexp(lit<R>("0.333333333333333"), 1, 3))));
     r.push_back(mk("Apery_zeta3", "(e \u2212 1/\u221a\u03c0)/(1/\u03c6 + \u03c6^(1/3))", v, lit<R>("1.20206")));
-    v = ((m::ipow(PI, 3) - m::pow(GAMMA, lit<R>("0.333333333333333"))) / (m::ipow(E, 2) + m::ipow(GAMMA, 3)));
+    v = ((m::ipow(PI, 3) - m::pow(GAMMA, xexp(lit<R>("0.333333333333333"), 1, 3))) / (m::ipow(E, 2) + m::ipow(GAMMA, 3)));
     r.push_back(mk("Water_anomaly_C", "(\u03c0\u00b3 \u2212 \u03b3^(1/3))/(e\u00b2 + \u03b3\u00b3)", v, lit<R>("3.98")));
     v = ((m::ipow(PI, 2) - m::ipow(E, 2)) / (((R(2) * m::ipow(PI, 2)) * (PI + GAMMA)) + (R(1) / (R(2) * m::ipow(E, 3)))));
     r.push_back(mk("GUT_coupling", "(\u03c0\u00b2\u2212e\u00b2)/(2\u03c0\u00b2(\u03c0+\u03b3)+1/(2e\u00b3))", v, lit<R>("0.03378")));
@@ -327,9 +327,9 @@
     Results r;
     R v1 = ((R(9) * PI) * m::ipow(PHI, 10));
     r.push_back(mk("m_tau/m_e_lepton", "9\u03c0\u03c6\u00b9\u2070", v1, lit<R>("3477.48")));
-    R v2 = ((m::ipow(PI, 3) - PI) / (m::pow(PI, lit<R>("0.333333333333")) + m::ipow(GAMMA, 3)));
+    R v2 = ((m::ipow(PI, 3) - PI) / (m::pow(PI, xexp(lit<R>("0.333333333333"), 1, 3)) + m::ipow(GAMMA, 3)));
     r.push_back(mk("m_tau/m_mu_lepton", "(\u03c0\u00b3\u2212\u03c0)/(\u03c0^(1/3)+\u03b3\u00b3)", v2, lit<R>("16.817")));
-    R v3 = (((R(35) * m::ipow(PHI, -5)) + R(145)) * m::pow(E, lit<R>("0.333333333333")));
+    R v3 = (((R(35) * m::ipow(PHI, -5)) + R(145)) * m::pow(E, xexp(lit<R>("0.333333333333"), 1, 3)));
     r.push_back(mk("m_mu/m_e_lepton", "(35\u03c6\u207b\u2075+145)\u00b7e^(1/3)", v3, lit<R>("206.768")));
     R chain = (v2 * v3);
     R consistency = ((m::fabs((chain - v1)) / v1) * R(100));
@@ -341,11 +341,11 @@
     Results r;
     R v = ((m::ipow(GAMMA, -3) + m::ipow(PI, -3)) / (m::pow(GAMMA, lit<R>("-0.25")) + m::ipow(PI, -1)));
     r.push_back(mk("Logistic_R_inf", "(\u03b3\u207b\u00b3+\u03c0\u207b\u00b3)/(\u03b3\u207b\u2070\u00b7\u00b2\u2075+\u03c0\u207b\u00b9)", v, lit<R>("3.5699")));
-    v = ((m::ipow(GAMMA, -3) + m::pow(PHI, lit<R>("-0.666666666666667"))) / (m::pow(PI, lit<R>("-0.666666666666667")) + m::pow(PI, lit<R>("0.666666666666667"))));
+    v = ((m::ipow(GAMMA, -3) + m::pow(PHI, xexp(lit<R>("-0.666666666666667"), -2, 3))) / (m::pow(PI, xexp(lit<R>("-0.666666666666667"), -2, 3)) + m::pow(PI, xexp(lit<R>("0.666666666666667"), 2, 3))));
     r.push_back(mk("Ising2D_Tc_J", "(\u03b3\u207b\u00b3+\u03c6\u207b\u00b2/\u00b3)/(\u03c0\u207b\u00b2/\u00b3+\u03c0\u00b2/\u00b3)", v, lit<R>("2.2692")));
-    v = ((m::pow(E, lit<R>("-0.333333333333333")) + m::sqrt(PI)) / (m::ipow(E, 2) + m::ipow(PHI, -3)));
+    v = ((m::pow(E, xexp(lit<R>("-0.333333333333333"), -1, 3)) + m::sqrt(PI)) / (m::ipow(E, 2) + m::ipow(PHI, -3)));
     r.push_back(mk("Ising3D_beta_dyn", "(e\u207b\u00b9/\u00b3+\u221a\u03c0)/(e\u00b2+\u03c6\u207b\u00b3)", v, lit<R>("0.3264")));
-    v = (((R(1) / GAMMA) - m::ipow(PI, -3)) / (m::pow(E, lit<R>("0.666666666666667")) + m::pow(PI, lit<R>("-0.25"))));
+    v = (((R(1) / GAMMA) - m::ipow(PI, -3)) / (m::pow(E, xexp(lit<R>("0.666666666666667"), 2, 3)) + m::pow(PI, lit<R>("-0.25"))));
     r.push_back(mk("Ising3D_nu_dyn", "(1/\u03b3\u2212\u03c0\u207b\u00b3)/(e\u00b2/\u00b3+\u03c0\u207b\u00b9/\u2074)", v, lit<R>("0.6300")));
     v = (((PHI * ((GAMMA * m::sqrt(R(2))) / E)) / m::ln(PI)) * (R(1) - (R(1) / m::ipow(PI, 4))));
     r.push_back(mk("Henon_Lyapunov", "\u03c6\u00b7(\u03b3\u221a2/e)/ln(\u03c0)\u00b7(1\u2212\u03c0\u207b\u2074)", v, lit<R>("0.4192")));
@@ -456,7 +456,7 @@
 
   Results predictions() const {
     Results r;
-    R v = (((R(1) / m::sqrt(PHI)) - (R(1) / PHI)) / (m::pow(PI, lit<R>("0.333333333333")) + m::sqrt(E)));
+    R v = (((R(1) / m::sqrt(PHI)) - (R(1) / PHI)) / (m::pow(PI, xexp(lit<R>("0.333333333333"), 1, 3)) + m::sqrt(E)));
     r.push_back(mk("CMB_tau", "(1/\u221a\u03c6\u22121/\u03c6)/(\u03c0^(1/3)+\u221ae)", v, lit<R>("0.054")));
     v = ((((-GAMMA) * E) * PHI) / PI);
     r.push_back(mk("Dark_energy_wa", "\u2212\u03b3e\u03c6/\u03c0", v, lit<R>("-0.830"), 0.1));
@@ -571,6 +571,12 @@
     r.push_back(mk("R_Fe", "\u03c6\u207b\u00b9 + \u03c8_con", (m::ipow(PHI, -1) + PSI_CON), lit<R>("1.25")));
     return r;
   }
+
+  // Rows whose computed value uses a local bound to a decimal literal (a measured input, audit B-02).
+  struct LiteralInputRow { const char* row; const char* input; const char* literal; const char* section; };
+  static constexpr LiteralInputRow LITERAL_INPUT_ROWS[] = {
+      {"DNA_base_pair", "a0", "0.529177", "validation_suite"},
+  };
 
   // Ordered list of every section, matching full_report() in the authority.
   std::vector<std::pair<const char*, Results (Engine::*)() const>> sections() const {

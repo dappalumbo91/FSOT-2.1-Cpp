@@ -94,7 +94,11 @@ if(nlohmann_json_FOUND AND (Boost_FOUND OR FSOT_WITH_FLOAT128))
   add_executable(fsot_ledger_b apps/fsot_ledger_b.cpp)
   target_link_libraries(fsot_ledger_b PRIVATE fsot nlohmann_json::nlohmann_json)
   if(FSOT_HUB_DATA)
-    add_test(NAME ledger_b COMMAND fsot_ledger_b --hub ${FSOT_HUB_DATA} --golden ${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_b_6f9c2560.tsv)
+    add_test(NAME ledger_b COMMAND fsot_ledger_b --hub ${FSOT_HUB_DATA} --golden ${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_b_6f9c2560.tsv
+             --corrected-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_corrected.tsv)
+    add_test(NAME ledger_b_corrected_report COMMAND ${CMAKE_COMMAND} -E compare_files
+             ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_corrected.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_b_corrected_6f9c2560.tsv)
+    set_tests_properties(ledger_b_corrected_report PROPERTIES DEPENDS ledger_b)
   endif()
 else()
   message(STATUS "fsot: nlohmann_json not found; fsot_ledger_b disabled")

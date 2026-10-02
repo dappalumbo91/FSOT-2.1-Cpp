@@ -345,6 +345,9 @@ struct Margin {
   long scalar_count = 0;
   std::optional<double> scalar_median, max_scalar, effective_median, max_effective, worst_effective, max_gate, tier_median;
   long rounding_ghost = 0, catalog_crosswalk = 0;
+  long stored_only = 0, stored_over = 0, gate_over = 0, disagree = 0;  // corrected-mode bookkeeping
+  long ledger_b_scalars = 0, genuine_scalars = 0, genuine_over = 0;     // fsot_prediction vs the rest
+  std::vector<double> genuine_errs;
   bool strict_pass = true, effective_pass = true, tier_pass = true, tier_max_pass = true, median_pass = true;
   long classifier_count = 0, classifier_correct = 0;
   std::optional<double> classifier_accuracy;
@@ -361,7 +364,11 @@ inline const json& material_records(const json& doc) {
   return empty_list;
 }
 
-inline Margin analyze_benchmark(const json& doc, const std::string& file_name, const Literature& lit) {
+// recompute=false: parity with benchmark_margin_lib (the strict gate trusts the stored error_pct).
+// recompute=true:  corrected mode (audit A-04): the gate error of each scalar is recomputed from its own
+//                  computed/measured fields when both are finite numbers; the stored error_pct is used only
+//                  when they are not (counted in Margin::stored_only).
+inline Margin analyze_benchmark(const json& doc, const std::string& file_name, const Literature& lit, bool recompute = false) {
   Margin out;
   if (AUDIT_EXCLUDED_BENCHMARKS.count(file_name)) { out.excluded = true; return out; }
   const json& mat = material_records(doc);
@@ -387,7 +394,35 @@ inline Margin analyze_benchmark(const json& doc, const std::string& file_name, c
     if (is_none(e)) continue;
     auto efo = to_float(*e);
     if (!efo) continue;
-    const double ef = *efo;
+    double ef = *efo;
+    const double stored = ef;
+    if (recompute) {
+      auto c = get(r, "computed");
+      auto m = get(r, "measured");
+      std::optional<double> cf, mf;
+      if (!is_none(c) && !is_none(m)) { cf = to_float(*c); mf = to_float(*m); }
+      // Rows whose error_pct is not |c-m|/|m| by design keep the stored value (counted as stored_only):
+      // simulation aggregates, sigma-distance rows, adversarial-match rows (same carve-outs as
+      // literature_aware_error_pct).
+      const std::string ekl = lower_ascii(str_or_empty(r, "eval_kind"));
+      const bool non_relative = ekl == "simulation_aggregate" ||
+                                (!is_none(get(r, "sigma_distance")) && !is_none(get(r, "sigma"))) ||
+                                (!is_none(get(r, "expected_holes")) && !is_none(get(r, "match"))) ||
+                                str_or_empty(r, "property") == "adversarial_hole_detected";
+      if (!non_relative && cf && mf && std::isfinite(*cf) && std::isfinite(*mf)) {
+        ef = relative_error_pct(*cf, *mf);
+        if (std::fabs(ef - stored) > 1e-6 + 1e-4 * std::fabs(stored)) ++out.disagree;
+      } else {
+        ++out.stored_only;
+      }
+    }
+    out.stored_over += stored > MAX_SCALAR_ERROR_PCT;
+    out.gate_over += ef > MAX_SCALAR_ERROR_PCT;
+    {
+      const std::string ek = str_or_empty(r, "eval_kind");
+      if (ek == "fsot_prediction" || ek == "fsot_correction") ++out.ledger_b_scalars;
+      else { ++out.genuine_scalars; out.genuine_over += ef > MAX_SCALAR_ERROR_PCT; out.genuine_errs.push_back(ef); }
+    }
     errs.push_back(ef);
     if (ef > max_err) { max_err = ef; max_row = &r; }
     Aware aw = aware_for(r, ef);
@@ -458,8 +493,12 @@ inline Margin analyze_benchmark(const json& doc, const std::string& file_name, c
 }
 
 // ---------------- Ledger B re-score with the live law ----------------
+inline constexpr int EMIT_SIG_DIGITS = 12;  // corrected-mode emitter: significant digits, not decimal places
 struct LedgerBStats {
   long lb = 0, unrouted = 0, c_match = 0, s_match = 0, e_match = 0;
+  // Emitter check (audit A-04): records whose error, recomputed from the emitted computed value, differs
+  // from the live error (tolerance 1e-6 + 1e-4*err) with round(c, 6|4) vs round_sig(c, 12).
+  long emit_dp_irreproducible = 0, emit_sig_irreproducible = 0;
   double max_rel_dev = 0.0;
 };
 // S: domain name -> double(S) rounded from a >=113-bit evaluation; alpha = double(ALPHA).
@@ -482,6 +521,12 @@ LedgerBStats rescore(const json& doc, const SMap& S, double alpha) {
     const double c = mv * (1.0 + std::fabs(s) * alpha);
     const double cr = std::fabs(c) < 1e6 ? round_nd(c, 6) : round_nd(c, 4);
     const double err = mv != 0 ? std::fabs(c - mv) / std::fabs(mv) * 100.0 : std::fabs(c - mv) * 100.0;
+    {
+      auto e_of = [&](double cc) { return mv != 0 ? std::fabs(cc - mv) / std::fabs(mv) * 100.0 : std::fabs(cc - mv) * 100.0; };
+      const double tol = 1e-6 + 1e-4 * err;
+      st.emit_dp_irreproducible += std::fabs(e_of(cr) - err) > tol;
+      st.emit_sig_irreproducible += std::fabs(e_of(round_sig(c, EMIT_SIG_DIGITS)) - err) > tol;
+    }
     if (auto sc = get(r, "computed"); sc && sc->is_number()) {
       const double scv = sc->get<double>();
       if (scv == cr) ++st.c_match;

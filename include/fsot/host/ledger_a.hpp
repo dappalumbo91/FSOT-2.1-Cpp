@@ -124,9 +124,12 @@ inline std::optional<double> formula_mass(std::string_view f) {
 
 struct Record { double computed, error_pct; std::string eval_kind, fsot_domain; double fsot_scalar; };
 
-// make_fsot_record(lab, property, name, measured, domain, formula) with factor=None, eval_kind default
+// make_fsot_record(lab, property, name, measured, domain, formula) with factor=None, eval_kind default.
+// corrected=false: parity (computed = round(c, 6) or round(c, 4) for |c| >= 1e6; error_pct = round(err, 6)).
+// corrected=true:  significant-digit rounding (audit A-04): computed and error_pct = round_sig(x, 12), so the
+//                  error recomputed from the emitted computed/measured pair reproduces error_pct.
 inline std::optional<Record> make_fsot_record(std::string_view property, double measured, std::string_view domain,
-                                              std::string_view formula) {
+                                              std::string_view formula, bool corrected = false) {
   auto [routed, f] = route_property(property, domain);
   double computed = 0, error = 0;
   std::string dom = routed;
@@ -146,8 +149,13 @@ inline std::optional<Record> make_fsot_record(std::string_view property, double 
   auto s = domain_scalar(dom);
   if (!s) return std::nullopt;
   Record r;
-  r.computed = std::fabs(computed) < 1e6 ? py::round_nd(computed, 6) : py::round_nd(computed, 4);
-  r.error_pct = py::round_nd(error, 6);
+  if (corrected) {
+    r.computed = py::round_sig(computed, 12);
+    r.error_pct = py::round_sig(error, 12);
+  } else {
+    r.computed = std::fabs(computed) < 1e6 ? py::round_nd(computed, 6) : py::round_nd(computed, 4);
+    r.error_pct = py::round_nd(error, 6);
+  }
   r.eval_kind = formula_hit ? "live_formula" : "fsot_correction";
   r.fsot_domain = dom;
   r.fsot_scalar = py::round_nd(*s, 6);

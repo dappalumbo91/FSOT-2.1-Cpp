@@ -34,12 +34,25 @@ inline void restore_nonfinite(json& j) {
     for (auto& v : j) restore_nonfinite(v);
   }
 }
-inline std::optional<json> loads(const std::string& text) {
+// Tolerant-read log (audit A-05): counts of non-standard tokens and the first line numbers they occur on.
+struct NonFiniteLog {
+  long nan = 0, pos_inf = 0, neg_inf = 0;
+  std::vector<long> first_lines;  // up to 5
+  long total() const { return nan + pos_inf + neg_inf; }
+};
+inline std::optional<json> loads(const std::string& text, NonFiniteLog* log = nullptr) {
   std::string t;
+  long line = 1;
+  auto note = [&](long NonFiniteLog::*field) {
+    if (!log) return;
+    ++(log->*field);
+    if (log->first_lines.size() < 5) log->first_lines.push_back(line);
+  };
   bool in_str = false, esc = false, any = false;
   t.reserve(text.size());
   for (std::size_t i = 0; i < text.size(); ++i) {
     const char c = text[i];
+    if (c == '\n') ++line;
     if (in_str) {
       t += c;
       if (esc) esc = false;
@@ -48,9 +61,9 @@ inline std::optional<json> loads(const std::string& text) {
       continue;
     }
     if (c == '"') { in_str = true; t += c; continue; }
-    if (text.compare(i, 3, "NaN") == 0) { t += "\"\\u0001PY_NaN\""; i += 2; any = true; continue; }
-    if (text.compare(i, 8, "Infinity") == 0) { t += "\"\\u0001PY_Inf\""; i += 7; any = true; continue; }
-    if (text.compare(i, 9, "-Infinity") == 0) { t += "\"\\u0001PY_-Inf\""; i += 8; any = true; continue; }
+    if (text.compare(i, 3, "NaN") == 0) { t += "\"\\u0001PY_NaN\""; i += 2; any = true; note(&NonFiniteLog::nan); continue; }
+    if (text.compare(i, 8, "Infinity") == 0) { t += "\"\\u0001PY_Inf\""; i += 7; any = true; note(&NonFiniteLog::pos_inf); continue; }
+    if (text.compare(i, 9, "-Infinity") == 0) { t += "\"\\u0001PY_-Inf\""; i += 8; any = true; note(&NonFiniteLog::neg_inf); continue; }
     t += c;
   }
   json j = json::parse(t, nullptr, /*allow_exceptions=*/false);

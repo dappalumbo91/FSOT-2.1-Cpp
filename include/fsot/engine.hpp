@@ -97,9 +97,16 @@ template <class R> struct DomainConfig {
   R C;  // interpretation label; does not enter S
 };
 
+// parity:    byte-parity with the pinned authority (truncated exponent literals kept as written).
+// corrected: truncated decimal exponents (audit B-03, e.g. "0.333333333333333") are evaluated as the exact
+//            rational p/q. Only closed-form rows change; seeds, layers and the 35 domain S are identical.
+enum class Mode { parity, corrected };
+
 template <class R> class Engine {
  public:
   using T = real_traits<R>;
+  Mode mode = Mode::parity;
+  R xexp(const R& literal, int p, int q) const { return mode == Mode::corrected ? R(p) / R(q) : literal; }
   // §1 seeds
   R PI = T::pi();
   R E = T::e();
@@ -133,7 +140,7 @@ template <class R> class Engine {
   std::vector<DomainConfig<R>> DOMAINS;
   R S_COSM, S_QUANT, S_CHEM;
 
-  Engine() {
+  explicit Engine(Mode md = Mode::parity) : mode(md) {
     for (auto n : domain_names())
       DOMAINS.push_back({n, derived_D_eff(n), fold_hits(n), fold_look(n), R(1), fold_observed(n), fold_C(n)});
     S_COSM = domain_scalar("Cosmology");

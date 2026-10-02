@@ -50,4 +50,13 @@ inline double round_nd(double x, int nd) {
   return std::strtod(buf, nullptr);
 }
 
+// Not a Python builtin: round to n significant digits (correctly rounded decimal via printf %.*e, then
+// strtod). Used by the corrected-mode emitter (audit A-04: round(c, 6) is 6 decimal places, which loses all
+// precision for |c| << 1).
+inline double round_sig(double x, int n) {
+  if (x == 0 || !std::isfinite(x)) return x;
+  char buf[64];
+  std::snprintf(buf, sizeof buf, "%.*e", n - 1, x);
+  return std::strtod(buf, nullptr);
+}
 }  // namespace fsot::py
