@@ -269,3 +269,30 @@ C++ jobs. The Lean-side fixes are in a prompt for Damian's Grok Build agent, not
 | full CTest | **24/24 pass** (adds `refinement_freeze_b`, `refinements_b_crosscheck`) | `02_ctest.log` |
 | precision report regenerated | record 85/91 confirmed; 88/91 with passing frozen-pending | `03_precision.log` |
 | seed-leaf golden, pin lineage, 02b re-score (CI-like venv, mpmath 1.4.1), references (115 rows incl. 6 arXiv), both freezes, C++↔Python crosscheck | byte-identical / 0 failures | `04_regen_refs_freezes.log` |
+
+## 2026-10-02c: train/test search for class-level dressing rules (logs in `xval/results/2026-10-02c/`)
+
+The protocol `docs/freezes/PROTOCOL_2026-10-02c` (commit 44adf76, 08:41:19 EDT) fixed the classes, the patterns and the acceptance criterion before any training number was computed.
+The criterion: n ≥ 3, the same residual sign in every member, leave-one-out z ≤ 1 for at least 2/3 of members, and a full-training selection other than "none".
+Training was then run and frozen in `docs/freezes/REFINEMENTS_2026-10-02c` (commit dd85c22, 08:42:21 EDT) before any target was scored (`tools/train_2026_10_02c.py`, `audit/train_2026-10-02c.tsv`).
+Patterns examined: **539** (107 per class, 111 for B2). **No class met the criterion, so no rule was accepted and no target or held-out value changes.**
+
+| class | n | sign agreement | α-power agreement | P3 LOO z ≤ 1 | P3 full selection | why no rule |
+|---|---|---|---|---|---|---|
+| W widths/lifetimes (τ_n, R_b, R_c, BR_Z ee/had/inv pins) | 6 | 4/6 | 5/6 | 6/6 | none | every member already passes bare, so there is nothing to learn |
+| M moments/g (g_e, g_p leaves) | 2 | 1/2 | 0/2 (α³ vs α¹) | 0/2 | none | n < 3; opposite signs and orders |
+| B1 binding leaves (He-4, H-3) | 2 | 1/2 | 2/2 (α²) | 0/2 | none | each leaf's dressing applied to the other gives z 9414 / 2853 |
+| B2 Ledger B B/A vs AME2020 (13 nuclei) | 13 | 7/13 | 9/13 | 0/13 | none | P4 δ = c·v for v ∈ {1, A, A^-1/3, B/A}: LOO 0/13 for every v |
+| T thermal (Ω_b h², N_eff, η_b) | 3 | 3/3 | 3/3 | 3/3 | none | the bare residuals −0.41 %, −1.8 %, −1.6 % are all within σ |
+
+The thermal pins all run *high*, whereas bare T_CMB runs *low*: the class sign argues against the +yy T_CMB polish. This weakens the polish but does not kill it.
+
+Scoring (`tools/score_2026_10_02c.py`, `audit/score_2026-10-02c.tsv`):
+- **Targets, unchanged (no rule):** Γ_Z/M_Z z 4.88; deuteron B z 3.59; μ_d z 2.1e4; Ledger B H-2 B/A z 1773.
+- **Held-out, bare:** R_ell z 0.33 (pass); Y_p z 0.006 (pass); Ledger B He-3 B/A z 5.3e4 (fail).
+- **T_CMB checks:**
+  - FSOT-internal T0 from the η_b and Ω_b h² pins via PDG BBN η10 = 274 Ω_b h²: 2.7277 ± 0.0017 K. The σ comes only from the rounding of 274 and was not pre-registered. Bare z 1.79, candidate z 0.95.
+  - Noterdaeme 2011 T(z) normalisation 2.725 ± 0.002 K (arXiv:1012.3164; not independent of FIRAS): bare z 0.14, candidate z 0.55.
+  - Discriminating power |cand − bare|/σ is 0.69 (Noterdaeme) and 0.84 (internal). Neither check can confirm or kill the polish, so it stays frozen-pending.
+
+Pass counts are unchanged: **85/91 confirmed, 88/91 including frozen-pending**. The precision report was regenerated and is byte-identical. CTest passes 25/25 (adds `refinement_freeze_c`), and `xval/cpp_check.sh` passed.

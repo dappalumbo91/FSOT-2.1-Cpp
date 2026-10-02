@@ -1,0 +1,132 @@
+
+== toolchain (0 s)
+g++ (Debian 14.2.0-19) 14.2.0
+cmake version 3.31.6
+Python 3.13.5
+
+== 1. build-test (0 s)
+
+== 2. hub sparse clone at ledger_b_data_commit (1 s)
+hub @ 6f9c256, authority sha256 aeb2ad
+ninja: no work to do.
+ 1/25 Test #10: precision_report ...................................   Passed    0.01 sec
+ 2/25 Test  #7: ledger_a_routing ...................................   Passed    1.82 sec
+ 3/25 Test  #3: ternary ............................................   Passed    1.78 sec
+ 4/25 Test  #8: look_elsewhere_smoke ...............................   Passed    0.48 sec
+ 5/25 Test  #4: core_vs_engine .....................................   Passed    0.39 sec
+ 6/25 Test  #5: core_closed_forms_vs_golden ........................   Passed    0.14 sec
+ 7/25 Test  #2: trit ...............................................   Passed    0.21 sec
+ 8/25 Test  #6: predict_closed_form_smoke ..........................   Passed    0.10 sec
+ 9/25 Test #17: refinement_freeze_c ................................   Passed    0.02 sec
+10/25 Test #19: freeze_core_sha_matches_hub_freeze .................   Passed    0.04 sec
+11/25 Test #20: freeze_verify_domain_freeze_2026-10-02_AEB2AD ......   Passed    0.04 sec
+12/25 Test #21: freeze_verify_py_domain_freeze_2026-10-02_AEB2AD ...   Passed    0.03 sec
+13/25 Test #13: references_check ...................................   Passed    0.03 sec
+14/25 Test #14: refinement_freeze ..................................   Passed    0.02 sec
+15/25 Test #15: refinement_freeze_b ................................   Passed    0.02 sec
+16/25 Test #16: refinements_b_crosscheck ...........................   Passed    0.01 sec
+17/25 Test  #1: golden .............................................   Passed    0.03 sec
+18/25 Test #12: precision_report_md ................................   Passed    0.01 sec
+19/25 Test #11: precision_report_tsv ...............................   Passed    0.01 sec
+20/25 Test  #9: seed_leaves ........................................   Passed    0.00 sec
+21/25 Test #18: freestanding_symbols ...............................   Passed    0.00 sec
+22/25 Test #22: ledger_b ...........................................   Passed    8.17 sec
+23/25 Test #23: evidence_tiers_report ..............................   Passed    0.01 sec
+24/25 Test #25: ledger_b_genuine_misses ............................   Passed    0.01 sec
+25/25 Test #24: ledger_b_corrected_report ..........................   Passed    0.01 sec
+100% tests passed, 0 tests failed out of 25
+OK  ctest
+
+== 3. regen-diff + ledger-b Python goldens (mpmath==1.4.1) (17 s)
+authority AEB2AD @ d127c07e -> authority/fsot_compute.py
+wrote include/fsot/closed_forms.gen.inc: 26 sections, pin AEB2AD
+wrote include/fsot/closed_forms_core.gen.inc: 26 sections (freestanding)
+wrote /workspace/fsot-cpp/golden/golden_AEB2AD.tsv: 644 lines, pin AEB2AD, 343 targets, 342 within 5%
+OK  closed forms + golden_AEB2AD regenerate byte-identical
+wrote /home/box/fsot-cpp-work/ledger_b.tsv: active=477 green=477 ledgerB={'lb': 140088, 'unrouted': 7168, 'c_match': 14634, 's_match': 3667, 'e_match': 4223}
+OK  hub Python Ledger B golden byte-identical
+ledger A: 21 rows (6 translated emitters); routing: 161 properties, 30 elements
+wrote /home/box/fsot-cpp-work/ledger_a_routing.tsv: A=21 MASS=1268 ROUTE=3339 REC=8496 (of 127438 distinct)
+OK  Ledger A / routing byte-identical
+wrote golden/tier_evidence_6f9c2560.json: 4 hub freezes, 1 cpp freezes, 478 benchmark files dated, 0 undated
+OK  tier evidence byte-identical
+wrote /home/box/fsot-cpp-work/seed_leaves.tsv: 50 leaves from 29 hub scripts, authority AEB2AD
+OK  seed-leaf golden (hub scripts run unchanged) byte-identical
+wrote /home/box/fsot-cpp-work/pin_lineage.tsv: 204 rows x 5 pins
+OK  pin lineage byte-identical
+candidates scored; family hits 18/416 = 0.0433
+OK  2026-10-02b re-score byte-identical
+W_widths {'n': 6, 'sign_agree': '4/6', 'alpha_power_agree': '5/6', 'p3_loo_pass': '6/6', 'p3_full_selection': 'none', 'p4_best': '-', 'accepted': False}
+M_moments {'n': 2, 'sign_agree': '1/2', 'alpha_power_agree': '1/2', 'p3_loo_pass': '0/2', 'p3_full_selection': 'none', 'p4_best': '-', 'accepted': False}
+B1_binding_leaves {'n': 2, 'sign_agree': '1/2', 'alpha_power_agree': '2/2', 'p3_loo_pass': '0/2', 'p3_full_selection': 'none', 'p4_best': '-', 'accepted': False}
+B2_binding_ledgerB {'n': 13, 'sign_agree': '7/13', 'alpha_power_agree': '9/13', 'p3_loo_pass': '0/13', 'p3_full_selection': 'none', 'p4_best': '1 0/13', 'accepted': False}
+T_thermal {'n': 3, 'sign_agree': '3/3', 'alpha_power_agree': '3/3', 'p3_loo_pass': '3/3', 'p3_full_selection': 'none', 'p4_best': '-', 'accepted': False}
+target | Gamma_Z/M_Z | phi^5/e^6 (bare; no rule) | 0.0274897828876688 | 0.0273665394569 | 2.523e-5 | 4.8848 | FAIL | none accepted (REFINEMENTS_2026-10-02c)
+target | Deuteron_binding_MeV | sqrt(e)/e+phi (bare; no rule) | 2.22456464846253 | 2.224566229 | 4.4e-7 | 3.5921 | FAIL | none accepted (REFINEMENTS_2026-10-02c)
+target | Deuteron_mu_muN | G^4+POOF (bare; no rule) | 0.857391418128038 | 0.8574382335 | 2.2e-9 | 21280.0 | FAIL | none accepted (REFINEMENTS_2026-10-02c)
+target | LedgerB_H-2_B/A | geochemistry #72 (bare) | 1.11192859825147 | 1.1122831 | 2.0e-7 | 1772.5 | FAIL | none accepted (REFINEMENTS_2026-10-02c); AME2020 2H B/A 1112.2831(2) keV
+held_out | R_ell | G^3/gamma^6 (bare) | 20.7782434234984 | 20.770990552 | 0.02187 | 0.33164 | PASS | class W held-out; no rule to apply
+held_out | Y_p | theta_S*sin(1) (bare) | 0.244780998449757 | 0.2448 | 0.0033 | 0.005758 | PASS | class T held-out; no rule to apply
+held_out | LedgerB_He-3_B/A | geochemistry #73 (bare) | 2.56479961356459 | 2.57268044 | 1.5e-7 | 52539.0 | FAIL | class B2 held-out; no rule to apply
+tcmb_check | T_CMB bare | vs FIRAS (PDG 2024) | 2.72471169034307 | 2.7255 | 0.0006 | 1.3138 | FAIL | 
+tcmb_check | T_CMB bare | vs FSOT-internal T0 from eta_b and Omega_b_h2 pins (PDG BBN eta10 = 274 Omega_b h^2 at 2.7255 K; sigma from rounding of 274) | 2.72471169034307 | 2.72767855967 | 0.0016592 | 1.7882 | FAIL | internal, systematic only
+tcmb_check | T_CMB bare | vs Noterdaeme 2011 T(z) normalisation | 2.72471169034307 | 2.725 | 0.002 | 0.14415 | PASS | not independent of FIRAS
+tcmb_check | T_CMB C-TCMB (02b) | vs FIRAS (PDG 2024) | 2.72609931538602 | 2.7255 | 0.0006 | 0.99886 | PASS | 
+tcmb_check | T_CMB C-TCMB (02b) | vs FSOT-internal T0 from eta_b and Omega_b_h2 pins (PDG BBN eta10 = 274 Omega_b h^2 at 2.7255 K; sigma from rounding of 274) | 2.72609931538602 | 2.72767855967 | 0.0016592 | 0.95183 | PASS | internal, systematic only
+tcmb_check | T_CMB C-TCMB (02b) | vs Noterdaeme 2011 T(z) normalisation | 2.72609931538602 | 2.725 | 0.002 | 0.54966 | PASS | not independent of FIRAS
+tcmb_check | discrimination | |cand-bare|/sigma | 0.6938 | Noterdaeme | 0.002 | 0.8363 | internal | power to separate the two T_CMB values
+OK  2026-10-02c train/score byte-identical
+references: 121 rows {'CODATA2022': 29, 'derived': 14, 'PDG2024': 68, 'AME2020': 3, 'ARXIV': 7}; failures: 0
+OK  every reference value matches its committed evidence
+
+== 4. C++ Ledger B re-score vs golden, corrected + genuine misses (43 s)
+note: frb_orifice_outgassing_benchmark.json: read 257 non-standard JSON tokens (NaN/Infinity) tolerantly, first at line 785
+fsot_ledger_b: 478 files, active=477 green=477 ledgerB=140088 unrouted=7168 c_match=14634 s_match=3667 e_match=4223 (7.87 s)
+golden compare: 13842 lines, 0 mismatches
+OK  corrected + genuine-miss reports byte-identical
+ 153  zero_target        data_handling
+  14  inequality_bound   data_handling
+  12  computed_rounded   data_handling
+   7  formula_miss       formula
+   1  float_noise_gate   data_handling
+   1  contraction        data_handling
+ 188  total
+OK  PRECISION_M3 188-row classification byte-identical
+
+== 5. closed forms, corrected mode, freeze (51 s)
+Total constants with targets: 343
+Within 5% of target: 342
+Flagged non-predictions (computed=target or measured input): 21 (21 within 5%)
+Genuine predictions with targets: 322
+Genuine predictions within 5%: 321
+Rows changed by corrected mode: 11
+predict_closed_form: 2 rows (BTFloat<110>, parity mode, pin AEB2AD)
+wave1                        H0                                 = 6.84449955638e+01  target 6.74000000000e+01  err% 1.550e+00
+validation_suite             V25_H0                             = 6.84449955638e+01  target 6.74000000000e+01  err% 1.550e+00
+OK freezes/domain_freeze_2026-10-02_AEB2AD.json: 796 rows, freeze_date 2026-10-02, selection_sha256 580eb6e72ca75e2995b4331828b7a9f513978ce5c5aa3d7a798c2b83de4182dd
+OK freezes/domain_freeze_2026-10-02_AEB2AD.json: 796 rows, 0 bad row hashes, selection 580eb6e72ca75e29, core 8e30e85e72091462
+OK  core sha = hub domain_table_sha256
+
+== 5b. precision gate (z <= 1, include/fsot/host/precision_gate.hpp) (51 s)
+record set (scored): n=91  pass z<=1: 85/91  pass |rel|<=2%: 88/91  median ppm=93.03  worst ppm=37659.2 (pin:wave4|Dm2_21/Dm2_32)
+all rows: n=123  pass z<=1: 97/123  pass |rel|<=2%: 115/123  median ppm=178.6  worst ppm=62397.3 (pin:wave1|H0 vs SH0ES)
+record set with passing frozen-pending refinements (NOT confirmed): n=91  pass z<=1: 88/91  pass |rel|<=2%: 89/91  median ppm=93.03  worst ppm=34691.3 (pin:wave8|delta_CP_PMNS)
+OK  precision report byte-identical
+refinement freeze: 4 refinements, tier frozen-pending, failures 0
+
+== 6. bare-metal (QEMU) (51 s)
+ld: warning: build-kernel/fsot_kernel64.elf has a LOAD segment with RWX permissions
+built build-kernel/fsot_kernel.elf
+kernel serial: 35 domain S values, worst relative error 7.57e-41; 368/368 closed forms, worst 4.70e-40 vs 50-digit golden -> PASS
+OK  serial byte-identical to docs/bare_metal_serial_AEB2AD.txt
+ M .github/workflows/ci.yml
+ M CMakeLists.txt
+ M reference/evidence/arxiv_extracts.tsv
+ M reference/published_2026-10-02.tsv
+ M xval/cpp_check.sh
+?? audit/score_2026-10-02c.tsv
+?? tools/score_2026_10_02c.py
+?? tools/verify_freeze_files_c.py
+?? xval/results/2026-10-02c/
+
+ALL CPP CHECKS PASSED in 68 s

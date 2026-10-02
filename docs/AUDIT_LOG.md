@@ -386,6 +386,18 @@ forms in total (a 104-form look-elsewhere family for each of 4 items), with a-pr
 Passing, frozen-pending: m_H/m_W C-MHW-1 z 0.37 (held-out: m_H/m_Z 0.37, m_H/m_t 0.80); Δm² ratio C-DM-1 z 0.14 (held-out: Δm²₂₁ 0.03); T_CMB C-TCMB z 0.999 (no held-out;
 11.5 % of its family hits by chance). Failing under the frozen rule, so these stay open: Γ_Z/M_Z C-GZ z 5.44, deuteron binding C-BD z 590, μ_d C-MUD z 1.8e5.
 
+### H-19 · 2026-10-02c train/test search: no class-level rule accepted
+Protocol 44adf76 (08:41:19 EDT) was committed before training; the training freeze dd85c22 (08:42:21 EDT) was committed before scoring. 539 patterns were examined across 5 classes (W, M, B1, B2, T), and none met
+the pre-stated criterion (sign n/n, LOO z ≤ 1 for ≥ 2/3, n ≥ 3, selection ≠ none). Targets Γ_Z/M_Z, deuteron B and μ_d stay open and unchanged. Held-out: R_ell z 0.33, Y_p z 0.006, He-3 (Ledger B) z 5.3e4.
+Details are in docs/PRECISION_REPORT.md §2026-10-02c.
+
+### H-20 · Nuclear dressings do not transfer
+The He-4 leaf dressing ×(1−α²(π+P_base)) and the H-3 leaf dressing ×(1+yy·γ·ψ_con²) are item-specific: swapped, they give z 9414 and 2853. The Ledger B B/A residuals vs AME2020 change sign (7/13)
+at the 1e-3 level, and no scaling in 1, A, A^-1/3 or B/A predicts them leave-one-out. A deuteron fix needs a theory decision; it cannot be learned from the class.
+
+### H-21 · T_CMB polish: neither confirmed nor killed
+The thermal-class sign (all bare-high) is opposite to the T_CMB direction. Available checks (the FSOT-internal η/Ω_b-implied T0, and the Noterdaeme 2011 T(z) normalisation) have under 1σ of discriminating power, so the polish stays frozen-pending.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests

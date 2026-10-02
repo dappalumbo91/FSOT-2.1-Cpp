@@ -85,6 +85,13 @@ jobs:
           diff -q /tmp/refinements_b.tsv audit/refinements_2026-10-02b.tsv
           python tools/verify_refinement_freeze_b.py
           python tools/crosscheck_refinements_b.py
+      - name: Re-run the 2026-10-02c train/test search (training, then scoring) with the hub engine and diff
+        run: |
+          python tools/train_2026_10_02c.py --hub hub --out /tmp/train_c.tsv
+          diff -q /tmp/train_c.tsv audit/train_2026-10-02c.tsv
+          python tools/score_2026_10_02c.py --hub hub --out /tmp/score_c.tsv
+          diff -q /tmp/score_c.tsv audit/score_2026-10-02c.tsv
+          python tools/verify_freeze_files_c.py
       - name: Build and run the C++ re-scorer against the golden
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$PWD/hub

@@ -120,3 +120,4 @@ BR_Z_ll	direct	0.033658	0.000023	0.000023	1	PDG2024:sum-gauge-higgs-bosons	pdg20
 BR_Z_inv	direct	0.20000	0.00055	0.00055	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:127	Gamma(invisible)/Gamma_Z
 BR_Z_had	direct	0.69911	0.00056	0.00056	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:128	Gamma(hadrons)/Gamma_Z
 R_ell_derived	ratio:BR_Z_had/BR_Z_ll				1	derived		sigma propagated as uncorrelated (overestimate)
+T0_CO_fit	direct	2.725	0.002	0.002	K	ARXIV:1012.3164	arxiv_extracts:1012.3164:abstract	Noterdaeme et al. 2011 T(z) normalisation (CO + previous constraints; not independent of FIRAS)

@@ -44,6 +44,8 @@ $P tools/pin_lineage.py --hub "$W/hub" --out "$W/pin_lineage.tsv"
 diff -q "$W/pin_lineage.tsv" reference/pin_lineage_2026-10-02.tsv; ok "pin lineage byte-identical"
 $P tools/score_refinements_2026_10_02b.py --hub "$W/hub" --out "$W/refinements_b.tsv"
 diff -q "$W/refinements_b.tsv" audit/refinements_2026-10-02b.tsv; ok "2026-10-02b re-score byte-identical"
+$P tools/train_2026_10_02c.py --hub "$W/hub" --out "$W/train_c.tsv" && $P tools/score_2026_10_02c.py --hub "$W/hub" --out "$W/score_c.tsv"
+diff -q "$W/train_c.tsv" audit/train_2026-10-02c.tsv && diff -q "$W/score_c.tsv" audit/score_2026-10-02c.tsv; ok "2026-10-02c train/score byte-identical"
 python3 tools/check_references.py; ok "every reference value matches its committed evidence"
 step "4. C++ Ledger B re-score vs golden, corrected + genuine misses"
 ./build/fsot_ledger_b --hub "$W/hub" --golden golden/ledger_b_6f9c2560.tsv \

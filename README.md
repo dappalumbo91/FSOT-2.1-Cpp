@@ -96,6 +96,7 @@ once, in `include/fsot/host/precision_gate.hpp`. The legacy 2 % check and ppm ar
 causes and the 6 remaining misses (3 with a frozen-pending candidate, 3 open: Γ_Z/M_Z, deuteron binding, μ_d) are in [docs/PRECISION_REPORT.md](docs/PRECISION_REPORT.md).
 Post-hoc refinements are frozen as tier frozen-pending in [docs/freezes/REFINEMENTS_2026-10-02.md](docs/freezes/REFINEMENTS_2026-10-02.md) and
 [docs/freezes/REFINEMENTS_2026-10-02b.md](docs/freezes/REFINEMENTS_2026-10-02b.md) (committed before scoring) and are never counted as confirmed.
+A pre-registered train/test search for class-level dressing rules (docs/freezes/PROTOCOL_2026-10-02c.md, REFINEMENTS_2026-10-02c.md; 539 patterns, 5 classes) accepted **no** rule; see PRECISION_REPORT §2026-10-02c.
 
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
