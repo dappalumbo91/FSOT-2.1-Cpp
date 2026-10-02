@@ -73,3 +73,5 @@ sum-quarks	56	Mass (direct measurements) m = 172.57 ± 0.29 GeV [a,b] (S = 1.5)
 rev-qcd	2155	                       αs (m2Z ) = 0.1184 ± 0.0008       (FLAG 2021 estimate) ,                   (9.23)
 rev-qcd	2178	                    αs (m2Z ) = 0.1175 ± 0.0010      (PDG 2023 without lattice) .                 (9.24)
 rev-cosmological-parameters	397	(73.0 ± 1.0) km s−1 Mpc−1 [21].
+sum-gauge-higgs-bosons	125	ℓ+ ℓ−                                     [c]     ( 3.3658± 0.0023) %                             –
+rev-bbang-nucleosynthesis	40	Ωb = ρb /ρcrit ≃ η10 h−2 /274 = (0.02244 ± 0.00069)h−2 , where h ≡ H0 /100 km s−1 Mpc−1 is the

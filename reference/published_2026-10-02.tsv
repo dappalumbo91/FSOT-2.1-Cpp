@@ -115,3 +115,8 @@ tau_reion_PlanckBAO	direct	0.0561	0.0071	0.0071	1	ARXIV:1807.06209	arxiv_extract
 tau_reion_Planck	direct	0.0544	0.0073	0.0073	1	ARXIV:1807.06209	arxiv_extracts:1807.06209:Table 2 col. 5 (TT,TE,EE+lowE+lensing), tau row	Planck 2018 Table 2 col. 5
 D_H_Cooke2018	direct	2.527e-5	0.030e-5	0.030e-5	1	ARXIV:1710.11129	arxiv_extracts:1710.11129:abstract	Cooke, Pettini & Steidel 2018 (the Ledger B 'measured' 2.527e-5)
 m_H_over_m_Z	ratio:m_H_GeV/m_Z_GeV				1	derived		
+BR_Z_ee	direct	0.033632	0.000042	0.000042	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:122	Gamma(e+e-)/Gamma_Z
+BR_Z_ll	direct	0.033658	0.000023	0.000023	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:125	Gamma(l+l-)/Gamma_Z (lepton universality)
+BR_Z_inv	direct	0.20000	0.00055	0.00055	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:127	Gamma(invisible)/Gamma_Z
+BR_Z_had	direct	0.69911	0.00056	0.00056	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:128	Gamma(hadrons)/Gamma_Z
+R_ell_derived	ratio:BR_Z_had/BR_Z_ll				1	derived		sigma propagated as uncorrelated (overestimate)
