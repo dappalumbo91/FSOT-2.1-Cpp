@@ -1,0 +1,144 @@
+#!/usr/bin/env python3
+"""Generate include/fsot/ledger_a.gen.inc and include/fsot/routing.gen.inc from the hub's own scripts.
+
+Sources (hub commit = AUTHORITY_PIN.json "ledger_b_data_commit", authority SHA = pin):
+  scripts/fsot_ledger_a_lib.py   LEDGER_A table; emit functions translated from the Python AST
+  scripts/fsot_api_predict_lib.py PROPERTY_ROUTING, ATOMIC_MASS
+No number is typed by hand: floats are written with repr() from the imported hub objects, and the
+emit expressions are translated node by node. Unknown syntax aborts generation.
+
+Usage: python tools/gen_ledger_a_routing.py --hub /path/to/FSOT-2.1-Lean
+"""
+from __future__ import annotations
+
+import argparse
+import ast
+import hashlib
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def cstr(s: str) -> str:
+    return '"' + s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n") + '"'
+
+
+def sha(p: Path) -> str:
+    return hashlib.sha256(p.read_bytes()).hexdigest().upper()
+
+
+class Tr(ast.NodeVisitor):
+    """Python float expression -> C++ double expression (same evaluation tree)."""
+
+    OPS = {ast.Add: "+", ast.Sub: "-", ast.Mult: "*", ast.Div: "/"}
+
+    def expr(self, n: ast.AST) -> str:
+        if isinstance(n, ast.BinOp):
+            if isinstance(n.op, ast.Pow):
+                return f"std::pow({self.expr(n.left)}, {self.expr(n.right)})"
+            op = self.OPS.get(type(n.op))
+            if op is None:
+                raise SystemExit(f"unsupported op {ast.dump(n.op)}")
+            return f"({self.expr(n.left)} {op} {self.expr(n.right)})"
+        if isinstance(n, ast.UnaryOp) and isinstance(n.op, ast.USub):
+            return f"(-{self.expr(n.operand)})"
+        if isinstance(n, ast.Constant) and isinstance(n.value, (int, float)) and not isinstance(n.value, bool):
+            return repr(float(n.value))
+        if isinstance(n, ast.Call) and isinstance(n.func, ast.Name):
+            if n.func.id == "_f" and len(n.args) == 1 and isinstance(n.args[0], ast.Name):
+                return f"static_cast<double>(e.{n.args[0].id})"
+            if n.func.id == "abs" and len(n.args) == 1:
+                return f"std::fabs({self.expr(n.args[0])})"
+        raise SystemExit(f"unsupported expression node: {ast.dump(n)}")
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--hub", required=True)
+    a = ap.parse_args()
+    hub = Path(a.hub).resolve()
+    pin = json.loads((ROOT / "AUTHORITY_PIN.json").read_text())
+    if sha(hub / "vendor" / "fsot_compute.py") != pin["authority_sha256"]:
+        sys.exit("authority PIN MISMATCH")
+    commit = subprocess.run(["git", "-C", str(hub), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
+    if commit != pin["ledger_b_data_commit"]:
+        sys.exit(f"hub commit {commit[:8]} != pinned {pin['ledger_b_data_commit'][:8]}")
+    sys.path.insert(0, str(hub / "scripts"))
+    sys.path.insert(0, str(hub / "vendor"))
+    import fsot_ledger_a_lib as la  # noqa: E402
+    import fsot_api_predict_lib as pl  # noqa: E402
+
+    la_path = hub / "scripts" / "fsot_ledger_a_lib.py"
+    pl_path = hub / "scripts" / "fsot_api_predict_lib.py"
+    tree = ast.parse(la_path.read_text(encoding="utf-8"))
+    funcs = {n.name: n for n in tree.body if isinstance(n, ast.FunctionDef)}
+    table = None
+    for n in tree.body:
+        if isinstance(n, ast.AnnAssign) and isinstance(n.target, ast.Name) and n.target.id == "LEDGER_A":
+            table = n.value
+    if table is None:
+        sys.exit("LEDGER_A not found")
+    tr = Tr()
+    rows, customs = [], []
+    for k_node, v_node in zip(table.keys, table.values):
+        oid = k_node.value
+        spec = la.LEDGER_A[oid]
+        emit = dict(zip([kk.value for kk in v_node.keys], v_node.values))["emit"]
+        section = row = ""
+        custom = -1
+        if isinstance(emit, ast.Call) and isinstance(emit.func, ast.Name) and emit.func.id == "_from_fn":
+            section = emit.args[0].id
+            row = emit.args[1].value
+        elif isinstance(emit, ast.Name):
+            fn = funcs[emit.id]
+            body = [s for s in fn.body if not (isinstance(s, ast.Expr) and isinstance(s.value, ast.Constant))]
+            if len(body) != 1 or not isinstance(body[0], ast.Return):
+                sys.exit(f"emit {emit.id}: only single-return functions are translated")
+            custom = len(customs)
+            customs.append((emit.id, tr.expr(body[0].value)))
+        else:
+            sys.exit(f"unsupported emit for {oid}")
+        rows.append("  {%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d}," % (
+            cstr(oid), cstr(spec["units"]), cstr(spec["expression"]), cstr(spec["expression_id"]), cstr(spec["kind"]),
+            repr(float(spec["anchor"])), cstr(spec["anchor_source"]), cstr(spec["kill_band"]), cstr(section), cstr(row), custom))
+    head = (f"// GENERATED by tools/gen_ledger_a_routing.py — do not edit.\n"
+            f"// hub {commit} scripts/fsot_ledger_a_lib.py sha256 {sha(la_path)}\n"
+            f"// authority pin {pin['authority_sha256'][:6]}\n")
+    out = [head, f"inline constexpr const char* LEDGER_A_SOURCE_SHA256 = {cstr(sha(la_path))};",
+           "inline constexpr LedgerASpec LEDGER_A[] = {", *rows, "};", "",
+           "// Emit functions translated from the Python AST (double arithmetic, same evaluation order).",
+           "template <class E> double ledger_a_custom(const E& e, int which) {", "  switch (which) {"]
+    for i, (name, ex) in enumerate(customs):
+        out.append(f"    case {i}: return {ex};  // {name}")
+    out += ["    default: return 0.0;", "  }", "}", ""]
+    (ROOT / "include" / "fsot" / "ledger_a.gen.inc").write_text("\n".join(out), encoding="utf-8")
+
+    r = [f"// GENERATED by tools/gen_ledger_a_routing.py — do not edit.\n"
+         f"// hub {commit} scripts/fsot_api_predict_lib.py sha256 {sha(pl_path)}\n",
+         f"inline constexpr const char* ROUTING_SOURCE_SHA256 = {cstr(sha(pl_path))};",
+         "inline constexpr std::pair<std::string_view, std::string_view> PROPERTY_ROUTING[] = {"]
+    for k, v in dict.items(pl.PROPERTY_ROUTING):
+        v = v[0] if isinstance(v, (tuple, list)) else str(v)
+        r.append(f"  {{{cstr(k)}, {cstr(v)}}},")
+    r += ["};", "inline constexpr std::pair<std::string_view, double> ATOMIC_MASS[] = {"]
+    for k, v in pl.ATOMIC_MASS.items():
+        r.append(f"  {{{cstr(k)}, {repr(float(v))}}},")
+    r += ["};", ""]
+    from fsot_canonical_adapter import _extension_folds  # noqa: E402
+    ext_path = hub / "data" / "extension_folds_derived.json"
+    folds = _extension_folds()
+    r += [f"// data/extension_folds_derived.json sha256 {sha(ext_path)} ({len(folds)} folds; parent-nest D_eff/look/hits/observed)",
+          "inline constexpr ExtensionFold EXTENSION_FOLDS[] = {"]
+    for name, fd in folds.items():
+        r.append(f"  {{{cstr(name)}, {int(fd['D_eff'])}, {repr(float(fd['look']))}, {int(fd['hits'])}, {'true' if bool(fd['observed']) else 'false'}}},")
+    r += ["};", ""]
+    (ROOT / "include" / "fsot" / "routing.gen.inc").write_text("\n".join(r), encoding="utf-8")
+    print(f"ledger A: {len(rows)} rows ({len(customs)} translated emitters); routing: {len(pl.PROPERTY_ROUTING)} properties, {len(pl.ATOMIC_MASS)} elements")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

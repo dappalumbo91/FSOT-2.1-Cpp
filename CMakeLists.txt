@@ -66,6 +66,14 @@ target_link_libraries(test_ternary PRIVATE fsot)
 target_compile_definitions(test_ternary PRIVATE FSOT_GOLDEN_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/golden_AEB2AD.tsv")
 add_test(NAME ternary COMMAND test_ternary)
 
+# Ledger A emit + property routing (generated tables; needs a >=113-bit type for float(value) exactness).
+if(Boost_FOUND OR FSOT_WITH_FLOAT128)
+  add_executable(test_ledger_a_routing tests/test_ledger_a_routing.cpp)
+  target_link_libraries(test_ledger_a_routing PRIVATE fsot)
+  target_compile_definitions(test_ledger_a_routing PRIVATE FSOT_LA_GOLDEN="${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_a_routing.tsv")
+  add_test(NAME ledger_a_routing COMMAND test_ledger_a_routing)
+endif()
+
 # Freestanding check: the balanced-ternary core compiles without a hosted library and references no
 # heap / exception / stdio / libm symbols.
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
