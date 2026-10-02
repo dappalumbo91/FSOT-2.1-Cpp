@@ -589,3 +589,67 @@ The remaining four non-confirmed record rows are T_CMB (z 1.31), Deuteron_bindin
 
 **Totals:** **87/91 confirmed** (owner decisions OD-1 and OD-2; 85/91 pinned only). **89/91 if the frozen-pending items were adopted:** C-TCMB (T_CMB z 0.999) and GZ-1 H1-i (Γ_Z/M_Z z 0.68). The C++ gate's own frozen-pending line shows 88/91 because it does not carry GZ-1 H1-i, which lives in audit/score_2026-10-02i.tsv. Still open: Deuteron_binding_MeV and Deuteron_mu_muN.
 
+
+## 2026-10-02j: from FSOT's absolute MeV down to the strong-sector scale (FREEZE_2026-10-02j, commit ff259d4, before any branch number; logs in `xval/results/2026-10-02j/`)
+
+Damian approved branching from FSOT's existing absolute scale. Trace: `audit/trace_2026-10-02j.tsv` (diagnostics, `tools/trace_2026_10_02j.py`). Scores: `audit/score_2026-10-02j.tsv` (`tools/score_2026_10_02j.py`, validations first). References: FLAG 2024 (arXiv:2411.04268), FLAG 2019 (condensate), PDG 2024, Reinert–Krebs–Epelbaum PRL 126, 092501 (2021) for g_πNN.
+
+### Trace: where the MeV comes from
+
+| step | FSOT term | value | physical content / counterpart |
+|---|---|---|---|
+| A1 | h ν_Cs / c² (SI-exact) | 6.77727e-41 kg | the only dimensionful input: the Cs hyperfine unit, not a QCD scale |
+| A2 | exponent ln(m_e c²/h ν_Cs) | 23.3215823150 | e^π = 23.1406926 (99.2 %) + (C_factor K ln2)² + G P_new ψ_con − α⁵φ²/ln²2 = 0.1808897 |
+| A3 | m_e | 0.51099895061 MeV | CODATA 0.51099895069(16), z 0.50. Physically y_e v/√2: the absolute scale is electroweak/Yukawa, not QCD |
+| B1 | 6π⁵ | 1836.1181087 | 99.998 % of m_p/m_e (Lenz 1951 coincidence). No split into binding vs quark masses |
+| B2 | ln2/e³ | 0.0345098 (= 0.0176 MeV) | no counterpart; 2400× smaller than σ_πN |
+| B3 | α²(1+ψ_con/e³) | 5.49e-5 (= 2.8e-5 MeV) | O(α²) piece; the physical EM self-energy of the proton is ~+0.6 MeV |
+| B4–5 | m_p/m_e, m_p | 1836.15267341; 938.27208927 MeV | CODATA z 0.66; PDG z 0.55 |
+| B-P | physical decomposition | – | σ_πN = 42.2(2.4) (FLAG 2+1) / 60.9(6.5) (2+1+1) MeV, i.e. 4.5–6.5 % of m_p from light-quark masses; the rest is QCD binding (chiral-limit m_0 ≈ 0.87–0.9 GeV, trace anomaly). **No FSOT term has this structure or size** |
+| C1 | θ_S = sin(ψ_con η_eff) | 0.290896540545 | pure seed number; no QCD counterpart |
+| C2–4 | θ_S⁻⁴ − θ_S² + α/(π−1) | 139.651554 − 0.081213 = 139.57034107 | PDG m_π± 139.57039(18), z 0.27. **A pure number read as MeV:** it is not multiplied by m_e or h ν_Cs, so the pion carries no derived scale and no m_q or F_π factor (GMOR has m_π² ∝ m_ud) |
+| D1 | kaon leaf G⁻⁷ + P_base⁻⁴ − π⁻⁴ | 493.680211 | PDG 493.677(15), z 0.21; also read as MeV |
+| D2 | m_u/m_d = √3 − √φ | 0.460031 | FLAG 0.465(24) (2+1+1), z 0.21 |
+| D3 | m_s/m_ud = (m_s/m_d)·2/(1+m_u/m_d) | 27.666 | FLAG 27.227(81) (2+1+1), **z 5.4** (2+1: 27.42(12), z 2.0) |
+| D4 | LO ChPT 2m_K²/m_π² − 1 from the FSOT leaves | 24.02 | ~12 % low with PDG masses too (needs EM/NLO); diagnostic |
+| D5 | absolute m_ud, m_s | none | FLAG m_ud 3.427(51), m_s 93.46(58) MeV. FSOT has ratios only |
+| E1 | f_π | none | FLAG 130.2(8) MeV (F_π = 92.07(57)) |
+| E2 | Quark_condensate = 1/4 (hub reference 0.250 → \|⟨q̄q⟩\|^{1/3} in GeV) | 0.25 | FLAG 2019 Σ^{1/3} 272(5) MeV, z 4.4. Unit reading |
+| E3 | Gluon_condensate = C_cosm − e⁻³ (hub reference 0.012 GeV⁴) | 0.012833 | SVZ 0.012 GeV⁴ (±50 %). **Present:** the round-i inventory listed it as absent, which was wrong; corrected here |
+| E4 | α_s(M_Z) = 2(POOF/ψ_con)² | 0.1179088 | FLAG 0.1183(7), z 0.56. **The only FSOT quantity that fixes a QCD scale** (Λ in units of M_Z) |
+| E5–6 | g_A, g_πNN | none | PDG 1.2754(13); 13.23(9) from f_c² 0.0769(10) |
+
+**Which FSOT quantities could carry the chiral scale.**
+- α_s(M_Z) together with the M_Z leaf gives Λ_QCD. This is the only one that actually closes (branch J-1 below).
+- m_p is a candidate only through an O(1) NDA constant c.
+- The condensate pin is a candidate only through a unit reading, and GMOR then still needs an absolute m_ud.
+- The pion and kaon leaves are fixed MeV numbers, not chiral-scale carriers.
+
+### Branches (frozen before scoring; 14 routes considered, 9 branches scored)
+
+| branch | PDG/FLAG-input validation (tolerance fixed in the freeze) | FSOT-input result | status |
+|---|---|---|---|
+| J-1 Λ_QCD: exact-integral MSbar Λ with the 4-loop β; 3-loop decoupling at m_b(m_b) = 4.200 and m_c(m_c) = 1.280 GeV (FLAG) | α_s 0.1183 gives Λ^(5) 215.2 / Λ^(4) 299.0 / Λ^(3) 343.2 MeV vs FLAG 213(8) / 295(10) / 338(10): **PASS** (within 1 σ each) | **Λ^(5) = 209.5 MeV, z 0.43** (FSOT-native: α_s seed + M_Z leaf). Λ^(4) 292.5 (z 0.25), Λ^(3) 336.9 (z 0.11) | Λ^(5): **agrees** (a new FSOT-derived quantity, not one of the 91 rows). Λ^(4,3): frozen-pending, because the thresholds are external (FSOT has no absolute m_b or m_c) |
+| J-2a m_N = 4πF_π (Manohar–Georgi NDA, c = 1) | 74.72 vs 92.07, −18.8 %: **FAIL** (≤ 5 %) | 74.72 MeV | rejected. The physical c is 0.81 and is not fixed by any principle |
+| J-2b m_N = 4πf_π (130 MeV convention) | 74.72 vs 130.2, −42.6 %: **FAIL** | 74.72 MeV | rejected |
+| J-3a g_A = 5/3 (SU(6) NRQM = large-N_c (N_c+2)/3) | +30.7 %: **FAIL** (≤ 5 %) | same; the hub has no FSOT correction term, and none was invented | rejected |
+| J-3b g_A = (5/3)(1−2δ), MIT bag | 1.0885, −14.7 %: **FAIL** | same | rejected |
+| J-4 Goldberger–Treiman g_πNN = g_A m_N/F_π | 13.007 vs 13.226(89), −1.66 %: **PASS** (≤ 3 %) | not closable: no validated FSOT F_π or g_A. The information value with J-2a and J-3a is 20.94 | relation valid; FSOT inputs missing |
+| J-5 GMOR Σ = F_π²m_π²/(2m_ud) and readings of the 1/4 pin | Σ^{1/3} 288.8 vs 272(5), +6.2 %: **PASS** (≤ 10 %) | (a) 0.25 GeV: −8.1 %, z 4.4, **frozen-pending**; (b) m_p/4 = 234.6: −13.8 %, **fail**; (c) Σ = m_p³/4 → 591: **fail** | GMOR cannot give F_π from FSOT (no absolute m_ud). Mixed-input information only: (a) + FLAG m_ud gives F_π 74.1 MeV; (a) + FLAG F_π gives m_ud 5.28 MeV (FLAG 3.427(51)) |
+
+**Considered, not scored:**
+- F_π from Λ via a lattice ratio (this imports F_π from lattice).
+- SVZ/FESR ρ sum rules with the gluon-condensate pin. These need the dim-6 four-quark term under vacuum saturation, which is known to be off by a factor 2–3, plus GeV readings.
+- Absolute quark masses: QCD takes them as inputs, and FSOT has only ratios.
+- NJL / Pagels–Stokar (need a cutoff).
+
+**Disclosure:** rough values for J-2 (74.7), J-3 (+31 %, −15 %), J-4 (~13.0), J-5 (~290; 250/234.6/591) and the sign of the J-1 shift were seen before the freeze. No branch was added or changed after scoring.
+
+**Downstream (frozen gate):**
+- **Not run.** No FSOT-native F_π validated, so neither KSRF/VMD m_ρ² = 2g²F_π² → Δα_had → Γ_Z/M_Z nor the deuteron chain (OPE tensor force → P_D, μ_n, MEC, binding) has the F_π and g_πNN it needs.
+- Γ_Z/M_Z stays at z 4.89 pinned (GZ-1 H1-i 0.68, frozen-pending). The deuteron rows stay open.
+
+**Totals:** unchanged.
+- **87/91 confirmed** (85/91 pinned only).
+- 88/91 C++ gate with frozen-pending; 89/91 counting GZ-1 H1-i.
+- Λ^(5) agrees, but it is not one of the 91 rows.

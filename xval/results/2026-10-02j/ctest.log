@@ -1,0 +1,9 @@
+[29/31] Linking CXX executable fsot_freeze_domain
+[30/31] Linking CXX executable bench_ternary
+[31/31] Linking CXX executable bench_cpp
+      Start 32: ledger_b_genuine_misses
+32/32 Test #32: ledger_b_genuine_misses ............................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 32
+
+Total Test time (real) =  14.22 sec

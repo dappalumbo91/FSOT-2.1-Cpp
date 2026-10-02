@@ -21,10 +21,9 @@ jobs:
       - name: Test (golden at every type, trit, balanced-ternary engine, freestanding symbols)
         run: ctest --test-dir build --output-on-failure
   build-test-msvc:
-    # Native Windows / MSVC (windows-latest, free for public repos). Non-blocking until its first green run is
-    # recorded in docs/AUDIT_LOG.md; the Linux jobs stay the gate.
+    # Native Windows / MSVC (windows-latest, free for public repos). Blocking since its first green run
+    # (CI 37075909187 on c7b58e1, /utf-8 fix; recorded as H-35 in docs/AUDIT_LOG.md).
     runs-on: windows-latest
-    continue-on-error: true
     timeout-minutes: 45
     steps:
       - name: Keep LF line endings
@@ -146,6 +145,13 @@ jobs:
           diff -q /tmp/score_i.tsv audit/score_2026-10-02i.tsv
           python tools/verify_freeze_files_i.py
           head -1 audit/OWNER_DECISIONS_2026-10-02i.sha256 | sha256sum -c -
+      - name: Re-run the 2026-10-02j trace tables and strong-sector branch scoring (J-1..J-5) with the hub engine and diff; verify freeze j
+        run: |
+          python tools/trace_2026_10_02j.py --hub hub --out /tmp/trace_j.tsv
+          diff -q /tmp/trace_j.tsv audit/trace_2026-10-02j.tsv
+          python tools/score_2026_10_02j.py --hub hub --out /tmp/score_j.tsv
+          diff -q /tmp/score_j.tsv audit/score_2026-10-02j.tsv
+          python tools/verify_freeze_files_j.py
       - name: Build and run the C++ re-scorer against the golden
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$PWD/hub

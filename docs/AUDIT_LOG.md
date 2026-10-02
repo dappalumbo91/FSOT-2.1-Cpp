@@ -476,6 +476,22 @@ Under FREEZE_2026-10-02i (75628a7, before any number):
 - The Linux paths (`__int128`, 80-bit `long double`, `M_PI`) stay.
 - **CTest counts:** 31 Linux / 30 MSVC with `-DFSOT_HUB_DATA` (29/28 before `round_freeze_h`/`round_freeze_i`); 27 / 26 without hub data.
 
+### H-34 · 2026-10-02j: strong-sector walk-down from FSOT's absolute scale; Lambda^(5) from the FSOT alpha_s agrees with FLAG (209.5 vs 213(8) MeV); no FSOT-native f_pi, g_A or g_piNN
+Under FREEZE_2026-10-02j (ff259d4, before any number). Trace: audit/trace_2026-10-02j.tsv. Scores: audit/score_2026-10-02j.tsv.
+- **Trace:** FSOT's only derived MeV is m_e (h nu_Cs/c^2 exp(...), electroweak/Yukawa physics). m_p/m_e = 6 pi^5 + ... has no term with the size or structure of sigma_piN (4.5-6.5 % of m_p). The pion and kaon leaves are pure numbers read as MeV. FSOT m_s/m_ud = 27.666 vs FLAG 27.227(81) (z 5.4, diagnostic). Correction to the round-i inventory: the Gluon_condensate pin (C_cosm - e^-3 = 0.012833) exists.
+- **J-1:** the exact-integral MSbar Lambda with the 4-loop beta was validated with FLAG alpha_s (215.2/299.0/343.2 vs 213/295/338). With FSOT alpha_s and M_Z, Lambda^(5) = 209.5 MeV (z 0.43): agrees, FSOT-native, not a record row. Lambda^(4) 292.5 and Lambda^(3) 336.9 are frozen-pending (external FLAG thresholds). This supersedes H-32's "PDG no longer quotes Lambda^(5)": FLAG 2024 does.
+- **J-2a/b** (m_N = 4 pi F_pi, c = 1: -18.8 % / -42.6 %) and **J-3a/b** (g_A 5/3: +30.7 %; MIT bag: -14.7 %) fail validation.
+- **J-4 GT** validates (-1.66 %, tol 3 %), but FSOT has no validated F_pi or g_A to feed it.
+- **J-5 GMOR** validates (Sigma^1/3 288.8 vs 272(5), tol 10 %). Pin reading (a) 0.25 GeV is frozen-pending (-8.1 %); (b) and (c) fail. GMOR cannot close without an absolute m_ud.
+- **Downstream** KSRF/VMD -> Delta alpha_had -> Gamma_Z/M_Z and the deuteron chain were not run (frozen gate).
+- **Look-elsewhere:** 14 routes considered / 9 scored. **Counts unchanged:** 87/91 confirmed.
+
+### H-35 · 2026-10-02j: MSVC CI job made blocking after its first green run
+- Damian's Grok Build pushed c7b58e1: CMake passes `/utf-8` to MSVC. The 0xC0000409 freeze-verify crash was nlohmann::json throwing type_error.316 on the CP1252 byte 0xB7 (middle dot in 1/(e·π)).
+- CI 37075909187 on c7b58e1: `build-test-msvc` succeeded (`100% tests passed out of 26`, no-hub-data configuration), and all Linux jobs were green. Damian reports 30/30 locally with hub data.
+- `continue-on-error: true` was removed from `build-test-msvc`, so MSVC is now part of the gate.
+- **CTest counts after round j:** 32 Linux / 31 MSVC with `-DFSOT_HUB_DATA`; 27 / 26 without.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests
