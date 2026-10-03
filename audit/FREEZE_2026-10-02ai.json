@@ -1,0 +1,23 @@
+{
+ "freeze": "FREEZE_2026-10-02ai",
+ "date": "2026-10-03",
+ "parent": "8bcf2f2 (round ah)",
+ "rule": "z-only scoring against observations; ratios first, MeV as byproduct; no hybrid; gates never changed; pins never edited",
+ "AI-1 two-subtraction Pauli-Villars": {
+  "derivation": "regularised sea = sum_i c_i X(M_i), i = 0, 1, 2, c_0 = 1, M_0 = M (scalar density: weights c_i M_i/M, from dE/dM at fixed M_i/M). Euclidean divergences: the sea energy/inertia/F^2 carry sum c_i M_i^2 ln Lambda^2 (log; quadratic potential term is a vacuum constant), the condensate/scalar density carries sum c_i M_i^2 Lambda^2 and sum c_i M_i^4 ln Lambda^2. Conditions: (a) sum c_i m_i^2 = 0, (b) sum c_i m_i^4 = 0 (m_i = M_i/M); finite parts: (c) F^2/M^2 = -(N_c/4 pi^2) sum c_i m_i^2 ln m_i^2 (FSOT F, the PV condition in use: single PV c_1 = -1/m_1^2 gives M_PV/M 1.302979), (d) <qbar q>/M^3 = -(N_c/4 pi^2) sum c_i m_i^4 ln m_i^2 with the FSOT condensate pin wave8|Quark_condensate = 1/4 read unit-free as |<qbar q>|^(1/3)/m_p (ratios first; the GeV reading would give m_1 1.32169, m_2 10.5035 and is information only)",
+  "solution (computed before the freeze from the four conditions; pure algebra)": "m_1 = 1.340129576, m_2 = 6.959685111, c_1 = -0.5663113338, c_2 = +3.523179412e-4 (M/m_p 0.4581682, F/M 0.2005555)",
+  "tool": "tools/pv2_2026_10_02ai.py: K 14, D 14, profile x_DPP of the round-ag kmax-12 run (fixed, not re-minimised: disclosed), kmax 12, 14 (16 only if it fits under 10 min and the clock allows); spectra at M, M_1, M_2 and vacuum; energy, valence level, inertia, g_A^(0), rotational A, Amu, B and xat, each as sum_i c_i X(M_i) with vacuum subtraction -> audit/pv2_2026-10-02ai.json",
+  "tolerance check": "at kmax 12, the two-subtraction E_sol, eps_val, I and g_A must each be within 2 % of the single-PV values at the same profile; otherwise the scheme is reported as failing the check and nothing in AI-1/AI-2 uses it",
+  "score rule": "mu_p, mu_n (two-subtraction, all pieces) scored only if they change <= 2 % from kmax 12 to 14 (and to 16 if run) and the tolerance check passes; theory uncertainty = the largest kmax change; also report mu_V^(0) per kmax"
+ },
+ "AI-2 sigma-mode scalar density": {
+  "projection": "rho_sigma(r) = S(r) cos theta + s_P P(r) sin theta - S_vac(r): the component of the quark scalar/pseudoscalar density along the local chiral direction minus the vacuum condensate; the chiral-circle part S_vac (cos theta - 1) (pion-cloud condensate depletion, two-pion exchange) is excluded. S, P from cqsm_rot.densities with valence N_c and regularised sea weights; s_P = +1 or -1 fixed by the stationarity proxy: the sign that minimises Integral |P cos theta - s_P S sin theta| (reported)",
+  "regulator": "two-subtraction PV if the AI-1 tolerance check passes, else single PV (stated in the output)",
+  "soliton": "adopted round-ab soliton (x_DPP 1.1689), K 12, D 12, kmax 12 and 14",
+  "coupling": "g_sigmaNN = (M/F_pi) Integral rho_sigma; Lambda_S = sqrt6/r_sigma, r_sigma^2 = Integral r^2 rho_sigma / Integral rho_sigma",
+  "adoption rule": "used only if Integral rho_sigma > 0, r_sigma^2 > 0 and Integral rho_sigma changes <= 2 % from kmax 12 to 14",
+  "deuteron": "if adopted: full OPE + sigma + omega (round-af Bryan-Scott central, tensor, spin-orbit; Lambda_V omega vertex; kappa -0.1598); score B_d/m_p and mu_d (z), P_D info. One route."
+ },
+ "hub prompt": "keeps the round-ah T_CMB adoption section",
+ "look-elsewhere": "AI-1: up to 2 scored rows; AI-2: 1 route, up to 2 scored rows; the GeV condensate reading is information only"
+}
