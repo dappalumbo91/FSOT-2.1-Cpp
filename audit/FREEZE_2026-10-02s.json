@@ -1,0 +1,21 @@
+{
+ "freeze": "FREEZE_2026-10-02s",
+ "date": "2026-10-03",
+ "authority_pin": "AEB2AD (unchanged)",
+ "hub_data_commit": "6f9c2560 (unchanged)",
+ "S-1 g_A separation (diagnostic, information rows)": {
+  "run": "tools/heavy_2026_10_02s.py S1_FSOT_chiral_K8: chiral DPP (m_pi = 0, no meson term) in the round-q basis D 10 / k 10 / K 8, M = m_p/3, M_PV = sqrt(e) M; run BEFORE this freeze (diagnostic, no gate); its JSON label 'FREEZE_2026-10-02s' was written by the copied script before this file existed (disclosed)",
+  "finding (seen before freeze)": "chiral K8 g_A = 1.1547 (g_A^(0) 0.7249 = val 0.7138 + sea 0.0111; g_A^(1) 0.4297) vs round p chiral K12 1.1755 and K14 1.1602: the basis cap is not the driver. Massive (round q) 1.3912: valence 0.7098 (unchanged), sea 0.1555 (x14), g_A^(1) 0.5258 (+22 %). The step is the pion-mass profile, entering through the Dirac-sea axial sum (pion-tail contribution, box-suppressed for the 1/r^2 chiral tail) and the rotational A/I term",
+  "fix": "not frozen this round: the remaining candidates (operator-ordering part of g_A^(1); tail/surface term of the chiral-limit axial integral) need a derivation that does not fit the time box; no g_A rescoring"
+ },
+ "S-2 eta/eta' at next order (F normalization)": {
+  "scheme": "Feldmann-Kroll-Stech quark-flavour basis: M^2 = [[m_qq^2 + 2 a^2, sqrt2 a^2 y], [sqrt2 a^2 y, m_ss^2 + y^2 a^2]], y = f_q/f_s, a^2 = 2 chi/f_q^2 (from the anomaly term chi (sqrt2 eta_q/f_q + eta_s/f_s)^2, reducing to M0^2 = 6 chi/F^2 when f_q = f_s = F); m_qq^2 = 2 B m-hat, m_ss^2 = 2 B m_s from the round-p mass block (same p0, M-hat_K iteration)",
+  "inputs": "f_q = FSOT F_pi (P-4 one-loop LSM, 92.89 MeV, the 1/N_c-order F); f_s = f_q sqrt(2 r^2 - 1), r = F_K/F_pi = 1.1932 (FLAG 2+1+1, HYBRID input); chi^1/4 = 177.0 MeV (R-1 quenched DP); OZI-violating 1/N_c terms Lambda_1 = Lambda_2 = 0 (stated)",
+  "score": "M_eta, M_eta' gates 5 %; mixing angle phi information (FKS 39.3(1.0) deg)",
+  "validation": "PDG F_pi 92.07, r = 1.1932, chi^1/4 = 185.3 (quenched lattice), PDG-based mass block: M_eta, M_eta' within 5 %",
+  "disclosure": "a hand estimate before this freeze gave about eta -2 %, eta' -8 % (FSOT) and eta +1 %, eta' -2 % (validation inputs)",
+  "look_elsewhere": "1 scheme (FKS) scored; info variant f_q = F3 (chiral F)"
+ },
+ "S-3 mu_d with meson-exchange currents": "not attempted unless time remains (then information only)",
+ "counting": "eta, eta' HYBRID; no record row recomputed; totals unchanged unless stated"
+}
