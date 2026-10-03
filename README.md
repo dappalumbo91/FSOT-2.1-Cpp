@@ -112,6 +112,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02k (audit/FREEZE_2026-10-02k.md): θ_S = sin(ψ_con η_eff) has no known physical counterpart. The pion, kaon, D, W, Z, H and nuclear-binding leaves are pure numbers read in MeV and are not tied to the m_e anchor; the missing factor contains the SI-defined value of e. F_π (91.8 MeV) and g_πNN (12.92) come out only as hybrids with lattice ratios. m_ρ by lowest-meson dominance misses its 1 % gate, so the Δα and deuteron chains were not run. The gate stays at 87/91.
 
+2026-10-02l (audit/FREEZE_2026-10-02l.md): the pion and kaon were treated as pseudo-Goldstone bosons (leading-order chiral perturbation theory plus Dashen's EM term), using FSOT's quark-mass ratios and its π± and K± leaves. The held-out K⁰ comes out at 497.597 MeV against 497.611(13) (−0.003 %). The π⁰ and η miss by about 3 %, the known limit of leading order. GMOR gives m_ud 3.60 MeV and m_s 99.7 MeV, but only as hybrids. A frozen D_eff → unit map (3 families, trained on π±, B(²H) and T_CMB) puts 0 of 10 held-out leaves within 2 %. The scale factor each leaf needs is set by the SI unit it is read in, not by its domain. The gate stays at 87/91.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

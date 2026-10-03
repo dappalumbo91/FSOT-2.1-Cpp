@@ -747,3 +747,58 @@ Every result here is either HYBRID (FSOT input plus an external dimensionless QC
 - 88/91 in the C++ gate with frozen-pending; 89/91 counting GZ-1 H1-i.
 
 **Next C++ re-pin round:** hub pin 2C9442B7… (OD-1, OD-2 live, Γ_Z/M_Z target 0.027366) sits on Damian's unpushed Lean branch. The C++ side stays on AEB2AD until that branch is pushed.
+
+## 2026-10-02l: hadron sector as an FSOT derivation branch (freeze 9c6dbbc, `audit/FREEZE_2026-10-02l.md`, scores `audit/score_2026-10-02l.tsv`)
+
+Damian's instruction was to derive the hadron sector within FSOT, using FSOT's own inputs and the m_e anchor, with every candidate frozen before scoring and at least one held-out observable per family.
+
+**L-A1, the pseudoscalar octet** (1 form considered). The leaves are first restated against the anchor: M_π±/m_e = 273.132344 and M_K±/m_e = 966.108073. The construction is leading-order chiral perturbation theory (the mesons as pseudo-Goldstone bosons, so M² is linear in the quark masses) plus Dashen's EM term. It uses the FSOT pins m_u/m_d = √3 − √φ and m_s/m_d = e³ + γ⁴, so:
+- M_π±² = b(1 + x) + Δ_EM
+- M_K±² = b(x + y) + Δ_EM
+
+Solving from π± and K± gives:
+- b = B·m_d = 11681.28 MeV²
+- Δ_EM = 2424.8 MeV² (the physical value is 1261)
+- Quark masses supply 87.6 % of M_π±², so the pion is light because it is a Goldstone boson whose mass² is proportional to m_u + m_d.
+- The strange quark supplies 96.8 % of M_K±², which is why the kaon is heavier.
+
+Held-out predictions (never used as inputs):
+
+| meson | prediction | M/m_e | PDG 2024 | rel | z | verdict |
+|---|---|---|---|---|---|---|
+| K⁰ | 497.597 MeV | 973.773 | 497.611(13) | −0.0028 % | 1.07 | agrees (validation passed, rel −0.043 %) |
+| π⁰ | 130.595 MeV | 255.568 | 134.9768(5) | −3.25 % | — | fails the 2 % gate |
+| η | 565.904 MeV | 1107.446 | 547.862(17) | +3.29 % | — | fails the 2 % gate |
+
+- The predicted K⁰ − K⁺ difference is 3.917 MeV, against 3.934(20) from PDG.
+- The PDG/FLAG validation fails π⁰ and η by the same amounts (−2.83 % and +3.28 %). Those two misses therefore come from the leading-order method (Dashen-theorem violation, η–η′ mixing), not from the FSOT inputs.
+- Next branch: NLO ChPT with Gasser–Leutwyler L₅ and L₈, and an EM term that violates Dashen.
+- A rough mental estimate of these three numbers was made before the freeze and is disclosed in the freeze file.
+
+**L-B1, absolute quark masses from GMOR** (3 Σ variants; all HYBRID because F_π is K-1a).
+- The formula is m_d = b·F²/Σ.
+- With Σ^(1/3) = (272/338) × FSOT Λ⁽³⁾: m_ud = 3.603 MeV (+6.4 % vs FLAG 2+1 3.387(39)) and m_s = 99.68 MeV (+7.9 % vs 92.4(1.0)). Both pass the 10 % gate, and the validation passes (+7.0 %).
+- With Σ^(1/3) = 0.25 GeV the masses are +36 % to +38 %, and with m_p/4 they are +64 % to +67 %. Both variants fail.
+- f_π = 91.78 MeV and g_πNN = 12.92 remain the round-k hybrids, and g_A is the lattice value. This round produced no FSOT-internal form for any of them.
+
+**L-C1 and the restatement table.**
+- `audit/derive_2026-10-02l.tsv` restates every unit-read leaf against its natural anchor (M/m_e, B/m_e, r_p·m_p c/ħ, k_B T/m_e c², ħH₀/m_e c², Δm²/m_e²) and gives the governing physics and the next branch for each.
+- r_p = 4ħ/(m_p c) = 0.841236 fm, z 0.84 vs 0.8409(4). This is a known coincidence. The coefficient 4 is not derived, it was noticed before the freeze, and 8 forms were considered. It is not counted as a prediction.
+
+**L-M, D_eff → unit map** (owner steer; freeze `audit/FREEZE_2026-10-02lm.md`, 8e9cdec, committed before its scoring code; look-elsewhere 3 families × 1 domain assignment).
+- **Setup.** Each unit-read leaf N is carried to Q = N × A_unit × g(domain). A_unit is the m_e-anchor natural unit: m_e c², ħ/(m_e c), m_e c²/k_B, m_e c²/ħ or (m_e c²)². g is a single function of the domain fold variables.
+- **Domains:**
+  - Particle_Physics (D_eff 5, S 0.9502): π, K, D, r_p, Δm²₃₂
+  - High_Energy_Physics (D_eff 6, hits 1, S 0.8873): W, Z, H
+  - Nuclear_Physics (D_eff 12, S 0.9364): the three bindings
+  - Cosmology (D_eff 25, medium, S −0.5024): T_CMB, H₀
+- **Families:** ln g linear in ln D_eff (M1), in D_eff (M2) and in S (M3). Each is trained on π±, B(²H) and T_CMB, then scored on 10 held-out leaves against a 2 % gate.
+- **Result:** 0/10 for every family. The best is M3 (S-dependent): training residual 11.6 %, held-out K/D +11.6 %, ³H/⁴He −10.5 %, W/Z/H −59 %.
+- **What carries the scale.** The g each leaf needs (the "required g" rows) is the same, 1.956952 = MeV/(m_e c²), for every MeV-read leaf in all three domains (D_eff 5, 6, 12). The spread is ≤ 7 × 10⁻⁶ except m_H, at 3 × 10⁻⁴. The proton radius, which sits at D_eff 5 next to the pion, needs 2.589 × 10⁻³ = fm/(ħ/m_e c). T_CMB needs 1.687 × 10⁻¹⁰ and H₀ needs 4.11 × 10⁻⁴¹. The factor follows the SI unit a leaf is read in, not its D_eff or S.
+- **Next branch.** Restate each leaf as the pure m_e multiple N/1.956952, i.e. the ratios in `audit/derive_2026-10-02l.tsv`, and derive those ratios inside the domain, as L-A1 does for the octet. A map from D_eff could then act on the ratios rather than on unit-read numbers.
+
+**Downstream.** The Δα_had → Γ_Z/M_Z and deuteron chains were not run. The frozen gate requires a non-hybrid F_π and g_πNN.
+
+**Totals:** unchanged at **87/91**. None of the held-out mesons or quark masses is among the 91 rows. The r_p row was already confirmed by its leaf.
+
+**Re-pin:** the 2C9442 compute pin sits on `owner-decisions-2026-10-02i` (pushed to GitHub, not merged to main). It stays deferred to a dedicated round.

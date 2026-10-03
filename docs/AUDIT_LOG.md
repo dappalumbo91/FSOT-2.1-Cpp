@@ -508,6 +508,18 @@ Under FREEZE_2026-10-02k (a1a530c, before any number). Trace: audit/trace_2026-1
 - **Cosmology:** the pins are mutually inconsistent at 1-4 %; the T_CMB leaf (z 1.31) is the closest to FIRAS.
 - **Look-elsewhere:** 15 routes considered / 8 scored. **Counts unchanged:** 87/91.
 
+### H-37 · 2026-10-02l: hadron derivation branch: LO chiral + Dashen octet predicts held-out K0 to 0.003 %; pi0/eta miss by 3 % (LO limit, validation misses equally); GMOR quark masses within 8 % only as hybrids
+
+Freeze `audit/FREEZE_2026-10-02l.md` was committed (9c6dbbc) before `tools/score_2026_10_02l.py` existed. Built from FSOT inputs: the M_pi+- and M_K+- leaves and the m_u/m_d and m_s/m_d pins.
+- Held-out results:
+  - K0: 497.597 MeV vs 497.611(13), rel −0.0028 %, z 1.07, agrees.
+  - pi0: −3.25 %, fails.
+  - eta: +3.29 %, fails.
+- GMOR with the lattice-ratio condensate gives m_ud 3.603 and m_s 99.68 MeV (HYBRID, within the 10 % gate).
+- r_p = 4 hbar/(m_p c) is a disclosed coincidence and is not counted.
+- Downstream not run (frozen gate). Totals unchanged at 87/91. Look-elsewhere: octet 1, condensate 3, r_p 8, D_eff map 3.
+- D_eff → unit map (freeze 8e9cdec): 3 families, 0/10 held-out. The required factor is 1.956952 = MeV/(m_e c²) in every domain with MeV leaves (D_eff 5, 6, 12) and changes with the SI unit (fm, K, km/s/Mpc, eV²), not with D_eff or S.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests
