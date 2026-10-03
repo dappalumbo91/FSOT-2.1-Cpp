@@ -91,7 +91,7 @@ Optional native Windows builds, as an extra data point only:
   **Expected CTest counts** with `-DFSOT_HUB_DATA`: **61 on Linux** and **60 on MSVC** (the difference is `freestanding_symbols`). Without hub data the counts are 27 and 26, the CI `build-test` configuration. Before rounds h–n added `round_freeze_h` … `round_freeze_ak`, the counts were 29 and 28.
 - Native Windows: clone with `-c core.autocrlf=false`. Run the Python byte-identical diffs (step 3) in WSL2 only.
 
-**Current precision gate** (`audit/precision_2026-10-02.md`): **87/91 confirmed** at z ≤ 1, including the owner decisions OD-1/OD-2 (audit/OWNER_DECISIONS_2026-10-02i.md). Without them (pinned rows only) it is 85/91; with the frozen-pending refinements it is 88/91.
+**Current precision gate** (`audit/precision_2026-10-02.md`): **88/91 confirmed** at z ≤ 1. The T_CMB record row is `eta:T_CMB`, 2.72573880197729 K, z 0.398 (AF-3 η route, adoption of the 2026-10-02ah section). The closed form `pin:wave1|T_CMB` remains in the report as the superseded row. Pinned rows only, without OD-1/OD-2, are 86/91. The frozen-pending column is 88/91. Caveat on the η route: the observed η the formula was compared to is itself inferred with T_CMB³ (target choice, not an input). The same flat branch gives h 0.674541, against the H0 pin by −1.448%, Ω_Λ by +0.408%, Ω_m by −0.299% and Ω_r by +0.327%. The pin set sums to 0.99816.
 
 ### 2. Fastest path: one script
 From the repo root in WSL2:

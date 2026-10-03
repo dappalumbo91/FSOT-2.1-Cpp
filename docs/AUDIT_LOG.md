@@ -555,6 +555,14 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-64 · 2026-10-03: adopted the AF-3 η route as the T_CMB record row (2026-10-02ah section)
+
+The record row is `eta:T_CMB` = 2.72573880197729 K, z 0.398, against FIRAS 2.7255(6). Formula: n_γ0 = ω_b ρ_c,100 / (m_p η), T_0 = (π² n_γ0 / (2ζ(3)))^{1/3} ħc/k_B, with ω_b = `wave1|Omega_b_h2`, η = `wave10|eta_baryon_photon`, and m_p the seed leaf. G, c, ħ and k_B are the AF-3 CODATA values; ζ(3) is the mpmath literal. The closed form `pin:wave1|T_CMB` (2.72471169034307 K, z 1.314) stays in the report with record 0, and C-TCMB stays attached to that id.
+
+Caveat: the observed η the formula was compared to is itself inferred with T_CMB³ (target choice, not an input). The same flat branch (age → h) gives h 0.674541, against the H0 pin by −1.448%, Ω_Λ by +0.408%, Ω_m by −0.299% and Ω_r by +0.327%. The pin set sums to 0.99816. The H0 record row is unchanged.
+
+Gate from `fsot_precision`: 88/91 confirmed, 86/91 pinned only, frozen-pending column 88/91. With H0 and τ_n deferred the accounting is 86/89. Pins, `vendor/fsot_compute.py`, and the preregistration were not edited.
+
 ### H-63 · 2026-10-02ak: the μ_V^(0) sea oscillation follows the shell count kmax·D (same product agrees to 0.021, different product moves 0.27); a smooth convergence factor (E_s = kmax/3) makes the sums kmax-stable but shifts E by +10 % against the sharp values, so frozen validation fails and μ and the σ charge are not scored; Γ_Z not attempted
 
 Freeze `FREEZE_2026-10-02ak` (1d4d524). Round-aj cpp_check passed (632 s). Totals 87/91.

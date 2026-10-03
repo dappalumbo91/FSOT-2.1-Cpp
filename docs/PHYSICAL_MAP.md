@@ -66,7 +66,7 @@ For scientists and mathematicians: what each FSOT quantity represents, how it ac
 | `CKM_V_tb` | CKM matrix element V_tb | dimensionless | 0.99912245 | leaf | 0.999122449770219 | 1 | 0.999118 (PDG 2024) | 0.1534 | confirmed | model-computed (global fit / theory input) | - |
 | `alpha_s_MZ` | strong coupling at M_Z | dimensionless | 0.117908817 | seed | 0.117908816617884 | 1 | 0.118 (PDG 2024) | 0.1013 | confirmed | scheme-dependent | - |
 | `pin:wave1/H0` | Hubble constant | m_e c^2/hbar | 2.85717547e-39 | pin | 68.4449955638267 | km s^-1 Mpc^-1 | 68.43 (arXiv:2503.14452 (abstract)) | 0.05554 | confirmed | contested (deferred) | - |
-| `pin:wave1/T_CMB` | CMB temperature today | m_e c^2/k_B | 4.59487219e-10 | pin | 2.72471169034307 | K | 2.7255 (PDG 2024) | 1.314 | frozen-pending | measured | - |
+| `eta:T_CMB` | CMB temperature today | m_e c^2/k_B | 4.59660428e-10 | eta | 2.72573880197729 | K | 2.7255 (PDG 2024) | 0.398 | confirmed | measured | ah adoption of AF-3. Caveat: observed eta is inferred with T_CMB^3 (target choice, not an input). Flat branch h 0.674541 vs H0 pin -1.448%; Omega_Lambda +0.408%; Omega_m -0.299%; Omega_r +0.327%; pin set sums to 0.99816 |
 | `pin:wave1/n_s` | scalar spectral index | dimensionless | 0.963333837 | pin | 0.963333836595472 | 1 | 0.965 (PDG 2024) | 0.4165 | confirmed | model-computed (cosmological fit) | - |
 | `pin:wave1/Omega_b_h2` | baryon density | dimensionless | 0.0224616214 | pin | 0.0224616214186474 | 1 | 0.02237 (PDG 2024) | 0.6108 | confirmed | model-computed (cosmological fit) | - |
 | `od2:wave2/Omega_Lambda` | dark-energy density fraction | dimensionless | 0.684609232 | owner | 0.684609232397667 | 1 | 0.685 (PDG 2024) | 0.05582 | confirmed | model-computed (cosmological fit) | - |
@@ -106,7 +106,7 @@ For scientists and mathematicians: what each FSOT quantity represents, how it ac
 | `pin:wave8/z_reion` | reionization redshift | dimensionless | 7.67199242 | pin | 7.6719924223667 | 1 | 7.7 (PDG 2024) | 0.04001 | confirmed | measured | - |
 | `pin:wave10/eta_baryon_photon` | baryon-to-photon ratio | dimensionless | 6.13974954e-10 | pin | 6.13974953542555e-10 | 1 | 6.04e-10 (PDG 2024) | 0.8312 | confirmed | model-computed (cosmological fit) | - |
 
-**Totals:** 87/91 confirmed, 88/91 including frozen-pending, 3/91 open.
+**Totals:** 88/91 confirmed, 88/91 including frozen-pending, 3/91 open.
 
 ## Derivation-branch quantities (rounds l–s; FSOT inputs only; not record rows)
 
@@ -157,7 +157,7 @@ For scientists and mathematicians: what each FSOT quantity represents, how it ac
 | T_CMB trace (age route) | CMB temperature | radiation/neutrino/Ω_Λ/h steps; FSOT pins Ω_m + Ω_Λ + Ω_r = 0.99816 | 2.72847 → 2.72743 K (flat) | — | 2.7255(6) | +0.109 → +0.071 % | FSOT · diagnostic | first divergence: inconsistent cosmology pins | ae |
 | μ_V^(0) sea (grand-spin sectors) | isovector magnetic moment, classical sea | per-sector sea/PV/vac/vacPV sums, K 12 vs 14, box D = K | −1.35370 → −1.20911 | — | — | — | FSOT · diagnostic | every sector moves 7–14 %: box-size rescaling, not a tail; frozen tail test fails, μ not scored | af |
 | B_d (Bryan–Scott σ, ω with tensor and LS) | deuteron binding | O(1/M²) σ, ω (κ_ω −0.160) central, tensor, spin-orbit; soliton form factors; OPE g_A 1.2845 | unbound | — | 2.22456623 MeV | — | FSOT · measured | miss; OPE+σ(LS) 3.46 MeV, +ω unbound | af |
-| T_CMB (flat FSOT branch) | CMB temperature | ω_b, η → T_0; ω_r(T_0, N_eff); age → h; flat by construction | 2.725739 K | — | 2.7255(6) | +0.0088 % | FSOT · measured | agrees (z 0.40); η-route circularity flagged; h 0.6745 vs H0 pin −1.45 % | af |
+| T_CMB (flat FSOT branch) | CMB temperature | ω_b, η → T_0; ω_r(T_0, N_eff); age → h; flat by construction | 2.725739 K | — | 2.7255(6) | +0.0088 % | FSOT · measured | record row eta:T_CMB (ah adoption of AF-3, z 0.40). Caveat: the observed eta is inferred with T_CMB^3 (target choice, not an input). Flat branch h 0.674541 vs H0 pin −1.448%; Omega_Lambda +0.408%; Omega_m −0.299%; Omega_r +0.327%; pin set sums to 0.99816 | af |
 | μ_p, μ_n (D, kmax decoupled from K) | nucleon magnetic moments | PV-regularised; kmax 12; K 14, D 14; theory unc. max(K step, box step) | 2.2854 / −1.6841 μ_N | — | 2.7928 / −1.9130 | −18.2 / −12.0 % | FSOT · measured | miss (z 21.9 / 9.38); kmax 12→14 moves 3.9 / 5.2 % (post-freeze) | ag |
 | g_A, Δ−N/m_N (D, kmax decoupled from K) | axial coupling, Δ−N splitting | as above | 1.29169 / 0.32746 | — | 1.2754 / 0.31236 | +1.28 / +4.83 % | FSOT · measured | miss (z 1.56 / 6.12); stable in K, D, kmax | ag |
 | ⟨V_ω⟩ pieces (deuteron) | ω central / tensor / spin-orbit | first order in the OPE+σ state (B0 3.46 MeV), Λ_V vertex | +0.1358 / −0.0034 / +0.0039 m_p | — | — | — | FSOT · diagnostic | ω central (9π) over-repels at 37× B0; topological Λ_B vertex still unbound | ag |

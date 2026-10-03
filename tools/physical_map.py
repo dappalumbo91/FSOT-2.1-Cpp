@@ -19,7 +19,9 @@ HELD = {"m_pi_pm_MeV": "L-A1: K0 497.597 (-0.003 %); M-2a: pi0 134.397 (-0.43 %)
         "m_K_pm_MeV": "L-A1 / M-2b: K0 -0.003 % / +0.13 %", "r_p_fm": "L-C1: r_p m_p c/hbar = 4.00006 (coefficient not derived)",
         "B_H3_MeV": "Tjon LO 4.61 ratio fails (+38 %)", "B_He4_MeV": "Tjon LO 4.61 ratio fails (+38 %)",
         "pin:wave3|Deuteron_binding_MeV": "N-3 LO radius -22.7 %; O-3 OPE + core (B input): r_d -4.1 %, Q_d -14 %, eta -7.3 % (fail)", "pin:wave5|Gamma_Z/M_Z": "Delta alpha_had chain gated (g_A = 1.1755, -7.8 %, P-1)",
-        "pin:wave8|Deuteron_mu_muN": "O-3b SU(6) mu_d +3.8 %; P-2 soliton mu_d -14 %; Q-1 (m_pi) soliton mu_p -0.96 %, mu_n +0.67 % (late validation passed, round r) -> R-0 mu_d -5.7 % (fail; P_D/meson-exchange currents next)", "m_Z_MeV": "D_eff/S map tests l/m/n fail (factor follows the unit)",
+        "pin:wave8|Deuteron_mu_muN": "O-3b SU(6) mu_d +3.8 %; P-2 soliton mu_d -14 %; Q-1 (m_pi) soliton mu_p -0.96 %, mu_n +0.67 % (late validation passed, round r) -> R-0 mu_d -5.7 % (fail; P_D/meson-exchange currents next)",
+        "eta:T_CMB": "ah adoption of AF-3. Caveat: observed eta is inferred with T_CMB^3 (target choice, not an input). Flat branch h 0.674541 vs H0 pin -1.448%; Omega_Lambda +0.408%; Omega_m -0.299%; Omega_r +0.327%; pin set sums to 0.99816",
+        "m_Z_MeV": "D_eff/S map tests l/m/n fail (factor follows the unit)",
         "m_W_MeV": "D_eff/S map tests l/m/n fail", "m_H_MeV": "D_eff/S map tests l/m/n fail", "m_D_pm_MeV": "D_eff/S map tests fail; HQET branch open"}
 MEAN = {"u_over_m_e": "atomic mass unit / electron mass", "m_Z_MeV": "Z boson mass", "m_tau_MeV": "tau lepton mass", "r_p_fm": "proton rms charge radius",
  "m_pi_pm_MeV": "charged pion mass (pseudo-Goldstone)", "m_D_pm_MeV": "charged D meson mass (heavy-light)", "m_K_pm_MeV": "charged kaon mass (pseudo-Goldstone)",
@@ -38,6 +40,7 @@ MEAN = {"u_over_m_e": "atomic mass unit / electron mass", "m_Z_MeV": "Z boson ma
  "eta_baryon_photon": "baryon-to-photon ratio"}
 def meaning(x):
     k = x["#id"].split("|")[-1]
+    if k not in MEAN and ":" in k: k = k.split(":")[-1]
     if x["#id"].startswith("CKM_"): return "CKM matrix element |" .replace("|", "") + x["#id"][4:]
     if k in MEAN: return MEAN[k]
     m = re.search(r'"([^"]+)"', x["source"])
@@ -125,7 +128,7 @@ out += ["", f"**Totals:** {n['confirmed']}/91 confirmed, {n['confirmed'] + n['fr
         "| T_CMB trace (age route) | CMB temperature | radiation/neutrino/Ω_Λ/h steps; FSOT pins Ω_m + Ω_Λ + Ω_r = 0.99816 | 2.72847 → 2.72743 K (flat) | — | 2.7255(6) | +0.109 → +0.071 % | FSOT · diagnostic | first divergence: inconsistent cosmology pins | ae |",
         "| μ_V^(0) sea (grand-spin sectors) | isovector magnetic moment, classical sea | per-sector sea/PV/vac/vacPV sums, K 12 vs 14, box D = K | −1.35370 → −1.20911 | — | — | — | FSOT · diagnostic | every sector moves 7–14 %: box-size rescaling, not a tail; frozen tail test fails, μ not scored | af |",
         "| B_d (Bryan–Scott σ, ω with tensor and LS) | deuteron binding | O(1/M²) σ, ω (κ_ω −0.160) central, tensor, spin-orbit; soliton form factors; OPE g_A 1.2845 | unbound | — | 2.22456623 MeV | — | FSOT · measured | miss; OPE+σ(LS) 3.46 MeV, +ω unbound | af |",
-        "| T_CMB (flat FSOT branch) | CMB temperature | ω_b, η → T_0; ω_r(T_0, N_eff); age → h; flat by construction | 2.725739 K | — | 2.7255(6) | +0.0088 % | FSOT · measured | agrees (z 0.40); η-route circularity flagged; h 0.6745 vs H0 pin −1.45 % | af |",
+        "| T_CMB (flat FSOT branch) | CMB temperature | ω_b, η → T_0; ω_r(T_0, N_eff); age → h; flat by construction | 2.725739 K | — | 2.7255(6) | +0.0088 % | FSOT · measured | record row eta:T_CMB (ah adoption of AF-3, z 0.40). Caveat: the observed eta is inferred with T_CMB^3 (target choice, not an input). Flat branch h 0.674541 vs H0 pin −1.448%; Omega_Lambda +0.408%; Omega_m −0.299%; Omega_r +0.327%; pin set sums to 0.99816 | af |",
         "| μ_p, μ_n (D, kmax decoupled from K) | nucleon magnetic moments | PV-regularised; kmax 12; K 14, D 14; theory unc. max(K step, box step) | 2.2854 / −1.6841 μ_N | — | 2.7928 / −1.9130 | −18.2 / −12.0 % | FSOT · measured | miss (z 21.9 / 9.38); kmax 12→14 moves 3.9 / 5.2 % (post-freeze) | ag |",
         "| g_A, Δ−N/m_N (D, kmax decoupled from K) | axial coupling, Δ−N splitting | as above | 1.29169 / 0.32746 | — | 1.2754 / 0.31236 | +1.28 / +4.83 % | FSOT · measured | miss (z 1.56 / 6.12); stable in K, D, kmax | ag |",
         "| ⟨V_ω⟩ pieces (deuteron) | ω central / tensor / spin-orbit | first order in the OPE+σ state (B0 3.46 MeV), Λ_V vertex | +0.1358 / −0.0034 / +0.0039 m_p | — | — | — | FSOT · diagnostic | ω central (9π) over-repels at 37× B0; topological Λ_B vertex still unbound | ag |",

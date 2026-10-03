@@ -10,6 +10,7 @@
 // they are printed separately and never counted. The refined_* columns carry the frozen-pending candidates of
 // docs/freezes/REFINEMENTS_2026-10-02b.md (committed before scoring); they are never counted as confirmed.
 // route "seed" = a committed hub vendor/fsot_seed_flavor.py function, evaluated here in mp169 (channel fix F2).
+// route "eta" = AF-3 T_CMB (tools/score_2026_10_02af.py). The closed form stays the superseded pin row.
 #define _USE_MATH_DEFINES  // M_PI on MSVC (must precede <cmath>)
 #include <algorithm>
 #include <cmath>
@@ -189,6 +190,23 @@ int main(int argc, char** argv) {
     } else if (o.route == "seed") {
       auto it = seedv.find(o.source); if (it == seedv.end()) { std::fprintf(stderr, "no seed %s\n", o.source.c_str()); return 2; }
       o.vr = it->second * scale;
+    } else if (o.route == "eta") {
+      // AF-3: CODATA G, c, hbar, k_B and the Mpc of tools/score_2026_10_02af.py. m_p is the seed leaf.
+      // zeta(3) is the mpmath dps-80 literal. rho_c,100 = 3 (100 km/s/Mpc)^2 / (8 pi G).
+      if (o.source != "eta_T_CMB") { std::fprintf(stderr, "no eta source %s\n", o.source.c_str()); return 2; }
+      auto ob = pinv.find("wave1|Omega_b_h2");
+      auto et = pinv.find("wave10|eta_baryon_photon");
+      auto mp = leafv.find("m_p_kg");
+      if (ob == pinv.end() || et == pinv.end() || mp == leafv.end()) {
+        std::fprintf(stderr, "eta route missing omega_b, eta, or m_p_kg\n"); return 2;
+      }
+      const R G("6.67430e-11"), c("299792458"), hbar("1.054571817e-34"), kB("1.380649e-23");
+      const R Mpc("3.0856775814913673e22");
+      const R z3("1.2020569031595942853997381615114499907649862923404988817922715553418382057863131");
+      const R H100 = R(100) * R(1000) / Mpc;
+      const R rc100 = R(3) * H100 * H100 / (R(8) * eng.PI * G);
+      const R ng0 = ob->second.first * rc100 / (mp->second * et->second.first);
+      o.vr = m::pow(ng0 * eng.PI * eng.PI / (R(2) * z3), R(1) / R(3)) * hbar * c / kB * scale;
     } else {
       auto it = pinv.find(o.source); if (it == pinv.end()) { std::fprintf(stderr, "no pin row %s\n", o.source.c_str()); return 2; }
       o.vr = it->second.first * scale; o.pin_target = fmt("%.10g", to_d(it->second.second * scale));
@@ -209,6 +227,9 @@ int main(int argc, char** argv) {
       o.hist = note;
       o.cause = o.s.pass_z ? "restored: hub seed leaf (2026-09-29) absent from the C++ port (H-01)"
                            : "leaf outside the PDG 2024/CODATA 2022 sigma";
+    } else if (o.route == "eta") {
+      o.hist = "AF-3 tools/score_2026_10_02af.py 2.72573880198 K z=0.398";
+      o.cause = note;
     } else {
       // historical best over the five hub pins, scored against the same reference
       auto lit = lineage.find(o.source);
