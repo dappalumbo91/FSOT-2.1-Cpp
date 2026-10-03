@@ -1129,3 +1129,37 @@ They now sit in their own table in `docs/PHYSICAL_MAP.md`. The round-r χ^{1/4} 
 - The round-q/r 2 % "agreement" sat on the unconverged K 8 basis.
 
 **Totals unchanged at 87/91.**
+
+## 2026-10-02v: soliton to K 16, F_K/F_π and FKS η/η′ inside FSOT, reference types (freeze 2a7eaea `FREEZE_2026-10-02v`; scores `audit/score_2026-10-02v.tsv`)
+
+**V-1: making K 14/16 fit.** Profiling showed the r0M scan is cheap and the observables (rot_sum, ~N³ per block) dominate. Round u's overrun was CPU contention from other jobs on the box. `tools/heavy_2026_10_02v.py` scans the window r0M ∈ [0.6, 1.0], which contains the interior minimum. It reproduces round t's full-scan K 12 to 3.8e-10, so the physics is unchanged. Run times at 4 threads: K 12 91 s, K 14 184 s, K 16 572 s.
+
+| K | g_A (time-ordered) | g_A^(0) | μ_p | μ_n | Δ−N (MeV) |
+|---|---|---|---|---|---|
+| 12 | 1.4327 | 0.8923 | 2.6417 | −1.7947 | 177.5 |
+| 14 | 1.4498 | 0.9071 | 2.6240 | −1.7810 | 183.2 |
+| 16 | 1.4621 | 0.9158 | 2.7555 | −1.9123 | 182.7 |
+
+Pre-registered Richardson 1/K² from K 14–16, with theory uncertainty |v_∞ − v_16|:
+- g_A = 1.502 (z 5.6), **miss**.
+- Δ−N = 180.8 MeV (z 41), **miss**.
+- Classical-ordering g_A = 0.944 (z 11.6), miss (info).
+- μ_p = 3.185 (z 0.91) and μ_n = −2.341 (z 1.00) count as agrees under the frozen rule, **but this is not evidence of agreement.** μ is non-monotonic in K (it falls from 12 to 14 and rises from 14 to 16). The K 16 jump makes the theory uncertainty about 7× larger, and the 3-point fit a + b/K² + c/K⁴ gives 3.97 / −3.11. The magnetic moments are therefore not converged at K 16. g_A rises steadily and Δ−N has plateaued near 181–183 MeV, so the soliton Δ−N miss is structural.
+
+**V-2: F_K/F_π.** One-loop SU(3) with 4L5^r = l4^r + ν_K/2 (L4 = 0, large N_c), FSOT l̄₄ = 4.662, F = 92.887 MeV, μ = 770 MeV gives **1.2734 (z 38), miss**. The validation with FLAG l̄₄ also gives 1.234 against 1.1932(21), so the L4 = 0 / l4–L5 identification is the failing step, not the FSOT inputs. Pre-freeze estimate 1.25–1.27, disclosed.
+
+**V-3: FKS η/η′** with f_q and f_s from V-2 and χ from U2-1: M_η = 574.4 MeV (z 1560), M_η′ = 951.2 MeV (−0.69 %, z 110), φ = 45.9°. Both **miss**. The f_s/f_q input inherits the V-2 failure.
+
+**V-4: g_A operator ordering.** Not derived this round. No interpolating factor is used.
+
+**Reference types (owner directive 2026-10-03 02:39, item a).** Every PHYSICAL_MAP row and the round-v scorer rows carry a type:
+- 91 record rows: 58 measured, 25 model-computed (fit or theory input), 6 scheme-dependent, 2 contested (H0 and neutron lifetime, deferred).
+- Derivation and scaffolding rows: the type is the last word of the class column. χ_top, Λ^(0), the condensate, string tension and r0 are marked as intermediate, each with the observable it is scored through.
+- Items (b)–(d) are scheduled for next round: score χ only via M_η′, the condensate via charmonium sum rules and vacuum energy, the string tension via Regge slopes, and Λ and the quark masses via α_s(M_Z), the R-ratio and meson masses. Lattice gaps become information rows.
+
+**Disclosures.**
+- The windowed scan is validated, not assumed.
+- The only post-freeze edit is the type labels in the scorer class column; no numbers changed.
+- Look-elsewhere: 4 primary soliton rows, 1 F_K/F_π row, 2 η/η′ rows.
+
+**Totals unchanged at 87/91.**

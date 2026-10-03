@@ -1,0 +1,8 @@
+V1_FSOT_massive_K12 scan 0.6 10.5
+V1_FSOT_massive_K12 scan 0.7 13.3
+V1_FSOT_massive_K12 scan 0.8 16.7
+V1_FSOT_massive_K12 scan 0.9 19.7
+V1_FSOT_massive_K12 scan 1.0 22.7
+V1_FSOT_massive_K12 DPP {'E_sol_over_M': 3.584679292578576, 'eps_val': 0.6545192193476775, 'gA0': 0.892272861203975, 'gA0_val': 0.7220984599920515, 'gA0_sea': 0.1701744012119235, 'I_times_M': 2.643547398010337, 'A_re': 1.0521153360723825e-16, 'A_im': 1.4287564643969297, 'Amu_re': 1.2832654834621159e-14, 'Amu_im': 1.5092870010783674, 'B_re': -4.478424455216302, 'B_im': 2.4462816487444498e-14, 'xat_val': -2.072608445021129, 'xat_sea': -0.6509540252109218, 'E_m_over_M': 0.1302328639128735}
+V1_FSOT_massive_K12 total seconds 90.6
+written audit/heavy_2026-10-02v_K12.json

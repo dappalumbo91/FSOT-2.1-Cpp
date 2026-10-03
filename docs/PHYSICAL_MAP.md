@@ -7,103 +7,104 @@ For scientists and mathematicians: what each FSOT quantity represents, how it ac
 - **Anchor.** m_e = (h ν_Cs/c²) × exp(e^π + (C K ln2)² + G P_new ψ_con − α⁵φ²/ln²2) (FSOT seed leaf; ν_Cs and h are SI-exact). Every dimensional quantity is written as **anchor unit × dimensionless ratio**, where the anchor unit is built from m_e, ħ, c, e, k_B and N_A (table column 'anchor unit').
 - **Unit-read leaves.** The π, K, D, W, Z, H and nuclear-binding leaves are pure numbers read in MeV or GeV. Their m_e multiple is leaf × 1.956952 (= leaf/m_e[MeV]). That factor contains the SI-defined e, and it follows the unit a leaf is read in, not its domain (rounds l–n).
 - **D_eff and S.** The domain effective dimension (D_eff = round(5·5^{g/(G−1)})) and the domain scalar S = K(T1+T2+T3) were tested as the carrier of dimension (round l, 3 families, 0/10), as an organizer of the m_e-multiple ratios (round m, 3 families, 0/6), and on one reference leaf per domain (round n, 2 families, 0/3). None of these maps carries the scale. D_eff/S remain the fold variables of each domain's S, and the ratios are derived within each domain (e.g. L-A1 for the mesons, α² for the Hartree energy).
+- **Reference type (owner directive 2026-10-03 02:39).** FSOT scores against observations. Every row carries a type: measured, model-computed (fit or theory input), lattice-computed, scheme-dependent, or contested (deferred: H0, neutron lifetime). Computed quantities (χ_top, Λ^(0), the condensate, string tension, r0) are intermediate FSOT quantities, scored only through the observables they feed (χ_top through M_η′ via Witten–Veneziano). A gap to a lattice value is information, not a miss. In the derivation and scaffolding tables the type is the last word of the class column.
 - **Status legend.** confirmed = record row with z ≤ 1 at pin AEB2AD; owner standing rule: only z ≤ 1 against the published uncertainty agrees, percentage gates never count as a pass; frozen-pending = a frozen refinement passes but is not adopted; external = uses a non-FSOT (lattice/FLAG/fit) input and is scaffolding only, listed in its own table and never counted; open = not yet within its gate.
 
 ## The 91 record rows
 
-| id | physical quantity | anchor unit | ratio to anchor | FSOT route | frozen value | unit | measured (source) | z | status | held-out tests |
-|---|---|---|---|---|---|---|---|---|---|---|
-| `alpha_inv` | inverse fine-structure constant | dimensionless | 137.035999 | leaf | 137.035999165943 | 1 | 137.035999177 (CODATA 2022 "inverse fine-structure constant") | 0.5265 | confirmed | - |
-| `g_e` | electron g factor | dimensionless | 2.0023193 | leaf | 2.00231930436095 | 1 | 2.00231930436092 (CODATA 2022 "electron g factor") | 0.07053 | confirmed | - |
-| `m_e_kg` | electron mass | m_e | 1 | leaf | 9.1093837124488e-31 | kg | 9.1093837139e-31 (CODATA 2022 "electron mass") | 0.5183 | confirmed | - |
-| `R_inf` | Rydberg constant | m_e c/hbar | 4.23760814e-06 | leaf | 10973731.5681557 | m^-1 | 10973731.568157 (CODATA 2022 "Rydberg constant") | 0.1089 | confirmed | - |
-| `a_0` | Bohr radius | hbar/(m_e c) | 137.035999 | leaf | 5.29177210586066e-11 | m | 5.29177210544e-11 (CODATA 2022 "Bohr radius") | 0.513 | confirmed | - |
-| `lambda_C` | Compton wavelength | hbar/(m_e c) | 6.28318531 | leaf | 2.42631023576685e-12 | m | 2.42631023538e-12 (CODATA 2022 "Compton wavelength") | 0.509 | confirmed | - |
-| `r_e` | classical electron radius | hbar/(m_e c) | 0.00729735256 | leaf | 2.81794032113517e-15 | m | 2.8179403205e-15 (CODATA 2022 "classical electron radius") | 0.4886 | confirmed | - |
-| `sigma_T` | Thomson cross section | (hbar/(m_e c))^2 | 0.000446117504 | leaf | 6.65245870823664e-29 | m^2 | 6.6524587051e-29 (CODATA 2022 "Thomson cross section") | 0.5059 | confirmed | - |
-| `E_h` | Hartree energy | m_e c^2 | 5.32513545e-05 | leaf | 4.35974472220546e-18 | J | 4.359744722206e-18 (CODATA 2022 "Hartree energy") | 0.1128 | confirmed | - |
-| `mu_B` | Bohr magneton | e hbar/(2 m_e) | 1 | leaf | 9.2740100672155e-24 | J T^-1 | 9.2740100657e-24 (CODATA 2022 "Bohr magneton") | 0.5226 | confirmed | - |
-| `m_p_over_m_e` | proton-electron mass ratio | dimensionless | 1836.15267 | leaf | 1836.15267340501 | 1 | 1836.152673426 (CODATA 2022 "proton-electron mass ratio") | 0.656 | confirmed | - |
-| `m_p_kg` | proton mass | m_e | 1836.15267 | leaf | 1.67262192566849e-27 | kg | 1.67262192595e-27 (CODATA 2022 "proton mass") | 0.5414 | confirmed | - |
-| `mu_N` | nuclear magneton | e hbar/(2 m_e) | 0.000544617021 | leaf | 5.05078374012197e-27 | J T^-1 | 5.0507837393e-27 (CODATA 2022 "nuclear magneton") | 0.5137 | confirmed | - |
-| `m_n_over_m_p` | neutron-proton mass ratio | dimensionless | 1.00137842 | leaf | 1.00137841948711 | 1 | 1.00137841946 (CODATA 2022 "neutron-proton mass ratio") | 0.06778 | confirmed | - |
-| `m_n_kg` | neutron mass | m_e | 1838.68366 | leaf | 1.6749275003254e-27 | kg | 1.67492750056e-27 (CODATA 2022 "neutron mass") | 0.276 | confirmed | - |
-| `G_N` | Newtonian constant of gravitation | hbar c/m_e^2 | 1.75181164e-45 | leaf | 6.67430855062831e-11 | m^3 kg^-1 s^-2 | 6.6743e-11 (CODATA 2022 "Newtonian constant of gravitation") | 0.057 | confirmed | - |
-| `g_p` | proton g factor | dimensionless | 5.58569469 | leaf | 5.5856946888715 | 1 | 5.5856946893 (CODATA 2022 "proton g factor") | 0.2678 | confirmed | - |
-| `m_mu_over_m_e` | muon-electron mass ratio | dimensionless | 206.768282 | leaf | 206.768281576289 | 1 | 206.7682827 (CODATA 2022 "muon-electron mass ratio") | 0.2443 | confirmed | - |
-| `m_mu_kg` | muon mass | m_e | 206.768282 | leaf | 1.88353161644208e-28 | kg | 1.883531627e-28 (CODATA 2022 "muon mass") | 0.2514 | confirmed | - |
-| `u_over_m_e` | atomic mass unit / electron mass | dimensionless | 1822.88849 | leaf | 1822.88848625809 | 1 | 1822.88848627814 (derived inv:A_r_e from [A_r_e: CODATA2022]) | 0.622 | confirmed | - |
-| `u_kg` | atomic mass constant | m_e | 1822.88849 | leaf | 1.66053906863299e-27 | kg | 1.66053906892e-27 (CODATA 2022 "atomic mass constant") | 0.5519 | confirmed | - |
-| `M_12C` | molar mass of carbon-12 | m_e N_A | 21874.6618 | leaf | 0.0120000000105446 | kg mol^-1 | 0.0120000000126 (CODATA 2022 "molar mass of carbon-12") | 0.5555 | confirmed | - |
-| `m_Z_MeV` | Z boson mass | m_e c^2 | 178449.232 | leaf | 91.1873703594484 | GeV | 91.188 (PDG 2024) | 0.3148 | confirmed | D_eff/S map tests l/m/n fail (factor follows the unit) |
-| `m_tau_MeV` | tau lepton mass | m_e c^2 | 3477.50546 | leaf | 1777.00164018233 | MeV | 1776.93 (PDG 2024) | 0.796 | confirmed | - |
-| `r_p_fm` | proton rms charge radius | hbar/(m_e c) | 0.00217850149 | leaf | 0.841248540969768 | fm | 0.8409 (PDG 2024) | 0.8714 | confirmed | L-C1: r_p m_p c/hbar = 4.00006 (coefficient not derived) |
-| `m_pi_pm_MeV` | charged pion mass (pseudo-Goldstone) | m_e c^2 | 273.132344 | leaf | 139.570341070318 | MeV | 139.57039 (PDG 2024) | 0.2718 | confirmed | L-A1: K0 497.597 (-0.003 %); M-2a: pi0 134.397 (-0.43 %); eta/eta' fail |
-| `m_D_pm_MeV` | charged D meson mass (heavy-light) | m_e c^2 | 3658.83385 | leaf | 1869.66025880354 | MeV | 1869.66 (PDG 2024) | 0.005176 | confirmed | D_eff/S map tests fail; HQET branch open |
-| `m_K_pm_MeV` | charged kaon mass (pseudo-Goldstone) | m_e c^2 | 966.108073 | leaf | 493.680211322105 | MeV | 493.677 (PDG 2024) | 0.2141 | confirmed | L-A1 / M-2b: K0 -0.003 % / +0.13 % |
-| `m_c_over_m_b` | charm/bottom quark mass ratio | dimensionless | 0.304178448 | leaf | 0.304178447628559 | 1 | 0.304327038010997 (derived ratio:m_c_GeV/m_b_GeV from [m_c_GeV: PDG2024:sum-quarks] [m_b_) | 0.1226 | confirmed | - |
-| `m_W_MeV` | W boson mass | m_e c^2 | 157277.724 | leaf | 80.3687519241648 | GeV | 80.3692 (PDG 2024) | 0.03369 | confirmed | D_eff/S map tests l/m/n fail |
-| `m_W_over_m_Z` | W/Z mass ratio (cos theta_W on shell) | dimensionless | 0.881358368 | leaf | 0.881358368021383 | 1 | 0.88136 (PDG 2024) | 0.01088 | confirmed | - |
-| `m_pi_over_m_p` | pion/proton mass ratio | dimensionless | 0.148752524 | leaf | 0.148752523565799 | 1 | 0.1487525756892 (derived ratio:m_pi_pm_MeV/m_p_MeV from [m_pi_pm_MeV: PDG2024:sum-meson) | 0.2717 | confirmed | - |
-| `mu_p_over_mu_N` | proton mag. mom. to nuclear magneton ratio | dimensionless | 2.79284734 | leaf | 2.79284734443575 | 1 | 2.79284734463 (CODATA 2022 "proton mag. mom. to nuclear magneton ratio") | 0.2369 | confirmed | - |
-| `m_n_minus_m_p_MeV` | neutron-proton mass difference energy equivalent in MeV | m_e c^2 | 2.53098863 | leaf | 1.29333253206531 | MeV | 1.29333251 (CODATA 2022 "neutron-proton mass difference energy equivalent in MeV") | 0.05807 | confirmed | - |
-| `m_H_MeV` | Higgs boson mass | m_e c^2 | 244928.287 | leaf | 125.158097744339 | GeV | 125.2 (PDG 2024) | 0.3809 | confirmed | D_eff/S map tests l/m/n fail |
-| `m_t_over_m_W` | top/W mass ratio | dimensionless | 2.14976593 | leaf | 2.14976592906816 | 1 | 2.14721560000597 (derived ratio:m_t_GeV/m_W_GeV from [m_t_GeV: PDG2024:sum-quarks] [m_W_) | 0.7034 | confirmed | - |
-| `sin2_theta_W_MSbar` | weak mixing angle (MSbar, M_Z) | dimensionless | 0.231275281 | leaf | 0.231275280502387 | 1 | 0.23129 (PDG 2024) | 0.368 | confirmed | - |
-| `m_tau_over_m_e` | tau/electron mass ratio | dimensionless | 3477.50546 | leaf | 3477.50545878783 | 1 | 3477.36526190635 (derived ratio:m_tau_MeV/m_e_MeV from [m_tau_MeV: PDG2024:sum-leptons] ) | 0.796 | confirmed | - |
-| `dm2_32` | atmospheric neutrino mass splitting | (m_e c^2)^2 | 9.35991214e-15 | leaf | 0.00244405957968814 | eV^2 | 0.002455 (PDG 2024) | 0.3907 | confirmed | - |
-| `B_He4_MeV` | 4He nuclear binding energy | m_e c^2 | 55.3732299 | leaf | 28.2956623785975 | MeV | 28.295662378 (AME2020 mass excesses) | 0.0006714 | confirmed | Tjon LO 4.61 ratio fails (+38 %) |
-| `B_H3_MeV` | 3H nuclear binding energy | m_e c^2 | 16.5984613 | leaf | 8.48179631631388 | MeV | 8.481796284 (AME2020 mass excesses) | 0.03672 | confirmed | Tjon LO 4.61 ratio fails (+38 %) |
-| `CKM_V_ud` | CKM matrix element V_ud | dimensionless | 0.97432422 | leaf | 0.97432421968751 | 1 | 0.97435 (PDG 2024) | 0.1611 | confirmed | - |
-| `CKM_V_us` | CKM matrix element V_us | dimensionless | 0.225149539 | leaf | 0.225149539040889 | 1 | 0.22501 (PDG 2024) | 0.2052 | confirmed | - |
-| `CKM_V_ub` | CKM matrix element V_ub | dimensionless | 0.00374199347 | leaf | 0.00374199347253333 | 1 | 0.003732 (PDG 2024) | 0.111 | confirmed | - |
-| `CKM_V_cd` | CKM matrix element V_cd | dimensionless | 0.225149539 | leaf | 0.225149539040889 | 1 | 0.22487 (PDG 2024) | 0.4111 | confirmed | - |
-| `CKM_V_cs` | CKM matrix element V_cs | dimensionless | 0.973423127 | leaf | 0.97342312722172 | 1 | 0.97349 (PDG 2024) | 0.418 | confirmed | - |
-| `CKM_V_cb` | CKM matrix element V_cb | dimensionless | 0.0418939191 | leaf | 0.0418939191239346 | 1 | 0.04183 (PDG 2024) | 0.08091 | confirmed | - |
-| `CKM_V_td` | CKM matrix element V_td | dimensionless | 0.00860136558 | leaf | 0.0086013655784844 | 1 | 0.00858 (PDG 2024) | 0.1125 | confirmed | - |
-| `CKM_V_ts` | CKM matrix element V_ts | dimensionless | 0.0411696875 | leaf | 0.0411696875380703 | 1 | 0.04111 (PDG 2024) | 0.07752 | confirmed | - |
-| `CKM_V_tb` | CKM matrix element V_tb | dimensionless | 0.99912245 | leaf | 0.999122449770219 | 1 | 0.999118 (PDG 2024) | 0.1534 | confirmed | - |
-| `alpha_s_MZ` | strong coupling at M_Z | dimensionless | 0.117908817 | seed | 0.117908816617884 | 1 | 0.118 (PDG 2024) | 0.1013 | confirmed | - |
-| `pin:wave1/H0` | Hubble constant | m_e c^2/hbar | 2.85717547e-39 | pin | 68.4449955638267 | km s^-1 Mpc^-1 | 68.43 (arXiv:2503.14452 (abstract)) | 0.05554 | confirmed | - |
-| `pin:wave1/T_CMB` | CMB temperature today | m_e c^2/k_B | 4.59487219e-10 | pin | 2.72471169034307 | K | 2.7255 (PDG 2024) | 1.314 | frozen-pending | - |
-| `pin:wave1/n_s` | scalar spectral index | dimensionless | 0.963333837 | pin | 0.963333836595472 | 1 | 0.965 (PDG 2024) | 0.4165 | confirmed | - |
-| `pin:wave1/Omega_b_h2` | baryon density | dimensionless | 0.0224616214 | pin | 0.0224616214186474 | 1 | 0.02237 (PDG 2024) | 0.6108 | confirmed | - |
-| `od2:wave2/Omega_Lambda` | dark-energy density fraction | dimensionless | 0.684609232 | owner | 0.684609232397667 | 1 | 0.685 (PDG 2024) | 0.05582 | confirmed | - |
-| `pin:wave2/Omega_m` | matter density fraction | dimensionless | 0.315329188 | pin | 0.315329188245007 | 1 | 0.315 (PDG 2024) | 0.04703 | confirmed | - |
-| `pin:wave2/Omega_DM_h2` | dark-matter density | dimensionless | 0.12058582 | pin | 0.120585820096538 | 1 | 0.12 (PDG 2024) | 0.4882 | confirmed | - |
-| `od2:wave2/sigma_8` | matter fluctuation amplitude | dimensionless | 0.810939879 | owner | 0.810939879367982 | 1 | 0.811 (PDG 2024) | 0.01002 | confirmed | - |
-| `pin:wave2/tau_reion` | reionization optical depth | dimensionless | 0.0543965535 | pin | 0.0543965535023081 | 1 | 0.054 (PDG 2024) | 0.05665 | confirmed | - |
-| `pin:wave2/N_eff` | effective number of neutrino species | dimensionless | 3.04571345 | pin | 3.04571345428836 | 1 | 2.99 (PDG 2024) | 0.3277 | confirmed | - |
-| `pin:wave3/Age_Gyr` | age of the Universe | hbar/(m_e c^2) | 3.37780179e+38 | pin | 13.7871961192453 | Gyr | 13.797 (PDG 2024) | 0.4263 | confirmed | - |
-| `pin:wave3/z_eq` | matter-radiation equality redshift | dimensionless | 3393.81031 | pin | 3393.81031040142 | 1 | 3402 (PDG 2024) | 0.315 | confirmed | - |
-| `pin:wave3/r_star_Mpc` | sound horizon at recombination | hbar/(m_e c) | 1.15385375e+37 | pin | 144.399830031989 | Mpc | 144.43 (PDG 2024) | 0.116 | confirmed | - |
-| `pin:wave3/Deuteron_binding_MeV` | deuteron binding energy | m_e c^2 | 4.35336442 | pin | 2.22456464846253 | MeV | 2.224566229 (AME2020 mass excesses) | 3.592 | open | N-3 LO radius -22.7 %; O-3 OPE + core (B input): r_d -4.1 %, Q_d -14 %, eta -7.3 % (fail) |
-| `pin:wave3/Neutron_lifetime_s` | neutron lifetime | hbar/(m_e c^2) | 6.82090351e+23 | pin | 878.592851392283 | s | 878.4 (PDG 2024) | 0.3857 | confirmed | - |
-| `od2:wave3/m_H/m_W` | Higgs/W mass ratio | dimensionless | 1.55914737 | owner | 1.55914737159333 | 1 | 1.55781070360287 (derived ratio:m_H_GeV/m_W_GeV from [m_H_GeV: PDG2024:sum-gauge-higgs-b) | 0.9597 | confirmed | - |
-| `pin:wave4/sin2_theta12` | solar mixing angle | dimensionless | 0.30696443 | pin | 0.306964429788902 | 1 | 0.307 (PDG 2024) | 0.002736 | confirmed | - |
-| `pin:wave4/sin2_theta23` | atmospheric mixing angle | dimensionless | 0.545766611 | pin | 0.545766610986025 | 1 | 0.558 (PDG 2024) | 0.5825 | confirmed | - |
-| `pin:wave4/sin2_theta13` | reactor mixing angle | dimensionless | 0.0220151582 | pin | 0.0220151582211441 | 1 | 0.0219 (PDG 2024) | 0.1645 | confirmed | - |
-| `od1:wave4/Dm2_21/Dm2_31` | neutrino splitting ratio | dimensionless | 0.0295170115 | pin | 0.0295170114802864 | 1 | 0.0297593170770264 (derived frac:dm2_21/dm2_32 from [dm2_21: PDG2024:sum-leptons] [dm2_32:) | 0.3168 | confirmed | - |
-| `pin:wave4/Jarlskog_J` | CKM CP-violation invariant | dimensionless | 3.07277179e-05 | pin | 3.07277178666547e-05 | 1 | 3.12e-05 (PDG 2024) | 0.3936 | confirmed | - |
-| `pin:wave4/w0` | dark-energy equation of state | dimensionless | -1.02998129 | pin | -1.02998129213726 | 1 | -1.028 (PDG 2024) | 0.06391 | confirmed | - |
-| `pin:wave5/Gamma_Z/M_Z` | Z width / Z mass | dimensionless | 0.0274897829 | pin | 0.0274897828876688 | 1 | 0.0273665394569461 (derived ratio:Gamma_Z_GeV/m_Z_GeV from [Gamma_Z_GeV: PDG2024:sum-gauge) | 4.885 | open | Delta alpha_had chain gated (g_A = 1.1755, -7.8 %, P-1) |
-| `pin:wave5/R_b` | Z -> bb fraction of hadronic width | dimensionless | 0.216230145 | pin | 0.216230145276809 | 1 | 0.21629 (PDG 2024) | 0.09069 | confirmed | - |
-| `pin:wave5/R_c` | Z -> cc fraction of hadronic width | dimensionless | 0.172108799 | pin | 0.17210879887232 | 1 | 0.1721 (PDG 2024) | 0.002933 | confirmed | - |
-| `pin:wave5/A_FB_ell` | lepton forward-backward asymmetry at the Z | dimensionless | 0.017111892 | pin | 0.0171118919939693 | 1 | 0.0171 (PDG 2024) | 0.01189 | confirmed | - |
-| `pin:wave5/A_ell_SLD` | lepton left-right asymmetry (SLD) | dimensionless | 0.151189109 | pin | 0.151189108513105 | 1 | 0.1515 (PDG 2024) | 0.1636 | confirmed | - |
-| `pin:wave5/m_H/m_t` | Higgs/top mass ratio | dimensionless | 0.72570682 | pin | 0.725706820162371 | 1 | 0.72550269455873 (derived ratio:m_H_GeV/m_t_GeV from [m_H_GeV: PDG2024:sum-gauge-higgs-b) | 0.1484 | confirmed | - |
-| `pin:wave5/Y_p_He4` | primordial helium mass fraction | dimensionless | 0.244780998 | pin | 0.244780998449757 | 1 | 0.2448 (PDG 2024) | 0.005758 | confirmed | - |
-| `pin:wave5/D_H_ratio` | primordial D/H | dimensionless | 2.54468259e-05 | pin | 2.5446825859417e-05 | 1 | 2.547e-05 (PDG 2024) | 0.07991 | confirmed | - |
-| `pin:wave7/m_u/m_d` | up/down quark mass ratio | dimensionless | 0.460031158 | pin | 0.460031158054808 | 1 | 0.462 (PDG 2024) | 0.09844 | confirmed | - |
-| `pin:wave7/m_tau/m_mu` | tau/muon mass ratio | dimensionless | 16.8169102 | pin | 16.8169102120244 | 1 | 16.8176918449783 (derived ratio:m_tau_MeV/m_mu_MeV from [m_tau_MeV: PDG2024:sum-leptons]) | 0.9176 | confirmed | - |
-| `pin:wave8/delta_CP_PMNS` | leptonic CP phase | dimensionless | 3.86818854 | pin | 3.86818853632835 | rad | 3.73849525777185 (derived pi:delta_CP_over_pi from [delta_CP_over_pi: PDG2024:sum-lepton) | 0.1876 | confirmed | - |
-| `pin:wave8/BR_Z_ee` | Z -> ee branching ratio | dimensionless | 0.0336654326 | pin | 0.0336654326477979 | 1 | 0.033632 (PDG 2024) | 0.796 | confirmed | - |
-| `pin:wave8/BR_Z_had` | Z -> hadrons branching ratio | dimensionless | 0.699175038 | pin | 0.699175038098444 | 1 | 0.69911 (PDG 2024) | 0.1161 | confirmed | - |
-| `pin:wave8/BR_Z_inv` | Z -> invisible branching ratio | dimensionless | 0.199977541 | pin | 0.199977541121741 | 1 | 0.2 (PDG 2024) | 0.04083 | confirmed | - |
-| `pin:wave8/Deuteron_mu_muN` | deuteron mag. mom. to nuclear magneton ratio | dimensionless | 0.857391418 | pin | 0.857391418128038 | 1 | 0.8574382335 (CODATA 2022 "deuteron mag. mom. to nuclear magneton ratio") | 2.128e+04 | open | O-3b SU(6) mu_d +3.8 %; P-2 soliton mu_d -14 %; Q-1 (m_pi) soliton mu_p -0.96 %, mu_n +0.67 % (late validation passed, round r) -> R-0 mu_d -5.7 % (fail; P_D/meson-exchange currents next) |
-| `pin:wave8/S_8` | clustering amplitude S_8 | dimensionless | 0.832014435 | pin | 0.83201443471342 | 1 | 0.832 (PDG 2024) | 0.00111 | confirmed | - |
-| `pin:wave8/z_reion` | reionization redshift | dimensionless | 7.67199242 | pin | 7.6719924223667 | 1 | 7.7 (PDG 2024) | 0.04001 | confirmed | - |
-| `pin:wave10/eta_baryon_photon` | baryon-to-photon ratio | dimensionless | 6.13974954e-10 | pin | 6.13974953542555e-10 | 1 | 6.04e-10 (PDG 2024) | 0.8312 | confirmed | - |
+| id | physical quantity | anchor unit | ratio to anchor | FSOT route | frozen value | unit | measured (source) | z | status | reference type | held-out tests |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| `alpha_inv` | inverse fine-structure constant | dimensionless | 137.035999 | leaf | 137.035999165943 | 1 | 137.035999177 (CODATA 2022 "inverse fine-structure constant") | 0.5265 | confirmed | measured | - |
+| `g_e` | electron g factor | dimensionless | 2.0023193 | leaf | 2.00231930436095 | 1 | 2.00231930436092 (CODATA 2022 "electron g factor") | 0.07053 | confirmed | measured | - |
+| `m_e_kg` | electron mass | m_e | 1 | leaf | 9.1093837124488e-31 | kg | 9.1093837139e-31 (CODATA 2022 "electron mass") | 0.5183 | confirmed | measured | - |
+| `R_inf` | Rydberg constant | m_e c/hbar | 4.23760814e-06 | leaf | 10973731.5681557 | m^-1 | 10973731.568157 (CODATA 2022 "Rydberg constant") | 0.1089 | confirmed | measured | - |
+| `a_0` | Bohr radius | hbar/(m_e c) | 137.035999 | leaf | 5.29177210586066e-11 | m | 5.29177210544e-11 (CODATA 2022 "Bohr radius") | 0.513 | confirmed | measured | - |
+| `lambda_C` | Compton wavelength | hbar/(m_e c) | 6.28318531 | leaf | 2.42631023576685e-12 | m | 2.42631023538e-12 (CODATA 2022 "Compton wavelength") | 0.509 | confirmed | measured | - |
+| `r_e` | classical electron radius | hbar/(m_e c) | 0.00729735256 | leaf | 2.81794032113517e-15 | m | 2.8179403205e-15 (CODATA 2022 "classical electron radius") | 0.4886 | confirmed | measured | - |
+| `sigma_T` | Thomson cross section | (hbar/(m_e c))^2 | 0.000446117504 | leaf | 6.65245870823664e-29 | m^2 | 6.6524587051e-29 (CODATA 2022 "Thomson cross section") | 0.5059 | confirmed | measured | - |
+| `E_h` | Hartree energy | m_e c^2 | 5.32513545e-05 | leaf | 4.35974472220546e-18 | J | 4.359744722206e-18 (CODATA 2022 "Hartree energy") | 0.1128 | confirmed | measured | - |
+| `mu_B` | Bohr magneton | e hbar/(2 m_e) | 1 | leaf | 9.2740100672155e-24 | J T^-1 | 9.2740100657e-24 (CODATA 2022 "Bohr magneton") | 0.5226 | confirmed | measured | - |
+| `m_p_over_m_e` | proton-electron mass ratio | dimensionless | 1836.15267 | leaf | 1836.15267340501 | 1 | 1836.152673426 (CODATA 2022 "proton-electron mass ratio") | 0.656 | confirmed | measured | - |
+| `m_p_kg` | proton mass | m_e | 1836.15267 | leaf | 1.67262192566849e-27 | kg | 1.67262192595e-27 (CODATA 2022 "proton mass") | 0.5414 | confirmed | measured | - |
+| `mu_N` | nuclear magneton | e hbar/(2 m_e) | 0.000544617021 | leaf | 5.05078374012197e-27 | J T^-1 | 5.0507837393e-27 (CODATA 2022 "nuclear magneton") | 0.5137 | confirmed | measured | - |
+| `m_n_over_m_p` | neutron-proton mass ratio | dimensionless | 1.00137842 | leaf | 1.00137841948711 | 1 | 1.00137841946 (CODATA 2022 "neutron-proton mass ratio") | 0.06778 | confirmed | measured | - |
+| `m_n_kg` | neutron mass | m_e | 1838.68366 | leaf | 1.6749275003254e-27 | kg | 1.67492750056e-27 (CODATA 2022 "neutron mass") | 0.276 | confirmed | measured | - |
+| `G_N` | Newtonian constant of gravitation | hbar c/m_e^2 | 1.75181164e-45 | leaf | 6.67430855062831e-11 | m^3 kg^-1 s^-2 | 6.6743e-11 (CODATA 2022 "Newtonian constant of gravitation") | 0.057 | confirmed | measured | - |
+| `g_p` | proton g factor | dimensionless | 5.58569469 | leaf | 5.5856946888715 | 1 | 5.5856946893 (CODATA 2022 "proton g factor") | 0.2678 | confirmed | measured | - |
+| `m_mu_over_m_e` | muon-electron mass ratio | dimensionless | 206.768282 | leaf | 206.768281576289 | 1 | 206.7682827 (CODATA 2022 "muon-electron mass ratio") | 0.2443 | confirmed | measured | - |
+| `m_mu_kg` | muon mass | m_e | 206.768282 | leaf | 1.88353161644208e-28 | kg | 1.883531627e-28 (CODATA 2022 "muon mass") | 0.2514 | confirmed | measured | - |
+| `u_over_m_e` | atomic mass unit / electron mass | dimensionless | 1822.88849 | leaf | 1822.88848625809 | 1 | 1822.88848627814 (derived inv:A_r_e from [A_r_e: CODATA2022]) | 0.622 | confirmed | measured | - |
+| `u_kg` | atomic mass constant | m_e | 1822.88849 | leaf | 1.66053906863299e-27 | kg | 1.66053906892e-27 (CODATA 2022 "atomic mass constant") | 0.5519 | confirmed | measured | - |
+| `M_12C` | molar mass of carbon-12 | m_e N_A | 21874.6618 | leaf | 0.0120000000105446 | kg mol^-1 | 0.0120000000126 (CODATA 2022 "molar mass of carbon-12") | 0.5555 | confirmed | measured | - |
+| `m_Z_MeV` | Z boson mass | m_e c^2 | 178449.232 | leaf | 91.1873703594484 | GeV | 91.188 (PDG 2024) | 0.3148 | confirmed | measured | D_eff/S map tests l/m/n fail (factor follows the unit) |
+| `m_tau_MeV` | tau lepton mass | m_e c^2 | 3477.50546 | leaf | 1777.00164018233 | MeV | 1776.93 (PDG 2024) | 0.796 | confirmed | measured | - |
+| `r_p_fm` | proton rms charge radius | hbar/(m_e c) | 0.00217850149 | leaf | 0.841248540969768 | fm | 0.8409 (PDG 2024) | 0.8714 | confirmed | measured | L-C1: r_p m_p c/hbar = 4.00006 (coefficient not derived) |
+| `m_pi_pm_MeV` | charged pion mass (pseudo-Goldstone) | m_e c^2 | 273.132344 | leaf | 139.570341070318 | MeV | 139.57039 (PDG 2024) | 0.2718 | confirmed | measured | L-A1: K0 497.597 (-0.003 %); M-2a: pi0 134.397 (-0.43 %); eta/eta' fail |
+| `m_D_pm_MeV` | charged D meson mass (heavy-light) | m_e c^2 | 3658.83385 | leaf | 1869.66025880354 | MeV | 1869.66 (PDG 2024) | 0.005176 | confirmed | measured | D_eff/S map tests fail; HQET branch open |
+| `m_K_pm_MeV` | charged kaon mass (pseudo-Goldstone) | m_e c^2 | 966.108073 | leaf | 493.680211322105 | MeV | 493.677 (PDG 2024) | 0.2141 | confirmed | measured | L-A1 / M-2b: K0 -0.003 % / +0.13 % |
+| `m_c_over_m_b` | charm/bottom quark mass ratio | dimensionless | 0.304178448 | leaf | 0.304178447628559 | 1 | 0.304327038010997 (derived ratio:m_c_GeV/m_b_GeV from [m_c_GeV: PDG2024:sum-quarks] [m_b_) | 0.1226 | confirmed | scheme-dependent | - |
+| `m_W_MeV` | W boson mass | m_e c^2 | 157277.724 | leaf | 80.3687519241648 | GeV | 80.3692 (PDG 2024) | 0.03369 | confirmed | measured | D_eff/S map tests l/m/n fail |
+| `m_W_over_m_Z` | W/Z mass ratio (cos theta_W on shell) | dimensionless | 0.881358368 | leaf | 0.881358368021383 | 1 | 0.88136 (PDG 2024) | 0.01088 | confirmed | measured | - |
+| `m_pi_over_m_p` | pion/proton mass ratio | dimensionless | 0.148752524 | leaf | 0.148752523565799 | 1 | 0.1487525756892 (derived ratio:m_pi_pm_MeV/m_p_MeV from [m_pi_pm_MeV: PDG2024:sum-meson) | 0.2717 | confirmed | measured | - |
+| `mu_p_over_mu_N` | proton mag. mom. to nuclear magneton ratio | dimensionless | 2.79284734 | leaf | 2.79284734443575 | 1 | 2.79284734463 (CODATA 2022 "proton mag. mom. to nuclear magneton ratio") | 0.2369 | confirmed | measured | - |
+| `m_n_minus_m_p_MeV` | neutron-proton mass difference energy equivalent in MeV | m_e c^2 | 2.53098863 | leaf | 1.29333253206531 | MeV | 1.29333251 (CODATA 2022 "neutron-proton mass difference energy equivalent in MeV") | 0.05807 | confirmed | measured | - |
+| `m_H_MeV` | Higgs boson mass | m_e c^2 | 244928.287 | leaf | 125.158097744339 | GeV | 125.2 (PDG 2024) | 0.3809 | confirmed | measured | D_eff/S map tests l/m/n fail |
+| `m_t_over_m_W` | top/W mass ratio | dimensionless | 2.14976593 | leaf | 2.14976592906816 | 1 | 2.14721560000597 (derived ratio:m_t_GeV/m_W_GeV from [m_t_GeV: PDG2024:sum-quarks] [m_W_) | 0.7034 | confirmed | scheme-dependent | - |
+| `sin2_theta_W_MSbar` | weak mixing angle (MSbar, M_Z) | dimensionless | 0.231275281 | leaf | 0.231275280502387 | 1 | 0.23129 (PDG 2024) | 0.368 | confirmed | scheme-dependent | - |
+| `m_tau_over_m_e` | tau/electron mass ratio | dimensionless | 3477.50546 | leaf | 3477.50545878783 | 1 | 3477.36526190635 (derived ratio:m_tau_MeV/m_e_MeV from [m_tau_MeV: PDG2024:sum-leptons] ) | 0.796 | confirmed | measured | - |
+| `dm2_32` | atmospheric neutrino mass splitting | (m_e c^2)^2 | 9.35991214e-15 | leaf | 0.00244405957968814 | eV^2 | 0.002455 (PDG 2024) | 0.3907 | confirmed | model-computed (global fit / theory input) | - |
+| `B_He4_MeV` | 4He nuclear binding energy | m_e c^2 | 55.3732299 | leaf | 28.2956623785975 | MeV | 28.295662378 (AME2020 mass excesses) | 0.0006714 | confirmed | measured | Tjon LO 4.61 ratio fails (+38 %) |
+| `B_H3_MeV` | 3H nuclear binding energy | m_e c^2 | 16.5984613 | leaf | 8.48179631631388 | MeV | 8.481796284 (AME2020 mass excesses) | 0.03672 | confirmed | measured | Tjon LO 4.61 ratio fails (+38 %) |
+| `CKM_V_ud` | CKM matrix element V_ud | dimensionless | 0.97432422 | leaf | 0.97432421968751 | 1 | 0.97435 (PDG 2024) | 0.1611 | confirmed | model-computed (global fit / theory input) | - |
+| `CKM_V_us` | CKM matrix element V_us | dimensionless | 0.225149539 | leaf | 0.225149539040889 | 1 | 0.22501 (PDG 2024) | 0.2052 | confirmed | model-computed (global fit / theory input) | - |
+| `CKM_V_ub` | CKM matrix element V_ub | dimensionless | 0.00374199347 | leaf | 0.00374199347253333 | 1 | 0.003732 (PDG 2024) | 0.111 | confirmed | model-computed (global fit / theory input) | - |
+| `CKM_V_cd` | CKM matrix element V_cd | dimensionless | 0.225149539 | leaf | 0.225149539040889 | 1 | 0.22487 (PDG 2024) | 0.4111 | confirmed | model-computed (global fit / theory input) | - |
+| `CKM_V_cs` | CKM matrix element V_cs | dimensionless | 0.973423127 | leaf | 0.97342312722172 | 1 | 0.97349 (PDG 2024) | 0.418 | confirmed | model-computed (global fit / theory input) | - |
+| `CKM_V_cb` | CKM matrix element V_cb | dimensionless | 0.0418939191 | leaf | 0.0418939191239346 | 1 | 0.04183 (PDG 2024) | 0.08091 | confirmed | model-computed (global fit / theory input) | - |
+| `CKM_V_td` | CKM matrix element V_td | dimensionless | 0.00860136558 | leaf | 0.0086013655784844 | 1 | 0.00858 (PDG 2024) | 0.1125 | confirmed | model-computed (global fit / theory input) | - |
+| `CKM_V_ts` | CKM matrix element V_ts | dimensionless | 0.0411696875 | leaf | 0.0411696875380703 | 1 | 0.04111 (PDG 2024) | 0.07752 | confirmed | model-computed (global fit / theory input) | - |
+| `CKM_V_tb` | CKM matrix element V_tb | dimensionless | 0.99912245 | leaf | 0.999122449770219 | 1 | 0.999118 (PDG 2024) | 0.1534 | confirmed | model-computed (global fit / theory input) | - |
+| `alpha_s_MZ` | strong coupling at M_Z | dimensionless | 0.117908817 | seed | 0.117908816617884 | 1 | 0.118 (PDG 2024) | 0.1013 | confirmed | scheme-dependent | - |
+| `pin:wave1/H0` | Hubble constant | m_e c^2/hbar | 2.85717547e-39 | pin | 68.4449955638267 | km s^-1 Mpc^-1 | 68.43 (arXiv:2503.14452 (abstract)) | 0.05554 | confirmed | contested (deferred) | - |
+| `pin:wave1/T_CMB` | CMB temperature today | m_e c^2/k_B | 4.59487219e-10 | pin | 2.72471169034307 | K | 2.7255 (PDG 2024) | 1.314 | frozen-pending | measured | - |
+| `pin:wave1/n_s` | scalar spectral index | dimensionless | 0.963333837 | pin | 0.963333836595472 | 1 | 0.965 (PDG 2024) | 0.4165 | confirmed | model-computed (cosmological fit) | - |
+| `pin:wave1/Omega_b_h2` | baryon density | dimensionless | 0.0224616214 | pin | 0.0224616214186474 | 1 | 0.02237 (PDG 2024) | 0.6108 | confirmed | model-computed (cosmological fit) | - |
+| `od2:wave2/Omega_Lambda` | dark-energy density fraction | dimensionless | 0.684609232 | owner | 0.684609232397667 | 1 | 0.685 (PDG 2024) | 0.05582 | confirmed | model-computed (cosmological fit) | - |
+| `pin:wave2/Omega_m` | matter density fraction | dimensionless | 0.315329188 | pin | 0.315329188245007 | 1 | 0.315 (PDG 2024) | 0.04703 | confirmed | model-computed (cosmological fit) | - |
+| `pin:wave2/Omega_DM_h2` | dark-matter density | dimensionless | 0.12058582 | pin | 0.120585820096538 | 1 | 0.12 (PDG 2024) | 0.4882 | confirmed | model-computed (cosmological fit) | - |
+| `od2:wave2/sigma_8` | matter fluctuation amplitude | dimensionless | 0.810939879 | owner | 0.810939879367982 | 1 | 0.811 (PDG 2024) | 0.01002 | confirmed | model-computed (cosmological fit) | - |
+| `pin:wave2/tau_reion` | reionization optical depth | dimensionless | 0.0543965535 | pin | 0.0543965535023081 | 1 | 0.054 (PDG 2024) | 0.05665 | confirmed | model-computed (cosmological fit) | - |
+| `pin:wave2/N_eff` | effective number of neutrino species | dimensionless | 3.04571345 | pin | 3.04571345428836 | 1 | 2.99 (PDG 2024) | 0.3277 | confirmed | model-computed (cosmological fit) | - |
+| `pin:wave3/Age_Gyr` | age of the Universe | hbar/(m_e c^2) | 3.37780179e+38 | pin | 13.7871961192453 | Gyr | 13.797 (PDG 2024) | 0.4263 | confirmed | measured | - |
+| `pin:wave3/z_eq` | matter-radiation equality redshift | dimensionless | 3393.81031 | pin | 3393.81031040142 | 1 | 3402 (PDG 2024) | 0.315 | confirmed | measured | - |
+| `pin:wave3/r_star_Mpc` | sound horizon at recombination | hbar/(m_e c) | 1.15385375e+37 | pin | 144.399830031989 | Mpc | 144.43 (PDG 2024) | 0.116 | confirmed | measured | - |
+| `pin:wave3/Deuteron_binding_MeV` | deuteron binding energy | m_e c^2 | 4.35336442 | pin | 2.22456464846253 | MeV | 2.224566229 (AME2020 mass excesses) | 3.592 | open | measured | N-3 LO radius -22.7 %; O-3 OPE + core (B input): r_d -4.1 %, Q_d -14 %, eta -7.3 % (fail) |
+| `pin:wave3/Neutron_lifetime_s` | neutron lifetime | hbar/(m_e c^2) | 6.82090351e+23 | pin | 878.592851392283 | s | 878.4 (PDG 2024) | 0.3857 | confirmed | contested (deferred) | - |
+| `od2:wave3/m_H/m_W` | Higgs/W mass ratio | dimensionless | 1.55914737 | owner | 1.55914737159333 | 1 | 1.55781070360287 (derived ratio:m_H_GeV/m_W_GeV from [m_H_GeV: PDG2024:sum-gauge-higgs-b) | 0.9597 | confirmed | measured | - |
+| `pin:wave4/sin2_theta12` | solar mixing angle | dimensionless | 0.30696443 | pin | 0.306964429788902 | 1 | 0.307 (PDG 2024) | 0.002736 | confirmed | model-computed (global fit / theory input) | - |
+| `pin:wave4/sin2_theta23` | atmospheric mixing angle | dimensionless | 0.545766611 | pin | 0.545766610986025 | 1 | 0.558 (PDG 2024) | 0.5825 | confirmed | model-computed (global fit / theory input) | - |
+| `pin:wave4/sin2_theta13` | reactor mixing angle | dimensionless | 0.0220151582 | pin | 0.0220151582211441 | 1 | 0.0219 (PDG 2024) | 0.1645 | confirmed | model-computed (global fit / theory input) | - |
+| `od1:wave4/Dm2_21/Dm2_31` | neutrino splitting ratio | dimensionless | 0.0295170115 | pin | 0.0295170114802864 | 1 | 0.0297593170770264 (derived frac:dm2_21/dm2_32 from [dm2_21: PDG2024:sum-leptons] [dm2_32:) | 0.3168 | confirmed | model-computed (global fit / theory input) | - |
+| `pin:wave4/Jarlskog_J` | CKM CP-violation invariant | dimensionless | 3.07277179e-05 | pin | 3.07277178666547e-05 | 1 | 3.12e-05 (PDG 2024) | 0.3936 | confirmed | model-computed (global fit / theory input) | - |
+| `pin:wave4/w0` | dark-energy equation of state | dimensionless | -1.02998129 | pin | -1.02998129213726 | 1 | -1.028 (PDG 2024) | 0.06391 | confirmed | measured | - |
+| `pin:wave5/Gamma_Z/M_Z` | Z width / Z mass | dimensionless | 0.0274897829 | pin | 0.0274897828876688 | 1 | 0.0273665394569461 (derived ratio:Gamma_Z_GeV/m_Z_GeV from [Gamma_Z_GeV: PDG2024:sum-gauge) | 4.885 | open | measured | Delta alpha_had chain gated (g_A = 1.1755, -7.8 %, P-1) |
+| `pin:wave5/R_b` | Z -> bb fraction of hadronic width | dimensionless | 0.216230145 | pin | 0.216230145276809 | 1 | 0.21629 (PDG 2024) | 0.09069 | confirmed | measured | - |
+| `pin:wave5/R_c` | Z -> cc fraction of hadronic width | dimensionless | 0.172108799 | pin | 0.17210879887232 | 1 | 0.1721 (PDG 2024) | 0.002933 | confirmed | measured | - |
+| `pin:wave5/A_FB_ell` | lepton forward-backward asymmetry at the Z | dimensionless | 0.017111892 | pin | 0.0171118919939693 | 1 | 0.0171 (PDG 2024) | 0.01189 | confirmed | measured | - |
+| `pin:wave5/A_ell_SLD` | lepton left-right asymmetry (SLD) | dimensionless | 0.151189109 | pin | 0.151189108513105 | 1 | 0.1515 (PDG 2024) | 0.1636 | confirmed | measured | - |
+| `pin:wave5/m_H/m_t` | Higgs/top mass ratio | dimensionless | 0.72570682 | pin | 0.725706820162371 | 1 | 0.72550269455873 (derived ratio:m_H_GeV/m_t_GeV from [m_H_GeV: PDG2024:sum-gauge-higgs-b) | 0.1484 | confirmed | scheme-dependent | - |
+| `pin:wave5/Y_p_He4` | primordial helium mass fraction | dimensionless | 0.244780998 | pin | 0.244780998449757 | 1 | 0.2448 (PDG 2024) | 0.005758 | confirmed | measured | - |
+| `pin:wave5/D_H_ratio` | primordial D/H | dimensionless | 2.54468259e-05 | pin | 2.5446825859417e-05 | 1 | 2.547e-05 (PDG 2024) | 0.07991 | confirmed | measured | - |
+| `pin:wave7/m_u/m_d` | up/down quark mass ratio | dimensionless | 0.460031158 | pin | 0.460031158054808 | 1 | 0.462 (PDG 2024) | 0.09844 | confirmed | scheme-dependent | - |
+| `pin:wave7/m_tau/m_mu` | tau/muon mass ratio | dimensionless | 16.8169102 | pin | 16.8169102120244 | 1 | 16.8176918449783 (derived ratio:m_tau_MeV/m_mu_MeV from [m_tau_MeV: PDG2024:sum-leptons]) | 0.9176 | confirmed | measured | - |
+| `pin:wave8/delta_CP_PMNS` | leptonic CP phase | dimensionless | 3.86818854 | pin | 3.86818853632835 | rad | 3.73849525777185 (derived pi:delta_CP_over_pi from [delta_CP_over_pi: PDG2024:sum-lepton) | 0.1876 | confirmed | model-computed (global fit / theory input) | - |
+| `pin:wave8/BR_Z_ee` | Z -> ee branching ratio | dimensionless | 0.0336654326 | pin | 0.0336654326477979 | 1 | 0.033632 (PDG 2024) | 0.796 | confirmed | measured | - |
+| `pin:wave8/BR_Z_had` | Z -> hadrons branching ratio | dimensionless | 0.699175038 | pin | 0.699175038098444 | 1 | 0.69911 (PDG 2024) | 0.1161 | confirmed | measured | - |
+| `pin:wave8/BR_Z_inv` | Z -> invisible branching ratio | dimensionless | 0.199977541 | pin | 0.199977541121741 | 1 | 0.2 (PDG 2024) | 0.04083 | confirmed | measured | - |
+| `pin:wave8/Deuteron_mu_muN` | deuteron mag. mom. to nuclear magneton ratio | dimensionless | 0.857391418 | pin | 0.857391418128038 | 1 | 0.8574382335 (CODATA 2022 "deuteron mag. mom. to nuclear magneton ratio") | 2.128e+04 | open | measured | O-3b SU(6) mu_d +3.8 %; P-2 soliton mu_d -14 %; Q-1 (m_pi) soliton mu_p -0.96 %, mu_n +0.67 % (late validation passed, round r) -> R-0 mu_d -5.7 % (fail; P_D/meson-exchange currents next) |
+| `pin:wave8/S_8` | clustering amplitude S_8 | dimensionless | 0.832014435 | pin | 0.83201443471342 | 1 | 0.832 (PDG 2024) | 0.00111 | confirmed | measured | - |
+| `pin:wave8/z_reion` | reionization redshift | dimensionless | 7.67199242 | pin | 7.6719924223667 | 1 | 7.7 (PDG 2024) | 0.04001 | confirmed | measured | - |
+| `pin:wave10/eta_baryon_photon` | baryon-to-photon ratio | dimensionless | 6.13974954e-10 | pin | 6.13974953542555e-10 | 1 | 6.04e-10 (PDG 2024) | 0.8312 | confirmed | model-computed (cosmological fit) | - |
 
 **Totals:** 87/91 confirmed, 88/91 including frozen-pending, 3/91 open.
 
@@ -111,34 +112,37 @@ For scientists and mathematicians: what each FSOT quantity represents, how it ac
 
 | quantity | physical meaning | FSOT derivation | frozen value | ratio to m_e | measured (source) | rel | class | held-out / status | freeze |
 |---|---|---|---|---|---|---|---|---|---|
-| M_K0 | neutral kaon (pseudo-Goldstone, m_d + m_s) | LO ChPT + Dashen from π±, K± leaves and pins m_u/m_d, m_s/m_d | 497.597 MeV | 973.773 | 497.611(13) PDG 2024 | −0.003 % | FSOT | held-out, miss at z 1.08 (σ 0.013 MeV) | l (9c6dbbc) |
-| M_K0 (Q route) | same, via L5/L8-free Q | Q = 22.7315 from pins + EM | 498.272 MeV | — | 497.611(13) | +0.13 % | FSOT | held-out, miss (z 51) | m (21db984) |
-| M_pi0 | neutral pion; π±−π0 splitting is EM | Δ_π = 12π α ln2 F² (DGMLY + Weinberg + N_c=3 LMD) | 134.397 MeV | 263.008 | 134.9768(5) PDG 2024 | −0.43 % | FSOT | held-out, miss (z 1160; the 2 % gate does not count) | m |
-| F (chiral limit) | pion decay constant, chiral limit | F = m_p/(2√3π) (quark-level σ model, M_Q = m_p/3, N_c = 3) | 86.216 MeV | 168.721 | F_0 = 86.69 (FLAG ratio) | −0.55 % | FSOT | agrees at z 0.61 (σ 0.78 from FLAG F_π and F_π/F) | m |
-| F_π (physical) | pion decay constant | F[1 + M_π² l̄₄/(16π²F²)], l̄₄ = N_c (tree σ exchange) | 90.508 MeV | 177.121 | 92.07(57) FLAG | −1.69 % | FSOT | miss (z 2.74; the 2 % gate does not count) | n (e9b1405) |
-| g_A | nucleon axial coupling | valence chiral quark soliton, M = m_p/3, DPP profile | 1.1777 | — | 1.2754(13) PDG | −7.7 % | FSOT | open | n |
-| g_πNN | pion–nucleon coupling | Goldberger–Treiman g_A m_N/F_π | 12.22 | — | 13.17(5) | −7.2 % | FSOT | open | n |
-| Λ^(5) | QCD scale | FSOT α_s run | 209.52 MeV | — | 213(8) FLAG | z 0.43 | FSOT | agrees | j |
-| Λ^(4), Λ^(3) (FSOT thresholds) | QCD scales below m_b, m_c | J-1 4-loop running from FSOT α_s, M_Z with FSOT-only decoupling at m_b = m_t/(m_t/m_b) = 4.222 GeV, m_c = 1.284 GeV | 292.07 / 334.43 MeV | — | 295(10) / 338(10) FLAG | z 0.29 / 0.36 | FSOT | agree (replaces the external-threshold J-1 rows); Λ^(0)/Λ^(3) is an open derivation (needs an FSOT pure-gauge hadronic scale) | s2 |
-| χ_top^{1/4} (gluon condensate) | topological susceptibility | pin ⟨(α_s/π)G²⟩ = C_cosm − e⁻³ (read in GeV⁴) → instanton density n = ⟨(α_s/π)G²⟩/8 → χ = n | 200.13 MeV | — | 185.3(5.7) quenched | +8.0 % | FSOT | miss (z 2.60; the 10 % gate does not count); Λ^(0) = 294.2 MeV via DP | t |
-| χ_top^{1/4} (trace anomaly, ε fixed) | quenched topological susceptibility | n_0 = (b₃/b₀) ⟨(α_s/π)G²⟩/8 = (9/11)·pin/8 (vacuum energy ε = −(b/32)⟨(α_s/π)G²⟩ held fixed); Λ^(0)/Λ^(3)_FSOT = 0.837 (round t 0.880; lattice r0-fixed 0.772, residual 0.923 = ε- vs r0-matching) | 190.34 MeV | — | 185.3(5.7) quenched | +2.7 % | FSOT | z 0.88, agrees, but the route was chosen post hoc after round t (disclosed; look-elsewhere 3) | u |
-| M_η, M_η′ (LO, ε-fixed χ) | η/η′ masses | LO U(3)+WV, FSOT F_π | 514.7 / 1067.0 MeV | — | 547.862 / 957.78 | −6.1 % / +11.4 % | FSOT | miss (LO matrix fails validation; next order needs F_K/F_π) | u |
-| M_η, M_η′ (LO U(3)+WV, FSOT χ) | η/η′ masses | round-p mass block, M0² = 6χ/F_π², F_π FSOT (P-4), χ from condensate | 524.9 / 1153.5 MeV | — | 547.862 / 957.78 | −4.2 % / +20.4 % | FSOT | validation failed (LO matrix η′ +18 % even at SVZ χ); F_K/F_π for next order is an open derivation | t |
-| r_d (LO) | deuteron point radius | 1/(√8 γ), γ from B(2H) leaf | 1.5265 fm | — | 1.97507(78) | −22.7 % | FSOT | open (needs effective range) | n |
-| g_A^(0) (full sea) | nucleon axial coupling, leading order in Ω | chiral quark soliton, Kahana–Ripka basis, Dirac sea + PV (M_PV = √e M), M = m_p/3 | 0.7424 | — | 1.2754(13) PDG | −41.8 % | FSOT | open (soliton unbound, E = 3.41 M; g_A^(1) not included) | o (f393948) |
-| M_Δ − M_N | rotational splitting 3/(2I) | same soliton, cranking inertia | 177.2 MeV | — | 293.1 | −39.5 % | FSOT | held-out, fails | o |
-| r_d, Q_d, η (OPE) | deuteron radius, quadrupole, D/S ratio | 3S1–3D1 with FSOT g_πNN, m_π; core R = ħc/M_Q fitted to B(2H) leaf | 1.8946 fm / 0.2451 fm² / 0.02373 | — | 1.97507 / 0.285699 / 0.0256 | −4.1 / −14.2 / −7.3 % | FSOT | held-out, fail (validation passes Q_d, η) | o |
-| μ_n | neutron magnetic moment | SU(6) −(2/3) μ_p with FSOT μ_p leaf | −1.86190 μ_N | — | −1.91304276 CODATA | −2.67 % | FSOT | fails 2 % gate | o |
-| μ_d | deuteron magnetic moment | μ_p + μ_n − (3/2)(μ_S − ½) P_D, P_D = 6.28 % | 0.89035 μ_N | — | 0.8574382335 CODATA | +3.84 % | FSOT | fails | o |
-| g_A (Ω⁰ + Ω¹) | nucleon axial coupling incl. 1/N_c rotational term | full-sea soliton, DPP profile, g_A^(1) from time-ordered collective operators | 1.1755 | — | 1.2754(13) | −7.8 % | FSOT | open (validation 1.2046 passes 10 %) | p (98cd271) |
-| μ_p, μ_n (soliton) | nucleon magnetic moments | isoscalar Ω¹ + isovector Ω⁰ + Ω¹, chiral limit | 3.273 / −2.513 μ_N | — | 2.7928 / −1.9130 | +17 % / +31 % | FSOT | fail | p |
-| g_A, μ_p, μ_n (physical m_π) | nucleon axial coupling and magnetic moments | full-sea soliton with meson mass term (π± leaf), massive DPP profile, D 10 / k 10 / K 8 | 1.3912 / 2.7660 / −1.9258 | — | 1.2754 / 2.7928 / −1.9130 | +9.1 % / −0.96 % / +0.67 % | FSOT | g_A fails; μ_p, μ_n within 2 % at K 8 with the late validation passing (round r), but NOT basis-stable: at K 12 (round t) μ_p −5.4 %, μ_n −6.2 % | q (d7a9af6), r, t |
-| g_A separation (chiral, K 8) | nucleon axial coupling, diagnostic | chiral DPP in the round-q basis | 1.1547 | — | 1.2754 | −9.5 % | FSOT | basis cap −1.8 %; pion-mass step +20.5 % via the Dirac-sea axial sum (0.011 → 0.156) and g_A^(1) (+22 %); fix deferred | s |
-| g_A, μ_p, μ_n (physical m_π, K 12) | basis check of the round-q soliton | massive DPP at D 12 / k 12 / K 12 | 1.4327 / 2.6417 / −1.7947 | — | 1.2754 / 2.7928 / −1.9130 | +12.3 % / −5.4 % / −6.2 % | FSOT | all fail: the round-q K 8 μ_p, μ_n agreement (round r) is not basis-stable; Δ−N 177.5 MeV; ordering/surface corrections open | t |
-| F_π (one-loop LσM l̄₄) | pion decay constant | l̄₄ = N_c + ln(m_σ²/M_π²) − (19 − 3√3π)/2 = 4.662 (Nyffeler–Schenk) | 92.887 MeV | — | 92.07(57) | +0.89 % | FSOT | miss (z 1.43; the 2 % gate does not count); pre-freeze evaluation disclosed | p |
-| μ_d (soliton m_π) | deuteron magnetic moment | Q-1 μ_p + μ_n, round-o P_D | 0.80815 μ_N | — | 0.857438 | −5.7 % | FSOT | fails 2 % (K 8 inputs; not basis-stable) | r |
-| T_CMB (own physics) | CMB temperature | n_γ = Ω_b h² ρ_c100/(u η) | 2.73233 K | — | 2.7255(6) | +0.25 % (z 11) | FSOT | fail z ≤ 1 | p |
-| F_π (l̄₄ = 1 + ln M_Q²/M_π²) | pion decay constant | PV quark loop: dF²/dM² = 0 at the FSOT point | 89.956 MeV | — | 92.07(57) FLAG | −2.29 % | FSOT | fails 2 % gate (l̄₄ = 2.61) | o |
+| M_K0 | neutral kaon (pseudo-Goldstone, m_d + m_s) | LO ChPT + Dashen from π±, K± leaves and pins m_u/m_d, m_s/m_d | 497.597 MeV | 973.773 | 497.611(13) PDG 2024 | −0.003 % | FSOT · measured | held-out, miss at z 1.08 (σ 0.013 MeV) | l (9c6dbbc) |
+| M_K0 (Q route) | same, via L5/L8-free Q | Q = 22.7315 from pins + EM | 498.272 MeV | — | 497.611(13) | +0.13 % | FSOT · measured | held-out, miss (z 51) | m (21db984) |
+| M_pi0 | neutral pion; π±−π0 splitting is EM | Δ_π = 12π α ln2 F² (DGMLY + Weinberg + N_c=3 LMD) | 134.397 MeV | 263.008 | 134.9768(5) PDG 2024 | −0.43 % | FSOT · measured | held-out, miss (z 1160; the 2 % gate does not count) | m |
+| F (chiral limit) | pion decay constant, chiral limit | F = m_p/(2√3π) (quark-level σ model, M_Q = m_p/3, N_c = 3) | 86.216 MeV | 168.721 | F_0 = 86.69 (FLAG ratio) | −0.55 % | FSOT · lattice-computed | agrees at z 0.61 (σ 0.78 from FLAG F_π and F_π/F) | m |
+| F_π (physical) | pion decay constant | F[1 + M_π² l̄₄/(16π²F²)], l̄₄ = N_c (tree σ exchange) | 90.508 MeV | 177.121 | 92.07(57) FLAG | −1.69 % | FSOT · measured | miss (z 2.74; the 2 % gate does not count) | n (e9b1405) |
+| g_A | nucleon axial coupling | valence chiral quark soliton, M = m_p/3, DPP profile | 1.1777 | — | 1.2754(13) PDG | −7.7 % | FSOT · measured | open | n |
+| g_πNN | pion–nucleon coupling | Goldberger–Treiman g_A m_N/F_π | 12.22 | — | 13.17(5) | −7.2 % | FSOT · measured | open | n |
+| Λ^(5) | QCD scale | FSOT α_s run | 209.52 MeV | — | 213(8) FLAG | z 0.43 | FSOT · scheme-dependent (intermediate; scored via α_s(M_Z)) | agrees | j |
+| Λ^(4), Λ^(3) (FSOT thresholds) | QCD scales below m_b, m_c | J-1 4-loop running from FSOT α_s, M_Z with FSOT-only decoupling at m_b = m_t/(m_t/m_b) = 4.222 GeV, m_c = 1.284 GeV | 292.07 / 334.43 MeV | — | 295(10) / 338(10) FLAG | z 0.29 / 0.36 | FSOT · scheme-dependent (intermediate; scored via α_s(M_Z)) | agree (replaces the external-threshold J-1 rows); Λ^(0)/Λ^(3) is an open derivation (needs an FSOT pure-gauge hadronic scale) | s2 |
+| χ_top^{1/4} (gluon condensate) | topological susceptibility | pin ⟨(α_s/π)G²⟩ = C_cosm − e⁻³ (read in GeV⁴) → instanton density n = ⟨(α_s/π)G²⟩/8 → χ = n | 200.13 MeV | — | 185.3(5.7) quenched | +8.0 % | FSOT · lattice-computed (intermediate; scored via M_η′) | miss (z 2.60; the 10 % gate does not count); Λ^(0) = 294.2 MeV via DP | t |
+| χ_top^{1/4} (trace anomaly, ε fixed) | quenched topological susceptibility | n_0 = (b₃/b₀) ⟨(α_s/π)G²⟩/8 = (9/11)·pin/8 (vacuum energy ε = −(b/32)⟨(α_s/π)G²⟩ held fixed); Λ^(0)/Λ^(3)_FSOT = 0.837 (round t 0.880; lattice r0-fixed 0.772, residual 0.923 = ε- vs r0-matching) | 190.34 MeV | — | 185.3(5.7) quenched | +2.7 % | FSOT · lattice-computed (intermediate; scored via M_η′) | z 0.88, agrees, but the route was chosen post hoc after round t (disclosed; look-elsewhere 3) | u |
+| M_η, M_η′ (LO, ε-fixed χ) | η/η′ masses | LO U(3)+WV, FSOT F_π | 514.7 / 1067.0 MeV | — | 547.862 / 957.78 | −6.1 % / +11.4 % | FSOT · measured | miss (LO matrix fails validation; next order needs F_K/F_π) | u |
+| M_η, M_η′ (LO U(3)+WV, FSOT χ) | η/η′ masses | round-p mass block, M0² = 6χ/F_π², F_π FSOT (P-4), χ from condensate | 524.9 / 1153.5 MeV | — | 547.862 / 957.78 | −4.2 % / +20.4 % | FSOT · measured | validation failed (LO matrix η′ +18 % even at SVZ χ); F_K/F_π for next order is an open derivation | t |
+| g_A, μ_p, μ_n, Δ−N (K → ∞) | nucleon axial coupling, magnetic moments, Δ−N splitting | massive DPP soliton at D = k = K 12/14/16 (windowed scan, validated to 3.8e-10 vs round t); pre-registered Richardson 1/K² from K 14–16, theory unc. = |v_∞ − v_16| | 1.502 / 3.185 / −2.341 / 180.8 MeV | — | 1.2754 / 2.7928 / −1.9130 / 293.1 | +17.8 % / +14.1 % / +22.4 % / −38.3 % | FSOT · measured | g_A miss (z 5.6), Δ−N miss (z 41); μ_p, μ_n z 0.91 / 1.00 count as agrees under the frozen rule, but only because the K 16 jump (μ_p 2.624 → 2.756) makes the theory unc. 7× larger; the sequence does not converge (3-point fit gives 3.97 / −3.11), so this is not evidence of agreement; classical-ordering g_A 0.944 (z 11.6) | v |
+| F_K/F_π | kaon/pion decay-constant ratio | one-loop SU(3) ChPT, 4L5^r = l4^r + ν_K/2 (L4 = 0, large N_c), FSOT l̄₄ 4.662, F_π 92.887, μ = 770 MeV | 1.2734 | — | 1.1932(21) FLAG | +6.7 % | FSOT · lattice-computed | miss (z 38); validation with FLAG l̄₄ gives 1.234, so the L4 = 0 step fails; pre-freeze estimate 1.25–1.27 disclosed. Directive (b): next round score via measured F_K/F_π from K_ℓ2/π_ℓ2 (|V_us| route) | v |
+| M_η, M_η′ (FKS, FSOT χ) | η/η′ masses | Feldmann–Kroll–Stech, f_q, f_s from V-2, χ from the round-u ε-fixed route (intermediate) | 574.4 / 951.2 MeV | — | 547.862 / 957.78 | +4.8 % / −0.69 % | FSOT · measured | both miss (z 1560 / 110); φ = 45.9°; M_η′ is the observable through which χ_top is scored (directive b) | v |
+| r_d (LO) | deuteron point radius | 1/(√8 γ), γ from B(2H) leaf | 1.5265 fm | — | 1.97507(78) | −22.7 % | FSOT · measured | open (needs effective range) | n |
+| g_A^(0) (full sea) | nucleon axial coupling, leading order in Ω | chiral quark soliton, Kahana–Ripka basis, Dirac sea + PV (M_PV = √e M), M = m_p/3 | 0.7424 | — | 1.2754(13) PDG | −41.8 % | FSOT · measured | open (soliton unbound, E = 3.41 M; g_A^(1) not included) | o (f393948) |
+| M_Δ − M_N | rotational splitting 3/(2I) | same soliton, cranking inertia | 177.2 MeV | — | 293.1 | −39.5 % | FSOT · measured | held-out, fails | o |
+| r_d, Q_d, η (OPE) | deuteron radius, quadrupole, D/S ratio | 3S1–3D1 with FSOT g_πNN, m_π; core R = ħc/M_Q fitted to B(2H) leaf | 1.8946 fm / 0.2451 fm² / 0.02373 | — | 1.97507 / 0.285699 / 0.0256 | −4.1 / −14.2 / −7.3 % | FSOT · measured | held-out, fail (validation passes Q_d, η) | o |
+| μ_n | neutron magnetic moment | SU(6) −(2/3) μ_p with FSOT μ_p leaf | −1.86190 μ_N | — | −1.91304276 CODATA | −2.67 % | FSOT · measured | fails 2 % gate | o |
+| μ_d | deuteron magnetic moment | μ_p + μ_n − (3/2)(μ_S − ½) P_D, P_D = 6.28 % | 0.89035 μ_N | — | 0.8574382335 CODATA | +3.84 % | FSOT · measured | fails | o |
+| g_A (Ω⁰ + Ω¹) | nucleon axial coupling incl. 1/N_c rotational term | full-sea soliton, DPP profile, g_A^(1) from time-ordered collective operators | 1.1755 | — | 1.2754(13) | −7.8 % | FSOT · measured | open (validation 1.2046 passes 10 %) | p (98cd271) |
+| μ_p, μ_n (soliton) | nucleon magnetic moments | isoscalar Ω¹ + isovector Ω⁰ + Ω¹, chiral limit | 3.273 / −2.513 μ_N | — | 2.7928 / −1.9130 | +17 % / +31 % | FSOT · measured | fail | p |
+| g_A, μ_p, μ_n (physical m_π) | nucleon axial coupling and magnetic moments | full-sea soliton with meson mass term (π± leaf), massive DPP profile, D 10 / k 10 / K 8 | 1.3912 / 2.7660 / −1.9258 | — | 1.2754 / 2.7928 / −1.9130 | +9.1 % / −0.96 % / +0.67 % | FSOT · measured | g_A fails; μ_p, μ_n within 2 % at K 8 with the late validation passing (round r), but NOT basis-stable: at K 12 (round t) μ_p −5.4 %, μ_n −6.2 % | q (d7a9af6), r, t |
+| g_A separation (chiral, K 8) | nucleon axial coupling, diagnostic | chiral DPP in the round-q basis | 1.1547 | — | 1.2754 | −9.5 % | FSOT · diagnostic | basis cap −1.8 %; pion-mass step +20.5 % via the Dirac-sea axial sum (0.011 → 0.156) and g_A^(1) (+22 %); fix deferred | s |
+| g_A, μ_p, μ_n (physical m_π, K 12) | basis check of the round-q soliton | massive DPP at D 12 / k 12 / K 12 | 1.4327 / 2.6417 / −1.7947 | — | 1.2754 / 2.7928 / −1.9130 | +12.3 % / −5.4 % / −6.2 % | FSOT · measured | all fail: the round-q K 8 μ_p, μ_n agreement (round r) is not basis-stable; Δ−N 177.5 MeV; ordering/surface corrections open | t |
+| F_π (one-loop LσM l̄₄) | pion decay constant | l̄₄ = N_c + ln(m_σ²/M_π²) − (19 − 3√3π)/2 = 4.662 (Nyffeler–Schenk) | 92.887 MeV | — | 92.07(57) | +0.89 % | FSOT · measured | miss (z 1.43; the 2 % gate does not count); pre-freeze evaluation disclosed | p |
+| μ_d (soliton m_π) | deuteron magnetic moment | Q-1 μ_p + μ_n, round-o P_D | 0.80815 μ_N | — | 0.857438 | −5.7 % | FSOT · measured | fails 2 % (K 8 inputs; not basis-stable) | r |
+| T_CMB (own physics) | CMB temperature | n_γ = Ω_b h² ρ_c100/(u η) | 2.73233 K | — | 2.7255(6) | +0.25 % (z 11) | FSOT · measured | fail z ≤ 1 | p |
+| F_π (l̄₄ = 1 + ln M_Q²/M_π²) | pion decay constant | PV quark loop: dF²/dM² = 0 at the FSOT point | 89.956 MeV | — | 92.07(57) FLAG | −2.29 % | FSOT · measured | fails 2 % gate (l̄₄ = 2.61) | o |
 
 ## External-input scaffolding (not FSOT results; never in confirmed or agreeing counts)
 
@@ -146,9 +150,9 @@ Owner directive 2026-10-03 01:44 ET: anything using an outside lattice/fit numbe
 
 | quantity | physical meaning | route (external input named) | value | ratio to m_e | measured (source) | rel | class | held-out / status | freeze |
 |---|---|---|---|---|---|---|---|---|---|
-| M_eta, M_eta' | η8/η1 mixing with U(1)_A anomaly | U(3) LO + Witten–Veneziano (lattice χ_top) | 523.2 / 1136.3 MeV | — | 547.862 / 957.78 | −4.5 % / +18.6 % | external | open | m |
-| m_ud, m_s (MSbar 2 GeV) | light-quark masses | GMOR with b from L-A1, F (K-1a), Σ = (272/338) Λ⁽³⁾ | 3.603 / 99.68 MeV | — | 3.387(39) / 92.4(1.0) FLAG | +6.4 % / +7.9 % | external | within 10 % | l |
-| χ_top^{1/4} | topological susceptibility | DP instanton liquid 0.65 e^{1/22} Λ^(3) | 229.2 MeV | — | 185.3(5.7) quenched | +23.7 % | external | fail | p |
-| χ_top^{1/4} (quenched Λ) | topological susceptibility | trace: DP density, size, packing and e^{1/22} are pure-gauge; fix Λ^(0) = R Λ^(3), R = 0.624/0.808 (FLAG 2021, r0) | 177.0 MeV | — | 185.3(5.7) | −4.5 % | external | miss (z 1.46); η −7.6 %, η′ +5.8 % with the LO U(3)+WV matrix (next step) | r |
-| M_η, M_η′ (FKS, next order) | η/η′ masses | quark-flavour mixing, f_q = FSOT F_π, f_s = f_q√(2r²−1) (FLAG F_K/F_π), a² = 2χ/f_q², χ from R-1 | 538.4 / 882.6 MeV | — | 547.862 / 957.78 | −1.7 % / −7.9 % | external | η passes 5 %, η′ fails (a² 0.228 vs 0.265 GeV²: χ is the remaining step); φ = 37.7° | s |
+| M_eta, M_eta' | η8/η1 mixing with U(1)_A anomaly | U(3) LO + Witten–Veneziano (lattice χ_top) | 523.2 / 1136.3 MeV | — | 547.862 / 957.78 | −4.5 % / +18.6 % | external · measured | open | m |
+| m_ud, m_s (MSbar 2 GeV) | light-quark masses | GMOR with b from L-A1, F (K-1a), Σ = (272/338) Λ⁽³⁾ | 3.603 / 99.68 MeV | — | 3.387(39) / 92.4(1.0) FLAG | +6.4 % / +7.9 % | external · scheme-dependent | within 10 % | l |
+| χ_top^{1/4} | topological susceptibility | DP instanton liquid 0.65 e^{1/22} Λ^(3) | 229.2 MeV | — | 185.3(5.7) quenched | +23.7 % | external · lattice-computed (intermediate; scored via M_η′) | fail | p |
+| χ_top^{1/4} (quenched Λ) | topological susceptibility | trace: DP density, size, packing and e^{1/22} are pure-gauge; fix Λ^(0) = R Λ^(3), R = 0.624/0.808 (FLAG 2021, r0) | 177.0 MeV | — | 185.3(5.7) | −4.5 % | external · lattice-computed (intermediate; scored via M_η′) | miss (z 1.46); η −7.6 %, η′ +5.8 % with the LO U(3)+WV matrix (next step) | r |
+| M_η, M_η′ (FKS, next order) | η/η′ masses | quark-flavour mixing, f_q = FSOT F_π, f_s = f_q√(2r²−1) (FLAG F_K/F_π), a² = 2χ/f_q², χ from R-1 | 538.4 / 882.6 MeV | — | 547.862 / 957.78 | −1.7 % / −7.9 % | external · measured | η passes 5 %, η′ fails (a² 0.228 vs 0.265 GeV²: χ is the remaining step); φ = 37.7° | s |
 

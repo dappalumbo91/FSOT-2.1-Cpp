@@ -88,7 +88,7 @@ Optional native Windows builds, as an extra data point only:
   MSVC has no `__float128`, and `long double == double`, so `test_golden` checks `double` and mp169 only. `freestanding_symbols` is
   not registered (GNU/Clang only). `freeze_core_sha_matches_hub_freeze` needs `sh` on PATH (Git for Windows ships one). Python 3 must
   be on PATH for the freeze/reference tests. `.gitattributes` forces LF on checkout.
-  **Expected CTest counts** with `-DFSOT_HUB_DATA`: **45 on Linux** and **44 on MSVC** (the difference is `freestanding_symbols`). Without hub data the counts are 27 and 26, the CI `build-test` configuration. Before rounds h–n added `round_freeze_h` … `round_freeze_u2`, the counts were 29 and 28.
+  **Expected CTest counts** with `-DFSOT_HUB_DATA`: **46 on Linux** and **45 on MSVC** (the difference is `freestanding_symbols`). Without hub data the counts are 27 and 26, the CI `build-test` configuration. Before rounds h–n added `round_freeze_h` … `round_freeze_v`, the counts were 29 and 28.
 - Native Windows: clone with `-c core.autocrlf=false`. Run the Python byte-identical diffs (step 3) in WSL2 only.
 
 **Current precision gate** (`audit/precision_2026-10-02.md`): **87/91 confirmed** at z ≤ 1, including the owner decisions OD-1/OD-2 (audit/OWNER_DECISIONS_2026-10-02i.md). Without them (pinned rows only) it is 85/91; with the frozen-pending refinements it is 88/91.
@@ -111,7 +111,7 @@ cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$HOME/fs
 cmake --build build -j3
 ctest --test-dir build --output-on-failure
 ```
-Expected (2026-10-02u): `100% tests passed` with **45 tests** when `-DFSOT_HUB_DATA` is given, or **27** without it (Linux; 44 / 26 on MSVC). The original 16 are listed below. Since then the precision-gate, reference and freeze-verification tests (`seed_leaves`, `precision_report*`, `references_check`, `refinement_freeze*`, `refinements_b_crosscheck`, `derivations_freeze_e/f/g`, `round_freeze_h/i/j/k/l/m/n/o/p/q/r/s/s2/t/u/u2`) were added. The original 16 are:
+Expected (2026-10-02v): `100% tests passed` with **46 tests** when `-DFSOT_HUB_DATA` is given, or **27** without it (Linux; 45 / 26 on MSVC). The original 16 are listed below. Since then the precision-gate, reference and freeze-verification tests (`seed_leaves`, `precision_report*`, `references_check`, `refinement_freeze*`, `refinements_b_crosscheck`, `derivations_freeze_e/f/g`, `round_freeze_h/i/j/k/l/m/n/o/p/q/r/s/s2/t/u/u2/v`) were added. The original 16 are:
 - `golden`, `trit`, `ternary`, `core_vs_engine`, `core_closed_forms_vs_golden`, `predict_closed_form_smoke`;
 - `ledger_a_routing`, `look_elsewhere_smoke`, `freestanding_symbols`;
 - `freeze_core_sha_matches_hub_freeze`, `freeze_verify_domain_freeze_2026-10-02_AEB2AD`,

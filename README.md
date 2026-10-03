@@ -134,6 +134,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02u (audit/FREEZE_2026-10-02u.md, u2): only z ≤ 1 counts now, and earlier percentage-gate "passes" are re-labelled as misses. The K 14 soliton run did not finish inside the cap. Routing Λ^(0)/Λ^(3) through FSOT (trace anomaly at fixed vacuum energy) gives 0.837 and χ^{1/4} = 190.3 MeV (z 0.88); this route was chosen after round t and is disclosed as provisional. The g_A ordering derivation is still open. The gate stays at 87/91.
 
+2026-10-02v (audit/FREEZE_2026-10-02v.md): the soliton now runs to K 16 with a windowed scan (validated against round t to 3.8e-10). The pre-registered K 14–16 extrapolation misses for g_A (1.502, z 5.6) and Δ−N (180.8 MeV, z 41). μ_p and μ_n come out at z ≈ 1 only because the K 16 jump inflates the theory uncertainty; the K sequence does not converge, so these are not counted as evidence. FSOT F_K/F_π = 1.273 (z 38; the L4 = 0 step fails) and FKS η/η′ = 574/951 MeV both miss. Every PHYSICAL_MAP row now carries a reference type (measured / model-computed / lattice-computed / scheme-dependent / contested). The gate stays at 87/91.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

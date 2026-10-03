@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-48 · 2026-10-02v: soliton to K 16 (windowed scan, cheaper but same physics); K 14–16 Richardson: g_A 1.502 (z 5.6), Δ−N 180.8 (z 41) miss; μ_p/μ_n z ≈ 1 only through an inflated theory uncertainty (sequence non-convergent, not counted as evidence); F_K/F_π 1.273 (z 38) and FKS η/η′ 574/951 MeV miss; reference-type tags (owner directive 02:39) applied to PHYSICAL_MAP and the round-v scorer
+
+Freeze `FREEZE_2026-10-02v` (2a7eaea). Post-freeze changes: only the class-column type tags in `tools/score_2026_10_02v.py`, which are labels and change no numbers. Pre-freeze peek: F_K/F_π estimated at 1.25–1.27 (disclosed in the freeze). Look-elsewhere count 4 (one primary row each for g_A, μ_p, μ_n and Δ−N; the K pair was pre-registered). g_A ordering is not derived. Directives (b)–(d) are scheduled for next round. Totals 87/91.
+
 ### H-47 · 2026-10-02u: z-only rule adopted (earlier percentage "passes" re-labelled as misses); K 14 soliton not completed (cap); surface term negligible, ordering open; Λ^(0)/Λ^(3)_FSOT = 0.837 via the trace anomaly at fixed vacuum energy → χ^{1/4} 190.3 MeV (z 0.88, chosen post hoc, disclosed)
 
 Freezes `FREEZE_2026-10-02u` (d24fc1d) and `FREEZE_2026-10-02u2` (d061909). μ_p/μ_n moved because of the pion mass and the K basis; hybrid removal did not affect them. Totals 87/91.
