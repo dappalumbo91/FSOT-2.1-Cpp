@@ -1,0 +1,10 @@
+X2_M0_massive_K12 scan 0.5 49.2
+X2_M0_massive_K12 scan 0.6 60.6
+X2_M0_massive_K12 scan 0.7 73.3
+X2_M0_massive_K12 scan 0.8 86.0
+X2_M0_massive_K12 scan 0.9 100.7
+X2_M0_massive_K12 scan 1.0 112.7
+X2_M0_massive_K12 scan 1.1 127.4
+X2_M0_massive_K12 DPP {'E_sol_over_M': 3.5573546928164737, 'eps_val': 0.6359680090023001, 'gA0': 0.8928241817266787, 'gA0_val': 0.7205605309491125, 'gA0_sea': 0.1722636507775661, 'I_times_M': 2.5996199122524635, 'A_re': 7.170636537176896e-15, 'A_im': 1.3898902062434664, 'Amu_re': 1.4520845573338404e-14, 'Amu_im': 1.4963046141340524, 'B_re': -4.367264146844439, 'B_im': 2.5732675286308223e-14, 'xat_val': -2.0769583260728943, 'xat_sea': -0.7291645485383924, 'E_m_over_M': 0.11397613674383045}
+X2_M0_massive_K12 total seconds 494.3
+written audit/heavy_2026-10-02x_K12.json

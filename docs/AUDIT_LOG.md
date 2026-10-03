@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-50 · 2026-10-02x: energy-cutoff μ sea sum does not converge (+0.908 / −0.700 at K 12/14; μ not rescored); FSOT M(0) = 346.07 MeV from the DP gap equation (validation 345.8 vs 345) → Δ−N 199.7 MeV, g_A 1.427 (K 12, miss); F/M tied to M is the next suspect; Γ_Z/M_Z trace: first divergence Δα_had^(5), the physics route sits at z 0.68 and is insensitive to it, and the row stays open on the gate and external parametrisations (owner decision)
+
+Freeze `FREEZE_2026-10-02x` (c4c647d). Round-w cpp_check passed (2124 s). Totals 87/91.
+
 ### H-49 · 2026-10-02w: μ oscillation is numerical (non-decaying high-K tail of the μ_V^(0) sea sum; valence and inertia K-stable); Δ−N fails at the soliton quark mass M = m_p/3 (valence inertia alone 1.39× the required value; M = 420 MeV sanity run gives 296.7); rotational response lowers Δ−N (152 MeV); FSOT scalar saturation gives L4 = 0 (derived), L5 = 4.75e-3 → F_K/F_π 1.506 (z 149) and FKS η/η′ miss; WV combination +25 % (miss)
 
 Freeze `FREEZE_2026-10-02w` (a3d3e76). Post-freeze diagnostics (rotational response, partial-sum averaging) are not scored. Totals 87/91 (85/89 with H0 and τ_n deferred).

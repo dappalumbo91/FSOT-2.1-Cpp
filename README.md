@@ -138,6 +138,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02w (audit/FREEZE_2026-10-02w.md): the μ oscillation across K is numerical. The valence level and the moment of inertia are K-stable, and only the μ_V^(0) sea sum moves, through a non-decaying high-grand-spin tail. Δ−N fails at the soliton quark mass M = m_p/3, where the valence inertia alone is too large; an M = 420 MeV run gives 296.7 MeV. A J-dependent (rotating) profile lowers Δ−N further. FSOT scalar saturation derives L4 = 0 and gives F_K/F_π = 1.506 (miss). χ is now scored only through the η/η′ observables (WV combination +25 %, miss). The gate stays at 87/91 (85/89 with H0 and τ_n deferred).
 
+2026-10-02x (audit/FREEZE_2026-10-02x.md): an energy cutoff does not converge the μ sea sum, so μ is not rescored. The instanton-vacuum gap equation with FSOT's own instanton density gives the soliton quark mass M(0) = 346 MeV, but Δ−N rises only to 200 MeV because the frozen setup ties F to M. The Γ_Z/M_Z physics route already sits at z 0.68; it is insensitive to the failing Δα_had step and is blocked by external parametrisation inputs (an owner decision). The gate stays at 87/91.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

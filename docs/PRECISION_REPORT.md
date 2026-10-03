@@ -1212,3 +1212,44 @@ Pre-registered Richardson 1/K² from K 14–16, with theory uncertainty |v_∞ �
 - Look-elsewhere: 4 scored rows (WV combination, F_K/F_π, η, η′), one route each.
 
 **Totals unchanged at 87/91.**
+
+## 2026-10-02x: energy-cutoff sea sum, M(0) from the instanton vacuum, Γ_Z/M_Z trace (freeze c4c647d `FREEZE_2026-10-02x`; scores `audit/score_2026-10-02x.tsv`)
+
+The round-w cpp_check passed ("ALL CPP CHECKS PASSED in 2124 s") and its worktree was removed. About 12 minutes of this round were lost to a box tool outage.
+
+**X-1: energy-cutoff sea sum (μ).** The frozen cut |e| < 0.75 k M is applied to s1, s2, v1 and v2 alike. As required, ε_val and I are unchanged from round w to 1e-8.
+- The cut sea sum is +0.908 at K 12 and −0.700 at K 14 (uncut: −0.704 / −0.569).
+- The sum depends at O(1) on the high-energy states, so an energy cutoff does not tame it. The K 16 run was stopped for time.
+- **Convergence is not established and μ_p/μ_n are not rescored.**
+- The μ_V^(0) sea term needs a different treatment of its UV part, e.g. the proper-time or PV form appropriate to this operator rather than the energy PV weight. That is an open derivation.
+
+**X-2: soliton quark mass M(0).**
+- **Route:** the Diakonov–Petrov gap equation n = 4N_c∫d⁴p/(2π)⁴ M²(p)/(p² + M²(p)), with the zero-mode form factor.
+- **Validation:** DP 1986 inputs give 345.84 MeV against 345 (passes the 3 % gate).
+- **FSOT inputs:** n^{1/4} = 200.13 MeV (round-t condensate pin route), ρ = R/3 (the disclosed DP model ratio) → **M(0) = 346.07 MeV**.
+- **Soliton at M(0), K 12:** Δ−N = 199.7 MeV (z 47) and g_A = 1.4275 (z 117), both **miss**. μ_p 2.428 and μ_n −1.669 are not scored.
+- **Why it barely helped:** I M stays at 2.60 (ε_val/M 0.636). The frozen setup ties F/M to the PV condition, which makes the model nearly scale-free, so Δ−N simply scales with M.
+- **Next step (not tested this round):** the physically consistent choice keeps FSOT F = 86.2 MeV and sets M_PV/M from the PV condition (1.505 at M(0)). That is what the round-q M = 420 MeV / F = 93 MeV run did, and it gave I M 2.12 and Δ−N 296.7 MeV. To be frozen next round.
+
+**X-3: Γ_Z/M_Z trace (record row, z 4.88).**
+
+| step | quantity | value | measured | z |
+|---|---|---|---|---|
+| 1 | record pin φ⁵/e⁶ (bare closed form, no physics route) | 0.0274898 | 0.0273665(25) | 4.88 |
+| 2 | Δα_had^(5) (HAD-2 duality; FSOT inputs, external m_B) | 0.02672 | 0.02783(6) | 18.5 |
+| 3 | Δr (ACFW) | 0.03617 | — | — |
+| 4 | G_F | 1.16613e-5 | 1.1663787e-5 | 413 |
+| 5 | Γ_Z/M_Z (round-i GZ-1 chain) | 0.0273494 | 0.0273665(25) | **0.68** |
+
+- **The first step whose physics diverges is Δα_had^(5):** the light-quark resonance region. The duality route fails its own PDG-input validation (z 18.4).
+- **Γ_Z/M_Z is insensitive to that step.** Replacing it with the measured Δα_had (information only) gives 0.0273830 (z 0.65), a shift of 1.33σ.
+- **Second divergence:** with the measured Δα_had, G_F moves to z ≈ 2000. The M_W/Δr step and the HAD-2 error partly compensate each other.
+- **Physics route vs record row:** the route already sits at z 0.68. The record row stays open because the round-i gate requires the HAD-2 validation to pass, and because the chain uses an external m_B threshold and the Freitas/ACFW SM parametrisation coefficients (theory, not data).
+- **Owner decisions needed:** (a) whether those parametrisations count as FSOT-admissible theory or as hybrids; (b) whether the gate should depend on the Γ_Z/M_Z sensitivity rather than on the Δα_had validation alone. No gate was changed.
+
+**Disclosures.**
+- The X-2 scan window was widened to x ∈ [0.5, 1.1] for the larger M. The freeze said "as round v"; the minimum is interior.
+- K 12 only for X-2, so it carries no theory uncertainty (stated in the freeze).
+- The gap equation runs once (`tools/gap_2026_10_02x.py`, scipy) and writes `audit/gap_2026-10-02x.json`, which the scorer reads.
+
+**Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).

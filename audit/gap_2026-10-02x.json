@@ -1,0 +1,8 @@
+{
+ "generated_by": "tools/gap_2026_10_02x.py",
+ "freeze": "FREEZE_2026-10-02x",
+ "validation_DP_M0_MeV": 345.844889403,
+ "FSOT_n_quarter_MeV": 200.128262904,
+ "FSOT_rho_inv_MeV": 600.384788712,
+ "FSOT_M0_MeV": 346.066684753
+}
