@@ -555,6 +555,23 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-45 · 2026-10-02s2: owner directive: no hybrid in FSOT. External-input results moved to a scaffolding table (not counted); FSOT-only thresholds give Λ^(4) 292.07 (z 0.29) and Λ^(3) 334.43 MeV (z 0.36); Λ^(0)/Λ^(3) is an open derivation
+
+Freeze `audit/FREEZE_2026-10-02s2.md` (74ffa98).
+
+**External-input scaffolding (not FSOT results; never in confirmed or agreeing counts):**
+
+| item | external input | round |
+|---|---|---|
+| U(3)+WV η/η′ | lattice χ_top | m |
+| GMOR m_ud, m_s | Σ = (272/338) Λ^(3) | l |
+| Λ^(4), Λ^(3) (J-1) | FLAG m_b, m_c thresholds | j |
+| χ_top (DP, Λ^(3)) | Λ^(3) built with FLAG thresholds | p |
+| χ_top quenched, η/η′ | FLAG r0Λ ratio 0.772 | r |
+| FKS η/η′ | FLAG F_K/F_π, round-r χ | s |
+
+χ_top, η and η′ wait on an FSOT Λ^(0). The missing leaf is a pure-gauge hadronic scale. Totals 87/91.
+
 ### H-44 · 2026-10-02s: g_A separation: the basis cap is not the cause (−1.8 %); the pion-mass step gives +20.5 % via the Dirac-sea axial sum and g_A^(1); FKS η −1.7 % (passes), η′ −7.9 % (χ is the remaining step)
 
 Freeze `audit/FREEZE_2026-10-02s.md` (5d6610c). The separation run was a diagnostic made before the freeze (disclosed), and no g_A fix has been derived yet. Totals 87/91.

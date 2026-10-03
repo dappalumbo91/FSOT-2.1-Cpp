@@ -1036,3 +1036,32 @@ After the fixes, the literature sanity case (M = 420, F = 93) gave g_A^(0) = 0.7
   - φ = 37.7° (FKS phenomenology: 39.3°).
 - The η′ shortfall traces to a² = 0.228 GeV² against about 0.265 in phenomenology. The validation, which differs mainly in χ^{1/4} (185.3 vs 177.0), passes. So the remaining step is χ itself: the quenched-to-unquenched ratio R and the 0.65 coefficient.
 - Both η rows are HYBRID. **Totals unchanged at 87/91.**
+
+## 2026-10-02s2: owner directive, no hybrid in FSOT (freeze 74ffa98 `audit/FREEZE_2026-10-02s2.md`; scores `audit/score_2026-10-02s2.tsv`)
+
+**Reclassified as external-input scaffolding.** These are not FSOT results and are never counted as confirmed or agreeing:
+- round-m U(3)+WV η/η′ (lattice χ)
+- round-l GMOR m_ud, m_s (external Σ ratio)
+- J-1 Λ^(4), Λ^(3) with FLAG thresholds
+- round-p χ_top (Λ^(3) with FLAG thresholds)
+- round-r χ_top via the FLAG 0.772 ratio, and its η/η′
+- round-s FKS η/η′ (FLAG F_K/F_π)
+
+They now sit in their own table in `docs/PHYSICAL_MAP.md`. The round-r χ^{1/4} "pass" and the round-s η "pass" are therefore not FSOT agreements.
+
+**S2-1: FSOT-only thresholds.**
+- m_t = (m_t/m_W)·m_W = 172.774 GeV, m_b = m_t/(m_t/m_b) = 4.2220 GeV, m_c = (m_c/m_b)·m_b = 1.2842 GeV.
+- Disclosed: these are used as the MSbar m(m) decoupling scales. The FSOT ratios carry no scheme label, and their values were seen before the freeze.
+- Running FSOT's Λ^(5) = 209.52 MeV down with the round-j machinery (4-loop running, 3-loop decoupling) gives:
+  - **Λ^(4) = 292.07 MeV** (FLAG 295(10), z 0.29)
+  - **Λ^(3) = 334.43 MeV** (FLAG 338(10), z 0.36)
+- Both agree. Λ^(3) is now FSOT-only and replaces the J-1 rows that used external thresholds. These are derivation-branch results, not record rows.
+
+**S2-2: Λ^(0)/Λ^(3) inside FSOT is an open derivation.** Three things block it:
+1. FSOT has only light-quark ratios. Absolute m_s and m_ud need the hybrid GMOR condensate input.
+2. m_s and m_ud lie below Λ^(3), where α_s^(3) has no perturbative value, so threshold decoupling is undefined there.
+3. The lattice ratio compares Λ^(0) and Λ^(3) at a fixed hadronic scale, which is a non-perturbative statement.
+
+**What would close it:** an FSOT leaf for a pure-gauge hadronic scale (√σ, r0, or the 0⁺⁺ glueball mass), or absolute light-quark masses plus a non-perturbative matching.
+
+χ_top, η and η′ are not rescored, and no external number is substituted. **Totals unchanged at 87/91.**

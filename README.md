@@ -128,6 +128,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02s (audit/FREEZE_2026-10-02s.md): the g_A shift comes from adding the physical pion mass, not from the basis cap. The Dirac-sea axial sum goes from 0.011 to 0.156 and g_A^(1) rises 22 %; the fix is still open. η/η′ at next order (FKS): η = 538.4 MeV (−1.7 %, passes), η′ = 882.6 MeV (−7.9 %, fails), with χ as the remaining step. The gate stays at 87/91.
 
+2026-10-02s2 (audit/FREEZE_2026-10-02s2.md, owner directive): nothing hybrid counts. Results built on lattice, FLAG or fit inputs (χ_top, η/η′, GMOR quark masses, the J-1 external-threshold Λ's) are now listed as scaffolding and never counted. With FSOT-only quark thresholds, Λ^(4) = 292.07 MeV and Λ^(3) = 334.43 MeV, both within 1σ of FLAG. Λ^(0)/Λ^(3) is an open derivation that needs a pure-gauge hadronic scale leaf. The gate stays at 87/91.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|
