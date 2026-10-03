@@ -1,0 +1,25 @@
+{
+ "freeze": "FREEZE_2026-10-02am",
+ "date": "2026-10-03",
+ "parent": "cb90c4a (round al, on top of owner record commit b99fc29: gate 88/91)",
+ "rule": "z-only scoring against observations; ratios first, MeV as byproduct; no hybrid; no tuning; gates, tolerances and the single-PV regulator unchanged; pins never edited",
+ "Operational budget change (owner instruction, 2026-10-03 08:52 ET)": {
+  "instruction": "\"The 10-minute cap is my operational compute budget, not a physics gate, so I'm granting this change (record it as an operational budget change in the freeze before any computing, citing this instruction): the kmax-14 shell-average samples may run as one detached background job (nohup, results to files, resumable per sample, cached spectra if possible) that carries across rounds, with nothing else heavy running at the same time.\"",
+  "change": "the FREEZE_2026-10-02al 10-min cap no longer applies to the level-B (kmax 14, D0 14) shell-average samples. They run as one detached nohup job, tools/shellavg_bg_2026_10_02am.py: one file per sample (audit/shellavg_2026-10-02am_B_j<j>.json), the j=0 rotational sums in their own file (audit/shellavg_2026-10-02am_B_rot.json), spectra pickled per sample in /home/box/fsot-am-cache (not committed) so a killed job resumes without re-diagonalising; when all are present it writes audit/shellavg_2026-10-02al_B.json in the round-al format. Spectra cannot be shared between samples (each box D_j has its own radial basis).",
+  "unchanged": "the round-al averaging rule, validation (E, g_A, I within 2 % of sharp D0), the two-level stability rule (mu_p, mu_n change <= 2 % A -> B, theory unc. |B - A|), the sigma-charge adoption rule and the deuteron rerun recipe. mu_p/mu_n and the sigma charge are scored/adopted in whichever round the samples finish, by tools/score_2026_10_02al.py logic (the sigma part already ran: not adopted, -4.23 %; it is not rerun).",
+  "physics content": "none; operational only"
+ },
+ "AM-2 Delta alpha_had via photon-rho beyond universality": {
+  "route": "the user's option 2 (soliton charge radius via VMD), combined with lowest-meson-dominance duality for the photon-vector couplings (not KSRF universality, which ties f_rho to F_pi)",
+  "M_V": "M_rho = M_omega = M_V = sqrt6/r_V = Lambda_V, the round-ag soliton valence Dirac radius (Lambda_V/m_p = 0.735880526529 in audit/score_2026-10-02ag.tsv AG-3; already known, disclosed as a peek). At leading N_c the valence level gives equal isoscalar and isovector Dirac radii; the O(1/N_c) rotational isovector correction is not included (stated limitation)",
+  "duality threshold": "s0 = 2 M_V^2 (second LO finite-energy sum rule, lowest meson dominance)",
+  "couplings (beyond universality)": "first LO FESR: (f_V Q_V)^2 = c_V s0/(12 pi^2), c_rho = N_c (Q_u - Q_d)^2/2 = 3/2, c_omega = N_c (Q_u + Q_d)^2/2 = 1/6; Gamma_ee(V) = 4 pi alpha^2 (f_V Q_V)^2/(3 M_V) reported as a byproduct",
+  "formula": "Delta alpha_had^(5)(M_Z^2) = sum_{rho,omega} 4 pi alpha (f_V Q_V)^2/M_V^2 * M_Z^2/(M_Z^2 - M_V^2) + continuum, where the continuum is the round-y quark-pole duality integral (same R(s), 4-loop alpha_s running, pole c and b thresholds) with the u and d thresholds moved from 4 m_pi^2 to s0 (s from 4 m_K^2 unchanged: phi is dual)",
+  "inputs": "FSOT: alpha, M_Z, alpha_s(M_Z) = 2 (Poof/psi_con)^2, m_tau, m_K, m_c, m_b, m_p (as round z); Lambda_V/m_p (round ag)",
+  "validation": "the same route with PDG M_rho = 775.26 MeV and the round-y PDG inputs (alpha 1/137.035999177, M_Z 91.1880, alpha_s 0.1180, m_tau 1.77693, m_K 0.493677, m_c 1.2730, m_b 4.183): Delta alpha_had^(5) within |dev| <= 0.00029 of 0.02783 (round-i gate, unchanged)",
+  "rescore": "Delta alpha_had^(5) (z vs 0.02783(6)), then G_F and Gamma_Z/M_Z through the round-z higher-order chain (Z-2 primary) with the AM-2 Delta alpha_had; z vs the reference table. The record row Gamma_Z/M_Z is not edited by this repository; a pass (z <= 1 with validation passing) is reported to the owner and hub",
+  "tool": "tools/score_2026_10_02am.py (pure Python + mpmath)"
+ },
+ "look-elsewhere": "AM-2: 1 route, 1 validation, 3 scored rows (Delta alpha_had, G_F, Gamma_Z/M_Z). Level-B samples: no new scored rows this round unless they finish (then 2: mu_p, mu_n)",
+ "hub prompt": "/workspace/gb-recovery/GROK_BUILD_PROMPT_2026-10-02am.md"
+}
