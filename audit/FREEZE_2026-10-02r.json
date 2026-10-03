@@ -1,0 +1,19 @@
+{
+ "freeze": "FREEZE_2026-10-02r",
+ "date": "2026-10-03",
+ "authority_pin": "AEB2AD (unchanged)",
+ "hub_data_commit": "6f9c2560 (unchanged)",
+ "R-0 late round-q validation (not a new freeze)": {
+  "what": "Q1_validation of FREEZE_2026-10-02q run late in round r with the frozen setup (massive DPP, D = 10/M, k = 10 M, K <= 8); self-consistent loop skipped (--sc-itmax 0, time box; round q's FSOT loop did not converge in 40 its so the frozen primary is the massive DPP anyway); scored by tools/score_2026_10_02q.py --late-validation into audit/score_2026-10-02q_late.tsv with round q's frozen gates",
+  "mu_d": "if the late validation passes: mu_d = mu_S - (3/2)(mu_S - 1/2) P_D with round-q FSOT mu_p + mu_n and round-o P_D = 0.06281210418, gate 2 % (record row Deuteron_mu); disclosed: the arithmetic preview with round-q values gives about 0.808 (-5.8 %) and was seen before this freeze"
+ },
+ "R-1 chi_top trace (instanton liquid, Diakonov-Petrov)": {
+  "trace": "round p chain chi^1/4 = c_DP Lambda_PV with c_DP = 0.65 (DP variational packing, n rho^4 ~ 0.1), Lambda_PV = e^(1/22) Lambda_MSbar (the one-loop b = 11 N_c/3 = 11 conversion, i.e. pure-gauge), chi = N/V (dilute pure-gauge gas), WV M0^2 = 6 chi/F^2. The density, size distribution, packing and PV conversion are all pure-Yang-Mills (N_f = 0) objects and the WV chi is the quenched susceptibility, but the Lambda inserted was Lambda^(3) (N_f = 2+1, MSbar, 337 MeV). Divergent step: quenched vs unquenched Lambda. The eta at -0.17 % does not test chi: the eta is ~94 % octet and dM_eta/dchi is small, while the eta' (+62 % in round p) is the chi-sensitive row.",
+  "fix": "Lambda^(0)_MSbar = R Lambda^(3)_MSbar,FSOT with R = (r0 Lambda^(0))/(r0 Lambda^(3)) at a common hadronic scale r0, FLAG 2021: r0 Lambda^(0) = 0.624(36) (range including Dalla Brida 19), r0 Lambda^(3) = 0.808(29) (r0 = 0.472 fm): R = 0.7723 (HYBRID: lattice ratio, FSOT Lambda^(3) from J-1)",
+  "score": "chi^1/4 = 0.65 e^(1/22) R Lambda^(3)_FSOT vs 185.3(5.7) MeV, tol 10 % (P-5 gate); M_eta and M_eta' from the round-p U(3) + WV matrix unchanged except chi (F = F3 = m_p/(2 sqrt3 pi) as frozen in round p), gates 5 %; validation: same with FLAG Lambda^(3) = 338 MeV, tol 10 %",
+  "disclosure": "chi^1/4 with this R was computed (about 177 MeV, -4.5 %) while choosing the source, before this freeze; eta/eta' with the new chi not computed",
+  "look_elsewhere": "3 R variants: FLAG 2021 range (primary), FLAG 2019 0.615/0.808 = 0.761, Dalla Brida 19 0.660/0.808 = 0.817 (info rows); WV F variant F_pi = 92.07 MeV as info"
+ },
+ "R-2 g_A trace": "if time remains: step-by-step comparison of g_A^(0), g_A^(1), I between round p (chiral) and round q (massive) at M = m_p/3, information only (no new score)",
+ "counting": "Deuteron_mu and the q soliton rows count only with a passing late validation; chi and eta' are HYBRID (not record rows); totals change only if a record row is newly confirmed"
+}
