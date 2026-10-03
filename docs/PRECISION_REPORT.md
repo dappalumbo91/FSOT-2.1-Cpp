@@ -1065,3 +1065,36 @@ They now sit in their own table in `docs/PHYSICAL_MAP.md`. The round-r χ^{1/4} 
 **What would close it:** an FSOT leaf for a pure-gauge hadronic scale (√σ, r0, or the 0⁺⁺ glueball mass), or absolute light-quark masses plus a non-perturbative matching.
 
 χ_top, η and η′ are not rescored, and no external number is substituted. **Totals unchanged at 87/91.**
+
+## 2026-10-02t: FSOT pure-gauge scale from the gluon condensate; massive soliton at K 12 (freeze a5d3947 `audit/FREEZE_2026-10-02t.md`; scores `audit/score_2026-10-02t.tsv`)
+
+**Disclosures.**
+- I looked up the condensate pin value (0.012833) before the freeze. It implies χ^{1/4} ≈ 200 MeV, so that result was effectively seen before freezing.
+- The K 12 heavy run was launched before the freeze. It was computation only; scoring came after.
+- The scorer's energy note double-counted E_m. I fixed that before the commit; it affects an info string only.
+- Look-elsewhere: 1 route, plus info variants.
+- No outside number enters any FSOT row; outside values appear only in validation rows.
+
+**T-1: pure-gauge scale from the gluon condensate.**
+- **Leaf:** pin ⟨(α_s/π)G²⟩ = C_cosm − e⁻³ = 0.012833, read in GeV⁴. The unit is read by the same convention as the hadronic leaves, not derived from m_e.
+- **Physical meaning:** each (anti)instanton carries ∫g²G² = 32π², so ⟨(α_s/π)G²⟩ = 8n. This gives the instanton density n = 1.058 fm⁻⁴ directly, with no Λ needed.
+- **Result:** χ_top = n gives **χ^{1/4} = 200.13 MeV, +8.0 % against the quenched lattice value. It passes the 10 % gate**, though z = 2.6. The validation with SVZ 0.012 gives +6.2 % and also passes.
+- The DP relation then gives Λ^(0) = 294.2 MeV, so Λ^(0)/Λ^(3)_FSOT = 0.880.
+- **η/η′** (LO U(3)+WV with F = FSOT F_π):
+  - η −4.2 %, η′ +20.4 %.
+  - The validation fails for η′ (+18 %), so the leading-order matrix itself is the failing step.
+  - The next-order scheme needs F_K/F_π, which has no FSOT derivation yet (open).
+
+**T-2: massive DPP profile at K 12.**
+
+| Quantity | K 12 (this round) | K 8 (round q) |
+|---|---|---|
+| g_A | 1.4327 (+12.3 %); g_A^(0) = 0.8923 (val 0.7221, sea 0.1702), g_A^(1) = 0.5405 | 1.3912 (+9.1 %) |
+| M_Δ − M_N | 177.5 MeV | — |
+| μ_p | 2.6417 (−5.4 %) | 2.7660 (−0.96 %) |
+| μ_n | −1.7947 (−6.2 %) | −1.9258 (+0.67 %) |
+
+- **The round-q K 8 agreement of μ_p and μ_n (counted as agreeing in round r) is not basis-stable, and is withdrawn.** μ_d with the K 12 moments is 0.8144 (info).
+- The operator-ordering and surface-term corrections remain open derivations; no correction was applied.
+
+**Totals unchanged at 87/91.**

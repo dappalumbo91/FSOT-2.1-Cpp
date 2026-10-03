@@ -130,6 +130,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02s2 (audit/FREEZE_2026-10-02s2.md, owner directive): nothing hybrid counts. Results built on lattice, FLAG or fit inputs (χ_top, η/η′, GMOR quark masses, the J-1 external-threshold Λ's) are now listed as scaffolding and never counted. With FSOT-only quark thresholds, Λ^(4) = 292.07 MeV and Λ^(3) = 334.43 MeV, both within 1σ of FLAG. Λ^(0)/Λ^(3) is an open derivation that needs a pure-gauge hadronic scale leaf. The gate stays at 87/91.
 
+2026-10-02t (audit/FREEZE_2026-10-02t.md): FSOT's gluon-condensate pin fixes the instanton density, giving χ^{1/4} = 200.1 MeV (+8.0 %, passes 10 %) from FSOT inputs only. The leading-order η′ fails (+20 %). At K 12 the massive soliton gives g_A +12.3 %, μ_p −5.4 % and μ_n −6.2 %, so the round-q/r K 8 μ agreement is not basis-stable and is withdrawn. The gate stays at 87/91.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

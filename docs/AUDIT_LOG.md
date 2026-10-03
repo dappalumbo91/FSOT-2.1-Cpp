@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-46 · 2026-10-02t: gluon-condensate pin → instanton density → χ^{1/4} 200.1 MeV (+8.0 %, passes 10 %, FSOT-only); LO η′ +20 % (validation fails); massive soliton at K 12: g_A +12.3 %, μ_p −5.4 %, μ_n −6.2 %, so the round-r μ agreement is withdrawn
+
+Freeze `audit/FREEZE_2026-10-02t.md` (a5d3947). The pin value was seen before the freeze (disclosed). The ordering/surface corrections and F_K/F_π remain open derivations. Totals 87/91.
+
 ### H-45 · 2026-10-02s2: owner directive: no hybrid in FSOT. External-input results moved to a scaffolding table (not counted); FSOT-only thresholds give Λ^(4) 292.07 (z 0.29) and Λ^(3) 334.43 MeV (z 0.36); Λ^(0)/Λ^(3) is an open derivation
 
 Freeze `audit/FREEZE_2026-10-02s2.md` (74ffa98).
