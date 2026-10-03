@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-52 · 2026-10-02z: soliton inertia traced (I M ≥ 2.1 at every size; the divergence is the absolute M/m_p = 0.369, nothing rescored); higher-order Δr (resummation, O(αα_s²), O(G_F²m_t⁴)) → Δr 0.03518, G_F z 1657, Γ_Z/M_Z 0.02724 (z 5.0, miss); T_CMB from the FSOT radiation density 2.7434 K (+0.66 %, information, uses the deferred H0)
+
+Freeze `FREEZE_2026-10-02z` (a371502). Round-y cpp_check passed (510 s). Totals 87/91.
+
 ### H-51 · 2026-10-02y: soliton in proton units with PV-consistent F: (M_Δ−M_N)/m_p 0.2440 (229 MeV, z 31.5) and g_A 1.479 (z 9.0), K-stable; quark-pole duality Δα_had 0.027344 (z 8.1, validation fails); FSOT one-loop Γ_Z/M_Z 0.02717 (z 7.7), with the next divergence in the higher-order Δr; round-i GZ-1 moved to scaffolding (standing rule)
 
 Freeze `FREEZE_2026-10-02y` (c2ca975). Round-x cpp_check passed (682 s). Totals 87/91.

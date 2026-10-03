@@ -1291,3 +1291,47 @@ The round-x cpp_check passed ("ALL CPP CHECKS PASSED in 682 s") and its worktree
 - Look-elsewhere: Y-1 has 2 scored rows; Y-2 has 3.
 
 **Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
+
+## 2026-10-02z: soliton inertia traced, higher-order Δr, T_CMB from the radiation density (freeze a371502 `FREEZE_2026-10-02z`; scores `audit/score_2026-10-02z.tsv`)
+
+The round-y cpp_check passed (510 s) and its worktree was removed.
+
+**Z-1: inertia trace** (`tools/itrace_2026_10_02z.py`, round-y inputs, K 12; diagnostic started before the freeze was committed, unscored).
+
+| x (size, 1/M) | ε_val/M | I_val M | bare sea | PV | I M | Δ−N/m_p |
+|---|---|---|---|---|---|---|
+| 0.70 | 0.746 | 2.832 | 1.518 | −1.324 | 3.025 | 0.1829 |
+| 0.922 (minimum) | 0.489 | 1.818 | 3.091 | −2.639 | 2.271 | 0.2437 |
+| 1.20 | 0.256 | 1.449 | 5.754 | −5.073 | 2.130 | 0.2597 |
+
+- 293 MeV needs I M = 1.771.
+- At the energy minimum the valence part alone (1.82) exceeds that.
+- Enlarging the soliton binds the valence level more deeply and cuts I_val, but the sea grows: the bare sea and its PV subtraction both scale up, with net +0.45 → +0.68. So I M stays ≥ 2.1 at every size, and the PV subtraction behaves as it should (it cancels 85–88 % of the bare sea).
+- With I M ≈ 2.1–2.3 nearly universal, Δ−N/m_p ≈ 0.68·(M/m_p).
+- **The step that diverges is the absolute quark-mass ratio M/m_p = 0.369** (round-x gap equation with ρ = R/3 and the GeV⁴ reading of the condensate pin). The round-q M/m_p = 0.448 run gives 0.317.
+- I found no FSOT derivation that moves M/m_p without tuning, so per the freeze no z2 freeze was made and nothing was rescored. Δ−N/m_p and g_A stay at the round-y values (z 31.5 / 9.0).
+- Candidate physics for next round: the momentum dependence of M(p) for the valence level (non-local soliton) and the unit-free reading of the condensate pin.
+
+**Z-2: higher-order Δr** (frozen):
+
+| Δr version | Δr | Δρ | G_F (GeV⁻²) |
+|---|---|---|---|
+| one loop, α_s at m_t | 0.03247 | 0.008408 | 1.16213e-5 |
+| + CHJ resummation | 0.03414 | 0.008422 | 1.16414e-5 |
+| + O(αα_s²) | 0.03465 | 0.008267 | 1.16475e-5 |
+| + O(G_F²m_t⁴) (ρ^(2) = −6.389 at r = M_H/m_t = 0.724) | **0.03518** | 0.008107 | **1.16538e-5** |
+
+- **G_F z 1657, Γ_Z/M_Z = 0.0272404 (z 5.0, from 7.7); both miss.**
+- Δr is still 0.0017 below the SM 0.03685. About 0.0005 of that is the Δα_had shortfall (light-quark region); the rest is the higher-order Δr_rem.
+- The convention for r (M_H/m_t versus its square) is a disclosed risk; the difference in Δr is about 1e-4.
+
+**Z-3: KSRF light-quark Δα_had** was not reached (design only).
+
+**Z-4: T_CMB from FSOT's radiation density** (information, post-freeze).
+- Ω_γ = Ω_r/(1 + (7/8)(4/11)^{4/3} N_eff), ρ_γ = Ω_γ ρ_c, Stefan–Boltzmann: T = 2.74345 K, +0.66 % against FIRAS 2.7255(6).
+- FSOT's Ω_r h² is 2.7 % above the FIRAS-implied value.
+- The route uses the deferred H0 and is not scored.
+
+The μ sea-term regularisation and the deuteron traces were not reached.
+
+**Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
