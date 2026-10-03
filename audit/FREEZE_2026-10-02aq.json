@@ -1,0 +1,19 @@
+{
+ "freeze": "FREEZE_2026-10-02aq",
+ "date": "2026-10-03",
+ "parent": "c6cf058 (round ap; gate 88/91 since b99fc29)",
+ "rule": "z-only scoring against observations; ratios first; no hybrid; no tuning; existing frozen rules unchanged; pins never edited",
+ "AQ-0 level C": "the FREEZE_2026-10-02ap additive rule applies unchanged if tools/shellavg_bg_2026_10_02ap.py finishes. The level-C job and the AQ-1 runs never run at the same time (the job is paused with SIGSTOP while AQ-1 runs and during cpp_check).",
+ "AQ-1 r_V^2 diagnostic": {
+  "definition": "the round-ap isovector form-factor sums I[1] and I[r^2] (cranking O(1/I), valence occupied, sea-only PV: s1 sum minus (1/M_PV)^2 times the s2 sum without valence) on the 4 shell-period boxes D_j = D0 + j (pi/kmax)/4, D0 14, K 14, round-ag kmax-12 profile, at level A (kmax 12) and level B (kmax 14; spectra reused from /home/box/fsot-am-cache). r_V^2 = <I[r^2]>/<I[1]> per level (box averages taken separately, as <I> in the round-al rule)",
+  "split": "each sum is also split into the valence part (terms whose occupied state is the valence level), the sea part (other occupied s1 states) and the PV part, reported as shares of r_V^2",
+  "stability": "|r_V^2(B) - r_V^2(A)| / r_V^2(B) <= 2 %",
+  "validation": "z <= 1 for r_V^2 m_p^2 (level B) against r_p^2 - r_n^2 = 0.82236(201) fm^2, sigma^2 = PDG^2 + |B - A|^2",
+  "verdict": "numerical if validation passes; physical if stable and validation fails; undetermined if unstable and validation fails",
+  "if numerical": "compute G(Q^2) on the round-ap Q^2 grid with the same 4-box average at level B and carry the frozen round-ap chain (HLS pole fit, f_rho = sqrt(a) F_pi, Gamma_ee, then Delta alpha_had, G_F, Gamma_Z/M_Z as frozen in round ap)",
+  "if physical": "report the valence/sea/PV split; the FSOT correction is derived from it and frozen in a separate freeze before it is computed (not scored in this round unless that freeze is committed first). Note fixed now: the free-vacuum term vanishes identically ([tau, H_0] = 0), and the PV subtraction is already sea-only, so no vacuum or valence-PV term is missing by construction",
+  "tool": "tools/rv_2026_10_02aq.py --level A|B -> audit/rv_2026-10-02aq_<L>_j<j>.json (resumable per box); scorer tools/score_2026_10_02aq.py"
+ },
+ "look-elsewhere": "AQ-1: 1 validation (r_V^2), split rows information; downstream 3 scored rows only if numerical. AQ-0: 2 rows only if level C finishes and passes",
+ "hub prompt": "/workspace/gb-recovery/GROK_BUILD_PROMPT_2026-10-02aq.md"
+}
