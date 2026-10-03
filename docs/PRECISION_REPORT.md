@@ -1818,3 +1818,19 @@ The soliton isovector charge distribution is too extended (the rotational O(1/I)
 **AP-0 (new additive rule, frozen before computing):** a third level C (kmax 16, D0 14), same averaging; μ scored only if level C validates and μ_p, μ_n each change ≤ 2 % from B to C. The round-al A → B outcome is untouched. The job `tools/shellavg_bg_2026_10_02ap.py` was started after AP-1 finished (no overlap) and is running.
 
 **Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.
+
+## 2026-10-02aq: the soliton r_V² excess is physical (PV-regularised sea), not numerical
+
+Freeze `audit/FREEZE_2026-10-02aq.{json,md}` (commit 1f0b5fe), committed before computing. Tool `tools/rv_2026_10_02aq.py` (8 boxes, about 25–30 s each, kmax-14 spectra reused from the round-am cache), scorer `tools/score_2026_10_02aq.py`. The kmax-16 job was paused (SIGSTOP) while the diagnostic ran.
+
+| | level A (kmax 12, 4 boxes) | level B (kmax 14, 4 boxes) |
+|---|---|---|
+| r_V² | 1.00445 fm² | 1.00400 fm² |
+| valence share of I[1] / I[r²] | 0.687 / 0.423 | 0.687 / 0.423 |
+| valence-only r² | 0.618 fm² | 0.618 fm² |
+| sea + PV-only r² | 1.854 fm² | 1.851 fm² |
+| PV cancellation of the bare-sea I[r²] | 83.8 % | 83.9 % |
+
+The radius is box- and kmax-stable (A → B −0.045 %, per-box spread < 0.03 %), so the 22 % excess is **physical**: validation z 88 against 0.82236(201) fm². The valence level alone gives 0.62 fm²; the PV-regularised sea carries 31 % of the isovector charge at r² 1.85 fm² (the pion-cloud tail). The free-vacuum term vanishes identically and the PV subtraction is already sea-only, so no subtraction is missing. The round-ap chain was not carried; Δα_had, G_F and Γ_Z/M_Z were not rescored. No FSOT correction branch was frozen this round: a regulator change is excluded by the standing rules, and a physical correction needs a definition the owner can approve (see the hub prompt). Look-elsewhere: 1 validation.
+
+**Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.

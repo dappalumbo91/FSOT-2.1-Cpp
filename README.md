@@ -167,6 +167,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02ap (audit/FREEZE_2026-10-02ap.md): the soliton's isovector charge radius comes out at r_V² 1.004 fm² against 0.822 fm² from the proton and neutron radii (+22 %), so the form-factor route to f_ρ breaks at its first step. After the break, for information: ρ pole 533 MeV, f_ρ 146 MeV, Γ_ee 8.9 keV. A new additive kmax-16 rule is frozen and its job is running. Totals 88/91 (b99fc29).
 
+2026-10-02aq (audit/FREEZE_2026-10-02aq.md): with shell averaging, the soliton isovector radius is 1.004 fm² at both kmax 12 and 14 (stable to 0.05 %), so the 22 % excess is physical. It comes from the regularised Dirac sea (31 % of the isovector charge, at 1.85 fm²); the valence level alone gives 0.62 fm². Nothing is rescored. Totals 88/91 (b99fc29).
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

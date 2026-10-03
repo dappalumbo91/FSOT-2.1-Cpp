@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-70 · 2026-10-02aq: shell-averaged r_V² is 1.0045 / 1.0040 fm² at kmax 12 / 14 (stable to 0.05 %), so the excess over 0.822 fm² is physical; the valence level gives 0.62 fm², the PV-regularised sea carries 31 % of the isovector charge at 1.85 fm²; nothing rescored; level C j=0 done
+
+Freeze `FREEZE_2026-10-02aq` (1f0b5fe). Round-ap cpp_check passed (678 s). Totals 88/91. The kmax-16 job and the diagnostic never ran at the same time.
+
 ### H-69 · 2026-10-02ap: soliton isovector charge form factor (cranking O(1/I)) gives r_V² 1.004 fm² vs 0.822(2) (z 90), so the f_ρ chain breaks at step 1; information after the break: HLS pole 533 MeV, a 2.47, f_ρQ_ρ 146 MeV, Γ_ee 8.9 keV; new additive kmax-16 rule frozen and its job started
 
 Freeze `FREEZE_2026-10-02ap` (fa10fe4). Round-ao cpp_check passed (671 s). Totals 88/91. The level-C job was started only after the form-factor run had finished, so the two never overlapped; it is paused during cpp_check.
