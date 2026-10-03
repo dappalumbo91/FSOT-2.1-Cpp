@@ -1,0 +1,50 @@
+{
+ "freeze": "FREEZE_2026-10-02o",
+ "date": "2026-10-02",
+ "authority_pin": "AEB2AD (unchanged)",
+ "hub_data_commit": "6f9c2560 (unchanged)",
+ "O-1 chiral quark soliton with the full Dirac sea (leading order in the angular velocity)": {
+  "physics": "H = alpha.p + beta M (cos theta + i gamma5 tau.rhat sin theta), M = m_p/3; Pauli-Villars regularization with one subtraction; M_PV fixed inside FSOT: F^2 = (N_c M^2/4pi^2) ln(M_PV^2/M^2) with F = M sqrt(N_c)/(2 pi) gives ln(M_PV^2/M^2) = 1, M_PV = sqrt(e) M; profile theta(r) = 2 arctan(r0^2/r^2) with r0 minimizing E = N_c eps_val theta(eps_val) - (N_c/2) Sum[(|eps| - |eps0|) - (M/M_PV)^2 (|eps_PV| - |eps0_PV|)]",
+  "basis": "Kahana-Ripka-type: grand spin K, parity; components (upper/lower) x (l, j); radial functions j_l(k_n r) with j_l(k_n D) = 0 in a box D; angular matrices of sigma.rhat, tau.rhat, sigma.tau, tau_z from explicit Clebsch-Gordan spinor-isospinors by quadrature; sigma.p = -i (sigma.rhat)(d/dr - sigma.L/r)",
+  "observables": {
+   "g_A^(0)": "-(N_c/3) [<val|Sigma.tau|val>/3 ... ] i.e. -(N_c/3)[ <val|Sigma_3 tau_3|val> - Sum_n (sign(eps_n)/2) <n|Sigma_3 tau_3|n> |_PV ] (Christov et al. 1996 eq. 229, leading term; PV form)",
+   "I": "moment of inertia, Inglis/cranking: (N_c/2) Sum_{occ n, unocc m} |<m|tau_z|n>|^2/(eps_m - eps_n), PV-subtracted for the sea (Christov et al. eqs. 135-142)",
+   "M_Delta - M_N": "3/(2 I), held-out vs 1232 - 938.92 = 293.1 MeV (PDG 2024 Breit-Wigner Delta mass and nucleon average)"
+  },
+  "not included": "the 1/N_c rotational correction g_A^(1) (operator-ordering of collective operators; deferred) -> the g_A gate is expected to fail at leading order",
+  "numerics": "box D = 12/M, k_max = 12 M, K <= 12; r0 M scanned on [0.6, 2.0]; convergence: rerun with D = 14/M, k_max = 14 M, K <= 14, report the spread; numpy/scipy run alone with ulimit -v 6000000; results cached in audit/heavy_2026-10-02o.json and read by the scorer",
+  "sanity (literature)": "at M = 420 MeV and F = 93 MeV the leading-order g_A^(0) should lie in [0.7, 1.0] (Christov et al. 1996 fig. 13 range)",
+  "validation": "same with PDG m_p/3 and M_PV from FLAG F_pi: g_A^(0) within 10 % of 1.2754 and M_Delta - M_N within 15 % of 293.1",
+  "score": "g_A agree iff within 2 % (gate for downstream); Delta-N agree iff within 15 %",
+  "look_elsewhere": 1
+ },
+ "O-2 downstream": "KSRF/VMD -> Delta alpha_had -> Gamma_Z/M_Z only if O-1 g_A agrees within 2 % and its validation passes",
+ "O-3 deuteron with one-pion exchange": {
+  "physics": "coupled 3S1-3D1 channels; V = V_OPE for r > R and a central square well C for r < R, C fixed so the binding equals the FSOT B(2H) leaf; V_OPE = (g_piNN^2/4pi)(m_pi/(2 m_N))^2 (m_pi/3) tau1.tau2 [sigma1.sigma2 Y(x) + S12 T(x)], Y = e^-x/x, T = (1 + 3/x + 3/x^2) Y, x = m_pi r, tau.tau = -3, sigma.sigma = 1, S12 = [[0, sqrt8], [sqrt8, -2]]; hbar^2/m_N with m_N = (m_p + m_n)/2",
+  "FSOT inputs": "g_piNN = N-2 g_A x m_N / N-1b F_pi = 12.2176 (round n, FSOT-only), m_pi = pi+- leaf, m_p, m_n, B(2H) leaf; R = hbar c / M_Q = 3 hbar c/m_p (quark-substructure scale)",
+  "variants": "R in {hbar c/(2 M_Q), hbar c/M_Q (primary), 2 hbar c/M_Q}",
+  "outputs": "rms matter radius r_d = (1/2) sqrt(Int r^2 (u^2 + w^2)), Q_d = (1/20) Int r^2 w (sqrt8 u - w), eta = A_D/A_S, P_D = Int w^2",
+  "held_out": "r_str 1.97507(78) fm (gate 2 %), Q_d 0.285699(15) fm^2 (Puchalski et al. 2020; gate 5 %), eta 0.0256(4) (gate 5 %); binding is an input (not predicted)",
+  "validation": "same with g_piNN 13.17, m_pi 139.57039, PDG m_N, AME2020 B 2.224566",
+  "look_elsewhere": "3 R values (primary scored)"
+ },
+ "O-3b neutron magnetic moment and mu_d": {
+  "physics": "SU(6) quark model mu_n/mu_p = -2/3 with the FSOT mu_p leaf; mu_d = mu_p + mu_n - (3/2)(mu_p + mu_n - 1/2) P_D (P_D from O-3 primary)",
+  "score": "mu_n vs -1.91304276(45) (CODATA 2018), mu_d vs 0.8574382335(22) (CODATA 2018); gate 2 %",
+  "disclosure": "the SU(6) ratio is known to give ~-1.86 (about -2.7 %); computed mentally before freeze",
+  "look_elsewhere": 1
+ },
+ "O-4 lbar4": {
+  "physics": "in the Pauli-Villars quark-loop realization F^2(M) = (N_c M^2/4pi^2) ln(M_PV^2/M^2) at fixed M_PV, dF^2/dM^2 = (N_c/4pi^2)[ln(M_PV^2/M^2) - 1] = 0 at the FSOT point; the quark-loop contribution to l4 vanishes and lbar4 is the pion chiral log cut off at the regulator scale: lbar4 = ln(M_PV^2/M_pi^2) = 1 + ln(M_Q^2/M_pi^2)",
+  "score": "F_pi = F [1 + M_pi^2 lbar4/(16 pi^2 F^2)] vs 92.07(57), gate 2 %; lbar4 vs 4.40(28) information",
+  "disclosure": "mental evaluation before freeze: lbar4 ~2.61, F_pi ~89.96 MeV (~-2.3 %)",
+  "look_elsewhere": 1
+ },
+ "O-5 chi_top / eta, eta'": "not built: no derivation of the instanton-liquid density in units of FSOT Lambda without an external ratio (next branch: Diakonov-Petrov variational density)",
+ "O-6 domain reference leaves from own physics": {
+  "Atomic_Physics": "E_h = alpha^2 m_e c^2 with FSOT alpha and m_e leaves, vs CODATA 2018 4.3597447222060(48)e-18 J (gate z <= 1)",
+  "others": "Particle_Physics (pi), High_Energy_Physics (W: needs G_F, no FSOT G_F), Nuclear_Physics (B(2H) is the O-3 input), Cosmology (T_CMB): no own-physics derivation this round",
+  "look_elsewhere": 1
+ },
+ "counting": "none of these is a record row except E_h (already confirmed by its leaf); totals change only if a record row is newly confirmed"
+}
