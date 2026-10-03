@@ -144,6 +144,7 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02z (audit/FREEZE_2026-10-02z.md): the soliton inertia stays at or above 2.1/M at every size, because a smaller valence part is made up by the sea. Δ−N therefore tracks the absolute quark mass ratio M/m_p = 0.369, which is the diverging step; nothing was rescored. With the higher-order Δr terms (resummation, O(αα_s²), O(G_F²m_t⁴)), Γ_Z/M_Z moves from z 7.7 to z 5.0, still a miss. A direct radiation-density route gives T_CMB = 2.7434 K (+0.66 %, information only). The gate stays at 87/91.
 2026-10-02aa (audit/FREEZE_2026-10-02aa.md): reading the condensate pin in proton units lowers M/m_p to 0.346, which moves Δ−N further from the measurement (z 47); the KSRF light-quark Δα_had undershoots (validation fails), so Γ_Z/M_Z is at z 6.7; the FSOT pins offer no T_CMB route that avoids H0. The gate stays at 87/91.
+2026-10-02ab (audit/FREEZE_2026-10-02ab.md): the DP variational instanton size gives R/ρ̄ = 2.47 and M/m_p = 0.458, so Δ−N comes out at z 10.9 (edge minimum) and g_A at z 171, both misses; the deuteron central-force trace is unbound until the tensor force is added; T_CMB has no anchor inside FSOT. The gate stays at 87/91.
 
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |

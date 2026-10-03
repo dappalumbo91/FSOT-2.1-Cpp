@@ -1,0 +1,18 @@
+{
+ "generated_by": "tools/gap_2026_10_02ab.py",
+ "freeze": "FREEZE_2026-10-02ab",
+ "b": 11.0,
+ "nu": 3.5,
+ "gamma2": 24.982436140257434,
+ "n_quarter_over_Lambda_PV": 0.65,
+ "x_rho_n_quarter": 0.40513902219,
+ "R_over_rho": 2.46828852623,
+ "beta_rho_bar": 5.20016299019,
+ "Lambda_PV_rho_bar": 0.62329080337,
+ "packing_pi2_n_rho4": 0.265898598177,
+ "info_two_loop_x": null,
+ "n_quarter_over_mp": 0.200128262904,
+ "M0_over_n_quarter": 2.28937279457,
+ "M_over_mp": 0.458168200518,
+ "aa_M_over_mp": 0.346066684752
+}

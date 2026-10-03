@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-54 · 2026-10-02ab: DP variational instanton size R/ρ̄ = 2.468 (β 5.2, packing 0.27, not dilute) → M/m_p 0.4582 → Δ−N/m_p 0.3356 (z 10.9, edge minimum; post-freeze wide window 0.3294, info) and g_A 1.498 (z 171), both misses; deuteron central OPE+σ+ω unbound (first divergence: the missing tensor force); no in-FSOT T_CMB anchor
+
+Freeze `FREEZE_2026-10-02ab` (d4c92e1). Round-aa cpp_check passed (511 s). Totals 87/91.
+
 ### H-53 · 2026-10-02aa: condensate pin read unit-free → M/m_p 0.34607 → Δ−N/m_p 0.2118 (z 47.2), g_A 1.438 (z 124.7), both misses; KSRF light-quark Δα_had 0.025825 (z 33.4, validation fails) → Γ_Z/M_Z 0.02720 (z 6.7); no H0-free T_CMB route in the FSOT pins (Saha T_rec info only)
 
 Freeze `FREEZE_2026-10-02aa` (6bc0f13). Round-z cpp_check passed (508 s). Totals 87/91.

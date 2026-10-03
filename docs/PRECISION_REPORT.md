@@ -1373,3 +1373,43 @@ Higher-order Δr_rem terms were not attempted.
 **Not reached:** the μ regularisation and the deuteron traces.
 
 **Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
+
+## 2026-10-02ab: instanton size from the DP variational minimum, deuteron trace step 1, last-scattering finding (freeze d4c92e1 `FREEZE_2026-10-02ab`; scores `audit/score_2026-10-02ab.tsv`)
+
+The round-aa cpp_check passed (511 s) and its worktree was removed.
+
+**AB-1: instanton size** (`tools/gap_2026_10_02ab.py`).
+- Method: solve the DP variational self-consistency n ρ̄⁴ = ν/(β(ρ̄)γ²) with b = 11, ν = 3.5, γ² = 27π²N_c/(4(N_c²−1)) and one-loop β(ρ) = b ln(1/(Λ_PV ρ)).
+- Inputs: FSOT n from the AA-1 reading and the round-t Λ^(0), which gives n^{1/4}/Λ_PV = 0.65. That Λ^(0) came from n via the DP relation (disclosed circularity).
+- Result: ρ̄ n^{1/4} = 0.40514, i.e. **R/ρ̄ = 2.468** (the DP constant was 3).
+- **Physical meaning is weak:**
+  - β(ρ̄) = 5.2, which is outside the semiclassical regime.
+  - The packing fraction π²nρ̄⁴ = 0.27 means the ensemble is not dilute.
+  - The two-loop β has no solution (information).
+- Downstream: M/m_p = 0.458168 (430 MeV byproduct), close to the Δ−N diagnostic of about 0.46, which was never used as an input.
+
+| Row | Value | Measured | z | Verdict |
+|---|---|---|---|---|
+| (M_Δ − M_N)/m_p (K 12) | 0.33561 (314.9 MeV) | 0.31236 | 10.9 | miss |
+| g_A | 1.4977 | 1.2754(13) | 171 | miss |
+
+- The frozen scan window (0.5–1.1) gave an **edge minimum** (x = 1.1).
+- A disclosed post-freeze information run with the window widened to 1.6 finds an interior minimum at x = 1.169: Δ−N/m_p 0.32943 (would be z 8.0) and g_A 1.538. It is not scored, and there is a kink in the scan between x = 1.2 and 1.3.
+
+**AB-2: deuteron trace, step 1** (3S1 central point Yukawas; pure-Python Numerov).
+- Couplings:
+  - f²/4π = 0.1008 (Goldberger–Treiman with the AB-1 g_A).
+  - σ: g²/4π = 15.3 at m_σ = 2M.
+  - ω: g²/4π = 28.3 at the KSRF mass.
+- Results by step:
+  - (a) Central OPE alone is unbound, which is standard: deuteron binding needs the tensor force.
+  - (b) Adding σ binds deeper than 47 MeV.
+  - (c) Adding ω leaves it unbound.
+- **Where it diverges:** the first step that departs from the physics is step (a): the trace must include the OPE tensor force (coupled 3S1–3D1). The size of the point-coupling σ and ω terms then decides the outcome, and that needs an FSOT form factor (nucleon size from the soliton). No fix was derived this round.
+- B_d is a miss (unbound). The record row (the pin, z 3.59) is unchanged. μ_d was not traced (it needs P_D from the tensor force).
+
+**AB-3: last scattering.** H(T) needs ρ_m/ρ_b, which is not among the FSOT pins, and 1 + z_* = T_ls/T_0 needs T_0 itself. So T_CMB cannot be derived inside FSOT without an outside anchor. Information row: Saha x_e = 0.1 at kT/(m_e α²) = 0.010892 (3439 K).
+
+**Not reached:** the photon–ρ coupling beyond universality and the higher-order Δr remainder.
+
+**Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
