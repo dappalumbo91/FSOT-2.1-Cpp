@@ -1676,3 +1676,28 @@ Freeze `audit/FREEZE_2026-10-02ai.{json,md}` (commit b1b058b), committed before 
 **Post-freeze change:** the condensate check in an info row printed a complex cube root of the (correctly negative) condensate; it now prints |⟨q̄q⟩|^{1/3}. Cosmetic, no values changed.
 
 **Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
+
+## 2026-10-02aj: local-density evaluation of the r-weighted sea sums
+
+Freeze `audit/FREEZE_2026-10-02aj.{json,md}` (commit e6a65eb), committed before computing. Scorer `tools/score_2026_10_02aj.py`, output `audit/score_2026-10-02aj.tsv`. Single PV remains the scoring regulator, and tolerances are unchanged.
+
+**AJ-1: μ_V^(0) from the regularised local current density** (`tools/locdens_2026_10_02aj.py`; K 14, D 14, round-ag kmax-12 profile).
+- Method: the (r̂×σ)·τ upper–lower density is built from the spectra (valence + single-PV sea − vacuum) and integrated as ∫ r ρ d³r, with r applied to the density rather than as matrix elements of r.
+- Feynman–Hellmann (μ = −∂E/∂B) in the same basis is identical by the Hellmann–Feynman theorem, so it was not run separately.
+- **Validation:** the g_A^(0) density integral equals the matrix-element sum to all printed digits: 0.90982, 0.90928, 0.92419 at kmax 12, 14, 16 (changes −0.06 % and +1.61 %), so it passes.
+
+| kmax | xat_sea (total) | Cumulative to r = 3/M | μ_V^(0) | μ_p / μ_n |
+|---|---|---|---|---|
+| 12 | −1.4474 | −0.9085 | 2.8142 | 2.2854 / −1.6841 |
+| 14 | −1.2063 | −0.8557 | 2.6388 | 2.1955 / −1.5947 |
+| 16 | −1.5622 | −1.0173 | 2.8977 | — |
+
+- The local-density integral reproduces the matrix-element sum exactly; in a fixed truncated basis the two are the same quantity.
+- The kmax oscillation is already present in the interior density (r < 3/M), not at the box edge. **μ_p and μ_n are not scored** (kmax 12 → 14: −4.1 % and −5.6 %).
+- Reading: the current-type sea density itself converges in a Gibbs-like, shell-by-shell way under the sharp momentum cutoff. g_A^(0) also shows a smaller jump at kmax 16 (+1.6 %).
+
+**AJ-2: σ-projected charge by the same method:** 1.6240, 1.4759, 1.5131 at kmax 12, 14, 16 (single PV). The kmax 12 → 14 change is −10.0 %, so it is **not adopted, the deuteron was not rerun, and nothing is scored**.
+
+**Disclosure:** a scratch local-density run before the freeze (reported in the freeze) had already shown the interior oscillation.
+
+**Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
