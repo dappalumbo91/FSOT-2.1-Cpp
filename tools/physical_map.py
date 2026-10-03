@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate docs/PHYSICAL_MAP.md from audit/precision_2026-10-02.tsv (the 91 record rows) and the derivation-branch scores (rounds l-p).
+"""Generate docs/PHYSICAL_MAP.md from audit/precision_2026-10-02.tsv (the 91 record rows) and the derivation-branch scores (rounds l-q).
 Stdlib only; regenerate each round:  python tools/physical_map.py --out docs/PHYSICAL_MAP.md
 """
 import argparse, csv, math, re
@@ -67,7 +67,7 @@ for x in rows:
     src = re.sub(r"\s*https?://\S+", "", x["source"]).strip().replace("|", "/")[:70]
     out.append(f"| `{x['#id'].replace('|', '/')}` | {meaning(x)} | {nm} | {ratio} | {x['route']} | {x['value']} | {u} | {x['central']} ({src}) | {x['z']} | {st} | {HELD.get(x['#id'], '-')} |")
 out += ["", f"**Totals:** {n['confirmed']}/91 confirmed, {n['confirmed'] + n['frozen-pending']}/91 including frozen-pending, {n['open'] - 0}/91 open.", "",
-        "## Derivation-branch quantities (rounds l–p; not record rows)", "",
+        "## Derivation-branch quantities (rounds l–q; not record rows)", "",
         "| quantity | physical meaning | FSOT derivation | frozen value | ratio to m_e | measured (source) | rel | class | held-out / status | freeze |",
         "|---|---|---|---|---|---|---|---|---|---|",
         "| M_K0 | neutral kaon (pseudo-Goldstone, m_d + m_s) | LO ChPT + Dashen from π±, K± leaves and pins m_u/m_d, m_s/m_d | 497.597 MeV | 973.773 | 497.611(13) PDG 2024 | −0.003 % | FSOT | held-out, agrees | l (9c6dbbc) |",
@@ -88,6 +88,7 @@ out += ["", f"**Totals:** {n['confirmed']}/91 confirmed, {n['confirmed'] + n['fr
         "| μ_d | deuteron magnetic moment | μ_p + μ_n − (3/2)(μ_S − ½) P_D, P_D = 6.28 % | 0.89035 μ_N | — | 0.8574382335 CODATA | +3.84 % | FSOT | fails | o |",
         "| g_A (Ω⁰ + Ω¹) | nucleon axial coupling incl. 1/N_c rotational term | full-sea soliton, DPP profile, g_A^(1) from time-ordered collective operators | 1.1755 | — | 1.2754(13) | −7.8 % | FSOT | open (validation 1.2046 passes 10 %) | p (98cd271) |",
         "| μ_p, μ_n (soliton) | nucleon magnetic moments | isoscalar Ω¹ + isovector Ω⁰ + Ω¹, chiral limit | 3.273 / −2.513 μ_N | — | 2.7928 / −1.9130 | +17 % / +31 % | FSOT | fail | p |",
+        "| g_A, μ_p, μ_n (physical m_π) | nucleon axial coupling and magnetic moments | full-sea soliton with meson mass term (π± leaf), massive DPP profile, D 10 / k 10 / K 8 | 1.3912 / 2.7660 / −1.9258 | — | 1.2754 / 2.7928 / −1.9130 | +9.1 % / −0.96 % / +0.67 % | FSOT | g_A fails; μ_p, μ_n within 2 %, validation not run (time box) | q (d7a9af6) |",
         "| F_π (one-loop LσM l̄₄) | pion decay constant | l̄₄ = N_c + ln(m_σ²/M_π²) − (19 − 3√3π)/2 = 4.662 (Nyffeler–Schenk) | 92.887 MeV | — | 92.07(57) | +0.89 % | FSOT | agrees (2 %), validation passes; pre-freeze evaluation disclosed | p |",
         "| χ_top^{1/4} | topological susceptibility | DP instanton liquid 0.65 e^{1/22} Λ^(3) | 229.2 MeV | — | 185.3(5.7) quenched | +23.7 % | hybrid | fail | p |",
         "| T_CMB (own physics) | CMB temperature | n_γ = Ω_b h² ρ_c100/(u η) | 2.73233 K | — | 2.7255(6) | +0.25 % (z 11) | FSOT | fail z ≤ 1 | p |",

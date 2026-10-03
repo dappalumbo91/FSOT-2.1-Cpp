@@ -122,6 +122,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02p (audit/FREEZE_2026-10-02p.md): adding the 1/N_c rotational term gives a soliton g_A of 1.1755 (−7.8 %). The Δα chain stays gated off. Soliton magnetic moments come out high (μ_p +17 %, μ_n +31 %). The one-loop linear-sigma-model l̄₄ = 4.66 gives an FSOT-only F_π of 92.89 MeV (+0.89 %, agrees). The DP instanton χ_top is +24 % high. The own-physics T_CMB is +0.25 % (z 11). The gate stays at 87/91.
 
+2026-10-02q (audit/FREEZE_2026-10-02q.md): adding the physical pion mass to the soliton gives μ_p = 2.766 (−0.96 %) and μ_n = −1.926 (+0.67 %). These are not confirmed because the validation run was cut by the time box. g_A = 1.391 (+9.1 %) and Δ−N = 190 MeV both fail, and the soliton is still unbound at M = m_p/3. The gate stays at 87/91.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

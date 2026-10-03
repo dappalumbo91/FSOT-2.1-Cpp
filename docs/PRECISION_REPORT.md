@@ -944,3 +944,19 @@ After the fixes, the literature sanity case (M = 420, F = 93) gave g_A^(0) = 0.7
 - Tree-level m_W = 79950 MeV, −0.52 %, fails (radiative corrections are missing).
 
 **Look-elsewhere counts:** P-1 2 profiles, P-2 1, P-4 1, P-5 1, P-6 2. **Totals unchanged at 87/91.**
+
+## 2026-10-02q: soliton with a physical pion mass (freeze d7a9af6, `audit/FREEZE_2026-10-02q.md`, scores `audit/score_2026-10-02q.tsv`)
+
+**Disclosures.**
+- (1) Time box: the heavy run (`tools/heavy_2026_10_02q.py`; log `audit/heavy_2026-10-02q_run.log`) was stopped during the M = 420 sanity self-consistent loop. The validation case (PDG inputs) was not run, so every FSOT row reads "validation FAILED" under the frozen rule. The sanity case is scored on its massive-DPP result.
+- (2) The basis is smaller than round p (D = 10/M, k = 10 M, K ≤ 8, as frozen), and there is no convergence run.
+- (3) The self-consistent iteration (mixing 0.2 with the box-edge tail) converged smoothly but did not reach max|dθ| < 1e-3 in 40 iterations (2.5e-3), so the primary profile is the massive DPP. It lowered E from 3.448 M to 3.419 M.
+- (4) The round-p chiral-limit values were seen before this freeze.
+
+**Q-1** (M = m_p/3, m_π = π± leaf, F = M√3/(2π)):
+- **Binding:** unbound, E = 3.448 M including the meson mass term.
+- **g_A:** 0.8654 + 0.5258 = **1.3912**, +9.1 %, fails 2 %.
+- **M_Δ − M_N:** 190.3 MeV, −35 %, fails.
+- **μ_p = 2.7660** (−0.96 %) and **μ_n = −1.9258** (+0.67 %): both are inside 2 %, but neither counts as agreeing because the validation was not run.
+- **Sanity (M = 420, m_π = 140):** all three literature windows pass (g_A, Δ−N, μ_p/μ_n).
+- Downstream is deferred to round r. Look-elsewhere: 2 profiles. **Totals unchanged at 87/91.**

@@ -160,3 +160,30 @@ def observables(th_fn, Mpv, ang, rad, Kmax, Nc, vac, v1, v2, O):
     return {"E_sol_over_M": float(E), "eps_val": float(ev), "gA0": float(g0), "gA0_val": float(g0v), "gA0_sea": float(g0s), "I_times_M": float(I),
             "A_re": float(A.real), "A_im": float(A.imag), "Amu_re": float(Amu.real), "Amu_im": float(Amu.imag), "B_re": float(B.real), "B_im": float(B.imag),
             "xat_val": float(val), "xat_sea": float(tot)}
+
+# ---------------- round q: physical pion mass (meson term) and mixing-0.2 iteration with box-edge tail
+def mass_energy(th_arr, rad, mpi, F):
+    """E_m/M = (m_pi/M)^2 (F/M)^2 4 pi Int r^2 (1 - cos theta) dr (rad.w carries r^2)"""
+    return mpi**2 * F**2 * 4 * np.pi * float(np.sum(rad.w * (1 - np.cos(th_arr))))
+
+def edge_tail(th, rad, mpi, frac=0.75):
+    r = rad.r; re = frac * rad.D; i = int(np.searchsorted(r, re))
+    tail = lambda x: (1 + mpi * x) * np.exp(-mpi * x) / (x * x)
+    out = th.copy(); out[i:] = th[i] * tail(r[i:]) / tail(r[i]); return out
+
+def self_consistent_m(th0, Mpv, ang, rad, Kmax, Nc, vac, mpi, F, mix=0.2, itmax=40, tol=1e-3, log=print):
+    th = edge_tail(th0(rad.r).copy(), rad, mpi); hist = []; c = 4 * np.pi * mpi**2 * F**2
+    for it in range(itmax):
+        f = profile_fn(rad, th)
+        s1 = C.spectrum(f, 1.0, ang, rad, Kmax, True); s2 = C.spectrum(f, Mpv, ang, rad, Kmax, True)
+        ev = C.valence(s1)
+        if ev is None: hist.append([it, None, None, None]); log("sc", it, "valence lost"); return th, False, hist
+        E = Nc * max(ev, 0.0) - 0.5 * Nc * ((C.esum(s1) - vac[0]) - (1.0 / Mpv) ** 2 * (C.esum(s2) - vac[1])) + mass_energy(th, rad, mpi, F)
+        S, P = sc_force(s1, s2, Mpv, ang, rad, Nc, ev)
+        new = np.arctan2(-P, -(S - c)); new = np.unwrap(new[::-1])[::-1]
+        if new[0] > 0: new = new - 2 * np.pi * round(new[0] / (2 * np.pi))
+        new = edge_tail(new, rad, mpi)
+        d = float(np.max(np.abs(new - th))); hist.append([it, float(E), float(ev), d]); log("sc", it, "E", E, "ev", ev, "dtheta", d)
+        if d < tol: return new, True, hist
+        th = (1 - mix) * th + mix * new
+    return th, False, hist

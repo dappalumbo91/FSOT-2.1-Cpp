@@ -555,6 +555,13 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-42 · 2026-10-02q: soliton with physical m_π — μ_p −0.96 %, μ_n +0.67 % (validation not run, time box); g_A 1.391 (+9.1 %, fails); Δ−N 190 MeV; still unbound at M = m_p/3
+
+Freeze `audit/FREEZE_2026-10-02q.md` (d7a9af6) was committed before the solver changes (`tools/cqsm_rot.py` q-section, `tools/heavy_2026_10_02q.py`) and `tools/score_2026_10_02q.py`.
+- The run was stopped by the time box. The validation case is missing, so the μ rows cannot be promoted.
+- The self-consistent iteration did not converge (2.5e-3 after 40 iterations), so the massive DPP profile is primary.
+- Totals 87/91.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests
