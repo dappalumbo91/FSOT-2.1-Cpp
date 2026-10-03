@@ -10,7 +10,7 @@ import numpy as np
 import cqsm_kr as C
 import cqsm_rot as R
 import fsot02d as X
-ap = argparse.ArgumentParser(); ap.add_argument("--hub", required=True); ap.add_argument("--out", required=True); ap.add_argument("--only", default=None); a = ap.parse_args()
+ap = argparse.ArgumentParser(); ap.add_argument("--hub", required=True); ap.add_argument("--out", required=True); ap.add_argument("--only", default=None); ap.add_argument("--sc-itmax", type=int, default=40); a = ap.parse_args()
 hub, F = X.setup(a.hub); L = X.leaves()
 mp = float(X.kg_to_GeV(L["m_p_kg"]) * 1000); mpi = float(L["m_pi_pm_MeV"]); mpP = 938.27208943; Fpi = 130.2 / math.sqrt(2)
 out = {"generated_by": "tools/heavy_2026_10_02q.py", "freeze": "FREEZE_2026-10-02q", "inputs": {"m_p": mp, "m_pi": mpi}}
@@ -42,7 +42,7 @@ def case(tag, M, Mpv, MN, mpiM, FM, D=10.0, km=10.0, Km=8):
     res = {"M_MeV": M, "Mpv_over_M": Mpv, "M_N_MeV": MN, "mpi_over_M": mpiM, "F_over_M": FM, "D": D, "kmax": km, "Kmax": Km, "scan": scan, "x_DPP": float(xm), "edge_minimum": edge}
     th = prof(xm); o = R.observables(th, Mpv, ang, rad, Km, 3, vac, v1, v2, O); o["E_m_over_M"] = R.mass_energy(th(rad.r), rad, mpiM, FM); o["E_sol_over_M"] += o["E_m_over_M"]
     res["DPP"] = o; log(tag, "DPP", o); out[tag] = res; save()
-    thsc, conv, hist = R.self_consistent_m(th, Mpv, ang, rad, Km, 3, vac, mpiM, FM, log=lambda *s: log(tag, *s))
+    thsc, conv, hist = R.self_consistent_m(th, Mpv, ang, rad, Km, 3, vac, mpiM, FM, itmax=a.sc_itmax, log=lambda *s: log(tag, *s))
     res["SC_converged"] = conv; res["SC_history"] = hist; res["SC_profile"] = [[float(r), float(t)] for r, t in zip(rad.r[::50], thsc[::50])]
     if conv:
         f = R.profile_fn(rad, thsc); o = R.observables(f, Mpv, ang, rad, Km, 3, vac, v1, v2, O); o["E_m_over_M"] = R.mass_energy(thsc, rad, mpiM, FM); o["E_sol_over_M"] += o["E_m_over_M"]

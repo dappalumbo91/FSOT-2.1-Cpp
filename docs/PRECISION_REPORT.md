@@ -960,3 +960,46 @@ After the fixes, the literature sanity case (M = 420, F = 93) gave g_A^(0) = 0.7
 - **μ_p = 2.7660** (−0.96 %) and **μ_n = −1.9258** (+0.67 %): both are inside 2 %, but neither counts as agreeing because the validation was not run.
 - **Sanity (M = 420, m_π = 140):** all three literature windows pass (g_A, Δ−N, μ_p/μ_n).
 - Downstream is deferred to round r. Look-elsewhere: 2 profiles. **Totals unchanged at 87/91.**
+
+## 2026-10-02r: late round-q validation, μ_d, and the χ_top trace (freeze 26f9b66 `audit/FREEZE_2026-10-02r.md`; scores `audit/score_2026-10-02q_late.tsv`, `audit/score_2026-10-02r.tsv`)
+
+**Disclosures.**
+- (1) **R-0 is round q's frozen validation case, completed late. It is not a new freeze.** It uses the same setup: massive DPP profile, D 10 / k 10 / K 8.
+  - The self-consistent loop was skipped (`--sc-itmax 0`, a flag added to `tools/heavy_2026_10_02q.py` after the freeze). The frozen primary is the massive DPP whenever the loop has not converged, and round q's FSOT loop had not.
+  - It is scored by `tools/score_2026_10_02q.py --late-validation`.
+- (2) Before the freeze I saw the μ_d preview (about −5.8 %) and the χ^{1/4} value for the chosen R (about −4.5 %). η/η′ with the new χ were not computed before the freeze.
+- (3) Look-elsewhere: 3 R variants (primary FLAG 2021) and 1 WV-F variant, all info-only.
+
+**R-0 late validation** (PDG inputs):
+
+| Quantity | Result | Gate | Verdict |
+|---|---|---|---|
+| g_A | 1.3931 (+9.2 %) | 10 % | passes |
+| μ_p | 2.6323 (−5.7 %) | 10 % | passes |
+| μ_n | −1.7933 (−6.3 %) | 10 % | passes |
+| Δ−N | 164 MeV | 15 % | fails |
+
+- The FSOT rows from round q therefore count under their own gates: **μ_p −0.96 % and μ_n +0.67 % agree within 2 %.** Neither is a record row.
+- FSOT g_A (+9.1 %) fails 2 %.
+- **μ_d** = 0.80815 from the FSOT soliton μ_p + μ_n and the round-o P_D. That is −5.7 %, so it fails 2 % (record row Deuteron_mu).
+
+**R-1 χ_top trace.**
+1. Λ^(3) from FSOT = 336.94 MeV. This is an N_f = 2+1 quantity.
+2. e^{1/22} is the PV conversion for b = 11, i.e. pure gauge.
+3. The DP density, size distribution, packing fraction and χ = N/V are all pure-gauge quantities, and the WV formula needs the quenched χ.
+
+**Divergent step:** round p fed the unquenched Λ^(3) into a quenched chain, giving +23.7 %.
+
+**Fix:** Λ^(0) = R Λ^(3), with R = r0Λ^(0)/r0Λ^(3) = 0.624(36)/0.808(29) = 0.7723 (FLAG 2021, common r0).
+- This gives Λ^(0) = 260.2 MeV and **χ^{1/4} = 177.0 ± 12 MeV, −4.5 %. It passes the 10 % gate**, and the validation with FLAG Λ^(3) also passes (−4.2 %).
+- The other R variants give 174.4 MeV (FLAG 2019) and 187.2 MeV (Dalla Brida 19).
+
+**η/η′ after the fix:** η = 506.0 MeV (−7.6 %) and η′ = 1013.3 MeV (+5.8 %). Both fail 5 %, narrowly in the η′ case.
+- Round p's η at −0.17 % was a coincidence: the oversized χ pushed the η toward its octet limit.
+- The next divergent step is the LO U(3) + WV matrix itself (F_0 vs F_π, 1/N_c and OZI terms). With F = F_π, the η′ comes out at 968.9 MeV (info).
+
+**R-2 g_A trace** (info only):
+- Round q vs round p: g_A^(0) 0.742 → 0.865, g_A^(1) 0.433 → 0.526, and I·M 2.647 → 2.466.
+- Two steps changed at once: the pion-mass profile and the basis cap (K 12 → 8). The next step is a chiral DPP run in the K 8 basis to separate them.
+
+**Totals unchanged at 87/91.**

@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-43 · 2026-10-02r: late round-q validation passes (g_A, μ_p, μ_n) → soliton μ_p −0.96 %, μ_n +0.67 % agree; μ_d −5.7 % (fail); χ_top trace: quenched Λ^(0) fix → χ^{1/4} 177.0 MeV (−4.5 %, passes); η/η′ −7.6 %/+5.8 % (LO U(3)+WV next)
+
+Freeze `audit/FREEZE_2026-10-02r.md` (26f9b66) was committed before the scorer and the late validation result. Disclosures are in the precision report. Totals 87/91.
+
 ### H-42 · 2026-10-02q: soliton with physical m_π — μ_p −0.96 %, μ_n +0.67 % (validation not run, time box); g_A 1.391 (+9.1 %, fails); Δ−N 190 MeV; still unbound at M = m_p/3
 
 Freeze `audit/FREEZE_2026-10-02q.md` (d7a9af6) was committed before the solver changes (`tools/cqsm_rot.py` q-section, `tools/heavy_2026_10_02q.py`) and `tools/score_2026_10_02q.py`.
