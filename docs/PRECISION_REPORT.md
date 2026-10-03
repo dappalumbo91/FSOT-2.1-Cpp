@@ -1509,7 +1509,12 @@ The round-ad cpp_check passed (540 s) and its worktree was removed.
 
 - With these, **μ_p = 2.2541 and μ_n = −1.6503**. Without the PV subtraction they would be 2.7245 and −2.0177. μ_V^(0) = 2.7447.
 - The PV subtraction is the consistent step, and it moves μ_p, μ_n down by about 18 %. The non-decaying μ_V^(0) sea tail of round x is separate: that piece was already regularised.
-- **K 14 did not finish inside the time box.** It was started in parallel and stopped at scan point 0.9 of 12, after about 590 s. Under the frozen rule (K 12 and K 14 within 2 %), μ is **not scored** and no K 14 g_A is reported. g_A at K 12 is 1.28451, the round-ad value reproduced.
+- **K 14** (rerun alone after the interruption, 6.5 min; x_DPP 1.1715, I M 2.10076) gives μ_p 2.1968 and μ_n −1.5960. The K 12 → 14 changes are −0.0573 and +0.0543 (2.6 % and 3.4 %), so the frozen 2 % rule fails and μ is **not scored**. μ_V^(0) also drifts, 2.7447 → 2.6415, the known tail.
+
+| Row (K 14, theory unc. = abs(K14 − K12)) | Value | Measured | z | Verdict |
+|---|---|---|---|---|
+| g_A (PV-regularised) | 1.29111 (K 12: 1.28451) | 1.2754(13) | 2.33 | miss (+1.23 %) |
+| (M_Δ − M_N)/m_p | 0.32714 (K 12: 0.32943) | 0.31236 | 4.73 | miss |
 
 **AE-2: ω vertex.**
 - Λ_V = √6/r_V = 0.7359 m_p, where r_V = 3.329/m_p (0.700 fm) is the rms radius of the soliton's valence Dirac density.
