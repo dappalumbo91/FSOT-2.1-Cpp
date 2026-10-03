@@ -77,7 +77,7 @@ For scientists and mathematicians: what each FSOT quantity represents, how it ac
 | `pin:wave3/Age_Gyr` | age of the Universe | hbar/(m_e c^2) | 3.37780179e+38 | pin | 13.7871961192453 | Gyr | 13.797 (PDG 2024) | 0.4263 | confirmed | - |
 | `pin:wave3/z_eq` | matter-radiation equality redshift | dimensionless | 3393.81031 | pin | 3393.81031040142 | 1 | 3402 (PDG 2024) | 0.315 | confirmed | - |
 | `pin:wave3/r_star_Mpc` | sound horizon at recombination | hbar/(m_e c) | 1.15385375e+37 | pin | 144.399830031989 | Mpc | 144.43 (PDG 2024) | 0.116 | confirmed | - |
-| `pin:wave3/Deuteron_binding_MeV` | deuteron binding energy | m_e c^2 | 4.35336442 | pin | 2.22456464846253 | MeV | 2.224566229 (AME2020 mass excesses) | 3.592 | open | N-3 LO pionless radius -22.7 % (effective range missing) |
+| `pin:wave3/Deuteron_binding_MeV` | deuteron binding energy | m_e c^2 | 4.35336442 | pin | 2.22456464846253 | MeV | 2.224566229 (AME2020 mass excesses) | 3.592 | open | N-3 LO radius -22.7 %; O-3 OPE + core (B input): r_d -4.1 %, Q_d -14 %, eta -7.3 % (fail) |
 | `pin:wave3/Neutron_lifetime_s` | neutron lifetime | hbar/(m_e c^2) | 6.82090351e+23 | pin | 878.592851392283 | s | 878.4 (PDG 2024) | 0.3857 | confirmed | - |
 | `od2:wave3/m_H/m_W` | Higgs/W mass ratio | dimensionless | 1.55914737 | owner | 1.55914737159333 | 1 | 1.55781070360287 (derived ratio:m_H_GeV/m_W_GeV from [m_H_GeV: PDG2024:sum-gauge-higgs-b) | 0.9597 | confirmed | - |
 | `pin:wave4/sin2_theta12` | solar mixing angle | dimensionless | 0.30696443 | pin | 0.306964429788902 | 1 | 0.307 (PDG 2024) | 0.002736 | confirmed | - |
@@ -86,7 +86,7 @@ For scientists and mathematicians: what each FSOT quantity represents, how it ac
 | `od1:wave4/Dm2_21/Dm2_31` | neutrino splitting ratio | dimensionless | 0.0295170115 | pin | 0.0295170114802864 | 1 | 0.0297593170770264 (derived frac:dm2_21/dm2_32 from [dm2_21: PDG2024:sum-leptons] [dm2_32:) | 0.3168 | confirmed | - |
 | `pin:wave4/Jarlskog_J` | CKM CP-violation invariant | dimensionless | 3.07277179e-05 | pin | 3.07277178666547e-05 | 1 | 3.12e-05 (PDG 2024) | 0.3936 | confirmed | - |
 | `pin:wave4/w0` | dark-energy equation of state | dimensionless | -1.02998129 | pin | -1.02998129213726 | 1 | -1.028 (PDG 2024) | 0.06391 | confirmed | - |
-| `pin:wave5/Gamma_Z/M_Z` | Z width / Z mass | dimensionless | 0.0274897829 | pin | 0.0274897828876688 | 1 | 0.0273665394569461 (derived ratio:Gamma_Z_GeV/m_Z_GeV from [Gamma_Z_GeV: PDG2024:sum-gauge) | 4.885 | open | Delta alpha_had chain gated (g_A open) |
+| `pin:wave5/Gamma_Z/M_Z` | Z width / Z mass | dimensionless | 0.0274897829 | pin | 0.0274897828876688 | 1 | 0.0273665394569461 (derived ratio:Gamma_Z_GeV/m_Z_GeV from [Gamma_Z_GeV: PDG2024:sum-gauge) | 4.885 | open | Delta alpha_had chain gated (g_A^(0) -42 %, O-1) |
 | `pin:wave5/R_b` | Z -> bb fraction of hadronic width | dimensionless | 0.216230145 | pin | 0.216230145276809 | 1 | 0.21629 (PDG 2024) | 0.09069 | confirmed | - |
 | `pin:wave5/R_c` | Z -> cc fraction of hadronic width | dimensionless | 0.172108799 | pin | 0.17210879887232 | 1 | 0.1721 (PDG 2024) | 0.002933 | confirmed | - |
 | `pin:wave5/A_FB_ell` | lepton forward-backward asymmetry at the Z | dimensionless | 0.017111892 | pin | 0.0171118919939693 | 1 | 0.0171 (PDG 2024) | 0.01189 | confirmed | - |
@@ -100,14 +100,14 @@ For scientists and mathematicians: what each FSOT quantity represents, how it ac
 | `pin:wave8/BR_Z_ee` | Z -> ee branching ratio | dimensionless | 0.0336654326 | pin | 0.0336654326477979 | 1 | 0.033632 (PDG 2024) | 0.796 | confirmed | - |
 | `pin:wave8/BR_Z_had` | Z -> hadrons branching ratio | dimensionless | 0.699175038 | pin | 0.699175038098444 | 1 | 0.69911 (PDG 2024) | 0.1161 | confirmed | - |
 | `pin:wave8/BR_Z_inv` | Z -> invisible branching ratio | dimensionless | 0.199977541 | pin | 0.199977541121741 | 1 | 0.2 (PDG 2024) | 0.04083 | confirmed | - |
-| `pin:wave8/Deuteron_mu_muN` | deuteron mag. mom. to nuclear magneton ratio | dimensionless | 0.857391418 | pin | 0.857391418128038 | 1 | 0.8574382335 (CODATA 2022 "deuteron mag. mom. to nuclear magneton ratio") | 2.128e+04 | open | needs an FSOT mu_n leaf |
+| `pin:wave8/Deuteron_mu_muN` | deuteron mag. mom. to nuclear magneton ratio | dimensionless | 0.857391418 | pin | 0.857391418128038 | 1 | 0.8574382335 (CODATA 2022 "deuteron mag. mom. to nuclear magneton ratio") | 2.128e+04 | open | O-3b: SU(6) mu_n -2.7 %, mu_d +3.8 % (fail) |
 | `pin:wave8/S_8` | clustering amplitude S_8 | dimensionless | 0.832014435 | pin | 0.83201443471342 | 1 | 0.832 (PDG 2024) | 0.00111 | confirmed | - |
 | `pin:wave8/z_reion` | reionization redshift | dimensionless | 7.67199242 | pin | 7.6719924223667 | 1 | 7.7 (PDG 2024) | 0.04001 | confirmed | - |
 | `pin:wave10/eta_baryon_photon` | baryon-to-photon ratio | dimensionless | 6.13974954e-10 | pin | 6.13974953542555e-10 | 1 | 6.04e-10 (PDG 2024) | 0.8312 | confirmed | - |
 
 **Totals:** 87/91 confirmed, 88/91 including frozen-pending, 3/91 open.
 
-## Derivation-branch quantities (rounds l–n; not record rows)
+## Derivation-branch quantities (rounds l–o; not record rows)
 
 | quantity | physical meaning | FSOT derivation | frozen value | ratio to m_e | measured (source) | rel | class | held-out / status | freeze |
 |---|---|---|---|---|---|---|---|---|---|
@@ -122,4 +122,10 @@ For scientists and mathematicians: what each FSOT quantity represents, how it ac
 | m_ud, m_s (MSbar 2 GeV) | light-quark masses | GMOR with b from L-A1, F (K-1a), Σ = (272/338) Λ⁽³⁾ | 3.603 / 99.68 MeV | — | 3.387(39) / 92.4(1.0) FLAG | +6.4 % / +7.9 % | hybrid | within 10 % | l |
 | Λ^(5) | QCD scale | FSOT α_s run | 209.52 MeV | — | 213(8) FLAG | z 0.43 | FSOT | agrees | j |
 | r_d (LO) | deuteron point radius | 1/(√8 γ), γ from B(2H) leaf | 1.5265 fm | — | 1.97507(78) | −22.7 % | FSOT | open (needs effective range) | n |
+| g_A^(0) (full sea) | nucleon axial coupling, leading order in Ω | chiral quark soliton, Kahana–Ripka basis, Dirac sea + PV (M_PV = √e M), M = m_p/3 | 0.7424 | — | 1.2754(13) PDG | −41.8 % | FSOT | open (soliton unbound, E = 3.41 M; g_A^(1) not included) | o (f393948) |
+| M_Δ − M_N | rotational splitting 3/(2I) | same soliton, cranking inertia | 177.2 MeV | — | 293.1 | −39.5 % | FSOT | held-out, fails | o |
+| r_d, Q_d, η (OPE) | deuteron radius, quadrupole, D/S ratio | 3S1–3D1 with FSOT g_πNN, m_π; core R = ħc/M_Q fitted to B(2H) leaf | 1.8946 fm / 0.2451 fm² / 0.02373 | — | 1.97507 / 0.285699 / 0.0256 | −4.1 / −14.2 / −7.3 % | FSOT | held-out, fail (validation passes Q_d, η) | o |
+| μ_n | neutron magnetic moment | SU(6) −(2/3) μ_p with FSOT μ_p leaf | −1.86190 μ_N | — | −1.91304276 CODATA | −2.67 % | FSOT | fails 2 % gate | o |
+| μ_d | deuteron magnetic moment | μ_p + μ_n − (3/2)(μ_S − ½) P_D, P_D = 6.28 % | 0.89035 μ_N | — | 0.8574382335 CODATA | +3.84 % | FSOT | fails | o |
+| F_π (l̄₄ = 1 + ln M_Q²/M_π²) | pion decay constant | PV quark loop: dF²/dM² = 0 at the FSOT point | 89.956 MeV | — | 92.07(57) FLAG | −2.29 % | FSOT | fails 2 % gate (l̄₄ = 2.61) | o |
 

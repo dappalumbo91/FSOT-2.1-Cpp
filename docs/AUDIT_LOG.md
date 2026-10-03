@@ -540,6 +540,15 @@ Freeze `audit/FREEZE_2026-10-02n.md` (e9b1405) was committed before `tools/score
 - Δα/Γ_Z chain not run under the frozen gate.
 - Look-elsewhere: N-1 2, N-2 1, N-3 1, N-5 2. Totals 87/91.
 
+### H-40 · 2026-10-02o: full-sea chiral quark soliton at M = m_p/3 is unbound (E = 3.41 M); g_A^(0) = 0.742 (−42 %, g_A^(1) excluded), Δ−N 177 MeV (−40 %); OPE deuteron r_d −4.1 %, Q_d −14 %, η −7.3 %; SU(6) μ_n −2.7 %, μ_d +3.8 %; l̄₄ = 2.61 gives F_π −2.3 %
+
+Freeze `audit/FREEZE_2026-10-02o.md` (f393948) was committed before `tools/cqsm_kr.py`, `tools/heavy_2026_10_02o.py` and `tools/score_2026_10_02o.py`.
+- Every scored item fails its gate.
+- Validations: O-3 Q_d, O-3 η and O-4 pass; O-1 g_A, O-1 Δ−N and O-3 r_d fail.
+- Disclosed: two solver bugs, the vacuum subtraction of g_A and an int64 overflow in the Clebsch–Gordan products, were fixed after the freeze and before scoring. The M = 420 sanity values were seen then.
+- Δα/Γ_Z chain not run under the frozen gate.
+- Look-elsewhere: O-1 1, O-3 3 R values, O-3b 1, O-4 1, O-6 1. Totals 87/91.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests
