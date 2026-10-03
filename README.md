@@ -136,6 +136,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02v (audit/FREEZE_2026-10-02v.md): the soliton now runs to K 16 with a windowed scan (validated against round t to 3.8e-10). The pre-registered K 14–16 extrapolation misses for g_A (1.502, z 5.6) and Δ−N (180.8 MeV, z 41). μ_p and μ_n come out at z ≈ 1 only because the K 16 jump inflates the theory uncertainty; the K sequence does not converge, so these are not counted as evidence. FSOT F_K/F_π = 1.273 (z 38; the L4 = 0 step fails) and FKS η/η′ = 574/951 MeV both miss. Every PHYSICAL_MAP row now carries a reference type (measured / model-computed / lattice-computed / scheme-dependent / contested). The gate stays at 87/91.
 
+2026-10-02w (audit/FREEZE_2026-10-02w.md): the μ oscillation across K is numerical. The valence level and the moment of inertia are K-stable, and only the μ_V^(0) sea sum moves, through a non-decaying high-grand-spin tail. Δ−N fails at the soliton quark mass M = m_p/3, where the valence inertia alone is too large; an M = 420 MeV run gives 296.7 MeV. A J-dependent (rotating) profile lowers Δ−N further. FSOT scalar saturation derives L4 = 0 and gives F_K/F_π = 1.506 (miss). χ is now scored only through the η/η′ observables (WV combination +25 %, miss). The gate stays at 87/91 (85/89 with H0 and τ_n deferred).
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-49 · 2026-10-02w: μ oscillation is numerical (non-decaying high-K tail of the μ_V^(0) sea sum; valence and inertia K-stable); Δ−N fails at the soliton quark mass M = m_p/3 (valence inertia alone 1.39× the required value; M = 420 MeV sanity run gives 296.7); rotational response lowers Δ−N (152 MeV); FSOT scalar saturation gives L4 = 0 (derived), L5 = 4.75e-3 → F_K/F_π 1.506 (z 149) and FKS η/η′ miss; WV combination +25 % (miss)
+
+Freeze `FREEZE_2026-10-02w` (a3d3e76). Post-freeze diagnostics (rotational response, partial-sum averaging) are not scored. Totals 87/91 (85/89 with H0 and τ_n deferred).
+
 ### H-48 · 2026-10-02v: soliton to K 16 (windowed scan, cheaper but same physics); K 14–16 Richardson: g_A 1.502 (z 5.6), Δ−N 180.8 (z 41) miss; μ_p/μ_n z ≈ 1 only through an inflated theory uncertainty (sequence non-convergent, not counted as evidence); F_K/F_π 1.273 (z 38) and FKS η/η′ 574/951 MeV miss; reference-type tags (owner directive 02:39) applied to PHYSICAL_MAP and the round-v scorer
 
 Freeze `FREEZE_2026-10-02v` (2a7eaea). Post-freeze changes: only the class-column type tags in `tools/score_2026_10_02v.py`, which are labels and change no numbers. Pre-freeze peek: F_K/F_π estimated at 1.25–1.27 (disclosed in the freeze). Look-elsewhere count 4 (one primary row each for g_A, μ_p, μ_n and Δ−N; the K pair was pre-registered). g_A ordering is not derived. Directives (b)–(d) are scheduled for next round. Totals 87/91.

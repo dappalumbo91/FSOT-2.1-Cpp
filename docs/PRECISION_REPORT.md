@@ -1163,3 +1163,52 @@ Pre-registered Richardson 1/K² from K 14–16, with theory uncertainty |v_∞ �
 - Look-elsewhere: 4 primary soliton rows, 1 F_K/F_π row, 2 η/η′ rows.
 
 **Totals unchanged at 87/91.**
+
+## 2026-10-02w: μ oscillation traced to the sea-sum truncation, Δ−N traced to the constituent mass, rotational response, FSOT L4/L5, observable rescoring (freeze a3d3e76 `FREEZE_2026-10-02w`; scores `audit/score_2026-10-02w.tsv`)
+
+**W-2a: μ oscillation (owner priority).** I ran `tools/diag_2026_10_02w.py` at the fixed DPP profile x = 0.8 for D = k = K 12/14/16 (`audit/diag_2026-10-02w.jsonl`).
+
+| K | ε_val/M | I_val M | I_sea M | μ_V^(0) sea sum |
+|---|---|---|---|---|
+| 12 | 0.6299654 | 2.22238 | 0.34957 | −0.704 |
+| 14 | 0.6299650 | 2.22234 | 0.35544 | −0.569 |
+| 16 | 0.6299650 | 2.22232 | 0.35935 | −0.822 |
+
+- **The valence level is K-stable.** There is no level crossing and no valence-tracking problem, and the inertia is converged.
+- **Only the μ_V^(0) sea sum moves.** Its grand-spin sectors near the cutoff contribute ±14–18 each with alternating sign. The net per-K contribution (±0.1–0.27) does not decay with K, and averaging partial sums does not stabilise it (−0.61 / −0.61 / −0.86).
+- **So the oscillation is numerical:** a non-decaying high-K tail in the r-weighted, vacuum-subtracted sea sum. It is not a missing dynamical effect, because it appears at a fixed profile.
+- **Fix (next round):** replace the K/k truncation by an energy-cutoff mode sum consistent with the PV regularisation, and check that E, ε_val, I and g_A stay unchanged to 1e-8 as the freeze requires. No fix was adopted this round.
+- **It is driven by the grand-spin cutoff K.** Holding K at 12 and enlarging the box and momentum cutoff (D = k from 12 to 16) moves the sea sum only from −0.704 to −0.726. Raising K from 12 to 16 at D = k = 16 moves it from −0.726 to −0.822. The (12,12,16) and (16,12,12) runs were stopped at the cap.
+
+**W-2b: rotational response (Damian's hypothesis; post-freeze diagnostic, not scored).** `tools/rot_2026_10_02w.py` at K 12 minimises E_sol(x) + J(J+1)/(2I(x)) separately for N and Δ within the massive DPP family, instead of rotating the static minimum rigidly.
+- x moves from 0.787 (static) to 0.743 (N) and to the scan edge, 0.70 (Δ).
+- I M grows from 2.67 to 2.87 (N) and 3.10 (Δ), because the valence level moves toward the continuum as the soliton shrinks.
+- Δ−N falls from 175.6 MeV (rigid) to ≤ 152 MeV, which takes it further from 293.
+- The rotational response is real but goes the wrong way for Δ−N. It cannot cause a K-dependent jump at a fixed profile, so it does not explain the μ oscillation. At the N profile μ_p goes from 2.657 to 2.583 and μ_n from −1.811 to −1.731 (K 12), again away from the measured values.
+
+**W-2c: Δ−N trace.**
+- 3/(2I) = 293.1 MeV needs I M = 1.600. The cranking inertia is I_val M = 2.222 plus I_sea M = 0.350; the valence part alone is already 1.39× the requirement.
+- The valence level is weakly bound (ε = 0.63 M at M = m_p/3), so the valence-to-continuum cranking sum is large.
+- The round-q sanity run at M = 420 MeV gives I M = 2.12, i.e. Δ−N = 296.7 MeV. **The failing physics step is the soliton quark mass M = m_p/3.** That is the additive (non-relativistic) constituent mass, whereas the soliton needs the dynamical mass at zero momentum.
+- An FSOT route to M(0) is an open derivation. The rotational 1/N_c corrections (O(Ω²) rotational energies, the Δ−N shift from the time-ordered terms) are listed and not fitted.
+
+**W-3: L4, L5 inside FSOT.** Large-N_c scalar saturation with the quark-level scalar M_S = 2 m_p/3 and F = m_p/(2√3π) gives:
+- L5 = F²/(4M_S²) = 4.75e-3 and L8 = 1.19e-3.
+- **L4 = 0 is derived:** the quark-level scalar nonet is degenerate, and L4 ∝ (1/M_S1² − 1/M_S8²).
+- **F_K/F_π = 1.506 (z 149), miss.** The pre-freeze mental estimate of ~1.5 is disclosed.
+- **FKS: η 601.0 MeV (z 3128), η′ 907.6 MeV (z 836), both miss.**
+- Validation (information only) with M_S = 980 MeV and PDG F_π gives 1.359: saturating at μ = M_S overshoots even with the physical scalar mass. The round-v l̄₄ route (1.273) remains the closer FSOT value.
+
+**W-1: directives (b)/(c).**
+- **χ_top** is scored only through observables. The LO Witten–Veneziano combination M_η² + M_η′² − 2M_K²: FSOT 9.127e5 MeV² vs 7.301e5 MeV², +25 %, **miss**. The FKS M_η′ (W-3) also misses. The +2.7 % gap to the quenched lattice is now an information row.
+- **Λ^(5,4,3)** are documented as the RG-invariant scale of the FSOT α_s. They are scored only via the α_s(M_Z) record row and the round-d R_ell (z 1.29); FLAG gaps are information.
+- **Scheme-dependent record rows** now have documented observable routes.
+- **String tension:** no FSOT √σ route, so it stays an open derivation (target: Regge slope α′).
+- **H0 and τ_n** are deferred. Both are currently confirmed, so the totals are 87/91, or 85/89 without them.
+
+**Disclosures.**
+- Both diagnostics (the rotational-response script and the partial-sum averaging) were added after the freeze and are not scored.
+- The F_K/F_π mental estimate was made before the freeze.
+- Look-elsewhere: 4 scored rows (WV combination, F_K/F_π, η, η′), one route each.
+
+**Totals unchanged at 87/91.**
