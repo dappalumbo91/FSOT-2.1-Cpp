@@ -1,0 +1,19 @@
+{
+ "freeze": "FREEZE_2026-10-02al",
+ "date": "2026-10-03",
+ "parent": "92b62fb (round ak)",
+ "rule": "z-only scoring against observations; ratios first, MeV as byproduct; no hybrid; gates, tolerances and the single-PV regulator unchanged; pins never edited",
+ "AL-1 shell-period averaging": {
+  "rule": "at fixed kmax, a new radial shell per l enters each time kmax D grows by pi, i.e. one shell period is Delta D = pi/kmax. Every sharp single-PV sum is averaged with equal weights over the 4 boxes D_j = D0 + j (pi/kmax)/4, j = 0..3 (same samples and weights for every observable)",
+  "levels": "level A: kmax 12, D0 14 (kmax D0 168); level B: kmax 14, D0 14 (kmax D0 196); K 14; fixed profile of the round-ag kmax-12 run",
+  "averaged per sample": "E_sol, g_A^(0), xat (mu_V^(0) sea and valence), inertia I",
+  "rotational sums": "A, Amu, B from the D0 sample of each level only (they move <= 0.6 % with kmax, rounds ag/ah; stated): g_A = <g_A^(0)> + A(D0)/<I>; mu_V = <mu_V^(0)> + Amu(D0)/<I>; mu_S = B(D0)/(6<I>)",
+  "tool": "tools/shellavg_2026_10_02al.py --level A|B (each run alone, under 10 min) -> audit/shellavg_2026-10-02al_{A,B}.json",
+  "validation": "at each level, averaged E, g_A and I within 2 % of the sharp D0 values (frozen tolerance)",
+  "score rule": "mu_p, mu_n scored (at level B) if validation passes at both levels and the averaged mu_p, mu_n change <= 2 % from level A to B; theory unc. = |B - A|",
+  "sigma charge": "round-ai sigma-projected charge (single PV), round-ab soliton, K 12; averaged the same way over D_j = D0 + j (pi/kmax)/4, D0 12, at kmax 12 (level 144) and kmax 14 (level 168); adopted if > 0 and the averaged charge changes <= 2 % between the levels; then rerun the full OPE + sigma + omega deuteron (round-af potentials, Lambda_V omega vertex, g_sigma = (M/F) Q, Lambda_S = sqrt6/r_sigma from the averaged r^2) and score B_d/m_p and mu_d (z), P_D info"
+ },
+ "AL-2 Gamma_Z": "only if time remains, under its own freeze addendum committed before computing",
+ "hub prompt": "keeps the T_CMB adoption section",
+ "look-elsewhere": "AL-1: one averaging rule (4 equal-weight samples per shell period); up to 2 mu rows + 2 deuteron rows"
+}
