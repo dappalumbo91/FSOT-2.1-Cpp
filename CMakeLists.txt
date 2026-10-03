@@ -158,6 +158,7 @@ if(Python3_Interpreter_FOUND)
   add_test(NAME round_freeze_ai COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_freeze_files_ai.py)
   add_test(NAME round_freeze_aj COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_freeze_files_aj.py)
   add_test(NAME round_freeze_ak COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_freeze_files_ak.py)
+  add_test(NAME round_freeze_al COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_freeze_files_al.py)
 endif()
 
 # Freestanding check: the balanced-ternary core compiles without a hosted library and references no
@@ -183,7 +184,8 @@ if(nlohmann_json_FOUND AND (Boost_FOUND OR FSOT_WITH_FLOAT128))
   add_executable(fsot_freeze_domain apps/fsot_freeze_domain.cpp)
   target_link_libraries(fsot_freeze_domain PRIVATE fsot nlohmann_json::nlohmann_json)
   add_test(NAME freeze_core_sha_matches_hub_freeze
-           COMMAND sh -c "test \"$($<TARGET_FILE:fsot_freeze_domain> --print-core-sha)\" = 8e30e85e72091462c4d66df2d498afb36ccbc2d40eb5df01b4e083947c79dad3")
+           COMMAND ${CMAKE_COMMAND} -DEXE=$<TARGET_FILE:fsot_freeze_domain> -DEXPECT=8e30e85e72091462c4d66df2d498afb36ccbc2d40eb5df01b4e083947c79dad3
+                   -P ${CMAKE_CURRENT_SOURCE_DIR}/cmake/check_core_sha.cmake)   # portable: no sh (native Windows CTest)
   find_package(Python3 COMPONENTS Interpreter QUIET)
   file(GLOB FSOT_FREEZES ${CMAKE_CURRENT_SOURCE_DIR}/freezes/*.json)
   foreach(fz ${FSOT_FREEZES})

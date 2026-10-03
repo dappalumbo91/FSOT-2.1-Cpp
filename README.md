@@ -157,6 +157,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-03 (adoption of the 2026-10-02ah T_CMB section): the CMB record row is the η route, n_γ0 = ω_b ρ_c,100 / (m_p η), T_0 = (π² n_γ0 / (2ζ(3)))^{1/3} ħc/k_B = 2.72573880197729 K against FIRAS 2.7255(6), z 0.398. ω_b is wave1|Omega_b_h2 and η is wave10|eta_baryon_photon. The closed form φ² + P_base·|S_cosm| remains in the report as the superseded row. The gate is **88/91 confirmed** (86/91 pinned only; the frozen-pending column is 88/91; 86/89 with H0 and τ_n deferred). Caveat: the observed η the formula was compared to is itself inferred with T_CMB³ (target choice, not an input). The same flat branch gives h 0.674541, against the H0 pin by −1.448%, Ω_Λ by +0.408%, Ω_m by −0.299% and Ω_r by +0.327%. The pin set sums to 0.99816.
 
+2026-10-02al (audit/FREEZE_2026-10-02al.md): averaging the single-PV sums over one radial-shell period passes validation at kmax 12, but the kmax-14 level did not finish within the 10-min cap, so μ is not scored. The averaged σ charge still moves 4.2 % between kmax 12 and 14, so it is not adopted. The core-SHA CTest no longer needs `sh` on Windows. Totals 88/91 (86/91 pinned only, 86/89 with H0 and τ_n deferred), after the owner's record commit b99fc29 adopted the η T_CMB route. Round al changes no record row.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

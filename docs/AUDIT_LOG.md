@@ -555,6 +555,12 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-65 · 2026-10-02al: shell-period averaging (4 boxes over one π/kmax period) passes validation at kmax 12 (E +1.70 %, g_A +0.50 %, I +0.002 %) but the kmax-14 level did not finish within the 10-min cap, so μ is not scored; the averaged σ charge moves −4.23 % from kmax 12 to 14, so it is not adopted and the deuteron is not rerun; Γ_Z not attempted; core-SHA CTest made sh-free for Windows
+
+Freeze `FREEZE_2026-10-02al` (50b93a3). Round-ak cpp_check passed (653 s). Totals 88/91 (86/91 pinned only, 86/89 with H0 and τ_n deferred) after the owner's record commit b99fc29 (H-64) adopted the η T_CMB route; round al changes no record row.
+
+Details (kept here; docs/PRECISION_REPORT.md is left exactly as the owner's record commit b99fc29 wrote it). Level A (kmax 12, D0 14), sharp D0 → 4-box average: E_sol/M 2.123983 → 2.160008 (+1.70 %), g_A 1.291689 → 1.298195 (+0.50 %), I·M 2.098733 → 2.098767 (+0.002 %); μ_p 2.2854 → 2.3262, μ_n −1.6841 → −1.7249 (not scored). The samples jump in pairs (j=0,1 vs j=2,3), so the discreteness is a step. Level B (kmax 14) was killed by the frozen 10-min cap (`timeout 600`) before finishing its first sample, so μ is not scored. σ charge averaged 1.5810 (kmax 12) vs 1.5169 (kmax 14). Windows: `freeze_core_sha_matches_hub_freeze` failed on native MSVC at 92b62fb only because `sh` was not on PATH; it now runs `cmake -P cmake/check_core_sha.cmake` (docs/REPRODUCE.md). Look-elsewhere: 0 scored rows. Disclosures: the first level-A launch was killed by an interrupted wait and restarted unchanged; using the D0-only rotational sums was pre-registered in the freeze.
+
 ### H-64 · 2026-10-03: adopted the AF-3 η route as the T_CMB record row (2026-10-02ah section)
 
 The record row is `eta:T_CMB` = 2.72573880197729 K, z 0.398, against FIRAS 2.7255(6). Formula: n_γ0 = ω_b ρ_c,100 / (m_p η), T_0 = (π² n_γ0 / (2ζ(3)))^{1/3} ħc/k_B, with ω_b = `wave1|Omega_b_h2`, η = `wave10|eta_baryon_photon`, and m_p the seed leaf. G, c, ħ and k_B are the AF-3 CODATA values; ζ(3) is the mpmath literal. The closed form `pin:wave1|T_CMB` (2.72471169034307 K, z 1.314) stays in the report with record 0, and C-TCMB stays attached to that id.
