@@ -979,7 +979,7 @@ After the fixes, the literature sanity case (M = 420, F = 93) gave g_A^(0) = 0.7
 | μ_n | −1.7933 (−6.3 %) | 10 % | passes |
 | Δ−N | 164 MeV | 15 % | fails |
 
-- The FSOT rows from round q therefore count under their own gates: **μ_p −0.96 % and μ_n +0.67 % agree within 2 %.** Neither is a record row.
+- The FSOT rows from round q therefore count under their own gates: μ_p −0.96 % and μ_n +0.67 % were inside the 2 % gate. *Correction (round u): percentage gates do not count. Both are misses by z, and they are not basis-stable (round t).* Neither is a record row.
 - FSOT g_A (+9.1 %) fails 2 %.
 - **μ_d** = 0.80815 from the FSOT soliton μ_p + μ_n and the round-o P_D. That is −5.7 %, so it fails 2 % (record row Deuteron_mu).
 
@@ -991,7 +991,7 @@ After the fixes, the literature sanity case (M = 420, F = 93) gave g_A^(0) = 0.7
 **Divergent step:** round p fed the unquenched Λ^(3) into a quenched chain, giving +23.7 %.
 
 **Fix:** Λ^(0) = R Λ^(3), with R = r0Λ^(0)/r0Λ^(3) = 0.624(36)/0.808(29) = 0.7723 (FLAG 2021, common r0).
-- This gives Λ^(0) = 260.2 MeV and **χ^{1/4} = 177.0 ± 12 MeV, −4.5 %. It passes the 10 % gate**, and the validation with FLAG Λ^(3) also passes (−4.2 %).
+- This gives Λ^(0) = 260.2 MeV and **χ^{1/4} = 177.0 ± 12 MeV, −4.5 %, z 1.46: a miss under the z rule (round u)**, and the validation with FLAG Λ^(3) also passes (−4.2 %).
 - The other R variants give 174.4 MeV (FLAG 2019) and 187.2 MeV (Dalla Brida 19).
 
 **η/η′ after the fix:** η = 506.0 MeV (−7.6 %) and η′ = 1013.3 MeV (+5.8 %). Both fail 5 %, narrowly in the η′ case.
@@ -1031,7 +1031,7 @@ After the fixes, the literature sanity case (M = 420, F = 93) gave g_A^(0) = 0.7
 - **Inputs:** f_q = FSOT F_π (92.89 MeV), f_s = f_q√(2r² − 1) with r = F_K/F_π = 1.1932 (FLAG), and a² = 2χ/f_q² with χ^{1/4} = 177.0 MeV from round r. The OZI-violating terms Λ₁ = Λ₂ = 0.
 - **Validation** (PDG F_π, lattice χ): η +1.7 % and η′ −1.4 %, both within 5 %.
 - **FSOT:**
-  - **M_η = 538.4 MeV (−1.7 %): passes.**
+  - **M_η = 538.4 MeV (−1.7 %, z 557): a miss under the z rule (round u).**
   - M_η′ = 882.6 MeV (−7.9 %): fails.
   - φ = 37.7° (FKS phenomenology: 39.3°).
 - The η′ shortfall traces to a² = 0.228 GeV² against about 0.265 in phenomenology. The validation, which differs mainly in χ^{1/4} (185.3 vs 177.0), passes. So the remaining step is χ itself: the quenched-to-unquenched ratio R and the 0.65 coefficient.
@@ -1078,7 +1078,7 @@ They now sit in their own table in `docs/PHYSICAL_MAP.md`. The round-r χ^{1/4} 
 **T-1: pure-gauge scale from the gluon condensate.**
 - **Leaf:** pin ⟨(α_s/π)G²⟩ = C_cosm − e⁻³ = 0.012833, read in GeV⁴. The unit is read by the same convention as the hadronic leaves, not derived from m_e.
 - **Physical meaning:** each (anti)instanton carries ∫g²G² = 32π², so ⟨(α_s/π)G²⟩ = 8n. This gives the instanton density n = 1.058 fm⁻⁴ directly, with no Λ needed.
-- **Result:** χ_top = n gives **χ^{1/4} = 200.13 MeV, +8.0 % against the quenched lattice value. It passes the 10 % gate**, though z = 2.6. The validation with SVZ 0.012 gives +6.2 % and also passes.
+- **Result:** χ_top = n gives **χ^{1/4} = 200.13 MeV, +8.0 % against the quenched lattice value, z = 2.6: a miss under the z rule (round u)**. The validation with SVZ 0.012 gives +6.2 % and also passes.
 - The DP relation then gives Λ^(0) = 294.2 MeV, so Λ^(0)/Λ^(3)_FSOT = 0.880.
 - **η/η′** (LO U(3)+WV with F = FSOT F_π):
   - η −4.2 %, η′ +20.4 %.
@@ -1096,5 +1096,36 @@ They now sit in their own table in `docs/PHYSICAL_MAP.md`. The round-r χ^{1/4} 
 
 - **The round-q K 8 agreement of μ_p and μ_n (counted as agreeing in round r) is not basis-stable, and is withdrawn.** μ_d with the K 12 moments is 0.8144 (info).
 - The operator-ordering and surface-term corrections remain open derivations; no correction was applied.
+
+**Totals unchanged at 87/91.**
+
+## 2026-10-02u: z-only scoring, soliton convergence attempt, Λ^(0)/Λ^(3) through FSOT (freezes d24fc1d `FREEZE_2026-10-02u`, d061909 `FREEZE_2026-10-02u2`; scores `audit/score_2026-10-02u.tsv`)
+
+**Scoring rule (owner).** Percentage gates never count as a pass. A row agrees only if z ≤ 1 against the published uncertainty.
+- Re-reported as misses: χ^{1/4} from the condensate (round t, z 2.60), round-t LO η (z 1348), round-q μ_p (z 3.3e7) and μ_n (z 2.8e4), and the round-p F_π from the one-loop LσM (z 1.45).
+- PHYSICAL_MAP corrections: M_K0 (z 1.08), M_K0 Q route (z 51), M_π0 (z 1160) and F_π physical (z 2.74) are misses. F at the chiral limit agrees at z 0.61.
+- Earlier "passes 10 %" or "agree within 2 %" wording in this report, the README and the audit log is corrected. The frozen TSVs are not rewritten.
+
+**U-1: K 14 soliton (not completed).** The job exceeded the 10-minute cap and was stopped at 15 minutes, so convergence is not established and no extrapolated value is scored.
+- Going from K 8 to K 12: g_A +0.042, μ_p −0.124, μ_n +0.131, Δ−N −12.8 MeV.
+
+**U-2: g_A corrections.**
+- **Surface term:** the massive tail bounds it at |θ(D)| ≤ 8.7e-4 (K 8) and 2.5e-4 (K 12), which is negligible.
+- **Operator ordering:** still open. The bracket at K 12 (unconverged) runs from g_A^(0) = 0.892 (classical ordering) to g_A^(0) + g_A^(1) = 1.433 (time-ordered). No interpolating factor is introduced, because it would be a tune.
+
+**U2-1: Λ^(0)/Λ^(3) inside FSOT.**
+- **Route:** the trace anomaly gives a vacuum energy density ε = −(b/32)⟨(α_s/π)G²⟩, with b = 11 − 2N_f/3. The FSOT condensate pin is a full-QCD (b = 9) quantity. Holding ε fixed as the common hadronic scale, the pure-gauge density is n_0 = (9/11)·pin/8.
+- **Result:** **χ^{1/4} = 190.34 MeV, z 0.88 against 185.3(5.7).** Λ^(0) = 279.8 MeV, so Λ^(0)/Λ^(3)_FSOT = 0.837.
+- **What separates the ratios:**
+  - Round t's 0.880 held the condensate fixed. This route multiplies by (b₃/b₀)^{1/4} = 0.951.
+  - The remaining factor of 0.923 down to the lattice 0.772 is the difference between matching at fixed vacuum energy and matching at fixed r0. FSOT cannot compute that yet: it needs an FSOT r0 or string tension in units of ε.
+- **Disclosure:** this route was chosen after round t (which read high) with the lattice ratio known, and it was hand-evaluated before the freeze. Look-elsewhere: 3 candidates, 1 usable. Treat the z 0.88 as provisional until the r0/ε link is derived.
+- **η/η′** (LO, FSOT F_π) are 514.7 / 1067.0 MeV, both misses. The LO matrix is the failing step, and the next order needs F_K/F_π, which was not reached this round.
+
+**What moved μ_p/μ_n:**
+- Hybrid removal (round s2) did not touch them. The soliton chain never used an outside number except in validation rows.
+- **Pion mass** (round q, FSOT π± leaf) at fixed K 12: 3.273 → 2.642 for μ_p and −2.513 → −1.795 for μ_n.
+- **Basis** at fixed pion mass, K 8 → K 12: 2.766 → 2.642 for μ_p (−4.5 %) and −1.926 → −1.795 for μ_n (−6.8 %).
+- The round-q/r 2 % "agreement" sat on the unconverged K 8 basis.
 
 **Totals unchanged at 87/91.**

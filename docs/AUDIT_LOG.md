@@ -555,7 +555,11 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
-### H-46 · 2026-10-02t: gluon-condensate pin → instanton density → χ^{1/4} 200.1 MeV (+8.0 %, passes 10 %, FSOT-only); LO η′ +20 % (validation fails); massive soliton at K 12: g_A +12.3 %, μ_p −5.4 %, μ_n −6.2 %, so the round-r μ agreement is withdrawn
+### H-47 · 2026-10-02u: z-only rule adopted (earlier percentage "passes" re-labelled as misses); K 14 soliton not completed (cap); surface term negligible, ordering open; Λ^(0)/Λ^(3)_FSOT = 0.837 via the trace anomaly at fixed vacuum energy → χ^{1/4} 190.3 MeV (z 0.88, chosen post hoc, disclosed)
+
+Freezes `FREEZE_2026-10-02u` (d24fc1d) and `FREEZE_2026-10-02u2` (d061909). μ_p/μ_n moved because of the pion mass and the K basis; hybrid removal did not affect them. Totals 87/91.
+
+### H-46 · 2026-10-02t: gluon-condensate pin → instanton density → χ^{1/4} 200.1 MeV (+8.0 %, z 2.6: miss under the round-u z rule; FSOT-only); LO η′ +20 % (validation fails); massive soliton at K 12: g_A +12.3 %, μ_p −5.4 %, μ_n −6.2 %, so the round-r μ agreement is withdrawn
 
 Freeze `audit/FREEZE_2026-10-02t.md` (a5d3947). The pin value was seen before the freeze (disclosed). The ordering/surface corrections and F_K/F_π remain open derivations. Totals 87/91.
 
@@ -576,11 +580,11 @@ Freeze `audit/FREEZE_2026-10-02s2.md` (74ffa98).
 
 χ_top, η and η′ wait on an FSOT Λ^(0). The missing leaf is a pure-gauge hadronic scale. Totals 87/91.
 
-### H-44 · 2026-10-02s: g_A separation: the basis cap is not the cause (−1.8 %); the pion-mass step gives +20.5 % via the Dirac-sea axial sum and g_A^(1); FKS η −1.7 % (passes), η′ −7.9 % (χ is the remaining step)
+### H-44 · 2026-10-02s: g_A separation: the basis cap is not the cause (−1.8 %); the pion-mass step gives +20.5 % via the Dirac-sea axial sum and g_A^(1); FKS η −1.7 % (z 557, miss), η′ −7.9 % (χ is the remaining step)
 
 Freeze `audit/FREEZE_2026-10-02s.md` (5d6610c). The separation run was a diagnostic made before the freeze (disclosed), and no g_A fix has been derived yet. Totals 87/91.
 
-### H-43 · 2026-10-02r: late round-q validation passes (g_A, μ_p, μ_n) → soliton μ_p −0.96 %, μ_n +0.67 % agree; μ_d −5.7 % (fail); χ_top trace: quenched Λ^(0) fix → χ^{1/4} 177.0 MeV (−4.5 %, passes); η/η′ −7.6 %/+5.8 % (LO U(3)+WV next)
+### H-43 · 2026-10-02r: late round-q validation passes (g_A, μ_p, μ_n) → soliton μ_p −0.96 %, μ_n +0.67 % inside a 2 % gate (round u: misses by z; round t: not basis-stable); μ_d −5.7 % (fail); χ_top trace: quenched Λ^(0) fix → χ^{1/4} 177.0 MeV (−4.5 %, z 1.46, miss); η/η′ −7.6 %/+5.8 % (LO U(3)+WV next)
 
 Freeze `audit/FREEZE_2026-10-02r.md` (26f9b66) was committed before the scorer and the late validation result. Disclosures are in the precision report. Totals 87/91.
 
