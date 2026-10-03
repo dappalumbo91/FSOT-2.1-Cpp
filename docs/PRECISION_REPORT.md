@@ -1567,3 +1567,48 @@ Freeze `audit/FREEZE_2026-10-02af.{json,md}` (commit 04f0fd1), committed before 
 - **Flag:** step (i) is a baryon-to-photon route. If FSOT's η (wave10) was itself built from T_CMB, the T_CMB agreement is circular. That provenance was not checked this round and is left for the owner. The record gate is unchanged.
 
 **Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
+
+## 2026-10-02ag: η provenance; soliton box size and cutoff decoupled from K; deuteron ω piece breakdown
+
+Freeze `audit/FREEZE_2026-10-02ag.{json,md}` (commit fea36c7), committed before computing. Scorer `tools/score_2026_10_02ag.py`, output `audit/score_2026-10-02ag.tsv`.
+
+**AG-1: η provenance** (read-only, hub 6f9c256).
+- `vendor/fsot_compute.py` wave10 gives η = Poof¹¹/(πγ) = 6.13975e−10. Poof = exp((−ln π/e)/(η_eff ln φ)) and η_eff = 1/(π−1), so η is built from pure constants (π, e, φ, γ). The formula entered the vendor bundle in 78d220de (2026-07-04).
+- ω_b (wave1) = |S_cosm|(1 − S_chem) is also free of T_CMB. S_cosm is shared with the T_CMB pin formula φ² + P_base|S_cosm|, but the round-af route does not use that pin.
+- **Verdict:** no T_CMB or photon density enters η or ω_b, so the round-af T_CMB (2.725739 K, z 0.40) is an FSOT derivation. It is proposed to the hub as a record route; record rows change only through the hub.
+- Caveat: the observed η used as the formula's reference is itself inferred with T_CMB³. That is a target choice, not an input.
+- Disclosure: the provenance was read before the freeze was written; AG-1 has no scored rows.
+
+**AG-2: box size D and cutoff kmax decoupled from K** (kmax 12 throughout; `tools/murun_2026_10_02ag.py`).
+
+| Point | g_A | Δ−N/m_N | μ_p | μ_n | μ_V^(0) |
+|---|---|---|---|---|---|
+| P1 K 12, D 12 (round-ae run) | 1.28451 | 0.32943 | 2.25414 | −1.65028 | 2.74467 |
+| P2 K 12, D 14 (255 s) | 1.28131 | 0.32871 | 2.26221 | −1.65964 | 2.76310 |
+| P3 K 14, D 14 (272 s) | 1.29169 | 0.32746 | 2.28540 | −1.68406 | 2.81419 |
+
+- All four quantities pass the frozen 2 % rule in both directions (K step at D 14, box step at K 12), so all four are scored at P3. The theory uncertainty is the larger of the two steps.
+
+| Row | Value | Measured | z | Verdict |
+|---|---|---|---|---|
+| μ_p | 2.28540 | 2.792847 | 21.9 | miss (−18.2 %) |
+| μ_n | −1.68406 | −1.913043 | 9.38 | miss (−12.0 %) |
+| g_A | 1.29169 | 1.2754(13) | 1.56 | miss (+1.28 %) |
+| (M_Δ − M_N)/m_N | 0.32746 | 0.31236 | 6.12 | miss (+4.83 %) |
+
+- **Post-freeze cross-check (disclosed; information only):** the round-ae K 14 run is P3 with kmax 14. Raising kmax from 12 to 14 moves μ_p by −3.9 % and μ_n by −5.2 %, but g_A by only −0.04 % and Δ−N by −0.10 %. μ is therefore cutoff-dependent: the round-af drift came from kmax, not from the box. g_A and Δ−N are stable in all three directions.
+
+**AG-3: deuteron ω piece breakdown** (first order, in the OPE+σ(LS) state, B0/m_p 0.0036836 = 3.456 MeV, P_D 0.0623).
+
+| Vertex | ⟨central⟩ | ⟨tensor⟩ | ⟨spin-orbit⟩ | total / B0 |
+|---|---|---|---|---|
+| Λ_V 0.7359 (soliton) | +0.1358 | −0.0034 | +0.0039 | 37.0 |
+| point | +0.1821 | −0.0217 | +0.0103 | 46.4 |
+| Λ_B 0.8931 (F1) | +0.1482 | −0.0047 | +0.0051 | 40.3 |
+
+- Adding pieces one at a time: ω central alone unbinds the system; central + spin-orbit and the full model stay unbound. Spin-orbit + tensor without the central term stays bound (B/m_p 0.003504, 3.29 MeV byproduct).
+- **The over-repulsion is the ω central term** (g_ω²/4π = 9π = 28.3), at about 37 times the binding. The form factor removes only about 25 % of it, and tensor and spin-orbit are minor.
+- **F1** (the topological baryon radius as the ω vertex, frozen) is harder still and remains unbound: miss.
+- Physical reading: σ is scaled down by the valence-only scalar charge 0.508 (g_σ²/4π 3.97), while ω carries the full baryon number. The imbalance is σ/ω. The candidate soliton fix is the Dirac-sea part of the scalar density in g_σNN; it has not been computed.
+
+**Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
