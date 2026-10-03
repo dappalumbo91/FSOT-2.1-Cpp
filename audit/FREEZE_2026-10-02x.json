@@ -1,0 +1,25 @@
+{
+ "freeze": "FREEZE_2026-10-02x",
+ "date": "2026-10-03",
+ "authority_pin": "AEB2AD (unchanged)",
+ "hub_data_commit": "6f9c2560 (unchanged)",
+ "rule": "z-only scoring against observations; no hybrid; frozen before any round-x number is computed",
+ "X-1 energy-cutoff sea sum": {
+  "change": "mu_V^(0) sea sum (diag_scalar of r x sigma . tau) restricted to states with |e| < E_c, applied identically to s1, s2 (PV) and v1, v2 (vacuum); E_c = 0.75 k_max M (inside the basis momentum cutoff, so every included state is resolved by the basis). Nothing else changes, so E, eps_val, I, g_A are untouched by construction (recomputed eps_val and I must agree with round w to 1e-8).",
+  "test": "fixed DPP profile x = 0.8 at D = k = K 12, 14 (16 if time); converged if |S(K16) - S(K14)| < 0.01 |S(K16)| and the K 12->14->16 sequence is monotonic.",
+  "rescore": "mu_p, mu_n rescored only if converged; otherwise information."
+ },
+ "X-2 soliton dynamical quark mass M(0)": {
+  "route": "Diakonov-Petrov instanton-vacuum gap equation N/V = 4 N_c Int d^4p/(2pi)^4 M(p)^2/(p^2 + M(p)^2), M(p) = M(0) F(p rho)^2, zero-mode form factor F(k) = 2z[I0(z)K1(z) - I1(z)K0(z)] - 2 I1(z)K1(z), z = k/2, F(0) = 1",
+  "FSOT inputs": "N/V = n = <(alpha_s/pi)G^2>/8 from the FSOT condensate pin (round t, n^(1/4) = 200.13 MeV; full QCD because quarks propagate in the full vacuum); rho = R/3 with R = n^(-1/4) (Diakonov-Petrov variational ratio R/rho = 3, a structural number of the instanton-vacuum model, disclosed as the one model constant)",
+  "validation": "DP 1986 inputs n = (200 MeV)^4, rho = (600 MeV)^-1 must give M(0) = 345 MeV within 3 % (otherwise the route is rejected)",
+  "soliton rerun": "massive DPP at M = M(0), M_PV = sqrt(e) M, F/M = sqrt3/(2 pi) (PV condition, unchanged), m_pi = FSOT pi+- leaf; K 12 (and K 14 if time), windowed scan as round v; Delta-N, g_A scored by z with theory unc. = |K14 - K12| if both exist (else K 12 alone, no theory unc., stated); mu only through X-1.",
+  "information": "the round-q M = 420 MeV run stays information only"
+ },
+ "X-3 Gamma_Z/M_Z trace": {
+  "steps": "(1) record pin phi^5/e^6 (bare); (2) physics route = round-i GZ-1 chain (FSOT alpha, M_Z, M_W, m_t/m_W, m_H, alpha_s leaves; Freitas/ACFW SM parametrisations; HAD-2 Delta alpha_had); report each step and identify the first step whose physics diverges.",
+  "sensitivity": "propagate the HAD-2 validation miss through the Freitas Gamma_Z parametrisation and compare with the Gamma_Z sigma; report only, no gate change (owner decision).",
+  "external items listed": "m_B threshold 5.27941 GeV; Freitas/ACFW parametrisation coefficients (SM theory, not data): flagged for the owner under the no-hybrid rule."
+ },
+ "look-elsewhere": "X-1: 1 cut value; X-2: 1 route, 2 scored rows (g_A, Delta-N); X-3: trace only"
+}
