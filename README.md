@@ -165,6 +165,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02ao (audit/FREEZE_2026-10-02ao.md): the kmax-14 shell average finished and validates, but μ_p and μ_n still move 2.4 % and 3.3 % between kmax 12 and 14, so they are not scored. Adding the gluon condensate to the vector sum rule raises Γ_ee(ρ) to 5.66 keV (PDG 7.04); Δα_had still fails validation, and Γ_Z/M_Z stays a miss (z 5.6). Totals 88/91 (b99fc29).
 
+2026-10-02ap (audit/FREEZE_2026-10-02ap.md): the soliton's isovector charge radius comes out at r_V² 1.004 fm² against 0.822 fm² from the proton and neutron radii (+22 %), so the form-factor route to f_ρ breaks at its first step. After the break, for information: ρ pole 533 MeV, f_ρ 146 MeV, Γ_ee 8.9 keV. A new additive kmax-16 rule is frozen and its job is running. Totals 88/91 (b99fc29).
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

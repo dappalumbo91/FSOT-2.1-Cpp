@@ -1798,3 +1798,23 @@ The A → B change is −2.41 % (μ_p) and −3.25 % (μ_n), above the 2 % rule,
 **AO-3** (soliton vector form factor f_ρ): not started; the machine was free after AO-1 but there was no time left in the box to write and freeze the isovector form-factor tool.
 
 **Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.
+
+## 2026-10-02ap: soliton isovector form factor → ρ pole → f_ρ; the chain breaks at the isovector radius
+
+Freeze `audit/FREEZE_2026-10-02ap.{json,md}` (commit fa10fe4), committed before computing. Tool `tools/vff_2026_10_02ap.py` (123 s), scorer `tools/score_2026_10_02ap.py`, output `audit/score_2026-10-02ap.tsv`.
+
+**AP-1** (round-ag soliton, K 14, kmax 12, D 14; cranking O(1/I) isovector charge form factor G(q) = I[j0(qr)]/I[1]; check: I[1]/2 = 2.098733467 reproduces the level-A moment of inertia exactly).
+
+| step | FSOT soliton | observed | |
+|---|---|---|---|
+| 1. r_V² = r_p² − r_n² (validation) | 1.00435 fm² | 0.82236(201) fm² | z 90.5, **breaks here** (+22 %) |
+| G_V at Q² = 0.1 / 0.25 / 0.5 / 0.75 / 1.0 GeV² | 0.685 / 0.422 / 0.204 / 0.100 / 0.046 | dipole 0.768 / 0.547 / 0.344 / 0.236 / 0.172 | falls too fast |
+| 2. HLS ρ-pole fit (1 − a/2) + (a/2)M²/(M² + Q²) | M_ρ 533.0 MeV, a 2.470 | 775.26 MeV, a = 2 universality | information |
+| 3. f_ρQ_ρ = √a F_π | 146.0 MeV | 156.4 (from Γ_ee) | information |
+| 4. Γ_ee(ρ) | 8.92 keV | 7.04(6) | information (z 99) |
+
+The soliton isovector charge distribution is too extended (the rotational O(1/I) term only; the pion tail at M_π physical), so the VMD pole comes out at 533 MeV. Beyond universality, a = 2.47 gives f_ρQ_ρ within 7 % of the value implied by Γ_ee, but the light pole overshoots Γ_ee. Nothing rescored (Δα_had, G_F, Γ_Z/M_Z unchanged). Look-elsewhere: 1 validation; trace rows information.
+
+**AP-0 (new additive rule, frozen before computing):** a third level C (kmax 16, D0 14), same averaging; μ scored only if level C validates and μ_p, μ_n each change ≤ 2 % from B to C. The round-al A → B outcome is untouched. The job `tools/shellavg_bg_2026_10_02ap.py` was started after AP-1 finished (no overlap) and is running.
+
+**Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.
