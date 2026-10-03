@@ -1,0 +1,164 @@
+#!/usr/bin/env python3
+"""Round-ao scores under audit/FREEZE_2026-10-02ao (committed first). z-only, dimensionless ratios; FSOT-only inputs.
+AO-1 level-B completion under the frozen round-al rules; AO-2 dimension-4 gluon condensate in the n=1 vector FESR -> Gamma_ee(rho), Delta alpha_had, G_F, Gamma_Z/M_Z.
+  python tools/score_2026_10_02ao.py --hub <FSOT-2.1-Lean @ 6f9c2560> --out audit/score_2026-10-02ao.tsv
+"""
+import argparse, json, math, sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import fsot02d as X
+from fsot02d import mpf, sqrt, pi, ln, fabs, nstr
+from mpmath import zeta
+ap = argparse.ArgumentParser(); ap.add_argument("--hub", required=True); ap.add_argument("--out", required=True); a = ap.parse_args()
+hub, F = X.setup(a.hub); L = X.leaves(); P = X.pins(); ref = X.refs(); R_ = Path(__file__).resolve().parents[1]
+rows = []
+def emitz(sec, name, inputs, v, c, s, th=0, cls="", note=""):
+    v, c, s, th = mpf(v), mpf(c), mpf(s), mpf(th); sig = sqrt(s**2 + th**2); z = fabs(v - c) / sig
+    rows.append([sec, name, inputs, nstr(v, 12), nstr(c, 10), nstr(sig, 4), nstr(z, 5), "agrees" if z <= 1 else "miss", nstr((v - c) / c * 100, 5) + " %", cls, note]); return z
+def info(sec, name, inputs, v, cls="", note=""): rows.append([sec, name, inputs, nstr(mpf(v), 12), "-", "-", "-", "info", "-", cls, note])
+def rec(sec, name, verdict, note): rows.append([sec, name, "-", "-", "-", "-", "-", verdict, "-", "-", note])
+J = lambda f: json.loads((R_ / f).read_text(encoding="utf-8"))
+mpM = X.kg_to_GeV(L["m_p_kg"]) * 1000
+def col(path, sec, key):
+    for line in open(R_ / path, encoding="utf-8"):
+        f = line.rstrip("\n").split("\t")
+        if len(f) > 3 and f[0] == sec and f[1].startswith(key): return mpf(f[3])
+# ---------------- AO-1 level-B completion (round-al rules)
+s = "AO-1"
+def avg(v): return sum(mpf(x_) for x_ in v) / len(v)
+Hq = J("audit/heavy_2026-10-02q.json"); rq = Hq["Q1_sanity_M420_F93"]; oq = rq["DPP"]; Iq = mpf(oq["I_times_M"]); qq = mpf(rq["M_N_MeV"]) / mpf(rq["M_MeV"])
+SGq = {"g1": 1 if mpf(oq["A_im"]) / Iq > 0 else -1, "muS": 1 if qq * mpf(oq["B_re"]) / (6 * Iq) > 0 else -1, "muV1": 1 if qq * mpf(oq["Amu_im"]) / Iq > 0 else -1}
+def level(S_, rot, Mr, L_):
+    s0 = S_[0]; qN = 1 / Mr
+    E0, Ea = mpf(s0["E_sol"]), avg([e_["E_sol"] for e_ in S_]); I0, Ia = mpf(s0["I"]), avg([e_["I"] for e_ in S_])
+    A_, Am, B_ = mpf(rot["A_reg"][1]), mpf(rot["Amu_reg"][1]), mpf(rot["B_reg"][0])
+    g0 = mpf(s0["gA0"]) + SGq["g1"] * A_ / I0; ga = avg([e_["gA0"] for e_ in S_]) + SGq["g1"] * A_ / Ia
+    mV = -qN / 3 * avg([mpf(e_["xat_val"]) + mpf(e_["xat_sea"]) for e_ in S_]) + SGq["muV1"] * qN * Am / Ia; mS = SGq["muS"] * qN * B_ / (6 * Ia)
+    dE, dg, dI = (Ea - E0) / E0, (ga - g0) / g0, (Ia - I0) / I0; ok_ = all(fabs(x_) <= mpf("0.02") for x_ in (dE, dg, dI))
+    info(s, "AO-1 level %s averaged E_sol, g_A, I" % L_, "4-box shell-period average", Ea, "diagnostic", "E sharp %s (%s %%); g_A %s vs sharp %s (%s %%); I %s vs %s (%s %%)" % (nstr(E0, 10), nstr(dE * 100, 4), nstr(ga, 10), nstr(g0, 10), nstr(dg * 100, 4), nstr(Ia, 10), nstr(I0, 10), nstr(dI * 100, 4)))
+    rec(s, "AO-1 level %s validation (E, g_A, I within 2 %% of sharp D0)" % L_, "passes" if ok_ else "fails", "E %s %%, g_A %s %%, I %s %%" % (nstr(dE * 100, 4), nstr(dg * 100, 4), nstr(dI * 100, 4)))
+    return ok_, (mS + mV) / 2, (mS - mV) / 2, ga
+dA = J("audit/shellavg_2026-10-02al_A.json"); okA, pA, nA, gA_ = level(dA["samples"], dA["samples"][0], mpf(dA["inputs"]["M_over_mp"]), "A")
+BFILES = ["audit/shellavg_2026-10-02am_B_j%d.json" % j for j in range(4)] + ["audit/shellavg_2026-10-02am_B_rot.json"]
+if all((R_ / f_).exists() for f_ in BFILES):
+    SB = [J(f_) for f_ in BFILES[:4]]; rB = J(BFILES[4]); MrB = mpf(J("audit/murun_2026-10-02ag_K14_D14_k12.json")["inputs"]["M_over_mp"])
+    for e_ in SB: info(s, "AO-1 level B sample j=%d (kmax 14, D %s)" % (e_["j"], nstr(mpf(e_["D"]), 8)), "round-ag kmax-12 profile, K 14", e_["E_sol"], "diagnostic", "g_A^(0) %s; I %s; xat_sea %s" % (nstr(mpf(e_["gA0"]), 8), nstr(mpf(e_["I"]), 8), nstr(mpf(e_["xat_sea"]), 7)))
+    info(s, "AO-1 level B rotational sums at D0 (A, Amu, B)", "tools/shellavg_bg_2026_10_02am.py", rB["A_reg"][1], "diagnostic", "Amu %s, B %s" % (nstr(mpf(rB["Amu_reg"][1]), 8), nstr(mpf(rB["B_reg"][0]), 8)))
+    okB, pB, nB, gB_ = level(SB, rB, MrB, "B")
+    info(s, "AO-1 averaged mu_p, mu_n at levels A and B", "round-al rule", pB, "diagnostic", "A: mu_p %s, mu_n %s; B: mu_p %s, mu_n %s" % (nstr(pA, 8), nstr(nA, 8), nstr(pB, 8), nstr(nB, 8)))
+    cp, cn = (pB - pA) / pB, (nB - nA) / nB
+    if okA and okB and fabs(cp) <= mpf("0.02") and fabs(cn) <= mpf("0.02"):
+        emitz(s, "AO-1 mu_p/mu_N (shell-averaged soliton, level B)", "FSOT only", pB, *ref("mu_p_over_mu_N"), fabs(pB - pA), "FSOT · measured", "A -> B change %s %%" % nstr(cp * 100, 4))
+        emitz(s, "AO-1 mu_n/mu_N (shell-averaged soliton, level B)", "FSOT only", nB, *ref("mu_n_over_mu_N"), fabs(nB - nA), "FSOT · measured", "A -> B change %s %%" % nstr(cn * 100, 4))
+    else:
+        rec(s, "AO-1 mu_p, mu_n", "not scored", "validation A %s, B %s; A -> B change mu_p %s %%, mu_n %s %% (2 %% rule)" % (okA, okB, nstr(cp * 100, 4), nstr(cn * 100, 4)))
+else:
+    rec(s, "AO-1 level-B job", "not finished at commit", "missing: " + ", ".join(f_ for f_ in BFILES if not (R_ / f_).exists()))
+rec(s, "AO-1 sigma charge", "not adopted (round al stands); deuteron not rerun", "averaged kmax 12 -> 14 change -4.227 % > 2 % (audit/score_2026-10-02al.tsv)")
+# ---------------- AO-2
+s = "AO-2"; src = (R_ / "tools/score_2026_10_02i.py").read_text(encoding="utf-8").split("\n")
+i0 = next(i for i, l in enumerate(src) if l.startswith("# ---- HAD-2: quark-hadron duality")); i1 = next(i for i, l in enumerate(src) if l.startswith("def dalpha_had"))
+ns = {"math": math}; exec("\n".join(src[i0:i1]), ns); AlphaS, GX, GW = ns["AlphaS"], ns["GX"], ns["GW"]
+def pole(m, AS): return m * (1 + 4 * AS(m) / (3 * math.pi))
+def cont(alpha, MZ, asMZ, mtau, s0, mK, mD, mB):  # round-i/y duality integral, u and d thresholds at s0
+    AS = AlphaS(asMZ, MZ, mB, mD, mtau)
+    flav = [(s0, 4 / 9), (s0, 1 / 9), (4 * mK**2, 1 / 9), (4 * mD**2, 4 / 9), (4 * mB**2, 1 / 9)]; MZ2 = MZ**2
+    def R(s):
+        open_ = [q for th, q in flav if s > th]; nf = len(open_); aa = AS(math.sqrt(s)) / math.pi
+        K = 1 + aa + (1.9857 - 0.1152 * nf) * aa**2 + (-6.63694 - 1.20013 * nf - 0.00518 * nf**2) * aa**3
+        return 3 * sum(open_) * K
+    RZ = R(MZ2); smin = min(th for th, _ in flav)
+    def g(t):
+        s = math.exp(t); return (R(s) - RZ) * MZ2 / (MZ2 - s) if abs(MZ2 - s) > 1e-9 * MZ2 else 0.0
+    edges = sorted({math.log(th) for th, _ in flav} | {math.log(MZ2)}); pts = []
+    for lo, hi in zip(edges, edges[1:]):
+        n = max(1, int(math.ceil((hi - lo) / 0.5))); pts += [lo + (hi - lo) * k / n for k in range(n + 1)][:-1]
+    pts.append(edges[-1]); top = math.log(MZ2) + 40.0; n = 80; pts += [edges[-1] + (top - edges[-1]) * k / n for k in range(1, n + 1)]
+    tot = 0.0
+    for lo, hi in zip(pts, pts[1:]):
+        c, w = 0.5 * (hi + lo), 0.5 * (hi - lo); tot += w * sum(wi * g(c + w * xi) for xi, wi in zip(GX, GW))
+    tot += RZ * math.log((MZ2 - smin) / smin)
+    return alpha / (3 * math.pi) * tot
+def gl(f, a, b, n=40):
+    h = (b - a) / n; tot = 0.0
+    for k in range(n):
+        c, w = a + (k + 0.5) * h, 0.5 * h; tot += w * sum(wi * f(c + w * xi) for xi, wi in zip(GX, GW))
+    return tot
+def an2(alpha, MZ, asMZ, mtau, MV, Fpi, mpi, mK, mc, mb, width=True, qcd=True, G2=0.0):
+    AS0 = AlphaS(asMZ, MZ, mb, mc, mtau); mcp, mbp = pole(mc, AS0), pole(mb, AS0); AS = AlphaS(asMZ, MZ, mbp, mcp, mtau)
+    thr = 4 * mpi**2; g = MV / (math.sqrt(2) * Fpi); M2 = MV**2
+    def K(s):
+        if not qcd: return 1.0
+        aa = AS(math.sqrt(s)) / math.pi; nf = 3
+        return 1 + aa + (1.9857 - 0.1152 * nf) * aa**2 + (-6.63694 - 1.20013 * nf - 0.00518 * nf**2) * aa**3
+    def Gam(s): return g**2 * max(s / 4 - mpi**2, 0.0) ** 1.5 / (6 * math.pi * s)
+    def bw(s): G = Gam(s); return math.sqrt(s) * G / ((s - M2)**2 + s * G**2)
+    def mom(s0, n, f, lo): return gl(lambda s: s**n * f(s), lo, s0)
+    if width:
+        def ratio(s0): return mom(s0, 1, bw, thr) / mom(s0, 0, bw, thr) - (mom(s0, 1, K, 0.0) - math.pi**2 / 2 * G2 / 1.5) / mom(s0, 0, K, 0.0)
+        lo_, hi_ = 1.02 * M2, 8.0 * M2
+        for _ in range(60):
+            mid_ = 0.5 * (lo_ + hi_)
+            if ratio(lo_) * ratio(mid_) <= 0: hi_ = mid_
+            else: lo_ = mid_
+        s0 = 0.5 * (lo_ + hi_); N0 = mom(s0, 0, bw, thr)
+    else:
+        def ratio(s0): return M2 - (mom(s0, 1, K, 0.0) - math.pi**2 / 2 * G2 / 1.5) / mom(s0, 0, K, 0.0)
+        lo_, hi_ = 1.02 * M2, 8.0 * M2
+        for _ in range(60):
+            mid_ = 0.5 * (lo_ + hi_)
+            if ratio(lo_) * ratio(mid_) <= 0: hi_ = mid_
+            else: lo_ = mid_
+        s0 = 0.5 * (lo_ + hi_)
+    fQ2 = 1.5 * mom(s0, 0, K, 0.0) / (12 * math.pi**2)
+    if width: drho = alpha / (3 * math.pi) * MZ**2 * gl(lambda s: 12 * math.pi**2 * fQ2 * bw(s) / N0 / (s * (MZ**2 - s)), thr, s0)
+    else: drho = 4 * math.pi * alpha * fQ2 / M2 * MZ**2 / (MZ**2 - M2)
+    dom = 4 * math.pi * alpha * (fQ2 / 9) / M2 * MZ**2 / (MZ**2 - M2)
+    c_ = cont(alpha, MZ, asMZ, mtau, s0, mK, mcp, mbp)
+    return {"d": float("%.10g" % (drho + dom + c_)), "rho": drho, "omega": dom, "cont": c_, "s0": s0, "fQ2": fQ2, "Gee": 4 * math.pi * alpha**2 * fQ2 / (3 * MV), "Grho": Gam(M2), "s0_over_M2": s0 / M2}
+G2S = 0.012; G2F = float(P["wave9|Gluon_condensate"])
+PD = (1 / 137.035999177, 91.1880, 0.1180, 1.77693, 0.77526, 0.09207, 0.13957039, 0.493677, 1.2730, 4.183)
+for tag, w_, q_, g_ in (("LO narrow (round-am limit)", False, False, 0.0), ("+ alpha_s (narrow)", False, True, 0.0), ("+ alpha_s + finite width (round an)", True, True, 0.0), ("+ dim-4 condensate, SVZ 0.012 GeV^4 [AO-2]", True, True, G2S), ("+ dim-4 condensate, FSOT pin 0.012833 (information)", True, True, G2F)):
+    r_ = an2(*PD, width=w_, qcd=q_, G2=g_)
+    info("TRACE", "AO-2 trace, PDG inputs: " + tag, "PDG M_rho, F_pi, m_pi; round-y PDG inputs", r_["Gee"] * 1e6, "diagnostic",
+         "Gamma_ee(rho) keV (PDG 7.04(6)); (f_rho Q_rho) %.5g GeV, s0/M^2 %.5g, s0 %.5g GeV^2, Gamma_rho %.4g GeV (PDG 0.1491); Delta alpha_had %.7g (rho %.6g, omega %.6g, continuum %.7g)" % (math.sqrt(r_["fQ2"]), r_["s0_over_M2"], r_["s0"], r_["Grho"], r_["d"], r_["rho"], r_["omega"], r_["cont"]))
+rec("TRACE", "AO-2 Breit-Wigner normalisation (round-an disclosed correction, kept)", "as round an", "the round-an frozen Breit-Wigner normalisation on [4 m_pi^2, infinity) diverges logarithmically for Gamma(s) = g^2 p^3/(6 pi s) (integrand -> const/s); F is normalised on [4 m_pi^2, s0], the resonance region of the duality ansatz")
+V = an2(*PD, G2=G2S); VAL = abs(V["d"] - 0.02783) <= 0.00029
+emitz("VALIDATION", "AO-2 Delta alpha_had^(5), FESR f_rho + dim-4 condensate, PDG inputs", "PDG M_rho, F_pi, m_pi; SVZ <(alpha_s/pi)G^2> 0.012; round-y PDG inputs", V["d"], "0.02783", "0.00006", 0, "", "round-i gate |dev| <= 0.00029: %s" % ("PASS" if VAL else "FAIL"))
+emitz("TRACE", "AO-2 Gamma_ee(rho)/M_rho with PDG inputs (byproduct)", "PDG inputs", V["Gee"] / 0.77526, mpf("7.04e-6") / mpf("0.77526"), mpf("0.06e-6") / mpf("0.77526"), 0, "information, not a gate", "keV %.4g" % (V["Gee"] * 1e6))
+MW, MZ, al = L["m_W_MeV"] / 1000, L["m_Z_MeV"] / 1000, 1 / L["alpha_inv"]; s2 = 1 - (MW / MZ) ** 2; c2 = 1 - s2
+mt = L["m_t_over_m_W"] * MW; mb = mt / P["wave8|m_t/m_b"]; mc = L["m_c_over_m_b"] * mb; mH = L["m_H_MeV"] / 1000; als = 2 * (F.POOF / F.PSI_CON) ** 2; mtau = L["m_tau_MeV"] / 1000
+LamV = col("audit/score_2026-10-02ag.tsv", "AG-3", "AG-3 Lambda_V/m_p"); MV = LamV * mpM / 1000
+Fr = col("audit/score_2026-10-02p.tsv", "FSOT", "P-4 F_pi with lbar4") / mpM
+FS = an2(float(al), float(MZ), float(als), float(mtau), float(MV), float(Fr * mpM / 1000), float(L["m_pi_pm_MeV"]) / 1000, float(L["m_K_pm_MeV"]) / 1000, float(mc), float(mb), G2=G2F)
+info(s, "AO-2 inputs: M_V/m_p (soliton VMD), F_pi/m_p (round p)", "rounds ag, p", LamV, "FSOT · intermediate", "F_pi/m_p %s; g_rho_pipi (KSRF, width only) %.5g" % (nstr(Fr, 8), float(LamV / (sqrt(2) * Fr))))
+info(s, "AO-2 f_rho Q_rho / M_V (FESR + dim-4 condensate, FSOT)", "two FESRs, FSOT alpha_s, finite width, FSOT condensate pin (GeV^4 read)", math.sqrt(FS["fQ2"]) / float(MV), "FSOT · intermediate",
+     "f_rho Q_rho %.5g GeV; s0/M_V^2 %.5g; Gamma_ee(rho) %.4g keV; Gamma_rho/M_V %.5g; rho %.6g, omega %.6g, continuum %.7g" % (math.sqrt(FS["fQ2"]), FS["s0_over_M2"], FS["Gee"] * 1e6, FS["Grho"] / float(MV), FS["rho"], FS["omega"], FS["cont"]))
+dh = mpf(FS["d"])
+emitz(s, "AO-2 Delta alpha_had^(5)(M_Z^2) (FESR f_rho + condensate, FSOT)", "FSOT only", dh, "0.02783", "0.00006", 0, "FSOT · measured", "validation %s; round an 0.02668936 (z 19.0)" % ("passed" if VAL else "FAILED"))
+z3 = zeta(3); ml = [X.kg_to_GeV(L["m_e_kg"]), X.kg_to_GeV(L["m_mu_kg"]), mtau]
+da_lep = al / (3 * pi) * sum(ln(MZ**2 / m**2) - mpf(5) / 3 for m in ml) + (al / pi) ** 2 * sum(ln(MZ**2 / m**2) / 4 + z3 - mpf(5) / 24 for m in ml)
+da_top = -(al / pi) * mpf(4) / 45 * MZ**2 / mt**2
+rem = -(al / (16 * pi * s2)) * 4 * (c2 / s2 - mpf(1) / 3 - 3 * mb**2 / (s2 * MZ**2)) * ln(mt / MZ) + 11 * al / (24 * pi * s2) * ln(mH / MZ) + al / (4 * pi * s2) * (6 + (7 - 4 * s2) / (2 * s2) * ln(c2))
+AS0 = AlphaS(float(als), float(MZ), float(mb), float(mc), float(mtau)); mbp_ = pole(float(mb), AS0); mcp_ = pole(float(mc), AS0)
+ASt = AlphaS(float(als), float(MZ), mbp_, mcp_, float(mtau)); a_s = mpf(ASt(float(mt))) / pi
+r = mH / mt
+rho2 = 19 - mpf(33) / 2 * r + mpf(43) / 12 * r**2 + mpf(7) / 120 * r**3 - pi * sqrt(r) * (4 - mpf(3) / 2 * r + mpf(3) / 32 * r**2 + r**3 / 256) - pi**2 * (2 - 2 * r + r**2 / 2) - ln(r) * (3 * r - r**2 / 2)
+q1 = 1 - mpf("2.8599") * a_s; q2 = q1 - mpf("14.594") * a_s**2
+da = da_lep + dh + da_top
+GF = pi * al / (sqrt(2) * MW**2 * s2)
+for _ in range(300):
+    xt = GF * mt**2 / (8 * sqrt(2) * pi**2); drho = 3 * xt * (1 + xt * rho2) * q2
+    omr = (1 - da) * (1 + c2 / s2 * drho) - rem; new = pi * al / (sqrt(2) * MW**2 * s2 * omr)
+    if fabs(new - GF) / GF < mpf(10) ** -30: GF = new; break
+    GF = new
+info(s, "AO-2 Delta r (round-z Z-2 primary chain, AO-2 Delta alpha_had)", "FSOT chain", 1 - omr, "model-computed", "Delta rho " + nstr(drho, 8) + "; Delta alpha " + nstr(da, 8))
+emitz(s, "AO-2 G_F (round-z chain with AO-2 Delta alpha_had)", "FSOT only", GF, *ref("G_F_GeVm2"), 0, "measured", "round z (quark-pole Delta alpha_had): " + nstr(col("audit/score_2026-10-02z.tsv", "Z-2", "Z-2 G_F"), 10))
+Rc = X.compute(hub, F, GF_override=GF)
+zG = emitz(s, "AO-2 Gamma_Z/M_Z (authority A1 width, AO-2 G_F)", "FSOT only", Rc["GZ_over_MZ_A1"], *ref("Gamma_Z_over_M_Z"), 0, "measured",
+           "round z: " + nstr(col("audit/score_2026-10-02z.tsv", "Z-2", "Z-2 Gamma_Z/M_Z"), 10) + "; record row not edited here (owner/hub decision if z <= 1 with validation passing)")
+rec("GATE", "record rows of the 91", "unchanged", "z-only; 88/91 since owner record commit b99fc29; level-B status in AO-1; dim-6 four-quark term open (no FSOT <qbar q>); Gamma_Z/M_Z route %s" % ("passes (report to owner/hub)" if (zG <= 1 and VAL) else "does not pass (z %s, validation %s)" % (nstr(zG, 4), "passed" if VAL else "failed")))
+with open(a.out, "w", encoding="utf-8", newline="\n") as o:
+    o.write("# generated by tools/score_2026_10_02ao.py under audit/FREEZE_2026-10-02ao (committed first)\n#section\tname\tinputs\tvalue\tcentral\tsigma\tz\tverdict\trel\tclass\tnote\n")
+    for r_ in rows: o.write("\t".join(str(x_) for x_ in r_) + "\n")
+print("done", len(rows))

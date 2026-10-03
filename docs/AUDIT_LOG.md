@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-68 · 2026-10-02ao: level-B shell average finished and both levels validate, but μ_p/μ_n move −2.41 %/−3.25 % from kmax 12 to 14 (> 2 %), so they are not scored; σ not adopted, deuteron not rerun; the dimension-4 condensate raises Γ_ee(ρ) to 5.66 keV (×1.05; factor 1.24 left), validation fails (z 22), Γ_Z/M_Z z 5.61
+
+Freeze `FREEZE_2026-10-02ao` (049c0e8). Round-an cpp_check passed (772 s). Totals 88/91. The level-B files (j0–j3, rot, merged am_B.json) are committed; the job has exited.
+
 ### H-67 · 2026-10-02an: Γ_ee(ρ) trace through the FESR f_ρ: LO 4.38 → +α_s 4.85 → +finite width 5.40 keV vs 7.04; a factor 1.30 remains (needs a gluon-condensate term); validation fails (z 23), Γ_Z/M_Z z 5.73; level-B job 3/4 samples, still running
 
 Freeze `FREEZE_2026-10-02an` (c5d9ba0). Round-am cpp_check passed (682 s). Totals 88/91. Disclosures: Breit–Wigner normalisation moved from [4m_π², ∞) (divergent) to [4m_π², s0] before any result; the AN-1 sample set is fixed in the scorer at commit time so the score stays byte-identical as more samples are committed.

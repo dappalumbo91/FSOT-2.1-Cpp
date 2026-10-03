@@ -1775,3 +1775,26 @@ Freeze `audit/FREEZE_2026-10-02an.{json,md}` (commit c5d9ba0), committed before 
 PDG Γ_ee(ρ) is 7.04(6) keV: α_s (×1.108) and the width (×1.112) close about half of the gap; a factor 1.30 remains, which needs s0/M² near 2.9, i.e. a negative dimension-4 (gluon-condensate) term in the n = 1 FESR that FSOT does not yet supply. Validation fails (0.026428 vs 0.02783(6), z 23.4). FSOT (M_V = √6/r_V, round-p F_π): Γ_ee(ρ) 4.73 keV, Δα_had^(5) 0.026689 (z 19.0), G_F z 2975, Γ_Z/M_Z 0.0272220 (z 5.73). Nothing changes. Post-freeze correction (disclosed, made before any result): the Breit–Wigner normalisation on [4m_π², ∞) diverges logarithmically, so it is normalised on [4m_π², s0]. Look-elsewhere: 1 route, 1 validation, 3 scored rows.
 
 **Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.
+
+## 2026-10-02ao: level-B shell average complete (μ fails the two-level rule); dimension-4 condensate in the vector FESR
+
+Freeze `audit/FREEZE_2026-10-02ao.{json,md}` (commit 049c0e8), committed before computing. Scorer `tools/score_2026_10_02ao.py`, output `audit/score_2026-10-02ao.tsv`.
+
+**AO-1: round-al rules applied** (level B finished: 4 samples + rotational sums; job total 2403 s active).
+
+| | level A (kmax 12) | level B (kmax 14) |
+|---|---|---|
+| E avg vs sharp | +1.70 % | +1.72 % |
+| g_A avg (vs sharp) | 1.29820 (+0.50 %) | 1.29834 (+0.57 %) |
+| I avg vs sharp | +0.002 % | +0.003 % |
+| validation | passes | passes |
+| μ_p | 2.32622 | 2.27152 |
+| μ_n | −1.72489 | −1.67059 |
+
+The A → B change is −2.41 % (μ_p) and −3.25 % (μ_n), above the 2 % rule, so **μ_p and μ_n are not scored**. Shell averaging cut the kmax drift (μ_V^(0) moved about 6 % between kmax 12 and 14 sharp, round ah) but not below 2 %. The σ charge stays not adopted (round al, −4.23 %), so the deuteron is not rerun.
+
+**AO-2: dimension-4 gluon condensate in the n = 1 FESR** (−(π²/2)⟨(α_s/π)G²⟩ in R units). Γ_ee(ρ) trace with PDG inputs: 4.38 (LO) → 4.85 (+α_s) → 5.40 (+width) → **5.66 keV** (+condensate, SVZ 0.012 GeV⁴; 5.68 with the FSOT pin 0.012833), against 7.04(6). The condensate adds ×1.05 (s0/M² 2.22 → 2.33); a factor 1.24 remains. The dimension-6 four-quark term enters only the n = 2 moment and FSOT has no native ⟨q̄q⟩, so it is open. Validation fails (Δα_had 0.026496 vs 0.02783(6), z 22.2). FSOT: Γ_ee(ρ) 5.10 keV, Δα_had^(5) 0.026801 (z 17.1), G_F z 2749, Γ_Z/M_Z 0.0272251 (z 5.61). Nothing changes. Look-elsewhere: AO-1 0 scored (2 planned), AO-2 1 route, 1 validation, 3 scored rows.
+
+**AO-3** (soliton vector form factor f_ρ): not started; the machine was free after AO-1 but there was no time left in the box to write and freeze the isovector form-factor tool.
+
+**Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.
