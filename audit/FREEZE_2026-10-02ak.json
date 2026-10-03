@@ -1,0 +1,20 @@
+{
+ "freeze": "FREEZE_2026-10-02ak",
+ "date": "2026-10-03",
+ "parent": "75b0695 (round aj)",
+ "rule": "z-only scoring against observations; ratios first, MeV as byproduct; no hybrid; gates and tolerances never changed; pins never edited; single PV is the regulator",
+ "AK-1a shell-counting scan": {
+  "tool": "tools/shellscan_2026_10_02ak.py (spectrum-only mu_V^(0) sea, K 14, round-ag kmax-12 profile, single PV)",
+  "points": "(kmax, D) = (12, 14) and (14, 12) [kmax D = 168, same shell count per l]; (12, 12) [144] and (14, 14) [196]; plus the round-ah D 14 points kmax 12/14/16 for reference",
+  "criterion": "shell discreteness is confirmed if |X(12,14) - X(14,12)| <= 0.25 x |X(14,14) - X(12,12)| for X = xat_sea"
+ },
+ "AK-1b smoothed spectral sum (derivation)": {
+  "statement": "with PV the regularised sums converge (the regulator removes the divergence), so the sharp basis cutoff kmax should be a numerical parameter. The sharp edge produces shell-by-shell (Gibbs) jumps; a smooth convergence factor removes them without changing the converged value: every sea, PV and vacuum state n (valence level exempt) carries w_n = exp(-e_n^2/E_s^2) in diagonal sums and sqrt(w_n w_m)^2 = w_n w_m in two-state sums (implemented by scaling eigenvectors by sqrt(w_n)), with E_s = kmax/3 (M units), so E_s grows with kmax and the factor is a convergence device that goes to 1 as kmax -> infinity, not a physical cutoff",
+  "tool": "tools/smooth_2026_10_02ak.py: K 14, D 14, round-ag kmax-12 profile; spectrum-only part (E, g_A^(0), xat) at kmax 12/14/16; full part (inertia, rotational A, Amu, B) at kmax 12 and 14 (each must finish under 10 min); sigma-projected charge (round-ai definition, single PV) at the round-ab soliton, K 12, D 12, kmax 12/14/16 -> audit/smooth_2026-10-02ak*.json",
+  "validation": "at kmax 12 and 14 the smoothed E_sol, g_A and inertia must each be within 2 % of the sharp single-PV values at the same kmax (frozen tolerance); otherwise nothing is scored",
+  "score rule": "mu_p, mu_n scored if validation passes and they change <= 2 % from kmax 12 to 14 (mu_V^(0) also <= 2 % from 14 to 16); theory unc. = the kmax-14 - kmax-12 change. Sigma charge adopted if > 0 and <= 2 % across kmax 12 -> 14 -> 16; then rerun the full OPE + sigma + omega deuteron (round-af potentials, Lambda_V), score B_d/m_p and mu_d, P_D info"
+ },
+ "AK-2 Gamma_Z": "only if time remains (not frozen here; would need its own freeze)",
+ "hub prompt": "keeps the T_CMB adoption section",
+ "look-elsewhere": "AK-1: one smoothing form (Gaussian, E_s = kmax/3), no alternatives tried; up to 2 mu rows + 2 deuteron rows"
+}
