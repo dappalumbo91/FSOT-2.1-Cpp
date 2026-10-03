@@ -165,6 +165,11 @@ jobs:
           diff -q /tmp/score_l.tsv audit/score_2026-10-02l.tsv
           git diff --exit-code audit/derive_2026-10-02l.tsv
           python tools/verify_freeze_files_l.py
+      - name: Re-run the 2026-10-02m scoring (M-1 ratio organization, M-2 DGMLY pi0 / Q-route K0 / U(3) eta-eta', M-3 quark-level sigma-model F) and diff; verify freeze m
+        run: |
+          python tools/score_2026_10_02m.py --hub hub --out /tmp/score_m.tsv
+          diff -q /tmp/score_m.tsv audit/score_2026-10-02m.tsv
+          python tools/verify_freeze_files_m.py
       - name: Build and run the C++ re-scorer against the golden
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$PWD/hub

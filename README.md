@@ -114,6 +114,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02l (audit/FREEZE_2026-10-02l.md): the pion and kaon were treated as pseudo-Goldstone bosons (leading-order chiral perturbation theory plus Dashen's EM term), using FSOT's quark-mass ratios and its π± and K± leaves. The held-out K⁰ comes out at 497.597 MeV against 497.611(13) (−0.003 %). The π⁰ and η miss by about 3 %, the known limit of leading order. GMOR gives m_ud 3.60 MeV and m_s 99.7 MeV, but only as hybrids. A frozen D_eff → unit map (3 families, trained on π±, B(²H) and T_CMB) puts 0 of 10 held-out leaves within 2 %. The scale factor each leaf needs is set by the SI unit it is read in, not by its domain. The gate stays at 87/91.
 
+2026-10-02m (audit/FREEZE_2026-10-02m.md): an FSOT-only pion decay constant, F = m_p/(2√3π) = 86.22 MeV, from the quark-level sigma model with N_c = 3. It is within 0.55 % of the chiral-limit value. The π⁰ from the electromagnetic sum rule comes out at 134.40 MeV (−0.43 %) and the K⁰ via Q at +0.13 %. The η and η′ fail. D_eff/S does not organize the m_e-multiple ratios. The gate stays at 87/91.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

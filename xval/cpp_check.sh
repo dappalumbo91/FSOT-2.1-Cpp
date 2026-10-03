@@ -70,6 +70,8 @@ $P tools/score_2026_10_02k.py --hub "$W/hub" --out "$W/score_k.tsv"
 diff -q "$W/score_k.tsv" audit/score_2026-10-02k.tsv; ok "2026-10-02k score byte-identical"
 $P tools/score_2026_10_02l.py --hub "$W/hub" --out "$W/score_l.tsv"
 diff -q "$W/score_l.tsv" audit/score_2026-10-02l.tsv; ok "2026-10-02l score byte-identical"
+$P tools/score_2026_10_02m.py --hub "$W/hub" --out "$W/score_m.tsv"
+diff -q "$W/score_m.tsv" audit/score_2026-10-02m.tsv; ok "2026-10-02m score byte-identical"
 python3 tools/check_references.py; ok "every reference value matches its committed evidence"
 step "4. C++ Ledger B re-score vs golden, corrected + genuine misses"
 ./build/fsot_ledger_b --hub "$W/hub" --golden golden/ledger_b_6f9c2560.tsv \

@@ -802,3 +802,40 @@ Held-out predictions (never used as inputs):
 **Totals:** unchanged at **87/91**. None of the held-out mesons or quark masses is among the 91 rows. The r_p row was already confirmed by its leaf.
 
 **Re-pin:** the 2C9442 compute pin sits on `owner-decisions-2026-10-02i` (pushed to GitHub, not merged to main). It stays deferred to a dedicated round.
+
+## 2026-10-02m: next branches after round l (freeze 21db984, `audit/FREEZE_2026-10-02m.md`, scores `audit/score_2026-10-02m.tsv`)
+
+**M-3a, an FSOT-only F** (1 form, 2 comparisons).
+- The formula is the quark-level Goldberger–Treiman relation of the quark-level linear sigma model: g_πqq = 2π/√N_c with N_c = 3, and constituent mass M_Q = m_p/3 taken from the anchored proton. This gives F = m_p/(2√3 π) = **86.2161 MeV** (168.7207 m_e).
+- The relation holds in the chiral limit. Against F₀ = F_π/1.062 = 86.69 (FLAG ratio) it is **−0.55 %, z 0.61**. Against the physical F_π = 92.07 it is −6.35 % (passes the 10 % gate; validation passes).
+- A rough mental estimate (~86.2) was made before the freeze.
+- Next branch: the SU(2) NLO step F_π = F[1 + M_π² l̄₄/(16π²F²)], with l̄₄ in FSOT form.
+
+**M-2, mesons beyond leading order.**
+
+| branch | FSOT construction | result | measured (PDG 2024) | rel | verdict |
+|---|---|---|---|---|---|
+| M-2a π⁰ (EM) | Das–Guralnik–Mathur–Low–Young sum rule with the Weinberg sum rules and N_c = 3 lowest-meson dominance: Δ_π = 12π α ln2 F² | with M-3a F (FSOT-only): **134.397 MeV** (263.0077 m_e), Δ_π = 1417 MeV² | 134.9768(5) | **−0.43 %** | passes 2 % (validation −0.98 %) |
+| | | with K-1a F (hybrid): 133.693 | | −0.95 % | passes 2 % |
+| M-2b K⁰ | ratio Q from the FSOT pins (22.7315), independent of L₅/L₈ at NLO; QCD kaon splitting plus EM | Dashen (ε = 0): 498.272 | 497.611(13) | +0.13 % | passes |
+| | | ε = 0.79 (FLAG, hybrid): 497.088 | | −0.105 % | passes |
+| M-2c η | U(3) large-N_c with Witten–Veneziano (χ_top^(1/4) = 191 MeV, lattice, hybrid) | 523.18 (M-3a F), θ = 12.5° | 547.862(17) | −4.5 % | validation fails (−5.8 %) |
+| M-2c η′ | same | 1136.3 | 957.78(6) | +18.6 % | fails |
+
+- Rounds l and m have not yet produced an FSOT form for L₅, L₈ or the Dashen-violating ε.
+- Next branch for η/η′: the NLO large-N_c U(3) terms (Λ₁, Λ₂, L₈), with the topological susceptibility taken from FSOT rather than the lattice.
+
+**M-1, D_eff/S acting on m_e-multiple ratios** (3 families plus 1 Tjon ratio).
+- The m_e multiples are r = leaf × 1.956952 (e.g. π 273.1323, W 157277.72, ²H 4.35336).
+- The round-l text and the freeze both write "leaf ÷ 1.956952", but the freeze defines r as the pure m_e multiple. Both definitions were seen at scoring time, and the score uses the m_e multiple. The fit slopes are the same under either reading and every verdict is 0/6.
+- **Domain structure:**
+  - High_Energy_Physics: r_Z/r_W = 1/(W/Z leaf) exactly.
+  - Nuclear_Physics: r(³H)/r(²H) = 3.81279 (measured 3.81284) and r(⁴He)/r(³H) = 3.33605 (measured 3.33601).
+  - The pionless-EFT leading-order unitary-limit ratio of 4.61 for B(⁴He)/B(³H) misses by +38 %.
+- **Organization test** (ln r linear in D_eff, in ln D_eff or in S; trained on π, W and ²H; 6 held-out leaves): 0/6 for every family. A one-variable map of the domain gives the same r to every leaf in a domain.
+- Next branch: a two-variable map (D_eff together with the within-domain L-A1-type structure), or derive the within-domain ratios first and let D_eff act only on one reference leaf per domain.
+
+**f_π / g_A / downstream.** g_A still has no FSOT form, and M-3a F is within 2 % only of the chiral-limit F₀. Under the frozen gate the KSRF/VMD → Δα_had → Γ_Z/M_Z and deuteron chains were therefore not run.
+- Next branch for g_A: the chiral quark-soliton model with M_Q = m_p/3 (a numerical soliton solve).
+
+**Totals:** unchanged at **87/91**. No round-m quantity is a record row.

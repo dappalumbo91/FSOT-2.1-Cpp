@@ -520,6 +520,18 @@ Freeze `audit/FREEZE_2026-10-02l.md` was committed (9c6dbbc) before `tools/score
 - Downstream not run (frozen gate). Totals unchanged at 87/91. Look-elsewhere: octet 1, condensate 3, r_p 8, D_eff map 3.
 - D_eff → unit map (freeze 8e9cdec): 3 families, 0/10 held-out. The required factor is 1.956952 = MeV/(m_e c²) in every domain with MeV leaves (D_eff 5, 6, 12) and changes with the SI unit (fm, K, km/s/Mpc, eV²), not with D_eff or S.
 
+### H-38 · 2026-10-02m: FSOT-only F = m_p/(2√3π) = 86.22 MeV (−0.55 % vs chiral-limit F₀); π⁰ from the DGMLY EM sum rule −0.43 %; K⁰ via Q +0.13 %; η −4.5 % and η′ +18.6 % fail; D_eff/S does not organize the m_e-multiple ratios
+
+Freeze `audit/FREEZE_2026-10-02m.md` was committed (21db984) before `tools/score_2026_10_02m.py`.
+- Held-out results:
+  - π⁰: 134.397 MeV (FSOT-only chain), −0.43 %.
+  - K⁰: 498.272, +0.13 % (Dashen).
+  - η: 523.18 (WV hybrid), −4.5 %; its validation fails.
+  - η′: 1136.3, +18.6 %.
+- M-1: 0/6 for each of three families. Tjon 4.61 misses by +38 %.
+- Definition note: the freeze text says "leaf ÷ 1.956952" but defines r as the m_e multiple (leaf × 1.956952); scored as the m_e multiple, with the same verdicts under both readings.
+- Downstream not run (g_A has no FSOT form). Totals 87/91. Look-elsewhere: M-1 3+1, M-2a 1×2, M-2b 1×2, M-2c 1, M-3a 1×2.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests
