@@ -1,0 +1,20 @@
+{
+ "freeze": "FREEZE_2026-10-02an",
+ "date": "2026-10-03",
+ "parent": "2af4014 (round am; gate 88/91 since b99fc29)",
+ "rule": "z-only scoring against observations; ratios first, MeV as byproduct; no hybrid; no tuning; gates, tolerances and the single-PV regulator unchanged; pins never edited",
+ "AN-1 level-B job": "tools/shellavg_bg_2026_10_02am.py continues (round-am budget change, unchanged). Finished sample files are committed as they exist. If all 4 samples and the rotational sums exist, the frozen round-al rules apply unchanged (validation, two-level mu rule; sigma charge already decided in round al: not adopted, so the deuteron rerun happens only if a future frozen sigma rule passes). Otherwise the job is left running and reported.",
+ "AN-2 f_rho inside FSOT (trace of the Gamma_ee(rho) step)": {
+  "diagnosis to test": "LO lowest-meson dominance gives (f_rho Q_rho)^2 = s0/(8 pi^2) with s0 = 2 M^2, i.e. Gamma_ee(rho) = alpha^2 M/(3 pi) (4.38 keV at PDG M_rho); the trace reports Gamma_ee(rho) at LO, + alpha_s, + finite width (PDG inputs), to locate the missing factor",
+  "route": "vector-correlator finite-energy sum rules n = 0, 1 in the isovector channel: integral_{4 m_pi^2}^{s0} s^n R_rho(s) ds = (3/2) integral_0^{s0} s^n K(s) ds, with K(s) the round-y pQCD factor (1 + a + (1.9857 - 0.1152 nf) a^2 + (-6.63694 - 1.20013 nf - 0.00518 nf^2) a^3, nf = 3, a = alpha_s(sqrt s)/pi from the round-y 4-loop running of FSOT alpha_s(M_Z) = 2 (Poof/psi_con)^2, frozen at alpha_s(m_tau) below m_tau as in round y). R_rho(s) = 12 pi^2 (f_rho Q_rho)^2 F(s), F a P-wave Breit-Wigner, F(s) proportional to sqrt(s) Gamma(s)/((s - M^2)^2 + s Gamma(s)^2), Gamma(s) = g^2 p(s)^3/(6 pi s), p(s) = sqrt(s/4 - m_pi^2), normalised to 1 on [4 m_pi^2, infinity). g = g_rho_pipi from KSRF, g = M/(sqrt2 F_pi) (width only; the photon coupling is NOT taken from universality). Unknowns (f_rho Q_rho)^2 and s0 solved from the two FESRs (bisection on the n1/n0 ratio)",
+  "omega": "narrow, same s0, (f_omega Q_omega)^2 = (1/9) (f_rho Q_rho)^2 (c_omega/c_rho = (1/6)/(3/2))",
+  "Delta alpha_had": "(alpha/3pi) M_Z^2 integral_{4 m_pi^2}^{s0} R_rho(s)/(s (M_Z^2 - s)) ds + omega narrow term 4 pi alpha (f_omega Q_omega)^2/M^2 * M_Z^2/(M_Z^2 - M^2) + round-am continuum (u,d from s0, s from 4 m_K^2, pole c, b). Narrow-width, K = 1 limit reproduces round am exactly (checked as an info row)",
+  "FSOT inputs": "M = sqrt6/r_V (round-ag soliton, Lambda_V/m_p 0.735880526529, as round am), F_pi/m_p from round p (P-4 F_pi with lbar4), m_pi = m_pi+- leaf, and the round-z/am inputs (alpha, M_Z, alpha_s, m_tau, m_K, m_c, m_b)",
+  "validation": "same route with PDG M_rho 0.77526, F_pi 0.09207, m_pi 0.13957039 and the round-y PDG inputs: Delta alpha_had^(5) within |dev| <= 0.00029 of 0.02783 (round-i gate, unchanged). Gamma_ee(rho) = 4 pi alpha^2 (f_rho Q_rho)^2/(3M) and Gamma_rho reported as byproducts against PDG 7.04(6) keV and 149.1(8) MeV (information, not gates)",
+  "rescore": "Delta alpha_had^(5) (z vs 0.02783(6)), G_F and Gamma_Z/M_Z via the round-z Z-2 primary chain (as round am); record rows not edited by this repository",
+  "tool": "tools/score_2026_10_02an.py (pure Python + mpmath)",
+  "alternative not run": "f_rho from the soliton vector form factor (needs a new soliton computation; not light work while the level-B job runs)"
+ },
+ "look-elsewhere": "AN-2: 1 route, 1 validation, 3 scored rows; trace rows are information. AN-1: 0 scored rows unless the job finishes (then mu_p, mu_n)",
+ "hub prompt": "/workspace/gb-recovery/GROK_BUILD_PROMPT_2026-10-02an.md"
+}
