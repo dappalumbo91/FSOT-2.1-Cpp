@@ -1,0 +1,20 @@
+{
+ "freeze": "FREEZE_2026-10-02u",
+ "date": "2026-10-03",
+ "authority_pin": "AEB2AD (unchanged)",
+ "hub_data_commit": "6f9c2560 (unchanged)",
+ "scoring rule (owner standing rule)": "no percentage gate counts as a pass; every FSOT row is reported with z = |v - c|/sigma against the published uncertainty and agrees only if z <= 1 (theory uncertainty of the extrapolation added in quadrature where stated). Earlier rows that 'passed' a percentage gate (e.g. chi^1/4 z 2.6, round-q mu_p/mu_n, M_K0 2 % rows) are re-labelled as misses in the docs; frozen TSVs are not rewritten",
+ "U-1 soliton basis convergence": {
+  "runs": "massive DPP (pi+- leaf), M = m_p/3, M_PV = sqrt(e) M: K 8 (D 10, k 10; round q), K 12 (D 12, k 12; round t), K 14 (D 14, k 14; this round, tools/heavy_2026_10_02u.py, launched before this freeze, result not seen)",
+  "extrapolation": "primary: Richardson in 1/K^2 from K 12 and K 14: v_inf = (196 v14 - 144 v12)/52; theory uncertainty = |v_inf - v14|; info: three-point fit a + b/K + c/K^2 (K 8, 12, 14)",
+  "quantities": "g_A, mu_p, mu_n, M_Delta - M_N (sanity-fixed Omega^1 signs as round q)",
+  "score": "z against PDG/CODATA with the extrapolation uncertainty in quadrature; z <= 1 agrees"
+ },
+ "U-2 g_A corrections": {
+  "surface term": "massive tail: the axial surface contribution at the box edge is bounded by the profile there, |theta(D)| = 2 (x/D)^2 (1 + m D) e^(-m D); reported as the surface-term bound (no correction applied when the bound is below the extrapolation uncertainty)",
+  "operator ordering": "the 1/N_c term g_A^(1) = N_c A/(3I) is the non-commuting (time-ordered) collective-operator term; the classical (commuting) ordering drops it. No unique derivation fits this round: both orderings are scored as a bracket [g_A^(0), g_A^(0) + g_A^(1)] at the converged values, each by z; disclosed: g_A^(0) and g_A^(1) at K 8 and K 12 were seen, so no interpolating ordering factor is introduced (it would be a tune)",
+  "status": "ordering derivation remains open"
+ },
+ "U-3 F_K/F_pi": "only if time remains (else open derivation)",
+ "counting": "no record row recomputed; totals change only if a record row is newly confirmed"
+}
