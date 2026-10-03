@@ -1,0 +1,20 @@
+{
+ "freeze": "FREEZE_2026-10-02z",
+ "date": "2026-10-03",
+ "authority_pin": "AEB2AD (unchanged)",
+ "hub_data_commit": "6f9c2560 (unchanged)",
+ "rule": "z-only scoring against observations; ratios first, MeV as byproduct; no hybrid; gates never changed",
+ "Z-1 soliton inertia trace (diagnostic first)": {
+  "trace": "tools/itrace_2026_10_02z.py at the round-y inputs (M/m_p 0.368834, M_PV/M 1.50438 from the PV condition): I M split into valence, bare Dirac sea and PV parts, valence eigenvalue, profile size x/M; at the round-y K 12 minimum x = 0.92236 and at x = 0.7, 1.2 (size dependence). Started before this freeze was committed (diagnostic, unscored; disclosed).",
+  "fix": "any fix derived from the trace is frozen separately (FREEZE_2026-10-02z2) before Delta-N/m_p and g_A are rescored; if no physics fix is found, nothing is rescored"
+ },
+ "Z-2 higher-order Delta r": {
+  "Delta rho": "Delta rho = 3 x_t [1 + x_t rho2(r)] (1 - 2.8599 a_s - 14.594 a_s^2) with x_t = G_F m_t^2/(8 sqrt2 pi^2), a_s = alpha_s(m_t)/pi from the FSOT alpha_s seed (4-loop running, round-i AlphaS with the round-y quark-pole thresholds), rho2(r) = 19 - 33r/2 + 43r^2/12 + 7r^3/120 - pi sqrt(r)(4 - 3r/2 + 3r^2/32 + r^3/256) - pi^2(2 - 2r + r^2/2) - ln r (3r - r^2/2) (Fleischer-Jegerlehner-Tarasov heavy-top expansion) with r = M_H/m_t (FSOT leaves); convention risk on r (M_H/m_t vs its square) disclosed",
+  "resummation": "1 - Delta r = (1 - Delta alpha)(1 + (c^2/s^2) Delta rho) - Delta r_rem (Consoli-Hollik-Jegerlehner); Delta r_rem round-f Hioki one loop unchanged; Delta alpha = lep (1+2 loop) + top + round-y quark-pole duality Delta alpha_had",
+  "score": "G_F vs CODATA; Gamma_Z/M_Z (authority A1 width with that G_F) vs 0.0273665(25); each added piece also reported separately (information)"
+ },
+ "Z-3 KSRF light-quark Delta alpha_had": {
+  "status": "design only this round unless time remains: rho narrow-resonance contribution with KSRF m_rho^2 = 2 g^2 F^2, g^2 = 12 pi^2/N_c; not scored this round"
+ },
+ "look-elsewhere": "Z-2: 1 chain, 2 scored rows; Z-1: none until z2"
+}
