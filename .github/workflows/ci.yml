@@ -175,11 +175,16 @@ jobs:
           python tools/score_2026_10_02n.py --hub hub --out /tmp/score_n.tsv
           diff -q /tmp/score_n.tsv audit/score_2026-10-02n.tsv
           python tools/verify_freeze_files_n.py
-      - name: Re-run the 2026-10-02o scoring (O-1 full-sea chiral quark soliton g_A and Delta-N, O-3 deuteron OPE, O-3b mu_n/mu_d, O-4 lbar4, O-6 E_h) and diff; verify freeze o; PHYSICAL_MAP
+      - name: Re-run the 2026-10-02o scoring (O-1 full-sea chiral quark soliton g_A and Delta-N, O-3 deuteron OPE, O-3b mu_n/mu_d, O-4 lbar4, O-6 E_h) and diff; verify freeze o
         run: |
           python tools/score_2026_10_02o.py --hub hub --out /tmp/score_o.tsv
           diff -q /tmp/score_o.tsv audit/score_2026-10-02o.tsv
           python tools/verify_freeze_files_o.py
+      - name: Re-run the 2026-10-02p scoring (P-1 soliton g_A^(1) and Delta-N, P-2 soliton magnetic moments and mu_d, P-4 lbar4 one-loop sigma model, P-5 DP chi_top -> eta/eta', P-6 T_CMB and tree m_W) and diff; verify freeze p; PHYSICAL_MAP
+        run: |
+          python tools/score_2026_10_02p.py --hub hub --out /tmp/score_p.tsv
+          diff -q /tmp/score_p.tsv audit/score_2026-10-02p.tsv
+          python tools/verify_freeze_files_p.py
           python tools/physical_map.py --out /tmp/PHYSICAL_MAP.md
           diff -q /tmp/PHYSICAL_MAP.md docs/PHYSICAL_MAP.md
       - name: Build and run the C++ re-scorer against the golden

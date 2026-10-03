@@ -549,6 +549,12 @@ Freeze `audit/FREEZE_2026-10-02o.md` (f393948) was committed before `tools/cqsm_
 - Δα/Γ_Z chain not run under the frozen gate.
 - Look-elsewhere: O-1 1, O-3 3 R values, O-3b 1, O-4 1, O-6 1. Totals 87/91.
 
+### H-41 · 2026-10-02p: g_A with the rotational term = 1.1755 (−7.8 %, fails 2 %); soliton μ_p +17 %, μ_n +31 %; one-loop LσM l̄₄ = 4.66 gives F_π = 92.89 MeV (+0.89 %, agrees); DP χ_top +24 %; T_CMB +0.25 % (z 11)
+
+Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_rot.py`, `tools/heavy_2026_10_02p.py` and `tools/score_2026_10_02p.py`.
+- Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
+- Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests

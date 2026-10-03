@@ -918,3 +918,29 @@ After the fixes, the literature sanity case (M = 420, F = 93) gave g_A^(0) = 0.7
 - The other domains have no own-physics derivation this round.
 
 **Totals:** unchanged at **87/91** (88 including frozen-pending).
+
+## 2026-10-02p: rotational g_A^(1), soliton magnetic moments, one-loop l̄₄, DP χ_top, own-physics T_CMB and m_W (freeze 98cd271, `audit/FREEZE_2026-10-02p.md`, scores `audit/score_2026-10-02p.tsv`)
+
+**Disclosures.**
+- (1) The frozen μ_V^(0) expression lacked the minus sign from the q → 0 limit of ε^{kbj} i q_j/q² ∫e^{iqx}ρ, which gives −(1/3)(x × ρ). The sign was corrected after the freeze and before scoring; the corrected sign is the positive one used in the literature.
+- (2) The heavy run was stopped by a time limit before writing its JSON. `audit/heavy_2026-10-02p.json` is transcribed, at full logged precision, from the run log `audit/heavy_2026-10-02p_run.log` by `tools/heavy_log_to_json_2026_10_02p.py`.
+- (3) No self-consistent profile iteration converged in its 60 frozen iterations, so the primary profile is DPP everywhere, as frozen. FSOT reached E = 3.356 M with max|dθ| = 7e-4; the M = 420 case oscillated.
+- (4) The l̄₄, χ_top, T_CMB and m_W values were evaluated before the freeze (stated in it).
+
+**P-1.** g_A = g_A^(0) + g_A^(1) = 0.7424 + 0.4331 = **1.1755**: −7.8 %, which fails the 2 % gate. Validation (PDG) gives 1.2046 and passes 10 %. The M = 420 sanity case gives 1.1945, inside [1.1, 1.5] (literature 1.21). Re A is ~1e-15, as the structure requires. M_Δ − M_N = 177.2 MeV, −39.5 %, fails. The soliton is still unbound (E = 3.413 M; the self-consistent iteration reaches 3.356 M). M_N = E + 3/(8I) = 1112 MeV. The downstream chain is not run.
+
+**P-2.** In the chiral limit:
+- μ_S = 0.760, μ_V^(0) = 3.887, μ_V^(1) = 1.899.
+- FSOT: μ_p = 3.273 (+17 %) and μ_n = −2.513 (+31 %), both fail. μ_d = 0.7356, −14 %, fails.
+- Validation: μ_p passes (+6.9 %), μ_n fails (+15 %).
+- Sanity at M = 420: μ_S = 0.60, matching the literature 0.62, but μ_V is overestimated (5.44 vs 3.44 with m_π = 140), so the μ_p, μ_n window fails.
+
+**P-4.** One-loop linear σ model: l̄₄ = N_c + ln(4M_Q²/M_π²) − (19 − 3√3π)/2 = **4.662** (vs 4.40(28)). This gives F_π = **92.887 MeV**, +0.89 % (z 1.45), which passes the 2 % gate; validation F_π/F = 1.0774 passes (+1.45 %). This is an FSOT-only physical F_π; the evaluation before the freeze is disclosed.
+
+**P-5.** χ^{1/4} = 0.65 e^{1/22} Λ^(3) = 229.2 MeV, +23.7 % against the quenched 185.3(5.7), a fail. U(3) + Witten–Veneziano then gives M_η = 546.95 (−0.17 %) and M_η′ = 1555 (+62 %, fail).
+
+**P-6.**
+- T_CMB from Ω_b h², η, G and u is 2.73233 K: +0.25 %, z 11, fails z ≤ 1. Validation with PDG inputs is +0.66 %.
+- Tree-level m_W = 79950 MeV, −0.52 %, fails (radiative corrections are missing).
+
+**Look-elsewhere counts:** P-1 2 profiles, P-2 1, P-4 1, P-5 1, P-6 2. **Totals unchanged at 87/91.**

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate docs/PHYSICAL_MAP.md from audit/precision_2026-10-02.tsv (the 91 record rows) and the derivation-branch scores (rounds l-o).
+"""Generate docs/PHYSICAL_MAP.md from audit/precision_2026-10-02.tsv (the 91 record rows) and the derivation-branch scores (rounds l-p).
 Stdlib only; regenerate each round:  python tools/physical_map.py --out docs/PHYSICAL_MAP.md
 """
 import argparse, csv, math, re
@@ -18,8 +18,8 @@ A = {"kg": (me, "m_e"), "J": (E0, "m_e c^2"), "MeV": (E0 / e / 1e6, "m_e c^2"), 
 HELD = {"m_pi_pm_MeV": "L-A1: K0 497.597 (-0.003 %); M-2a: pi0 134.397 (-0.43 %); eta/eta' fail",
         "m_K_pm_MeV": "L-A1 / M-2b: K0 -0.003 % / +0.13 %", "r_p_fm": "L-C1: r_p m_p c/hbar = 4.00006 (coefficient not derived)",
         "B_H3_MeV": "Tjon LO 4.61 ratio fails (+38 %)", "B_He4_MeV": "Tjon LO 4.61 ratio fails (+38 %)",
-        "pin:wave3|Deuteron_binding_MeV": "N-3 LO radius -22.7 %; O-3 OPE + core (B input): r_d -4.1 %, Q_d -14 %, eta -7.3 % (fail)", "pin:wave5|Gamma_Z/M_Z": "Delta alpha_had chain gated (g_A^(0) -42 %, O-1)",
-        "pin:wave8|Deuteron_mu_muN": "O-3b: SU(6) mu_n -2.7 %, mu_d +3.8 % (fail)", "m_Z_MeV": "D_eff/S map tests l/m/n fail (factor follows the unit)",
+        "pin:wave3|Deuteron_binding_MeV": "N-3 LO radius -22.7 %; O-3 OPE + core (B input): r_d -4.1 %, Q_d -14 %, eta -7.3 % (fail)", "pin:wave5|Gamma_Z/M_Z": "Delta alpha_had chain gated (g_A = 1.1755, -7.8 %, P-1)",
+        "pin:wave8|Deuteron_mu_muN": "O-3b SU(6) mu_d +3.8 %; P-2 soliton mu_p +17 %, mu_n +31 %, mu_d -14 % (fail)", "m_Z_MeV": "D_eff/S map tests l/m/n fail (factor follows the unit)",
         "m_W_MeV": "D_eff/S map tests l/m/n fail", "m_H_MeV": "D_eff/S map tests l/m/n fail", "m_D_pm_MeV": "D_eff/S map tests fail; HQET branch open"}
 MEAN = {"u_over_m_e": "atomic mass unit / electron mass", "m_Z_MeV": "Z boson mass", "m_tau_MeV": "tau lepton mass", "r_p_fm": "proton rms charge radius",
  "m_pi_pm_MeV": "charged pion mass (pseudo-Goldstone)", "m_D_pm_MeV": "charged D meson mass (heavy-light)", "m_K_pm_MeV": "charged kaon mass (pseudo-Goldstone)",
@@ -67,7 +67,7 @@ for x in rows:
     src = re.sub(r"\s*https?://\S+", "", x["source"]).strip().replace("|", "/")[:70]
     out.append(f"| `{x['#id'].replace('|', '/')}` | {meaning(x)} | {nm} | {ratio} | {x['route']} | {x['value']} | {u} | {x['central']} ({src}) | {x['z']} | {st} | {HELD.get(x['#id'], '-')} |")
 out += ["", f"**Totals:** {n['confirmed']}/91 confirmed, {n['confirmed'] + n['frozen-pending']}/91 including frozen-pending, {n['open'] - 0}/91 open.", "",
-        "## Derivation-branch quantities (rounds l–o; not record rows)", "",
+        "## Derivation-branch quantities (rounds l–p; not record rows)", "",
         "| quantity | physical meaning | FSOT derivation | frozen value | ratio to m_e | measured (source) | rel | class | held-out / status | freeze |",
         "|---|---|---|---|---|---|---|---|---|---|",
         "| M_K0 | neutral kaon (pseudo-Goldstone, m_d + m_s) | LO ChPT + Dashen from π±, K± leaves and pins m_u/m_d, m_s/m_d | 497.597 MeV | 973.773 | 497.611(13) PDG 2024 | −0.003 % | FSOT | held-out, agrees | l (9c6dbbc) |",
@@ -86,6 +86,11 @@ out += ["", f"**Totals:** {n['confirmed']}/91 confirmed, {n['confirmed'] + n['fr
         "| r_d, Q_d, η (OPE) | deuteron radius, quadrupole, D/S ratio | 3S1–3D1 with FSOT g_πNN, m_π; core R = ħc/M_Q fitted to B(2H) leaf | 1.8946 fm / 0.2451 fm² / 0.02373 | — | 1.97507 / 0.285699 / 0.0256 | −4.1 / −14.2 / −7.3 % | FSOT | held-out, fail (validation passes Q_d, η) | o |",
         "| μ_n | neutron magnetic moment | SU(6) −(2/3) μ_p with FSOT μ_p leaf | −1.86190 μ_N | — | −1.91304276 CODATA | −2.67 % | FSOT | fails 2 % gate | o |",
         "| μ_d | deuteron magnetic moment | μ_p + μ_n − (3/2)(μ_S − ½) P_D, P_D = 6.28 % | 0.89035 μ_N | — | 0.8574382335 CODATA | +3.84 % | FSOT | fails | o |",
+        "| g_A (Ω⁰ + Ω¹) | nucleon axial coupling incl. 1/N_c rotational term | full-sea soliton, DPP profile, g_A^(1) from time-ordered collective operators | 1.1755 | — | 1.2754(13) | −7.8 % | FSOT | open (validation 1.2046 passes 10 %) | p (98cd271) |",
+        "| μ_p, μ_n (soliton) | nucleon magnetic moments | isoscalar Ω¹ + isovector Ω⁰ + Ω¹, chiral limit | 3.273 / −2.513 μ_N | — | 2.7928 / −1.9130 | +17 % / +31 % | FSOT | fail | p |",
+        "| F_π (one-loop LσM l̄₄) | pion decay constant | l̄₄ = N_c + ln(m_σ²/M_π²) − (19 − 3√3π)/2 = 4.662 (Nyffeler–Schenk) | 92.887 MeV | — | 92.07(57) | +0.89 % | FSOT | agrees (2 %), validation passes; pre-freeze evaluation disclosed | p |",
+        "| χ_top^{1/4} | topological susceptibility | DP instanton liquid 0.65 e^{1/22} Λ^(3) | 229.2 MeV | — | 185.3(5.7) quenched | +23.7 % | hybrid | fail | p |",
+        "| T_CMB (own physics) | CMB temperature | n_γ = Ω_b h² ρ_c100/(u η) | 2.73233 K | — | 2.7255(6) | +0.25 % (z 11) | FSOT | fail z ≤ 1 | p |",
         "| F_π (l̄₄ = 1 + ln M_Q²/M_π²) | pion decay constant | PV quark loop: dF²/dM² = 0 at the FSOT point | 89.956 MeV | — | 92.07(57) FLAG | −2.29 % | FSOT | fails 2 % gate (l̄₄ = 2.61) | o |", ""]
 Path(a.out).write_text("\n".join(out) + "\n", encoding="utf-8", newline="\n") if False else open(a.out, "w", encoding="utf-8", newline="\n").write("\n".join(out) + "\n")
 print("rows", len(rows), n)

@@ -120,6 +120,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02o (audit/FREEZE_2026-10-02o.md): a full-Dirac-sea chiral quark soliton (Kahana–Ripka basis, Pauli–Villars) at M = m_p/3 is unbound (E = 3.41 M). Its leading-order g_A^(0) = 0.742 misses by 42 % without the 1/N_c rotational term, and Δ−N = 177 MeV misses by 40 %, so the Δα → Γ_Z/M_Z chain stays gated off. A one-pion-exchange deuteron with FSOT g_πNN gives r_d −4.1 %, Q_d −14 % and η −7.3 %. SU(6) μ_n (−2.7 %) and μ_d (+3.8 %) fail, and so does l̄₄ = 1 + ln(M_Q²/M_π²) (F_π −2.3 %). The gate stays at 87/91.
 
+2026-10-02p (audit/FREEZE_2026-10-02p.md): adding the 1/N_c rotational term gives a soliton g_A of 1.1755 (−7.8 %). The Δα chain stays gated off. Soliton magnetic moments come out high (μ_p +17 %, μ_n +31 %). The one-loop linear-sigma-model l̄₄ = 4.66 gives an FSOT-only F_π of 92.89 MeV (+0.89 %, agrees). The DP instanton χ_top is +24 % high. The own-physics T_CMB is +0.25 % (z 11). The gate stays at 87/91.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|
