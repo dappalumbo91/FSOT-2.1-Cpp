@@ -1,0 +1,25 @@
+{
+ "freeze": "FREEZE_2026-10-02ac",
+ "date": "2026-10-03",
+ "authority_pin": "AEB2AD (unchanged)",
+ "hub_data_commit": "6f9c2560 (unchanged)",
+ "rule": "z-only scoring against observations; ratios first, MeV as byproduct; no hybrid; gates never changed",
+ "AC-2 soliton window (pre-registered for all future runs)": {
+  "window": "DPP profile-size scan x in [0.5, 1.6] step 0.1 (wider if the minimum is at an edge: extend by 0.5 and report); parabola through the 3 points around the minimum",
+  "adopted run": "the round-ab K 12 run with the window 0.5-1.6 (audit/heavy_2026-10-02ab_wide_K12.json, interior minimum x 1.169) is adopted as the AC soliton at the round-ab M/m_p 0.458168; its values were already shown as round-ab information (disclosed); scored here: (M_Delta - M_N)/m_p and g_A (time-ordered) by z",
+  "kink": "diagnostic: split E(x) into 3 eps_val, sea, PV and mass parts at x = 1.15, 1.2, 1.25, 1.3, 1.35 (K 12) to locate the kink between 1.2 and 1.3 (unscored)",
+  "1/N_c rotational g_A": "the time-ordered g_A already contains the rotational 1/N_c term g1 = A_im/(I M) (Wakamatsu-Christov collective quantization); reported separately; no new correction is introduced this round unless a derivation is completed and frozen separately"
+ },
+ "AC-1 deuteron with tensor OPE and soliton form factors": {
+  "potential": "3S1-3D1 coupled channels, T = 0: OPE central and tensor with f^2/4pi = g_A^2 m_pi^2/(16 pi F_pi^2) (g_A = AC-2 soliton g_A, F_pi = FSOT P-4, m_pi = FSOT pi+-); sigma (m = 2M, g = 3M/F_pi, attractive) and omega (m = 2 sqrt2 pi F_pi, g = 6 pi, repulsive) central as in round ab; every meson-nucleon vertex carries a monopole form factor Lambda^2/(Lambda^2 + q^2) normalised at q^2 = 0, closed-form coordinate potentials",
+  "cutoff": "Lambda = sqrt6/r_B with r_B the topological baryon rms radius of the AC-2 soliton profile theta(r) = -2 arctan(x^2/r^2 (1 + m_pi r/M... ) e^(-m r)), x = x_DPP, converted to 1/m_p via M/m_p (monopole <r^2> = 6/Lambda^2)",
+  "solution": "pure-Python RK4, two regular solutions, determinant zero at r_max = 150/m_p, bisection in E; P_D = Int w^2/Int(u^2 + w^2)",
+  "score": "B_d/m_p by z (CODATA B(2H)); mu_d = mu_S - (3/2)(mu_S - 1/2) P_D with the round-q FSOT soliton mu_p + mu_n (as round-r R-0), by z; P_D information (not an observable)"
+ },
+ "AC-3 matter-to-baryon ratio and last scattering": {
+  "ratio": "FSOT pins wave2 Omega_DM_h2 and wave1 Omega_b_h2: r_mb = (Omega_DM h^2 + Omega_b h^2)/Omega_b h^2 (H0-free physical densities); cross-check Omega_m h^2/Omega_b h^2 with wave2 Omega_m reported as information (needs h)",
+  "T_ls": "H(T)^2 = (8 pi G/3)[rho_gamma (1 + (7/8)(4/11)^(4/3) N_eff) + r_mb m_p eta n_gamma(T)], hydrogen Saha x_e(T) (hydrogen only, n_H = eta n_gamma), Thomson optical depth tau(T) = Int x_e eta n_gamma sigma_T c dt from T downward; T_ls defined by tau = 1; reported as kT_ls/(m_e alpha^2) (information: not directly observable)",
+  "T_CMB": "not scored this round: 1 + z_* still needs T_0 (finding unchanged); an age-based anchor (wave3 Age_Gyr) is noted for a future freeze"
+ },
+ "look-elsewhere": "AC-1: 1 route, 2 scored rows; AC-2: 1 adopted run, 2 scored rows; AC-3: information only"
+}
