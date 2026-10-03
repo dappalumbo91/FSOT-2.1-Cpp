@@ -1734,3 +1734,26 @@ Freeze `audit/FREEZE_2026-10-02ak.{json,md}` (commit 1d4d524), committed before 
 **AK-2: Γ_Z / Δα_had:** not attempted (time box).
 
 **Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
+
+## 2026-10-02al (summary; details in docs/AUDIT_LOG.md H-65)
+
+Shell-period averaging (4 boxes over one π/kmax period) validates at kmax 12 (E +1.70 %, g_A +0.50 %, I +0.002 %); the kmax-14 level hit the then-10-min cap, so μ was not scored. The averaged σ charge moves −4.23 % from kmax 12 to 14, not adopted. The core-SHA CTest no longer needs `sh` (Windows). This section was held back in round al so the owner's record commit could land without conflict.
+
+## 2026-10-02am: kmax-14 shell-average job detached (owner budget change); Δα_had via soliton-radius VMD + LMD duality fails validation
+
+Freeze `audit/FREEZE_2026-10-02am.{json,md}` (commit 8b7256d), committed before computing. Scorer `tools/score_2026_10_02am.py`, output `audit/score_2026-10-02am.tsv`. Single PV remains the regulator; pins, gates and tolerances are unchanged.
+
+**AM-1 (operational budget change, owner instruction 2026-10-03 08:52 ET):** the 10-min cap is an operational compute budget, not a physics gate. The level-B (kmax 14, D0 14) samples now run as one detached, resumable job (`tools/shellavg_bg_2026_10_02am.py`; per-sample files, pickled spectra cache), carrying across rounds. The round-al averaging and two-level rules are unchanged; μ_p/μ_n are scored in the round it finishes. Still running at this commit.
+
+**AM-2: Δα_had^(5) via photon–ρ beyond universality.** M_V = √6/r_V from the round-ag soliton valence radius (VMD; M_V/m_p 0.73588, 690.5 MeV byproduct); duality threshold s0 = 2M_V²; photon–V couplings from the first LO FESR, (f_V Q_V)² = c_V s0/(12π²) with c_ρ = 3/2, c_ω = 1/6; continuum = round-y duality integral with u,d from s0.
+
+| Row | value | reference | z |
+|---|---|---|---|
+| validation (PDG M_ρ, round-y PDG inputs) | 0.026030 | 0.02783(6) | 30.0, gate |dev| ≤ 0.00029 FAIL |
+| Δα_had^(5) (FSOT) | 0.026335 | 0.02783(6) | 24.9 |
+| G_F (round-z chain) | 1.164167e−5 | 1.1663787e−5 | 3687 |
+| Γ_Z/M_Z | 0.0272120 | 0.0273665(25) | 6.13 |
+
+The LO duality couplings give Γ_ee(ρ) 4.38 keV with PDG M_ρ (PDG 7.04), the same deficit as KSRF universality; the narrow ρ+ω terms are M_V-independent at LO (2αc_V/3π). The route fails validation, so nothing changes; Γ_Z/M_Z is 0.0272120 against round z's 0.0272404 (both misses). Look-elsewhere: 1 route, 1 validation, 3 scored rows.
+
+**Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.

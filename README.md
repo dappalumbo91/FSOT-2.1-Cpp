@@ -159,6 +159,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02al (audit/FREEZE_2026-10-02al.md): averaging the single-PV sums over one radial-shell period passes validation at kmax 12, but the kmax-14 level did not finish within the 10-min cap, so μ is not scored. The averaged σ charge still moves 4.2 % between kmax 12 and 14, so it is not adopted. The core-SHA CTest no longer needs `sh` on Windows. Totals 88/91 (86/91 pinned only, 86/89 with H0 and τ_n deferred), after the owner's record commit b99fc29 adopted the η T_CMB route. Round al changes no record row.
 
+2026-10-02am (audit/FREEZE_2026-10-02am.md): under the owner's operational budget change, the kmax-14 shell-average samples run as one detached resumable job (still running; μ is scored when it finishes). Δα_had from the soliton-radius ρ mass with lowest-meson-dominance duality couplings fails its PDG-input validation (−6.5 %; Γ_ee(ρ) 4.4 keV vs 7.04), so G_F and Γ_Z/M_Z (z 6.1) stay misses. Totals 88/91 (b99fc29).
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|
