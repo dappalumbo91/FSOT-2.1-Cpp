@@ -1,0 +1,10 @@
+Y1_pu_massive_K14 scan 0.5 29.9
+Y1_pu_massive_K14 scan 0.6 41.4
+Y1_pu_massive_K14 scan 0.7 55.3
+Y1_pu_massive_K14 scan 0.8 64.4
+Y1_pu_massive_K14 scan 0.9 71.9
+Y1_pu_massive_K14 scan 1.0 78.4
+Y1_pu_massive_K14 scan 1.1 85.8
+Y1_pu_massive_K14 DPP {'E_sol_over_M': 3.076368473720282, 'eps_val': 0.4686040796953936, 'gA0': 0.9183429628808727, 'gA0_val': 0.6923463394080204, 'gA0_sea': 0.22599662347285232, 'I_times_M': 2.267059616847614, 'A_re': -6.739024688352375e-15, 'A_im': 1.2716532953703343, 'Amu_re': 5.392714864664447e-14, 'Amu_im': 1.4982224096714492, 'B_re': -3.9039408438152057, 'B_im': 9.473307788040585e-14, 'xat_val': -2.1890295257506196, 'xat_sea': -0.8331262978308587, 'E_m_over_M': 0.14878214434331263}
+Y1_pu_massive_K14 total seconds 193.4
+written audit/heavy_2026-10-02y_K14.json

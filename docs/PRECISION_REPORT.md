@@ -1253,3 +1253,41 @@ The round-w cpp_check passed ("ALL CPP CHECKS PASSED in 2124 s") and its worktre
 - The gap equation runs once (`tools/gap_2026_10_02x.py`, scipy) and writes `audit/gap_2026-10-02x.json`, which the scorer reads.
 
 **Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
+
+## 2026-10-02y: soliton in proton units with PV-consistent F, FSOT-only Γ_Z/M_Z chain, quark-pole duality (freeze c2ca975 `FREEZE_2026-10-02y`; scores `audit/score_2026-10-02y.tsv`)
+
+The round-x cpp_check passed ("ALL CPP CHECKS PASSED in 682 s") and its worktree was removed. The Y-1 runs started while that check was finishing; the check compares bytes, so the contention did not affect it.
+
+**Settled by standing rules (owner, 03:46):**
+- Gates are never changed.
+- The Freitas/ACFW coefficients and the 5.279 GeV threshold are hybrids, so the round-i GZ-1 chain (z 0.68) moves to the scaffolding table.
+- Work in dimensionless ratios; MeV appears only as a byproduct via m_p.
+
+**Y-1: soliton in proton units.**
+- **Inputs:** M/m_p = 0.368834 (round-x gap equation), F/m_p = 1/(2√3π) held fixed, M_PV/M = 1.50438 from the PV condition, m_π/m_p from FSOT leaves.
+- **K 12:** (M_Δ − M_N)/m_p = 0.24365. **K 14:** 0.24404 (229.0 MeV). The result is K-stable.
+  - **0.24404 vs 0.31236 (z 31.5), miss.**
+  - **g_A = 1.4793 (z 9.0 with the K 12–14 theory uncertainty), miss.**
+  - μ is not scored.
+- **What moved:** I M dropped from 2.60 (round x, F tied to M) to 2.267. Δ−N rose from 200 to 229 MeV. 293 MeV needs I M = 1.771.
+- The nucleon-condition estimate M/m_p = 1/(E/M + 3/(8IM)) = 0.308 (information) sits below the gap-equation value: the soliton overbinds the nucleon at M(0).
+- **Disclosed unit step:** the condensate pin is read in GeV⁴. That is the only unit-dependent step in the M/m_p chain, and it is not resolved.
+
+**Y-2: Γ_Z/M_Z inside FSOT.**
+- **Δα_had fix:** the duality route (round i) put the c and b thresholds at the open-flavour mesons, so it missed the narrow quarkonia below them. Global duality puts the threshold at 2 m_Q(pole).
+  - With one-loop pole masses from FSOT m_c and m_b: Δα_had^(5) = 0.027344 (z 8.1; round i 0.026722, z 18.5). The fix recovers 58 % of the deficit.
+  - The PDG-input validation gives 0.027370 and still fails the unchanged 0.00029 gate. The remaining −0.00046 sits in the light-quark ρ/ω region, where duality from 2m_π is too crude.
+- **EW chain** (round-f one-loop Hioki Δr, Δρ × QCD, no fit coefficients, authority A1 width): Δr = 0.03277, G_F = 1.16248e-5 (z 6494), **Γ_Z/M_Z = 0.0271726 (z 7.7), miss.**
+- **Next divergent step:** Δr is 0.0041 short of the SM evaluation (0.03685). The missing pieces are the higher-order Δr terms (two-loop m_t⁴ and m_t²M_Z², the QCD corrections to Δr_rem, and the Δα–Δρ resummation), not Δα_had. Deriving them inside FSOT is the next step.
+
+**Y-3: T_CMB trace (analysis, not scored).**
+- The own-physics route T ∝ (Ω_b h²/η)^{1/3} (round p: 2.73233 K, z 11) needs Ω_b h²/η to 6.6e-4, about 10× better than either cosmological input is known.
+- The standard η–Ω_b h² conversion itself assumes T0. The route therefore checks two FSOT pins against each other rather than deriving T_CMB.
+- A direct thermodynamic FSOT route is needed. The deuteron traces were not reached.
+
+**Disclosures.**
+- The pole-mass conversion (one loop) and the threshold placement were frozen before scoring.
+- No validation passed, so no record row changed.
+- Look-elsewhere: Y-1 has 2 scored rows; Y-2 has 3.
+
+**Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).

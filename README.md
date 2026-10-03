@@ -140,6 +140,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02x (audit/FREEZE_2026-10-02x.md): an energy cutoff does not converge the μ sea sum, so μ is not rescored. The instanton-vacuum gap equation with FSOT's own instanton density gives the soliton quark mass M(0) = 346 MeV, but Δ−N rises only to 200 MeV because the frozen setup ties F to M. The Γ_Z/M_Z physics route already sits at z 0.68; it is insensitive to the failing Δα_had step and is blocked by external parametrisation inputs (an owner decision). The gate stays at 87/91.
 
+2026-10-02y (audit/FREEZE_2026-10-02y.md): with the soliton in proton units and F held at FSOT's chiral value, (M_Δ−M_N)/m_p = 0.244 (229 MeV, K-stable) and g_A = 1.48; both miss. Putting the heavy-quark thresholds of the duality route at the quark pole masses recovers 58 % of the Δα_had deficit, but its validation still fails. The FSOT-only one-loop chain gives Γ_Z/M_Z 0.02717 (z 7.7), with the next divergence in the higher-order Δr. The round-i Freitas/ACFW chain is scaffolding. The gate stays at 87/91.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|
