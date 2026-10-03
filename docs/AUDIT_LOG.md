@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-57 · 2026-10-02ae: rotational μ terms PV-regularised (μ_p 2.254, μ_n −1.650 at K 12; K 14 not finished, μ not scored); ω Dirac form factor (Λ_V 0.736 m_p) still unbound; T_CMB trace: FSOT cosmology pins not flat (0.99816) and h inconsistent (0.6735 vs 0.6845), flatness gives +0.071 %
+
+Freeze `FREEZE_2026-10-02ae` (5f56a46). Round-ad cpp_check passed (540 s). Totals 87/91.
+
 ### H-56 · 2026-10-02ad: rotational g_A term time-ordered with PV-regularised sea → g_A 1.2845 (z 7.0, +0.71 %; was z 202); soliton σNN (S_val 0.508) → OPE+σ binds 7.5 MeV, +ω unbound (ω form factor next); T_CMB from the FSOT age 2.72847 K (z 4.96, +0.11 %)
 
 Freeze `FREEZE_2026-10-02ad` (63468ff). Round-ac cpp_check passed (535 s). Totals 87/91.

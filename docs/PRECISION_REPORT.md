@@ -1493,3 +1493,43 @@ Round ac's unregularised value was 1.5376 (z 202). The missing PV subtraction in
 **Not reached:** an independent FSOT Λ^(0).
 
 **Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
+
+## 2026-10-02ae: PV-regularised rotational μ terms, ω Dirac form factor, T_CMB age-integral trace (freeze 5f56a46 `FREEZE_2026-10-02ae`; scores `audit/score_2026-10-02ae.tsv`)
+
+The round-ad cpp_check passed (540 s) and its worktree was removed.
+
+**AE-1: μ regularisation.**
+- Check: μ_V^(0) (the classical isovector piece) was already PV- and vacuum-subtracted. The rotational pieces Amu (μ_V^(1)) and B (μ_S), like A, were summed on the M spectrum only. They are now PV-subtracted with the AD-1 prescription.
+- K 12 (`tools/murun_2026_10_02ae.py`, window 0.5–1.6, x_DPP 1.1689, I M 2.08619):
+
+| Term | Valence | Bare sea | PV sea |
+|---|---|---|---|
+| Im Amu | 0.8658 | 1.0436 | 1.3596 |
+| Re B | −3.4026 | −0.6510 | −1.0027 |
+
+- With these, **μ_p = 2.2541 and μ_n = −1.6503**. Without the PV subtraction they would be 2.7245 and −2.0177. μ_V^(0) = 2.7447.
+- The PV subtraction is the consistent step, and it moves μ_p, μ_n down by about 18 %. The non-decaying μ_V^(0) sea tail of round x is separate: that piece was already regularised.
+- **K 14 did not finish inside the time box.** It was started in parallel and stopped at scan point 0.9 of 12, after about 590 s. Under the frozen rule (K 12 and K 14 within 2 %), μ is **not scored** and no K 14 g_A is reported. g_A at K 12 is 1.28451, the round-ad value reproduced.
+
+**AE-2: ω vertex.**
+- Λ_V = √6/r_V = 0.7359 m_p, where r_V = 3.329/m_p (0.700 fm) is the rms radius of the soliton's valence Dirac density.
+- The tensor coupling is κ_ω = μ_S − 1 = −0.160 (from the round-q soliton). Its O(1/m_N²) spin-orbit and tensor potentials were not implemented, as stated in the freeze.
+- Result: OPE + σ + ω with the softer ω vertex is **still unbound** down to −3.16 m_p (miss); no P_D or μ_d. Trace: OPE+σ binds at 7.46 MeV, as in round ad.
+- Next: the ω tensor and spin-orbit terms, and the Dirac-sea part of the isoscalar density.
+
+**AE-3: T_CMB trace** (diagnostic).
+
+| Step | T_0 (K) | vs FIRAS |
+|---|---|---|
+| (a) no radiation | 2.72957 | +0.149 % |
+| (b) photons only | 2.72892 | +0.125 % |
+| (c) photons + FSOT N_eff (= AD-3) | 2.72847 | +0.109 % |
+| (d) Ω_Λ from flatness (1 − Ω_m − Ω_r) | 2.72743 | +0.071 % |
+| (e) h from the H0 pin (deferred; info) | 2.71591 | −0.352 % |
+
+- Pin consistency: Ω_m + Ω_Λ + Ω_r = 0.99816, so the pins are not flat. Ω_DM h² + Ω_b h² = 0.14305, against Ω_m h²(H0 pin) = 0.14772 (3.3 % apart). h from Ω_m is 0.6735, against 0.6845 from the H0 pin.
+- **First diverging step:** the FSOT cosmology pins are not mutually consistent (closure and h). The remaining +0.07 % with flatness enforced sits in the matter-density/age inputs.
+
+**Not reached:** an independent Λ^(0).
+
+**Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
