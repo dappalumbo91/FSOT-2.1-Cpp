@@ -1612,3 +1612,30 @@ Freeze `audit/FREEZE_2026-10-02ag.{json,md}` (commit fea36c7), committed before 
 - Physical reading: σ is scaled down by the valence-only scalar charge 0.508 (g_σ²/4π 3.97), while ω carries the full baryon number. The imbalance is σ/ω. The candidate soliton fix is the Dirac-sea part of the scalar density in g_σNN; it has not been computed.
 
 **Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
+
+## 2026-10-02ah: μ cutoff dependence located; full (valence + PV-sea) scalar charge
+
+Freeze `audit/FREEZE_2026-10-02ah.{json,md}` (commit 2cb6a00), committed before computing. Scorer `tools/score_2026_10_02ah.py`, output `audit/score_2026-10-02ah.tsv`.
+
+**AH-1: μ cutoff dependence** (K 14, D 14, M_PV/M 1.302979 from the PV condition; `tools/kscan_2026_10_02ah.py`).
+- The rotational pieces Amu and B move by at most 0.6 % between kmax 12 and 14 (stored runs). All of the dependence is in the μ_V^(0) sea sum. That was located before the freeze and is disclosed.
+
+| kmax | bare sea − vacuum | PV part | xat_sea | μ_V^(0) |
+|---|---|---|---|---|
+| 12 | −13.166 | +11.718 | −1.4474 | 2.8142 |
+| 14 | −12.382 | +11.176 | −1.2063 | 2.6388 |
+| 16 | −14.081 | +12.519 | −1.5622 | 2.8977 |
+
+- The PV weight (M/M_PV)² cancels about 89–90 % of the bare sea at every kmax. That is the leading M² log cancellation, so no leading-order regulator is missing.
+- The residue oscillates non-monotonically with the basis shells: −6.7 %, then +8.9 %. **μ_p and μ_n are not scored**, as frozen.
+- The fix that needs deriving: a second PV subtraction with its own physical condition, so the large-momentum summand of the r-weighted operator is suppressed. No correction was applied this round. The full kmax-16 rotational run was not needed.
+
+**AH-2: full scalar charge** (`tools/sigsea_2026_10_02ah.py`; cqsm_rot.sc_force weights; round-ab soliton, K 12, D 12).
+- At kmax 12: valence 1.5254 (= 3 S_val), PV-regularised sea +10.566, total 12.091. At kmax 14: total 12.468.
+- The total moves 3.0 % (the sea 3.4 %), which fails the frozen 2 % adoption rule. **The full coupling is not adopted, the deuteron was not rerun, and nothing is scored.** The single-PV scalar density keeps a log-divergent M³ piece.
+- For information: g_σNN²/4π would be about 249 (r_S² M² 3.68). That is 63 times the valence-only 3.97, so even if stable it would overshoot.
+- Next: project the scalar density onto the σ mode. Its sea part is dominated by the pion-cloud condensate depletion, which belongs to two-pion exchange rather than σ exchange.
+
+**AH-3:** the hub-prompt section on adopting the round-af T_CMB route is written (no computation).
+
+**Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).

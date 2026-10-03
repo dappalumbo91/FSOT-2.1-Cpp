@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-60 · 2026-10-02ah: μ cutoff dependence is entirely in the μ_V^(0) sea sum (μ_V^(0) 2.814/2.639/2.898 at kmax 12/14/16; the PV weight cancels about 90 %, and the residue oscillates), so μ is not scored; the full valence+PV-sea scalar charge (12.09, 7× valence) moves 3.0 % from kmax 12 to 14 and is not adopted (no deuteron rerun); T_CMB adoption section drafted for the hub
+
+Freeze `FREEZE_2026-10-02ah` (2cb6a00). Round-ag cpp_check passed (606 s). Totals 87/91.
+
 ### H-59 · 2026-10-02ag: FSOT η = Poof¹¹/(πγ) has no T_CMB input, so the round-af T_CMB (z 0.40) is an FSOT derivation (proposed hub record route); with kmax fixed at 12 the box and K steps converge under 2 % and μ_p 2.285 (z 21.9), μ_n −1.684 (z 9.38), g_A 1.2917 (z 1.56), Δ−N/m_N 0.3275 (z 6.12) all miss; post-freeze kmax 12→14 moves μ by 4–5 % (cutoff-dependent; g_A, Δ−N stable); deuteron: ω central (9π) over-repels at 37× the binding, the topological-radius ω vertex is still unbound
 
 Freeze `FREEZE_2026-10-02ag` (fea36c7). Round-af cpp_check passed (595 s). Totals 87/91.
