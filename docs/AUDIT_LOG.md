@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-67 · 2026-10-02an: Γ_ee(ρ) trace through the FESR f_ρ: LO 4.38 → +α_s 4.85 → +finite width 5.40 keV vs 7.04; a factor 1.30 remains (needs a gluon-condensate term); validation fails (z 23), Γ_Z/M_Z z 5.73; level-B job 3/4 samples, still running
+
+Freeze `FREEZE_2026-10-02an` (c5d9ba0). Round-am cpp_check passed (682 s). Totals 88/91. Disclosures: Breit–Wigner normalisation moved from [4m_π², ∞) (divergent) to [4m_π², s0] before any result; the AN-1 sample set is fixed in the scorer at commit time so the score stays byte-identical as more samples are committed.
+
 ### H-66 · 2026-10-02am: owner operational budget change lets the kmax-14 shell-average samples run as one detached resumable job (still running); Δα_had via soliton-radius VMD + LMD duality couplings fails validation (0.02603 vs 0.02783, z 30), FSOT Δα_had 0.02634 (z 24.9), G_F z 3687, Γ_Z/M_Z z 6.13; nothing changes
 
 Freeze `FREEZE_2026-10-02am` (8b7256d). Round-al cpp_check passed (674 s). Totals 88/91 (86/91 pinned only, 86/89 deferred) since b99fc29. Disclosures: Λ_V/m_p (round ag) was known before the freeze; the background tool's merged output was renamed after the freeze from `shellavg_2026-10-02al_B.json` to `shellavg_2026-10-02am_B.json` so the committed round-al score stays byte-identical (job restarted from cache, 30 s lost); the AM-1 score row was made static for the same reason.

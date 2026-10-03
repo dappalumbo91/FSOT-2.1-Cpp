@@ -161,6 +161,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02am (audit/FREEZE_2026-10-02am.md): under the owner's operational budget change, the kmax-14 shell-average samples run as one detached resumable job (still running; μ is scored when it finishes). Δα_had from the soliton-radius ρ mass with lowest-meson-dominance duality couplings fails its PDG-input validation (−6.5 %; Γ_ee(ρ) 4.4 keV vs 7.04), so G_F and Γ_Z/M_Z (z 6.1) stay misses. Totals 88/91 (b99fc29).
 
+2026-10-02an (audit/FREEZE_2026-10-02an.md): the Γ_ee(ρ) shortfall was traced through a two-FESR f_ρ. α_s and the finite ρ width raise it from 4.38 to 5.40 keV (PDG 7.04); the remaining factor 1.30 points at a gluon-condensate term FSOT does not yet supply. Δα_had still fails validation, and Γ_Z/M_Z stays a miss (z 5.7). The kmax-14 job has 3 of 4 samples. Totals 88/91 (b99fc29).
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

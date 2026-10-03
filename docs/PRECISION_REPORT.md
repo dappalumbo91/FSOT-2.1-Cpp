@@ -1757,3 +1757,21 @@ Freeze `audit/FREEZE_2026-10-02am.{json,md}` (commit 8b7256d), committed before 
 The LO duality couplings give Γ_ee(ρ) 4.38 keV with PDG M_ρ (PDG 7.04), the same deficit as KSRF universality; the narrow ρ+ω terms are M_V-independent at LO (2αc_V/3π). The route fails validation, so nothing changes; Γ_Z/M_Z is 0.0272120 against round z's 0.0272404 (both misses). Look-elsewhere: 1 route, 1 validation, 3 scored rows.
 
 **Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.
+
+## 2026-10-02an: Γ_ee(ρ) traced through the FESR f_ρ (α_s and finite width close half the gap); level-B job 3/4 samples
+
+Freeze `audit/FREEZE_2026-10-02an.{json,md}` (commit c5d9ba0), committed before computing. Scorer `tools/score_2026_10_02an.py`, output `audit/score_2026-10-02an.tsv`.
+
+**AN-1:** the detached kmax-14 job (round-am budget change) has finished samples j = 0, 1, 2 (E_sol 2.10569, 2.10577, 2.17801; committed); j = 3 and the rotational sums were still running at commit, so the round-al rules are not yet applied and μ is not scored.
+
+**AN-2: f_ρ from two vector-correlator FESRs** (n = 0, 1; FSOT α_s via the round-y running; P-wave Breit–Wigner with KSRF g_ρππ for the width only). Trace of Γ_ee(ρ) with PDG inputs:
+
+| step | Γ_ee(ρ) keV | f_ρQ_ρ GeV | s0/M² | Δα_had^(5) |
+|---|---|---|---|---|
+| LO narrow (round am) | 4.380 | 0.1234 | 2 | 0.026030 |
+| + α_s | 4.854 | 0.1299 | 2 | 0.026310 |
+| + finite width (Γ_ρ 148 MeV) | 5.397 | 0.1370 | 2.2235 | 0.026428 |
+
+PDG Γ_ee(ρ) is 7.04(6) keV: α_s (×1.108) and the width (×1.112) close about half of the gap; a factor 1.30 remains, which needs s0/M² near 2.9, i.e. a negative dimension-4 (gluon-condensate) term in the n = 1 FESR that FSOT does not yet supply. Validation fails (0.026428 vs 0.02783(6), z 23.4). FSOT (M_V = √6/r_V, round-p F_π): Γ_ee(ρ) 4.73 keV, Δα_had^(5) 0.026689 (z 19.0), G_F z 2975, Γ_Z/M_Z 0.0272220 (z 5.73). Nothing changes. Post-freeze correction (disclosed, made before any result): the Breit–Wigner normalisation on [4m_π², ∞) diverges logarithmically, so it is normalised on [4m_π², s0]. Look-elsewhere: 1 route, 1 validation, 3 scored rows.
+
+**Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.
