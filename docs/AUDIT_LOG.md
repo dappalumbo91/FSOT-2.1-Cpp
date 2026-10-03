@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-44 · 2026-10-02s: g_A separation: the basis cap is not the cause (−1.8 %); the pion-mass step gives +20.5 % via the Dirac-sea axial sum and g_A^(1); FKS η −1.7 % (passes), η′ −7.9 % (χ is the remaining step)
+
+Freeze `audit/FREEZE_2026-10-02s.md` (5d6610c). The separation run was a diagnostic made before the freeze (disclosed), and no g_A fix has been derived yet. Totals 87/91.
+
 ### H-43 · 2026-10-02r: late round-q validation passes (g_A, μ_p, μ_n) → soliton μ_p −0.96 %, μ_n +0.67 % agree; μ_d −5.7 % (fail); χ_top trace: quenched Λ^(0) fix → χ^{1/4} 177.0 MeV (−4.5 %, passes); η/η′ −7.6 %/+5.8 % (LO U(3)+WV next)
 
 Freeze `audit/FREEZE_2026-10-02r.md` (26f9b66) was committed before the scorer and the late validation result. Disclosures are in the precision report. Totals 87/91.

@@ -126,6 +126,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02r (audit/FREEZE_2026-10-02r.md): round q's validation, run late, passed for g_A, μ_p and μ_n, so the soliton μ_p (−0.96 %) and μ_n (+0.67 %) now agree. μ_d = 0.808 (−5.7 %) fails. Tracing χ_top showed the unquenched Λ^(3) had been fed into a pure-gauge instanton chain; with quenched Λ^(0) = 0.772 Λ^(3) (FLAG), χ^{1/4} = 177 MeV (−4.5 %, passes). The η (−7.6 %) and η′ (+5.8 %) now point at the LO U(3)+WV matrix. The gate stays at 87/91.
 
+2026-10-02s (audit/FREEZE_2026-10-02s.md): the g_A shift comes from adding the physical pion mass, not from the basis cap. The Dirac-sea axial sum goes from 0.011 to 0.156 and g_A^(1) rises 22 %; the fix is still open. η/η′ at next order (FKS): η = 538.4 MeV (−1.7 %, passes), η′ = 882.6 MeV (−7.9 %, fails), with χ as the remaining step. The gate stays at 87/91.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

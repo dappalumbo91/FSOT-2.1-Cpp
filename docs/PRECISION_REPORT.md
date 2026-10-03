@@ -1003,3 +1003,36 @@ After the fixes, the literature sanity case (M = 420, F = 93) gave g_A^(0) = 0.7
 - Two steps changed at once: the pion-mass profile and the basis cap (K 12 → 8). The next step is a chiral DPP run in the K 8 basis to separate them.
 
 **Totals unchanged at 87/91.**
+
+## 2026-10-02s: g_A separation and η/η′ at next order (freeze 5d6610c `audit/FREEZE_2026-10-02s.md`; scores `audit/score_2026-10-02s.tsv`)
+
+**Disclosures.**
+- The g_A separation run (`tools/heavy_2026_10_02s.py`, chiral DPP at D 10 / k 10 / K 8, about 1 min) was a diagnostic made **before** the freeze, and the freeze records what it found. Its JSON label names freeze s because the script was copied from round q.
+- I made a hand estimate of η/η′ before the freeze: about −2 % / −8 % with FSOT inputs and +1 % / −2 % with validation inputs.
+- Look-elsewhere: 1 scheme scored, plus 1 info variant (f_q = F3).
+
+**S-1 g_A separation** (M = m_p/3, massive DPP profile):
+
+| Run | g_A^(0) (valence + sea) | g_A^(1) | g_A |
+|---|---|---|---|
+| chiral, K 12 (round p) | 0.742 | 0.433 | 1.1755 |
+| chiral, K 14 (round p) | — | — | 1.1602 |
+| **chiral, K 8 (this round)** | **0.7249** (0.7138 + 0.0111) | **0.4297** | **1.1547** |
+| massive, K 8 (round q) | 0.8654 (0.7098 + 0.1555) | 0.5258 | 1.3912 |
+
+- **The basis cap is not the cause:** going from K 12 to K 8 moves g_A by only −1.8 %.
+- **The pion-mass step causes +20.5 %:**
+  - The valence part is essentially unchanged (−0.6 %).
+  - The Dirac-sea axial sum grows 14×, from 0.011 to 0.156. The massless 1/r² pion tail suppresses it in a finite box; the massive tail does not.
+  - g_A^(1) rises 22 %.
+- I have not derived the fix yet. The two candidates are the operator-ordering part of g_A^(1) and the surface term of the chiral-limit axial integral. g_A is not rescored.
+
+**S-2 η/η′ in the Feldmann–Kroll–Stech quark-flavour scheme:**
+- **Inputs:** f_q = FSOT F_π (92.89 MeV), f_s = f_q√(2r² − 1) with r = F_K/F_π = 1.1932 (FLAG), and a² = 2χ/f_q² with χ^{1/4} = 177.0 MeV from round r. The OZI-violating terms Λ₁ = Λ₂ = 0.
+- **Validation** (PDG F_π, lattice χ): η +1.7 % and η′ −1.4 %, both within 5 %.
+- **FSOT:**
+  - **M_η = 538.4 MeV (−1.7 %): passes.**
+  - M_η′ = 882.6 MeV (−7.9 %): fails.
+  - φ = 37.7° (FKS phenomenology: 39.3°).
+- The η′ shortfall traces to a² = 0.228 GeV² against about 0.265 in phenomenology. The validation, which differs mainly in χ^{1/4} (185.3 vs 177.0), passes. So the remaining step is χ itself: the quenched-to-unquenched ratio R and the 0.65 coefficient.
+- Both η rows are HYBRID. **Totals unchanged at 87/91.**
