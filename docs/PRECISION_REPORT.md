@@ -1448,3 +1448,48 @@ The round-ab cpp_check passed (510 s) and its worktree was removed.
 **Not reached:** an independent FSOT Λ^(0).
 
 **Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
+
+## 2026-10-02ad: g_A operator ordering and PV regularisation, soliton-derived σNN, T_CMB from the FSOT age (freeze 63468ff `FREEZE_2026-10-02ad`; scores `audit/score_2026-10-02ad.tsv`)
+
+The round-ac cpp_check passed (535 s) and its worktree was removed.
+
+**AD-1: g_A** (`tools/gatrace_2026_10_02ad.py`, adopted AC-2 run, K 12; I M 2.08619 reproduced).
+- Im A split:
+  - valence 0.67629, bare sea 0.64610, PV sea 0.89637;
+  - PV weight (M/M_PV)² = 0.58901;
+  - vacuum ~1e−13.
+- The rotational term comes from the non-commutativity of D_3a and Ω_b. The path integral takes it time-ordered, so it is kept; Weyl ordering, which removes it, is shown as information only (g_A = 0.9037).
+- The term belongs to the same regularised effective action as the inertia, so its sea part takes the same PV subtraction. That gives Im A_reg = 0.79442 and g1 = 0.38080.
+
+| Row | Value | Measured | z | Verdict |
+|---|---|---|---|---|
+| g_A (time-ordered, PV-regularised) | 1.28451 | 1.2754(13) | 7.0 | miss (+0.71 %) |
+| (M_Δ − M_N)/m_p | 0.32943 | 0.31236 | 8.0 | miss |
+
+Round ac's unregularised value was 1.5376 (z 202). The missing PV subtraction in the rotational sea term was the diverging step.
+
+**AD-2: deuteron with the soliton σ coupling.**
+- Couplings and cutoffs:
+  - g_σNN = 3 S_val M/F_π, with valence scalar charge S_val = 0.50847, so g_σ²/4π = 3.966 (quark counting gave 15.3). Vertex cutoff Λ_S = √6/r_S = 0.9285 m_p.
+  - ω stays at 6π, because it couples to the conserved baryon current, whose soliton overlap is exactly 1.
+  - Pion and ω vertices use Λ_B = 0.8931 m_p.
+  - With the new g_A, f²/4π = 0.0741.
+- Trace (information):
+  - (i) OPE alone is unbound.
+  - (ii) Adding σ binds at **B/m_p = 0.007955** (7.46 MeV).
+  - (iii) Adding ω leaves it unbound.
+- Result: B_d is a miss (unbound), so P_D and μ_d can't be formed.
+- Where it diverges: the ω repulsion, g_ω²/4π = 28.3 at the KSRF mass. Its form factor is the next suspect: a vector (Dirac) radius rather than the topological one, or the ω tensor coupling.
+
+**AD-3: T_CMB from the FSOT age.**
+- Route: t_0 = ∫ dT/(T H(T)), using:
+  - radiation with FSOT N_eff;
+  - matter as r_mb m_p η n_γ, with r_mb = 6.3685;
+  - ρ_Λ = Ω_Λ h² ρ_c,100, with h² = Ω_m h²/Ω_m = 0.45365;
+  - t_0 = FSOT Age 13.7872 Gyr.
+- The H0 pin is not used.
+- **T_CMB = 2.72847 K**, against FIRAS 2.7255(6): +0.109 %, z 4.96, a miss. kT_0/(m_e α²) = 8.64056e−6, and 1 + z_ls = 1283 (equilibrium-Saha T_ls).
+
+**Not reached:** an independent FSOT Λ^(0).
+
+**Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).

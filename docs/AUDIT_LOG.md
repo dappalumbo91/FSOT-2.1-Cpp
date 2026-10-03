@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-56 · 2026-10-02ad: rotational g_A term time-ordered with PV-regularised sea → g_A 1.2845 (z 7.0, +0.71 %; was z 202); soliton σNN (S_val 0.508) → OPE+σ binds 7.5 MeV, +ω unbound (ω form factor next); T_CMB from the FSOT age 2.72847 K (z 4.96, +0.11 %)
+
+Freeze `FREEZE_2026-10-02ad` (63468ff). Round-ac cpp_check passed (535 s). Totals 87/91.
+
 ### H-55 · 2026-10-02ac: wide soliton window pre-registered (Δ−N/m_p 0.3294 z 8.0, g_A 1.538 z 202, rotational term 0.634); kink located in the sea−PV part (basis level reordering, valence smooth); tensor-OPE deuteron with soliton form factor (Λ = √6/r_B = 0.893 m_p): OPE alone 4.0 MeV, +σ 234 MeV, +ω unbound (miss; σ/ω couplings diverge first); FSOT matter-to-baryon ratio 6.3685, T_ls 3501 K (info)
 
 Freeze `FREEZE_2026-10-02ac` (a4d5407). Round-ab cpp_check passed (510 s). Totals 87/91.

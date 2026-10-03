@@ -146,6 +146,7 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 2026-10-02aa (audit/FREEZE_2026-10-02aa.md): reading the condensate pin in proton units lowers M/m_p to 0.346, which moves Δ−N further from the measurement (z 47); the KSRF light-quark Δα_had undershoots (validation fails), so Γ_Z/M_Z is at z 6.7; the FSOT pins offer no T_CMB route that avoids H0. The gate stays at 87/91.
 2026-10-02ab (audit/FREEZE_2026-10-02ab.md): the DP variational instanton size gives R/ρ̄ = 2.47 and M/m_p = 0.458, so Δ−N comes out at z 10.9 (edge minimum) and g_A at z 171, both misses; the deuteron central-force trace is unbound until the tensor force is added; T_CMB has no anchor inside FSOT. The gate stays at 87/91.
 2026-10-02ac (audit/FREEZE_2026-10-02ac.md): with the wide soliton window Δ−N is at z 8.0 and g_A at z 202 (the rotational term is 0.634); the tensor-OPE deuteron with a soliton-size form factor binds 4.0 MeV on OPE alone but is unbound once σ and ω are added; the FSOT matter-to-baryon ratio is 6.37. The gate stays at 87/91.
+2026-10-02ad (audit/FREEZE_2026-10-02ad.md): PV-regularising the sea part of the time-ordered rotational term gives g_A = 1.2845 (z 7.0, +0.7 %); with the soliton σ coupling, OPE+σ binds the deuteron at 7.5 MeV but ω unbinds it; T_CMB from the FSOT age is 2.7285 K (z 5.0, +0.11 %). The gate stays at 87/91.
 
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
