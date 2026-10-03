@@ -116,6 +116,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-02m (audit/FREEZE_2026-10-02m.md): an FSOT-only pion decay constant, F = m_p/(2√3π) = 86.22 MeV, from the quark-level sigma model with N_c = 3. It is within 0.55 % of the chiral-limit value. The π⁰ from the electromagnetic sum rule comes out at 134.40 MeV (−0.43 %) and the K⁰ via Q at +0.13 %. The η and η′ fail. D_eff/S does not organize the m_e-multiple ratios. The gate stays at 87/91.
 
+2026-10-02n (audit/FREEZE_2026-10-02n.md): an FSOT-only physical F_π of 90.51 MeV (−1.7 %), from the NLO step with l̄₄ = N_c in the quark-level sigma model. A valence chiral-quark-soliton g_A of 1.178 (−7.7 %) misses its 2 % gate, so the Δα → Γ_Z/M_Z chain stays gated off. The leading-order deuteron radius misses by 23 % (no effective range). D_eff maps on one reference leaf per domain fail. The gate stays at 87/91. The physical meaning, units path and status of every quantity are in docs/PHYSICAL_MAP.md.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|

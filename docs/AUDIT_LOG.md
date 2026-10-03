@@ -532,6 +532,14 @@ Freeze `audit/FREEZE_2026-10-02m.md` was committed (21db984) before `tools/score
 - Definition note: the freeze text says "leaf ÷ 1.956952" but defines r as the m_e multiple (leaf × 1.956952); scored as the m_e multiple, with the same verdicts under both readings.
 - Downstream not run (g_A has no FSOT form). Totals 87/91. Look-elsewhere: M-1 3+1, M-2a 1×2, M-2b 1×2, M-2c 1, M-3a 1×2.
 
+### H-39 · 2026-10-02n: FSOT-only physical F_π = 90.51 MeV (−1.69 %, l̄₄ = N_c); valence chiral-quark-soliton g_A = 1.178 (−7.7 %, fails 2 %); downstream gated off; deuteron LO radius −22.7 %; reference-leaf D_eff maps fail
+
+Freeze `audit/FREEZE_2026-10-02n.md` (e9b1405) was committed before `tools/score_2026_10_02n.py` and `tools/cqsm_valence.py`.
+- N-1b F_π passes the 2 % gate and its validation.
+- N-2 g_A fails the 2 % gate (validation −5.6 % passes 10 %). The solver sanity sweep was seen before scoring.
+- Δα/Γ_Z chain not run under the frozen gate.
+- Look-elsewhere: N-1 2, N-2 1, N-3 1, N-5 2. Totals 87/91.
+
 ## Fixed in C++ (this repo only; the hub, `vendor/fsot_compute.py` and every pin are unchanged)
 
 Each fix keeps a **parity mode**, which is byte-identical to the pinned Python and is what the golden tests

@@ -170,6 +170,13 @@ jobs:
           python tools/score_2026_10_02m.py --hub hub --out /tmp/score_m.tsv
           diff -q /tmp/score_m.tsv audit/score_2026-10-02m.tsv
           python tools/verify_freeze_files_m.py
+      - name: Re-run the 2026-10-02n scoring (N-1 F_pi NLO, N-2 valence chiral quark soliton g_A, N-3 deuteron LO, N-5 reference-leaf D_eff maps) and diff; verify freeze n
+        run: |
+          python tools/score_2026_10_02n.py --hub hub --out /tmp/score_n.tsv
+          diff -q /tmp/score_n.tsv audit/score_2026-10-02n.tsv
+          python tools/verify_freeze_files_n.py
+          python tools/physical_map.py --out /tmp/PHYSICAL_MAP.md
+          diff -q /tmp/PHYSICAL_MAP.md docs/PHYSICAL_MAP.md
       - name: Build and run the C++ re-scorer against the golden
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DFSOT_HUB_DATA=$PWD/hub
