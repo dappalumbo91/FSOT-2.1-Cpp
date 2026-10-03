@@ -1701,3 +1701,36 @@ Freeze `audit/FREEZE_2026-10-02aj.{json,md}` (commit e6a65eb), committed before 
 **Disclosure:** a scratch local-density run before the freeze (reported in the freeze) had already shown the interior oscillation.
 
 **Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
+
+## 2026-10-02ak: shell counting confirmed; smooth spectral convergence factor fails validation
+
+Freeze `audit/FREEZE_2026-10-02ak.{json,md}` (commit 1d4d524), committed before computing. Scorer `tools/score_2026_10_02ak.py`, output `audit/score_2026-10-02ak.tsv`. Single PV remains the regulator; gates and tolerances are unchanged.
+
+**AK-1a: shell counting** (`tools/shellscan_2026_10_02ak.py`; μ_V^(0) sea sum xat_sea, K 14).
+
+| (kmax, D) | kmax·D | xat_sea |
+|---|---|---|
+| (12, 14) | 168 | −1.4474 |
+| (14, 12) | 168 | −1.4265 |
+| (12, 12) | 144 | −1.4756 |
+| (14, 14) | 196 | −1.2063 |
+
+- At the same kmax·D (the same number of radial shells per l), the two points agree to 0.021. Changing kmax·D moves the sum by 0.269. **Shell discreteness is confirmed:** the oscillation follows the shell count, not the cutoff or the box separately.
+
+**AK-1b: smooth spectral convergence factor** (`tools/smooth_2026_10_02ak.py`; w_n = exp(−ε_n²/E_s²), E_s = kmax/3, valence level exempt; K 14, D 14).
+
+| kmax | E_sol/M sharp / smooth | g_A^(0) sharp / smooth | xat_sea sharp / smooth |
+|---|---|---|---|
+| 12 | 2.1240 / 2.3336 | 0.9098 / 0.9470 | −1.4474 / −1.5361 |
+| 14 | 2.1057 / 2.3421 | 0.9093 / 0.9432 | −1.2063 / −1.5190 |
+| 16 | 2.1646 / 2.3337 | 0.9242 / 0.9397 | −1.5622 / −1.5024 |
+
+- The smoothed sums are kmax-stable: xat_sea moves −1.1 % per step and E ±0.36 %.
+- **The frozen validation fails:** the smoothed E differs from the sharp value at the same kmax by +9.9 % (kmax 12) and +11.2 % (kmax 14), and g_A^(0) by +4.1 % and +3.7 %.
+- At E_s = kmax/3 the factor therefore changes the regularised values; it acts as an additional regulator, not a pure convergence device. **μ_p and μ_n are not scored.** The inertia and rotational runs were not made once E had failed.
+- Reading: with single PV, the regularised summand has not decayed by |ε| ≈ 4–5 M. A convergence factor with E_s ≪ kmax cannot be neutral here, and E_s close to kmax brings the shell edge back. The derivation needs a summand that decays faster (a regulator change is excluded by the standing rules), or E_s taken large with kmax ≫ E_s, which costs larger bases.
+- **σ charge**, information only: smoothed 1.883, 1.841, 1.791 at kmax 12, 14, 16 (−2.2 %, −2.7 %). Not adopted; the deuteron was not rerun.
+
+**AK-2: Γ_Z / Δα_had:** not attempted (time box).
+
+**Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).

@@ -1,0 +1,57 @@
+{
+ "generated_by": "tools/smooth_2026_10_02ak.py",
+ "freeze": "FREEZE_2026-10-02ak",
+ "runs": [
+  {
+   "kmax": 12.0,
+   "E_s": 4.0,
+   "sharp": {
+    "s_P": 1,
+    "Q_sigma": 1.624031989,
+    "r2_sigma": 6.156842737,
+    "Q_unprojected": 12.09110761
+   },
+   "smooth": {
+    "s_P": 1,
+    "Q_sigma": 1.882608589,
+    "r2_sigma": 5.168778192,
+    "Q_unprojected": 10.59228973
+   },
+   "seconds": 13.0
+  },
+  {
+   "kmax": 14.0,
+   "E_s": 4.666666666666667,
+   "sharp": {
+    "s_P": 1,
+    "Q_sigma": 1.475850927,
+    "r2_sigma": 6.175921953,
+    "Q_unprojected": 12.46765129
+   },
+   "smooth": {
+    "s_P": 1,
+    "Q_sigma": 1.840901238,
+    "r2_sigma": 5.155050797,
+    "Q_unprojected": 11.36092691
+   },
+   "seconds": 16.6
+  },
+  {
+   "kmax": 16.0,
+   "E_s": 5.333333333333333,
+   "sharp": {
+    "s_P": 1,
+    "Q_sigma": 1.513133556,
+    "r2_sigma": 5.94198805,
+    "Q_unprojected": 12.72612412
+   },
+   "smooth": {
+    "s_P": 1,
+    "Q_sigma": 1.791337962,
+    "r2_sigma": 5.175851323,
+    "Q_unprojected": 11.9558794
+   },
+   "seconds": 20.8
+  }
+ ]
+}

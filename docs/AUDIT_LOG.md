@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-63 · 2026-10-02ak: the μ_V^(0) sea oscillation follows the shell count kmax·D (same product agrees to 0.021, different product moves 0.27); a smooth convergence factor (E_s = kmax/3) makes the sums kmax-stable but shifts E by +10 % against the sharp values, so frozen validation fails and μ and the σ charge are not scored; Γ_Z not attempted
+
+Freeze `FREEZE_2026-10-02ak` (1d4d524). Round-aj cpp_check passed (632 s). Totals 87/91.
+
 ### H-62 · 2026-10-02aj: local-density (r applied to the density) evaluation of μ_V^(0) equals the matrix-element sum (validated on g_A^(0)); the kmax oscillation lives in the interior density (r < 3/M), so μ is not scored (μ_p −4.1 %, μ_n −5.6 % from kmax 12 to 14); the σ-projected charge moves −10 %, so it is not adopted
 
 Freeze `FREEZE_2026-10-02aj` (e6a65eb). Round-ai cpp_check passed (639 s). Totals 87/91.

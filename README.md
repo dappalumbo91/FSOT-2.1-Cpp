@@ -153,6 +153,7 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 2026-10-02ah (audit/FREEZE_2026-10-02ah.md): the μ cutoff dependence is entirely in the μ_V^(0) sea sum, which oscillates with kmax (2.81/2.64/2.90 at kmax 12/14/16) after a 90 % PV cancellation, so μ is not scored. The full valence + PV-sea scalar charge (12.1) is not kmax-stable (3.0 %), so it is not adopted. Totals unchanged at 87/91.
 2026-10-02ai (audit/FREEZE_2026-10-02ai.md): a two-subtraction PV scheme (FSOT F + condensate pin) stabilises the scalar charge but fails the energy tolerance (−3.7 %) and leaves the μ_V^(0) kmax oscillation (a basis effect), so μ is not scored; the σ-projected scalar charge is not kmax-stable, so it is not adopted. Totals unchanged at 87/91.
 2026-10-02aj (audit/FREEZE_2026-10-02aj.md): evaluating μ_V^(0) and the σ charge from regularised local densities reproduces the matrix-element sums exactly; the kmax oscillation sits in the interior density, so μ is not scored and the σ charge is not adopted. Totals unchanged at 87/91.
+2026-10-02ak (audit/FREEZE_2026-10-02ak.md): the μ_V^(0) sea oscillation is confirmed to follow the shell count (kmax·D). A smooth spectral convergence factor stabilises the sums but shifts the energy by +10 % against the sharp values, so validation fails and μ and the σ charge are not scored. Totals unchanged at 87/91.
 
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
