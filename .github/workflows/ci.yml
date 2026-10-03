@@ -223,6 +223,9 @@ jobs:
           python tools/score_2026_10_02z.py --hub hub --out /tmp/score_z.tsv
           diff -q /tmp/score_z.tsv audit/score_2026-10-02z.tsv
           python tools/verify_freeze_files_z.py
+          python tools/score_2026_10_02aa.py --hub hub --out /tmp/score_aa.tsv
+          diff -q /tmp/score_aa.tsv audit/score_2026-10-02aa.tsv
+          python tools/verify_freeze_files_aa.py
           python tools/physical_map.py --out /tmp/PHYSICAL_MAP.md
           diff -q /tmp/PHYSICAL_MAP.md docs/PHYSICAL_MAP.md
       - name: Build and run the C++ re-scorer against the golden

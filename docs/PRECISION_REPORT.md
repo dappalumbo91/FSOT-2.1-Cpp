@@ -1335,3 +1335,41 @@ The round-y cpp_check passed (510 s) and its worktree was removed.
 The μ sea-term regularisation and the deuteron traces were not reached.
 
 **Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
+
+## 2026-10-02aa: M/m_p from a unit-free reading of the condensate pin, KSRF light-quark Δα_had, T_CMB without H0 (freeze 6bc0f13 `FREEZE_2026-10-02aa`; scores `audit/score_2026-10-02aa.tsv`)
+
+The round-z cpp_check passed (508 s) and its worktree was removed. The measured Δ−N implies M/m_p ≈ 0.46. That number was used only as a diagnostic, never as an input.
+
+**AA-1: M/m_p in proton units** (`tools/gap_2026_10_02aa.py`, `tools/heavy_2026_10_02aa.py`, K 12).
+- The pin is now read as a pure number: ⟨(α_s/π)G²⟩/m_p⁴ = C_cosm − e⁻³, which gives n^{1/4}/m_p = 0.200128.
+- The gap equation is scale-free, so M0/n^{1/4} = 1.729224 at ρ = R/3. That gives **M/m_p = 0.346067**, down from 0.368834 in round y (byproduct 324.7 MeV).
+- No FSOT route for R/ρ exists in the pin inventory, so the DP constant 3 is kept. M(p) was not attempted.
+- Disclosed before the freeze: the scale argument already showed that this reading lowers M/m_p.
+
+| Row | Value | Measured | z | Verdict |
+|---|---|---|---|---|
+| (M_Δ − M_N)/m_p | 0.21175 (198.7 MeV) | 0.31236 | 47.2 | miss |
+| g_A | 1.4376 | 1.2754(13) | 124.7 | miss |
+
+I M = 2.451, x_DPP = 0.833. With the condensate pin read unit-free, M/m_p moves away from the diagnostic value 0.46, so the remaining divergence sits in the DP gap equation itself (R/ρ = 3, or the instanton-density normalisation).
+
+**AA-2: KSRF light-quark Δα_had.**
+- Below s0, the u,d duality continuum is replaced by narrow ρ + ω. The construction uses VMD universality, KSRF m_ρ² = 2g²F² with g² = 12π²/N_c, g_ω = 3g, and the u,d continuum from the LO FESR threshold s0 = 8π²m_ρ²/g² = 16π²F².
+- The validation with PDG inputs gives 0.025877 and **fails the 0.00029 gate**. The narrow ρ + ω term is 0.002581.
+- Diagnosis: g²/4π = π implies Γ(ρ→ee) ≈ 4.7 keV, against 7.04 keV measured, and the continuum loses the low-s perturbative strength.
+
+| Row | Value | Measured | z | Verdict |
+|---|---|---|---|---|
+| Δα_had^(5) (FSOT; F = P-4 F_π, s0 = 1.3625 GeV², m_ρ/m_p byproduct 0.825 GeV) | 0.025825 | 0.02783(6) | 33.4 | miss |
+| G_F (round-z higher-order chain) | 1.16355e-5 | 1.1663787e-5 | 4712 | miss |
+| Γ_Z/M_Z | 0.0271976 | 0.0273665(25) | 6.7 | miss (round z was z 5.0) |
+
+Higher-order Δr_rem terms were not attempted.
+
+**AA-3: T_CMB without H0.**
+- FSOT pins contain η and Ω_r but no Ω_b h², baryon density or z_*, so every route to T_0 needs H0 or z_rec.
+- Information only: the hydrogen Saha temperature at x_e = 1/2 gives kT_rec/(m_e α²) = 0.011915, i.e. 3762 K. Dividing by the Planck 1 + z_* gives 3.449 K (+26.6 %). That is not a route, because Saha equilibrium is not the last-scattering surface.
+
+**Not reached:** the μ regularisation and the deuteron traces.
+
+**Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).

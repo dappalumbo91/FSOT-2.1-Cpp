@@ -1,0 +1,10 @@
+{
+ "generated_by": "tools/gap_2026_10_02aa.py",
+ "freeze": "FREEZE_2026-10-02aa",
+ "G2_over_mp4": 0.01283286690347067,
+ "n_quarter_over_mp": 0.200128262904,
+ "M0_over_n_quarter": 1.72922444702,
+ "M_over_mp": 0.346066684752,
+ "M_MeV_byproduct": 324.704711329,
+ "round_y_M_over_mp": 0.368834039412
+}
