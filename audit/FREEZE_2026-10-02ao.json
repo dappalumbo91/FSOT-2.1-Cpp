@@ -1,0 +1,19 @@
+{
+ "freeze": "FREEZE_2026-10-02ao",
+ "date": "2026-10-03",
+ "parent": "d62fffb (round an; gate 88/91 since b99fc29)",
+ "rule": "z-only scoring against observations; ratios first, MeV as byproduct; no hybrid; no tuning; gates, tolerances and the single-PV regulator unchanged; pins never edited",
+ "AO-1 level-B completion": "when audit/shellavg_2026-10-02am_B_j0..3.json and audit/shellavg_2026-10-02am_B_rot.json exist, they are committed and the FREEZE_2026-10-02al rules are applied unchanged: level-B validation (averaged E, g_A, I within 2 % of sharp D0, g_A = <g_A^(0)> + A(D0)/<I>, round-ag sign convention), then mu_p, mu_n scored at level B if both levels validate and the averaged mu_p, mu_n change <= 2 % from level A (audit/shellavg_2026-10-02al_A.json) to B (theory unc. |B - A|, z vs CODATA mu_p/mu_N 2.79284734463(82), mu_n/mu_N -1.91304276(45)). Sigma rule: the round-al sigma result (averaged charge -4.23 % kmax 12 -> 14) stands: not adopted, so the deuteron is not rerun (no new sigma computation is frozen here). If the job is not finished by about minute 25, committed samples are reported and it keeps running.",
+ "AO-2 condensate in the second vector-correlator FESR": {
+  "change from AN-2": "the n = 1 FESR gets the SVZ dimension-4 term: integral_{4 m_pi^2}^{s0} s R_rho ds = (3/2) integral_0^{s0} s K(s) ds - (pi^2/2) <(alpha_s/pi) G^2> (R units; from Pi_rho(Q^2) containing (1/8 pi^2)(pi^2/3)<(alpha_s/pi)G^2>/Q^4, leading order in alpha_s for the condensate coefficient; the m_q<qbar q> dimension-4 piece is dropped as O(m_q))",
+  "condensate": "FSOT pin wave9|Gluon_condensate = C_cosm - e^-3 = 0.012833, read in GeV^4 (read-unit caveat as rounds t/u)",
+  "dimension 6": "the four-quark term alpha_s<qbar q>^2 enters only the n = 2 moment, which this route does not use; FSOT has no native <qbar q> (round l: GMOR quark masses only as hybrids), so it is flagged open",
+  "unchanged from AN-2": "n = 0 FESR, K(s) with FSOT alpha_s, P-wave Breit-Wigner with KSRF g (width only) normalised on [4 m_pi^2, s0] (round-an disclosed correction), omega narrow with 1/9 the rho strength, continuum, M_V = sqrt6/r_V (round ag), F_pi round p",
+  "validation": "PDG inputs as round an plus the SVZ phenomenological <(alpha_s/pi)G^2> = 0.012 GeV^4: Delta alpha_had^(5) within |dev| <= 0.00029 of 0.02783 (round-i gate). Gamma_ee(rho) byproduct vs PDG 7.04(6) keV (information); the trace adds the condensate step after the round-an rows",
+  "rescore": "Gamma_ee(rho)/M_V (information), Delta alpha_had^(5) (z vs 0.02783(6)), G_F and Gamma_Z/M_Z via the round-z Z-2 chain; record rows not edited here",
+  "tool": "tools/score_2026_10_02ao.py"
+ },
+ "AO-3 soliton vector form factor f_rho": "started only if the machine is free after AO-1; its definition (isovector Dirac form factor of the round-ag soliton, VMD pole fit) is frozen in a later freeze before it is scored; nothing from it is scored this round",
+ "look-elsewhere": "AO-1: 2 scored rows (mu_p, mu_n) if the rules pass; AO-2: 1 route, 1 validation, 3 scored rows",
+ "hub prompt": "/workspace/gb-recovery/GROK_BUILD_PROMPT_2026-10-02ao.md"
+}
