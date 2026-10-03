@@ -1413,3 +1413,38 @@ The round-aa cpp_check passed (511 s) and its worktree was removed.
 **Not reached:** the photon–ρ coupling beyond universality and the higher-order Δr remainder.
 
 **Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
+
+## 2026-10-02ac: tensor-force deuteron with soliton form factors, pre-registered wide soliton window, matter-to-baryon ratio (freeze a4d5407 `FREEZE_2026-10-02ac`; scores `audit/score_2026-10-02ac.tsv`)
+
+The round-ab cpp_check passed (510 s) and its worktree was removed.
+
+**AC-2: soliton.**
+- The window x ∈ [0.5, 1.6] is pre-registered for all future runs; it is extended by 0.5 if the minimum falls at an edge.
+- The round-ab wide run (interior minimum x = 1.169, M/m_p = 0.458168) is adopted. Its values were already shown as round-ab information (disclosed).
+
+| Row | Value | Measured | z | Verdict |
+|---|---|---|---|---|
+| (M_Δ − M_N)/m_p | 0.32943 (309.1 MeV) | 0.31236 | 8.0 | miss |
+| g_A | 1.5376 | 1.2754(13) | 201.7 | miss |
+
+- **g_A breakdown:** classical part 0.9037 (valence 0.672, sea 0.231) plus the rotational 1/N_c term g1 = A_im/(I M) = 0.634. The time-ordered g_A already contains the collective-quantization rotational correction, and that term grows as I M falls. No new correction was derived.
+- **Kink** (`tools/kink_2026_10_02ac.py`, diagnostic): the valence level is smooth through x = 1.15–1.35 (ε_val 0.274 → 0.140, no zero crossing), and so is the mass term. The slope jump sits between x = 1.2 and 1.225 in the Dirac-sea-minus-PV part (sea+PV per 0.025: 0.044, 0.060, 0.078, 0.076, 0.075). That points to a level reordering in the finite K 12 basis, not to the valence level reaching the continuum.
+
+**AC-1: deuteron** (3S1–3D1 coupled channels; OPE central plus tensor, σ, ω; monopole form factor Λ²/(Λ² + q²) at every vertex).
+- Cutoff: Λ = √6/r_B with r_B = 2.743/m_p (0.577 fm), the topological baryon rms radius of the AC-2 profile (baryon number check 1.000000). That gives Λ/m_p = 0.8931.
+- Couplings: f²/4π = 0.1062 from the soliton g_A; σ and ω as in round ab.
+- Results:
+  - **B_d is unbound** between −3.16 m_p and 0 (miss). P_D and μ_d could not be formed.
+  - Trace steps (information, added after the freeze): (i) OPE central + tensor alone binds at **B/m_p = 0.004263** (4.0 MeV, against 0.002371); (ii) adding σ overbinds at 0.2495 m_p (234 MeV); (iii) adding ω unbinds completely.
+- **First diverging step:** the point-like scalar and vector meson–nucleon couplings g_σNN = 3M/F_π and g_ωNN = 6π, which are too strong relative to each other. The form-factor-regularised OPE alone is within a factor 1.8 of the measured binding, with g_A 20 % high.
+- **Post-freeze changes (disclosed):** the energy grid was mislabelled as reaching −0.03 m_p but only reached −0.0032 m_p; it was widened to −3.16 m_p. The trace-step rows were added.
+
+**AC-3: matter-to-baryon ratio.**
+- (Ω_DM h² + Ω_b h²)/Ω_b h² = **6.3685** from FSOT pins (Planck 6.364, information). The implied h from FSOT Ω_m is 0.6735.
+- With this ratio, Saha plus Thomson optical depth τ = 1 (hydrogen only, equilibrium) gives kT_ls/(m_e α²) = 0.011087, i.e. T_ls = 3501 K at x_e = 0.144 (information). Without the Peebles bottleneck this is biased high.
+- A post-freeze bug fix (disclosed) makes τ integrate from T downward, as the freeze specifies; the first version integrated upward.
+- T_CMB is not scored: 1 + z_* still needs T_0. An age-based anchor (FSOT wave3 Age_Gyr) is the next step.
+
+**Not reached:** an independent FSOT Λ^(0).
+
+**Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).

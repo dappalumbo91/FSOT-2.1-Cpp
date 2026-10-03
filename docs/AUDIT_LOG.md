@@ -555,6 +555,10 @@ Freeze `audit/FREEZE_2026-10-02p.md` (98cd271) was committed before `tools/cqsm_
 - Disclosed: the μ_V^(0) sign correction was made after the freeze. The heavy JSON is transcribed from the run log because the run was cut by a time limit. Self-consistent profiles did not converge, so DPP is primary.
 - Δα/Γ_Z chain not run under the frozen gate. Totals 87/91.
 
+### H-55 · 2026-10-02ac: wide soliton window pre-registered (Δ−N/m_p 0.3294 z 8.0, g_A 1.538 z 202, rotational term 0.634); kink located in the sea−PV part (basis level reordering, valence smooth); tensor-OPE deuteron with soliton form factor (Λ = √6/r_B = 0.893 m_p): OPE alone 4.0 MeV, +σ 234 MeV, +ω unbound (miss; σ/ω couplings diverge first); FSOT matter-to-baryon ratio 6.3685, T_ls 3501 K (info)
+
+Freeze `FREEZE_2026-10-02ac` (a4d5407). Round-ab cpp_check passed (510 s). Totals 87/91.
+
 ### H-54 · 2026-10-02ab: DP variational instanton size R/ρ̄ = 2.468 (β 5.2, packing 0.27, not dilute) → M/m_p 0.4582 → Δ−N/m_p 0.3356 (z 10.9, edge minimum; post-freeze wide window 0.3294, info) and g_A 1.498 (z 171), both misses; deuteron central OPE+σ+ω unbound (first divergence: the missing tensor force); no in-FSOT T_CMB anchor
 
 Freeze `FREEZE_2026-10-02ab` (d4c92e1). Round-aa cpp_check passed (511 s). Totals 87/91.
