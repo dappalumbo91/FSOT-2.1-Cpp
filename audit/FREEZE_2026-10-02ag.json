@@ -1,0 +1,25 @@
+{
+ "freeze": "FREEZE_2026-10-02ag",
+ "date": "2026-10-03",
+ "parent": "51b2507 (round af)",
+ "rule": "z-only scoring against observations; ratios first, MeV as byproduct; no hybrid; gates never changed; pins never edited",
+ "AG-1 eta provenance": {
+  "method": "read-only on the local hub clone (6f9c256): git grep for eta_baryon_photon, read its closed form and constants in vendor/fsot_compute.py, git log -S on the formula",
+  "decision": "if no T_CMB pin, photon number density or T-derived quantity enters eta (or omega_b), the round-af T_CMB route is an FSOT derivation and is written into the hub prompt as a proposed record route; otherwise it is labelled a consistency check. No record row changes here (record rows change only through the hub)."
+ },
+ "AG-2 soliton box/cutoff decoupling": {
+  "code": "tools/murun_2026_10_02ag.py = round-ae murun with Radial(D, kmax) decoupled from the grand-spin cutoff K; same window 0.5-1.6 (+0.5 at an edge), same M/m_p 0.458168, same PV",
+  "grid": "kmax fixed at 12 (M units) throughout; points P1 = (K 12, D 12, kmax 12) = existing audit/murun_2026-10-02ae_K12.json (same code path, reused, disclosed); P2 = (K 12, D 14, kmax 12); P3 = (K 14, D 14, kmax 12). Runs one at a time, each must finish under 10 min; a run that does not is abandoned and reported.",
+  "directions": "K direction at fixed box: P3 vs P2; box direction at fixed K: P2 vs P1",
+  "convergence rule": "for each X in {mu_p, mu_n, g_A, (M_Delta-M_N)/m_N}: |X(P3)-X(P2)| <= 0.02|X(P3)| AND |X(P2)-X(P1)| <= 0.02|X(P3)|. Only if X passes both is X scored, at P3, with theory uncertainty = max of the two changes; otherwise X is reported as not scored. Per-quantity, no other combination.",
+  "formulas": "as round ae (PV-regularised A, Amu, B; mu_V^(0) from xat_val + xat_sea; sign conventions from round q); Delta-N/m_N uses m_N = m_p (as in rounds ad/ae)",
+  "momentum cutoff": "a kmax scan is not part of this round (stated)"
+ },
+ "AG-3 deuteron omega breakdown": {
+  "energy": "E = -B(OPE + sigma with LS) of round af",
+  "pieces": "omega central (G(1+m^2/2) and the (1+kappa)^2/6 lapG sigma.sigma term), omega spin-orbit, omega tensor, and the form factor (Lambda_V monopole-squared vs point)",
+  "measure": "(a) first-order expectation values <V_piece> in the normalised OPE+sigma wave function at that energy; (b) cumulative add-one-piece bound-state test in the order central, +LS, +tensor. Diagnostic (information rows only).",
+  "fix": "a physically derived soliton fix is computed and scored only if it is fully specified here: (F1) the omega vertex uses the topological (total, valence+sea) baryon density radius Lambda_B = sqrt6/r_B instead of the valence-only Dirac radius Lambda_V, because omega couples to the conserved baryon current whose soliton density is the topological one. Scored rows if bound: B_d/m_p (z), mu_d (z); P_D info. One route, no alternatives tried.",
+  "look-elsewhere": "AG-1: 0 scored; AG-2: up to 4 scored rows, 1 route; AG-3: 1 route (F1), up to 2 scored rows"
+ }
+}
