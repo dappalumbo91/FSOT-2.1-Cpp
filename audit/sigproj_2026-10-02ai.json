@@ -1,0 +1,55 @@
+{
+ "generated_by": "tools/sigproj_2026_10_02ai.py",
+ "freeze": "FREEZE_2026-10-02ai",
+ "x_DPP": 1.168915975,
+ "K": 12,
+ "D": 12.0,
+ "runs": [
+  {
+   "kmax": 12.0,
+   "eps_val": 0.2600335449,
+   "single": {
+    "s_P": 1,
+    "Q_sigma": 1.624031989,
+    "Q_sigma_val": -2.025259881,
+    "r2_sigma": 6.156842737,
+    "Q_scalar_unprojected": 12.09110761,
+    "depletion_Svac_cos_minus_1": 10.49974467,
+    "stationarity_ratio": 0.1680727013
+   },
+   "double": {
+    "s_P": 1,
+    "Q_sigma": 1.518930604,
+    "Q_sigma_val": -2.025259881,
+    "r2_sigma": 5.954158041,
+    "Q_scalar_unprojected": 9.313083887,
+    "depletion_Svac_cos_minus_1": 7.719685472,
+    "stationarity_ratio": 0.2126480669
+   },
+   "seconds": 14.1
+  },
+  {
+   "kmax": 14.0,
+   "eps_val": 0.2600335282,
+   "single": {
+    "s_P": 1,
+    "Q_sigma": 1.475850927,
+    "Q_sigma_val": -2.025260036,
+    "r2_sigma": 6.175921953,
+    "Q_scalar_unprojected": 12.46765129,
+    "depletion_Svac_cos_minus_1": 10.89558943,
+    "stationarity_ratio": 0.1729187357
+   },
+   "double": {
+    "s_P": 1,
+    "Q_sigma": 1.407851846,
+    "Q_sigma_val": -2.025260036,
+    "r2_sigma": 6.074144748,
+    "Q_scalar_unprojected": 9.38305903,
+    "depletion_Svac_cos_minus_1": 7.797307433,
+    "stationarity_ratio": 0.2243876218
+   },
+   "seconds": 19.2
+  }
+ ]
+}

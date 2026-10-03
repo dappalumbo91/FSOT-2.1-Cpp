@@ -1639,3 +1639,40 @@ Freeze `audit/FREEZE_2026-10-02ah.{json,md}` (commit 2cb6a00), committed before 
 **AH-3:** the hub-prompt section on adopting the round-af T_CMB route is written (no computation).
 
 **Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
+
+## 2026-10-02ai: two-subtraction Pauli–Villars; σ-mode projected scalar density
+
+Freeze `audit/FREEZE_2026-10-02ai.{json,md}` (commit b1b058b), committed before computing. Scorer `tools/score_2026_10_02ai.py`, output `audit/score_2026-10-02ai.tsv`.
+
+**AI-1: two-subtraction PV** (`tools/pv2_2026_10_02ai.py`; K 14, D 14, fixed profile of the round-ag kmax-12 run).
+- Scheme: sea = Σ c_i X(M_i). The weights c_i satisfy Σ c_i m_i² = 0 and Σ c_i m_i⁴ = 0, which cancel the log divergence of the energy/F² and the quadratic and log divergences of the condensate.
+- Two finite conditions fix the masses: FSOT F/M = 0.2005555 (the PV condition already in use) and the condensate pin 1/4, read unit-free as |⟨q̄q⟩|^{1/3}/m_p.
+- Result: m_1 1.340130, m_2 6.959685, c_1 −0.566311, c_2 +3.5232e−4. All four conditions are verified in the scorer.
+- The single-PV evaluation in the same tool reproduces round ag exactly (g_A 1.291689, I M 2.098733, μ_p 2.2854), which validates the tool.
+
+| kmax 12 | Single PV | Two-subtraction | Change |
+|---|---|---|---|
+| E_sol/M | 2.12398 | 2.04587 | −3.68 % |
+| ε_val | 0.25878 | 0.25878 | 0 |
+| I M | 2.09873 | 2.10130 | +0.12 % |
+| g_A | 1.29169 | 1.28998 | −0.13 % |
+
+- **The frozen tolerance check fails on the energy** (−3.7 %, limit 2 %). Per the freeze, the scheme is not used for scoring.
+- Information: kmax 14 with the two subtractions (438 s) gives μ_V^(0) 2.6355 against 2.8200 at kmax 12 (−7.0 %). μ_p moves −4.3 % and μ_n −5.9 %. **μ is not scored.**
+- The second subtraction leaves the μ_V^(0) oscillation essentially unchanged (−6.7 % with single PV). So the oscillation is not an ultraviolet divergence. It is a basis effect of the r-weighted operator (momentum shells × box), and the next step is a basis-independent treatment of that operator. kmax 16 was not run (time).
+
+**AI-2: σ-mode projected scalar density** (`tools/sigproj_2026_10_02ai.py`; round-ab soliton, K 12, D 12).
+- Projection: ρ_σ = S cos θ + P sin θ − S_vac, with s_P = +1 from the stationarity proxy.
+
+| kmax | Unprojected (single / two-sub.) | Chiral-circle depletion (single / two-sub.) | ∫ρ_σ (single / two-sub.) |
+|---|---|---|---|
+| 12 | 12.091 / 9.313 | 10.500 / 7.720 | 1.6240 / 1.5189 |
+| 14 | 12.468 / 9.383 | 10.896 / 7.797 | 1.4759 / 1.4079 |
+
+- The two subtractions stabilise the unprojected scalar charge (kmax change 3.0 % → 0.75 %), as the divergence analysis predicts.
+- The σ-projected charge is a small difference (valence −2.03, sea about +3.5) and still moves 10 % (single) or 7.3 % (two-subtraction). **Not adopted; the deuteron was not rerun; nothing is scored.**
+- Information: g_σ²/4π would be 3.4–4.5, close to the valence-only 3.97.
+
+**Post-freeze change:** the condensate check in an info row printed a complex cube root of the (correctly negative) condensate; it now prints |⟨q̄q⟩|^{1/3}. Cosmetic, no values changed.
+
+**Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
