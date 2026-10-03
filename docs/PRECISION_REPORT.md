@@ -1538,3 +1538,32 @@ The round-ad cpp_check passed (540 s) and its worktree was removed.
 **Not reached:** an independent Λ^(0).
 
 **Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
+
+## 2026-10-02af: μ_V^(0) per grand-spin sector; ω tensor and spin-orbit deuteron; self-consistent flat FSOT cosmology branch
+
+Freeze `audit/FREEZE_2026-10-02af.{json,md}` (commit 04f0fd1), committed before computing. Scorer `tools/score_2026_10_02af.py`, output `audit/score_2026-10-02af.tsv`.
+
+**AF-1: μ_V^(0) grand-spin decomposition** (`tools/musector_2026_10_02af.py`, `audit/musector_2026-10-02af.json`).
+- Sector sums reproduce the runs: sea xat K 12 −1.35370, K 14 −1.20911; valence −2.41886 / −2.42160 (valence is converged; the drift is all sea).
+- Per sector, each grand-spin parity piece is O(20) and grows with K_sector (±25 at K = 14); the ± parities cancel to O(0.1–0.4) pairs, and every sector, including K = 0⁺, grows 7–14 % from K 12 to K 14. That is a common rescaling, not a tail: in `Radial(D=K, kmax=K)` the box size is tied to K, so moving K also moves the box and every sector.
+- The per-sector bare sea, PV, vacuum and vacuum-PV pieces (each O(100–800)) cancel to O(10) per parity, so the sector values are cancellation residues.
+- Frozen tail test: the top-4 pair sums at K 14 (K = 11..14) are 0.0928, 0.2136, −0.1822, 0.1238. They are not monotone and have no common power p > 1, so **no tail correction and no μ score**, as frozen. The long-range pion 1/K form does not apply until D and K are decoupled. K 16 was not run (it would carry the same box coupling).
+
+**AF-2: deuteron with Bryan–Scott O(1/M²) σ and ω potentials** (κ_ω = μ_S − 1 = −0.1598; soliton form factors Λ_B 0.8931, Λ_S 0.9285, Λ_V 0.7359 m_p).
+- Trace: OPE alone is unbound; OPE + σ (with σ spin-orbit) binds at B/m_p 0.003684 (3.46 MeV byproduct; it was 7.46 MeV without spin-orbit).
+- **OPE + σ + ω (central, tensor, spin-orbit): unbound** down to −3.16 m_p, so it is a miss. P_D and μ_d do not exist. The sea part of the isoscalar density was not reached.
+
+**AF-3: self-consistent flat FSOT cosmology branch** (derivation, no pin edited). ω_b and η fix T_0 (n_b = η n_γ); ω_r follows from T_0 and N_eff; the age fixes h with Ω_m + Ω_Λ + Ω_r = 1 by construction.
+
+| Row | Value | Measured / pin | z | Verdict |
+|---|---|---|---|---|
+| T_CMB (branch) | 2.725739 K | 2.7255(6) | 0.40 | agrees (+0.0088 %) |
+| h (info; H0 deferred) | 0.674541 | H0 pin 0.68445 | — | info (−1.448 %) |
+| Ω_m (branch vs pin) | 0.314386 | 0.315329 | — | −0.299 % |
+| Ω_Λ (branch vs pin) | 0.685522 | 0.682736 | — | +0.408 % |
+| Ω_r (branch vs pin) | 9.1977e−5 | 9.16773e−5 | — | +0.327 % |
+
+- **Audit finding:** the flat branch contradicts the H0 pin (h −1.45 %) and the Ω_Λ pin (+0.41 %) the most; it also contradicts Ω_m (−0.30 %) and Ω_r (+0.33 %). The pin set sums to 0.99816.
+- **Flag:** step (i) is a baryon-to-photon route. If FSOT's η (wave10) was itself built from T_CMB, the T_CMB agreement is circular. That provenance was not checked this round and is left for the owner. The record gate is unchanged.
+
+**Totals unchanged at 87/91** (85/89 with H0 and τ_n deferred).
