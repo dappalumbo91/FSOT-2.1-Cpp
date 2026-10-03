@@ -1,0 +1,22 @@
+{
+ "freeze": "FREEZE_2026-10-02y",
+ "date": "2026-10-03",
+ "authority_pin": "AEB2AD (unchanged)",
+ "hub_data_commit": "6f9c2560 (unchanged)",
+ "rule": "z-only scoring against observations; dimensionless ratios between physical states (owner 03:46), MeV only as a byproduct via FSOT m_p/m_e and the m_e anchor; no hybrid; gates never changed; Freitas/ACFW coefficients and the 5.279 GeV threshold are hybrids (scaffolding)",
+ "Y-1 soliton in proton units": {
+  "inputs": "m_pi/m_p from FSOT leaves; F/m_p = 1/(2 sqrt3 pi) (FSOT chiral F) held fixed; M/m_p = M(0)/m_p from the round-x DP gap equation in m_p units (n^(1/4)/m_p from the round-t pin route, rho m_p = 3 m_p/n^(1/4)); M_PV/M from the PV condition ln(M_PV^2/M^2) = 4 pi^2 (F/M)^2 / N_c",
+  "disclosed unit step": "the condensate pin C_cosm - e^-3 is read in GeV^4 (round t); that reading is the one unit-dependent step in this chain; flagged, not resolved",
+  "numerics": "massive DPP, D = k = K 12 (K 14 if time), window x in [0.5, 1.1], as round x",
+  "score": "(M_Delta - M_N)/m_p vs (1232 - 938.919)/938.272 with sigma 2/938.272; g_A (time-ordered) vs 1.2754(13); K 12 only => no theory uncertainty (stated); mu not scored (sea sum unconverged, round x)",
+  "information": "nucleon-condition estimate M/m_p = 1/(E/M + 3/(8 I M)) from the same run (info only)"
+ },
+ "Y-2 Gamma_Z/M_Z inside FSOT": {
+  "Delta alpha_had fix": "the duality route (round-i HAD-2) puts the charm and bottom thresholds at the open-flavour meson thresholds 2 m_D, 2 m_B and so misses the narrow quarkonia below them (J/psi, psi', Upsilon(1S-3S)); global quark-hadron duality puts the threshold at 2 m_Q(pole). Fix: thresholds (R and the alpha_s flavour switching) at the one-loop pole masses m_Q(pole) = m_Q(1 + 4 alpha_s(m_Q)/(3 pi)) from the FSOT m_c, m_b (round s2: m_b = m_t/(m_t/m_b), m_c = (m_c/m_b) m_b); light thresholds unchanged",
+  "validation": "same route with PDG MSbar m_c 1.2730, m_b 4.183 GeV and PDG alpha_s 0.1180: round-i gate |dev| <= 0.00029 from 0.02783 (unchanged gate)",
+  "electroweak chain": "round-f FSOT one-loop chain (Delta alpha_lep 1+2 loop, Delta alpha_top, Delta rho one loop x QCD, Hioki Delta r_rem, G_F by iteration) with the fixed Delta alpha_had, then Gamma_Z/M_Z from the authority A1 width with that G_F; no fit coefficients",
+  "score": "Delta alpha_had^(5) vs 0.02783(6); G_F vs CODATA; Gamma_Z/M_Z vs 0.0273665(25); record row status changes only if Gamma_Z/M_Z z <= 1 with validation passing (gate unchanged)",
+  "scaffolding": "round-i GZ-1 (Freitas/ACFW, m_B) moved to the external-input scaffolding table"
+ },
+ "look-elsewhere": "Y-1: 1 route, 2 scored rows; Y-2: 1 fix, 3 scored rows"
+}
