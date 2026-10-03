@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+"""Write audit/FREEZE_2026-10-02l.{md,json,sha256}. Committed BEFORE the round-l scoring script exists."""
+import hashlib, json, os
+D = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "audit")
+F = {
+ "freeze": "FREEZE_2026-10-02l", "date": "2026-10-02", "authority_pin": "AEB2AD (unchanged)", "hub_data_commit": "6f9c2560 (unchanged)",
+ "owner_instruction": ("Damian (round l): derive within FSOT itself; treat the hadron sector as a new FSOT derivation branch using FSOT's own "
+                       "inputs and the m_e anchor; build from physics first, freeze, hold out at least one observable per family, count forms."),
+ "anchor": "m_e = h nu_Cs/c^2 exp(e^pi + (C_factor K ln2)^2 + G P_new psi_con - alpha^5 phi^2/ln^2 2) (seed leaf); every mass below is also stated as a ratio to it",
+ "A_pseudoscalar_octet": {
+  "name": "L-A1 leading-order chiral Goldstone structure with Dashen EM term, FSOT quark-mass ratios",
+  "physics": ("QCD with light quark masses: the pi, K, eta are pseudo-Goldstone bosons of SU(3)_L x SU(3)_R -> SU(3)_V; at leading order in ChPT "
+              "(Gell-Mann-Oakes-Renner; Weinberg 1977) M^2 is linear in the quark masses: M_pi+^2 = B(m_u+m_d) + D_EM, M_pi0^2 = B(m_u+m_d), "
+              "M_K+^2 = B(m_u+m_s) + D_EM, M_K0^2 = B(m_d+m_s), M_eta^2 = B(m_u+m_d+4m_s)/3 (eta_8; eta-eta' and pi0-eta mixing neglected at this order). "
+              "Dashen's theorem: the EM shift D_EM is equal for pi+ and K+ and zero for neutral mesons at leading order. Why the pion is light: "
+              "M_pi^2 is proportional to m_u+m_d (Goldstone: it vanishes in the chiral limit); the kaon is heavier because it carries m_s."),
+  "FSOT_inputs": "x = m_u/m_d = sqrt3 - sqrt(phi) (pin), y = m_s/m_d = e^3 + gamma^4 (pin), M_pi+- and M_K+- seed leaves (as ratios to m_e)",
+  "unknowns_solved": "b = B m_d and D_EM from M_pi+- and M_K+-: b = (M_K+^2 - M_pi+^2)/(y - 1), D_EM = M_pi+^2 - b(1 + x)",
+  "held_out_predictions": "M_pi0, M_K0, M_eta (and M_K0 - M_K+): never used as inputs; FSOT has no pins for them",
+  "validation": "same construction with PDG M_pi+-, M_K+- and FLAG 2+1 ratios x = 0.485, y = 27.42 (1 + 0.485)/2: pass iff each prediction within 2 % (the repo's existing OLD_REL_PCT gate)",
+  "score": "FSOT predictions vs PDG 2024: pi0 134.9768(5), K0 497.611(13), eta 547.862(17) MeV; agree iff validation passes and |rel| <= 2 % (z reported; PDG sigmas are far below LO accuracy)",
+  "look_elsewhere": "1 form (the textbook LO+Dashen construction; no alternative EM or mixing variant considered)",
+  "disclosure": "rough mental evaluation with the FSOT inputs before this freeze: K0 ~0 %, pi0 ~-3 %, eta ~+3 %"},
+ "B_absolute_scale": {
+  "L-B1 absolute light-quark masses from GMOR": {
+   "physics": "GMOR: F^2 M_pi^2|quark = (m_u+m_d) Sigma, i.e. B = Sigma/F^2, so m_d = b F^2/Sigma with b from L-A1; m_u = x m_d, m_s = y m_d, m_ud = (m_u+m_d)/2",
+   "F": "K-1a F_pi = 91.7766 MeV (lattice F/Lambda^(3) ratio x FSOT Lambda^(3); HYBRID, round k)",
+   "Sigma_variants": {"a": "Sigma^(1/3) = 0.25 GeV (Quark_condensate pin 1/4, hub reading)", "b": "Sigma^(1/3) = (272/338) x FSOT Lambda^(3) (lattice ratio; HYBRID)",
+                      "c": "Sigma^(1/3) = m_p/4 (the 1/4 pin scaled by the anchored proton mass)"},
+   "validation": "PDG M_pi+-, M_K+-, FLAG 2+1 x, y, FLAG F_pi 92.07, FLAG 2019 Sigma 272: pass iff m_ud within 10 % of FLAG 2+1 3.387(39)",
+   "score": "m_ud vs 3.387(39), m_s vs 92.4(1.0) MeV (FLAG 2024 N_f=2+1, MSbar 2 GeV)", "look_elsewhere": "3 Sigma variants"},
+  "L-B2 f_pi": "K-1a (round k, frozen) 91.7766 MeV HYBRID; no FSOT-internal F_pi form was constructed this round (next branch below)",
+  "L-B3 g_A": "lattice 1.263(10) (round k K-3, EXTERNAL); SU(6) 5/3 and MIT bag failed (round j)",
+  "L-B4 g_piNN": "Goldberger-Treiman with the above: 12.921 (round k K-4, HYBRID)"},
+ "C_unit_leaves": {
+  "restatement": "each unit-read leaf restated as a dimensionless ratio to its natural anchor (m_e c^2, hbar/(m_p c), m_e c^2/k_B, m_e c^2/hbar, m_e^2 c^4) in audit/derive_2026-10-02l.tsv",
+  "L-C1 r_p = 4 hbar/(m_p c)": {"physics": "charge radius of a relativistic bound state scales with the reduced Compton wavelength of the proton (anchored through m_p = m_e x ratio); coefficient 4 is NOT derived",
+     "score": "vs PDG 0.8409(4) fm", "look_elsewhere": "8 forms (n = 1..8 times hbar/(m_p c))",
+     "disclosure": "this numerical coincidence (r_p m_p c/hbar = 4.00) is known in the literature and was noticed (r_p leaf x m_p / hbar c = 4.0001) before this freeze; it cannot count as a prediction"}},
+ "D_downstream_gate": "Delta alpha_had -> Gamma_Z/M_Z and the deuteron run only with an FSOT-internal (non-hybrid) F_pi and g_piNN; with L-B2/L-B4 hybrid they are not run",
+ "counting": "a record row changes only if an FSOT-only candidate validates and has z <= 1; the held-out mesons and quark masses are not among the 91 rows",
+}
+md = ["# FREEZE_2026-10-02l (committed before the round-l scoring script)", "", "```json", json.dumps(F, indent=1, ensure_ascii=False), "```", ""]
+open(os.path.join(D, "FREEZE_2026-10-02l.json"), "w", encoding="utf-8", newline="\n").write(json.dumps(F, indent=1, ensure_ascii=False) + "\n")
+open(os.path.join(D, "FREEZE_2026-10-02l.md"), "w", encoding="utf-8", newline="\n").write("\n".join(md))
+with open(os.path.join(D, "FREEZE_2026-10-02l.sha256"), "w", newline="\n") as f:
+    for n in ("FREEZE_2026-10-02l.json", "FREEZE_2026-10-02l.md"):
+        f.write(hashlib.sha256(open(os.path.join(D, n), "rb").read()).hexdigest() + "  " + n + "\n")
+print("written")
