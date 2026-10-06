@@ -1,0 +1,9 @@
+{
+ "freeze": "FREEZE_2026-10-02bf",
+ "date": "2026-10-06",
+ "parent": "3635fe9",
+ "rule": "z-only scoring against observations; ratios first; no hybrid; no tuning; existing frozen rules unchanged; pins never edited",
+ "owner directive": "Hit the next round. The regulator partner of the valence gets the valence bookkeeping. The flat-percent rows stay.",
+ "BF-1 regulator valence": "Same DPP and basis as the az call (K 14, D 14, kmax 12, nq 1500, Nc 3, mix 0.2, tol 1e-3, itmax 80). The physical spectrum keeps the sc_force weight: sea term (-Nc/2)*sign(E)*(2K+1), plus Nc on the K=0, parity +1 state closest to the valence energy. While that energy is positive and K=0, the sum is +Nc/2, the weight of one filled sea level. On the Pauli-Villars spectrum the sea factor already in sc_force is +Nc/(2*Mpv). Find the K=0, parity +1 state whose eigenvector has the largest absolute overlap with the physical valence eigenvector. If that overlap is at least 1/2 and it exceeds the next overlap by more than 1e-8, replace that one state's weight by the filled Pauli-Villars weight -Nc/(2*Mpv), with no sign(E). Otherwise stop. Every other state keeps its sea sign weight. Iterate the existing mix 0.2. Stop when the gap is below 1e-3, at 80 steps, if the valence is lost, or if the partner cannot be identified. Record the stop reason, the gap, the valence, the partner energy, the overlap, and the gap the unmodified sc_force gives on the same final profile.",
+ "not this round": "No edit to cqsm_rot.py or rv_2026_10_02aq.py. No smoothing width. No shortening rule. No regulator change. No NLO F. No radius file. The 91 are not rescored. Pins, vendor/fsot_compute.py, and the Lean engine file are not edited."
+}
