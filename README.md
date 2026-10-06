@@ -191,6 +191,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-05 (audit/FREEZE_2026-10-02ba.md): the DPP isovector radius at M = m_p/3, same x_DPP, box j=0, is 1.58254 fm². The committed j=0 value at the diagnostic mass is 1.00435 fm². Holding that shape fixed would give 1.89749 fm². The recomputed pion cloud shrinks r M² by 0.834, and the fm radius is 1.58254. The regularised sea holds 25.4% of the isovector charge, at 2.872 fm², against 31.3% at 1.853 fm² on the committed profile. M = m_p/3 stays off the record. Round o already has that soliton unbound at E = 3.41 M. Totals stay 91/91.
 
+2026-10-05 (audit/FREEZE_2026-10-02bb.md): the same diagnostic DPP, after the solver's edge tail, misses stationarity by 0.17212 rad at r = 0.3976/M (0.1825 fm). That is the committed step-0 gap, reproduced exactly. The bare Dirac sea and the Pauli-Villars sea each hold about half of the scalar and pseudoscalar densities and cancel at 99.29% and 98.97%. What remains of the sea is the same size as the valence. The meson constant from the chiral-limit F moves that angle by 0.00311 rad. The step-44 site, 0.416 fm, is only 0.0317 rad off on this profile. Nothing is installed. Totals stay 91/91.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|
