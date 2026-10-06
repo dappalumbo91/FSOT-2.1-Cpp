@@ -12,11 +12,13 @@ CODATA 2022 (doi:10.1103/RevModPhys.97.025002) and AME2020 (doi:10.1088/1674-113
 (doi:10.1051/0004-6361/201833910) through the PDG 2024 astrophysical-constants table; H0 is scored in the CMB+BAO channel (ACT DR6, arXiv:2503.14452; H-13). The legacy 2 % relative check and ppm are reported for every row.
 No FSOT constant, `f`, domain parameter, tolerance, pin or frozen value was changed to get these numbers.
 
+**Current worktree gate (2026-10-05, FREEZE_2026-10-02ay).** 91/91 confirmed at z ≤ 1 (89/91 at 2 %). Pinned rows only are 89/91. The frozen-pending column is 91/91. With H0 and τ_n deferred the accounting is 89/89. The deuteron moment record row is `leaf:Deuteron_mu_muN`, `(G⁴+Poof)(1+α²(1+1/(4π²)))` = 0.857438231894115, z 0.7299. The live table is `audit/precision_2026-10-02.md`. The summary below is the 2026-10-02b snapshot and is left as that round printed it.
+
 **Scored set (`rec = Y`).** For an observable that has a hub seed leaf committed by Damian (2026-09-29, hub `docs/TOE_ACCURACY_GOALS.md`), the leaf is scored.
 Otherwise the AEB2AD closed form is scored (first occurrence in `full_report` order). Routes were never chosen by lowest z.
 Rows marked `-` are superseded pin rows or alternates. They are still listed, with their own z.
 
-## Summary
+## Summary (2026-10-02b snapshot)
 
 | | record set, confirmed | record set + passing frozen-pending (NOT confirmed) | all rows |
 |---|---|---|---|
@@ -1834,3 +1836,67 @@ Freeze `audit/FREEZE_2026-10-02aq.{json,md}` (commit 1f0b5fe), committed before 
 The radius is box- and kmax-stable (A → B −0.045 %, per-box spread < 0.03 %), so the 22 % excess is **physical**: validation z 88 against 0.82236(201) fm². The valence level alone gives 0.62 fm²; the PV-regularised sea carries 31 % of the isovector charge at r² 1.85 fm² (the pion-cloud tail). The free-vacuum term vanishes identically and the PV subtraction is already sea-only, so no subtraction is missing. The round-ap chain was not carried; Δα_had, G_F and Γ_Z/M_Z were not rescored. No FSOT correction branch was frozen this round: a regulator change is excluded by the standing rules, and a physical correction needs a definition the owner can approve (see the hub prompt). Look-elsewhere: 1 validation.
 
 **Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.
+
+## 2026-10-02ar: the scoring-cutoff profile is still moving after 40 steps
+
+Freeze `audit/FREEZE_2026-10-02ar.{json,md}` was hashed before `tools/scprofile_2026_10_02ar.py` ran. Solver `self_consistent_m`, mix 0.2, tol 1e-3, itmax 40, Nc 3, basis K 14, D 14, kmax 12, start the round-ag DPP profile. Scorer `tools/score_2026_10_02ar.py` recomputes the move from the json.
+
+The profile did not reach the tolerance. dtheta fell from 0.172 to 0.0116 in 16 steps, then each step shrank by about 2%, and step 39 ended at dtheta 0.005632 (E/M 2.21557, valence 0.229436, 208.4 s). The j=0 radius on that unfinished profile is 1.05233363489 fm². Against the committed DPP radius that is a move of 4.777% (r M² 4.9944537 versus 4.7667424). The regularised sea holds 0.354569 of I[1], with its own radius 1.81568 fm². Because the solver returned False, that move stays information: the 2% rule is unapplied, and the M = m_p/3 sea check stays unstarted. Δα_had, G_F, Γ_Z/M_Z and the 91 are unchanged. Look-elsewhere: no validation was opened.
+
+**Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.
+
+## 2026-10-02as: a full force-balance step orbits
+
+Freeze `audit/FREEZE_2026-10-02as.{json,md}` was hashed before the run. The round-q cap of 40 passes and the mix 0.2 damper were retired for this continuation. Each pass set the profile to the force-balance profile.
+
+The gap on the saved ar profile was 0.005516. The next pass opened it to 0.193546. Across 60 passes the gap repeats: it falls from about 0.19 toward 0.008, then jumps back. Pass 59 ended at dtheta 0.025540 (E/M 2.21962, valence 0.249314, 320.4 s). The j=0 radius on that orbit point is 1.12163082751 fm², a move of 11.68% from the DPP radius. The regularised sea holds 0.368413 of I[1]. The point is not stationary, so the move stays information and the M = m_p/3 check stays unstarted. The 91 are unchanged. Look-elsewhere: one continuation, no mix search.
+
+**Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.
+
+## 2026-10-02at: a half step joins the orbit on the second pass
+
+Freeze `audit/FREEZE_2026-10-02at.{json,md}` was hashed before the run. On the saved ar profile the one-step probe measured next gaps 0.193546 for the full step (recorded, not recomputed), 0.005235 for a half step, 0.005375 for a quarter and 0.005445 for an eighth. The half step was the smallest of those next gaps, and it sat under the start gap 0.005516, so the rule locked it. The quarter and the eighth also sat under that bar, by less. Scorer `tools/score_2026_10_02at.py` recomputes that lock from the stored gaps.
+
+Pass 1 reproduced the half-step gap, 0.005235. Pass 2 opened it to 0.193584. Across 200 passes the gap repeats: it falls from about 0.19 toward 0.011, then jumps about every nine passes. Pass 199 ended at dtheta 0.022382 (E/M 2.21589, valence 0.237066, 1063.2 s). The j=0 radius on that orbit point is 1.14251976039 fm², a move of 13.76% from the DPP radius. The regularised sea holds 0.378247 of I[1], with its own radius 1.97893 fm². The point is not stationary, so the move stays information and the M = m_p/3 check stays unstarted. The 91 are unchanged. Look-elsewhere: one continuation. The 0.2 fallback was not used, because the half step cleared the one-step test. No further mix was tried.
+
+**Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.
+
+## 2026-10-02au: re-entering the 0.2 damper orbits on the fifth pass
+
+Freeze `audit/FREEZE_2026-10-02au.{json,md}` was hashed before the run. The walk that had closed on every pass inside round ar was continued from the saved profile, one solver entry at a time, mix 0.2, itmax 1. Each entry refits the outer tail before the spectrum. Round ar's 40 steps were one call, and this round does not repeat that call.
+
+Passes 0 through 3 closed the gap from 0.005516 to 0.005191. Pass 4 opened it to 0.193796. Across 400 passes the gap then jumps back to about 0.19 and falls again. The rise guard never fired, because each jump is a single increase followed by a fall. Pass 399 ended at dtheta 0.022225 (E/M 2.21453, valence 0.231570, 2559.4 s). The j=0 radius on that orbit point is 1.15099879376 fm², a move of 14.6% from the DPP radius. The regularised sea holds 0.383195 of I[1], with its own radius 1.98079 fm². The point is not stationary, so the move stays information and the M = m_p/3 check stays unstarted. The 91 are unchanged. Look-elsewhere: one continuation, mix fixed at 0.2.
+
+**Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.
+
+## 2026-10-05: Lean catalog leaf for the Z width
+
+Desktop FSOT-2.1-Lean, branch `owner-decisions-2026-10-02i` at `7e106a5`, keeps the engine formula `φ⁵/e⁶` = 0.027489782887668835. That bare value is 4.930 uncertainties high of PDG `2.4955/91.1880` and 4.951 high of the display target 0.027366. The catalog leaf committed in `de21ae1` is `(φ⁵/e⁶)(1−α/φ)` = 0.02736580363935934, 0.029 uncertainties low of the PDG ratio. `scripts/gamma_z_seed_check.py` reprinted the leaf from the live engine. `α·γ` (0.298 high) and `α·ψ_con` (0.142 low) stay off the leaf. The engine file was not edited, so the branch pin stays 2C9442 and published main stays AEB2AD at `fb76270`. The C++ record row stays the bare law. This round does not rescore the 91.
+
+The same branch records first ionization for aluminum, chlorine, silicon, phosphorus, sulfur, argon, and potassium, normal boiling leaves for methane, ammonia, and ethanol, and the sodium chloride lattice leaf `(e⁶·π/φ)(1+α·e/6)` = 785.891 kJ/mol. Calcium, hydrogen, and carbon dioxide sublimation stay bare. Deuteron binding stays `√e/e+φ`. The deuteron moment stays `G⁴+Poof`.
+
+**Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open engine misses: Γ_Z/M_Z, deuteron binding, deuteron μ. The Lean catalog reading of Γ_Z/M_Z sits inside the bar. The C++ record row stays the bare engine law.
+
+## 2026-10-02av: raising the 40-step budget to 400 jumps at step 44
+
+Freeze `audit/FREEZE_2026-10-02av.{json,md}` was hashed before the run. One call of `self_consistent_m`, mix 0.2, itmax 400, from the DPP. Step 0 and step 39 reprint the round-ar gaps, 0.17211904981809267 and 0.005631712767651509. The gap keeps falling through step 43, to 0.005190733171335227. Step 44 opens it to 0.19379649668786914. That is the same opening the re-entered walk found on its fifth pass. Across the remaining steps the gap jumps back to about 0.19 and falls again. Step 399 ended at dtheta 0.020179 (E/M 2.21417, valence 0.230358, 2110.8 s). The j=0 radius on that point is 1.15018154675 fm², a move of 14.52% from the DPP radius. The regularised sea holds 0.383221 of I[1], with its own radius 1.97804 fm². The point is not stationary, so the move stays information and the M = m_p/3 check stays unstarted. The 91 are unchanged.
+
+**Totals 88/91** (86/91 pinned only; 86/89 with H0 and τ_n deferred) since the owner record commit b99fc29 (η route as the T_CMB record row, z 0.398). Open misses: Γ_Z/M_Z, deuteron binding, deuteron μ.
+
+## 2026-10-02aw: the Z-width record row is the catalog leaf
+
+Freeze `audit/FREEZE_2026-10-02aw.{json,md}` was hashed before the binary was rebuilt. The record value is `(φ⁵/e⁶)(1−α/φ)` = 0.0273658036393593. Alpha is the inverse-alpha leaf. Against `2.4955/91.1880` the z is 0.02916, 26.89 ppm. The bare seed 0.0274897828876688 stays in the report at record 0, z 4.885. Deuteron binding stays 0.71 ppm from the center and z 3.592, because the bar is 4.4e-7 MeV. The deuteron moment stays 54.6 ppm from the center and z 21280, because the bar is 2.2e-9. The Lean engine file stays the bare seed.
+
+**Totals 89/91** (87/91 pinned only; 87/89 with H0 and τ_n deferred). Open misses: deuteron binding, deuteron μ.
+
+## 2026-10-02ax: the deuteron binding record row is the mass-excess nearest piece
+
+Freeze `audit/FREEZE_2026-10-02ax.{json,md}` was hashed before the binary was rebuilt. The record value is `(√e/e+φ)(1+α³·e³/φ⁵)` = 2.22456621408218 MeV. Alpha is the inverse-alpha leaf. Against the AME2020 mass excess 2.224566229 MeV the z is 0.0339, 0.006706 ppm. The bare sum 2.22456464846253 stays in the report at record 0, z 3.592. The mass-excess α³ quotient names `e³/φ⁵` as nearest. The next product, `φ+φ⁻³`, is 1.49118 times farther, and 53 products sit in that window. The deuteron moment stays 54.6 ppm from the center and z 21280, because the bar is 2.2e-9. The Lean engine file stays the bare sum.
+
+**Totals 90/91** (88/91 pinned only; 88/89 with H0 and τ_n deferred). Open miss: deuteron μ.
+
+## 2026-10-02ay: the deuteron moment record row is the Schwinger weight
+
+Freeze `audit/FREEZE_2026-10-02ay.{json,md}` was hashed before the binary was rebuilt. The record value is `(G⁴+Poof)(1+α²(1+1/(4π²)))` = 0.857438231894115. Alpha is the inverse-alpha leaf. The same algebra is `1+α²+(α/(2π))²`. Against CODATA 2022 0.8574382335(22) the z is 0.7299, 0.00187289 ppm, on the low side of the central value. The bare sum 0.857391418128038 stays in the report at record 0, z 21280. Its frozen-pending column C-MUD stays at z 1.772e+05. The named-seed window and the short-product windows were already empty. The α² quotient of the bare gap is 1.02536546851, half-width 4.8185114e-5, and `1+1/(4π²)` sits inside it. The same-shape siblings `1/(4e²)`, `1/(4φ²)`, `1/π²`, `1/(2π²)`, `1/(8π²)`, and `(α/π)²` sit outside. Two expressions that add a second power also land inside and are not this leaf: `α²+α³(π+γ²)` and `α²+α³(π+1/3)`. `1/3` is not a seed, and `π+γ²` has no magnetic-moment reading. The Lean engine file stays `G⁴+Poof`. The soliton profile was not rerun.
+
+**Totals 91/91** (89/91 pinned only; 89/89 with H0 and τ_n deferred; 89/91 at 2%). The two record rows that still fail 2% are `pin:wave4|sin2_theta23` and `pin:wave8|delta_CP_PMNS`. No open z miss. Worst record ppm remains `pin:wave8|delta_CP_PMNS` at 34691.3.

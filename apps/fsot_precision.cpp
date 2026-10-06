@@ -11,6 +11,12 @@
 // docs/freezes/REFINEMENTS_2026-10-02b.md (committed before scoring); they are never counted as confirmed.
 // route "seed" = a committed hub vendor/fsot_seed_flavor.py function, evaluated here in mp169 (channel fix F2).
 // route "eta" = AF-3 T_CMB (tools/score_2026_10_02af.py). The closed form stays the superseded pin row.
+// route "gzleaf" = Lean catalog de21ae1, (phi^5/e^6)*(1-alpha/phi). alpha is the inverse-alpha leaf.
+// The bare pin row stays in the report with record 0.
+// route "bdleaf" = (sqrt(e)/e+phi)*(1+alpha^3*(e^3/phi^5)). alpha is the same inverse-alpha leaf.
+// The bare pin row stays in the report with record 0. The mass-excess quotient names e^3/phi^5 as nearest.
+// route "muleaf" = (G^4+Poof)*(1+alpha^2*(1+1/(4*pi^2))). alpha is the same inverse-alpha leaf.
+// The bare pin row stays in the report with record 0. The alpha^2 quotient names the Schwinger weight.
 #define _USE_MATH_DEFINES  // M_PI on MSVC (must precede <cmath>)
 #include <algorithm>
 #include <cmath>
@@ -207,6 +213,32 @@ int main(int argc, char** argv) {
       const R rc100 = R(3) * H100 * H100 / (R(8) * eng.PI * G);
       const R ng0 = ob->second.first * rc100 / (mp->second * et->second.first);
       o.vr = m::pow(ng0 * eng.PI * eng.PI / (R(2) * z3), R(1) / R(3)) * hbar * c / kB * scale;
+    } else if (o.route == "gzleaf") {
+      // Lean catalog de21ae1. alpha is the inverse-alpha leaf, not eng.ALPHA.
+      if (o.source != "gz_leaf") { std::fprintf(stderr, "no gzleaf source %s\n", o.source.c_str()); return 2; }
+      const R bare = m::ipow(eng.PHI, 5) / m::ipow(eng.E, 6);
+      const R ps = eng.POOF * eng.SUCTION;
+      const R alpha = R(1) / (m::ipow(eng.E, 3) * m::ipow(eng.PHI, 4) - eng.PSI_CON
+                              - ps * ps * eng.C_FACTOR * eng.C_FACTOR / eng.P_BASE);
+      o.vr = bare * (R(1) - alpha / eng.PHI) * scale;
+    } else if (o.route == "bdleaf") {
+      // FREEZE_2026-10-02ax. alpha is the inverse-alpha leaf, not eng.ALPHA.
+      if (o.source != "bd_leaf") { std::fprintf(stderr, "no bdleaf source %s\n", o.source.c_str()); return 2; }
+      const R bare = (m::sqrt(eng.E) / eng.E) + eng.PHI;
+      const R ps = eng.POOF * eng.SUCTION;
+      const R alpha = R(1) / (m::ipow(eng.E, 3) * m::ipow(eng.PHI, 4) - eng.PSI_CON
+                              - ps * ps * eng.C_FACTOR * eng.C_FACTOR / eng.P_BASE);
+      const R piece = m::ipow(eng.E, 3) / m::ipow(eng.PHI, 5);
+      o.vr = bare * (R(1) + m::ipow(alpha, 3) * piece) * scale;
+    } else if (o.route == "muleaf") {
+      // FREEZE_2026-10-02ay. alpha is the inverse-alpha leaf, not eng.ALPHA.
+      if (o.source != "mu_leaf") { std::fprintf(stderr, "no muleaf source %s\n", o.source.c_str()); return 2; }
+      const R bare = m::ipow(eng.G_CAT, 4) + eng.POOF;
+      const R ps = eng.POOF * eng.SUCTION;
+      const R alpha = R(1) / (m::ipow(eng.E, 3) * m::ipow(eng.PHI, 4) - eng.PSI_CON
+                              - ps * ps * eng.C_FACTOR * eng.C_FACTOR / eng.P_BASE);
+      const R piece = R(1) + R(1) / (R(4) * eng.PI * eng.PI);
+      o.vr = bare * (R(1) + m::ipow(alpha, 2) * piece) * scale;
     } else {
       auto it = pinv.find(o.source); if (it == pinv.end()) { std::fprintf(stderr, "no pin row %s\n", o.source.c_str()); return 2; }
       o.vr = it->second.first * scale; o.pin_target = fmt("%.10g", to_d(it->second.second * scale));
@@ -229,6 +261,15 @@ int main(int argc, char** argv) {
                            : "leaf outside the PDG 2024/CODATA 2022 sigma";
     } else if (o.route == "eta") {
       o.hist = "AF-3 tools/score_2026_10_02af.py 2.72573880198 K z=0.398";
+      o.cause = note;
+    } else if (o.route == "gzleaf") {
+      o.hist = "Lean catalog de21ae1 (phi^5/e^6)*(1-alpha/phi)";
+      o.cause = note;
+    } else if (o.route == "bdleaf") {
+      o.hist = "FREEZE_2026-10-02ax (sqrt(e)/e+phi)*(1+alpha^3*(e^3/phi^5))";
+      o.cause = note;
+    } else if (o.route == "muleaf") {
+      o.hist = "FREEZE_2026-10-02ay (G^4+Poof)*(1+alpha^2*(1+1/(4*pi^2)))";
       o.cause = note;
     } else {
       // historical best over the five hub pins, scored against the same reference

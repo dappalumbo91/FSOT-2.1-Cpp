@@ -1,0 +1,11 @@
+{
+ "freeze": "FREEZE_2026-10-02az",
+ "date": "2026-10-05",
+ "parent": "1615ed5 plus the uncommitted rounds ar through ay",
+ "rule": "z-only scoring against observations; ratios first; no hybrid; no tuning; existing frozen rules unchanged; pins never edited. This round does not score the 91.",
+ "owner directive": "Locate the angle-tolerance failure on the self-consistent profile. Do not change the tolerance. Do not change the mixer.",
+ "AZ-1 profile diagnostic": "One call of self_consistent_m from the same DPP profile as FREEZE_2026-10-02av, mix 0.2, tol 1e-3, itmax 44. The returned profile is the state after the step-43 update, which is the input to the jump already printed at step 44. Then one extra force-balance evaluation, using the same functions the solver uses, records where the gap sits. Record step 0, step 39, and step 43 dtheta against the av log, the step-44 dtheta, the radius of the maximum |new-theta|, whether that bin is in the edge tail r > 0.75 D, and the split of the maximum between the interior and the tail. No record row changes. cqsm_rot.py is not edited.",
+ "not this round": "No new mixer. The tolerance stays 1e-3. No itmax 400. The M = m_p/3 check stays unstarted. No second scorer. The deuteron moment leaf is not edited.",
+ "look-elsewhere": "One continuation. Mix and tolerance stay at the av values. The question is where the step-44 gap sits. No scan of mix or tolerance.",
+ "hub prompt": "none"
+}

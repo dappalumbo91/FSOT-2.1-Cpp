@@ -1,0 +1,23 @@
+{
+ "freeze": "FREEZE_2026-10-02ar",
+ "date": "2026-10-05",
+ "parent": "1615ed5 (round aq; gate 88/91 since b99fc29)",
+ "rule": "z-only scoring against observations; ratios first; no hybrid; no tuning; existing frozen rules unchanged; pins never edited",
+ "AR-1 self-consistent profile": {
+  "definition": "Basis K=14, D=14, kmax=12, Radial nq=1500 (the Radial default). Solver tools/cqsm_rot.py self_consistent_m with the committed defaults locked: mix=0.2, tol=1e-3, itmax=40, Nc=3. Start: the DPP profile at x_DPP from audit/murun_2026-10-02ag_K14_D14_k12.json, with mpi/M = mpi_over_mp/M_over_mp, F/M = F_over_M and Mpv/M = Mpv_over_M from that file's inputs. Vacuum: zero-profile spectra at the same basis, energy sums as in tools/murun_2026_10_02ag.py. Converged means the solver returns True (the last dtheta is < 1e-3 and the valence level is present). Then the AQ-1 sums (valence, sea, and sea-only PV), the same sums as tools/rv_2026_10_02aq.py, on box j=0 only. That tool is not edited. r = I[r^2]/I[1]. r_DPP is that ratio from the committed audit/rv_2026-10-02aq_A_j0.json (I1 4.197466935, Ir2 20.00824379). Move = |r_SC - r_DPP| / r_DPP.",
+  "valence lost": "no radius file; no further boxes; AR-2 does not run; nothing rescored",
+  "not converged": "the valence level is present but the solver returns False. Write the j=0 radius as information. No further boxes. AR-2 does not run. The 2% rule is not applied. Nothing rescored",
+  "converged and move <= 2%": "the scoring-box radius is stable under self-consistency. No further boxes. AR-2 runs. No new validation against 0.82236(201) fm^2 is opened. Nothing rescored",
+  "converged and move > 2%": "run boxes j=1,2,3 at kmax=12 on the same solved profile. D_j = 14 + j*(pi/kmax)/4. The solved theta array on the D=14 grid is taken onto D_j by numpy.interp; values outside that grid hold the edge sample. Average as AQ-1: average each of the valence, sea and PV components across the 4 boxes, then add. Validate z <= 1 for r_V^2 m_p^2 against r_p^2 - r_n^2 = 0.82236(201) fm^2. The sigma is the PDG sigma only: r_p = 0.84075(64) fm and <r_n^2> = -0.1155(17) fm^2. No theory error is added. The box spread is information. fm^2 per 1/M^2 is the round-aq factor (0.1973269804 GeV fm / m_p in GeV)^2 / (M/m_p)^2, with m_p the hub leaf m_p_kg. Even if z <= 1, do not carry the round-ap chain and do not rescore Delta alpha_had, G_F, Gamma_Z/M_Z, or any row of the 91. A passing self-consistent radius needs its own later chain freeze. The ap chain was frozen on the DPP profile",
+  "tool": "tools/scprofile_2026_10_02ar.py -> audit/scprofile_2026-10-02ar.json and audit/rv_2026-10-02ar_gap_j<j>.json; scorer tools/score_2026_10_02ar.py recomputes the move and any z and does not trust a verdict string"
+ },
+ "AR-2 sea scaling": {
+  "runs": "only if AR-1 converged",
+  "definition": "M/m_p = 1/3 exactly (IEEE 1.0/3.0). F/M = F_over_mp/(1/3), mpi/M = mpi_over_mp/(1/3), Mpv/M unchanged. Same solver, basis, mix, tol, itmax and Nc. Start = the DPP ansatz at the new mpi/M with the same x_DPP (not re-scanned, not re-fit). Same j=0 radius split. If AR-2 itself does not converge, that split is information. If AR-2 loses the valence level, no radius file",
+  "report": "sea+PV share of I[1] and sea+PV-only r^2, next to the AR-1 j=0 split. Neither mass is selected by which radius is closer to 0.82236. M/m_p = 0.4581682005 remains a diagnostic only (FREEZE_2026-10-02ab). Round o / H-40 already found the M = m_p/3 soliton unbound (E = 3.41 M) on a different basis; report that figure, do not adopt this mass",
+  "files": "audit/rv_2026-10-02ar_sigma_j0.json when the radius is run"
+ },
+ "not this round": "No quark condensate is invented. No regulator is changed. The round-aq diagnostic is not rerun. The level-C kmax-16 job is not started. Pins, goldens, the preregistration, vendor/fsot_compute.py and AUTHORITY_PIN are not edited",
+ "look-elsewhere": "AR-1: one 2% move check against the committed DPP radius; one validation against 0.82236(201) fm^2 only if converged and the move exceeds 2%. AR-2: information rows only, no selection. No record row of the 91 is scored",
+ "hub prompt": "none (C++ diagnostic; no hub prompt this round)"
+}

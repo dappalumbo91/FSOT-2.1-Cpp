@@ -88,12 +88,12 @@ When the hub moves its pin, update `AUTHORITY_PIN.json`, run `cmake --build buil
 ¹ `Chain_consistency_%` subtracts two nearly equal ratios, so it magnifies rounding.
 Example: S_thermo = 0.93638756406297475802… (169-bit), and 0.9363875640629747 when rounded to double, matching Python exactly.
 
-## Precision against published uncertainties (z ≤ 1 gate, 2026-10-02)
+## Precision against published uncertainties (z ≤ 1 gate)
 `apps/fsot_precision` scores every physics prediction with z = |value − central|/σ ≤ 1. σ comes from PDG 2024, CODATA 2022 and AME2020
 (`reference/published_2026-10-02.tsv`; every entry is checked against committed evidence by `tools/check_references.py`). The gate is configured
-once, in `include/fsot/host/precision_gate.hpp`. The legacy 2 % check and ppm are reported next to it. Record set: **85/91 pass z ≤ 1** (88/91 with the passing frozen-pending refinements, not confirmed)
-(88/91 under 2 %), median 93 ppm. All 50 hub seed leaves (`include/fsot/host/seed_leaves.hpp`, ported 2026-10-02) pass. Full table, regression
-causes and the 6 remaining misses (3 with a frozen-pending candidate, 3 open: Γ_Z/M_Z, deuteron binding, μ_d) are in [docs/PRECISION_REPORT.md](docs/PRECISION_REPORT.md).
+once, in `include/fsot/host/precision_gate.hpp`. The legacy 2 % check and ppm are reported next to it.
+
+**Current worktree gate (FREEZE_2026-10-02ay, uncommitted):** **91/91 pass z ≤ 1** (89/91 pinned only; frozen-pending column 91/91; 89/89 with H0 and τ_n deferred; 89/91 under 2 %). The deuteron moment record row is `(G⁴+Poof)(1+α²(1+1/(4π²)))` = 0.857438231894115, z 0.7299. `sin²θ₂₃` and `δ_CP` still fail 2 % and pass z. Median record ppm is 74.13. Worst record ppm is 34691 (`δ_CP`). The dated paragraphs below keep the count each round printed. All 50 hub seed leaves (`include/fsot/host/seed_leaves.hpp`) pass. The live table is [audit/precision_2026-10-02.md](audit/precision_2026-10-02.md). [docs/PRECISION_REPORT.md](docs/PRECISION_REPORT.md) opens with the 2026-10-02b snapshot (85/91, Γ_Z/M_Z, deuteron binding, and μ_d still open in that snapshot) and ends with the ay section.
 Post-hoc refinements are frozen as tier frozen-pending in [docs/freezes/REFINEMENTS_2026-10-02.md](docs/freezes/REFINEMENTS_2026-10-02.md) and
 [docs/freezes/REFINEMENTS_2026-10-02b.md](docs/freezes/REFINEMENTS_2026-10-02b.md) (committed before scoring) and are never counted as confirmed.
 A pre-registered train/test search for class-level dressing rules (docs/freezes/PROTOCOL_2026-10-02c.md, REFINEMENTS_2026-10-02c.md; 539 patterns, 5 classes) accepted **no** rule; see PRECISION_REPORT §2026-10-02c.
@@ -168,6 +168,26 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 2026-10-02ap (audit/FREEZE_2026-10-02ap.md): the soliton's isovector charge radius comes out at r_V² 1.004 fm² against 0.822 fm² from the proton and neutron radii (+22 %), so the form-factor route to f_ρ breaks at its first step. After the break, for information: ρ pole 533 MeV, f_ρ 146 MeV, Γ_ee 8.9 keV. A new additive kmax-16 rule is frozen and its job is running. Totals 88/91 (b99fc29).
 
 2026-10-02aq (audit/FREEZE_2026-10-02aq.md): with shell averaging, the soliton isovector radius is 1.004 fm² at both kmax 12 and 14 (stable to 0.05 %), so the 22 % excess is physical. It comes from the regularised Dirac sea (31 % of the isovector charge, at 1.85 fm²); the valence level alone gives 0.62 fm². Nothing is rescored. Totals 88/91 (b99fc29).
+
+2026-10-02ar (audit/FREEZE_2026-10-02ar.md): the self-consistent profile at the scoring cutoff (K 14, D 14, kmax 12, mix 0.2) is still moving after the locked 40 steps (dtheta 0.005632, E/M 2.21557). The j=0 radius on that unfinished profile is 1.05233 fm², 4.777% from the DPP value, so it stays information. The M = m_p/3 sea check stays unstarted. Totals 88/91 (b99fc29).
+
+2026-10-02as (audit/FREEZE_2026-10-02as.md): taking the whole force-balance step, the gap jumps to 0.194 and then orbits between about 0.19 and 0.008. Sixty full passes end at dtheta 0.0255. The j=0 radius on that orbit point is 1.12163 fm², information. The sea check stays unstarted. Totals 88/91 (b99fc29).
+
+2026-10-02at (audit/FREEZE_2026-10-02at.md): half of the force-balance step shrinks the gap once, from 0.00552 to 0.00524, and the next pass opens it to 0.194. Two hundred passes then orbit about every nine passes and end at dtheta 0.02238. The j=0 radius on that orbit point is 1.14252 fm², information. The sea check stays unstarted. Totals 88/91 (b99fc29).
+
+2026-10-02au (audit/FREEZE_2026-10-02au.md): re-entering the solver with the original 0.2 damper closes the gap for four passes, from 0.00552 to 0.00519, and the fifth pass opens it to 0.194. Four hundred passes orbit and end at dtheta 0.02223. The j=0 radius on that orbit point is 1.15100 fm², information. The sea check stays unstarted. Totals 88/91 (b99fc29).
+
+2026-10-05: the Lean catalog on `owner-decisions-2026-10-02i` at `7e106a5` reads Γ_Z/M_Z as `(φ⁵/e⁶)(1−α/φ)` = 0.02736580363935934, 0.029 uncertainties low of `2.4955/91.1880`. The engine formula stays `φ⁵/e⁶` and stays a miss. The C++ record row stays that bare law. Totals 88/91 (b99fc29). The same catalog pass records Al, Cl, Si, P, S, Ar, and K first ionization, the methane, ammonia, and ethanol boiling leaves, and the NaCl lattice leaf. Calcium, hydrogen, CO₂ sublimation, deuteron binding, and the deuteron moment stay on their bare formulas.
+
+2026-10-02av (audit/FREEZE_2026-10-02av.md): one continuous call of the 0.2 damper, budget 400, from the DPP, matches the 40-step close through step 39 and keeps closing through step 43 (dtheta 0.00519). Step 44 opens the gap to 0.194. Four hundred steps end at dtheta 0.02018. The j=0 radius on that point is 1.15018 fm², information. The sea check stays unstarted. Totals 88/91 (b99fc29).
+
+2026-10-05 (audit/FREEZE_2026-10-02aw.md): the Γ_Z/M_Z record row is the Lean catalog leaf `(φ⁵/e⁶)(1−α/φ)` = 0.0273658036393593 against `2.4955/91.1880`, z 0.02916. The bare seed stays in the report as the superseded row. The gate is **89/91 confirmed** (87/91 pinned only; the frozen-pending column is 89/91; 87/89 with H0 and τ_n deferred). Deuteron binding and the deuteron moment stay on their bare formulas.
+
+2026-10-05 (audit/FREEZE_2026-10-02ax.md): the deuteron binding record row is `(√e/e+φ)(1+α³·e³/φ⁵)` = 2.22456621408218 MeV against the AME2020 mass excess 2.224566229 MeV, z 0.0339. The bare sum stays in the report as the superseded row. The mass-excess quotient names `e³/φ⁵` as the nearest short product; the next one, `φ+φ⁻³`, is 1.49118 times farther. The gate is **90/91 confirmed** (88/91 pinned only; the frozen-pending column is 90/91; 88/89 with H0 and τ_n deferred). The deuteron moment stays on `G⁴+Poof`. The Lean engine file stays the bare sum.
+
+2026-10-05 (audit/FREEZE_2026-10-02ay.md): the deuteron moment record row is `(G⁴+Poof)(1+α²(1+1/(4π²)))` = 0.857438231894115 against CODATA 2022 0.8574382335(22), z 0.7299. The same algebra is `1+α²+(α/(2π))²`. The bare sum stays in the report as the superseded row. The α² quotient names that weight after the named-seed window came back empty. Two closer stacks, `α²+α³(π+γ²)` and `α²+α³(π+1/3)`, use a second power and are not the record. The gate is **91/91 confirmed** (89/91 pinned only; the frozen-pending column is 91/91; 89/89 with H0 and τ_n deferred; 89/91 at 2%). The Lean engine file stays `G⁴+Poof`.
+
+2026-10-05 (audit/FREEZE_2026-10-02az.md): the step-44 gap of 0.19380 rad sits at r = 0.9063/M (r/D = 0.0647, 0.416 fm). The edge past 0.75 D peaks at 1.65e-5 rad, inside the 0.001 rad tolerance. 231 of 1500 bins exceed 0.05 rad, all of them interior. The tolerance and the mixer were left as they are. The 22% isovector-radius excess stays its own miss. Totals stay 91/91. The sea check stays unstarted.
 
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
