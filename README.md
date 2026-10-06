@@ -189,6 +189,8 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-05 (audit/FREEZE_2026-10-02az.md): the step-44 gap of 0.19380 rad sits at r = 0.9063/M (r/D = 0.0647, 0.416 fm). The edge past 0.75 D peaks at 1.65e-5 rad, inside the 0.001 rad tolerance. 231 of 1500 bins exceed 0.05 rad, all of them interior. The tolerance and the mixer were left as they are. The 22% isovector-radius excess stays its own miss. Totals stay 91/91. The sea check stays unstarted.
 
+2026-10-05 (audit/FREEZE_2026-10-02ba.md): the DPP isovector radius at M = m_p/3, same x_DPP, box j=0, is 1.58254 fm². The committed j=0 value at the diagnostic mass is 1.00435 fm². Holding that shape fixed would give 1.89749 fm². The recomputed pion cloud shrinks r M² by 0.834, and the fm radius is 1.58254. The regularised sea holds 25.4% of the isovector charge, at 2.872 fm², against 31.3% at 1.853 fm² on the committed profile. M = m_p/3 stays off the record. Round o already has that soliton unbound at E = 3.41 M. Totals stay 91/91.
+
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
 |---|---|---|---|---|---|
