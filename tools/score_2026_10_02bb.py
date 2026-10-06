@@ -2,10 +2,9 @@
 """Round-bb scores under audit/FREEZE_2026-10-02bb (hashed before the run). Checks the stored split.
   python tools/score_2026_10_02bb.py --hub <FSOT-2.1-Lean @ 6f9c2560> --out audit/score_2026-10-02bb.tsv
 Does not open a record row. Does not rerun the spectrum."""
-import argparse, json, sys
+import argparse, json, math, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import numpy as np
 import fsot02d as X
 from fsot02d import mpf, nstr
 ap = argparse.ArgumentParser(); ap.add_argument("--hub", required=True); ap.add_argument("--out", required=True); a = ap.parse_args()
@@ -21,6 +20,55 @@ def close(a, b, rel=1e-9):
 AR0 = 0.17211904981809267
 R_AZ = 0.9063180381993936
 NAMES = ("valence", "sea", "PV")
+
+def leg_nodes(n):
+    d = [0.0] * n
+    e = [0.0] * (n + 1)
+    for i in range(1, n):
+        e[i] = i / math.sqrt(4.0 * i * i - 1.0)
+    for l in range(n):
+        it = 0
+        while True:
+            m = l
+            while m < n - 1:
+                dd = abs(d[m]) + abs(d[m + 1])
+                if abs(e[m + 1]) + dd == dd:
+                    break
+                m += 1
+            if m == l:
+                break
+            it += 1
+            if it > 40:
+                raise RuntimeError("leggauss")
+            g = (d[l + 1] - d[l]) / (2.0 * e[l + 1])
+            r = math.hypot(g, 1.0)
+            g = d[m] - d[l] + e[l + 1] / (g + math.copysign(r, g))
+            s = c = 1.0
+            p = 0.0
+            for i in range(m - 1, l - 1, -1):
+                f = s * e[i + 1]
+                b = c * e[i + 1]
+                if abs(f) >= abs(g):
+                    c = g / f
+                    r = math.hypot(c, 1.0)
+                    e[i + 2] = f * r
+                    s = 1.0 / r
+                    c *= s
+                else:
+                    s = f / g
+                    r = math.hypot(s, 1.0)
+                    e[i + 2] = g * r
+                    c = 1.0 / r
+                    s *= c
+                g = d[i + 1] - p
+                r = (d[i] - g) * s + 2.0 * c * b
+                p = s * r
+                d[i + 1] = g + p
+                g = c * r - b
+            d[l] -= p
+            e[l + 1] = g
+            e[m + 1] = 0.0
+    return sorted(d)
 KEYS = ("S_val", "S_sea", "S_pv", "S", "P_val", "P_sea", "P_pv", "P", "c", "d", "theta", "new", "i", "r", "r_over_D", "abs_share_S", "abs_share_P")
 
 def dominant(share):
@@ -66,10 +114,10 @@ else:
     if not close(bb.get("x_DPP"), ag["x_DPP"]): bad.append("x_DPP")
     if not close(bb.get("step0_gap"), AR0, 1e-18) or not close(bb.get("r_az"), R_AZ, 1e-18): bad.append("labels")
     if float(bb.get("rel_residual_S", 1)) > 1e-12 or float(bb.get("rel_residual_P", 1)) > 1e-12: bad.append("residual")
-    c_ref = 4 * np.pi * (float(inp["mpi_over_mp"]) / M) ** 2 * float(inp["F_over_M"]) ** 2
+    c_ref = 4 * math.pi * (float(inp["mpi_over_mp"]) / M) ** 2 * float(inp["F_over_M"]) ** 2
     if not close(bb.get("c"), c_ref, 1e-12): bad.append("c")
-    x, _w = np.polynomial.legendre.leggauss(1500); grid = 0.5 * 14.0 * (x + 1)
-    iaz = int(np.argmin(np.abs(grid - R_AZ)))
+    grid = [0.5 * 14.0 * (x + 1.0) for x in leg_nodes(1500)]
+    iaz = min(range(len(grid)), key=lambda i: abs(grid[i] - R_AZ))
     bad += check_bin(bb, "max_bin", grid); bad += check_bin(bb, "az_bin", grid)
     if "max_bin" in bb and "az_bin" in bb and isinstance(bb["max_bin"], dict) and isinstance(bb["az_bin"], dict):
         if not close(bb.get("max_d"), bb["max_bin"].get("d"), 1e-12): bad.append("max d")
