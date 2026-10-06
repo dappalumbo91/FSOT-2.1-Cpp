@@ -1924,3 +1924,9 @@ Freeze `audit/FREEZE_2026-10-02bc.{json,md}` was hashed before the binary was re
 Freeze `audit/FREEZE_2026-10-02bd.{json,md}` was hashed before the replay. The az call was run again, mix 0.2, itmax 44. Steps 0, 39, and 43 match. The profile after the step-43 mix reproduces the step-44 gap, 0.19379649668783028 rad, at bin 245. The physical spectrum has no eigenvalue inside 0.05. The Pauli-Villars K=0, positive-parity level, state 53, moves from +4.2858×10⁻⁴ to −1.1246×10⁻⁴. Its density at that bin does not change. The sign of its sea weight flips. Removing that weight leaves the force angle at −1.9196 before the mix and −1.9201 after it, so the background is the same and the jump is the sign flip. No occupation rule is installed. The 91 are unchanged.
 
 **Totals 91/91** (89/91 pinned only; 89/89 with H0 and τ_n deferred; 89/91 at 2%). The two record rows that still fail 2% are `pin:wave4|sin2_theta23` and `pin:wave8|delta_CP_PMNS`. No open z miss.
+
+## 2026-10-05be: shortening the step still stops on the Pauli-Villars zero
+
+Freeze `audit/FREEZE_2026-10-02be.{json,md}` was hashed before the run. The walk follows the previous profile through step 43, where the gap is 0.005190733171340223. A mix of 0.2 is refused there because the Pauli-Villars K=0, positive-parity level would change sign. The accepted shorter mixes are 0.1, 0.05, 0.00625, 0.0015625, and the floor 0.2/256. The gap only falls to 0.005111019560596786. That level is then at +9.908034966363918e-7, and the floor step would put it at −1.0943264490984318e-6, with eigenvector overlap 0.9999999999989702. The physical sea does not cross. The tolerance 1e-3 is not met. No smoothing width is installed. The 91 are unchanged.
+
+**Totals 91/91** (89/91 pinned only; 89/89 with H0 and τ_n deferred; 89/91 at 2%). The two record rows that still fail 2% are `pin:wave4|sin2_theta23` and `pin:wave8|delta_CP_PMNS`. No open z miss.

@@ -1,0 +1,9 @@
+{
+ "freeze": "FREEZE_2026-10-02be",
+ "date": "2026-10-05",
+ "parent": "f9e49af",
+ "rule": "z-only scoring against observations; ratios first; no hybrid; no tuning; existing frozen rules unchanged; pins never edited",
+ "owner directive": "Keep pushing on the open nucleon miss. The flat-percent rows already checked stay. Round bd measured the step-44 jump and installed no rule.",
+ "BE-1 sign-safe step": "Same DPP and basis as the az call (K 14, D 14, kmax 12, nq 1500, Nc 3). The force target is the edge-tailed balance of self_consistent_m, chiral-limit meson constant included. Match levels in each (K, parity) sector by absolute eigenvector overlap, greedy from the largest. A trial changes a sign when a matched pair has a different np.sign, when the overlap is below 1/2, or when the sector size differs. np.sign(0) is its own sign. Trial mixes are 0.2*2^(-k) for k = 0..8, so the floor is 0.2/256. Accept the largest trial that changes no sign. Stop when the gap on the current profile is below 1e-3, or when the floor still changes a sign, or after 80 accepted steps. If the gap is below 1e-3, record whether the full replacement by the force target would change a sign, and do not apply a replacement that changes a sign. The step-0 gap must be 0.17211904981809267 within 1e-9. Record the stop reason, the gap, the mix, the valence, the smallest absolute eigenvalue of each spectrum, and at most the 8 sign-changing matches with smallest absolute incoming energy, plus the count.",
+ "not this round": "No edit to cqsm_rot.py or rv_2026_10_02aq.py. No smoothing width. No regulator change. No NLO F. No radius file. The 91 are not rescored. Pins, vendor/fsot_compute.py, and the Lean engine file are not edited."
+}
