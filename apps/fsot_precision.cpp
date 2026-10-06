@@ -230,6 +230,13 @@ int main(int argc, char** argv) {
                               - ps * ps * eng.C_FACTOR * eng.C_FACTOR / eng.P_BASE);
       const R piece = m::ipow(eng.E, 3) / m::ipow(eng.PHI, 5);
       o.vr = bare * (R(1) + m::ipow(alpha, 3) * piece) * scale;
+    } else if (o.route == "jleaf") {
+      // FREEZE_2026-10-02bc. Leading Wolfenstein J of the same lambda, A, etabar as the CKM leaves.
+      // Order is (A*A) * ((lam*lam)*(lam*lam)*(lam*lam)) * etabar. The (1-lambda^2*SUCTION) factor is not applied.
+      if (o.source != "j_leaf") { std::fprintf(stderr, "no jleaf source %s\n", o.source.c_str()); return 2; }
+      const double A = ckm.A, lam = ckm.lam, etab = ckm.etab;
+      const double lam2 = lam * lam;
+      o.vr = R((A * A) * ((lam2 * lam2) * lam2) * etab) * scale;
     } else if (o.route == "muleaf") {
       // FREEZE_2026-10-02ay. alpha is the inverse-alpha leaf, not eng.ALPHA.
       if (o.source != "mu_leaf") { std::fprintf(stderr, "no muleaf source %s\n", o.source.c_str()); return 2; }
@@ -270,6 +277,9 @@ int main(int argc, char** argv) {
       o.cause = note;
     } else if (o.route == "muleaf") {
       o.hist = "FREEZE_2026-10-02ay (G^4+Poof)*(1+alpha^2*(1+1/(4*pi^2)))";
+      o.cause = note;
+    } else if (o.route == "jleaf") {
+      o.hist = "FREEZE_2026-10-02bc A^2*lambda^6*etabar";
       o.cause = note;
     } else {
       // historical best over the five hub pins, scored against the same reference

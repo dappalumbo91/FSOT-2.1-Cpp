@@ -23,6 +23,7 @@ HELD = {"m_pi_pm_MeV": "L-A1: K0 497.597 (-0.003 %); M-2a: pi0 134.397 (-0.43 %)
         "pin:wave5|Gamma_Z/M_Z": "Delta alpha_had chain gated (g_A = 1.1755, -7.8 %, P-1)",
         "pin:wave8|Deuteron_mu_muN": "O-3b SU(6) mu_d +3.8 %; P-2 soliton mu_d -14 %; Q-1 (m_pi) soliton mu_p -0.96 %, mu_n +0.67 % (late validation passed, round r) -> R-0 mu_d -5.7 % (fail; P_D/meson-exchange currents next)",
         "leaf:Deuteron_mu_muN": "ay: (G^4+Poof)*(1+alpha^2*(1+1/(4*pi^2))); same writing 1+alpha^2+(alpha/(2*pi))^2; alpha^2 quotient named the weight after the named-seed window was empty; alpha^3 stacks pi+gamma^2 and pi+1/3 are not this leaf; Lean engine stays the bare sum. O-3b SU(6) mu_d +3.8 %; R-0 mu_d -5.7 % (fail)",
+        "leaf:Jarlskog_J": "bc: A^2*lambda^6*etabar from the same lambda, A, and etabar as the nine CKM leaves. The (1-lambda^2*SUCTION) runner-up crosses the center and is not installed. Pin G/(pi^9) stays record 0.",
         "eta:T_CMB": "ah adoption of AF-3. Caveat: observed eta is inferred with T_CMB^3 (target choice, not an input). Flat branch h 0.674541 vs H0 pin -1.448%; Omega_Lambda +0.408%; Omega_m -0.299%; Omega_r +0.327%; pin set sums to 0.99816",
         "m_Z_MeV": "D_eff/S map tests l/m/n fail (factor follows the unit)",
         "m_W_MeV": "D_eff/S map tests l/m/n fail", "m_H_MeV": "D_eff/S map tests l/m/n fail", "m_D_pm_MeV": "D_eff/S map tests fail; HQET branch open"}

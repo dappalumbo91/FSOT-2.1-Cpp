@@ -1,0 +1,11 @@
+{
+ "freeze": "FREEZE_2026-10-02bc",
+ "date": "2026-10-05",
+ "parent": "17300fc",
+ "rule": "z-only scoring against observations; ratios first; no hybrid; no tuning; existing frozen rules unchanged; pins never edited",
+ "owner directive": "Refine the five record rows whose flat relative error is above 1%.",
+ "BC-1 record row": "The record row for the CKM Jarlskog invariant becomes leaf:Jarlskog_J. J = A^2 * lambda^6 * etabar, with lambda = POOF*(1+eta_eff), A = e/(pi*A_bleed), etabar = G^2*K. These are the same three numbers the nine CKM magnitude leaves already use. The product is the leading Wolfenstein invariant, evaluated in IEEE double in the order (A*A)*((lam*lam)*(lam*lam)*(lam*lam))*etabar. The reference stays J_CKM, PDG 2024, 3.12e-5 with sigma_minus 0.12e-5 and sigma_plus 0.13e-5. The old row pin:wave4|Jarlskog_J stays in the report with record 0. Its closed form G/(pi^9) is unchanged in the pin, the golden, and vendor/fsot_compute.py.",
+ "runner-up": "seed_jarlskog multiplies the same product by (1 - lambda^2*SUCTION). That factor crosses the central value. It is not this leaf.",
+ "not moved": "sin2_theta23 stays |Chaos|*sqrt(e). The flavor seed (e-1)/pi stays off the record; both miss 1% of 0.558. delta_CP stays phi^3 - 1/e. The flavor seed 2*e*psi_con is farther from 1.19*pi. N_eff stays P_new*e*pi + ln(phi), next to the Standard Model value 3.044; the flavor seed 3+2*POOF*SUCTION does too. eta_baryon_photon stays Poof^11/(pi*gamma) because the temperature record is built from it.",
+ "not this round": "The 2% reporting cut stays 2%. No product scan. Pins, vendor/fsot_compute.py, and the Lean engine file are not edited."
+}

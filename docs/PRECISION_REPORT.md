@@ -1912,3 +1912,9 @@ Freeze `audit/FREEZE_2026-10-02ba.{json,md}` was hashed before the run. AR-2 wai
 Freeze `audit/FREEZE_2026-10-02bb.{json,md}` was hashed before the run. One evaluation on the edge-tailed DPP at M/m_p = 0.4581682005, with the meson constant from the chiral-limit F. The three pieces reproduce the solver force. The gap is 0.17211904981809267 rad at r = 0.397585/M (0.1825 fm), equal to the committed step 0. Scalar densities there: valence 3.11941, sea 435.923, PV −432.847. Pseudoscalar: 1.08402, 150.015, −148.476. Those seas cancel at 99.29% and 98.97%, and the remainder matches the valence. c = 0.0532792 shifts the angle by 0.00311 rad. The step-44 site is 0.03172 rad off on this profile. Nothing is installed. The 91 are unchanged.
 
 **Totals 91/91** (89/91 pinned only; 89/89 with H0 and τ_n deferred; 89/91 at 2%). The two record rows that still fail 2% are `pin:wave4|sin2_theta23` and `pin:wave8|delta_CP_PMNS`. No open z miss.
+
+## 2026-10-05bc: the Jarlskog record row is the Wolfenstein product of the CKM leaves
+
+Freeze `audit/FREEZE_2026-10-02bc.{json,md}` was hashed before the binary was rebuilt. The record value is A²λ⁶η̄ = 3.13591416718917×10⁻⁵. λ, A, and η̄ are the same three numbers the nine CKM magnitude leaves already use. Against PDG 2024 3.12 +0.13/−0.12 ×10⁻⁵ the z is 0.1224 on the high side, flat error 0.510%. The closed form G/π⁹ stays in the report at record 0, value 3.07277178666547×10⁻⁵, z 0.3936. The runner-up multiplies the product by (1−λ² SUCTION) and crosses the center, so it is not the leaf. sin²θ₂₃, δ_CP, N_eff, and η were compared with their already-named flavor seeds and were not moved. The 2% cut stays 2%.
+
+**Totals 91/91** (89/91 pinned only; 89/89 with H0 and τ_n deferred; 89/91 at 2%). The two record rows that still fail 2% are `pin:wave4|sin2_theta23` and `pin:wave8|delta_CP_PMNS`. No open z miss.
