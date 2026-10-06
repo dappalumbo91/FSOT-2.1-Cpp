@@ -327,7 +327,7 @@ python3 tools/verify_refinement_freeze.py  # refinement freeze: 4 refinements, t
   --lineage reference/pin_lineage_2026-10-02.tsv --tsv-out p.tsv --md-out p.md
 cmp p.tsv audit/precision_2026-10-02.tsv && cmp p.md audit/precision_2026-10-02.md
 ```
-Expected: `record set (scored): n=91  pass z<=1: 83/91  pass |rel|<=2%: 88/91  median ppm=93.03`. The CI ledger-b job also regenerates
+Expected, from a fresh `fsot_precision` run at `39ffbd2`: `record set (scored): n=91  pass z<=1: 91/91  pass |rel|<=2%: 89/91  median ppm=74.13  worst ppm=34691.3 (pin:wave8|delta_CP_PMNS)`. All rows are 105/131 at z and 123/131 at 2%. Pinned rows only are 89/91 at z and 88/91 at 2%. The CI ledger-b job also regenerates
 `golden/seed_leaves_6f9c2560.tsv` (it runs the hub's `scripts/*_seed_check.py` unchanged) and `reference/pin_lineage_2026-10-02.tsv`, then diffs both.
 
 ### 4. Report format
