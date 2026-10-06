@@ -1918,3 +1918,9 @@ Freeze `audit/FREEZE_2026-10-02bb.{json,md}` was hashed before the run. One eval
 Freeze `audit/FREEZE_2026-10-02bc.{json,md}` was hashed before the binary was rebuilt. The record value is A²λ⁶η̄ = 3.13591416718917×10⁻⁵. λ, A, and η̄ are the same three numbers the nine CKM magnitude leaves already use. Against PDG 2024 3.12 +0.13/−0.12 ×10⁻⁵ the z is 0.1224 on the high side, flat error 0.510%. The closed form G/π⁹ stays in the report at record 0, value 3.07277178666547×10⁻⁵, z 0.3936. The runner-up multiplies the product by (1−λ² SUCTION) and crosses the center, so it is not the leaf. sin²θ₂₃, δ_CP, N_eff, and η were compared with their already-named flavor seeds and were not moved. The 2% cut stays 2%.
 
 **Totals 91/91** (89/91 pinned only; 89/89 with H0 and τ_n deferred; 89/91 at 2%). The two record rows that still fail 2% are `pin:wave4|sin2_theta23` and `pin:wave8|delta_CP_PMNS`. No open z miss.
+
+## 2026-10-05bd: the step-44 jump is one Pauli-Villars level crossing zero
+
+Freeze `audit/FREEZE_2026-10-02bd.{json,md}` was hashed before the replay. The az call was run again, mix 0.2, itmax 44. Steps 0, 39, and 43 match. The profile after the step-43 mix reproduces the step-44 gap, 0.19379649668783028 rad, at bin 245. The physical spectrum has no eigenvalue inside 0.05. The Pauli-Villars K=0, positive-parity level, state 53, moves from +4.2858×10⁻⁴ to −1.1246×10⁻⁴. Its density at that bin does not change. The sign of its sea weight flips. Removing that weight leaves the force angle at −1.9196 before the mix and −1.9201 after it, so the background is the same and the jump is the sign flip. No occupation rule is installed. The 91 are unchanged.
+
+**Totals 91/91** (89/91 pinned only; 89/89 with H0 and τ_n deferred; 89/91 at 2%). The two record rows that still fail 2% are `pin:wave4|sin2_theta23` and `pin:wave8|delta_CP_PMNS`. No open z miss.

@@ -1,0 +1,9 @@
+{
+ "freeze": "FREEZE_2026-10-02bd",
+ "date": "2026-10-05",
+ "parent": "8e24b35",
+ "rule": "z-only scoring against observations; ratios first; no hybrid; no tuning; existing frozen rules unchanged; pins never edited",
+ "owner directive": "Keep pushing on the open nucleon miss. The flat-percent rows already checked stay.",
+ "BD-1 level crossing": "Replay the az self_consistent_m call (itmax 44, mix 0.2). Steps 0, 39, and 43 must match the az gaps, and the returned profile must reproduce the step-44 gap 0.19379649668786914 at bin 245. On the iteration-43 profile and on the returned profile, list every eigenvalue of both spectra with absolute value below 0.05. Record K, parity, energy, and that level's scalar and pseudoscalar density at bin 245. Record the force angle there, and the force angle with that level's sea weight removed. Sea weight is wsea*sign(E)*(2K+1). If none are inside 0.05, record the smallest absolute eigenvalue of each spectrum.",
+ "not this round": "No edit to cqsm_rot.py or rv_2026_10_02aq.py. No new occupation rule. No regulator change. No NLO F. No iteration past the replay. No radius file. The 91 are not rescored. Pins, vendor/fsot_compute.py, and the Lean engine file are not edited."
+}
