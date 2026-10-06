@@ -1,0 +1,9 @@
+{
+ "freeze": "FREEZE_2026-10-02bh",
+ "date": "2026-10-06",
+ "parent": "41a0e96",
+ "rule": "z-only scoring against observations; ratios first; no hybrid; no tuning; existing frozen rules unchanged; pins never edited",
+ "owner directive": "Record the two SU(2) constants that sit inside their bars, then use that pair on the pion decay constant.",
+ "BH-1": "lbar_1 and lbar_2 are the D-wave sum rule of Pennington and Portoles, hep-ph/9409426, equations (16), (24) and (27), at lambda = 1. The rho is the frozen KSRF resonance: g = 2 pi, m_rho^2 = 8 pi^2 F^2, Gamma = (pi m_rho / 12) (1 - 4 M_pi^2/m_rho^2)^(3/2). F is the chiral-limit decay constant M_Q sqrt(N_c)/(2 pi), M_Q = m_p/3, N_c = 3. M_pi is the charged-pion leaf. The system is lbar_1 + 4 lbar_2 - 53/8 = 1440 pi^3 F^4 a_2^0 and -lbar_1 + lbar_2 + 97/120 = 288 pi^3 F^4 b_1^1. The bars are Colangelo, Gasser and Leutwyler 2001: lbar_1 = -0.4 ± 0.6, lbar_2 = 4.3 ± 0.1. These constants are not rows of the 91. The precision binary is not rebuilt.",
+ "not this round": "Equations (32) and (33) are the paper's sensitivity reading and are not this formula. Lambda stays 1. The one-loop F_pi is not put into the prefactor. The zero-pion-mass truncation is not the result. The contact-term rho and the rho-plus-sigma L_i are not added. lbar_4 stays the round-p value. lbar_3 from Nyffeler and Schenk eq. (8.15) is outside its bar and is not an input. Durr's two-loop F_pi needs that lbar_3 and k_F. Neither is assigned. One-loop F_pi stays the round-p value. k_F is not set to the number that would land on the FLAG center. Z_MAX stays 1. The 2% reporting cut stays 2%. No pair is added to mp_values(). Pins, vendor/fsot_compute.py and the Lean engine file are not edited. The nucleon profile is not rerun."
+}

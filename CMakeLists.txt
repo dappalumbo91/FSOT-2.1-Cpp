@@ -180,6 +180,7 @@ if(Python3_Interpreter_FOUND)
   add_test(NAME round_freeze_be COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_freeze_files_be.py)
   add_test(NAME round_freeze_bf COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_freeze_files_bf.py)
   add_test(NAME round_freeze_bg COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_freeze_files_bg.py)
+  add_test(NAME round_freeze_bh COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_freeze_files_bh.py)
 endif()
 
 # Freestanding check: the balanced-ternary core compiles without a hosted library and references no

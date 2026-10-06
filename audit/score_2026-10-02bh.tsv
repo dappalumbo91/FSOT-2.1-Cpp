@@ -1,0 +1,5 @@
+# scored by tools/score_2026_10_02bh.py under audit/FREEZE_2026-10-02bh
+#section	name	inputs	value	central	sigma	z	verdict	rel	class	note
+FSOT	BH-1 lbar_1 from the KSRF D-wave	Pennington-Portoles eqs 16, 24, 27 at lambda=1; chiral F; charged-pion leaf	-0.15209172795246319494	-0.4	0.6	0.41318045341256134177	PASS	-	FSOT	Colangelo-Gasser-Leutwyler 2001. Not a row of the 91.
+FSOT	BH-1 lbar_2 from the KSRF D-wave	same	4.24299166109523061864	4.3	0.1	0.57008338904769381358	PASS	-	FSOT	m_rho = 766.0959528691475 MeV, Gamma = 161.9786710981778 MeV
+FSOT	BH-2 two-loop F_pi	Durr 1310.3626 eqs 2 and 4; lbar_1 and lbar_2 from BH-1; lbar_4 from round p	-	92.06530291	0.5656854249	-	NOT USED	-	FSOT	lbar_12 = 2.191952746206307. Nyffeler lbar_3 = 7.65753993433 is z 1.982 and is not an input. With k_F left out, an lbar_3 inside 2.9±2.4 leaves F_pi between 92.604 and 92.752. One-loop F_pi stays 92.8866215097. k_F is not assigned.
