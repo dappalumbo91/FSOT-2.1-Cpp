@@ -237,6 +237,10 @@ int main(int argc, char** argv) {
       const double A = ckm.A, lam = ckm.lam, etab = ckm.etab;
       const double lam2 = lam * lam;
       o.vr = R((A * A) * ((lam2 * lam2) * lam2) * etab) * scale;
+    } else if (o.route == "hwleaf") {
+      // FREEZE_2026-10-02bg. C-MHW-1. The two mass leaves are already in mp_values(). No new pair.
+      if (o.source != "hw_leaf") { std::fprintf(stderr, "no hwleaf source %s\n", o.source.c_str()); return 2; }
+      o.vr = R(leafv.at("m_H_MeV") / leafv.at("m_W_MeV")) * scale;
     } else if (o.route == "muleaf") {
       // FREEZE_2026-10-02ay. alpha is the inverse-alpha leaf, not eng.ALPHA.
       if (o.source != "mu_leaf") { std::fprintf(stderr, "no muleaf source %s\n", o.source.c_str()); return 2; }
@@ -280,6 +284,9 @@ int main(int argc, char** argv) {
       o.cause = note;
     } else if (o.route == "jleaf") {
       o.hist = "FREEZE_2026-10-02bc A^2*lambda^6*etabar";
+      o.cause = note;
+    } else if (o.route == "hwleaf") {
+      o.hist = "FREEZE_2026-10-02bg leaf m_H_MeV / leaf m_W_MeV";
       o.cause = note;
     } else {
       // historical best over the five hub pins, scored against the same reference
