@@ -422,9 +422,9 @@ same time.
 Expected, measured 2026-10-02 (ET) at hub `56fcbf31` and siblings Chua `cecef94`, Genetics `f677663`, Neural
 `e12a4bc`, neuron-zig `68e43ce`, neuron-haskell `5c12baa`, neuron-idris `2ee5060`. The 2026-10-07 FSOTHUB
 measurement of this C++ tree (`f9adc19`) and the hub gauntlet is in `xval/README.md`: MSVC 87/87, WSL
-`ALL CPP CHECKS PASSED` 88/88 in 404 s, Coq 49/49, Isabelle 46/46, F* passed, Rust replay 2130, QEMU passed.
-The gauntlet process exited 1 on a Windows LNK1104 while linking the Rust bridge test. Hub `b866a50` retries
-that lock. The parity script through that code printed `overall_ok: True`. ESP32 stayed skipped.
+`ALL CPP CHECKS PASSED` 88/88 in 404 s. The gauntlet on hub `b866a50` exited 0 in 707 s with `overall_ok: True`,
+`seven_way_bare_metal: True`, and `github_ready: True`: Coq 49/49, Isabelle 46/46, F* passed, Rust replay 2130,
+Rust↔Lean bridge passed, QEMU serial and disk passed. ESP32 stayed skipped, so eight-way is False.
 
 | Layer | Expected |
 |---|---|

@@ -113,7 +113,7 @@ Timing on the reference box: the full run with the runner took about 56 min, abo
 
 C++ `main` `f9adc19`. Windows MSVC ctest 87/87. WSL `xval/cpp_check.sh` printed `ALL CPP CHECKS PASSED` in 404 s: ctest 88/88, including `neutral_mesons_pass`, goldens byte-identical, precision gate 91/91 at z ≤ 1 and 89/91 at the flat 2% check, QEMU serial byte-identical to `docs/bare_metal_serial_AEB2AD.txt`. Pin AEB2AD. The 88th Linux test is `freestanding_symbols`, which is GCC/Clang only.
 
-Hub gauntlet `scripts/run_cross_proof_verification.py` on Lean `main` `79320bb`, then the bridge fix `b866a50`. Wall time of the gauntlet process: 758 s.
+Hub gauntlet `scripts/run_cross_proof_verification.py` on Lean `main` `b866a50` (the Rust-bridge link retry). The process exited 0 in 707 s. It printed `overall_ok: True`, `seven_way_bare_metal: True`, and `github_ready: True`.
 
 | Layer | Result |
 |---|---|
@@ -129,8 +129,8 @@ Hub gauntlet `scripts/run_cross_proof_verification.py` on Lean `main` `79320bb`,
 | SMT (Z3) and TLA+ | passed |
 | GR/SM/CKM | Python 288/288, Rust cargo passed, Z3 passed, Coq passed |
 | QEMU | serial passed, disk passed |
-| ESP32 | skipped, no CP210x port |
-
-The gauntlet process printed `overall_ok: False` and exited 1. Every proof layer above passed. The Rust↔Lean bridge cargo test returned LNK1104: `link.exe` could not open `runtime_parity.exe` under `%TEMP%\fsot_rust_target`. The boot scalar in that same run already matched `0.09928895626861721`, and the benchmark median error was 0. Hub `b866a50` retries that lock twice, and a later attempt links in a fresh temp target. The parity script run through that code printed `cargo: passed`, 4 tests passed, median error 0, `overall_ok: True`, on the first attempt. Seven-way and eight-way were false in the gauntlet print because of the link. Eight-way stays false while ESP32 is skipped.
+| Rust↔Lean bridge | passed, boot scalar 0.09928895626861721 |
+| Seven-way bare metal | True |
+| ESP32 | skipped, no CP210x port, so eight-way is False |
 
 The four neutral masses are locked by C++ `neutral_mesons_pass` (K⁰ z 0.0154, π⁰ z −0.00257, η z 0.394, η′ z 0.205). They are host evaluations on pin AEB2AD. They are not obligations of the Lean gauntlet, and they are not new rows on the 91.
