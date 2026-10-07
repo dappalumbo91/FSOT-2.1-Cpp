@@ -17,6 +17,8 @@
 // The bare pin row stays in the report with record 0. The mass-excess quotient names e^3/phi^5 as nearest.
 // route "muleaf" = (G^4+Poof)*(1+alpha^2*(1+1/(4*pi^2))). alpha is the same inverse-alpha leaf.
 // The bare pin row stays in the report with record 0. The alpha^2 quotient names the Schwinger weight.
+// route "cpleaf" = phi^3 - 1/e - Suction (include/fsot/host/pmns_phase.hpp).
+// The pin phi^3 - 1/e stays in the report with record 0.
 #define _USE_MATH_DEFINES  // M_PI on MSVC (must precede <cmath>)
 #include <algorithm>
 #include <cmath>
@@ -30,6 +32,7 @@
 #include <vector>
 
 #include "fsot/engine.hpp"
+#include "fsot/host/pmns_phase.hpp"
 #include "fsot/host/precision_gate.hpp"
 #include "fsot/host/seed_leaves.hpp"
 
@@ -241,6 +244,10 @@ int main(int argc, char** argv) {
       // FREEZE_2026-10-02bg. C-MHW-1. The two mass leaves are already in mp_values(). No new pair.
       if (o.source != "hw_leaf") { std::fprintf(stderr, "no hwleaf source %s\n", o.source.c_str()); return 2; }
       o.vr = R(leafv.at("m_H_MeV") / leafv.at("m_W_MeV")) * scale;
+    } else if (o.route == "cpleaf") {
+      // phi^3 - 1/e - Suction. Suction is the closest existing-constant subtraction.
+      if (o.source != "cp_leaf") { std::fprintf(stderr, "no cpleaf source %s\n", o.source.c_str()); return 2; }
+      o.vr = mixing::delta_cp<R>(eng).value * scale;
     } else if (o.route == "muleaf") {
       // FREEZE_2026-10-02ay. alpha is the inverse-alpha leaf, not eng.ALPHA.
       if (o.source != "mu_leaf") { std::fprintf(stderr, "no muleaf source %s\n", o.source.c_str()); return 2; }
@@ -287,6 +294,9 @@ int main(int argc, char** argv) {
       o.cause = note;
     } else if (o.route == "hwleaf") {
       o.hist = "FREEZE_2026-10-02bg leaf m_H_MeV / leaf m_W_MeV";
+      o.cause = note;
+    } else if (o.route == "cpleaf") {
+      o.hist = "phi^3 - 1/e - Suction";
       o.cause = note;
     } else {
       // historical best over the five hub pins, scored against the same reference

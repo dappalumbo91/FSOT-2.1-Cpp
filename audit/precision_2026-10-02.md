@@ -2,10 +2,10 @@
 Gate: z = |value - central| / sigma <= 1 (include/fsot/host/precision_gate.hpp); legacy check |rel| <= 2% reported alongside.
 
 ```
-record set (scored): n=91  pass z<=1: 91/91  pass |rel|<=2%: 89/91  median ppm=74.13  worst ppm=34691.3 (pin:wave8|delta_CP_PMNS)
-all rows (incl. superseded/alternate): n=133  pass z<=1: 107/133  pass |rel|<=2%: 125/133  median ppm=178.6  worst ppm=62397.3 (pin:wave1|H0 vs SH0ES)
-record set if the passing frozen-pending refinements were adopted (NOT confirmed): n=91  pass z<=1: 91/91  pass |rel|<=2%: 89/91  median ppm=74.13  worst ppm=34691.3 (pin:wave8|delta_CP_PMNS)
-record set without the owner decisions OD-1/OD-2 (pinned rows only; audit/OWNER_DECISIONS_2026-10-02i.md): n=91  pass z<=1: 90/91  pass |rel|<=2%: 88/91  median ppm=77.62  worst ppm=37659.2 (pin:wave4|Dm2_21/Dm2_32)
+record set (scored): n=91  pass z<=1: 91/91  pass |rel|<=2%: 90/91  median ppm=74.13  worst ppm=21923.6 (pin:wave4|sin2_theta23)
+all rows (incl. superseded/alternate): n=134  pass z<=1: 108/134  pass |rel|<=2%: 126/134  median ppm=193.8  worst ppm=62397.3 (pin:wave1|H0 vs SH0ES)
+record set if the passing frozen-pending refinements were adopted (NOT confirmed): n=91  pass z<=1: 91/91  pass |rel|<=2%: 90/91  median ppm=74.13  worst ppm=21923.6 (pin:wave4|sin2_theta23)
+record set without the owner decisions OD-1/OD-2 (pinned rows only; audit/OWNER_DECISIONS_2026-10-02i.md): n=91  pass z<=1: 90/91  pass |rel|<=2%: 89/91  median ppm=77.62  worst ppm=37659.2 (pin:wave4|Dm2_21/Dm2_32)
 ```
 
 | id | route | rec | confirmed value | unit | central | sigma (-/+) | ppm | z | z<=1 | 2% | frozen-pending refined (id: value, z) | historical best | cause / note | source |
@@ -125,7 +125,8 @@ record set without the owner decisions OD-1/OD-2 (pinned rows only; audit/OWNER_
 | pin:wave8//V_ud/ | pin | - | 0.973706664444628 | 1 | 0.97435 | 0.00016 | 660.3 | 4.0208 | **FAIL** | PASS |  | AEB2AD (d127c07e 2026-09-14) 0.9737066644 z=4.0208 | formula miss: outside sigma under every pin (best z=4.0208); pin target 0.9737 is 4.06 sigma off the current reference; superseded by CKM_V_ud | PDG 2024 https://pdg.lbl.gov/2024/reviews/rpp2024-rev-ckm-matrix.pdf |
 | pin:wave8//V_cd/ | pin | - | 0.221007804791326 | 1 | 0.22487 | 0.00068 | 1.718e+04 | 5.6797 | **FAIL** | PASS |  | AEB2AD (d127c07e 2026-09-14) 0.2210078048 z=5.6797 | formula miss: outside sigma under every pin (best z=5.6797); pin target 0.221 is 5.69 sigma off the current reference; superseded by CKM_V_cd | PDG 2024 https://pdg.lbl.gov/2024/reviews/rpp2024-rev-ckm-matrix.pdf |
 | pin:wave8//V_cs/ | pin | - | 0.974913485313156 | 1 | 0.97349 | 0.00016 | 1462 | 8.8968 | **FAIL** | PASS |  | AEB2AD (d127c07e 2026-09-14) 0.9749134853 z=8.8968 | formula miss: outside sigma under every pin (best z=8.8968); superseded by CKM_V_cs | PDG 2024 https://pdg.lbl.gov/2024/reviews/rpp2024-rev-ckm-matrix.pdf |
-| pin:wave8/delta_CP_PMNS | pin | Y | 3.86818853632835 | rad | 3.73849525777185 | 0.6912 | 3.469e+04 | 0.1876 | PASS | FAIL |  | AEB2AD (d127c07e 2026-09-14) 3.868188536 z=0.1876 |  | derived pi:delta_CP_over_pi from [delta_CP_over_pi: PDG2024:sum-leptons] |
+| pin:wave8/delta_CP_PMNS | pin | - | 3.86818853632835 | rad | 3.73849525777185 | 0.6912 | 3.469e+04 | 0.1876 | PASS | FAIL |  | AEB2AD (d127c07e 2026-09-14) 3.868188536 z=0.1876 | superseded closed form phi^3-1/e; record row is leaf:delta_CP_PMNS | derived pi:delta_CP_over_pi from [delta_CP_over_pi: PDG2024:sum-leptons] |
+| leaf:delta_CP_PMNS | cpleaf | Y | 3.72115455090024 | rad | 3.73849525777185 | 0.6912 | 4638 | 0.0251 | PASS | PASS |  | phi^3 - 1/e - Suction | phi^3 - 1/e - Suction; Poof is the next subtraction; P_base stays outside the flat 2% line | derived pi:delta_CP_over_pi from [delta_CP_over_pi: PDG2024:sum-leptons] |
 | pin:wave8/BR_Z_ee | pin | Y | 0.0336654326477979 | 1 | 0.033632 | 4.2e-05 | 994.1 | 0.7960 | PASS | PASS |  | AEB2AD (d127c07e 2026-09-14) 0.03366543265 z=0.7960 |  | PDG 2024 https://pdg.lbl.gov/2024/tables/rpp2024-sum-gauge-higgs-bosons.pdf |
 | pin:wave8/BR_Z_had | pin | Y | 0.699175038098444 | 1 | 0.69911 | 0.00056 | 93.03 | 0.1161 | PASS | PASS |  | AEB2AD (d127c07e 2026-09-14) 0.6991750381 z=0.1161 |  | PDG 2024 https://pdg.lbl.gov/2024/tables/rpp2024-sum-gauge-higgs-bosons.pdf |
 | pin:wave8/BR_Z_inv | pin | Y | 0.199977541121741 | 1 | 0.2 | 0.00055 | 112.3 | 0.0408 | PASS | PASS |  | AEB2AD (d127c07e 2026-09-14) 0.1999775411 z=0.0408 |  | PDG 2024 https://pdg.lbl.gov/2024/tables/rpp2024-sum-gauge-higgs-bosons.pdf |

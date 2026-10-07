@@ -7,6 +7,7 @@
 # route muleaf = (G^4+Poof)*(1+alpha^2*(1+1/(4*pi^2))). alpha is the inverse-alpha leaf. wave8|Deuteron_mu_muN stays the superseded closed form.
 # route jleaf = A^2*lambda^6*etabar, the leading Wolfenstein invariant of the CKM leaves. wave4|Jarlskog_J stays the superseded closed form G/(pi^9).
 # route hwleaf = leaf m_H_MeV / leaf m_W_MeV, candidate C-MHW-1 (REFINEMENTS_2026-10-02b S1). od2:wave3|m_H/m_W stays the D_eff-6 domain scalar at record 0. OD-2 still supplies Omega_Lambda and sigma_8.
+# route cpleaf = phi^3 - 1/e - Suction. wave8|delta_CP_PMNS stays the superseded closed form phi^3 - 1/e.
 #id	route	source	ref_key	scale	record	history_note
 alpha_inv	leaf	alpha_inv	alpha_inv	1	1	hub 1f151ed3 2026-09-29 printed z=0.53
 g_e	leaf	g_e	g_e_abs	1	1	hub 69710678 2026-09-29 printed z=0.071
@@ -123,7 +124,8 @@ pin:wave7|m_tau/m_mu	pin	wave7|m_tau/m_mu	m_tau_over_m_mu	1	1
 pin:wave8||V_ud|	pin	wave8||V_ud|	CKM_V_ud	1	0	superseded by CKM_V_ud
 pin:wave8||V_cd|	pin	wave8||V_cd|	CKM_V_cd	1	0	superseded by CKM_V_cd
 pin:wave8||V_cs|	pin	wave8||V_cs|	CKM_V_cs	1	0	superseded by CKM_V_cs
-pin:wave8|delta_CP_PMNS	pin	wave8|delta_CP_PMNS	delta_CP_rad	1	1	
+pin:wave8|delta_CP_PMNS	pin	wave8|delta_CP_PMNS	delta_CP_rad	1	0	superseded closed form phi^3-1/e; record row is leaf:delta_CP_PMNS
+leaf:delta_CP_PMNS	cpleaf	cp_leaf	delta_CP_rad	1	1	phi^3 - 1/e - Suction; Poof is the next subtraction; P_base stays outside the flat 2% line
 pin:wave8|BR_Z_ee	pin	wave8|BR_Z_ee	BR_Z_ee	1	1	
 pin:wave8|BR_Z_had	pin	wave8|BR_Z_had	BR_Z_had	1	1	
 pin:wave8|BR_Z_inv	pin	wave8|BR_Z_inv	BR_Z_inv	1	1	

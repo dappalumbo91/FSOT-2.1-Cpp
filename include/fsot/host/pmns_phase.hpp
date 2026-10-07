@@ -1,10 +1,9 @@
 // fsot/host/pmns_phase.hpp — lepton CP phase with the suction term.
 //
-// The record is phi^3 - 1/e = 3.86818853632835 rad, 3.469% above PDG 2024
-// 1.19 pi. Subtracting one existing constant, the closest to that center is
-// Suction. Poof is the next one. P_base stays outside the flat 2% line.
-// The record row is unchanged.
-// Not a record row.
+// The scored record is phi^3 - 1/e - Suction. Suction is the closest
+// existing-constant subtraction from phi^3 - 1/e. Poof is the next one.
+// P_base stays outside the flat 2% line. The pin phi^3 - 1/e stays in the
+// report with record 0. apps/fsot_precision.cpp route cpleaf calls delta_cp.
 #pragma once
 #include "fsot/engine.hpp"
 
@@ -37,7 +36,7 @@ template <class R> inline Phase<R> delta_cp(const Engine<R>& eng) {
   return out;
 }
 
-template <class R> inline R delta_cp_record(const Engine<R>& eng) {
+template <class R> inline R delta_cp_pin(const Engine<R>& eng) {
   return m::ipow(eng.PHI, 3) - (R(1) / eng.E);
 }
 

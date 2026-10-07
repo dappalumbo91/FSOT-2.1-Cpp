@@ -25,6 +25,7 @@ HELD = {"m_pi_pm_MeV": "L-A1: K0 497.597 (-0.003 %); M-2a: pi0 134.397 (-0.43 %)
         "leaf:Deuteron_mu_muN": "ay: (G^4+Poof)*(1+alpha^2*(1+1/(4*pi^2))); same writing 1+alpha^2+(alpha/(2*pi))^2; alpha^2 quotient named the weight after the named-seed window was empty; alpha^3 stacks pi+gamma^2 and pi+1/3 are not this leaf; Lean engine stays the bare sum. O-3b SU(6) mu_d +3.8 %; R-0 mu_d -5.7 % (fail)",
         "leaf:Jarlskog_J": "bc: A^2*lambda^6*etabar from the same lambda, A, and etabar as the nine CKM leaves. The (1-lambda^2*SUCTION) runner-up crosses the center and is not installed. Pin G/(pi^9) stays record 0.",
         "leaf:m_H/m_W": "bg: C-MHW-1 leaf m_H / leaf m_W. Held-out siblings named in REFINEMENTS_2026-10-02b: m_H/m_Z z 0.37, m_H/m_t z 0.80 (disclosure, not a second record). Runner-up C-MHW-2 was not selected by S1. OD-2 stays for Omega_Lambda and sigma_8.",
+        "leaf:delta_CP_PMNS": "phi^3 - 1/e - Suction. Poof is the next subtraction. P_base stays outside the flat 2% line. The pin phi^3 - 1/e stays record 0.",
         "eta:T_CMB": "ah adoption of AF-3. Caveat: observed eta is inferred with T_CMB^3 (target choice, not an input). Flat branch h 0.674541 vs H0 pin -1.448%; Omega_Lambda +0.408%; Omega_m -0.299%; Omega_r +0.327%; pin set sums to 0.99816",
         "m_Z_MeV": "D_eff/S map tests l/m/n fail (factor follows the unit)",
         "m_W_MeV": "D_eff/S map tests l/m/n fail", "m_H_MeV": "D_eff/S map tests l/m/n fail", "m_D_pm_MeV": "D_eff/S map tests fail; HQET branch open"}
