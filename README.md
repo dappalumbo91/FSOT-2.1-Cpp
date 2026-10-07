@@ -76,13 +76,18 @@ This reading is a host evaluation. It is not a new row of the 91. ℓ̄₁ = −
 ℓ̄₂ = 4.2429916610952306 (z 0.570) are inside −0.4±0.6 and 4.3±0.1
 (M. R. Pennington and J. Portolés, Phys. Lett. B 344, 399 (1995), doi:10.1016/0370-2693(94)01551-M, hep-ph/9409426, eqs. 16, 24, and 27).
 
-**Still outside a published bar.** The leaf-curvature residue in `include/fsot/host/axial_residue.hpp` is
-92.672790938 MeV, z 3.631, against 130.56/√2 = 92.31986135 ± 0.09721111 MeV. The header cites PDG 2026
-review equation 71.23 for the 130.56 MeV center. The uncertainty is the quadrature of 0.02, 0.04, and 0.13,
-divided by √2. The one-loop truncation stays 92.8866215097 MeV.
-F_K/F_π is 1.273427263498503 (z 38.20) on the one-loop SU(3) route and 1.506 (z 149) on scalar saturation.
-The axial-partner tree ratio, using the same R as ℓ̄₃, is 1.258229407422869, z 30.97. All three are against
-FLAG N_f = 2+1+1 1.1932(21) (FREEZE_2026-10-02v). That freeze stores no DOI for the FLAG average.
+**Lifetime and F_K/F_π.** `include/fsot/host/chiral_decay.hpp`, locked by `chiral_decay_pass`. The decay
+constant is the leaf-curvature residue plus Dürr's two-loop square with k_F omitted (arXiv:1310.3626) plus the
+three-loop term of Bijnens and Hermansson-Truedsson, arXiv:1710.01901 eqs. (28)–(31), with r_i and c_i left
+out. The logarithm is the one on which that square's linear log vanishes. The value is 92.40127085413148 MeV,
+z 0.837, on 130.56/√2 = 92.31986135 ± 0.09721111 MeV (PDG 2026 review eq. 71.23; the uncertainty is the
+quadrature of 0.02, 0.04, and 0.13, divided by √2). The same value, used as F_π in the one-loop SU(3) ratio
+with L_4 = L_5/N_c and N_c = 3, gives F_K/F_π = 1.191537555726962, z −0.792, on FLAG N_f = 2+1+1 1.1932(21)
+(FREEZE_2026-10-02v; that freeze stores no DOI for the FLAG average). The residue checkpoint stays
+92.672790938 MeV, z 3.631. The one-loop truncation stays 92.8866215097 MeV. The L_4 = 0 ratio
+1.273427263498503 (z 38.20), the scalar-saturation ratio 1.506 (z 149), and the axial-partner tree ratio
+1.258229407422869 (z 30.97) are the wider neighbors and are not this reading. These two values are host
+evaluations. They are not new rows of the 91.
 The nucleon isovector radius on the scored profile is 1.00435 fm² against 0.82236(201) fm².
 The axial coupling, the magnetic moments, and the Δ−N split on that profile stay outside, and that profile was not restarted.
 The strange tadpole was not started.
@@ -290,7 +295,7 @@ A pre-registered train/test search for class-level dressing rules (docs/freezes/
 
 2026-10-05 (audit/FREEZE_2026-10-02bb.md): the same diagnostic DPP, after the solver's edge tail, misses stationarity by 0.17212 rad at r = 0.3976/M (0.1825 fm). That is the committed step-0 gap, reproduced exactly. The bare Dirac sea and the Pauli-Villars sea each hold about half of the scalar and pseudoscalar densities and cancel at 99.29% and 98.97%. What remains of the sea is the same size as the valence. The meson constant from the chiral-limit F moves that angle by 0.00311 rad. The step-44 site, 0.416 fm, is only 0.0317 rad off on this profile. Nothing is installed. Totals stay 91/91.
 
-2026-10-07: the four neutral masses are host evaluations in `include/fsot/host/neutral_mesons.hpp`, locked by `neutral_mesons_pass` at `f9adc19`. The values, the bars, and the citations are in the current-standing section. The precision binary was not rebuilt. The gate stays 91/91 at z ≤ 1 and 89/91 at 2%. The Lean gauntlet on `b866a50` exited 0 the same day. Lifetime residue, ℓ̄₃, and F_K/F_π stay outside their bars.
+2026-10-07: the four neutral masses are host evaluations in `include/fsot/host/neutral_mesons.hpp`, locked by `neutral_mesons_pass` at `f9adc19`. The values, the bars, and the citations are in the current-standing section. The precision binary was not rebuilt. The gate stays 91/91 at z ≤ 1 and 89/91 at 2%. The Lean gauntlet on `b866a50` exited 0 the same day. ℓ̄₃ was brought inside later the same day. The lifetime decay constant and F_K/F_π are the host reading in `chiral_decay.hpp`.
 
 ## Benchmarks (8-vCPU x86-64, GCC 14 -O3 -march=native; Python 3.13 + mpmath, dps 50)
 | Workload | Python mpmath | double | long double | __float128 | 169-bit |
