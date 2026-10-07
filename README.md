@@ -94,7 +94,9 @@ profile by S(Nuclear_Physics)/S(Particle_Physics) and by the one named seed in t
 (1 + α γ ψ_con²). The value is 1.27505846641964337, z −0.263, on 1.2754 ± 0.0013 (PDG 2024). The bare
 ratio is z −1.91. The two-tank mix of those depths, and the bare profile, each put two named seeds in the
 same window and are not this reading. This is a host evaluation. It is not a new row of the 91.
-The isovector radius, the profile magnetic moments, and the Δ−N split stay on the open profile branches.
+**Isovector radius.** `include/fsot/host/nucleon_radius.hpp`, locked by `nucleon_radius_pass`. The KSRF dipole on the chiral decay constant, times √(F_π/F), is 0.8242001163076494 fm², z 0.915, on 0.82236 ± 0.00201. The ratio and its square sit outside that bar. This is a host evaluation. It is not a new row of the 91.
+**Δ−N.** `include/fsot/host/nucleon_delta.hpp`, locked by `nucleon_delta_pass`. The P3 profile times (F/F_π)^((N_c−1)/N_c), N_c = 3, is 293.3782747823463 MeV, z 0.149, on 293.081 ± 2 MeV. The power 1 and the power 1/2 sit outside that bar. This is a host evaluation. It is not a new row of the 91.
+The profile magnetic moments stay open. The CODATA proton moment is the leaf g_p/2 and is already inside the 91. No FSOT weight evaluated for the profile moment or for μ_n reaches the CODATA bars.
 The strange tadpole was not started.
 
 The Einstein–Hilbert probes are the scored gravity layer: the weak-field metric, the Schwarzschild radius, solar light deflection, and Mercury’s perihelion, in `vendor/fsot_gr_sm.py` on the hub. “Einstein–Hilbert measure uniqueness” is a different object. It is the deferred classical proof that the Einstein–Hilbert action is the unique second-order diffeomorphism-invariant continuum action. The hub pages `docs/WHY_NOT_CLAIMED.md` and `docs/RESIDUAL_TOE_CLOSURE.md` classify that proof, the path-integral confinement theorem, and spin-2 Fock uniqueness as pure-math research. They are not residual-gate failures, and an open classical proof is not an open published-bar miss. Audit H-91 quotes the package manifest; it does not reopen those probes.
