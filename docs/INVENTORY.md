@@ -37,6 +37,8 @@
 | fsot_reality_os.py | 837 | status/atlas (sqlite) — keep Python | — |
 
 ### "Everything solved so far" as the hub defines it (README lock 2026-09-29, CURRENT_STATUS 2026-09-17)
+
+The bullets under this heading are that 2026-09-29 survey, kept as the survey recorded them. The 2026-10-07 standing of this C++ tree is the current-standing section of the repository README: which comparisons lie inside a published standard uncertainty, which remain outside, and what the 2026-10-07 cross-proof gauntlet printed. The median-of-medians figure below is the survey figure. The z ≤ 1 score is the precision gate.
 - **Engine**: 35-orifice nest, 5 seeds, zero free parameters (FORMULA_AUTHORITY_SYSTEM_CLOSED).
 - **Ledger A** (predict, no measured input): closed forms via `scripts/fsot_ledger_a_lib.py` over the sections above; misses tracked in `results/MISSES.md`.
 - **Ledger B** (correct): **477/477** green benchmark files (480 `data/*benchmark*.json` on disk), median-of-medians 0.005537779313588844 % over 414 prediction medians, 183,196 scalar records.

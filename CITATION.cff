@@ -23,3 +23,80 @@ references:
       - family-names: Palumbo
         given-names: Damian Arthur
     repository-code: "https://github.com/dappalumbo91/FSOT-2.1-Lean"
+  - type: article
+    title: "Review of Particle Physics"
+    authors:
+      - family-names: Navas
+        given-names: S.
+    journal: "Physical Review D"
+    volume: 110
+    start: "030001"
+    year: 2024
+    doi: "10.1103/PhysRevD.110.030001"
+  - type: article
+    title: "CODATA recommended values of the fundamental physical constants: 2022"
+    authors:
+      - family-names: Mohr
+        given-names: Peter J.
+      - family-names: Newell
+        given-names: David B.
+      - family-names: Taylor
+        given-names: Barry N.
+      - family-names: Tiesinga
+        given-names: Eite
+    journal: "Reviews of Modern Physics"
+    volume: 97
+    start: "025002"
+    year: 2025
+    doi: "10.1103/RevModPhys.97.025002"
+  - type: article
+    title: "The AME 2020 atomic mass evaluation (II). Tables, graphs and references"
+    authors:
+      - family-names: Wang
+        given-names: Meng
+      - family-names: Huang
+        given-names: W. J.
+      - family-names: Kondev
+        given-names: F. G.
+      - family-names: Audi
+        given-names: G.
+      - family-names: Naimi
+        given-names: S.
+    journal: "Chinese Physics C"
+    volume: 45
+    start: "030003"
+    year: 2021
+    doi: "10.1088/1674-1137/abddaf"
+  - type: article
+    title: "Planck 2018 results. VI. Cosmological parameters"
+    authors:
+      - name: "Planck Collaboration"
+    journal: "Astronomy and Astrophysics"
+    volume: 641
+    start: "A6"
+    year: 2020
+    doi: "10.1051/0004-6361/201833910"
+  - type: article
+    title: "The Atacama Cosmology Telescope: DR6 power spectra, likelihoods and ΛCDM parameters"
+    authors:
+      - family-names: Louis
+        given-names: Thibaut
+    journal: "Journal of Cosmology and Astroparticle Physics"
+    volume: 2025
+    issue: 11
+    start: "062"
+    year: 2025
+    doi: "10.1088/1475-7516/2025/11/062"
+  - type: article
+    title: "The chiral Lagrangian parameters, l-bar_1 and l-bar_2, are determined by the rho resonance"
+    authors:
+      - family-names: Pennington
+        given-names: M. R.
+      - family-names: Portolés
+        given-names: J.
+    journal: "Physics Letters B"
+    volume: 344
+    start: "399"
+    end: "406"
+    year: 1995
+    doi: "10.1016/0370-2693(94)01551-M"
