@@ -78,8 +78,9 @@ F_K/F_π is 1.2734 (z 38) on the one-loop SU(3) route and 1.506 (z 149) on scala
 FLAG N_f = 2+1+1 1.1932(21) (FREEZE_2026-10-02v). That freeze stores no DOI for the FLAG average.
 The nucleon isovector radius on the scored profile is 1.00435 fm² against 0.82236(201) fm².
 The axial coupling, the magnetic moments, and the Δ−N split on that profile stay outside, and that profile was not restarted.
-Three theorems named by the package manifest remain open: path-integral confinement, spin-2 Fock uniqueness,
-and Einstein–Hilbert measure uniqueness (audit H-91). The strange tadpole was not started.
+The strange tadpole was not started.
+
+The Einstein–Hilbert probes are the scored gravity layer: the weak-field metric, the Schwarzschild radius, solar light deflection, and Mercury’s perihelion, in `vendor/fsot_gr_sm.py` on the hub. “Einstein–Hilbert measure uniqueness” is a different object. It is the deferred classical proof that the Einstein–Hilbert action is the unique second-order diffeomorphism-invariant continuum action. The hub pages `docs/WHY_NOT_CLAIMED.md` and `docs/RESIDUAL_TOE_CLOSURE.md` classify that proof, the path-integral confinement theorem, and spin-2 Fock uniqueness as pure-math research. They are not residual-gate failures, and an open classical proof is not an open published-bar miss. Audit H-91 quotes the package manifest; it does not reopen those probes.
 
 **Cross-proof gauntlet.** On 2026-10-07, `scripts/run_cross_proof_verification.py` in FSOT-2.1-Lean at `b866a50`
 exited 0 in 707 s. After the banner `CROSS-PROOF VERIFICATION (Tier 91 wide)` the process printed
