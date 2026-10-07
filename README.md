@@ -67,14 +67,21 @@ values. They are not lines in `reference/evidence/pdg2024_extracts.tsv`. The 202
 957.78 ± 0.06 MeV, and cites Navas et al. (2024) together with the 2025 update.
 FREEZE_2026-10-02l already recorded the 2024 centers for π⁰, K⁰, and η.
 
+**ℓ̄₃.** `include/fsot/host/lbar3.hpp`, locked by `lbar3_pass`. The value is 3.0128360396658477, z 0.047, on
+2.9±2.4 (G. Colangelo, J. Gasser, and H. Leutwyler, hep-ph/0103088, eq. 7.1 and eq. 7.8). It is the Dürr x
+inversion of the tree mass ratio on the frozen KSRF axial partner, R = (1+√3)/2. The chiral limit of that
+ratio is 24−12√3 = 3.215390309173472, z 0.131. The pure linear-sigma Dürr reading 5.327199232022074 is
+z 1.011 and was not kept. Nyffeler ℓ̄₃ = 7.65753993433 is z 1.982 and was not used (FREEZE_2026-10-02bh).
+This reading is a host evaluation. It is not a new row of the 91. ℓ̄₁ = −0.15209172795246319 (z 0.413) and
+ℓ̄₂ = 4.2429916610952306 (z 0.570) are inside −0.4±0.6 and 4.3±0.1
+(M. R. Pennington and J. Portolés, Phys. Lett. B 344, 399 (1995), doi:10.1016/0370-2693(94)01551-M, hep-ph/9409426, eqs. 16, 24, and 27).
+
 **Still outside a published bar.** The leaf-curvature residue in `include/fsot/host/axial_residue.hpp` is
 92.672790938 MeV, z 3.631, against 130.56/√2 = 92.31986135 ± 0.09721111 MeV. The header cites PDG 2026
 review equation 71.23 for the 130.56 MeV center. The uncertainty is the quadrature of 0.02, 0.04, and 0.13,
-divided by √2. The one-loop truncation stays 92.8866215097 MeV. Nyffeler ℓ̄₃ = 7.65753993433 is z 1.982 on
-2.9±2.4 and was not used (FREEZE_2026-10-02bh). ℓ̄₁ = −0.15209172795246319 (z 0.413) and
-ℓ̄₂ = 4.2429916610952306 (z 0.570) are inside −0.4±0.6 and 4.3±0.1
-(M. R. Pennington and J. Portolés, Phys. Lett. B 344, 399 (1995), doi:10.1016/0370-2693(94)01551-M, hep-ph/9409426, eqs. 16, 24, and 27).
-F_K/F_π is 1.2734 (z 38) on the one-loop SU(3) route and 1.506 (z 149) on scalar saturation, against
+divided by √2. The one-loop truncation stays 92.8866215097 MeV.
+F_K/F_π is 1.273427263498503 (z 38.20) on the one-loop SU(3) route and 1.506 (z 149) on scalar saturation.
+The axial-partner tree ratio, using the same R as ℓ̄₃, is 1.258229407422869, z 30.97. All three are against
 FLAG N_f = 2+1+1 1.1932(21) (FREEZE_2026-10-02v). That freeze stores no DOI for the FLAG average.
 The nucleon isovector radius on the scored profile is 1.00435 fm² against 0.82236(201) fm².
 The axial coupling, the magnetic moments, and the Δ−N split on that profile stay outside, and that profile was not restarted.
