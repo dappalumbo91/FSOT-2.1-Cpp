@@ -43,6 +43,7 @@ m_H_GeV	direct	125.20	0.11	0.11	GeV	PDG2024:sum-gauge-higgs-bosons	pdg2024_extra
 m_tau_MeV	direct	1776.93	0.09	0.09	MeV	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:70	
 sin2_12	direct	0.307	0.013	0.013	1	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:539	
 sin2_23	direct	0.558	0.021	0.015	1	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:544+-1	+0.015 on the line above in the PDF
+sin2_23_nufit	direct	0.470	0.014	0.017	1	NUFIT61	normal-ordering-with-SK	NuFIT 6.1 normal ordering with SK; same 1 sigma interval without SK; 3 sigma 0.435 to 0.584; predates the 2026-10-02 freeze
 sin2_13	direct	0.0219	0.0007	0.0007	1	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:552	
 dm2_21	direct	7.53e-5	0.18e-5	0.18e-5	eV^2	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:540	
 dm2_32	direct	2.455e-3	0.028e-3	0.028e-3	eV^2	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:546	

@@ -3,8 +3,8 @@
 // |S|/2 on the specimen rungs from particle physics through sociology sits
 // inside NuFIT 6.1 normal ordering with SK, 0.470 +0.017/-0.014. Generation 9
 // is the closest. Neuroscience and Condensed_Matter share that rung
-// (D_eff = 11). The record |Chaos|*sqrt(e) stays the PDG 2024 row.
-// Not a record row.
+// (D_eff = 11). apps/fsot_precision.cpp route atmleaf calls sin2_theta23.
+// The pin |Chaos|*sqrt(e) stays on the PDG 2024 bar with record 0.
 #pragma once
 #include "fsot/engine.hpp"
 

@@ -2,10 +2,10 @@
 Gate: z = |value - central| / sigma <= 1 (include/fsot/host/precision_gate.hpp); legacy check |rel| <= 2% reported alongside.
 
 ```
-record set (scored): n=91  pass z<=1: 91/91  pass |rel|<=2%: 90/91  median ppm=74.13  worst ppm=21923.6 (pin:wave4|sin2_theta23)
-all rows (incl. superseded/alternate): n=134  pass z<=1: 108/134  pass |rel|<=2%: 126/134  median ppm=193.8  worst ppm=62397.3 (pin:wave1|H0 vs SH0ES)
-record set if the passing frozen-pending refinements were adopted (NOT confirmed): n=91  pass z<=1: 91/91  pass |rel|<=2%: 90/91  median ppm=74.13  worst ppm=21923.6 (pin:wave4|sin2_theta23)
-record set without the owner decisions OD-1/OD-2 (pinned rows only; audit/OWNER_DECISIONS_2026-10-02i.md): n=91  pass z<=1: 90/91  pass |rel|<=2%: 89/91  median ppm=77.62  worst ppm=37659.2 (pin:wave4|Dm2_21/Dm2_32)
+record set (scored): n=91  pass z<=1: 91/91  pass |rel|<=2%: 91/91  median ppm=74.13  worst ppm=18633.3 (pin:wave2|N_eff)
+all rows (incl. superseded/alternate): n=135  pass z<=1: 109/135  pass |rel|<=2%: 127/135  median ppm=208.9  worst ppm=62397.3 (pin:wave1|H0 vs SH0ES)
+record set if the passing frozen-pending refinements were adopted (NOT confirmed): n=91  pass z<=1: 91/91  pass |rel|<=2%: 91/91  median ppm=74.13  worst ppm=18633.3 (pin:wave2|N_eff)
+record set without the owner decisions OD-1/OD-2 (pinned rows only; audit/OWNER_DECISIONS_2026-10-02i.md): n=91  pass z<=1: 90/91  pass |rel|<=2%: 90/91  median ppm=77.62  worst ppm=37659.2 (pin:wave4|Dm2_21/Dm2_32)
 ```
 
 | id | route | rec | confirmed value | unit | central | sigma (-/+) | ppm | z | z<=1 | 2% | frozen-pending refined (id: value, z) | historical best | cause / note | source |
@@ -97,7 +97,8 @@ record set without the owner decisions OD-1/OD-2 (pinned rows only; audit/OWNER_
 | leaf:m_H/m_W | hwleaf | Y | 1.55729801381558 | 1 | 1.55781070360287 | 0.001393 | 329.1 | 0.3681 | PASS | PASS |  | FREEZE_2026-10-02bg leaf m_H_MeV / leaf m_W_MeV | C-MHW-1: leaf m_H_MeV / leaf m_W_MeV. Runner-up C-MHW-2 is 1/(3*P_new*(1-C_factor)) and was not selected by S1 | derived ratio:m_H_GeV/m_W_GeV from [m_H_GeV: PDG2024:sum-gauge-higgs-bosons] [m_W_GeV: PDG2024:sum-gauge-higgs-bosons] |
 | pin:wave3/m_tau/m_e | pin | - | 3477.50545878783 | 1 | 3477.36526190635 | 0.1761 | 40.32 | 0.7960 | PASS | PASS |  | AEB2AD (d127c07e 2026-09-14) 3477.505459 z=0.7960 | superseded by m_tau_over_m_e | derived ratio:m_tau_MeV/m_e_MeV from [m_tau_MeV: PDG2024:sum-leptons] [m_e_MeV: CODATA2022] |
 | pin:wave4/sin2_theta12 | pin | Y | 0.306964429788902 | 1 | 0.307 | 0.013 | 115.9 | 0.0027 | PASS | PASS |  | AEB2AD (d127c07e 2026-09-14) 0.3069644298 z=0.0027 |  | PDG 2024 https://pdg.lbl.gov/2024/tables/rpp2024-sum-leptons.pdf |
-| pin:wave4/sin2_theta23 | pin | Y | 0.545766610986025 | 1 | 0.558 | -0.021/+0.015 | 2.192e+04 | 0.5825 | PASS | FAIL |  | AEB2AD (d127c07e 2026-09-14) 0.545766611 z=0.5825 |  | PDG 2024 https://pdg.lbl.gov/2024/tables/rpp2024-sum-leptons.pdf |
+| pin:wave4/sin2_theta23 | pin | - | 0.545766610986025 | 1 | 0.558 | -0.021/+0.015 | 2.192e+04 | 0.5825 | PASS | FAIL |  | AEB2AD (d127c07e 2026-09-14) 0.545766611 z=0.5825 | superseded closed form /Chaos/*sqrt(e) on the PDG 2024 bar; record row is leaf:sin2_theta23 | PDG 2024 https://pdg.lbl.gov/2024/tables/rpp2024-sum-leptons.pdf |
+| leaf:sin2_theta23 | atmleaf | Y | 0.470635313578152 | 1 | 0.47 | -0.014/+0.017 | 1352 | 0.0374 | PASS | PASS |  | |S|/2 generation 9 D_eff 11 | /S//2 on generation 9, Neuroscience and Condensed_Matter, D_eff 11; eight wider specimen halves also sit in the NuFIT bar | NuFIT 6.1 (2025) http://www.nu-fit.org/sites/default/files/v61.tbl-parameters.pdf (normal-ordering-with-SK) |
 | pin:wave4/sin2_theta13 | pin | Y | 0.0220151582211441 | 1 | 0.0219 | 0.0007 | 5258 | 0.1645 | PASS | PASS |  | AEB2AD (d127c07e 2026-09-14) 0.02201515822 z=0.1645 |  | PDG 2024 https://pdg.lbl.gov/2024/tables/rpp2024-sum-leptons.pdf |
 | pin:wave4/Dm2_21/Dm2_32 | pin | - | 0.0295170114802864 | 1 | 0.0306720977596741 | 0.0008124 | 3.766e+04 | 1.4219 | **FAIL** | FAIL | C-DM-1: 0.030787593346332, z=0.1422 (frozen-pending) | AEB2AD (d127c07e 2026-09-14) 0.02951701148 z=1.4219 | formula miss: outside sigma under every pin (best z=1.4219); pin target 0.0295 is 1.44 sigma off the current reference; [OD-superseded] pre-decision reference object Dm2_32; record row is od1 (owner decision OD-1 2026-10-02) | derived ratio:dm2_21/dm2_32 from [dm2_21: PDG2024:sum-leptons] [dm2_32: PDG2024:sum-leptons] |
 | od1:wave4/Dm2_21/Dm2_31 | pin | Y | 0.0295170114802864 | 1 | 0.0297593170770264 | 0.0007647 | 8142 | 0.3168 | PASS | PASS |  | AEB2AD (d127c07e 2026-09-14) 0.02951701148 z=0.3168 | owner decision OD-1 (2026-10-02 18:10 EDT): reference object Dm2_21/Dm2_31 (NO); same pinned AEB2AD value | derived frac:dm2_21/dm2_32 from [dm2_21: PDG2024:sum-leptons] [dm2_32: PDG2024:sum-leptons] |

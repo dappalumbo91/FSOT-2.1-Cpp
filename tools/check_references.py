@@ -10,6 +10,8 @@ committed under reference/evidence/ (stdlib only; no network).
   IAEA rows       : magnetic dipole and uncertainty equal the committed LiveChart API extract.
   ARXIV rows      : central and sigma digits must appear in the quoted text of
                     reference/evidence/arxiv_extracts.tsv (id + locator).
+  NUFIT61 rows    : central and both sigmas must appear in
+                    reference/evidence/nufit61_v61_parameters.txt.
   derived rows    : parents must exist; the expression must be well formed.
 Exit status 0 only if every row verifies.
 """
@@ -146,6 +148,18 @@ def check_iaea(r):
             return f"IAEA {x[h.index('magnetic_dipole')]}({x[h.index('unc_md')]}) != row"
     return "nuclide not in IAEA extract"
 
+def check_nufit(r):
+    path = os.path.join(ROOT, "evidence", "nufit61_v61_parameters.txt")
+    text = norm(open(path, encoding="utf-8").read())
+    if r["evidence"] not in text:
+        return "evidence marker missing from the NuFIT extract"
+    if norm(r["central"]) not in text:
+        return "central missing from the NuFIT extract"
+    for sg in (r["sm"], r["sp"]):
+        if norm(sg) not in text:
+            return f"sigma {sg} missing from the NuFIT extract"
+    return None
+
 def main():
     rows = load_rows()
     keys = {r["key"] for r in rows}
@@ -175,6 +189,8 @@ def main():
             err = check_arxiv(r)
         elif src == "IAEA":
             err = check_iaea(r)
+        elif src == "NUFIT61":
+            err = check_nufit(r)
         else:
             err = "unknown source"
         if err:

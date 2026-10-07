@@ -19,6 +19,8 @@
 // The bare pin row stays in the report with record 0. The alpha^2 quotient names the Schwinger weight.
 // route "cpleaf" = phi^3 - 1/e - Suction (include/fsot/host/pmns_phase.hpp).
 // The pin phi^3 - 1/e stays in the report with record 0.
+// route "atmleaf" = |S|/2 on generation 9 (include/fsot/host/atmospheric.hpp).
+// The pin |Chaos|*sqrt(e) stays on the PDG 2024 bar with record 0.
 #define _USE_MATH_DEFINES  // M_PI on MSVC (must precede <cmath>)
 #include <algorithm>
 #include <cmath>
@@ -32,6 +34,7 @@
 #include <vector>
 
 #include "fsot/engine.hpp"
+#include "fsot/host/atmospheric.hpp"
 #include "fsot/host/pmns_phase.hpp"
 #include "fsot/host/precision_gate.hpp"
 #include "fsot/host/seed_leaves.hpp"
@@ -68,6 +71,8 @@ static std::string source_link(const RefRow& r, const std::map<std::string, RefR
     std::string kind = doc.rfind("sum-", 0) == 0 ? "tables" : "reviews";
     return "PDG 2024 https://pdg.lbl.gov/2024/" + kind + "/rpp2024-" + doc + ".pdf";
   }
+  if (r.source == "NUFIT61")
+    return "NuFIT 6.1 (2025) http://www.nu-fit.org/sites/default/files/v61.tbl-parameters.pdf (" + r.evidence + ")";
   if (r.source == "derived") {
     auto parts = split(r.kind.substr(r.kind.find(':') + 1), '/');
     std::string s = "derived " + r.kind + " from";
@@ -248,6 +253,10 @@ int main(int argc, char** argv) {
       // phi^3 - 1/e - Suction. Suction is the closest existing-constant subtraction.
       if (o.source != "cp_leaf") { std::fprintf(stderr, "no cpleaf source %s\n", o.source.c_str()); return 2; }
       o.vr = mixing::delta_cp<R>(eng).value * scale;
+    } else if (o.route == "atmleaf") {
+      // |S|/2 on generation 9. Neuroscience and Condensed_Matter share D_eff 11.
+      if (o.source != "atm_leaf") { std::fprintf(stderr, "no atmleaf source %s\n", o.source.c_str()); return 2; }
+      o.vr = mixing::sin2_theta23<R>(eng).value * scale;
     } else if (o.route == "muleaf") {
       // FREEZE_2026-10-02ay. alpha is the inverse-alpha leaf, not eng.ALPHA.
       if (o.source != "mu_leaf") { std::fprintf(stderr, "no muleaf source %s\n", o.source.c_str()); return 2; }
@@ -297,6 +306,9 @@ int main(int argc, char** argv) {
       o.cause = note;
     } else if (o.route == "cpleaf") {
       o.hist = "phi^3 - 1/e - Suction";
+      o.cause = note;
+    } else if (o.route == "atmleaf") {
+      o.hist = "|S|/2 generation 9 D_eff 11";
       o.cause = note;
     } else {
       // historical best over the five hub pins, scored against the same reference

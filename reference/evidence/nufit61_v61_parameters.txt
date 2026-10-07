@@ -1,0 +1,10 @@
+# NuFIT 6.1 (2025), file v61.tbl-parameters.pdf, downloaded 2026-10-07 from
+# http://www.nu-fit.org/sites/default/files/v61.tbl-parameters.pdf
+# The table prints the positive uncertainty on the line above the central value.
+# Normal Ordering, with SK (IC24), and the without-SK normal-ordering cell, both print
+# sin^2 theta_23 = 0.470 +0.017 -0.014. The with-SK 3sigma range is 0.435 -> 0.584.
+# This table predates the 2026-10-02 freeze, so the comparison is not held-out.
+normal-ordering-with-SK
+0.470 +0.017 -0.014
+3sigma 0.435 -> 0.584
+PDF tokens: .017 / 0.470+0 / -0.014 / 0.435 -> 0.584

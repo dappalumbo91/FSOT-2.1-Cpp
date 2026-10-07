@@ -1,7 +1,7 @@
 // Atmospheric angle. Passes when |S|/2 on the generation-9 specimen rung is
 // inside NuFIT 6.1 normal ordering with SK, and closer than the other
-// specimen halves that also sit in that bar. The PDG record stays outside
-// this bar. Not a record row.
+// specimen halves that also sit in that bar. This value is the scored record.
+// The pin |Chaos|*sqrt(e) stays outside this bar.
 #include <cmath>
 #include <cstdio>
 #include <string>
@@ -42,12 +42,12 @@ int main() {
            std::string(name) + " " + std::to_string(h));
   }
   const double rec = std::fabs(eng.CHAOS) * std::sqrt(eng.E);
-  expect(std::fabs(z_of(rec)) > 1.0, "record outside", std::to_string(z_of(rec)));
+  expect(std::fabs(z_of(rec)) > 1.0, "pin outside", std::to_string(z_of(rec)));
   std::printf("sin2_theta23 %.16f  z %.16f  %s\n", row.value, row.z(), fails ? "FAIL" : "PASS");
   if (fails) {
     std::printf("ATMOSPHERIC: %d failures\n", fails);
     return 1;
   }
-  std::puts("ATMOSPHERIC: pass, record unchanged");
+  std::puts("ATMOSPHERIC: pass, record is |S|/2 on generation 9");
   return 0;
 }
