@@ -88,8 +88,13 @@ with L_4 = L_5/N_c and N_c = 3, gives F_K/F_π = 1.191537555726962, z −0.792, 
 1.273427263498503 (z 38.20), the scalar-saturation ratio 1.506 (z 149), and the axial-partner tree ratio
 1.258229407422869 (z 30.97) are the wider neighbors and are not this reading. These two values are host
 evaluations. They are not new rows of the 91.
-The nucleon isovector radius on the scored profile is 1.00435 fm² against 0.82236(201) fm².
-The axial coupling, the magnetic moments, and the Δ−N split on that profile stay outside, and that profile was not restarted.
+**Nucleon axial coupling.** `include/fsot/host/nucleon_axial.hpp`, locked by `nucleon_axial_pass`. The profile
+is the particle-sector soliton at K 14, D 14, kmax 12, g_A = 1.29168910489. The reading multiplies that
+profile by S(Nuclear_Physics)/S(Particle_Physics) and by the one named seed in the fine-structure window,
+(1 + α γ ψ_con²). The value is 1.27505846641964337, z −0.263, on 1.2754 ± 0.0013 (PDG 2024). The bare
+ratio is z −1.91. The two-tank mix of those depths, and the bare profile, each put two named seeds in the
+same window and are not this reading. This is a host evaluation. It is not a new row of the 91.
+The isovector radius, the profile magnetic moments, and the Δ−N split stay on the open profile branches.
 The strange tadpole was not started.
 
 The Einstein–Hilbert probes are the scored gravity layer: the weak-field metric, the Schwarzschild radius, solar light deflection, and Mercury’s perihelion, in `vendor/fsot_gr_sm.py` on the hub. “Einstein–Hilbert measure uniqueness” is a different object. It is the deferred classical proof that the Einstein–Hilbert action is the unique second-order diffeomorphism-invariant continuum action. The hub pages `docs/WHY_NOT_CLAIMED.md` and `docs/RESIDUAL_TOE_CLOSURE.md` classify that proof, the path-integral confinement theorem, and spin-2 Fock uniqueness as pure-math research. They are not residual-gate failures, and an open classical proof is not an open published-bar miss. Audit H-91 quotes the package manifest; it does not reopen those probes.
