@@ -108,3 +108,29 @@ Timing on the reference box: the full run with the runner took about 56 min, abo
 3. fsot-neuron-zig: the README listed modes that were never implemented (`logic-probe`, `verify-stamp`, `mind-smoke`, …). **README corrected in `68e43ce`**. `suite` gives 67 PASS markers.
 4. FSOT-2.1-Neural `fsot_nuron/chemical_codon.py` looks for the SMILES dataset only at two Windows paths, with no env override. `tools/run_neural_language_verify.py` injects the public hub copy in-process. The repo is not edited.
 5. Inside the runner, the regenerated `Living_FSOT_Hardware` panel scores pooled 100% on the reference box (host-hardware audit). The regenerated `Math_Generator_Benchmark_Formula_Eval` scores 1.0049%. Both come from data rewritten by the runner. The committed data passes 477/477.
+
+## Last results (2026-10-07, FSOTHUB)
+
+C++ `main` `f9adc19`. Windows MSVC ctest 87/87. WSL `xval/cpp_check.sh` printed `ALL CPP CHECKS PASSED` in 404 s: ctest 88/88, including `neutral_mesons_pass`, goldens byte-identical, precision gate 91/91 at z ≤ 1 and 89/91 at the flat 2% check, QEMU serial byte-identical to `docs/bare_metal_serial_AEB2AD.txt`. Pin AEB2AD. The 88th Linux test is `freestanding_symbols`, which is GCC/Clang only.
+
+Hub gauntlet `scripts/run_cross_proof_verification.py` on Lean `main` `79320bb`, then the bridge fix `b866a50`. Wall time of the gauntlet process: 758 s.
+
+| Layer | Result |
+|---|---|
+| Python decimal | PASS |
+| Scientific catalog | 477 domains, 1908/1908 PASS |
+| Lean connective | PASS |
+| Coq / Rocq | 49/49 chunks passed |
+| Lean ↔ Coq | PASS, 2030 lemmas indexed, 0 margin violations |
+| Isabelle `FSOT_CrossProof` | 46/46 chunks passed |
+| Lean ↔ Isabelle | PASS, 2030 lemmas indexed |
+| F* | passed |
+| Rust f64 replay | 2130 obligations passed |
+| SMT (Z3) and TLA+ | passed |
+| GR/SM/CKM | Python 288/288, Rust cargo passed, Z3 passed, Coq passed |
+| QEMU | serial passed, disk passed |
+| ESP32 | skipped, no CP210x port |
+
+The gauntlet process printed `overall_ok: False` and exited 1. Every proof layer above passed. The Rust↔Lean bridge cargo test returned LNK1104: `link.exe` could not open `runtime_parity.exe` under `%TEMP%\fsot_rust_target`. The boot scalar in that same run already matched `0.09928895626861721`, and the benchmark median error was 0. Hub `b866a50` retries that lock twice, and a later attempt links in a fresh temp target. The parity script run through that code printed `cargo: passed`, 4 tests passed, median error 0, `overall_ok: True`, on the first attempt. Seven-way and eight-way were false in the gauntlet print because of the link. Eight-way stays false while ESP32 is skipped.
+
+The four neutral masses are locked by C++ `neutral_mesons_pass` (K⁰ z 0.0154, π⁰ z −0.00257, η z 0.394, η′ z 0.205). They are host evaluations on pin AEB2AD. They are not obligations of the Lean gauntlet, and they are not new rows on the 91.
