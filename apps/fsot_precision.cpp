@@ -351,6 +351,9 @@ int main(int argc, char** argv) {
         // CKM: Wolfenstein seed leaves (leaves::ckm_double) replace the wave4/8/9 hub closed forms
         {"pin:wave4||V_ub|", "CKM_V_ub"}, {"pin:wave8||V_ud|", "CKM_V_ud"}, {"pin:wave8||V_cd|", "CKM_V_cd"},
         {"pin:wave8||V_cs|", "CKM_V_cs"}, {"pin:wave9||V_tb|", "CKM_V_tb"},
+        // nuclear: AME2020-route binding leaves and the frozen bd/mu leaves (FREEZE_2026-10-02ax, -ay)
+        {"pin:wave3|Deuteron_binding_MeV", "leaf:Deuteron_binding_MeV"}, {"pin:wave8|He4_binding_MeV", "B_He4_MeV"},
+        {"pin:wave8|Triton_binding_MeV", "B_H3_MeV"}, {"pin:wave8|Deuteron_mu_muN", "leaf:Deuteron_mu_muN"},
         //@@NEXT
     };
     std::map<std::string, size_t> idx;
