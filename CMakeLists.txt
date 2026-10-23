@@ -242,7 +242,7 @@ if(nlohmann_json_FOUND AND (Boost_FOUND OR FSOT_WITH_FLOAT128))
   add_executable(fsot_freeze_domain apps/fsot_freeze_domain.cpp)
   target_link_libraries(fsot_freeze_domain PRIVATE fsot nlohmann_json::nlohmann_json)
   add_test(NAME freeze_core_sha_matches_hub_freeze
-           COMMAND ${CMAKE_COMMAND} -DEXE=$<TARGET_FILE:fsot_freeze_domain> -DEXPECT=8e30e85e72091462c4d66df2d498afb36ccbc2d40eb5df01b4e083947c79dad3
+           COMMAND ${CMAKE_COMMAND} -DEXE=$<TARGET_FILE:fsot_freeze_domain> -DEXPECT=8cde2e8bfafa2576eb4f5c6199f1f5b647b573d3d759ebf5556924a3364a42d1   # current freeze freezes/domain_freeze_2026-10-23_AEB2AD.json (rung 6 QM); was 8e30e85e… = hub data/domain_table_freeze.json and freezes/domain_freeze_2026-10-02_AEB2AD.json
                    -P ${CMAKE_CURRENT_SOURCE_DIR}/cmake/check_core_sha.cmake)   # portable: no sh (native Windows CTest)
   find_package(Python3 COMPONENTS Interpreter QUIET)
   file(GLOB FSOT_FREEZES ${CMAKE_CURRENT_SOURCE_DIR}/freezes/*.json)
