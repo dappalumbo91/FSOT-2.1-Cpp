@@ -341,6 +341,42 @@ int main(int argc, char** argv) {
     outs.push_back(o);
   }
 
+  // TRACE §19 (tracer-next, 2026-10-23): a legacy pin row evaluates the same FSOT route as its passing record
+  // twin (same ref_key, so same quantity and convention). The legacy hub closed form stays in the Engine only for
+  // hub pin parity; it no longer scores the row. Targets, sigmas, gate and scoring are unchanged.
+  // Pins with no twin of the same quantity are not listed: H0 vs Planck2018, H0 vs SH0ES (twin is H0_CMB_BAO),
+  // Dm2_21/Dm2_32 (twin od1 is Dm2_21/Dm2_31).
+  {
+    const std::vector<std::pair<std::string, std::string>> twin = {
+        // CKM: Wolfenstein seed leaves (leaves::ckm_double) replace the wave4/8/9 hub closed forms
+        {"pin:wave4||V_ub|", "CKM_V_ub"}, {"pin:wave8||V_ud|", "CKM_V_ud"}, {"pin:wave8||V_cd|", "CKM_V_cd"},
+        {"pin:wave8||V_cs|", "CKM_V_cs"}, {"pin:wave9||V_tb|", "CKM_V_tb"},
+        //@@NEXT
+    };
+    std::map<std::string, size_t> idx;
+    for (size_t i = 0; i < outs.size(); ++i) idx[outs[i].id] = i;
+    for (auto& [pid, tid] : twin) {
+      auto pi = idx.find(pid);
+      if (pi == idx.end()) { std::fprintf(stderr, "no pin row %s\n", pid.c_str()); return 2; }
+      Out& p = outs[pi->second];
+      const RefRow& rr = refs.at(p.ref_key);
+      R v; std::string how;
+      if (tid == "g_e_leaf") {  // a_e = |g_e|/2 - 1 through the g_e seed leaf (circuit_designer/dialin_1023b/REPORT.md)
+        v = m::fabs(leafv.at("g_e")) / R(2) - R(1); how = "|g_e|/2 - 1 of leaf g_e";
+      } else {
+        auto ti = idx.find(tid);
+        if (ti == idx.end()) { std::fprintf(stderr, "no twin row %s\n", tid.c_str()); return 2; }
+        const Out& t = outs[ti->second];
+        if (t.ref_key != p.ref_key || !t.record) { std::fprintf(stderr, "twin %s is not a record of %s\n", tid.c_str(), p.ref_key.c_str()); return 2; }
+        v = t.vr; how = "record twin " + tid + " (route " + t.route + ")";
+      }
+      const R old = p.vr;
+      p.vr = v; p.value = to_d(v); p.s = score_r(v, rr);
+      p.cause = "pin evaluates " + how + "; legacy closed form " + fmt("%.15g", to_d(old)) + " z=" + fz(score_r(old, rr).z) +
+                " no longer scored (TRACE 19)";
+    }
+  }
+
   // summary
   auto summarize = [&](bool record_only, FILE* fp, const char* label, bool with_refined = false, bool pinned_only = false) {
     std::vector<LD> ppm; int n = 0, pz = 0, p2 = 0; LD worst = -1; std::string worst_id;
