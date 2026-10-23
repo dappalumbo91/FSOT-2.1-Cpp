@@ -3,7 +3,6 @@ freeze	domain_table_freeze	NOT-USABLE data/domain_table_freeze.json: frozen hash
 freeze	ledger_a_freeze	NOT-USABLE predictions/LEDGER_A_FREEZE.yaml is dated (2026-09-14) but carries no hash
 freeze	toe_prereg_freeze	NOT-USABLE predictions/toe_prereg_freeze.json: hashed at pin D1D38A, not the live pin AEB2AD (does not cover the live mapping)
 freeze	preregistered_predictions_manifest	NOT-USABLE predictions/preregistered_predictions_manifest.yaml is dated (2026-07-10) but carries no hash
-freeze	cpp:freezes/domain_freeze_2026-10-02_AEB2AD.json	NOT-USABLE FSOT-2.1-Cpp/freezes/domain_freeze_2026-10-02_AEB2AD.json: Quantum_Mechanics row hash != live row
 freeze	cpp:freezes/domain_freeze_2026-10-23_AEB2AD.json	USABLE FSOT-2.1-Cpp/freezes/domain_freeze_2026-10-23_AEB2AD.json selection_sha256 18c80999b0aa re-derived (796 rows); frozen 2026-10-23 (hash in git since 2026-10-23)
 records	TIER1_EXPLORATORY	17407
 records	TIER2_FROZEN_PENDING	2

@@ -253,6 +253,15 @@ if(nlohmann_json_FOUND AND (Boost_FOUND OR FSOT_WITH_FLOAT128))
       add_test(NAME freeze_verify_py_${fzn} COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_freeze.py ${fz})
     endif()
   endforeach()
+  # history freezes (freezes/history/*.json): superseded mappings kept byte-for-byte; only the stdlib re-hash of the
+  # stored rows runs (the live-engine --verify no longer applies once the mapping changed; FREEZE_2026-10-23).
+  file(GLOB FSOT_HISTORY_FREEZES ${CMAKE_CURRENT_SOURCE_DIR}/freezes/history/*.json)
+  foreach(fz ${FSOT_HISTORY_FREEZES})
+    get_filename_component(fzn ${fz} NAME_WE)
+    if(Python3_Interpreter_FOUND)
+      add_test(NAME freeze_verify_py_${fzn} COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_freeze.py ${fz})
+    endif()
+  endforeach()
   if(FSOT_HUB_DATA)
     add_test(NAME ledger_b COMMAND fsot_ledger_b --hub ${FSOT_HUB_DATA} --golden ${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_b_6f9c2560.tsv
              --corrected-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_corrected.tsv
