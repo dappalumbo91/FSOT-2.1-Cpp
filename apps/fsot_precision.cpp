@@ -362,7 +362,8 @@ int main(int argc, char** argv) {
         {"pin:wave2|m_pi/m_p", "m_pi_over_m_p"}, {"pin:wave4|mu_p_muN", "mu_p_over_mu_N"},
         {"pin:wave4|m_c/m_b", "m_c_over_m_b"}, {"pin:wave10|m_mu/m_e", "m_mu_over_m_e"},
         {"pin:wave10|(g-2)/2_electron", "g_e_leaf"},
-        //@@NEXT
+        // cosmology: AF-3 eta route for T_CMB
+        {"pin:wave1|T_CMB", "eta:T_CMB"},
     };
     std::map<std::string, size_t> idx;
     for (size_t i = 0; i < outs.size(); ++i) idx[outs[i].id] = i;
