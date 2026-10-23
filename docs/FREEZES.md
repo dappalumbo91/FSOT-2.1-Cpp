@@ -56,3 +56,11 @@ Effect on the tier report (`golden/evidence_tiers_6f9c2560.tsv`):
 - **Records:** unchanged (T2 = 3, T3 = 0). Every hub record attributed to an extension domain is STRUCTURAL.
 
 Nothing is TIER 3 yet, because no data first used after a freeze has been scored. `docs/PROMOTION_WATCH.md` lists candidate data.
+
+Effect of `freezes/domain_freeze_2026-10-23_AEB2AD.json` (rung 6 QM, 2026-10-23):
+- The hub `data/domain_table_freeze.json` (8e30e85e…) and the 2026-10-02 C++ freeze are both NOT-USABLE at the live mapping. The 2026-10-02 freeze fails on the Quantum_Mechanics row.
+- **Domains:** TIER1 12, TIER2 56 (unchanged).
+- **Ledger A:** 21 rows at TIER2 (unchanged).
+- **Closed-form rows:** 323 at TIER2 (unchanged).
+- **Records:** T2 3 → 2. The Quantum_Mechanics hub record was scored with the rung-5 scalar, so it no longer matches any usable frozen row and drops to TIER1.
+- `freeze_verify_domain_freeze_2026-10-02_AEB2AD` fails by design, because the history file no longer equals the live mapping. `freeze_verify_py_…` (stored-row re-hash) still passes.
