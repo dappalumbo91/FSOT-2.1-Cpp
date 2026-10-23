@@ -126,7 +126,7 @@ emit(s, "P-5 M_eta'", "same", sqrt(E_[1]), "957.78", "0.06", "0.05", "HYBRID", "
 s = "P-6"
 Tc = tcmb(prec("pin:wave1|Omega_b_h2"), prec("pin:wave10|eta_baryon_photon"), L["G_N"], L["u_kg"])
 emitz(s, "Cosmology T_CMB = (hbar c/k_B)(pi^2 n_gamma/(2 zeta3))^(1/3), n_gamma = Omega_b h^2 rho_c100/(u eta)", "FSOT Omega_b h^2, eta, G_N, u", Tc, "2.7255", "0.0006", "FSOT",
-      "validation " + ("passed" if V["T"] else "FAILED") + "; disclosed before freeze: about +0.27 %; T_CMB record row " + nstr(prec("pin:wave1|T_CMB"), 10))
+      "validation " + ("passed" if V["T"] else "FAILED") + "; disclosed before freeze: about +0.27 %; T_CMB record row " + nstr(P["wave1|T_CMB"], 10))  # frozen round-p annotation: the hub pin closed form at 6f9c2560 (what pin:wave1|T_CMB held when FREEZE_2026-10-02p was cut), not the live precision table, whose pin row now carries its record twin eta:T_CMB (TRACE 19)
 mW = L["m_Z_MeV"] * sqrt(1 - L["sin2_theta_W_MSbar"])
 emitz(s, "HEP tree m_W = m_Z sqrt(1 - sin^2 theta_W(MSbar))", "FSOT m_Z, sin^2 theta_W leaves", mW, "80369.2", "13.3", "FSOT", "radiative corrections absent; disclosed before freeze: about -0.5 %; m_W leaf " + nstr(L["m_W_MeV"], 9))
 rec(s, "Particle_Physics, Nuclear_Physics", "no own-physics derivation", "frozen")
