@@ -358,6 +358,10 @@ int main(int argc, char** argv) {
         {"pin:wave1|alpha_s(M_Z)", "alpha_s_MZ"}, {"pin:wave2|1/alpha_em", "alpha_inv"},
         {"pin:validation_suite|sin2_theta_W", "sin2_theta_W_MSbar"}, {"pin:wave2|sin2_theta_W", "sin2_theta_W_MSbar"},
         {"pin:wave2|M_W/M_Z", "m_W_over_m_Z"}, {"pin:wave5|Gamma_Z/M_Z", "leaf:Gamma_Z/M_Z"},
+        // mass ratios and moments: seed mass leaves; a_e through the g_e leaf
+        {"pin:wave2|m_pi/m_p", "m_pi_over_m_p"}, {"pin:wave4|mu_p_muN", "mu_p_over_mu_N"},
+        {"pin:wave4|m_c/m_b", "m_c_over_m_b"}, {"pin:wave10|m_mu/m_e", "m_mu_over_m_e"},
+        {"pin:wave10|(g-2)/2_electron", "g_e_leaf"},
         //@@NEXT
     };
     std::map<std::string, size_t> idx;
