@@ -345,7 +345,7 @@ int main(int argc, char** argv) {
   // twin (same ref_key, so same quantity and convention). The legacy hub closed form stays in the Engine only for
   // hub pin parity; it no longer scores the row. Targets, sigmas, gate and scoring are unchanged.
   // Pins with no twin of the same quantity are not listed: H0 vs Planck2018, H0 vs SH0ES (twin is H0_CMB_BAO),
-  // Dm2_21/Dm2_32 (twin od1 is Dm2_21/Dm2_31).
+  // Dm2_21/Dm2_32 is mapped from od1 (Dm2_21/Dm2_31) by the exact NO identity r/(1-r).
   {
     const std::vector<std::pair<std::string, std::string>> twin = {
         // CKM: Wolfenstein seed leaves (leaves::ckm_double) replace the wave4/8/9 hub closed forms
@@ -364,6 +364,8 @@ int main(int argc, char** argv) {
         {"pin:wave10|(g-2)/2_electron", "g_e_leaf"},
         // cosmology: AF-3 eta route for T_CMB
         {"pin:wave1|T_CMB", "eta:T_CMB"},
+        // neutrino: Dm2_21/Dm2_32 = r/(1-r) exactly in NO (Dm2_32 = Dm2_31 - Dm2_21), r = record od1 (Dm2_21/Dm2_31, OD-1)
+        {"pin:wave4|Dm2_21/Dm2_32", "od1_to_32"},
     };
     std::map<std::string, size_t> idx;
     for (size_t i = 0; i < outs.size(); ++i) idx[outs[i].id] = i;
@@ -375,6 +377,12 @@ int main(int argc, char** argv) {
       R v; std::string how;
       if (tid == "g_e_leaf") {  // a_e = |g_e|/2 - 1 through the g_e seed leaf (circuit_designer/dialin_1023b/REPORT.md)
         v = m::fabs(leafv.at("g_e")) / R(2) - R(1); how = "|g_e|/2 - 1 of leaf g_e";
+      } else if (tid == "od1_to_32") {  // exact NO identity; od1 must be the dm2_21_over_dm2_31 record
+        auto ti = idx.find("od1:wave4|Dm2_21/Dm2_31");
+        if (ti == idx.end() || !outs[ti->second].record || outs[ti->second].ref_key != "dm2_21_over_dm2_31") {
+          std::fprintf(stderr, "od1 is not the dm2_21_over_dm2_31 record\n"); return 2; }
+        const R r = outs[ti->second].vr;
+        v = r / (R(1) - r); how = "r/(1-r) of record od1 (Dm2_32 = Dm2_31 - Dm2_21, NO)";
       } else {
         auto ti = idx.find(tid);
         if (ti == idx.end()) { std::fprintf(stderr, "no twin row %s\n", tid.c_str()); return 2; }
