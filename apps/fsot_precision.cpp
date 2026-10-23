@@ -354,6 +354,10 @@ int main(int argc, char** argv) {
         // nuclear: AME2020-route binding leaves and the frozen bd/mu leaves (FREEZE_2026-10-02ax, -ay)
         {"pin:wave3|Deuteron_binding_MeV", "leaf:Deuteron_binding_MeV"}, {"pin:wave8|He4_binding_MeV", "B_He4_MeV"},
         {"pin:wave8|Triton_binding_MeV", "B_H3_MeV"}, {"pin:wave8|Deuteron_mu_muN", "leaf:Deuteron_mu_muN"},
+        // electroweak/QCD couplings: seed alpha_s, inverse-alpha leaf, MS-bar sin2 leaf, W/Z mass leaves, Gamma_Z leaf
+        {"pin:wave1|alpha_s(M_Z)", "alpha_s_MZ"}, {"pin:wave2|1/alpha_em", "alpha_inv"},
+        {"pin:validation_suite|sin2_theta_W", "sin2_theta_W_MSbar"}, {"pin:wave2|sin2_theta_W", "sin2_theta_W_MSbar"},
+        {"pin:wave2|M_W/M_Z", "m_W_over_m_Z"}, {"pin:wave5|Gamma_Z/M_Z", "leaf:Gamma_Z/M_Z"},
         //@@NEXT
     };
     std::map<std::string, size_t> idx;
