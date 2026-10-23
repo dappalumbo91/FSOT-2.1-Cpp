@@ -49,6 +49,9 @@ def main() -> int:
         sys.exit(f"hub commit {commit[:8]} != pinned")
     sys.path.insert(0, str(hub / "scripts"))
     sys.path.insert(0, str(hub / "vendor"))
+    sys.path.insert(0, str(ROOT / "tools"))
+    import authority_rung6  # noqa: E402  owner-approved canonical QM rung 6 (2026-10-23)
+    authority_rung6.install(hub / "vendor" / "fsot_compute.py")
     import fsot_ledger_a_lib as la  # noqa: E402
     import fsot_api_predict_lib as pl  # noqa: E402
     import fsot_compute as fc  # noqa: E402

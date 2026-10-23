@@ -11710,10 +11710,10 @@ star_trek_transporter_live_panel_benchmark.json	max_gate_scalar_name	None
 star_trek_transporter_live_panel_benchmark.json	worst_effective_scalar_name	None
 star_trek_transporter_live_panel_benchmark.json	lb_records	1574
 star_trek_transporter_live_panel_benchmark.json	lb_unrouted	0
-star_trek_transporter_live_panel_benchmark.json	lb_computed_match	1574
-star_trek_transporter_live_panel_benchmark.json	lb_scalar_match	1574
-star_trek_transporter_live_panel_benchmark.json	lb_error_match	1574
-star_trek_transporter_live_panel_benchmark.json	lb_max_rel_dev	0.0
+star_trek_transporter_live_panel_benchmark.json	lb_computed_match	1553
+star_trek_transporter_live_panel_benchmark.json	lb_scalar_match	1527
+star_trek_transporter_live_panel_benchmark.json	lb_error_match	1527
+star_trek_transporter_live_panel_benchmark.json	lb_max_rel_dev	2.0865936358914973e-05
 statistical_mechanics_public_panel_benchmark.json	records	24
 statistical_mechanics_public_panel_benchmark.json	pooled_median_error_pct	0.0
 statistical_mechanics_public_panel_benchmark.json	scalar_count	23
@@ -13837,6 +13837,6 @@ zoology_extension_benchmark.json	worst_effective_scalar_name	None
 #summary	green	477
 #summary	lb	140088
 #summary	unrouted	7168
-#summary	c_match	14634
-#summary	s_match	3667
-#summary	e_match	4223
+#summary	c_match	14613
+#summary	s_match	3620
+#summary	e_match	4176

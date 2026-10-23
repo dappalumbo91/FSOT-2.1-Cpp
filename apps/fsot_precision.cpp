@@ -179,6 +179,7 @@ int main(int argc, char** argv) {
       pinv[std::string(name) + "|" + r.name] = {R(r.computed), r.measured ? R(*r.measured) : R(0)};
 
   // owner decision OD-2 (audit/OWNER_DECISIONS_2026-10-02i.md): same Engine, Quantum_Mechanics D_eff = 6 (pre-FE23A2).
+  // Since 2026-10-23 rung 6 is canonical for QM in derived_D_eff (engine.hpp), so eng6 == eng; kept for od2 row ids.
   // The pinned Engine `eng` above is unchanged and is the one the pin-parity checks use.
   Engine<R> eng6;
   for (auto& d : eng6.DOMAINS) if (d.name == "Quantum_Mechanics") d.D_eff = 6;

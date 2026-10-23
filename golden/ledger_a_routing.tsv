@@ -7,11 +7,11 @@ A	Omega_b_h2	0.022461621418647423	0.40957272529022054	AEB2AD
 A	Omega_DM_h2	0.12058582009653829	0.48818341378191005	AEB2AD
 A	First_Riemann_zero	14.1344904113302	0.0016606647963751638	AEB2AD
 A	Dark_energy_wa	-0.808109771581081	0.0012092044401624655	AEB2AD
-A	sigma_8	0.8083818394107467	0.335120279774792	AEB2AD
+A	sigma_8	0.8109398793679822	0.019741170264809305	AEB2AD
 A	N_eff	3.045713454288361	0.009407278780006465	AEB2AD
 A	inv_alpha_em	137.03619755957268	0.0001441661845670506	AEB2AD
 A	sin2_theta_W	0.23118997459960097	0.01298564155308206	AEB2AD
-A	Omega_Lambda	0.6827360381352781	0.28683538260872193	AEB2AD
+A	Omega_Lambda	0.6846092323976674	0.013256550654683778	AEB2AD
 A	m_pi_over_m_p	0.14441868531025276	0.028599397582199954	AEB2AD
 A	m_mu_over_m_e	206.76828192272686	0.0001363473684786862	AEB2AD
 A	m_tau_over_m_e	3477.51317969453	0.0009541304200222667	AEB2AD
@@ -4681,7 +4681,7 @@ REC	S_final	Neuroscience		0.2734642953133369	0.273672	0.076082	fsot_correction	N
 REC	S_final	Neuroscience		0.2766133319522832	0.276824	0.076082	fsot_correction	Neuroscience	0.941271
 REC	S_final	Neuroscience		0.3377084056797209	0.337965	0.076082	fsot_correction	Neuroscience	0.941271
 REC	S_final	Neuroscience		0.3408641893343235	0.341124	0.076082	fsot_correction	Neuroscience	0.941271
-REC	T2_us	Quantum_Mechanics		1.0	1.000768	0.076804	fsot_correction	Quantum_Mechanics	0.950197
+REC	T2_us	Quantum_Mechanics		1.0	1.000772	0.077215	fsot_correction	Quantum_Mechanics	0.955289
 REC	Tc_K	Condensed_Matter		38.0	38.028911	0.076082	fsot_correction	Condensed_Matter	0.941271
 REC	V_cs	Cosmology	fsot_scaled (FSOT residual law) — authority seed disclosed	0.97349	0.973885	0.040607	fsot_correction	Cosmology	-0.502377
 REC	Water	Cosmology	E ^ 2 + PI ^ 3 + PHI ^ 4	45.25	45.268375	0.040607	fsot_correction	Cosmology	-0.502377
@@ -5420,7 +5420,7 @@ REC	chirp_mass_msun	Particle_Astrophysics		43.0	43.017989	0.041835	fsot_correcti
 REC	chirp_mass_msun	Particle_Astrophysics		56.0	56.023427	0.041835	fsot_correction	Particle_Astrophysics	-0.517567
 REC	chromosome_index	Biology		12.0	12.006263	0.052189	fsot_correction	Biology	-0.645664
 REC	chrstart	Biology		39688093.0	39708805.6574	0.052189	fsot_correction	Biology	-0.645664
-REC	chsh_classical_bound	Quantum_Mechanics	2  [CHSH classical]	2.0	2.001536	0.076804	fsot_correction	Quantum_Mechanics	0.950197
+REC	chsh_classical_bound	Quantum_Mechanics	2  [CHSH classical]	2.0	2.001544	0.077215	fsot_correction	Quantum_Mechanics	0.955289
 REC	citation_count	Psychology		18.0	18.013552	0.075287	fsot_correction	Psychology	0.931427
 REC	cited_by_count	Psychology		681.0	681.512702	0.075287	fsot_correction	Psychology	0.931427
 REC	cited_by_count	Psychology		829.0	829.624127	0.075287	fsot_correction	Psychology	0.931427
@@ -8877,7 +8877,7 @@ REC	gamma_energy_keV	Nuclear_Physics		2094.9	2096.48558	0.075688	fsot_correction
 REC	gamma_energy_keV	Nuclear_Physics		2541.3	2543.22345	0.075688	fsot_correction	Nuclear_Physics	0.936388
 REC	gamma_energy_keV	Nuclear_Physics		4438.94	4442.299728	0.075688	fsot_correction	Nuclear_Physics	0.936388
 REC	gamma_energy_keV	Nuclear_Physics		15100.0	15111.428831	0.075688	fsot_correction	Nuclear_Physics	0.936388
-REC	gate_pair_coupling	Quantum_Mechanics		0.043599802456	0.043633	0.076804	fsot_correction	Quantum_Mechanics	0.950197
+REC	gate_pair_coupling	Quantum_Mechanics		0.043599802456	0.043633	0.077215	fsot_correction	Quantum_Mechanics	0.955289
 REC	gdp_current_usd	Economics		1179121535535.41	1179986441127.0942	0.073352	fsot_correction	Economics	0.907488
 REC	gdp_per_capita	Biology		1697.707	1698.593009	0.052189	fsot_correction	Biology	-0.645664
 REC	gdp_per_capita	Biology		3364.926	3366.682108	0.052189	fsot_correction	Biology	-0.645664
@@ -11964,7 +11964,7 @@ REC	tpsa	Chemistry	C9H15N5O	88.9	88.968645	0.077215	fsot_correction	Chemistry	0.
 REC	tpsa	Chemistry	CHCl3	0.0	0.0	0.0	fsot_correction	Chemistry	0.955289
 REC	tpsa	Chemistry	FNa	0.0	0.0	0.0	fsot_correction	Chemistry	0.955289
 REC	tpsa	Chemistry	O2Si	34.1	34.12633	0.077215	fsot_correction	Chemistry	0.955289
-REC	traverse_readiness	Quantum_Mechanics		0.0020754245250242504	0.002077	0.076804	fsot_correction	Quantum_Mechanics	0.950197
+REC	traverse_readiness	Quantum_Mechanics		0.0020754245250242504	0.002077	0.077215	fsot_correction	Quantum_Mechanics	0.955289
 REC	triple_product_m3_kev_s	Particle_Physics		3e+21	3.00230411600473e+21	0.076804	fsot_correction	Particle_Physics	0.950197
 REC	tsnr2_bgs	Astrophysics		74.9219741821289	74.975659	0.071654	fsot_correction	Astrophysics	0.886481
 REC	tsnr2_bgs	Astrophysics		119.8260726928711	119.911933	0.071654	fsot_correction	Astrophysics	0.886481
@@ -13060,7 +13060,7 @@ REC	value	Oceanography		422.0	422.203968	0.048334	fsot_correction	Oceanography	-
 REC	value	Particle_Physics		0.12	0.120092	0.076804	fsot_correction	Particle_Physics	0.950197
 REC	value	Psychology		0.5	0.500376	0.075287	fsot_correction	Psychology	0.931427
 REC	value	Quantum_Gravity		0.8083643469265045	0.808713	0.043139	fsot_correction	Quantum_Gravity	-0.533706
-REC	value	Quantum_Mechanics		0.04360659370643209	0.04364	0.076804	fsot_correction	Quantum_Mechanics	0.950197
+REC	value	Quantum_Mechanics		0.04360659370643209	0.04364	0.077215	fsot_correction	Quantum_Mechanics	0.955289
 REC	value_function_beta	Psychology		0.88	0.880663	0.075287	fsot_correction	Psychology	0.931427
 REC	w0	Cosmology	fsot_scaled (FSOT residual law); authority wave formula disclosed	-1.03	-1.030418	0.040607	fsot_correction	Cosmology	-0.502377
 REC	water_level_shift_m	Oceanography		5.077	5.079454	0.048334	fsot_correction	Oceanography	-0.597972

@@ -64,6 +64,9 @@ def main() -> int:
         sys.exit(f"hub data commit {commit[:8]} != pinned {want[:8]}")
     sys.path.insert(0, str(hub / "scripts"))
     sys.path.insert(0, str(hub / "vendor"))
+    sys.path.insert(0, str(ROOT / "tools"))
+    import authority_rung6  # noqa: E402  owner-approved canonical QM rung 6 (2026-10-23)
+    authority_rung6.install(hub / "vendor" / "fsot_compute.py")
     import fsot_compute as fc  # noqa: E402
     from benchmark_margin_lib import analyze_benchmark  # noqa: E402
 

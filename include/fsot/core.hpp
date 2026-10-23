@@ -139,7 +139,13 @@ template <class R> class CoreEngine {
 
   // D_eff(g) = round(5 * 5^{g/(G-1)}): evaluated here in R (the authority uses IEEE double; no rung is
   // near a .5 tie, and tests/test_core.cpp checks all 35 against fsot::derived_D_eff).
+  // Canonical rung for Quantum_Mechanics = 6 (owner decision, Damian Palumbo 2026-10-23 10:44 EDT: "Yes, make rung 6
+  // canonical for QM"). Evidence: QM's continuous rung 5*5^{1/19} = 5.442 is the nearest-to-tie rung in the nest
+  // (frac .442), and QM was read at two rungs in one build (pins D5, OD-2 records D6). The 408-run fold-swap test
+  // (TRACER dialin/swap/foldswap.tsv, TRACE.md sec. 3) found QM->D6 gains pin:wave3|m_H/m_W and pin:wave3||V_us|
+  // and loses no row (111/135, 91/91). Applied here in the rung rule, so pins and records share one rung.
   int derived_D_eff(int i) const {
+    if (streq(NEST[i].name, "Quantum_Mechanics")) return 6;
     const R x = R(5) * exp(log(R(5)) * R(NEST[i].generation) / R(NEST_GENERATIONS - 1));
     return int(floor(x + R(1) / R(2)).to_int());
   }

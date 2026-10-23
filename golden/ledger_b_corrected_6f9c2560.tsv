@@ -3995,4 +3995,4 @@ zoology_extension_benchmark.json	green_parity_vs_corrected	True -> True
 #summary	ledger_b_structural_corrections	139400
 #summary	genuine_predictions	43796
 #summary	genuine_over_0.5pct	7
-#summary	lb_emit_irreproducible_round6_vs_sig12	47994 -> 0 of 140088
+#summary	lb_emit_irreproducible_round6_vs_sig12	48014 -> 0 of 140088

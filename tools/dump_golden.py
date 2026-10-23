@@ -44,7 +44,8 @@ def main() -> int:
     ap.add_argument("--authority", required=True)
     ap.add_argument("--out", default=str(ROOT / "golden" / "golden_AEB2AD.tsv"))
     a = ap.parse_args()
-    mod, sha = load(Path(a.authority))
+    import authority_rung6  # owner-approved canonical QM rung 6 (2026-10-23)
+    mod, sha = authority_rung6.install(Path(a.authority))
     mp = mod.mp
     s = lambda v: mp.nstr(v, 50, strip_zeros=False, min_fixed=1, max_fixed=0)
     lines = [f"#pin\t{sha}\t{mp.prec}"]
