@@ -376,7 +376,15 @@ int main(int argc, char** argv) {
       const RefRow& rr = refs.at(p.ref_key);
       R v; std::string how;
       if (tid == "g_e_leaf") {  // a_e = |g_e|/2 - 1 through the g_e seed leaf (circuit_designer/dialin_1023b/REPORT.md)
-        v = m::fabs(leafv.at("g_e")) / R(2) - R(1); how = "|g_e|/2 - 1 of leaf g_e";
+        // Guard: only ref_key a_e, and only from the g_e_abs record twin (row g_e, route leaf). Anything else exits 2.
+        auto gi = idx.find("g_e");
+        if (p.ref_key != "a_e" || gi == idx.end() || !outs[gi->second].record || outs[gi->second].ref_key != "g_e_abs" ||
+            outs[gi->second].route != "leaf") {
+          std::fprintf(stderr, "g_e_leaf route may only feed ref_key a_e from the g_e_abs record twin (row %s, ref %s)\n", pid.c_str(),
+                       p.ref_key.c_str());
+          return 2;
+        }
+        v = m::fabs(outs[gi->second].vr) / R(2) - R(1); how = "|g_e|/2 - 1 of leaf g_e";
       } else if (tid == "od1_to_32") {  // exact NO identity; od1 must be the dm2_21_over_dm2_31 record
         auto ti = idx.find("od1:wave4|Dm2_21/Dm2_31");
         if (ti == idx.end() || !outs[ti->second].record || outs[ti->second].ref_key != "dm2_21_over_dm2_31") {
