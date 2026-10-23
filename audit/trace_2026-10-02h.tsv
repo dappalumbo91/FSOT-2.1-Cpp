@@ -30,13 +30,13 @@ Gamma_Z/M_Z (G_F route, round f H1)	2	m_Z leaf [GeV]	91.1873703594	91.188	0.002	
 Gamma_Z/M_Z (G_F route, round f H1)	3	m_W leaf [GeV]	80.3687519242	80.3692	0.0133	PDG 2024	-5.5752	0.03369	ok	
 Gamma_Z/M_Z (G_F route, round f H1)	4	s2_OS = 1 - m_W^2/m_Z^2	0.223207427119	0.223209492843	0.0002593	PDG 2024 m_W, m_Z	-9.2546	0.007965	ok	
 Gamma_Z/M_Z (G_F route, round f H1)	5	Delta alpha_lep (1+2 loop)	0.0314983607416	0.0314977	1.5e-6	Steinhauser 3-loop as quoted in hep-ph/0311148 eq. inputs	20.977	0.4405	ok	sigma here = size of the omitted 3-loop term (about 1.5e-6), not a published uncertainty
-Gamma_Z/M_Z (G_F route, round f H1)	6	Delta alpha_had^(5) H1 (constituent quark loop)	0.0241044885083	0.02783	6.0e-5	PDG 2024 EW review	-1.3387e+5	62.09	BREAK	non-perturbative region; see Delta alpha_had trace
+Gamma_Z/M_Z (G_F route, round f H1)	6	Delta alpha_had^(5) H1 (constituent quark loop)	0.0241044885083	0.027609	0.000112	PDG 2024 EW review	-1.2693e+5	31.29	BREAK	non-perturbative region; see Delta alpha_had trace
 Gamma_Z/M_Z (G_F route, round f H1)	7	Delta rho (one loop x QCD)	0.00829539970377	-	-	no physical counterpart	-	-	no reference	no directly published counterpart
 Gamma_Z/M_Z (G_F route, round f H1)	8	Delta r (round f)	0.0296225422128	0.03685	0.0002	PDG 2024 EW review	-1.9613e+5	36.14	beyond	
 Gamma_Z/M_Z (G_F route, round f H1)	9	G_F	1.15871442992e-5	1.1663787e-5	6.0e-12	CODATA 2022	-6571.0	1.277e+4	beyond	
 Gamma_Z/M_Z (G_F route, round f H1)	10	Gamma_Z/M_Z (A1 width, round f)	0.0270845326114	0.0273665394569	2.523e-5	PDG 2024 (derived)	-10305.0	11.18	beyond	
 Delta alpha_had (H1 decomposition)	1	constituent light-quark mass m_p/3 [GeV]	0.31275736309	-	-	no physical counterpart	-	-	no reference	no FSOT current-quark absolute mass; constituent mass is a model choice
-Delta alpha_had (H1 decomposition)	2	Delta alpha_had^(5) H1	0.0241044885083	0.02783	6.0e-5	PDG 2024 EW review (dispersive, e+e- data)	-1.3387e+5	62.09	BREAK	the light-quark (u,d,s) region below ~2 GeV is non-perturbative (rho, omega, phi resonances)
+Delta alpha_had (H1 decomposition)	2	Delta alpha_had^(5) H1	0.0241044885083	0.027609	0.000112	KNT19 dispersive e+e- 0.027609(112) (arXiv:1911.00367 Eq. 3.15; DHMZ19 contested); was PDG 2024 EW review GAPP fit 0.02783(6)	-1.2693e+5	31.29	BREAK	the light-quark (u,d,s) region below ~2 GeV is non-perturbative (rho, omega, phi resonances)
 Deuteron_mu_muN	1	G^4	0.703909203234	-	-	no physical counterpart	-	-	no reference	
 Deuteron_mu_muN	2	Poof	0.153482214894	-	-	no physical counterpart	-	-	no reference	
 Deuteron_mu_muN	3	G^4 + Poof	0.857391418128	0.8574382335	2.2e-9	CODATA 2022	-54.599	2.128e+4	BREAK	

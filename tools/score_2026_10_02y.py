@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+# TRACER dial-in 2026-10-23 (local branch tracer-dialin): Delta alpha_had^(5)(M_Z) target = KNT19 0.027609(112)
+#   [Keshavarzi, Nomura, Teubner, PRD 101 (2020) 014029, arXiv:1911.00367 Eq. (3.15), v1=v2, no erratum]. DHMZ19 (EPJC 80 (2020) 241, arXiv:1908.00921) CONTESTED:
+#   v3 abstract 276.0(1.0)e-4 vs Eq.(8)/Table 2 275.3(1.0)e-4 (v1/v2 276.1 vs 275.4). Old target PDG2024 EW-review GAPP fit 0.02783(6), not dispersive.
+#   Previous value 0.02783(6) = PDG 2024 EW review (Erler, GAPP fit, MS-bar alpha^-1(M_Z)=127.930(8) converted), NOT a dispersive e+e- value;
+#   kept for reproducibility at commit 3466e8d. Gate tolerance 0.00029 unchanged.
 """Round-y scores under audit/FREEZE_2026-10-02y (committed first). z-only, dimensionless ratios; FSOT-only inputs.
 Y-1 soliton in proton units (audit/heavy_2026-10-02y_K*.json); Y-2 Gamma_Z/M_Z: round-f one-loop chain with the quark-pole duality Delta alpha_had.
   python tools/score_2026_10_02y.py --hub <FSOT-2.1-Lean @ 6f9c2560> --out audit/score_2026-10-02y.tsv
@@ -58,13 +63,13 @@ def dah_pole(alpha, MZ, asMZ, mtau, mpi, mK, mc, mb):
     d, AS = dalpha_had(alpha, MZ, asMZ, mtau, mpi, mK, mcp, mbp)
     return d, mcp, mbp
 dv, mcpv, mbpv = dah_pole(1 / 137.035999177, 91.1880, 0.1180, 1.77693, 0.13957039, 0.493677, 1.2730, 4.183)
-VAL = abs(dv - 0.02783) <= 0.00029
-emitz("VALIDATION", "Y-2 Delta alpha_had^(5), quark-pole thresholds, PDG inputs", "PDG m_c 1.2730, m_b 4.183, alpha_s 0.1180", float("%.10g" % dv), "0.02783", "0.00006", 0, "", "pole m_c %.5g, m_b %.5g GeV; round-i gate |dev| <= 0.00029: %s" % (mcpv, mbpv, "PASS" if VAL else "FAIL"))
+VAL = abs(dv - 0.027609) <= 0.00029
+emitz("VALIDATION", "Y-2 Delta alpha_had^(5), quark-pole thresholds, PDG inputs", "PDG m_c 1.2730, m_b 4.183, alpha_s 0.1180", float("%.10g" % dv), "0.027609", "0.000112", 0, "", "pole m_c %.5g, m_b %.5g GeV; round-i gate |dev| <= 0.00029: %s" % (mcpv, mbpv, "PASS" if VAL else "FAIL"))
 MW, MZ, al = L["m_W_MeV"] / 1000, L["m_Z_MeV"] / 1000, 1 / L["alpha_inv"]; s2 = 1 - (MW / MZ) ** 2; c2 = 1 - s2
 mt = L["m_t_over_m_W"] * MW; mb = mt / P["wave8|m_t/m_b"]; mc = L["m_c_over_m_b"] * mb; mH = L["m_H_MeV"] / 1000; als = 2 * (F.POOF / F.PSI_CON) ** 2; mtau = L["m_tau_MeV"] / 1000
 dF, mcp, mbp = dah_pole(float(al), float(MZ), float(als), float(mtau), float(L["m_pi_pm_MeV"]) / 1000, float(L["m_K_pm_MeV"]) / 1000, float(mc), float(mb))
 dh = mpf(float("%.10g" % dF))
-emitz(s, "Y-2 Delta alpha_had^(5) (duality, quark-pole thresholds, FSOT inputs)", "FSOT alpha, M_Z, alpha_s, m_tau, m_pi, m_K, m_c, m_b", dh, "0.02783", "0.00006", 0, "FSOT · measured", "FSOT pole m_c %.5g, m_b %.5g GeV; validation %s" % (mcp, mbp, "passed" if VAL else "FAILED"))
+emitz(s, "Y-2 Delta alpha_had^(5) (duality, quark-pole thresholds, FSOT inputs)", "FSOT alpha, M_Z, alpha_s, m_tau, m_pi, m_K, m_c, m_b", dh, "0.027609", "0.000112", 0, "FSOT · measured", "FSOT pole m_c %.5g, m_b %.5g GeV; validation %s" % (mcp, mbp, "passed" if VAL else "FAILED"))
 z3 = zeta(3); ml = [X.kg_to_GeV(L["m_e_kg"]), X.kg_to_GeV(L["m_mu_kg"]), mtau]
 da_lep = al / (3 * pi) * sum(ln(MZ**2 / m**2) - mpf(5) / 3 for m in ml) + (al / pi) ** 2 * sum(ln(MZ**2 / m**2) / 4 + z3 - mpf(5) / 24 for m in ml)
 da_top = -(al / pi) * mpf(4) / 45 * MZ**2 / mt**2

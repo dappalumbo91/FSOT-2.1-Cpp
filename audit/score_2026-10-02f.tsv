@@ -11,8 +11,8 @@ pieces	Delta alpha_lep 1-loop	e, mu, tau leaves	0.0314207928792193	-	-	-	info	-
 pieces	Delta alpha_lep 2-loop		7.75678623334451e-5	-	-	-	info	-	
 pieces	Delta alpha_lep	1+2 loop (3-loop ~1.5e-6 omitted)	0.0314983607415527	-	-	-	info	-	
 pieces	Delta alpha_top	m_t leaf	-5.75142576224705e-5	-	-	-	info	-	
-pieces	Delta alpha_had^(5) H1	FSOT quark loop (1+alpha_s/pi), constituent light quarks	0.0241044885083033	0.02783	6.0e-5	62.092	FAIL	-133867.0	H1 primary vs PDG dispersive
-pieces	Delta alpha_had^(5) H2	PDG 2024 EXTERNAL	0.02783	-	-	-	info	-	
+pieces	Delta alpha_had^(5) H1	FSOT quark loop (1+alpha_s/pi), constituent light quarks	0.0241044885083033	0.027609	0.000112	31.29	FAIL	-126934.0	H1 primary vs KNT19 dispersive e+e- 0.027609(112) (PRD 101 014029 Eq. 3.15); was PDG2024 EW-review GAPP fit 0.02783(6), not dispersive
+pieces	Delta alpha_had^(5) H2	PDG 2024 EXTERNAL	0.027609	-	-	-	info	-	
 pieces	Delta r_rem top log	Hioki eq. 2.3 non-leading	-0.00518404666220519	-	-	-	info	-	
 pieces	Delta r_rem Higgs	Hioki eq. 2.4	0.00151036971984936	-	-	-	info	-	
 pieces	Delta r_rem constant	(alpha/4pi s2)[6+(7-4s2)/(2s2) ln c2]	0.00662001706834608	-	-	-	info	-	
@@ -33,24 +33,24 @@ dr_H1	R_ell	held-out (G_F-free)	20.799276238534	20.770990552	0.02187	1.2934	FAIL
 dr_H1	Gamma_W GeV	round-d unchanged	2.0815998650085	2.085	0.042	0.080956	PASS	-1630.76	
 dr_H1	tau_mu s	round-d unchanged	2.22615268060111e-6	2.1969811e-6	2.2e-12	13260.0	FAIL	13278.0	
 dr_H1	tau_tau s (external BR)	round-d unchanged	2.94810628630538e-13	2.903e-13	5.0e-16	9.0213	FAIL	15537.8	
-dr_H2	Delta rho	3G_F m_t^2/(8sqrt2 pi^2) x QCD 0.892663; iterations 20	0.00832643998454907	-	-	-	info	-	
-dr_H2	-(c2/s2) Delta rho		-0.0289771573555237	-	-	-	info	-	
-dr_H2	Delta alpha (lep+had+top)		0.0592708464839303	-	-	-	info	-	
-dr_H2	Delta r	secondary (external Delta alpha_had)	0.0332400292543968	0.03685	0.0002	18.05	FAIL	-97963.9	vs PDG SM evaluation (consistency anchor)
-dr_H2	1/alpha(M_Z) on-shell	alpha/(1-Delta alpha_lep-Delta alpha_had)	128.905877972847	-	-	-	info	-	
-dr_H2	1/alpha(M_Z) incl. top	alpha/(1-Delta alpha)	128.913759496606	-	-	-	info	-	
-dr_H2	G_F GeV^-2	secondary (external Delta alpha_had)	1.16305018497583e-5	1.1663787e-5	6.0e-12	5547.5	FAIL	-2853.72	frozen-pending new row
-dr_H2	Gamma_Z/M_Z (A1)	round-d A1 unchanged, G_F(H2)	0.0271858793248396	0.0273665394569	2.523e-5	7.1606	FAIL	-6601.5	frozen-pending; never confirmed (external)
-dr_H2	Gamma_Z GeV (A1)		2.47900884654142	2.4955	0.0023	7.1701	FAIL	-6608.36	
-dr_H2	Gamma_inv MeV	held-out	496.223889226933	499.2	1.5	1.9841	FAIL	-5961.76	
-dr_H2	Gamma_ll MeV	held-out	83.3128258793057	83.984	0.086	7.8044	FAIL	-7991.69	
+dr_H2	Delta rho	3G_F m_t^2/(8sqrt2 pi^2) x QCD 0.892663; iterations 20	0.00832459236157693	-	-	-	info	-	
+dr_H2	-(c2/s2) Delta rho		-0.0289707273732387	-	-	-	info	-	
+dr_H2	Delta alpha (lep+had+top)		0.0590498464839303	-	-	-	info	-	
+dr_H2	Delta r	secondary (external Delta alpha_had)	0.0330254592366818	0.03685	0.0002	19.123	FAIL	-103787.0	vs PDG SM evaluation (consistency anchor)
+dr_H2	1/alpha(M_Z) on-shell	alpha/(1-Delta alpha_lep-Delta alpha_had)	128.936162928662	-	-	-	info	-	
+dr_H2	1/alpha(M_Z) incl. top	alpha/(1-Delta alpha)	128.944044452422	-	-	-	info	-	
+dr_H2	G_F GeV^-2	secondary (external Delta alpha_had)	1.16279210610376e-5	1.1663787e-5	6.0e-12	5977.7	FAIL	-3074.98	frozen-pending new row
+dr_H2	Gamma_Z/M_Z (A1)	round-d A1 unchanged, G_F(H2)	0.0271798468241248	0.0273665394569	2.523e-5	7.3997	FAIL	-6821.93	frozen-pending; never confirmed (external)
+dr_H2	Gamma_Z GeV (A1)		2.47845875866454	2.4955	0.0023	7.4092	FAIL	-6828.79	
+dr_H2	Gamma_inv MeV	held-out	496.113777983861	499.2	1.5	2.0575	FAIL	-6182.34	
+dr_H2	Gamma_ll MeV	held-out	83.2943389039292	83.984	0.086	8.0193	FAIL	-8211.82	
 dr_H2	sigma_had0 nb	held-out (G_F-free)	41.4715699556933	41.481	0.033	0.28576	PASS	-227.334	
 dr_H2	R_ell	held-out (G_F-free)	20.799276238534	20.770990552	0.02187	1.2934	FAIL	1361.79	
-dr_H2	Gamma_W GeV	round-d unchanged	2.08938893444185	2.085	0.042	0.1045	PASS	2105.0	
-dr_H2	tau_mu s	round-d unchanged	2.20958579149123e-6	2.1969811e-6	2.2e-12	5729.4	FAIL	5737.28	
-dr_H2	tau_tau s (external BR)	round-d unchanged	2.92616666358546e-13	2.903e-13	5.0e-16	4.6333	FAIL	7980.25	
+dr_H2	Gamma_W GeV	round-d unchanged	2.08892530256554	2.085	0.042	0.09346	PASS	1882.64	
+dr_H2	tau_mu s	round-d unchanged	2.21056672469212e-6	2.1969811e-6	2.2e-12	6175.3	FAIL	6183.77	
+dr_H2	tau_tau s (external BR)	round-d unchanged	2.92746571883948e-13	2.903e-13	5.0e-16	4.8931	FAIL	8427.74	
 dr_H1	tau_tau s (FSOT BR, round e)	round-e BR row unchanged, G_F(H1)	2.94909449107515e-13	2.903e-13	5.0e-16	9.2189	FAIL	15878.2	frozen-pending
-dr_H2	tau_tau s (FSOT BR, round e)	round-e BR row unchanged, G_F(H2)	2.9271475141971e-13	2.903e-13	5.0e-16	4.8295	FAIL	8318.12	frozen-pending
+dr_H2	tau_tau s (FSOT BR, round e)	round-e BR row unchanged, G_F(H2)	2.92844700489424e-13	2.903e-13	5.0e-16	5.0894	FAIL	8765.76	frozen-pending
 lost_routes	H-2 mu E/PI (historical #1036)	hub 5d0d5f31 2026-07-10, vendor/cosmology/database	0.865255979432265	0.8574382335	2.2e-9	3.5535e+6	FAIL	9117.56	historical version; current #1036 already scored
 lost_routes	He-3 mu -(E-GAMMA) (historical #1037)	hub 5d0d5f31 2026-07-10, vendor/cosmology/database	-2.14106616355751	-2.1276253498	1.7e-9	7.9064e+6	FAIL	6317.28	historical version; current #1037 already scored
 lost_routes	mu_n, mu_t, f_pi, P_D, Delta r, alpha(M_Z)	40 repos, all refs, full history (678 raw hits inspected)	-	-	-	-	n/a	-	NONE FOUND; tau_pi+ and two-nucleon mu_d not possible

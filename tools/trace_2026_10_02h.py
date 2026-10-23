@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+# TRACER dial-in 2026-10-23 (local branch tracer-dialin): Delta alpha_had^(5)(M_Z) target = KNT19 0.027609(112)
+#   [Keshavarzi, Nomura, Teubner, PRD 101 (2020) 014029, arXiv:1911.00367 Eq. (3.15), v1=v2, no erratum]. DHMZ19 (EPJC 80 (2020) 241, arXiv:1908.00921) CONTESTED:
+#   v3 abstract 276.0(1.0)e-4 vs Eq.(8)/Table 2 275.3(1.0)e-4 (v1/v2 276.1 vs 275.4). Old target PDG2024 EW-review GAPP fit 0.02783(6), not dispersive.
+#   Previous value 0.02783(6) = PDG 2024 EW review (Erler, GAPP fit, MS-bar alpha^-1(M_Z)=127.930(8) converted), NOT a dispersive e+e- value;
+#   kept for reproducibility at commit 3466e8d. Gate tolerance 0.00029 unchanged.
 """Round-h TRACE tables (diagnostics, not branches): for each non-confirmed record row and open gap, the computation chain from the seeds,
 S = K(T1+T2+T3) and the domain leaves down to the observable, with the cited counterpart at every step that has one. The FIRST step whose
 deviation exceeds the reference uncertainty is marked BREAK. Existing frozen values only; nothing is tuned.
@@ -98,7 +103,7 @@ step(r, 10, "Gamma_Z/M_Z (A1 width, round f)", sf[("dr_H1", "Gamma_Z/M_Z (A1)")]
 r = "Delta alpha_had (H1 decomposition)"
 mlight = MeV(L["m_p_kg"]) / 3000
 step(r, 1, "constituent light-quark mass m_p/3 [GeV]", mlight, note="no FSOT current-quark absolute mass; constituent mass is a model choice")
-step(r, 2, "Delta alpha_had^(5) H1", sf[("pieces", "Delta alpha_had^(5) H1")], ch, sh, "PDG 2024 EW review (dispersive, e+e- data)", "the light-quark (u,d,s) region below ~2 GeV is non-perturbative (rho, omega, phi resonances)")
+step(r, 2, "Delta alpha_had^(5) H1", sf[("pieces", "Delta alpha_had^(5) H1")], ch, sh, "KNT19 dispersive e+e- 0.027609(112) (arXiv:1911.00367 Eq. 3.15; DHMZ19 contested); was PDG 2024 EW review GAPP fit 0.02783(6)", "the light-quark (u,d,s) region below ~2 GeV is non-perturbative (rho, omega, phi resonances)")
 # ---- Deuteron mu
 r = "Deuteron_mu_muN"
 step(r, 1, "G^4", F.G_CAT**4); step(r, 2, "Poof", F.POOF)

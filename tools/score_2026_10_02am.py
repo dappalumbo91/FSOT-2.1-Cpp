@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+# TRACER dial-in 2026-10-23 (local branch tracer-dialin): Delta alpha_had^(5)(M_Z) target = KNT19 0.027609(112)
+#   [Keshavarzi, Nomura, Teubner, PRD 101 (2020) 014029, arXiv:1911.00367 Eq. (3.15), v1=v2, no erratum]. DHMZ19 (EPJC 80 (2020) 241, arXiv:1908.00921) CONTESTED:
+#   v3 abstract 276.0(1.0)e-4 vs Eq.(8)/Table 2 275.3(1.0)e-4 (v1/v2 276.1 vs 275.4). Old target PDG2024 EW-review GAPP fit 0.02783(6), not dispersive.
+#   Previous value 0.02783(6) = PDG 2024 EW review (Erler, GAPP fit, MS-bar alpha^-1(M_Z)=127.930(8) converted), NOT a dispersive e+e- value;
+#   kept for reproducibility at commit 3466e8d. Gate tolerance 0.00029 unchanged.
 """Round-am scores under audit/FREEZE_2026-10-02am (committed first). z-only, dimensionless ratios; FSOT-only inputs.
 AM-1 kmax-14 shell-average job status (tools/shellavg_bg_2026_10_02am.py); AM-2 Delta alpha_had via soliton-radius VMD + LMD duality couplings -> G_F, Gamma_Z/M_Z (round-z chain).
   python tools/score_2026_10_02am.py --hub <FSOT-2.1-Lean @ 6f9c2560> --out audit/score_2026-10-02am.tsv
@@ -58,8 +63,8 @@ def am2(alpha, MZ, asMZ, mtau, MV, mK, mc, mb):
     c_ = cont(alpha, MZ, asMZ, mtau, s0, mK, mcp, mbp)
     return float("%.10g" % (res["rho"] + res["omega"] + c_)), res, c_, gee, s0
 dv, rv, cv, gv, s0v = am2(1 / 137.035999177, 91.1880, 0.1180, 1.77693, 0.77526, 0.493677, 1.2730, 4.183)
-VAL = abs(dv - 0.02783) <= 0.00029
-emitz("VALIDATION", "AM-2 Delta alpha_had^(5), VMD+LMD route with PDG M_rho and round-y PDG inputs", "PDG M_rho 0.77526, alpha_s 0.1180, m_c 1.2730, m_b 4.183", dv, "0.02783", "0.00006", 0, "",
+VAL = abs(dv - 0.027609) <= 0.00029
+emitz("VALIDATION", "AM-2 Delta alpha_had^(5), VMD+LMD route with PDG M_rho and round-y PDG inputs", "PDG M_rho 0.77526, alpha_s 0.1180, m_c 1.2730, m_b 4.183", dv, "0.027609", "0.000112", 0, "",
       "rho %.6g + omega %.6g + continuum (u,d from s0 = %.5g GeV^2) %.7g; Gamma_ee(rho) %.4g keV (PDG 7.04(6)), Gamma_ee(omega) %.4g keV (PDG 0.60(2)); round-i gate |dev| <= 0.00029: %s" % (rv["rho"], rv["omega"], s0v, cv, gv["rho"] * 1e6, gv["omega"] * 1e6, "PASS" if VAL else "FAIL"))
 MW, MZ, al = L["m_W_MeV"] / 1000, L["m_Z_MeV"] / 1000, 1 / L["alpha_inv"]; s2 = 1 - (MW / MZ) ** 2; c2 = 1 - s2
 mt = L["m_t_over_m_W"] * MW; mb = mt / P["wave8|m_t/m_b"]; mc = L["m_c_over_m_b"] * mb; mH = L["m_H_MeV"] / 1000; als = 2 * (F.POOF / F.PSI_CON) ** 2; mtau = L["m_tau_MeV"] / 1000
@@ -70,7 +75,7 @@ info(s, "AM-2 rho + omega narrow terms (LMD duality couplings)", "c_rho 3/2, c_o
      "rho %.6g, omega %.6g (= 2 alpha c_V/(3 pi) x M_Z^2/(M_Z^2 - M_V^2), M_V-independent at LO); Gamma_ee(rho) %.4g keV, Gamma_ee(omega) %.4g keV byproducts" % (rF["rho"], rF["omega"], gF_["rho"] * 1e6, gF_["omega"] * 1e6))
 info(s, "AM-2 continuum (u,d from s0, s from 4 m_K^2, pole c, b)", "round-y duality integrand", cF, "FSOT · intermediate", "")
 dh = mpf(dF)
-emitz(s, "AM-2 Delta alpha_had^(5)(M_Z^2) (VMD+LMD, FSOT)", "FSOT only", dh, "0.02783", "0.00006", 0, "FSOT · measured", "validation %s; round-y quark-pole duality gave z 8.1" % ("passed" if VAL else "FAILED"))
+emitz(s, "AM-2 Delta alpha_had^(5)(M_Z^2) (VMD+LMD, FSOT)", "FSOT only", dh, "0.027609", "0.000112", 0, "FSOT · measured", "validation %s; round-y quark-pole duality gave z 8.1" % ("passed" if VAL else "FAILED"))
 z3 = zeta(3); ml = [X.kg_to_GeV(L["m_e_kg"]), X.kg_to_GeV(L["m_mu_kg"]), mtau]
 da_lep = al / (3 * pi) * sum(ln(MZ**2 / m**2) - mpf(5) / 3 for m in ml) + (al / pi) ** 2 * sum(ln(MZ**2 / m**2) / 4 + z3 - mpf(5) / 24 for m in ml)
 da_top = -(al / pi) * mpf(4) / 45 * MZ**2 / mt**2

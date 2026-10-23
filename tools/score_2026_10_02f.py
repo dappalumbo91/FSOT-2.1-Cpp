@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
+# TRACER dial-in 2026-10-23 (local branch tracer-dialin): Delta alpha_had^(5)(M_Z) target = KNT19 0.027609(112)
+#   [Keshavarzi, Nomura, Teubner, PRD 101 (2020) 014029, arXiv:1911.00367 Eq. (3.15), v1=v2, no erratum]. DHMZ19 (EPJC 80 (2020) 241, arXiv:1908.00921) CONTESTED:
+#   v3 abstract 276.0(1.0)e-4 vs Eq.(8)/Table 2 275.3(1.0)e-4 (v1/v2 276.1 vs 275.4). Old target PDG2024 EW-review GAPP fit 0.02783(6), not dispersive.
+#   Previous value 0.02783(6) = PDG 2024 EW review (Erler, GAPP fit, MS-bar alpha^-1(M_Z)=127.930(8) converted), NOT a dispersive e+e- value;
+#   kept for reproducibility at commit 3466e8d. Gate tolerance 0.00029 unchanged.
 """Scoring under docs/freezes/DERIVATIONS_2026-10-02f (committed first): Delta r and alpha(M_Z) from FSOT leaves (H1 FSOT-only hadronic primary,
-H2 PDG 0.02783 secondary), self-consistent G_F, round-d/e constructions rerun unchanged, historical sec. 67 versions found by the lost-route search.
+H2 KNT19 0.027609 secondary), self-consistent G_F, round-d/e constructions rerun unchanged, historical sec. 67 versions found by the lost-route search.
 
   python tools/score_2026_10_02f.py --hub <FSOT-2.1-Lean @ 6f9c2560> --out audit/score_2026-10-02f.tsv
 """
@@ -31,7 +36,7 @@ da_lep2 = (al / pi) ** 2 * sum(ln(MZ**2 / m**2) / 4 + z3 - mpf(5) / 24 for m in 
 da_lep = da_lep1 + da_lep2
 da_top = -(al / pi) * mpf(4) / 45 * MZ**2 / mt**2
 quarks = [("u", mpf(2) / 3, mlight), ("d", -mpf(1) / 3, mlight), ("s", -mpf(1) / 3, mlight), ("c", mpf(2) / 3, mc), ("b", -mpf(1) / 3, mb)]
-da_had = {"H1": al / (3 * pi) * sum(3 * Q**2 * (ln(MZ**2 / m**2) - mpf(5) / 3) for _, Q, m in quarks) * (1 + als / pi), "H2": mpf("0.02783")}
+da_had = {"H1": al / (3 * pi) * sum(3 * Q**2 * (ln(MZ**2 / m**2) - mpf(5) / 3) for _, Q, m in quarks) * (1 + als / pi), "H2": mpf("0.027609")}
 # Delta r_rem (G_F-independent)
 rem_toplog = -(al / (16 * pi * s2)) * 4 * (c2 / s2 - mpf(1) / 3 - 3 * mb**2 / (s2 * MZ**2)) * ln(mt / MZ)
 rem_higgs = 11 * al / (24 * pi * s2) * ln(mH / MZ)
@@ -44,7 +49,7 @@ info(sec, "m_c GeV", "m_c/m_b leaf * m_b", mc); info(sec, "m_H GeV", "leaf", mH)
 info(sec, "alpha_s(M_Z)", "seed 2(POOF/psi_con)^2", als)
 info("pieces", "Delta alpha_lep 1-loop", "e, mu, tau leaves", da_lep1); info("pieces", "Delta alpha_lep 2-loop", "", da_lep2)
 info("pieces", "Delta alpha_lep", "1+2 loop (3-loop ~1.5e-6 omitted)", da_lep); info("pieces", "Delta alpha_top", "m_t leaf", da_top)
-emit("pieces", "Delta alpha_had^(5) H1", "FSOT quark loop (1+alpha_s/pi), constituent light quarks", da_had["H1"], *ref("Delta_alpha_had5_MZ"), "H1 primary vs PDG dispersive")
+emit("pieces", "Delta alpha_had^(5) H1", "FSOT quark loop (1+alpha_s/pi), constituent light quarks", da_had["H1"], *ref("Delta_alpha_had5_MZ"), "H1 primary vs KNT19 dispersive e+e- 0.027609(112) (PRD 101 014029 Eq. 3.15); was PDG2024 EW-review GAPP fit 0.02783(6), not dispersive")
 info("pieces", "Delta alpha_had^(5) H2", "PDG 2024 EXTERNAL", da_had["H2"])
 info("pieces", "Delta r_rem top log", "Hioki eq. 2.3 non-leading", rem_toplog); info("pieces", "Delta r_rem Higgs", "Hioki eq. 2.4", rem_higgs)
 info("pieces", "Delta r_rem constant", "(alpha/4pi s2)[6+(7-4s2)/(2s2) ln c2]", rem_const); info("pieces", "Delta r_rem", "sum", rem)

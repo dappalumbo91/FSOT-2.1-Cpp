@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+# TRACER dial-in 2026-10-23 (local branch tracer-dialin): Delta alpha_had^(5)(M_Z) target = KNT19 0.027609(112)
+#   [Keshavarzi, Nomura, Teubner, PRD 101 (2020) 014029, arXiv:1911.00367 Eq. (3.15), v1=v2, no erratum]. DHMZ19 (EPJC 80 (2020) 241, arXiv:1908.00921) CONTESTED:
+#   v3 abstract 276.0(1.0)e-4 vs Eq.(8)/Table 2 275.3(1.0)e-4 (v1/v2 276.1 vs 275.4). Old target PDG2024 EW-review GAPP fit 0.02783(6), not dispersive.
+#   Previous value 0.02783(6) = PDG 2024 EW review (Erler, GAPP fit, MS-bar alpha^-1(M_Z)=127.930(8) converted), NOT a dispersive e+e- value;
+#   kept for reproducibility at commit 3466e8d. Gate tolerance 0.00029 unchanged.
 """Round-i branch scoring under audit/FREEZE_2026-10-02i (committed first). Order fixed by the freeze: PDG-input validations of HAD-1 and
 HAD-2, then FSOT-input scores, then GZ-1 H1-i with the HAD-2 Delta alpha_had. GZ-1 building blocks are copied verbatim from
 tools/score_2026_10_02h.py (FREEZE_2026-10-02h). Record values are not changed.
@@ -143,9 +148,9 @@ VAL1 = fabs(v_mrho - mpf("775.26")) / mpf("775.26") <= mpf("0.05")
 info(sec, "HAD-1 VALIDATED", "", mpf(1 if VAL1 else 0), "1 = pass, 0 = fail")
 dv, ASv = dalpha_had(float(alC), 91.1880, 0.1180, 1.77693, 0.13957039, 0.493677, 1.86966, 5.27941)
 info(sec, "HAD-2 alpha_s(m_tau) (4-loop, PDG alpha_s(M_Z))", "check vs PDG 0.314(14)", f10(ASv(1.77693)))
-emit(sec, "HAD-2 Delta alpha_had^(5) (duality, PDG inputs)", "PDG masses, alpha_s 0.1180", f10(dv), mpf("0.02783"), mpf("0.00006"),
+emit(sec, "HAD-2 Delta alpha_had^(5) (duality, PDG inputs)", "PDG masses, alpha_s 0.1180", f10(dv), mpf("0.027609"), mpf("0.000112"),
      "validation criterion |dev| <= 0.00029")
-VAL2 = abs(dv - 0.02783) <= 0.00029
+VAL2 = abs(dv - 0.027609) <= 0.00029
 info(sec, "HAD-2 VALIDATED", "", mpf(1 if VAL2 else 0), "1 = pass, 0 = fail (then nothing from HAD-2 is confirmable)")
 if a.validate_only:
     write(); print("validation only; VAL1 =", VAL1, "VAL2 =", VAL2); sys.exit(0)
@@ -162,7 +167,7 @@ dF, ASF = dalpha_had(float(al), float(MZ), float(als), float(mtau), float(L["m_p
                      float(L["m_D_pm_MeV"]) / 1000, 5.27941)
 info("HAD-2", "alpha_s(m_tau) (4-loop from FSOT alpha_s seed)", "", f10(ASF(float(mtau))))
 dhF = f10(dF)
-emit("HAD-2", "Delta alpha_had^(5) (duality, FSOT inputs; m_B external)", "FSOT alpha, M_Z, alpha_s, m_tau, m_pi, m_K, m_D", dhF, mpf("0.02783"), mpf("0.00006"),
+emit("HAD-2", "Delta alpha_had^(5) (duality, FSOT inputs; m_B external)", "FSOT alpha, M_Z, alpha_s, m_tau, m_pi, m_K, m_D", dhF, mpf("0.027609"), mpf("0.000112"),
      "validation " + ("passed" if VAL2 else "FAILED: not confirmable"))
 dl = dalep(al, MZ, [X.kg_to_GeV(L["m_e_kg"]), X.kg_to_GeV(L["m_mu_kg"]), mtau])
 ds = d_s(L["sin2_theta_W_MSbar"], als); s2leaf = 1 - (MW / MZ) ** 2

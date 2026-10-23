@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+# TRACER dial-in 2026-10-23 (local branch tracer-dialin): Delta alpha_had^(5)(M_Z) target = KNT19 0.027609(112)
+#   [Keshavarzi, Nomura, Teubner, PRD 101 (2020) 014029, arXiv:1911.00367 Eq. (3.15), v1=v2, no erratum]. DHMZ19 (EPJC 80 (2020) 241, arXiv:1908.00921) CONTESTED:
+#   v3 abstract 276.0(1.0)e-4 vs Eq.(8)/Table 2 275.3(1.0)e-4 (v1/v2 276.1 vs 275.4). Old target PDG2024 EW-review GAPP fit 0.02783(6), not dispersive.
+#   Previous value 0.02783(6) = PDG 2024 EW review (Erler, GAPP fit, MS-bar alpha^-1(M_Z)=127.930(8) converted), NOT a dispersive e+e- value;
+#   kept for reproducibility at commit 3466e8d. Gate tolerance 0.00029 unchanged.
 """Round-x scores under audit/FREEZE_2026-10-02x (committed first). z-only scoring against observations; FSOT-only inputs.
 X-1 energy-cutoff sea sum (audit/ecut_2026-10-02x.jsonl); X-2 DP gap-equation M(0) and the soliton at M(0) (audit/gap_2026-10-02x.json from tools/gap_2026_10_02x.py, audit/heavy_2026-10-02x_K*.json);
 X-3 Gamma_Z/M_Z step trace (round-i GZ-1 chain, sensitivity to the Delta alpha_had step).
@@ -80,12 +85,12 @@ def chain(dh):
 c, sg = ref("Gamma_Z_over_M_Z")
 emitz(s, "step 1: record pin phi^5/e^6 (bare, no physics)", "pin", P["wave5|Gamma_Z/M_Z"], c, sg, 0, "measured", "the record row; a closed form without a physics route")
 dhF = col("audit/score_2026-10-02i.tsv", "HAD-2", "Delta alpha_had^(5) (duality, FSOT inputs")
-emitz(s, "step 2: Delta alpha_had^(5) (HAD-2 duality, FSOT inputs; m_B external)", "round i", dhF, "0.02783", "0.00006", 0, "measured (dispersive e+e- data)", "first step that diverges: the light-quark resonance region; HAD-2 validation with PDG inputs also fails (z 18.4)")
-gF, GF, drF, _ = chain(dhF); gP, GP, drP, _ = chain(mpf("0.02783"))
+emitz(s, "step 2: Delta alpha_had^(5) (HAD-2 duality, FSOT inputs; m_B external)", "round i", dhF, "0.027609", "0.000112", 0, "measured: KNT19 dispersive e+e- 0.027609(112); was PDG2024 EW-review GAPP fit 0.02783(6)", "first step that diverges: the light-quark resonance region; HAD-2 validation with PDG inputs also fails (z 18.4)")
+gF, GF, drF, _ = chain(dhF); gP, GP, drP, _ = chain(mpf("0.027609"))
 info(s, "step 3: Delta r (ACFW, with step 2)", "round-i chain", drF, "model-computed", "with the measured Delta alpha_had: " + nstr(drP, 8))
 emitz(s, "step 4: G_F (with step 2)", "round-i chain", GF, *ref("G_F_GeVm2"), 0, "measured", "with the measured Delta alpha_had: " + nstr(GP, 10))
 emitz(s, "step 5: Gamma_Z/M_Z physics route (with step 2)", "round-i GZ-1 chain", gF, c, sg, 0, "measured", "reproduces round i")
-info(s, "sensitivity: Gamma_Z/M_Z shift from replacing step 2 by the measured Delta alpha_had (in units of the Gamma_Z/M_Z sigma)", "chain(0.02783) - chain(HAD-2)", (gP - gF) / sg, "diagnostic",
+info(s, "sensitivity: Gamma_Z/M_Z shift from replacing step 2 by the measured Delta alpha_had (in units of the Gamma_Z/M_Z sigma)", "chain(KNT19 0.027609) - chain(HAD-2)", (gP - gF) / sg, "diagnostic",
      "Gamma_Z/M_Z with measured Delta alpha_had = " + nstr(gP, 10) + " (information only, not FSOT)")
 rec(s, "external items in the physics route", "flag for owner", "m_B = 5.27941 GeV threshold (HAD-2); Freitas and ACFW SM parametrisation coefficients (theory, not data); record row stays open")
 rec("GATE", "record rows of the 91", "unchanged", "z-only; no record row recomputed")

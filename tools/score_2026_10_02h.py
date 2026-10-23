@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+# TRACER dial-in 2026-10-23 (local branch tracer-dialin): Delta alpha_had^(5)(M_Z) target = KNT19 0.027609(112)
+#   [Keshavarzi, Nomura, Teubner, PRD 101 (2020) 014029, arXiv:1911.00367 Eq. (3.15), v1=v2, no erratum]. DHMZ19 (EPJC 80 (2020) 241, arXiv:1908.00921) CONTESTED:
+#   v3 abstract 276.0(1.0)e-4 vs Eq.(8)/Table 2 275.3(1.0)e-4 (v1/v2 276.1 vs 275.4). Old target PDG2024 EW-review GAPP fit 0.02783(6), not dispersive.
+#   Previous value 0.02783(6) = PDG 2024 EW review (Erler, GAPP fit, MS-bar alpha^-1(M_Z)=127.930(8) converted), NOT a dispersive e+e- value;
+#   kept for reproducibility at commit 3466e8d. Gate tolerance 0.00029 unchanged.
 """Round-h branch scoring under audit/FREEZE_2026-10-02h (committed first). Order fixed by the freeze: GZ-1 validations V1, V2 (PDG/CODATA
 inputs only), then the branches GZ-1 (H1, H2), DM-R1, T-1, MUD-1. Record values are not changed.
 
@@ -61,8 +66,8 @@ def dalep(al, MZ, masses):
 
 # ---- (1) validations, PDG/CODATA inputs only
 sec = "validation"; alC = 1 / mpf("137.035999177")
-dlv = dalep(alC, mpf("91.1880"), [mpf("0.51099895e-3"), mpf("0.1056583755"), mpf("1.77693")]); dav = dlv + mpf("0.02783")
-info(sec, "Delta alpha (lep+had)", "round-f lepton formula with PDG masses + 0.02783", dav)
+dlv = dalep(alC, mpf("91.1880"), [mpf("0.51099895e-3"), mpf("0.1056583755"), mpf("1.77693")]); dav = dlv + mpf("0.027609")
+info(sec, "Delta alpha (lep+had)", "round-f lepton formula with PDG masses + KNT19 0.027609", dav)
 V1 = mw_acfw(mpf("125.10"), mpf("172.61"), mpf("91.1880"), dav, mpf("0.1180"))
 emit(sec, "V1 M_W GeV (ACFW)", "M_H 125.10, m_t 172.61, M_Z 91.1880, alpha_s 0.1180", V1, *ref("M_W_SM_GeV"), "criterion |dev| <= 0.006")
 V2 = gz_freitas(mpf("125.20"), mpf("172.57"), mpf("91.1880"), dav, mpf("0.1180"))
@@ -83,7 +88,7 @@ mt = L["m_t_over_m_W"] * MW; MH = L["m_H_MeV"] / 1000; als = 2 * (F.POOF / F.PSI
 dl = dalep(al, MZ, [X.kg_to_GeV(L["m_e_kg"]), X.kg_to_GeV(L["m_mu_kg"]), mtau])
 ds = d_s(L["sin2_theta_W_MSbar"], als); s2leaf = 1 - (MW / MZ) ** 2
 info("GZ-1", "Delta alpha_lep (FSOT)", "round-f formula (frozen 0.0314983607415527)", dl); info("GZ-1", "d_s = dlnGamma_Z/ds2 (Born)", "", ds)
-for H, dh, tag in (("H1", mpf("0.0241044885083033"), "PRIMARY (FSOT-only)"), ("H2", mpf("0.02783"), "secondary (external Delta alpha_had)")):
+for H, dh, tag in (("H1", mpf("0.0241044885083033"), "PRIMARY (FSOT-only)"), ("H2", mpf("0.027609"), "secondary (external Delta alpha_had)")):
     S = f"GZ-1_{H}"; dal = dl + dh
     dr, MWfit = delta_r(MH, mt, MZ, dal, als)
     GZ = GZ_ACFW

@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+# TRACER dial-in 2026-10-23 (local branch tracer-dialin): Delta alpha_had^(5)(M_Z) target = KNT19 0.027609(112)
+#   [Keshavarzi, Nomura, Teubner, PRD 101 (2020) 014029, arXiv:1911.00367 Eq. (3.15), v1=v2, no erratum]. DHMZ19 (EPJC 80 (2020) 241, arXiv:1908.00921) CONTESTED:
+#   v3 abstract 276.0(1.0)e-4 vs Eq.(8)/Table 2 275.3(1.0)e-4 (v1/v2 276.1 vs 275.4). Old target PDG2024 EW-review GAPP fit 0.02783(6), not dispersive.
+#   Previous value 0.02783(6) = PDG 2024 EW review (Erler, GAPP fit, MS-bar alpha^-1(M_Z)=127.930(8) converted), NOT a dispersive e+e- value;
+#   kept for reproducibility at commit 3466e8d. Gate tolerance 0.00029 unchanged.
 """Scoring under docs/freezes/DERIVATIONS_2026-10-02g (committed first): effective Z couplings (LEPTOP, hep-ph/9503308) in the Gamma_Z width
 construction. Order fixed by the freeze: (1) transcription checks against LEPTOP's own printed numbers, (2) pre-declared validation with
 PDG/CODATA inputs only, (3) FSOT inputs H1 (primary), H2 (secondary), H2c (diagnostic).
@@ -48,7 +53,7 @@ for nm, v, c, tol in [("delta_W alpha/alpha (eq. 307)", dWa, "0.0686", "0.00005"
 # ---- (2) validation, PDG/CODATA inputs only
 MZv = mpf("91.1876"); alv = 1 / mpf("137.035999177")
 dlv = dalep(alv, MZv, [mpf("0.51099895e-3"), mpf("0.1056583755"), mpf("1.77693")])
-vin = dict(G_mu=mpf("1.1663787e-5"), MZ=MZv, alpha_bar=alv / (1 - dlv - mpf("0.02783")), mt=mpf("172.57"), mH=mpf("125.20"),
+vin = dict(G_mu=mpf("1.1663787e-5"), MZ=MZv, alpha_bar=alv / (1 - dlv - mpf("0.027609")), mt=mpf("172.57"), mH=mpf("125.20"),
            alpha_s=mpf("0.1180"), mb=mpf("4.183"), mc=mpf("1.2730"), mtau=mpf("1.77693"))
 V = W.compute(vin); sec = "validation"
 info(sec, "Delta alpha_lep", "round-f 1+2 loop formula, PDG lepton masses", dlv); info(sec, "1/alpha_bar", "", 1 / vin["alpha_bar"])
@@ -77,8 +82,8 @@ info(sec, "m_Z GeV", "leaf", MZ); info(sec, "m_t GeV", "m_t/m_W leaf * m_W", mt)
 info(sec, "m_b(m_b) GeV", "m_t / wave8|m_t/m_b", mb); info(sec, "m_c(m_c) GeV", "m_c/m_b leaf * m_b", mc); info(sec, "m_tau GeV", "leaf", mtau)
 info(sec, "Delta alpha_lep", "round f formula (check vs frozen 0.0314983607415527)", dl)
 cases = {"H1": (mpf("1.15871442991562e-5"), mpf("0.0241044885083033"), "PRIMARY (FSOT-only)"),
-         "H2": (mpf("1.16305018497583e-5"), mpf("0.02783"), "secondary (external Delta alpha_had)"),
-         "H2c": (mpf("1.1663787e-5"), mpf("0.02783"), "diagnostic (external G_F and Delta alpha_had)")}
+         "H2": (mpf("1.16305018497583e-5"), mpf("0.027609"), "secondary (external Delta alpha_had)"),
+         "H2c": (mpf("1.1663787e-5"), mpf("0.027609"), "diagnostic (external G_F and Delta alpha_had)")}
 for H, (G, dh, tag) in cases.items():
     inp = dict(G_mu=G, MZ=MZ, alpha_bar=al / (1 - dl - dh), mt=mt, mH=mH, alpha_s=als, mb=mb, mc=mc, mtau=mtau)
     R = W.compute(inp); S = f"g_{H}"

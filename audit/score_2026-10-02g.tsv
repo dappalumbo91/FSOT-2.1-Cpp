@@ -10,17 +10,17 @@ transcription	delta_2^t V_A / (alpha_s(m_t)/pi) (eq. 313)	LEPTOP printed value a
 transcription	A(300/175) table 1 (eq. 316 text)	LEPTOP printed value at m_t=175	8.93157142857143	8.9	0.05	0.63143	PASS	3547.35	code check (tolerance = last printed digit)
 transcription	tau_b(300/175) table 1 (eq. 403 text)	LEPTOP printed value at m_t=175	1.246	1.245	0.0015	0.66667	PASS	803.213	code check (tolerance = last printed digit)
 validation	Delta alpha_lep	round-f 1+2 loop formula, PDG lepton masses	0.0314984349917543	-	-	-	info	-	
-validation	1/alpha_bar		128.905867808297	-	-	-	info	-	
-validation	s^2 (eq. 303)		0.231085720988918	-	-	-	info	-	
+validation	1/alpha_bar		128.936152764115	-	-	-	info	-	
+validation	s^2 (eq. 303)		0.231008132594121	-	-	-	info	-	
 validation	mhat_b(M_Z) GeV	2-loop running	2.88007677588034	-	-	-	info	-	
 validation	mhat_c(M_Z) GeV	2-loop running	0.64393286100947	-	-	-	info	-	
-validation	m_W GeV (eq. 31, info)		80.3655473603177	-	-	-	info	-	
-validation	Gamma_Z GeV	VALIDATION criterion |dev| <= 0.0009	2.49591908921027	2.494	0.0009	2.1323	FAIL	769.482	PDG 2024 SM prediction eq. 10.78
-validation	R_e	informational	20.7454125656531	20.736	0.01	0.94126	PASS	453.924	vs SM Table 10.5
-validation	R_b	informational	0.215742532580209	0.21583	2.0e-5	4.3734	FAIL	-405.261	vs SM Table 10.5
-validation	R_c	informational	0.172227463488698	0.17221	3.0e-5	0.58212	PASS	101.408	vs SM Table 10.5
-validation	sigma_had0 nb	informational	41.472528879774	41.481	0.009	0.94124	PASS	-204.217	vs SM Table 10.5
-validation	sin2_eff_lept	informational	0.231501856515222	0.23161	4.0e-5	2.7036	FAIL	-466.921	vs SM Table 10.5
+validation	m_W GeV (eq. 31, info)		80.3696082829055	-	-	-	info	-	
+validation	Gamma_Z GeV	VALIDATION criterion |dev| <= 0.0009	2.49612377062372	2.494	0.0009	2.3597	FAIL	851.552	PDG 2024 SM prediction eq. 10.78
+validation	R_e	informational	20.7467758668698	20.736	0.01	1.0776	FAIL	519.67	vs SM Table 10.5
+validation	R_b	informational	0.215739740482279	0.21583	2.0e-5	4.513	FAIL	-418.197	vs SM Table 10.5
+validation	R_c	informational	0.172231967841845	0.17221	3.0e-5	0.73226	PASS	127.564	vs SM Table 10.5
+validation	sigma_had0 nb	informational	41.4722119964609	41.481	0.009	0.97644	PASS	-211.856	vs SM Table 10.5
+validation	sin2_eff_lept	informational	0.231424282951314	0.23161	4.0e-5	4.6429	FAIL	-801.852	vs SM Table 10.5
 validation	VALIDATION	Gamma_Z within 0.0009 of 2.4940	0.0	-	-	-	info	-	1 = validated, 0 = not validated (then nothing confirmed)
 inputs	m_Z GeV	leaf	91.1873703594484	-	-	-	info	-	
 inputs	m_t GeV	m_t/m_W leaf * m_W	172.774004648301	-	-	-	info	-	
@@ -52,44 +52,44 @@ g_H1	R_c		0.172177099288785	0.1721	0.003	0.0257	PASS	447.991	frozen-pending
 g_H1	sigma_had0 nb		41.477427299316	41.481	0.033	0.10826	PASS	-86.1286	frozen-pending
 g_H1	sin2_eff_lept	held-out check	0.232367720738341	0.23149	0.00013	6.7517	FAIL	3791.61	held-out
 g_H2	G_mu GeV^-2	secondary (external Delta alpha_had)	1.16305018497583e-5	-	-	-	info	-	
-g_H2	1/alpha_bar		128.905877972847	-	-	-	info	-	
-g_H2	s^2 (eq. 303)		0.23203453248475	-	-	-	info	-	
+g_H2	1/alpha_bar		128.936162928662	-	-	-	info	-	
+g_H2	s^2 (eq. 303)		0.231956446261342	-	-	-	info	-	
 g_H2	Delta rho round-f form	3 G_mu m_t^2/(8sqrt2 pi^2) x QCD (comparison only)	0.00832643998454909	-	-	-	info	-	
-g_H2	rho_l = (2 g_Al)^2	effective	1.00528733039769	-	-	-	info	-	
-g_H2	V_A		2.03225947558761	-	-	-	info	-	
-g_H2	V_R		-0.471448240642355	-	-	-	info	-	
-g_H2	V_nu		3.1323046736783	-	-	-	info	-	
-g_H2	phi+delta phi (Zbb)		26.2915277227015	-	-	-	info	-	
+g_H2	rho_l = (2 g_Al)^2	effective	1.00528732658141	-	-	-	info	-	
+g_H2	V_A		2.03225801067794	-	-	-	info	-	
+g_H2	V_R		-0.471720183161931	-	-	-	info	-	
+g_H2	V_nu		3.13212751476596	-	-	-	info	-	
+g_H2	phi+delta phi (Zbb)		26.2990116892121	-	-	-	info	-	
 g_H2	mhat_b(M_Z) GeV		2.91320861514307	-	-	-	info	-	
 g_H2	mhat_c(M_Z) GeV		0.652558419477712	-	-	-	info	-	
-g_H2	m_W GeV (eq. 31, info only)	not scored in round g	80.3158950419719	-	-	-	info	-	
-g_H2	Gamma_Z/M_Z	LEPTOP effective couplings	0.0272649937723555	0.0273665394569	2.523e-5	4.0248	FAIL	-3710.58	never confirmed (external)
-g_H2	Gamma_Z GeV		2.48622308496783	2.4955	0.0023	4.0334	FAIL	-3717.46	frozen-pending
-g_H2	Gamma_inv MeV		500.270661506182	499.2	1.5	0.71377	PASS	2144.75	frozen-pending
-g_H2	Gamma_ll MeV		83.7061065147882	83.984	0.086	3.2313	FAIL	-3308.89	frozen-pending
-g_H2	R_ell		20.7275623874166	20.770990552	0.02187	1.9858	FAIL	-2090.81	frozen-pending
-g_H2	R_b		0.215760438799754	0.21629	0.00066	0.80237	PASS	-2448.39	frozen-pending
-g_H2	R_c		0.172174706919167	0.1721	0.003	0.024902	PASS	434.09	frozen-pending
-g_H2	sigma_had0 nb		41.4779229835923	41.481	0.033	0.093243	PASS	-74.1789	frozen-pending
-g_H2	sin2_eff_lept	held-out check	0.232441822601264	0.23149	0.00013	7.3217	FAIL	4111.72	held-out
+g_H2	m_W GeV (eq. 31, info only)	not scored in round g	80.3199841804066	-	-	-	info	-	
+g_H2	Gamma_Z/M_Z	LEPTOP effective couplings	0.0272672316565164	0.0273665394569	2.523e-5	3.9361	FAIL	-3628.8	never confirmed (external)
+g_H2	Gamma_Z GeV		2.48642715173964	2.4955	0.0023	3.9447	FAIL	-3635.68	frozen-pending
+g_H2	Gamma_inv MeV		500.270432161503	499.2	1.5	0.71362	PASS	2144.3	frozen-pending
+g_H2	Gamma_ll MeV		83.7097314787791	83.984	0.086	3.1892	FAIL	-3265.72	frozen-pending
+g_H2	R_ell		20.7289754197419	20.770990552	0.02187	1.9212	FAIL	-2022.78	frozen-pending
+g_H2	R_b		0.215757676830734	0.21629	0.00066	0.80655	PASS	-2461.15	frozen-pending
+g_H2	R_c		0.172179169654591	0.1721	0.003	0.02639	PASS	460.021	frozen-pending
+g_H2	sigma_had0 nb		41.4775342477109	41.481	0.033	0.10502	PASS	-83.5504	frozen-pending
+g_H2	sin2_eff_lept	held-out check	0.232363756899635	0.23149	0.00013	6.7212	FAIL	3774.49	held-out
 g_H2c	G_mu GeV^-2	diagnostic (external G_F and Delta alpha_had)	1.1663787e-5	-	-	-	info	-	
-g_H2c	1/alpha_bar		128.905877972847	-	-	-	info	-	
-g_H2c	s^2 (eq. 303)		0.231087358936324	-	-	-	info	-	
+g_H2c	1/alpha_bar		128.936162928662	-	-	-	info	-	
+g_H2c	s^2 (eq. 303)		0.231009769690578	-	-	-	info	-	
 g_H2c	Delta rho round-f form	3 G_mu m_t^2/(8sqrt2 pi^2) x QCD (comparison only)	0.00835026929212708	-	-	-	info	-	
-g_H2c	rho_l = (2 g_Al)^2	effective	1.00530195617215	-	-	-	info	-	
-g_H2c	V_A		2.03205815960602	-	-	-	info	-	
-g_H2c	V_R		-0.47493581327158	-	-	-	info	-	
-g_H2c	V_nu		3.12997221721275	-	-	-	info	-	
-g_H2c	phi+delta phi (Zbb)		26.3830912784093	-	-	-	info	-	
+g_H2c	rho_l = (2 g_Al)^2	effective	1.00530195250619	-	-	-	info	-	
+g_H2c	V_A		2.0320567564218	-	-	-	info	-	
+g_H2c	V_R		-0.475206135257095	-	-	-	info	-	
+g_H2c	V_nu		3.1297962382256	-	-	-	info	-	
+g_H2c	phi+delta phi (Zbb)		26.39059139894	-	-	-	info	-	
 g_H2c	mhat_b(M_Z) GeV		2.91320861514307	-	-	-	info	-	
 g_H2c	mhat_c(M_Z) GeV		0.652558419477712	-	-	-	info	-	
-g_H2c	m_W GeV (eq. 31, info only)	not scored in round g	80.3666147395059	-	-	-	info	-	
-g_H2c	Gamma_Z/M_Z	LEPTOP effective couplings	0.02737068043608	0.0273665394569	2.523e-5	0.16413	PASS	151.315	never confirmed (diagnostic)
-g_H2c	Gamma_Z GeV		2.49586037391493	2.4955	0.0023	0.15668	PASS	144.41	frozen-pending
-g_H2c	Gamma_inv MeV		501.710979562397	499.2	1.5	1.674	FAIL	5030.01	frozen-pending
-g_H2c	Gamma_ll MeV		83.9924621566963	83.984	0.086	0.098397	PASS	100.759	frozen-pending
-g_H2c	R_ell		20.7442662012943	20.770990552	0.02187	1.222	FAIL	-1286.62	frozen-pending
-g_H2c	R_b		0.215719692468855	0.21629	0.00066	0.8641	PASS	-2636.77	frozen-pending
-g_H2c	R_c		0.172230571336666	0.1721	0.003	0.043524	PASS	758.695	frozen-pending
-g_H2c	sigma_had0 nb		41.4737022500114	41.481	0.033	0.22114	PASS	-175.93	frozen-pending
-g_H2c	sin2_eff_lept	held-out check	0.231496216827181	0.23149	0.00013	0.047822	PASS	26.8557	held-out
+g_H2c	m_W GeV (eq. 31, info only)	not scored in round g	80.3706755399685	-	-	-	info	-	
+g_H2c	Gamma_Z/M_Z	LEPTOP effective couplings	0.0273729250194183	0.0273665394569	2.523e-5	0.2531	PASS	233.335	never confirmed (diagnostic)
+g_H2c	Gamma_Z GeV		2.49606505156711	2.4955	0.0023	0.24567	PASS	226.428	frozen-pending
+g_H2c	Gamma_inv MeV		501.710750437411	499.2	1.5	1.6738	FAIL	5029.55	frozen-pending
+g_H2c	Gamma_ll MeV		83.9962702756975	83.984	0.086	0.14268	PASS	146.103	frozen-pending
+g_H2c	R_ell		20.745629187827	20.770990552	0.02187	1.1597	FAIL	-1221.0	frozen-pending
+g_H2c	R_b		0.215716902371585	0.21629	0.00066	0.86833	PASS	-2649.67	frozen-pending
+g_H2c	R_c		0.172235075833648	0.1721	0.003	0.045025	PASS	784.868	frozen-pending
+g_H2c	sigma_had0 nb		41.473385835812	41.481	0.033	0.23073	PASS	-183.558	frozen-pending
+g_H2c	sin2_eff_lept	held-out check	0.231418646231931	0.23149	0.00013	0.54888	PASS	-308.237	held-out

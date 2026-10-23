@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+# TRACER dial-in 2026-10-23 (local branch tracer-dialin): Delta alpha_had^(5)(M_Z) target = KNT19 0.027609(112)
+#   [Keshavarzi, Nomura, Teubner, PRD 101 (2020) 014029, arXiv:1911.00367 Eq. (3.15), v1=v2, no erratum]. DHMZ19 (EPJC 80 (2020) 241, arXiv:1908.00921) CONTESTED:
+#   v3 abstract 276.0(1.0)e-4 vs Eq.(8)/Table 2 275.3(1.0)e-4 (v1/v2 276.1 vs 275.4). Old target PDG2024 EW-review GAPP fit 0.02783(6), not dispersive.
+#   Previous value 0.02783(6) = PDG 2024 EW review (Erler, GAPP fit, MS-bar alpha^-1(M_Z)=127.930(8) converted), NOT a dispersive e+e- value;
+#   kept for reproducibility at commit 3466e8d. Gate tolerance 0.00029 unchanged.
 """Round-aa scores under audit/FREEZE_2026-10-02aa (committed first). z-only, dimensionless ratios; FSOT-only inputs.
 AA-1 soliton with M/m_p from the proton-unit condensate reading (audit/heavy_2026-10-02aa_K12.json); AA-2 KSRF light-quark Delta alpha_had -> G_F, Gamma_Z/M_Z; AA-3 H0-free recombination temperature (information).
   python tools/score_2026_10_02aa.py --hub <FSOT-2.1-Lean @ 6f9c2560> --out audit/score_2026-10-02aa.tsv
@@ -81,12 +86,12 @@ def dah_ksrf(alpha, MZ, asMZ, mtau, Fpi, mK, mc, mb):
     AS0 = ns["AlphaS"](asMZ, MZ, mb, mc, mtau); mcp, mbp = pole(mc, AS0), pole(mb, AS0)
     return dalpha_ksrf(alpha, MZ, asMZ, mtau, Fpi, mK, mcp, mbp) + (mcp, mbp)
 kv = dah_ksrf(1 / 137.035999177, 91.1880, 0.1180, 1.77693, 0.09207, 0.493677, 1.2730, 4.183)
-VALK = abs(kv[0] - 0.02783) <= 0.00029
-emitz("VALIDATION", "AA-2 Delta alpha_had^(5), KSRF light quarks, PDG inputs", "PDG F_pi 92.07 MeV, m_c 1.2730, m_b 4.183, alpha_s 0.1180", float("%.10g" % kv[0]), "0.02783", "0.00006", 0, "", "rho+omega %.6g; s0 %.5g GeV^2; m_rho(KSRF) %.5g GeV; round-i gate |dev| <= 0.00029: %s" % (kv[1], kv[2], kv[3], "PASS" if VALK else "FAIL"))
+VALK = abs(kv[0] - 0.027609) <= 0.00029
+emitz("VALIDATION", "AA-2 Delta alpha_had^(5), KSRF light quarks, PDG inputs", "PDG F_pi 92.07 MeV, m_c 1.2730, m_b 4.183, alpha_s 0.1180", float("%.10g" % kv[0]), "0.027609", "0.000112", 0, "", "rho+omega %.6g; s0 %.5g GeV^2; m_rho(KSRF) %.5g GeV; round-i gate |dev| <= 0.00029: %s" % (kv[1], kv[2], kv[3], "PASS" if VALK else "FAIL"))
 
-VAL = abs(dv - 0.02783) <= 0.00029
+VAL = abs(dv - 0.027609) <= 0.00029
 info("VALIDATION", "Y-2 quark-pole validation (reference)", "PDG", float("%.10g" % dv), "", "round y: FAIL") if False else None
-emitz("VALIDATION", "AA-2 reference: Y-2 Delta alpha_had^(5), quark-pole thresholds, PDG inputs", "PDG m_c 1.2730, m_b 4.183, alpha_s 0.1180", float("%.10g" % dv), "0.02783", "0.00006", 0, "", "pole m_c %.5g, m_b %.5g GeV; round-i gate |dev| <= 0.00029: %s" % (mcpv, mbpv, "PASS" if VAL else "FAIL"))
+emitz("VALIDATION", "AA-2 reference: Y-2 Delta alpha_had^(5), quark-pole thresholds, PDG inputs", "PDG m_c 1.2730, m_b 4.183, alpha_s 0.1180", float("%.10g" % dv), "0.027609", "0.000112", 0, "", "pole m_c %.5g, m_b %.5g GeV; round-i gate |dev| <= 0.00029: %s" % (mcpv, mbpv, "PASS" if VAL else "FAIL"))
 MW, MZ, al = L["m_W_MeV"] / 1000, L["m_Z_MeV"] / 1000, 1 / L["alpha_inv"]; s2 = 1 - (MW / MZ) ** 2; c2 = 1 - s2
 mt = L["m_t_over_m_W"] * MW; mb = mt / P["wave8|m_t/m_b"]; mc = L["m_c_over_m_b"] * mb; mH = L["m_H_MeV"] / 1000; als = 2 * (F.POOF / F.PSI_CON) ** 2; mtau = L["m_tau_MeV"] / 1000
 dF, mcp, mbp = dah_pole(float(al), float(MZ), float(als), float(mtau), float(L["m_pi_pm_MeV"]) / 1000, float(L["m_K_pm_MeV"]) / 1000, float(mc), float(mb))
@@ -94,7 +99,7 @@ dhy = mpf(float("%.10g" % dF))
 Ffs = col("audit/score_2026-10-02p.tsv", "FSOT", "P-4 F_pi with lbar4") / 1000
 kf = dah_ksrf(float(al), float(MZ), float(als), float(mtau), float(Ffs), float(L["m_K_pm_MeV"]) / 1000, float(mc), float(mb)); dh = mpf(float("%.10g" % kf[0]))
 info(s, "Delta alpha_had^(5), round-y quark-pole duality (reference)", "FSOT", dhy, "FSOT · measured", "round y z 8.1; validation %s" % ("passed" if VAL else "FAILED"))
-emitz(s, "AA-2 Delta alpha_had^(5) (KSRF light quarks, FSOT inputs)", "FSOT alpha, M_Z, alpha_s, m_tau, P-4 F_pi, m_K, m_c, m_b", dh, "0.02783", "0.00006", 0, "FSOT · measured", "rho+omega %.6g; s0 %.5g GeV^2; m_rho(KSRF) %.5g GeV (m_rho/m_p byproduct); validation %s" % (kf[1], kf[2], kf[3], "passed" if VALK else "FAILED"))
+emitz(s, "AA-2 Delta alpha_had^(5) (KSRF light quarks, FSOT inputs)", "FSOT alpha, M_Z, alpha_s, m_tau, P-4 F_pi, m_K, m_c, m_b", dh, "0.027609", "0.000112", 0, "FSOT · measured", "rho+omega %.6g; s0 %.5g GeV^2; m_rho(KSRF) %.5g GeV (m_rho/m_p byproduct); validation %s" % (kf[1], kf[2], kf[3], "passed" if VALK else "FAILED"))
 z3 = zeta(3); ml = [X.kg_to_GeV(L["m_e_kg"]), X.kg_to_GeV(L["m_mu_kg"]), mtau]
 da_lep = al / (3 * pi) * sum(ln(MZ**2 / m**2) - mpf(5) / 3 for m in ml) + (al / pi) ** 2 * sum(ln(MZ**2 / m**2) / 4 + z3 - mpf(5) / 24 for m in ml)
 da_top = -(al / pi) * mpf(4) / 45 * MZ**2 / mt**2

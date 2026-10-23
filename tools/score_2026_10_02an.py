@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+# TRACER dial-in 2026-10-23 (local branch tracer-dialin): Delta alpha_had^(5)(M_Z) target = KNT19 0.027609(112)
+#   [Keshavarzi, Nomura, Teubner, PRD 101 (2020) 014029, arXiv:1911.00367 Eq. (3.15), v1=v2, no erratum]. DHMZ19 (EPJC 80 (2020) 241, arXiv:1908.00921) CONTESTED:
+#   v3 abstract 276.0(1.0)e-4 vs Eq.(8)/Table 2 275.3(1.0)e-4 (v1/v2 276.1 vs 275.4). Old target PDG2024 EW-review GAPP fit 0.02783(6), not dispersive.
+#   Previous value 0.02783(6) = PDG 2024 EW review (Erler, GAPP fit, MS-bar alpha^-1(M_Z)=127.930(8) converted), NOT a dispersive e+e- value;
+#   kept for reproducibility at commit 3466e8d. Gate tolerance 0.00029 unchanged.
 """Round-an scores under audit/FREEZE_2026-10-02an (committed first). z-only, dimensionless ratios; FSOT-only inputs.
 AN-1 level-B shell-average job status; AN-2 f_rho from two vector-correlator FESRs (FSOT alpha_s, finite rho width) -> Delta alpha_had, G_F, Gamma_Z/M_Z.
   python tools/score_2026_10_02an.py --hub <FSOT-2.1-Lean @ 6f9c2560> --out audit/score_2026-10-02an.tsv
@@ -97,8 +102,8 @@ for tag, w_, q_ in (("LO narrow (round-am limit)", False, False), ("+ alpha_s (n
     info("TRACE", "AN-2 trace, PDG inputs: " + tag, "PDG M_rho, F_pi, m_pi; round-y PDG inputs", r_["Gee"] * 1e6, "diagnostic",
          "Gamma_ee(rho) keV (PDG 7.04(6)); (f_rho Q_rho) %.5g GeV, s0/M^2 %.5g, s0 %.5g GeV^2, Gamma_rho %.4g GeV (PDG 0.1491); Delta alpha_had %.7g (rho %.6g, omega %.6g, continuum %.7g)" % (math.sqrt(r_["fQ2"]), r_["s0_over_M2"], r_["s0"], r_["Grho"], r_["d"], r_["rho"], r_["omega"], r_["cont"]))
 rec("TRACE", "AN-2 post-freeze correction (disclosed)", "applied before any result was seen", "the frozen Breit-Wigner normalisation on [4 m_pi^2, infinity) diverges logarithmically for Gamma(s) = g^2 p^3/(6 pi s) (integrand -> const/s); F is normalised on [4 m_pi^2, s0], the resonance region of the duality ansatz")
-V = an2(*PD); VAL = abs(V["d"] - 0.02783) <= 0.00029
-emitz("VALIDATION", "AN-2 Delta alpha_had^(5), FESR f_rho route with PDG inputs", "PDG M_rho, F_pi, m_pi; round-y PDG inputs", V["d"], "0.02783", "0.00006", 0, "", "round-i gate |dev| <= 0.00029: %s" % ("PASS" if VAL else "FAIL"))
+V = an2(*PD); VAL = abs(V["d"] - 0.027609) <= 0.00029
+emitz("VALIDATION", "AN-2 Delta alpha_had^(5), FESR f_rho route with PDG inputs", "PDG M_rho, F_pi, m_pi; round-y PDG inputs", V["d"], "0.027609", "0.000112", 0, "", "round-i gate |dev| <= 0.00029: %s" % ("PASS" if VAL else "FAIL"))
 emitz("TRACE", "AN-2 Gamma_ee(rho)/M_rho with PDG inputs (byproduct)", "PDG inputs", V["Gee"] / 0.77526, mpf("7.04e-6") / mpf("0.77526"), mpf("0.06e-6") / mpf("0.77526"), 0, "information, not a gate", "keV %.4g" % (V["Gee"] * 1e6))
 MW, MZ, al = L["m_W_MeV"] / 1000, L["m_Z_MeV"] / 1000, 1 / L["alpha_inv"]; s2 = 1 - (MW / MZ) ** 2; c2 = 1 - s2
 mt = L["m_t_over_m_W"] * MW; mb = mt / P["wave8|m_t/m_b"]; mc = L["m_c_over_m_b"] * mb; mH = L["m_H_MeV"] / 1000; als = 2 * (F.POOF / F.PSI_CON) ** 2; mtau = L["m_tau_MeV"] / 1000
@@ -109,7 +114,7 @@ info(s, "AN-2 inputs: M_V/m_p (soliton VMD), F_pi/m_p (round p)", "rounds ag, p"
 info(s, "AN-2 f_rho Q_rho / M_V (FESR, FSOT)", "two FESRs, FSOT alpha_s, finite width", math.sqrt(FS["fQ2"]) / float(MV), "FSOT · intermediate",
      "f_rho Q_rho %.5g GeV; s0/M_V^2 %.5g; Gamma_ee(rho) %.4g keV; Gamma_rho/M_V %.5g; rho %.6g, omega %.6g, continuum %.7g" % (math.sqrt(FS["fQ2"]), FS["s0_over_M2"], FS["Gee"] * 1e6, FS["Grho"] / float(MV), FS["rho"], FS["omega"], FS["cont"]))
 dh = mpf(FS["d"])
-emitz(s, "AN-2 Delta alpha_had^(5)(M_Z^2) (FESR f_rho, FSOT)", "FSOT only", dh, "0.02783", "0.00006", 0, "FSOT · measured", "validation %s; round am 0.02633548 (z 24.9)" % ("passed" if VAL else "FAILED"))
+emitz(s, "AN-2 Delta alpha_had^(5)(M_Z^2) (FESR f_rho, FSOT)", "FSOT only", dh, "0.027609", "0.000112", 0, "FSOT · measured", "validation %s; round am 0.02633548 (z 24.9)" % ("passed" if VAL else "FAILED"))
 z3 = zeta(3); ml = [X.kg_to_GeV(L["m_e_kg"]), X.kg_to_GeV(L["m_mu_kg"]), mtau]
 da_lep = al / (3 * pi) * sum(ln(MZ**2 / m**2) - mpf(5) / 3 for m in ml) + (al / pi) ** 2 * sum(ln(MZ**2 / m**2) / 4 + z3 - mpf(5) / 24 for m in ml)
 da_top = -(al / pi) * mpf(4) / 45 * MZ**2 / mt**2

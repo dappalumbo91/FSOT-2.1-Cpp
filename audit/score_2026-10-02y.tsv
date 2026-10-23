@@ -7,8 +7,8 @@ Y-1	nucleon-condition estimate M/m_p = 1/(E/M + 3/(8 I M)) (information)	same ru
 Y-1	Y-1 (M_Delta - M_N)/m_p (K 14)	proton units, FSOT inputs	0.244039042887	0.3123627438	0.002166	31.542	miss	-21.873 %	FSOT · measured	theory unc. |K14 - K12|
 Y-1	Y-1 g_A time-ordered (K 14)	proton units, FSOT inputs	1.47926923297	1.2754	0.02277	8.9527	miss	15.985 %	FSOT · measured	theory unc. |K14 - K12|
 Y-1	mu_p, mu_n	-	-	-	-	-	not scored	-	-	mu_V^(0) sea sum unconverged (round x)
-VALIDATION	Y-2 Delta alpha_had^(5), quark-pole thresholds, PDG inputs	PDG m_c 1.2730, m_b 4.183, alpha_s 0.1180	0.02737019134	0.02783	6.0e-5	7.6635	miss	-1.6522 %		pole m_c 1.4454, m_b 4.5817 GeV; round-i gate |dev| <= 0.00029: FAIL
-Y-2	Y-2 Delta alpha_had^(5) (duality, quark-pole thresholds, FSOT inputs)	FSOT alpha, M_Z, alpha_s, m_tau, m_pi, m_K, m_c, m_b	0.02734356558	0.02783	6.0e-5	8.1072	miss	-1.7479 %	FSOT · measured	FSOT pole m_c 1.4578, m_b 4.6226 GeV; validation FAILED
+VALIDATION	Y-2 Delta alpha_had^(5), quark-pole thresholds, PDG inputs	PDG m_c 1.2730, m_b 4.183, alpha_s 0.1180	0.02737019134	0.027609	0.000112	2.1322	miss	-0.86497 %		pole m_c 1.4454, m_b 4.5817 GeV; round-i gate |dev| <= 0.00029: PASS
+Y-2	Y-2 Delta alpha_had^(5) (duality, quark-pole thresholds, FSOT inputs)	FSOT alpha, M_Z, alpha_s, m_tau, m_pi, m_K, m_c, m_b	0.02734356558	0.027609	0.000112	2.37	miss	-0.96141 %	FSOT · measured	FSOT pole m_c 1.4578, m_b 4.6226 GeV; validation passed
 Y-2	Delta r (round-f one-loop chain, Y-2 Delta alpha_had)	no fit coefficients	0.0327677439546	-	-	-	info	-	model-computed	Delta alpha 0.058784412; Delta rho 0.0083223743; Delta r_rem 0.0029463401; PDG SM Delta r 0.03685(20) for reference
 Y-2	Y-2 G_F (FSOT chain)	round-f chain	1.16248228466e-5	1.1663787e-5	6.0e-12	6494.0	miss	-0.33406 %	measured	
 Y-2	Y-2 Gamma_Z/M_Z (authority A1 width, G_F from the FSOT chain)	FSOT only	0.0271726048594	0.02736653946	2.523e-5	7.6867	miss	-0.70866 %	measured	record row changes only if z <= 1 and validation passes (gate unchanged)

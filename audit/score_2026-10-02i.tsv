@@ -3,11 +3,11 @@
 validation	HAD-1 m_rho MeV (DGG, PDG m_pi, m_p)	constituent m 434.24345 MeV, A/m^2 971.88867 MeV	1111.45906257333	775.26	0.23	1461.7	FAIL	433660.0	validation criterion |rel| <= 5 %
 validation	HAD-1 VALIDATED		0.0	-	-	-	info	-	1 = pass, 0 = fail
 validation	HAD-2 alpha_s(m_tau) (4-loop, PDG alpha_s(M_Z))	check vs PDG 0.314(14)	0.324095037	-	-	-	info	-	
-validation	HAD-2 Delta alpha_had^(5) (duality, PDG inputs)	PDG masses, alpha_s 0.1180	0.02672526723	0.02783	6.0e-5	18.412	FAIL	-39695.8	validation criterion |dev| <= 0.00029
+validation	HAD-2 Delta alpha_had^(5) (duality, PDG inputs)	PDG masses, alpha_s 0.1180	0.02672526723	0.027609	0.000112	7.8905	FAIL	-32008.9	validation criterion |dev| <= 0.00029
 validation	HAD-2 VALIDATED		0.0	-	-	-	info	-	1 = pass, 0 = fail (then nothing from HAD-2 is confirmable)
 HAD-1	m_rho MeV (DGG, FSOT m_pi+-, m_p)	constituent m 434.24346 MeV	1111.45911129014	775.26	0.23	1461.7	FAIL	433660.0	validation FAILED: route rejected
 HAD-2	alpha_s(m_tau) (4-loop from FSOT alpha_s seed)		0.323315927	-	-	-	info	-	
-HAD-2	Delta alpha_had^(5) (duality, FSOT inputs; m_B external)	FSOT alpha, M_Z, alpha_s, m_tau, m_pi, m_K, m_D	0.02672237569	0.02783	6.0e-5	18.46	FAIL	-39799.7	validation FAILED: not confirmable
+HAD-2	Delta alpha_had^(5) (duality, FSOT inputs; m_B external)	FSOT alpha, M_Z, alpha_s, m_tau, m_pi, m_K, m_D	0.02672237569	0.027609	0.000112	7.9163	FAIL	-32113.6	validation FAILED: not confirmable
 GZ-1_H1-i	Delta alpha	FSOT lep (round f) + HAD-2	0.0582207364315527	-	-	-	info	-	
 GZ-1_H1-i	M_W^fit GeV (ACFW)		80.3721670650932	-	-	-	info	-	
 GZ-1_H1-i	Delta r (complete SM, ACFW)		0.0361717441904713	-	-	-	info	-	ACFW convention

@@ -9,10 +9,10 @@ X-1	cut sea sum, D = k = K = 12, E_c = 9 M (x 0.8)	fixed DPP profile	0.907889221
 X-1	cut sea sum, D = k = K = 14, E_c = 10.5 M (x 0.8)	fixed DPP profile	-0.700373092381	-	-	-	info	-	diagnostic	eps_val 0.629965; I M 2.5777834 (round w: K 12 0.6299654 / 2.57195)
 X-1	convergence criterion (freeze X-1)	-	-	-	-	-	not established	-	-	K values run: 12, 14; mu_p, mu_n not rescored
 X-3	step 1: record pin phi^5/e^6 (bare, no physics)	pin	0.0274897828877	0.02736653946	2.523e-5	4.8848	miss	0.45034 %	measured	the record row; a closed form without a physics route
-X-3	step 2: Delta alpha_had^(5) (HAD-2 duality, FSOT inputs; m_B external)	round i	0.02672237569	0.02783	6.0e-5	18.46	miss	-3.98 %	measured (dispersive e+e- data)	first step that diverges: the light-quark resonance region; HAD-2 validation with PDG inputs also fails (z 18.4)
-X-3	step 3: Delta r (ACFW, with step 2)	round-i chain	0.0361717441905	-	-	-	info	-	model-computed	with the measured Delta alpha_had: 0.037453228
-X-3	step 4: G_F (with step 2)	round-i chain	1.16613106626e-5	1.1663787e-5	6.0e-12	412.72	miss	-0.021231 %	measured	with the measured Delta alpha_had: 1.167575867e-5
+X-3	step 2: Delta alpha_had^(5) (HAD-2 duality, FSOT inputs; m_B external)	round i	0.02672237569	0.027609	0.000112	7.9163	miss	-3.2114 %	measured: KNT19 dispersive e+e- 0.027609(112); was PDG2024 EW-review GAPP fit 0.02783(6)	first step that diverges: the light-quark resonance region; HAD-2 validation with PDG inputs also fails (z 18.4)
+X-3	step 3: Delta r (ACFW, with step 2)	round-i chain	0.0361717441905	-	-	-	info	-	model-computed	with the measured Delta alpha_had: 0.037197707
+X-3	step 4: G_F (with step 2)	round-i chain	1.16613106626e-5	1.1663787e-5	6.0e-12	412.72	miss	-0.021231 %	measured	with the measured Delta alpha_had: 1.167287781e-5
 X-3	step 5: Gamma_Z/M_Z physics route (with step 2)	round-i GZ-1 chain	0.0273493841019	0.02736653946	2.523e-5	0.67997	agrees	-0.062687 %	measured	reproduces round i
-X-3	sensitivity: Gamma_Z/M_Z shift from replacing step 2 by the measured Delta alpha_had (in units of the Gamma_Z/M_Z sigma)	chain(0.02783) - chain(HAD-2)	1.33142780215	-	-	-	info	-	diagnostic	Gamma_Z/M_Z with measured Delta alpha_had = 0.0273829757 (information only, not FSOT)
+X-3	sensitivity: Gamma_Z/M_Z shift from replacing step 2 by the measured Delta alpha_had (in units of the Gamma_Z/M_Z sigma)	chain(KNT19 0.027609) - chain(HAD-2)	1.06599053749	-	-	-	info	-	diagnostic	Gamma_Z/M_Z with measured Delta alpha_had = 0.02737627878 (information only, not FSOT)
 X-3	external items in the physics route	-	-	-	-	-	flag for owner	-	-	m_B = 5.27941 GeV threshold (HAD-2); Freitas and ACFW SM parametrisation coefficients (theory, not data); record row stays open
 GATE	record rows of the 91	-	-	-	-	-	unchanged	-	-	z-only; no record row recomputed
