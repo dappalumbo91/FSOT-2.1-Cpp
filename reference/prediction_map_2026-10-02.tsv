@@ -8,6 +8,7 @@
 # route jleaf = A^2*lambda^6*etabar, the leading Wolfenstein invariant of the CKM leaves. wave4|Jarlskog_J stays the superseded closed form G/(pi^9).
 # route hwleaf = leaf m_H_MeV / leaf m_W_MeV, candidate C-MHW-1 (REFINEMENTS_2026-10-02b S1). od2:wave3|m_H/m_W stays the D_eff-6 domain scalar at record 0. OD-2 still supplies Omega_Lambda and sigma_8.
 # route cpleaf = phi^3 - 1/e - Suction. wave8|delta_CP_PMNS stays the superseded closed form phi^3 - 1/e.
+# route tcomp = (leaf m_H_MeV / leaf m_W_MeV) / pin wave5|m_H/m_t (TRACE 36). No S read. The seed leaf m_t_over_m_W stays in seed_leaves.
 # route atmleaf = |S|/2 on generation 9. wave4|sin2_theta23 stays the superseded closed form |Chaos|*sqrt(e), still scored on the PDG 2024 bar.
 #id	route	source	ref_key	scale	record	history_note
 alpha_inv	leaf	alpha_inv	alpha_inv	1	1	hub 1f151ed3 2026-09-29 printed z=0.53
@@ -45,7 +46,7 @@ m_pi_over_m_p	leaf	m_pi_over_m_p	m_pi_over_m_p	1	1	hub d049ffff 2026-09-29 print
 mu_p_over_mu_N	leaf	mu_p_over_mu_N	mu_p_over_mu_N	1	1	hub daab5eb6 2026-09-29 printed z=0.237
 m_n_minus_m_p_MeV	leaf	m_n_minus_m_p_MeV	m_n_minus_m_p_MeV	1	1	hub 9e418a66 2026-09-29 printed z=0.058
 m_H_MeV	leaf	m_H_MeV	m_H_GeV	0.001	1	hub 6b3ce06c 2026-09-29 printed z=0.381
-m_t_over_m_W	leaf	m_t_over_m_W	m_t_over_m_W	1	1	hub 37c6bfc9 2026-09-29 printed z=0.703
+m_t_over_m_W	tcomp	t_comp	m_t_over_m_W	1	1	TRACE 36: (leaf m_H/m_W)/(pin m_H/m_t); replaces seed leaf |S_cosm|/|Chaos|+psi_con (z 0.703), which stays in seed_leaves for the audit chains
 sin2_theta_W_MSbar	leaf	sin2_theta_W_MSbar	sin2_theta_W_MSbar	1	1	hub 684bb8b2 2026-09-29 printed z=0.368
 m_tau_over_m_e	leaf	m_tau_over_m_e	m_tau_over_m_e	1	1	hub 87897c4f 2026-09-29 printed z=0.796
 dm2_32	leaf	dm2_32	dm2_32	1	1	hub b1938b97 2026-09-29 printed z=0.289 (vs 2.438e-3 +- 2.1e-5)

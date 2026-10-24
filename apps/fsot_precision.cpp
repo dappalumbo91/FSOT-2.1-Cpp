@@ -250,6 +250,11 @@ int main(int argc, char** argv) {
       // FREEZE_2026-10-02bg. C-MHW-1. The two mass leaves are already in mp_values(). No new pair.
       if (o.source != "hw_leaf") { std::fprintf(stderr, "no hwleaf source %s\n", o.source.c_str()); return 2; }
       o.vr = R(leafv.at("m_H_MeV") / leafv.at("m_W_MeV")) * scale;
+    } else if (o.route == "tcomp") {
+      // TRACE 36. m_t/m_W = (leaf m_H_MeV / leaf m_W_MeV) / pin wave5|m_H/m_t. Both factors are scored record rows. No S read.
+      if (o.source != "t_comp") { std::fprintf(stderr, "no tcomp source %s\n", o.source.c_str()); return 2; }
+      auto it = pinv.find("wave5|m_H/m_t"); if (it == pinv.end()) { std::fprintf(stderr, "no pin row wave5|m_H/m_t\n"); return 2; }
+      o.vr = R(leafv.at("m_H_MeV") / leafv.at("m_W_MeV")) / it->second.first * scale;
     } else if (o.route == "cpleaf") {
       // phi^3 - 1/e - Suction. Suction is the closest existing-constant subtraction.
       if (o.source != "cp_leaf") { std::fprintf(stderr, "no cpleaf source %s\n", o.source.c_str()); return 2; }
@@ -304,6 +309,9 @@ int main(int argc, char** argv) {
       o.cause = note;
     } else if (o.route == "hwleaf") {
       o.hist = "FREEZE_2026-10-02bg leaf m_H_MeV / leaf m_W_MeV";
+      o.cause = note;
+    } else if (o.route == "tcomp") {
+      o.hist = "TRACE 36 (leaf m_H_MeV / leaf m_W_MeV) / pin wave5|m_H/m_t; seed leaf |S_cosm|/|Chaos|+psi_con 2.14976592906816 z=0.703";
       o.cause = note;
     } else if (o.route == "cpleaf") {
       o.hist = "phi^3 - 1/e - Suction";
