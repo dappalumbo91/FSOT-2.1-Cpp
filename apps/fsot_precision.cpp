@@ -255,6 +255,10 @@ int main(int argc, char** argv) {
       if (o.source != "t_comp") { std::fprintf(stderr, "no tcomp source %s\n", o.source.c_str()); return 2; }
       auto it = pinv.find("wave5|m_H/m_t"); if (it == pinv.end()) { std::fprintf(stderr, "no pin row wave5|m_H/m_t\n"); return 2; }
       o.vr = R(leafv.at("m_H_MeV") / leafv.at("m_W_MeV")) / it->second.first * scale;
+    } else if (o.route == "lcomp") {
+      // TRACE 37. m_tau/m_mu = leaf m_tau_over_m_e / leaf m_mu_over_m_e. Both are scored record leaves; one m_tau in the table. No S read.
+      if (o.source != "l_comp") { std::fprintf(stderr, "no lcomp source %s\n", o.source.c_str()); return 2; }
+      o.vr = R(leafv.at("m_tau_over_m_e") / leafv.at("m_mu_over_m_e")) * scale;
     } else if (o.route == "cpleaf") {
       // phi^3 - 1/e - Suction. Suction is the closest existing-constant subtraction.
       if (o.source != "cp_leaf") { std::fprintf(stderr, "no cpleaf source %s\n", o.source.c_str()); return 2; }
@@ -312,6 +316,9 @@ int main(int argc, char** argv) {
       o.cause = note;
     } else if (o.route == "tcomp") {
       o.hist = "TRACE 36 (leaf m_H_MeV / leaf m_W_MeV) / pin wave5|m_H/m_t; seed leaf |S_cosm|/|Chaos|+psi_con 2.14976592906816 z=0.703";
+      o.cause = note;
+    } else if (o.route == "lcomp") {
+      o.hist = "TRACE 37 leaf m_tau_over_m_e / leaf m_mu_over_m_e; pin wave7 pi^2 e/phi+phi^-3 16.8169102120244 z=-0.918";
       o.cause = note;
     } else if (o.route == "cpleaf") {
       o.hist = "phi^3 - 1/e - Suction";

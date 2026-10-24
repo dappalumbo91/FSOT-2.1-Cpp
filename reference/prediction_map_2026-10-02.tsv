@@ -9,6 +9,7 @@
 # route hwleaf = leaf m_H_MeV / leaf m_W_MeV, candidate C-MHW-1 (REFINEMENTS_2026-10-02b S1). od2:wave3|m_H/m_W stays the D_eff-6 domain scalar at record 0. OD-2 still supplies Omega_Lambda and sigma_8.
 # route cpleaf = phi^3 - 1/e - Suction. wave8|delta_CP_PMNS stays the superseded closed form phi^3 - 1/e.
 # route tcomp = (leaf m_H_MeV / leaf m_W_MeV) / pin wave5|m_H/m_t (TRACE 36). No S read. The seed leaf m_t_over_m_W stays in seed_leaves.
+# route lcomp = leaf m_tau_over_m_e / leaf m_mu_over_m_e (TRACE 37). No S read. wave7|m_tau/m_mu closed form stays in closed_forms.
 # route atmleaf = |S|/2 on generation 9. wave4|sin2_theta23 stays the superseded closed form |Chaos|*sqrt(e), still scored on the PDG 2024 bar.
 #id	route	source	ref_key	scale	record	history_note
 alpha_inv	leaf	alpha_inv	alpha_inv	1	1	hub 1f151ed3 2026-09-29 printed z=0.53
@@ -123,7 +124,7 @@ pin:wave5|m_H/m_t	pin	wave5|m_H/m_t	m_H_over_m_t	1	1
 pin:wave5|Y_p_He4	pin	wave5|Y_p_He4	Y_p	1	1	
 pin:wave5|D_H_ratio	pin	wave5|D_H_ratio	D_H	1	1	
 pin:wave7|m_u/m_d	pin	wave7|m_u/m_d	m_u_over_m_d	1	1	
-pin:wave7|m_tau/m_mu	pin	wave7|m_tau/m_mu	m_tau_over_m_mu	1	1	
+pin:wave7|m_tau/m_mu	lcomp	l_comp	m_tau_over_m_mu	1	1	TRACE 37: leaf m_tau/m_e / leaf m_mu/m_e; replaces pin pi^2 e/phi+phi^-3 (z -0.918), one m_tau value in the scored table
 pin:wave8||V_ud|	pin	wave8||V_ud|	CKM_V_ud	1	0	superseded by CKM_V_ud
 pin:wave8||V_cd|	pin	wave8||V_cd|	CKM_V_cd	1	0	superseded by CKM_V_cd
 pin:wave8||V_cs|	pin	wave8||V_cs|	CKM_V_cs	1	0	superseded by CKM_V_cs
