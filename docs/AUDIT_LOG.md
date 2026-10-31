@@ -909,3 +909,6 @@ Closed forms (`fsot_report`, mp169):
   record with other non-ASCII uppercase letters in biochem name fields could diverge, and the CI golden
   diff would catch it.
 - `BTFloat` division is faithfully rounded, not correctly rounded (±1 ulp). + − × are correctly rounded.
+
+### H-tip · 2026-10-30: J-1 integrand stabilized (tip-intrinsic Λ^(3) = 333.200 MeV)
+The J-1 remainder integrand `-1/(x²β) + 1/(b0 x²) - b1/(b0² x)` cancels at small x; mpmath `quad` drifted (332.62–334.43 MeV with dps). The x² cancellation is now done analytically in tools/score_2026_10_02j.py and score_2026_10_02s2.py (same integral, same inputs, no new formula). Λ^(5,4,3) FSOT = 207.566 / 289.546 / 333.200260643 MeV at dps 15/30/60 (z 0.68 / 0.55 / 0.48 vs FLAG). The FLAG-input J-1 validation now reproduces FLAG to z 0.10 / 0.01 / 0.08. The frozen 334.43 is retired as a naive-quad artifact; FREEZE_2026-10-02s2/t/u2 files are left as historical records. Gate stays 91/91.

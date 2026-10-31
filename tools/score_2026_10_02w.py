@@ -34,7 +34,7 @@ wv = 6 * chi / Fpi**2; obsv = Meta**2 + Metap**2 - 2 * MKc**2
 sg = sqrt((2 * Meta * mpf("0.017"))**2 + (2 * Metap * mpf("0.06"))**2 + (4 * MKc * mpf("0.015"))**2)
 emitz(s, "W-1 Witten-Veneziano combination M_eta^2 + M_eta'^2 - 2 M_K^2 = 6 chi/F_pi^2 (MeV^2)", "chi U2-1 (intermediate), P-4 F_pi " + nstr(Fpi, 7), wv, obsv, sg, 0, "FSOT · measured (scores chi_top)", "LO WV; chi^(1/4) = " + nstr(chi4, 6) + " MeV")
 info(s, "chi_top^(1/4) vs quenched lattice 185.3(5.7) (information, not scored)", "U2-1", chi4, "FSOT · lattice-computed (intermediate)", "gap " + nstr((chi4 / 185.3 - 1) * 100, 3) + " % = information (directive b)")
-rec(s, "Lambda^(5), Lambda^(4), Lambda^(3) (FSOT 209.52 / 292.07 / 334.43 MeV)", "info (intermediate)", "RG-invariant scale of the FSOT alpha_s; scored only through the alpha_s(M_Z) record row and the round-d R_ell (z 1.29, cited); FLAG gaps are information")
+rec(s, "Lambda^(5), Lambda^(4), Lambda^(3) (FSOT 207.57 / 289.55 / 333.20 MeV)", "info (intermediate)", "RG-invariant scale of the FSOT alpha_s; scored only through the alpha_s(M_Z) record row and the round-d R_ell (z 1.29, cited); FLAG gaps are information")
 rec(s, "scheme-dependent record rows (m_u/m_d, m_c/m_b, m_t/m_W, m_H/m_t, MSbar sin2, alpha_s)", "route documented", "observables: K0-K+ splitting (rounds m-n), onia masses, direct/pole masses, on-shell and effective sin2 / asymmetries, R_ell; no new score")
 rec(s, "string tension sqrt(sigma) via Regge slope alpha'", "open derivation", "no FSOT sqrt(sigma) route; target observable alpha' of the rho/a2 trajectories")
 rec(s, "H0, neutron lifetime", "deferred", "contested rows; status unchanged, totals given with and without them")

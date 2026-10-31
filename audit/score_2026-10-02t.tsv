@@ -6,7 +6,7 @@ VALIDATION	T-1 M_eta' (same)	PDG	1132.17083848	957.78	0.06	2906.5	FAIL	18.208 %	
 T-1	FSOT <(alpha_s/pi)G^2> = C_cosm - e^-3 [GeV^4]	pin wave9	0.0128328669035	-	-	-	info	-	FSOT	unit read in GeV^4 (stated); SVZ phenomenology 0.012
 T-1	instanton density n = <(alpha_s/pi)G^2>/8 [GeV^4]	Int g^2G^2 = 32 pi^2 per instanton	0.00160410836293	-	-	-	info	-	FSOT	n = 1.058 fm^-4
 T-1	T-1 chi^1/4 = n^(1/4) (dilute pure-gauge ensemble)	pin wave9	200.128262904	185.3	5.7	2.6014	PASS	8.0023 %	FSOT	validation passed; disclosed before freeze: about +8 %
-T-1	Lambda^(0)_MSbar = n^(1/4) e^(-1/22)/0.65	DP relation	294.207954682	-	-	-	info	-	FSOT	ratio to FSOT-only Lambda^(3) 334.43: 0.87972
+T-1	Lambda^(0)_MSbar = n^(1/4) e^(-1/22)/0.65	DP relation	294.207954682	-	-	-	info	-	FSOT	ratio to FSOT-only Lambda^(3) 333.20: 0.88298
 T-1	T-1 M_eta (LO U(3)+WV, F = FSOT F_pi, chi from condensate)	FSOT pi, K leaves, pins, P-4 F_pi 92.88662	524.945512008	547.862	0.017	1348.0	PASS	-4.1829 %	FSOT	validation FAILED; theta 11.981 deg
 T-1	T-1 M_eta' (same)	same	1153.48718114	957.78	0.06	3261.8	FAIL	20.433 %	FSOT	validation FAILED
 T-1	look-elsewhere F = F3: M_eta / M_eta'	info	1226.04505021	-	-	-	info	-	FSOT	M_eta 531.232 (M_eta' shown)
