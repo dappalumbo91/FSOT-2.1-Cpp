@@ -365,3 +365,4 @@ A survey of the engine and of every trinary implementation is in [docs/INVENTORY
 ## License and citation
 Apache License 2.0. Copyright 2026 Damian Arthur Palumbo. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
 Citation metadata is in [CITATION.cff](CITATION.cff).
+Contribution guidelines are in [CONTRIBUTING.md](CONTRIBUTING.md).
