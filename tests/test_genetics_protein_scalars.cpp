@@ -57,8 +57,11 @@ int main() {
     expect(s.h, r.h, "1e-30", "h"); expect(s.V, r.V, "1e-30", "V"); expect(s.mu, r.mu, "1e-30", "mu");
     expect(lo.h, r.h, "1e-30", "h_lower");
     expect_rel(s.h, r.rh, "h"); expect_rel(s.V, r.rV, "V"); expect_rel(s.mu, r.rmu, "mu");
-    const genetics::Trit3 t = genetics::aa_trinary(r.aa);
-    if (s.q != R(t.c)) ++fails;
+    // Independent expected charge (not via aa_trinary): D/E = -1, H/K/R = +1, else 0.
+    const int q_exp = (r.aa == 'D' || r.aa == 'E') ? -1
+                    : (r.aa == 'H' || r.aa == 'K' || r.aa == 'R') ? 1 : 0;
+    if (s.q != R(q_exp)) { std::printf("q mismatch for %c\n", r.aa); ++fails; }
+    if (lo.q != R(q_exp)) { std::printf("q_lower mismatch for %c\n", r.aa); ++fails; }
   }
   expect(genetics::disulfide(eng), "17.9442719099991587856366946749251049", "1e-30", "disulfide");
   expect_rel(genetics::disulfide(eng), 1.79442719099991592e1, "disulfide");
