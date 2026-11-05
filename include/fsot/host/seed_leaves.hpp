@@ -167,4 +167,10 @@ template <class R> CKM ckm_double(const Engine<R>& F) {
   return k;
 }
 
+// Tip host atom (dial-in 43.5tk, BRIEF 30ea04fc; tg note dd8f76d7, WAVE58 fold 19b681eb): zero-LEC
+// gradient-flow/Sommer ratio sqrt(8 t0)/r0 = sqrt(8)/N_c (i.e. sqrt(t0)/r0 = 1/N_c), N_c = 3 as in
+// nucleon_delta.hpp:4; the 8 = 2*D with D = 4 (core.hpp:55 Richardson_D=4). Soft-clean held-outs
+// Ce-Consonni 0.941(7), Francis 0.944(8). Not ADOPT; not in the 91-leaf golden map.
+template <class R> R sqrt8t0_over_r0() { return m::sqrt(R(2 * 4)) / R(3); }
+
 }  // namespace fsot::leaves

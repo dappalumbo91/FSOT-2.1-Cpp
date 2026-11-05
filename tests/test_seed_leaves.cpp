@@ -15,6 +15,10 @@ using namespace fsot;
 int main() {
 #if !defined(FSOT_HAVE_BOOST_MP)
   std::puts("SEED LEAVES: skipped (needs Boost.Multiprecision)");
+  {
+    const double v = static_cast<double>(leaves::sqrt8t0_over_r0<double>());
+    if (std::abs(v - 0.9428090415820634) > 1e-15) { std::fprintf(stderr, "sqrt8t0_over_r0 %.17g\n", v); return 1; }
+  }
   return 0;
 #else
   std::ifstream in(FSOT_SEED_LEAVES_TSV);
