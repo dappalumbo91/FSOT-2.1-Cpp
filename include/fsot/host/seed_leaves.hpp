@@ -75,6 +75,12 @@ template <class R> struct SeedLeaves {
   // not in the 91-leaf golden map.
   R mu_p_host() const { return g_p() / R(2); }
   R mu_pbar_host() const { return -g_p() / R(2); }
+  // Tip host atoms c_D/c_E (dial-in 43.5to, BRIEF 81ccb768, CLAIM 9895b15c; sw map fold 86809f18):
+  // zero-LEC seed-native 3NF LECs c_D = 1 - POOF, c_E = -POOF/3 (POOF = Engine Layer-1 atom). Soft-clean
+  // Gazit 2019 erratum PRL 122 029901(E) disclose-only (c_D=0.83±0.24, c_E=-0.052 +0.033/-0.034).
+  // Not ADOPT; not in the 91-leaf golden map. NO 3N/4N solver invent (sw WALL stands).
+  R c_D_host() const { return R(1) - F.POOF; }
+  R c_E_host() const { return -F.POOF / R(3); }
   R w_product() const { return m::pow(F.THETA_S, R(-6)) * m::pow(F.C_FACTOR, R(-4)) * F.GAMMA * F.GAMMA; }
   R m_W_MeV() const { return w_product() + m::pow(F.E, F.E); }
   R m_Z_MeV() const { return w_product() / m::sqrt(R(1) - (F.POOF + F.K / R(6))); }
