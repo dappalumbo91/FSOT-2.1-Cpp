@@ -46,6 +46,12 @@ int main() {
     if (rel > worst) { worst = rel; worst_id = id; }
     if (!(rel <= 1e-40)) { std::printf("  %-20s FAIL rel=%.3e\n", id.c_str(), rel); ++failed; }
   }
+  {  // 43.5tm mu_R host atom: CPT mu_pbar = -mu_p = -g_p/2
+    const double mp = static_cast<double>(L.mu_p_host()), mpb = static_cast<double>(L.mu_pbar_host());
+    if (std::abs(mp - 2.79284734443575) > 1e-12 || mp + mpb != 0.0) {
+      std::fprintf(stderr, "mu_R host %.17g %.17g\n", mp, mpb); ++failed;
+    }
+  }
   auto ckm = leaves::ckm_double(eng);
   int ckm_ok = 0;
   for (auto& [k, v] : ckm.mags) {

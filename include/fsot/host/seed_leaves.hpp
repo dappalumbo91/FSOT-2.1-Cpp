@@ -69,6 +69,12 @@ template <class R> struct SeedLeaves {
   R g_p() const {
     return m::ipow(F.A_IN * F.P_NEW / F.P_BASE, 2) + (alpha() / m::ipow(F.PSI_CON, 3)) * (R(1) + yy() * yy());
   }
+  // Tip host atom mu_R (dial-in 43.5tm, BRIEF f55c4953, CLAIM 5cfd9cf5): zero-LEC CPT charge-conjugation
+  // host. mu_p/mu_N = g_p/2; C flips the moment sign, |mu| invariant: mu_pbar/mu_N = -g_p/2. Soft-clean
+  // held-outs Schneider 2017 mu_p 2.79284734462(82), SMORRA 2017 |mu_pbar| 2.7928473441(42). Not ADOPT;
+  // not in the 91-leaf golden map.
+  R mu_p_host() const { return g_p() / R(2); }
+  R mu_pbar_host() const { return -g_p() / R(2); }
   R w_product() const { return m::pow(F.THETA_S, R(-6)) * m::pow(F.C_FACTOR, R(-4)) * F.GAMMA * F.GAMMA; }
   R m_W_MeV() const { return w_product() + m::pow(F.E, F.E); }
   R m_Z_MeV() const { return w_product() / m::sqrt(R(1) - (F.POOF + F.K / R(6))); }
