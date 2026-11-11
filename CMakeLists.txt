@@ -329,7 +329,8 @@ endif()
 if(Boost_FOUND)
   add_executable(fsot_single_engine apps/fsot_single_engine.cpp)
   target_link_libraries(fsot_single_engine PRIVATE fsot)
-  target_compile_definitions(fsot_single_engine PRIVATE FSOT_VT_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vt_package.tsv")
+  target_compile_definitions(fsot_single_engine PRIVATE FSOT_VT_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vt_package.tsv"
+                             FSOT_PRECISION_TSV="${CMAKE_CURRENT_SOURCE_DIR}/audit/precision_2026-10-02.tsv")
   add_test(NAME single_engine_table COMMAND fsot_single_engine --table ${CMAKE_CURRENT_BINARY_DIR}/single_engine_table.tsv
            --folded ${CMAKE_CURRENT_SOURCE_DIR}/golden/folded_routes.tsv ${CMAKE_CURRENT_BINARY_DIR}/single_engine_folded.tsv
            --before-after ${CMAKE_CURRENT_BINARY_DIR}/BEFORE_AFTER.md)

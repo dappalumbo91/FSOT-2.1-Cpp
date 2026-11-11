@@ -12,6 +12,7 @@
 #pragma once
 #include <map>
 #include <set>
+#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -90,11 +91,92 @@ template <class R> void ironout1(const Engine<R>& F, const leaves::SeedLeaves<R>
     const R mc2 = R(2) * Rinf * L.si.h * L.si.c / (a * a) / L.si.e;  // m_e c^2 [eV] = 2 R_inf h c / alpha^2
     const R mu = R(1) / (R(1) + R(1) / rpe);                           // mu / m_e
     const R dirac = mu * mc2 * (R(1) - m::sqrt(R(1) - a * a));          // Dirac 1s binding, reduced mass
+    // SCAFFOLD_PENDING_FSOT_DERIVATION (Damian t999u): ln k0(1s) is a Coulomb-problem number allowed as temporary
+    // scaffolding only; it is not yet an FSOT derivation.
     const R lnk0 = lit<R>("2.984128555765");                           // 1s Bethe logarithm (pure number)
     const R lamb = R(4) * m::ipow(a, 5) * mc2 / (R(3) * pi) * m::ipow(mu, 3) * (m::ln(R(1) / (a * a)) - lnk0 + R(19) / R(30));
     set("chemistry_ionization", "IE_H", dirac - lamb,
-        "mu c^2 [1 - sqrt(1 - alpha^2)] - (4 alpha^5 m c^2 / 3 pi) mu^3 [ln alpha^-2 - ln k0(1s) + 19/30]; m c^2 = 2 R_inf h c / alpha^2, mu = 1/(1 + m_e/m_p) [seed leaves R_inf, alpha, m_p/m_e]",
-        "IRONOUT-1 #3: reduced-mass Dirac + 1s Lamb from in-bar R_inf, alpha, m_p/m_e");
+        "mu c^2 [1 - sqrt(1 - alpha^2)] - (4 alpha^5 m c^2 / 3 pi) mu^3 [ln alpha^-2 - ln k0(1s) + 19/30]; m c^2 = 2 R_inf h c / alpha^2, mu = 1/(1 + m_e/m_p) [seed leaves R_inf, alpha, m_p/m_e]; ln k0(1s) = 2.984128555765 SCAFFOLD_PENDING_FSOT_DERIVATION",
+        "IRONOUT-1 #3: reduced-mass Dirac + 1s Lamb from in-bar R_inf, alpha, m_p/m_e (ln k0 SCAFFOLD_PENDING_FSOT_DERIVATION)");
+  }
+}
+
+// IRONOUT-2 (Damian t999u, 2026-11-11 1:46 PM EST): ONE engine-wide value per physical quantity, the FSOT version that
+// lands closest to the best observed value (world average where one exists; reference/scoring_criteria_ironout2.tsv).
+// Only rows whose own value was the farther one move; each takes another FSOT value the engine already computes (a
+// tip seed leaf / scored pin from the frozen precision audit, or another table row). Nothing measured is pasted,
+// nothing is fitted, no leaf and no fold (fold::vt included) changes. Quantities where a NON-leaf version is closer
+// than the tip leaf (V_ud, V_us = lambda, V_cd, V_cs, m_mu/m_e, m_tau/m_mu) are NOT unified: moving the leaf would
+// change the /workspace/mainC tip and the banked vt tau_vk (conflicts, docs/single_engine/IRONOUT_2.md).
+struct Unify { const char* sec; const char* name; const char* src; const char* why; };
+inline const std::vector<Unify>& ironout2_list() {
+  static const std::vector<Unify> u = {
+      // seed closed form -> scored pin / tip leaf (pin closer to the world average for every one)
+      {"wave1", "alpha_s(M_Z)", "pin:wave1|alpha_s(M_Z)", "seed -> tip leaf alpha_s"},
+      {"wave1", "T_CMB", "pin:wave1|T_CMB", "seed -> scored pin T_CMB"},
+      {"validation_suite", "sin2_theta_W", "pin:validation_suite|sin2_theta_W", "seed -> tip leaf sin2_theta_W_MSbar"},
+      {"wave2", "sin2_theta_W", "pin:wave2|sin2_theta_W", "seed -> tip leaf sin2_theta_W_MSbar"},
+      {"wave2", "1/alpha_em", "pin:wave2|1/alpha_em", "seed -> tip leaf alpha_inv"},
+      {"wave2", "M_W/M_Z", "pin:wave2|M_W/M_Z", "seed -> tip leaf m_W/m_Z (host M_W)"},
+      {"wave2", "m_pi/m_p", "pin:wave2|m_pi/m_p", "seed -> scored pin m_pi/m_p"},
+      {"wave3", "Deuteron_binding_MeV", "pin:wave3|Deuteron_binding_MeV", "seed -> scored pin B_d"},
+      {"wave4", "Dm2_21/Dm2_32", "pin:wave4|Dm2_21/Dm2_32", "seed -> scored pin Dm2 ratio"},
+      {"wave4", "|V_ub|", "pin:wave4||V_ub|", "seed -> tip CKM leaf V_ub"},
+      {"wave4", "mu_p_muN", "pin:wave4|mu_p_muN", "seed -> tip leaf mu_p"},
+      {"wave4", "m_c/m_b", "pin:wave4|m_c/m_b", "seed -> scored pin m_c/m_b"},
+      {"wave5", "Gamma_Z/M_Z", "pin:wave5|Gamma_Z/M_Z", "seed -> tip leaf Gamma_Z/M_Z"},
+      {"wave7", "m_tau/m_mu", "pin:wave7|m_tau/m_mu", "seed -> tip leaf ratio (m_tau/m_e)/(m_mu/m_e)"},
+      {"wave8", "He4_binding_MeV", "pin:wave8|He4_binding_MeV", "seed -> tip leaf B_He4"},
+      {"wave8", "Triton_binding_MeV", "pin:wave8|Triton_binding_MeV", "seed -> tip leaf B_H3"},
+      {"wave8", "Deuteron_mu_muN", "pin:wave8|Deuteron_mu_muN", "seed -> scored pin mu_d"},
+      {"wave9", "|V_tb|", "pin:wave9||V_tb|", "seed -> tip CKM leaf V_tb"},
+      {"wave10", "m_mu/m_e", "pin:wave10|m_mu/m_e", "seed -> tip leaf m_mu/m_e"},
+      {"wave10", "(g-2)/2_electron", "pin:wave10|(g-2)/2_electron", "seed -> tip leaf a_e"},
+      // second CKM closed forms -> tip CKM leaf (leaf closer to the PDG direct value)
+      {"wave3", "|V_cb|", "CKM_V_cb", "closed form -> tip CKM leaf V_cb"},
+      {"wave4", "|V_td|", "CKM_V_td", "closed form -> tip CKM leaf V_td"},
+      {"wave4", "|V_ts|", "CKM_V_ts", "closed form -> tip CKM leaf V_ts"},
+      {"wave4", "Jarlskog_J", "leaf:Jarlskog_J", "closed form -> tip J leaf"},
+      // second lepton-ratio formula -> tip leaf
+      {"lepton_ratios", "m_tau/m_e_lepton", "pin:wave3|m_tau/m_e", "lepton_ratios formula -> tip leaf m_tau/m_e"},
+      // duplicates inside the table
+      {"wave8", "H2O_bond_angle", "row:validation_suite|Water_bond_angle", "duplicate -> validation_suite Water_bond_angle"},
+      {"wave7", "Golden_angle_deg", "row:validation_suite|Golden_angle", "duplicate -> validation_suite Golden_angle (exact)"},
+      {"validation_suite", "Feigenbaum_delta", "row:wave4|Feigenbaum_delta", "duplicate -> wave4 Feigenbaum_delta"},
+      {"validation_suite", "Feigenbaum_alpha", "row:wave4|Feigenbaum_alpha", "duplicate -> wave4 Feigenbaum_alpha"},
+      {"wave3", "sin_theta_C", "row:wave3||V_us|", "sin theta_C = |V_us|: -> wave3 |V_us| closed form (closest Cabibbo value)"},
+  };
+  return u;
+}
+// pins: id -> value string from the frozen precision audit (audit/precision_2026-10-02.tsv, the tip's scored values).
+template <class R> void ironout2(std::vector<Row<R>>& out, const std::map<std::string, std::string>& pins) {
+  auto find = [&](const std::string& sec, const std::string& nm) -> Row<R>* {
+    for (auto& r : out) if (r.section == sec && r.name == nm) return &r;
+    return nullptr;
+  };
+  std::vector<std::pair<Row<R>*, R>> todo;  // resolve every source first, then assign (sources are pre-unification values)
+  for (const auto& u : ironout2_list()) {
+    Row<R>* r = find(u.sec, u.name);
+    if (!r) throw std::runtime_error(std::string("ironout2: no row ") + u.sec + "|" + u.name);
+    const std::string s = u.src;
+    if (s.rfind("row:", 0) == 0) {
+      const auto bar = s.find('|', 4);
+      Row<R>* q = find(s.substr(4, bar - 4), s.substr(bar + 1));
+      if (!q) throw std::runtime_error("ironout2: no source row " + s);
+      todo.emplace_back(r, q->value);
+    } else {
+      auto it = pins.find(s);
+      if (it == pins.end()) throw std::runtime_error("ironout2: no precision value " + s);
+      todo.emplace_back(r, lit<R>(it->second.c_str()));
+    }
+  }
+  for (std::size_t i = 0; i < todo.size(); ++i) {
+    const auto& u = ironout2_list()[i];
+    Row<R>* r = todo[i].first;
+    r->value = todo[i].second;
+    r->formula += std::string(" [IRONOUT-2 unify: value = ") + u.src + "]";
+    r->kind = RowKind::derived_replacement;
+    r->why = std::string("IRONOUT-2 unify: ") + u.why;
   }
 }
 

@@ -19,12 +19,27 @@ using namespace fsot;
 using R = mp169;
 static std::string s30(const R& x) { return x.str(30); }
 static std::string key(const derive::Row<R>& r) { return r.section + "|" + r.name; }
+static std::string md(std::string s) {  // markdown cell: escape '|' (row names like |V_cb|)
+  for (std::size_t i = 0; (i = s.find('|', i)) != std::string::npos; i += 2) s.insert(i, "\\");
+  return s;
+}
 
 int main(int argc, char** argv) {
   Engine<R> canon(Mode::corrected), parity(Mode::parity), e10(Mode::corrected), d5(Mode::corrected);
   derive::with_c_cosm_10phi(e10);
   derive::with_qm_rung(d5, 5);
   auto T = derive::table(canon, true), P = derive::table(parity, false), A = derive::table(e10, true), B = derive::table(d5, true);
+  {  // IRONOUT-2 (Damian t999u): one engine-wide value per quantity; sources = the tip's scored values in the frozen audit
+    std::map<std::string, std::string> pins;
+    std::ifstream pin(FSOT_PRECISION_TSV);
+    if (!pin) { std::fprintf(stderr, "cannot open %s\n", FSOT_PRECISION_TSV); return 2; }
+    for (std::string line; std::getline(pin, line);) {
+      if (line.empty() || line[0] == '#') continue;
+      const auto t1 = line.find('\t'), t2 = line.find('\t', t1 + 1), t3 = line.find('\t', t2 + 1), t4 = line.find('\t', t3 + 1);
+      pins.emplace(line.substr(0, t1), line.substr(t3 + 1, t4 - t3 - 1));
+    }
+    for (auto* X : {&T, &A, &B}) derive::ironout2(*X, pins);
+  }
   std::map<std::string, R> pv, av, bv;
   for (auto& r : P) pv.emplace(key(r), r.value);
   for (auto& r : A) av.emplace(key(r), r.value);
@@ -105,8 +120,8 @@ int main(int argc, char** argv) {
         ++n;
         auto rel = [&](const R& v) { return r.measured ? std::to_string(double(m::fabs(v - *r.measured) / m::fabs(*r.measured) * R(100))) : std::string("-"); };
         const std::string why = r.kind == derive::RowKind::derived_replacement ? r.why : std::string("B-03: 0.333333333333333 -> 1/3");
-        o << "| " << r.section << " | " << r.name << " | " << pv.at(k).str(17) << " | " << r.value.str(17) << " | " << (r.measured ? r.measured->str(10) : "-")
-          << " | " << rel(pv.at(k)) << " | " << rel(r.value) << " | " << why << " |\n";
+        o << "| " << r.section << " | " << md(r.name) << " | " << pv.at(k).str(17) << " | " << r.value.str(17) << " | " << (r.measured ? r.measured->str(10) : "-")
+          << " | " << rel(pv.at(k)) << " | " << rel(r.value) << " | " << md(why) << " |\n";
       }
       o << "\n" << n << " rows changed.\n\n## 2. D-02 alternative C_cosm = 1/(10 phi) (rejected by the decade derivation; shown, not applied)\n\n"
            "| section | row | canonical 1/(phi pi^2) | 1/(10 phi) | measured | rel% canonical | rel% 10phi |\n|---|---|---|---|---|---|---|\n";
