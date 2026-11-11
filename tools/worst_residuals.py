@@ -58,5 +58,5 @@ L += ["", "## D. Folded at SM parity, refine later (§43.5vt, Damian t994u; ruli
       "Carried route P2. Gate A = |z| ≤ 1; G_F is ACCEPTED at Gate B (|G_F − G_μ| ≤ 809.87 ppm). §43.5vv / vw / vx keep refining these.", "",
       "| row | engine value | reference | z | flag |", "|---|---|---|---|---|"]
 L += [f'| `{s["obs"]}` | {s["value"]} | {s["ref"]} | {s["z"]:+.3f} | {s["flag"]} |' for s in sorted(smp, key=lambda s: -abs(s["z"]))] + [""]
-OUT.write_text("\n".join(L))
+OUT.write_text("\n".join(L), encoding="utf-8", newline="\n")
 print(f"scored {len(scored)} out-of-bar {len(out_s)}; unscored>0.5% {len(out_u)}; excluded {len(excl)}")
