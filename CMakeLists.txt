@@ -294,3 +294,11 @@ target_link_libraries(bench_cpp PRIVATE fsot)
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   target_compile_options(bench_cpp PRIVATE -O3 -march=native)
 endif()
+
+# ---- single-engine consolidation (fsot_unified Phase 3): derivations for D-01..D-10, derived table, folded routes ----
+add_executable(test_derivations tests/test_derivations.cpp)
+target_link_libraries(test_derivations PRIVATE fsot)
+if(FSOT_HUB_DATA)
+  target_compile_definitions(test_derivations PRIVATE FSOT_HUB_DATA_DIR="${FSOT_HUB_DATA}")
+endif()
+add_test(NAME derivations COMMAND test_derivations)
