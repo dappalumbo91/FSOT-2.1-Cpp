@@ -55,3 +55,15 @@ Scored rows considered: 292 (|z| > 1 out of bar: 15). Unscored rows over 0.5 %: 
 
 - `CKM_V_ud` z +0.161
 - `pin:wave8||V_ud|` z +0.161
+
+## D. Folded at SM parity, refine later (§43.5vt, Damian t994u; ruling t992u c65ff89d) — not ranked in A
+
+Carried route P2. Gate A = |z| ≤ 1; G_F is ACCEPTED at Gate B (|G_F − G_μ| ≤ 809.87 ppm). §43.5vv / vw / vx keep refining these.
+
+| row | engine value | reference | z | flag |
+|---|---|---|---|---|
+| `tau_mu strict MuLan (diagnostic) [tau_mu [vt P2 G_F]]` | 2194997.68419 | 2196980.3 ± 2.2 | -901.189 | SM_PARITY_REFINE_LATER DIAGNOSTIC (Gate B ACCEPT, G_F vs G_mu 451.519455 ppm) |
+| `43.5vt-TAU_N_GF_Z2_MU_CONSISTENT_DR2_COMPLETION_INVENT_EXTEND [G_F_GeVm2 [P2]]` | 1.16690544272e-05 | 1.1663787e-5 ± 6e-12 | +877.905 | SM_PARITY_REFINE_LATER |
+| `Z-2 Gamma_Z/M_Z (A1 width) [Gamma_Z/M_Z [vt P2 G_F]]` | 0.0272759945865 | 0.02736653946 ± 2.523e-5 | -3.589 | SM_PARITY_REFINE_LATER |
+| `43.5vt-TAU_N_GF_Z2_MU_CONSISTENT_DR2_COMPLETION_INVENT_EXTEND [tau_n_s Pattie [P2]]` | 877.848410797 | 877.7 ± 0.761577311 | +0.195 | SM_PARITY_REFINE_LATER |
+| `43.5vt-TAU_N_GF_Z2_MU_CONSISTENT_DR2_COMPLETION_INVENT_EXTEND [tau_n_s UCNtau [P2]]` | 877.848410797 | 877.82 ± 0.287445647 | +0.099 | SM_PARITY_REFINE_LATER |

@@ -4,20 +4,22 @@
 // header) lists every folded leaf: the tip prediction the route scored, the held-out observation and sigma, and the
 // recorded z. `live` names the engine function that re-derives the prediction here; live() below evaluates it, so a
 // folded route is re-derived and re-scored by the engine on every ctest run instead of being trusted as a number.
-// Excluded: 43.5vt (G_F) is a HOOK only (pending the muon-decay cross-check; G_F is tip-native only); (l): V_ud and g_A
-// are never scored as targets here.
+// 43.5vt (G_F, τ_n) is folded flagged SM_PARITY_REFINE_LATER (Damian t994u; ruling t992u c65ff89d): carried P2,
+// alternate P1, both re-derived by fold::vt::Chain (vt_gf.hpp). (l): V_ud and g_A are never scored as targets here.
 #pragma once
 #include <optional>
 #include <string>
 
 #include "fsot/host/nucleon_radius.hpp"
 #include "fsot/host/seed_leaves.hpp"
+#include "fsot/fold/vt_gf.hpp"
 
 namespace fsot::fold {
 
 template <class R> struct Live {
   const Engine<R>& F;
   const leaves::SeedLeaves<R>& L;
+  const vt::Chain<R>* vt = nullptr;  // §43.5vt chain (keys vt:*); nullptr -> vt keys unresolved (test FAIL)
   // Gamma_Z = M_Z * (phi^5/e^6)(1 - alpha/phi): catalog leaf Gamma_Z/M_Z (PHYSICAL_MAP leaf:Gamma_Z/M_Z), alpha = leaf.
   R gz_ratio() const { return m::ipow(F.PHI, 5) / m::ipow(F.E, 6) * (R(1) - L.alpha() / F.PHI); }
   std::optional<R> operator()(const std::string& key) const {
@@ -36,6 +38,12 @@ template <class R> struct Live {
     if (key == "host:c_D") return L.c_D_host();
     if (key == "host:c_E") return L.c_E_host();
     if (key == "nucleon:r_v2_over_2") return nucleon::r_v2<R>(F, L).value / R(2);
+    if (vt && key.rfind("vt:", 0) == 0) {
+      const bool p1 = key.size() > 3 && key.compare(key.size() - 3, 3, "_P1") == 0;
+      const auto s = vt->solve(p1 ? vt::P1() : vt::P2());
+      if (key.rfind("vt:tau_n_", 0) == 0) return s.tau_n;
+      if (key.rfind("vt:G_F_", 0) == 0) return s.GF;
+    }
     return std::nullopt;
   }
 };

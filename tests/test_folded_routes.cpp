@@ -17,7 +17,11 @@ int main() {
 #else
   std::ifstream in(FSOT_FOLDED_TSV);
   if (!in) { std::fprintf(stderr, "cannot open %s\n", FSOT_FOLDED_TSV); return 2; }
-  Engine<mp169> F; leaves::SeedLeaves<mp169> L(F); fold::Live<mp169> live{F, L};
+  Engine<mp169> F; leaves::SeedLeaves<mp169> L(F);
+  const auto vpk = fold::vt::Package<mp169>::load(FSOT_VT_PACKAGE_TSV);
+  const fold::vt::Chain<mp169> vch{vpk, fold::vt::engine_inputs(L)};
+  fold::Live<mp169> live{F, L, &vch};
+  int flagged = 0;
   std::string line; int rows = 0, live_ok = 0, live_n = 0, z_ok = 0, z_n = 0, inbar = 0, outbar = 0, fails = 0, hooks = 0, rec_only = 0;
   double worst_rel = 0; std::string worst;
   while (std::getline(in, line)) {
@@ -27,6 +31,10 @@ int main() {
     c.resize(9);
     if (c[0] == "HOOK") { ++hooks; std::printf("  HOOK %s: %s\n", c[1].c_str(), c[6].c_str()); continue; }
     ++rows;
+    if (c[0].rfind("43.5vt", 0) == 0) {  // t994u: every vt row must carry the status flag
+      if (c[6].find(fold::vt::kStatus) == std::string::npos) { std::printf("  FAIL %s %s: missing %s\n", c[0].c_str(), c[1].c_str(), fold::vt::kStatus); ++fails; }
+      else ++flagged;
+    }
     if (c[2].empty()) { ++rec_only; continue; }
     const double pred_rec = std::strtod(c[2].c_str(), nullptr);
     double pred = pred_rec;
@@ -55,8 +63,8 @@ int main() {
     }
   }
   std::printf("folded routes: %d rows (%d route-level records), %d/%d tip predictions re-derived live (worst rel %.2e [%s]), "
-              "%d/%d z re-scored; in-bar |z|<=1: %d, out-of-bar: %d; hooks %d\n", rows, rec_only, live_ok, live_n, worst_rel,
-              worst.c_str(), z_ok, z_n, inbar, outbar, hooks);
+              "%d/%d z re-scored; in-bar |z|<=1: %d, out-of-bar: %d; hooks %d; %s rows %d\n", rows, rec_only, live_ok, live_n, worst_rel,
+              worst.c_str(), z_ok, z_n, inbar, outbar, hooks, fold::vt::kStatus, flagged);
   std::puts(fails ? "FOLDED ROUTES: FAIL" : "FOLDED ROUTES: ALL PASS");
   return fails ? 1 : 0;
 #endif

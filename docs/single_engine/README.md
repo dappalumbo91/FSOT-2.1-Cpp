@@ -24,11 +24,20 @@ Steering: Damian t987u, 2026-11-11 12:24 PM EST. Every verdict below is produced
 
 ## 3. Folded into the engine
 - `golden/folded_routes.tsv` (from tracer ledger sha256 2201ef2c…e1e): 85 PASS/INCLUDE rows (tk, tm, to, tg, ry, sd, sn, …); 42 tip predictions re-derived **live** by `fold::Live<R>` (worst rel 1.9e-11); 58 z re-scored; 46 in-bar, 12 out. sd/sn use recorded predictions (live port not done). sd uses g_A only as the F_A(0) input — g_A itself is not scored ((l)).
-- **§43.5vt (G_F) is a HOOK row only, not folded** (pending muon-decay cross-check). V_ud, g_A stay excluded; G_F tip-native only.
+- **§43.5vt (G_F, τ_n) folded, flagged `SM_PARITY_REFINE_LATER`** (Damian t994u, 2026-11-11 1:00 PM EST; ruling
+  RULING_t992u_SM_PARITY_GATE.md sha8 c65ff89d, verified as the sha256 of its body). Carried route P2 = C1+C2+C3+C5µ+C6
+  (no C7): G_F = 1.16690544271959e-5, τ_n = 877.8484108 s; P1 (with C7) kept as the documented alternate.
+  `include/fsot/fold/vt_gf.hpp` runs the fixed point live (x_t, Δρ, C5µ Δr^(2) + T_conv, C6 at every iteration) on the
+  engine's own seed leaves (M_W, M_Z, α, s_W², m_t equal the vt package to 1e-50). Loop-invariant coefficients are banked in
+  `golden/vt_package.tsv` (`tools/gen_vt_package.py`, 50 digits, stamped with the vt score.py / results.tsv / DONE.md sha256).
+  Gates: τ_n Gate A PASS (z +0.099 UCNτ, +0.195 Pattie); G_F Gate A FAIL (strict MuLan τ_μ z −901.2), Gate B ACCEPT
+  (+451.5 ppm vs G_μ ≤ 809.87). The rows that read G_F (Z-2 G_F, Γ_Z/M_Z A1 width) carry the same flag. Before/after: BEFORE_AFTER.md §4.
+  Hooks: `fold::vt::Hooks` — `vv_rem_add` / `vv_route` (§43.5vv Δr), `tau_vk_override` (§43.5vw ΔR^V, §43.5vx g_A).
+  Test: ctest `vt_gf`. Not ADOPT, no GO-MERGE. V_ud and g_A stay hosted inside τ_vk and are never scored.
 - PRs #1–#4 cherry-picked with -x (c88aea4, 6937f2d, 29f3c64, fd00b48, 98ca744).
 - Archive check [10]: the single-engine parity column equals all 368 archive obs entries; 13 moved rows all appear in BEFORE_AFTER; D-02/D-04 sensitivity flags agree with the archive.
 
-## 4. Tests (zig 0.17 clang, Ninja; logs in ../../logs/phase3/)
+## 4. Tests (Phase 3 run; see STATE.md for the latest) (zig 0.17 clang, Ninja; logs in ../../logs/phase3/)
 - ctest: **108/109 pass**. The 1 failure is `golden`, long-double only (Chain_consistency_% cancellation row, rel 1.4e-12 vs tol 1e-15). It also fails on the untouched PR #5 baseline (ctest_baseline.log) — a toolchain artifact (N-3). double PASS; mp169 536/536 bit-identical to the golden.
 - New tests: derivations, folded_routes, single_engine_table(_golden), single_engine_folded_golden, single_engine_before_after_committed, worst_residuals(_committed).
 - Archive `tools/check.py`: PASS.

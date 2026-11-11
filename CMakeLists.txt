@@ -317,12 +317,19 @@ add_test(NAME derivations COMMAND test_derivations)
 if(Boost_FOUND)
   add_executable(test_folded_routes tests/test_folded_routes.cpp)
   target_link_libraries(test_folded_routes PRIVATE fsot)
-  target_compile_definitions(test_folded_routes PRIVATE FSOT_FOLDED_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/folded_routes.tsv")
+  target_compile_definitions(test_folded_routes PRIVATE FSOT_FOLDED_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/folded_routes.tsv"
+                             FSOT_VT_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vt_package.tsv")
   add_test(NAME folded_routes COMMAND test_folded_routes)
+  # §43.5vt (Damian t994u): G_F / tau_n chain folded, flagged SM_PARITY_REFINE_LATER
+  add_executable(test_vt_gf tests/test_vt_gf.cpp)
+  target_link_libraries(test_vt_gf PRIVATE fsot)
+  target_compile_definitions(test_vt_gf PRIVATE FSOT_VT_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vt_package.tsv")
+  add_test(NAME vt_gf COMMAND test_vt_gf)
 endif()
 if(Boost_FOUND)
   add_executable(fsot_single_engine apps/fsot_single_engine.cpp)
   target_link_libraries(fsot_single_engine PRIVATE fsot)
+  target_compile_definitions(fsot_single_engine PRIVATE FSOT_VT_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vt_package.tsv")
   add_test(NAME single_engine_table COMMAND fsot_single_engine --table ${CMAKE_CURRENT_BINARY_DIR}/single_engine_table.tsv
            --folded ${CMAKE_CURRENT_SOURCE_DIR}/golden/folded_routes.tsv ${CMAKE_CURRENT_BINARY_DIR}/single_engine_folded.tsv
            --before-after ${CMAKE_CURRENT_BINARY_DIR}/BEFORE_AFTER.md)
