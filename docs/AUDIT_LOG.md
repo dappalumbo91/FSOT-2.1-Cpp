@@ -923,8 +923,9 @@ Re-generated against hub `6f9c2560` (same pin as CI) and the post-59bbaff `score
 - `audit/score_2026-10-02m.tsv` — M-2 held-out rows that use K-1a F_π; verdicts unchanged
 - `audit/score_2026-10-02p.tsv` — P-5 χ / η / η' (reads FSOT Λ^(3)); verdicts unchanged
 - `audit/score_2026-10-02r.tsv` — R-1 traces of the same Λ^(3); **R-1 M_η' flips FAIL → PASS** (5.80 % → 4.04 %). Other R-1 verdicts unchanged.
+- `audit/score_2026-10-02s.tsv` — S-2 FKS η/η' (reads P-4 F_π and the updated R-1 χ); S-2 M_η stays PASS, M_η' stays FAIL
 
-`FREEZE_2026-10-02k` (and l/m/p/r) decision files and their sha256 are left as historical records, same policy as 59bbaff for s2/t/u2. All later scores (n, o, q, s, s2, t, u, v, w, x…aq) already matched a live regen against the new J-1 values.
+`FREEZE_2026-10-02k` (and l/m/p/r) decision files and their sha256 are left as historical records, same policy as 59bbaff for s2/t/u2. All later scores (n, o, q, s2, t–aq) already matched a live regen after this cascade.
 
 ### H-toolchain · 2026-11-11: 80-bit π and e on long double
 `std::numbers::pi_v<long double>` and `e_v<long double>` on this box's zig-c++/libc++ are the 53-bit double constants (rel 3.9e-17 vs `4*atanl(1)` / a 50-digit literal). Engine<long double> then evaluates `Chain_consistency_%` = 100|(τ/μ)(μ/e)−(τ/e)|/(τ/e) to only ~double accuracy (rel 1.40e-12, mixed 9.33e-15 vs the 1e-15 bar). ubuntu-latest libstdc++ already ships correctly rounded 80-bit constants, which is why CI `golden` passed. `real_traits<long double>::pi()` / `e()` now use 50-digit `L` literals (agrees with `strtold` and `4*atanl(1)`). No tolerance was loosened.

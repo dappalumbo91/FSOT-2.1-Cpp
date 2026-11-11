@@ -8,8 +8,8 @@ S-1	separation finding	-	-	-	-	-	located	-	-	basis K 12 -> 8 at m_pi = 0: -1.8 %
 S-1	fix at that step	-	-	-	-	-	not frozen	-	-	ordering part of g_A^(1) vs chiral-limit tail/surface term: derivation deferred (time box); no g_A rescoring
 VALIDATION	S-2 M_eta (FKS, PDG F_pi, F_K/F_pi 1.1932, chi^1/4 185.3)	PDG/FLAG/lattice	557.17016123	547.862	0.017	547.54	PASS	1.699 %		tol 5 %; phi = 42.385 deg, a^2 = 0.27819 GeV^2
 VALIDATION	S-2 M_eta' (same)	same	944.326320918	957.78	0.06	224.23	PASS	-1.4047 %		tol 5 %
-S-2	S-2 M_eta (FKS: f_q = FSOT F_pi, f_s = f_q sqrt(2r^2 - 1), a^2 = 2 chi/f_q^2)	P-4 F_pi 92.88662, R-1 chi^1/4 177.003, FLAG r	538.386467404	547.862	0.017	557.38	PASS	-1.7295 %	HYBRID	validation passed; disclosed hand estimate about -2 %
-S-2	S-2 M_eta' (same)	same	882.576728375	957.78	0.06	1253.4	FAIL	-7.8518 %	HYBRID	validation passed; disclosed hand estimate about -8 %
-S-2	S-2 mixing angle phi (quark-flavour basis)	same	37.7444592018	-	-	-	info	-	HYBRID	FKS phenomenology 39.3(1.0) deg; y = 0.73572, a^2 = 0.22753 GeV^2 (FKS 0.265)
-S-2	look-elsewhere: f_q = F3 (chiral F): M_eta'	info	926.190387434	-	-	-	info	-	HYBRID	M_eta 551.279
+S-2	S-2 M_eta (FKS: f_q = FSOT F_pi, f_s = f_q sqrt(2r^2 - 1), a^2 = 2 chi/f_q^2)	P-4 F_pi 92.88662, R-1 chi^1/4 174.889, FLAG r	533.733162225	547.862	0.017	831.11	PASS	-2.5789 %	HYBRID	validation passed; disclosed hand estimate about -2 %
+S-2	S-2 M_eta' (same)	same	869.941622347	957.78	0.06	1464.0	FAIL	-9.171 %	HYBRID	validation passed; disclosed hand estimate about -8 %
+S-2	S-2 mixing angle phi (quark-flavour basis)	same	36.4908789704	-	-	-	info	-	HYBRID	FKS phenomenology 39.3(1.0) deg; y = 0.73572, a^2 = 0.21686 GeV^2 (FKS 0.265)
+S-2	look-elsewhere: f_q = F3 (chiral F): M_eta'	info	911.388585297	-	-	-	info	-	HYBRID	M_eta 547.371
 GATE	record rows of the 91	-	-	-	-	-	unchanged	-	-	eta, eta' HYBRID; g_A not rescored
