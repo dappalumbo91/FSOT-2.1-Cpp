@@ -94,10 +94,18 @@ SCAFFOLD_PENDING_FSOT_DERIVATION.
 | pass 1 after | 224 | 39 | 10 | 91 (24 + 67) | 132 | 25 | 521 |
 | pass 2 after | 215 | 42 | 13 | 90 (24 + 66) | 132 | 4 | 496 |
 
-Why the total drops by 25: duplicates collapse to one engine-wide value. 21 superseded seed rows and 7 pin rows that
-are now carried by their source row are dropped, and the τ_n folded routes are scored once per route against pdgLive
-(their gates are secondary), not once per gate. Per scored quantity, nothing in bar was lost to unification. The new
-out-of-bar rows are criteria moves only: V_ud and V_cd (direct values), the vt P1/P2 alternates and the vv-only τ_n.
+Why the total drops by 25 (31 rows removed, 6 added):
+- 19 SUPERSEDED-SEED rows collapse onto their scored pin or leaf.
+- 12 in-bar duplicate rows are now carried by a single row:
+  - 6 pin rows now carried by their source row: τ_n closed form, lepton m_τ/m_e, wave3 |V_cb|, wave4 |V_td|, wave4 |V_ts|, J;
+  - the wave7 m_τ/m_μ seed;
+  - the 4 vt per-gate τ_n rows;
+  - the duplicate ledger vt P2 row.
+- 6 rows are added: 1 τ_n row per vt route (2), the vv P3 + vw P3 τ_n, the vv P3-only τ_n, the vv P3 G_F and the vv P3 τ_μ diagnostic.
+
+Unification moved no quantity from in bar to out of bar. The new out-of-bar rows come from the criteria changes only:
+- V_ud and V_cd against the direct values;
+- the vt P1/P2 alternates and the vv-only τ_n against pdgLive.
 
 ## 5. Moved rows, pass-1 after → pass-2 after
 | change | id | FSOT before | obs before | z before | verdict before | FSOT after | obs after | z after | verdict after |
