@@ -61,8 +61,8 @@ Before = the Z-2 tip chain (all vt terms off; audit/score_2026-10-02z.tsv:13-14,
 | G_F [GeV^-2] | CODATA 2022 1.1663787(6)e-5 | 1.16538450843e-05 | -1656.985950 | 1.16690544271959e-05 | 877.904533 | 1.16704997054391e-05 | 1118.784240 |
 | G_F vs G_mu [ppm] (Gate B <= 809.87) | PDG G_mu 1.1663788e-5 | -852.460256 | Gate B FAIL | 451.519455 | Gate B ACCEPT | 575.431021 | Gate B ACCEPT |
 | tau_mu strict MuLan (diagnostic) | 2196980.3(2.2) ps | 1707.103057 ppm | 1704.759903 | -902.427668 ppm | -901.189004 | -1149.869441 ppm | -1148.291141 |
-| Gamma_Z/M_Z (A1 width, reads G_F) | 0.02736653946(2523) | 0.0272404432951 | -4.997866 | 0.0272759945865 | -3.588778 | 0.0272793728724 | -3.454879 |
+| Gamma_Z/M_Z (A1 width at this G_F; DIAGNOSTIC, not scored since IRONOUT-1) | 0.02736653946(2523) | 0.0272404432951 | -4.997866 | 0.0272759945865 | -3.588778 | 0.0272793728724 | -3.454879 |
 | tau_n [s] vs UCNtau | 877.82 +- 0.287445647 | 880.1412523 | 8.075448 | 877.8484108 | 0.098839 | 877.6309982 | -0.657522 |
 | tau_n [s] vs Pattie | 877.7 +- 0.761577311 | 880.1412523 | 3.205521 | 877.8484108 | 0.194873 | 877.6309982 | -0.090604 |
 
-Unchanged: the catalog closed forms wave3 Neutron_lifetime_s (pi^7 theta_S) and wave5 Gamma_Z/M_Z (phi^5/e^6), and the gz:Gamma_Z_MeV folded routes, do not read G_F. (l): V_ud and g_A stay hosted inside tau_vk, never scored. Hooks for §43.5vv (Delta r), §43.5vw (Delta R^V) and §43.5vx (g_A): fold::vt::Hooks.
+Unchanged: the catalog closed forms wave3 Neutron_lifetime_s (pi^7 theta_S) and wave5 Gamma_Z/M_Z (phi^5/e^6), and the gz:Gamma_Z_MeV folded routes, do not read G_F. IRONOUT-1: the scored Gamma_Z/M_Z folded row reads the tip leaf (phi^5/e^6)(1 - alpha/phi), not the vt G_F. (l): V_ud and g_A stay hosted inside tau_vk, never scored. Hooks for §43.5vv (Delta r), §43.5vw (Delta R^V) and §43.5vx (g_A): fold::vt::Hooks.

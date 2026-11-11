@@ -75,12 +75,17 @@ int main(int argc, char** argv) {
         if (c[6].rfind("ALTERNATE", 0) == 0) flag += " ALTERNATE";
         o << c[0] << '\t' << c[1] << '\t' << pl << '\t' << c[2] << '\t' << c[3] << '\t' << c[4] << '\t' << z << '\t' << c[7] << '\t' << flag << '\n';
       }
-      // rows that read G_F, re-evaluated with the folded vt G_F (P2 carried, P1 alternate)
+      // IRONOUT-1 #1 (Damian t995u/t987u): the Z width does NOT read the vt SM-parity G_F. It is scored from the tip's own
+      // in-bar leaf Gamma_Z/M_Z = (phi^5/e^6)(1 - alpha/phi) (fold::Live::gz_ratio, the same chain as gz:Gamma_Z_MeV).
+      // The A1 width at the vt G_F stays a BEFORE_AFTER §4 diagnostic only (never scored).
+      {
+        const R g = live.gz_ratio();
+        o << "Gamma_Z/M_Z (tip leaf, G_F-independent)\tGamma_Z/M_Z\t" << s30(g) << "\t\t0.02736653946\t2.523e-5\t" << std::to_string(double((g - gzref) / gzsig))
+          << "\tgz:Gamma_Z_over_M_Z\tIRONOUT-1 (was A1 width at vt G_F)\n";
+      }
+      // rows that read G_F, re-evaluated with the folded vt G_F (P2 carried, P1 alternate): tau_mu diagnostic only
       for (auto [rt, sol] : {std::pair{"P2", v2}, std::pair{"P1", v1}}) {
         const std::string fl = std::string(fold::vt::kStatus) + (std::string(rt) == "P1" ? " ALTERNATE" : "");
-        const R g = gz(sol.GF);
-        o << "Z-2 Gamma_Z/M_Z (A1 width)\tGamma_Z/M_Z [vt " << rt << " G_F]\t" << s30(g) << "\t\t0.02736653946\t2.523e-5\t" << std::to_string(double((g - gzref) / gzsig))
-          << "\tvt:gz_A1_" << rt << '\t' << fl << '\n';
         const auto d = fold::vt::mu_diag(sol.GF);
         o << "tau_mu strict MuLan (diagnostic)\ttau_mu [vt " << rt << " G_F]\t" << std::to_string(2196980.3 * (1 + d.tau_mu_ppm * 1e-6)) << "\t\t2196980.3\t2.2\t" << std::to_string(d.z_mulan)
           << "\tvt:tau_mu_" << rt << '\t' << fl << " DIAGNOSTIC (Gate B " << (d.gateB ? "ACCEPT" : "FAIL") << ", G_F vs G_mu " << std::to_string(d.ppm_vs_Gmu) << " ppm)\n";
@@ -130,12 +135,13 @@ int main(int argc, char** argv) {
         << " | Gate B " << (d2.gateB ? "ACCEPT" : "FAIL") << " | " << std::to_string(d1.ppm_vs_Gmu) << " | Gate B " << (d1.gateB ? "ACCEPT" : "FAIL") << " |\n";
       o << "| tau_mu strict MuLan (diagnostic) | 2196980.3(2.2) ps | " << std::to_string(d0.tau_mu_ppm) << " ppm | " << std::to_string(d0.z_mulan) << " | " << std::to_string(d2.tau_mu_ppm) << " ppm | "
         << std::to_string(d2.z_mulan) << " | " << std::to_string(d1.tau_mu_ppm) << " ppm | " << std::to_string(d1.z_mulan) << " |\n";
-      o << "| Gamma_Z/M_Z (A1 width, reads G_F) | 0.02736653946(2523) | " << gz(v0.GF).str(12) << " | " << zs(gz(v0.GF), "0.02736653946", "2.523e-5") << " | " << gz(v2.GF).str(12) << " | "
+      o << "| Gamma_Z/M_Z (A1 width at this G_F; DIAGNOSTIC, not scored since IRONOUT-1) | 0.02736653946(2523) | " << gz(v0.GF).str(12) << " | " << zs(gz(v0.GF), "0.02736653946", "2.523e-5") << " | " << gz(v2.GF).str(12) << " | "
         << zs(gz(v2.GF), "0.02736653946", "2.523e-5") << " | " << gz(v1.GF).str(12) << " | " << zs(gz(v1.GF), "0.02736653946", "2.523e-5") << " |\n";
       for (auto [g, c, sg] : {std::tuple{"UCNtau", "877.82", "0.287445647"}, std::tuple{"Pattie", "877.7", "0.761577311"}})
         o << "| tau_n [s] vs " << g << " | " << c << " +- " << sg << " | " << v0.tau_n.str(10) << " | " << zs(v0.tau_n, c, sg) << " | " << v2.tau_n.str(10) << " | " << zs(v2.tau_n, c, sg)
           << " | " << v1.tau_n.str(10) << " | " << zs(v1.tau_n, c, sg) << " |\n";
       o << "\nUnchanged: the catalog closed forms wave3 Neutron_lifetime_s (pi^7 theta_S) and wave5 Gamma_Z/M_Z (phi^5/e^6), and the gz:Gamma_Z_MeV folded routes, do not read G_F. "
+           "IRONOUT-1: the scored Gamma_Z/M_Z folded row reads the tip leaf (phi^5/e^6)(1 - alpha/phi), not the vt G_F. "
            "(l): V_ud and g_A stay hosted inside tau_vk, never scored. Hooks for §43.5vv (Delta r), §43.5vw (Delta R^V) and §43.5vx (g_A): fold::vt::Hooks.\n";
     }
   }

@@ -52,6 +52,14 @@ int main() {
   std::printf("  Gamma_Z/M_Z A1 at vt P2 G_F = %s  z %+.4f (was %+.4f at Z-2)  [%s]\n", gz2.str(15).c_str(),
               double((gz2 - lit<R>("0.02736653946")) / lit<R>("2.523e-5")),
               double((fold::vt::gz_over_mz_A1(F, pk.at("GF_Z2"), in.MZ, s2h, in.alpha) - lit<R>("0.02736653946")) / lit<R>("2.523e-5")), fold::vt::kStatus);
+  // IRONOUT-1 #1: the scored Z width reads the tip leaf (phi^5/e^6)(1 - alpha/phi), not any G_F; it must stay in bar.
+  {
+    fold::Live<R> lv{F, L, nullptr};
+    const auto gzl = lv("gz:Gamma_Z_over_M_Z");
+    const double zl = gzl ? double((*gzl - lit<R>("0.02736653946")) / lit<R>("2.523e-5")) : 99;
+    std::printf("  IRONOUT-1 Gamma_Z/M_Z tip leaf = %s  z %+.4f (G_F-independent; A1-at-vt-G_F is diagnostic only)\n", gzl ? gzl->str(15).c_str() : "?", zl);
+    if (!gzl || std::fabs(zl) > 1 || *gzl != lv.gz_ratio()) ++fails;
+  }
   // ruling t992u diagnostics
   for (auto [nm, s, ppm, z] : {std::tuple{"P2", p2, 451.52, -901.2}, std::tuple{"P1", p1, 575.43, -1148.3}}) {
     const auto d = fold::vt::mu_diag(s.GF);

@@ -32,6 +32,7 @@ template <class R> struct Live {
     if (key == "leaf:m_H_GeV") return (F.THETA_S + m::ipow(F.E, 3)) / m::ipow(F.C_FACTOR, 7) / R(1000);
     if (key == "leaf:dm2_32") return m::ipow(F.G_CAT * F.SUCTION, 3) * (R(1) + L.yy());
     if (key == "gz:Gamma_Z_MeV") return L.m_Z_MeV() * gz_ratio();
+    if (key == "gz:Gamma_Z_over_M_Z") return gz_ratio();  // IRONOUT-1: Z width never reads the vt G_F
     if (key == "dm21:pathA") return m::ipow(F.POOF * F.G_CAT * F.P_NEW, 3);
     if (key == "host:sqrt8t0_over_r0") return leaves::sqrt8t0_over_r0<R>();
     if (key == "host:mu_p") return L.mu_p_host();
