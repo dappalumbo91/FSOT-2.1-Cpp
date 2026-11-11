@@ -1,0 +1,16 @@
+#key	change	engine_or_route_target	accepted_value	sigma	citation	note
+tau_n (all FSOT tau_n rows)	world_average_PRIMARY	UCNtau 2025 877.82 +- 0.287 (single experiment)	878.4	0.5	PDG 2024 neutron mean life tau_n = 878.4 +- 0.5 s (https://pdg.lbl.gov/2024/tables/rpp2024-sum-baryons.pdf)	Damian t999u: applied (was world_average_PROPOSED_NOT_APPLIED in ironout1). UCNtau 877.82(29) and Pattie 877.7(76) kept as SECONDARY gates, reported next to every tau_n row
+wave3|sin_theta_C	world_average	0.22759 (unexplained)	0.22431	0.00085	PDG 2024 CKM review Eq. (12.8): |V_us| = 0.22431 +- 0.00085 (direct, K_l3 + K_mu2/pi_mu2); PDG: lambda = sin(theta_Cabibbo) = |V_us|	replaces the ironout1 global-fit lambda 0.22501(68)
+CKM_V_ud (+ pin:wave8||V_ud|, wave8||V_ud|)	world_average	PDG global fit 0.97435(16)	0.97367	0.00032	PDG 2024 CKM review Eq. (12.7), superallowed 0+->0+ (direct)	global fit (Eq. 12.27) assumes unitarity: a fit, not an observation
+CKM_V_us (+ pin:wave3||V_us|)	world_average	PDG global fit 0.22501(68)	0.22431	0.00085	PDG 2024 CKM review Eq. (12.8)	
+CKM_V_cd (+ pin:wave8||V_cd|, wave8||V_cd|)	world_average	PDG global fit 0.22487(68)	0.221	0.004	PDG 2024 CKM review Eq. (12.9)	
+CKM_V_cs (+ pin:wave8||V_cs|, wave8||V_cs|)	world_average	PDG global fit 0.97349(16)	0.975	0.006	PDG 2024 CKM review Eq. (12.10)	
+CKM_V_cb (+ pin:wave3||V_cb|)	world_average	PDG global fit 0.04183(79)	0.0411	0.0012	PDG 2024 CKM review Eq. (12.11) (incl. + excl. average)	
+CKM_V_ub (+ pin:wave4||V_ub|, wave4||V_ub|)	world_average	PDG global fit 0.003732(90)	0.00382	0.00020	PDG 2024 CKM review Eq. (12.12)	
+CKM_V_td (+ pin:wave4||V_td|)	world_average	PDG global fit 0.00858(19)	0.0086	0.0002	PDG 2024 CKM review Eq. (12.13) (B mixing + LQCD)	
+CKM_V_ts (+ pin:wave4||V_ts|)	world_average	PDG global fit 0.04111(77)	0.0415	0.0009	PDG 2024 CKM review Eq. (12.13)	
+CKM_V_tb (+ pin:wave9||V_tb|, wave9||V_tb|)	world_average	PDG global fit 0.999118(29)	1.010	0.027	PDG 2024 CKM review Eq. (12.15) (single-top cross sections)	
+J_CKM	no_direct_value	PDG global fit 3.12(13)e-5	3.12e-5	0.13e-5	PDG 2024 CKM review Eq. (12.27/12.28)	no direct measurement of J exists: the global fit is the best observed value and stays the target (flagged)
+frozen audit/precision_2026-10-02.tsv	not_edited	global-fit CKM references	—	—	reference/published_2026-10-02.tsv (freeze 2026-10-02)	the dated precision audit is a frozen record; the world-average CKM targets above are applied in the scorecard (build_ironout2.py) and documented here, not by rewriting the freeze
+IE_H Bethe log ln k0(1s) = 2.984128555765	SCAFFOLD_PENDING_FSOT_DERIVATION	—	—	—	Drake & Swainson, PRA 41, 1243 (1990)	Coulomb-problem number allowed as temporary scaffolding only (Damian t999u)
+IE_He eigenvalue candidate (not adopted)	SCAFFOLD_PENDING_FSOT_DERIVATION	—	—	—	Drake, Springer Handbook of AMO Physics (2006), He ground state	candidate only (z ~ +11), not in the engine
