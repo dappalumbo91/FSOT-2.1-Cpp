@@ -912,3 +912,19 @@ Closed forms (`fsot_report`, mp169):
 
 ### H-tip · 2026-10-30: J-1 integrand stabilized (tip-intrinsic Λ^(3) = 333.200 MeV)
 The J-1 remainder integrand `-1/(x²β) + 1/(b0 x²) - b1/(b0² x)` cancels at small x; mpmath `quad` drifted (332.62–334.43 MeV with dps). The x² cancellation is now done analytically in tools/score_2026_10_02j.py and score_2026_10_02s2.py (same integral, same inputs, no new formula). Λ^(5,4,3) FSOT = 207.566 / 289.546 / 333.200260643 MeV at dps 15/30/60 (z 0.68 / 0.55 / 0.48 vs FLAG). The FLAG-input J-1 validation now reproduces FLAG to z 0.10 / 0.01 / 0.08. The frozen 334.43 is retired as a naive-quad artifact; FREEZE_2026-10-02s2/t/u2 files are left as historical records. Gate stays 91/91.
+
+### H-tip follow-up · 2026-11-11: re-freeze k/l/m/p/r after the J-1 integrand change (59bbaff)
+The 2026-10-30 J-1 integrand stabilization (commit 59bbaff, Λ^(3) FSOT 336.940 → 332.916 MeV; Λ^(5) 209.524 → 207.566) updated `audit/score_2026-10-02j.tsv` and the s2/t/u/w scores, but did not regenerate the downstream snapshots that *read* those Lambdas. That stale-k golden is what turned `ledger-b` red on PR #5 (first seen at 59bbaff; still present on merge `db2bc8f`). This is a legitimate regen, not a code regression: `tools/trace_2026_10_02k.py` / `score_2026_10_02k.py` were unchanged; only the J-1 inputs moved.
+
+Re-generated against hub `6f9c2560` (same pin as CI) and the post-59bbaff `score_j`:
+- `audit/trace_2026-10-02k.tsv` — only the six C-link rows that divide by FSOT Λ^(3) or Λ^(5)
+- `audit/score_2026-10-02k.tsv` — K-1a/b, K-4, K-5, D-1 (all still the same PASS/FAIL verdicts)
+- `audit/score_2026-10-02l.tsv` — L-B1* (GMOR with K-1a F_π) and the frozen L-B2/L-B4 info rows; L-B1b stays PASS
+- `audit/score_2026-10-02m.tsv` — M-2 held-out rows that use K-1a F_π; verdicts unchanged
+- `audit/score_2026-10-02p.tsv` — P-5 χ / η / η' (reads FSOT Λ^(3)); verdicts unchanged
+- `audit/score_2026-10-02r.tsv` — R-1 traces of the same Λ^(3); **R-1 M_η' flips FAIL → PASS** (5.80 % → 4.04 %). Other R-1 verdicts unchanged.
+
+`FREEZE_2026-10-02k` (and l/m/p/r) decision files and their sha256 are left as historical records, same policy as 59bbaff for s2/t/u2. All later scores (n, o, q, s, s2, t, u, v, w, x…aq) already matched a live regen against the new J-1 values.
+
+### H-toolchain · 2026-11-11: 80-bit π and e on long double
+`std::numbers::pi_v<long double>` and `e_v<long double>` on this box's zig-c++/libc++ are the 53-bit double constants (rel 3.9e-17 vs `4*atanl(1)` / a 50-digit literal). Engine<long double> then evaluates `Chain_consistency_%` = 100|(τ/μ)(μ/e)−(τ/e)|/(τ/e) to only ~double accuracy (rel 1.40e-12, mixed 9.33e-15 vs the 1e-15 bar). ubuntu-latest libstdc++ already ships correctly rounded 80-bit constants, which is why CI `golden` passed. `real_traits<long double>::pi()` / `e()` now use 50-digit `L` literals (agrees with `strtold` and `4*atanl(1)`). No tolerance was loosened.
