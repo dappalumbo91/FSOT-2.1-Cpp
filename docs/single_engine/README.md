@@ -44,3 +44,6 @@ Steering: Damian t987u, 2026-11-11 12:24 PM EST. Every verdict below is produced
 
 ## 5. Next dial-in list
 See WORST_RESIDUALS.md (15 scored rows with |z|>1; 24 unscored rows >0.5 %).
+
+## Iron-out pass 1 (local branch ironout-1)
+See [IRONOUT_1.md](IRONOUT_1.md) (before/after, verdicts, candidates not adopted, open decisions) and [SCORING_CRITERIA_IRONOUT_1.md](SCORING_CRITERIA_IRONOUT_1.md) (criteria-only changes).

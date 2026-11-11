@@ -336,6 +336,10 @@ if(Boost_FOUND)
   add_test(NAME single_engine_before_after_committed COMMAND ${CMAKE_COMMAND} -E compare_files
            ${CMAKE_CURRENT_BINARY_DIR}/BEFORE_AFTER.md ${CMAKE_CURRENT_SOURCE_DIR}/docs/single_engine/BEFORE_AFTER.md)
   set_tests_properties(single_engine_before_after_committed PROPERTIES DEPENDS single_engine_table)
+  # IRONOUT-1 (Damian t995u): re-derived rows in bar, scaling relations exact, parity untouched
+  add_executable(test_ironout1 tests/test_ironout1.cpp)
+  target_link_libraries(test_ironout1 PRIVATE fsot)
+  add_test(NAME ironout1 COMMAND test_ironout1)
 endif()
 if(Boost_FOUND)
   add_test(NAME single_engine_table_golden COMMAND ${CMAKE_COMMAND} -E compare_files
