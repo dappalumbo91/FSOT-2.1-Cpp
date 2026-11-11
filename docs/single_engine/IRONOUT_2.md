@@ -32,7 +32,7 @@ Tests: ctest 110/111 (only `golden` Chain_consistency_% long-double rel 1.4e-12,
 | τ_n [s] | 877.8484108 | 878.4325396 | 878.4325396 |
 | z vs pdgLive 878.3(4) | −1.13 | **+0.33** | +0.331 |
 | z vs PDG 2024 / UCNτ / Pattie | −1.10 / +0.10 / +0.19 | +0.07 / +2.13 / +0.96 | +0.0651 / +2.1310 / +0.96187 |
-| τ_μ strict MuLan z (diag) | −901.2 | −881.5 (G_μ-ratio scaling; vv vRS form −883.24) | −883.24 |
+| τ_μ strict MuLan z (diag) | −901.2 | −881.50 (G_μ-ratio scaling; PDG eq.(10.9) direct −881.67) | −883.24 (vRS form: double-counts the W propagator, omits H2 √ρ and H3; see below) |
 
 - vv P3 G: fixed point G = G0[1/(1 − Δr_A) + Δr_P1 − Δr_A], solved live (Hooks::vv_p3). Reproduces vv score.py to rel
   5e-51 (G_chain), G_F to 3e-50 of the banked value.
@@ -179,3 +179,36 @@ Unification moved no quantity from in bar to out of bar. The new out-of-bar rows
 | moved | τ_n engine at G_F = G_μ | 878.6414717 | 877.82 | +2.86 | SM-PARITY | 878.6414717 | 878.3 | +0.85 | IN-BAR |
 | moved | τ_n tip engine (vk P1, G_F,Z2) | 880.1412523 | 877.82 | +8.09 | SUPERSEDED-SEED | 880.1412523 | 878.3 | +4.60 | SUPERSEDED-SEED |
 | removed | τ_n vt P2 (PASS-with-HOLD) | 877.8484108 | 877.82 | +0.10 | IN-BAR |  |  |  | (unified/deduplicated) |
+
+## τ_μ diagnostic: C++ −881.50 vs the vv package's −883.24 (Δz 1.74, 3.8 ps). The vv form is the wrong one.
+PDG 2024 eq.(10.8)–(10.10) defines G_μ = 1.1663788(6)e-5 through the Fermi-theory lifetime formula. Footnote 3, and
+MuLan, put the W propagator 3m_μ²/(5M_W²) into Δr, not into τ_μ.
+
+The new C++ `fold::vt::tau_mu_pdg_s` evaluates eq.(10.9) directly with the tip m_e, m_μ and α:
+- At G_μ it gives MuLan −0.175 ppm (z −0.18, inside G_μ's printed rounding).
+- On the carried vv P3 G_F it gives z −881.67, which agrees with the scaling diagnostic (−881.50).
+
+The vv score.py vRS τ_μ differs in four places:
+
+| term in vv score.py | Δτ_μ | Δz |
+|---|---|---|
+| multiplies by (1 + 3m_μ²/(5M_W²)), so the W propagator is double counted | −1.037 ppm | −1.04 |
+| omits H2's −(5/4)π²√ρ (the term linear in m_e) | −0.329 ppm | −0.33 |
+| omits H3 = −15.3 | −0.197 ppm | −0.20 |
+| absolute evaluation against the rounded G_μ (the ratio scaling cancels this) | −0.175 ppm | −0.17 |
+| **total** | **−1.747 ppm** | **−1.74** |
+
+The radiative-factor H1, the phase space F(ρ), α̂(m_μ) and the input masses all agree between the two forms. The vv
+ledger is read-only, so the fix is on the reporting side: the C++ keeps the scaling diagnostic, with the direct
+eq.(10.9) as the independent check (`tests/test_vt_gf.cpp`). The vv τ_μ should drop the W factor and add H2 √ρ and H3
+(Tracer).
+
+Open (tiny): the engine Δr chain does not carry the 3m_μ²/(5M_W²) term explicitly. That is 0.52 ppm in G_F, far below
+the +441.65 ppm SM-parity gap.
+
+## sin θ_C target
+The table row `wave3|sin_theta_C` is now scored against the PDG 2024 direct value |V_us| = 0.22431 ± 0.00085
+(Eq. 12.8). The stale authority target 0.22759 is dropped, and its claimed-|z| tag is dropped with it. The result is
+z = +0.217, which agrees with the scorecard's +0.22. The authority catalog (`closed_forms*.gen.inc`, generated from
+fsot_compute.py and checked by regen-diff) still prints 0.22759 as its own target. That is upstream, and the engine
+table no longer scores against it.

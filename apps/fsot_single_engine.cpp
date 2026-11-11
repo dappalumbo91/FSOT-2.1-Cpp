@@ -85,6 +85,7 @@ int main(int argc, char** argv) {
         if (r.measured) {
           const R rel = m::fabs(r.value - *r.measured) / m::fabs(*r.measured) * R(100);
           o << s30(*r.measured) << '\t' << (r.sigma ? std::to_string(*r.sigma) : "") << '\t' << double(rel) << '\t';
+          if (r.wa_sigma) o << double((r.value - *r.measured) / R(*r.wa_sigma));  // IRONOUT-2 retarget: z vs world average
         } else o << "\t\t\t";
         o << '\t' << sens << '\n';
       }
@@ -188,7 +189,7 @@ int main(int argc, char** argv) {
       o << "| G_F [GeV^-2] | CODATA 2022 1.1663787(6)e-5 | " << v2.GF.str(15) << " | " << zs(v2.GF, "1.1663787e-5", "6e-12") << " | " << v3.GF.str(15) << " | " << zs(v3.GF, "1.1663787e-5", "6e-12") << " | (same G_F) | - |\n";
       o << "| G_F vs G_mu [ppm] (Gate B <= 809.87) | PDG G_mu 1.1663788e-5 | " << std::to_string(d2.ppm_vs_Gmu) << " | Gate B " << (d2.gateB ? "ACCEPT" : "FAIL") << " | " << std::to_string(d3.ppm_vs_Gmu)
         << " | Gate B " << (d3.gateB ? "ACCEPT" : "FAIL") << " | - | - |\n";
-      o << "| tau_mu strict MuLan (diagnostic; G_mu-ratio scaling, vv score.py vRS form gives z -883.24) | 2196980.3(2.2) ps | " << std::to_string(d2.tau_mu_ppm) << " ppm | " << std::to_string(d2.z_mulan) << " | "
+      o << "| tau_mu strict MuLan (diagnostic; G_mu-ratio scaling; PDG eq.(10.9) direct gives z -881.67; vv score.py -883.24 double-counts the W propagator and omits H2 sqrt(rho) and H3) | 2196980.3(2.2) ps | " << std::to_string(d2.tau_mu_ppm) << " ppm | " << std::to_string(d2.z_mulan) << " | "
         << std::to_string(d3.tau_mu_ppm) << " ppm | " << std::to_string(d3.z_mulan) << " | - | - |\n";
       for (auto [g, c, sg] : {std::tuple{"pdgLive (PRIMARY)", "878.3", "0.4"}, std::tuple{"PDG 2024", "878.4", "0.5"}, std::tuple{"UCNtau", "877.82", "0.287445647"}, std::tuple{"Pattie", "877.7", "0.761577311"}})
         o << "| tau_n [s] vs " << g << " | " << c << " +- " << sg << " | " << v2.tau_n.str(10) << " | " << zs(v2.tau_n, c, sg) << " | " << v3.tau_n.str(10) << " | " << zs(v3.tau_n, c, sg)

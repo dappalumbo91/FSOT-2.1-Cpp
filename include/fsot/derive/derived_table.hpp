@@ -35,6 +35,7 @@ template <class R> struct Row {
   std::optional<double> sigma;
   RowKind kind = RowKind::seed;
   std::string why;  // derived replacements: one-line provenance (BEFORE_AFTER §1)
+  std::optional<double> wa_sigma;  // IRONOUT-2 retarget: published world-average sigma (z is printed only from this)
 };
 
 template <class R> void with_qm_rung(Engine<R>& F, int D) {
@@ -177,6 +178,20 @@ template <class R> void ironout2(std::vector<Row<R>>& out, const std::map<std::s
     r->formula += std::string(" [IRONOUT-2 unify: value = ") + u.src + "]";
     r->kind = RowKind::derived_replacement;
     r->why = std::string("IRONOUT-2 unify: ") + u.why;
+  }
+  // IRONOUT-2 criteria (Damian t999u; Tracer 2026-11-11): rows whose authority target is stale are scored against the
+  // world average of reference/scoring_criteria_ironout2.tsv. Only the comparison target moves, never a value.
+  struct Retarget { const char* sec; const char* name; const char* obs; double sigma; const char* src; };
+  static const Retarget rt[] = {
+      {"wave3", "sin_theta_C", "0.22431", 0.00085, "PDG 2024 CKM review Eq. (12.8) direct |V_us| 0.22431(85) (was stale authority target 0.22759)"},
+  };
+  for (const auto& t : rt) {
+    Row<R>* r = find(t.sec, t.name);
+    if (!r) throw std::runtime_error(std::string("ironout2 retarget: no row ") + t.sec + "|" + t.name);
+    r->measured = lit<R>(t.obs);
+    r->sigma.reset();  // the authority's claimed-|z| tag referred to the stale target
+    r->wa_sigma = t.sigma;
+    r->why += std::string("; target -> ") + t.src;
   }
 }
 

@@ -1,8 +1,8 @@
 // fsot/fold/vt_gf.hpp — §43.5vt folded: G_F from the tip-native higher-order Δr chain, and τ_n through it.
 //
 // STATUS SM_PARITY_REFINE_LATER (Damian t994u, 2026-11-11 1:00 PM EST; ruling RULING_t992u_SM_PARITY_GATE.md sha8
-// c65ff89d): τ_n passes Gate A; G_F fails Gate A (strict MuLan τ_μ z = −883.24 on the carried vv P3 route, vv score.py
-// vRS form; vt P2 alternate −901) and is ACCEPTED at Gate B (|FSOT − G_μ| = +441.65 ppm on vv P3, vt P2 +452 ppm,
+// c65ff89d): τ_n passes Gate A; G_F fails Gate A (strict MuLan τ_μ z = −881.50 on the carried vv P3 route, PDG eq.(10.9)
+// direct −881.67; vt P2 alternate −901; vv score.py's −883.24 double-counts the W propagator, see tau_mu_pdg_s) and is ACCEPTED at Gate B (|FSOT − G_μ| = +441.65 ppm on vv P3, vt P2 +452 ppm,
 // ≤ max(σ_SM,pred 809.87 ppm, |SM res| 665.56 ppm)). Not ADOPT, no GO-MERGE.
 //
 // Carried route P2 = C1+C2+C3+C5µ+C6 (no C7), by the pre-registered lowest-χ²/N rule; P1 (with C7) is the documented
@@ -232,6 +232,35 @@ template <class R> MuDiag mu_diag(const R& GF) {
   const double g = double(GF), Gmu = 1.1663788e-5, tau = 2196980.3, sig = 2.2, thrB = 809.87;
   const double ppm = (g / Gmu - 1) * 1e6, tppm = ((Gmu / g) * (Gmu / g) - 1) * 1e6, z = tppm * 1e-6 * tau / sig;
   return {ppm, tppm, z, std::fabs(z) <= 1, std::fabs(ppm) <= thrB};
+}
+
+// IRONOUT-2 τ_μ cross-check (Tracer 2026-11-11: C++ G_μ-ratio scaling −881.50 vs vv score.py −883.24, Δz 1.74 ≈ 3.8 ps).
+// Direct PDG 2024 eq.(10.9)-(10.10) muon lifetime in the Fermi theory that DEFINES G_μ = 1.1663788(6)e-5 (eq.(10.8)):
+//   ħ/τ_μ = G² m_μ⁵/(192π³) F(ρ)[1 + H1 α̂/π + H2 α̂²/π² + H3 α̂³/π³], ρ = m_e²/m_μ², α̂⁻¹ = α⁻¹ + ln ρ/(3π),
+//   H1 = 25/8 − π²/2 − (9 + 4π² + 12 ln ρ)ρ + 16π²ρ^{3/2}, H2 = 156815/5184 − 518π²/81 − 895ζ3/36 + 67π⁴/720 + 53π² ln2/6
+//   − 0.042(had) − (5/4)π²√ρ, H3 = −15.3; NO W-propagator factor (PDG footnote 3 / MuLan: 3m_μ²/(5M_W²) is in Δr).
+// With tip m_e, m_μ, α it gives τ_μ(G_μ) = MuLan − 0.175 ppm (z −0.18, inside G_μ's printed rounding ±0.17 ppm), and
+// on the carried vv P3 G_F z −881.67, agreeing with the scaling diagnostic (−881.50) to 0.18. The vv score.py vRS
+// τ_μ (−883.24) is the inconsistent one: it multiplies by (1 + 3m_μ²/(5M_W²)) although G_μ already absorbs that term
+// into Δr (−1.037 ppm, Δz −1.04), omits H2's −(5/4)π²√ρ (−0.329 ppm, Δz −0.33) and H3 (−0.197 ppm, Δz −0.20); the last
+// −0.175 ppm (Δz −0.17) is common to any absolute eq.(10.9) evaluation against the rounded G_μ, which the ratio scaling
+// cancels. Total −1.747 ppm = Δz −1.74. The vv ledger is read-only; the C++ diagnostic (scaling) is kept, and this
+// direct form is the independent check (tests/test_vt_gf.cpp).
+template <class R> R tau_mu_pdg_s(const R& GF, const R& me_kg, const R& mmu_kg, const R& alpha, const leaves::SI<R>& si, bool wprop_double_count = false,
+                                  const R& MW = R(0)) {
+  const R pi = m::acos(R(-1)), GeV = si.e * lit<R>("1e9"), c2 = si.c * si.c;
+  const R me = me_kg * c2 / GeV, mmu = mmu_kg * c2 / GeV, rho = (me / mmu) * (me / mmu), lr = m::ln(rho), sr = me / mmu;
+  const R ah = R(1) / (R(1) / alpha + lr / (R(3) * pi)), x = ah / pi;
+  const R z3 = lit<R>("1.2020569031595942853997381615114499907649862923405");
+  const R Fr = R(1) - R(8) * rho + R(8) * rho * rho * rho - rho * rho * rho * rho - R(12) * rho * rho * lr;
+  const R H1 = R(25) / R(8) - pi * pi / R(2) - (R(9) + R(4) * pi * pi + R(12) * lr) * rho + R(16) * pi * pi * rho * sr;
+  const R H2 = R(156815) / R(5184) - R(518) * pi * pi / R(81) - R(895) * z3 / R(36) + R(67) * m::ipow(pi, 4) / R(720) +
+               R(53) * pi * pi * m::ln(R(2)) / R(6) - lit<R>("0.042") - R(5) * pi * pi * sr / R(4);
+  const R H3 = lit<R>("-15.3");
+  R rate = GF * GF * m::ipow(mmu, 5) / (R(192) * m::ipow(pi, 3)) * Fr * (R(1) + H1 * x + H2 * x * x + H3 * x * x * x);
+  if (wprop_double_count) rate *= R(1) + R(3) * mmu * mmu / (R(5) * MW * MW);
+  const R hbar_eVs = si.h / (R(2) * pi * si.e);
+  return hbar_eVs / (rate * lit<R>("1e9"));
 }
 
 }  // namespace fsot::fold::vt

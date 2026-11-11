@@ -20,7 +20,7 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 | wave2 | M_W/M_Z | 0.88120248099687407 | 0.881358368021383 | 0.88147 | 0.030349 | 0.012664 | IRONOUT-2 unify: seed -> tip leaf m_W/m_Z (host M_W) |
 | wave2 | m_pi/m_p | 0.14441868531025276 | 0.148752523565799 | 0.14446 | 0.028599 | 2.971427 | IRONOUT-2 unify: seed -> scored pin m_pi/m_p |
 | wave3 | \|V_cb\| | 0.042143511565156062 | 0.0418939191239346 | 0.0422 | 0.133859 | 0.725310 | IRONOUT-2 unify: closed form -> tip CKM leaf V_cb |
-| wave3 | sin_theta_C | 0.22759115424752144 | 0.22449460917503829 | 0.22759 | 0.000507 | 1.360073 | IRONOUT-2 unify: sin theta_C = \|V_us\|: -> wave3 \|V_us\| closed form (closest Cabibbo value) |
+| wave3 | sin_theta_C | 0.22759115424752144 | 0.22449460917503829 | 0.22431 | 1.462777 | 0.082301 | IRONOUT-2 unify: sin theta_C = \|V_us\|: -> wave3 \|V_us\| closed form (closest Cabibbo value); target -> PDG 2024 CKM review Eq. (12.8) direct \|V_us\| 0.22431(85) (was stale authority target 0.22759) |
 | wave3 | Deuteron_binding_MeV | 2.2245646484625283 | 2.22456621408218 | 2.224566 | 0.000061 | 0.000010 | IRONOUT-2 unify: seed -> scored pin B_d |
 | wave3 | Neutron_lifetime_s | 878.59285139228322 | 878.43253963871671 | 878.4 | 0.021955 | 0.003704 | IRONOUT-2 unify: tau_n closed form -> carried vv P3 + vw P3 chain (closest to pdgLive 878.3(4)) |
 | wave3 | Ising2D_beta | 0.32653240136824639 | 0.32641897187914054 | 0.32653 | 0.000735 | 0.034002 | IRONOUT-1 #2: mislabeled 2D -> 3D Ising beta = in-bar beta_dyn |
@@ -83,7 +83,7 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 | wave2 | Omega_Lambda | 0.684609232397667 | 0.682736038135278 | 0.6847 | 0.013257 | 0.286835 |
 | wave2 | sigma_8 | 0.810939879367982 | 0.808381839410747 | 0.8111 | 0.019741 | 0.335120 |
 | wave3 | |V_us| | 0.224494609175038 | 0.229586479099665 | 0.2243 | 0.086763 | 2.356879 |
-| wave3 | sin_theta_C | 0.224494609175038 | 0.229586479099665 | 0.22759 | 1.360073 | 0.877226 |
+| wave3 | sin_theta_C | 0.224494609175038 | 0.229586479099665 | 0.22431 | 0.082301 | 2.352316 |
 | wave3 | m_H/m_W | 1.55914737159333 | 1.55083682600647 | 1.5595 | 0.022612 | 0.555510 |
 
 ## 4. §43.5vt folded (Damian t994u, 2026-11-11 1:00 PM EST): G_F and the rows that read it — flag SM_PARITY_REFINE_LATER
@@ -109,7 +109,7 @@ vv P3 (Tracer FOLD f66b7985): G = G0 [1/(1 - Dr_A(G)) + Dr_P1(G) - Dr_A(G)], rem
 |---|---|---|---|---|---|---|---|
 | G_F [GeV^-2] | CODATA 2022 1.1663787(6)e-5 | 1.16690544271959e-05 | 877.904533 | 1.16689392890418e-05 | 858.714840 | (same G_F) | - |
 | G_F vs G_mu [ppm] (Gate B <= 809.87) | PDG G_mu 1.1663788e-5 | 451.519455 | Gate B ACCEPT | 441.648034 | Gate B ACCEPT | - | - |
-| tau_mu strict MuLan (diagnostic; G_mu-ratio scaling, vv score.py vRS form gives z -883.24) | 2196980.3(2.2) ps | -902.427668 ppm | -901.189004 | -882.711254 ppm | -881.499652 | - | - |
+| tau_mu strict MuLan (diagnostic; G_mu-ratio scaling; PDG eq.(10.9) direct gives z -881.67; vv score.py -883.24 double-counts the W propagator and omits H2 sqrt(rho) and H3) | 2196980.3(2.2) ps | -902.427668 ppm | -901.189004 | -882.711254 ppm | -881.499652 | - | - |
 | tau_n [s] vs pdgLive (PRIMARY) | 878.3 +- 0.4 | 877.8484108 | -1.128973 | 878.4325396 | 0.331349 | 877.8657345 | -1.085664 |
 | tau_n [s] vs PDG 2024 | 878.4 +- 0.5 | 877.8484108 | -1.103178 | 878.4325396 | 0.065079 | 877.8657345 | -1.068531 |
 | tau_n [s] vs UCNtau | 877.82 +- 0.287445647 | 877.8484108 | 0.098839 | 878.4325396 | 2.130976 | 877.8657345 | 0.159106 |

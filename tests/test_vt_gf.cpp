@@ -96,9 +96,20 @@ int main() {
     eq("vw P3 Delta_R^V (FOLD 0.02380031545)", vvw.at("vw_P3_dRV"), "0.02380031545", 1e-10);
     eq("vw d_eng == vt package vk_dRV_us", vvw.at("vw_d_eng"), pk.at("vk_dRV_us").str(50).c_str(), 1e-28);
     const auto d = fold::vt::mu_diag(s3.GF);
-    std::printf("  vv P3: G_F vs G_mu %+.2f ppm (FOLD +441.65), strict MuLan z %+.2f (FOLD -883.24); Gate B %s; flag %s\n", d.ppm_vs_Gmu, d.z_mulan,
+    std::printf("  vv P3: G_F vs G_mu %+.2f ppm (FOLD +441.65), strict MuLan z %+.2f (FOLD vRS -883.24 double-counts W prop.); Gate B %s; flag %s\n", d.ppm_vs_Gmu, d.z_mulan,
                 d.gateB ? "ACCEPT-AT-SM-PARITY" : "FAIL", fold::vt::kStatus);
     if (std::fabs(d.ppm_vs_Gmu - 441.65) > 0.01 || !d.gateB) ++fails;
+    {  // tau_mu: direct PDG eq.(10.9) vs the G_mu-ratio scaling diagnostic (cause of the vv -883.24 / C++ -881.50 gap)
+      const auto lv = L.mp_values(); R me = 0, mmu = 0; for (auto& [id, v] : lv) { if (id == "m_e_kg") me = v; if (id == "m_mu_kg") mmu = v; }
+      const R a = L.alpha(), Gmu = lit<R>("1.1663788e-5"), obs = lit<R>("2196980.3e-12"), sg = lit<R>("2.2e-12");
+      const double ppm0 = double((fold::vt::tau_mu_pdg_s(Gmu, me, mmu, a, L.si) / obs - R(1)) * R(1e6));
+      const double zd = double((fold::vt::tau_mu_pdg_s(s3.GF, me, mmu, a, L.si) - obs) / sg);
+      const double zw = double((fold::vt::tau_mu_pdg_s(s3.GF, me, mmu, a, L.si, true, in.MW) - obs) / sg);
+      const bool ok = std::fabs(ppm0) < 0.25 && std::fabs(zd - d.z_mulan) < 0.25 && std::fabs(zw - zd + 1.037 * 2196980.3e-6 / 2.2) < 0.02;
+      std::printf("  [%s] tau_mu PDG eq.(10.9) at G_mu: %+.3f ppm vs MuLan; vv P3 z direct %+.2f vs scaling %+.2f; + W factor (vv double count) %+.2f\n",
+                  ok ? "PASS" : "FAIL", ppm0, zd, d.z_mulan, zw);
+      if (!ok) ++fails;
+    }
     // tau_n vs the IRONOUT-2 primary (pdgLive 878.3 +- 0.4): Tracer re-score vw P3 z +0.331
     const double zl = double((s3.tau_n - lit<R>("878.3")) / lit<R>("0.4"));
     std::printf("  [%s] vv P3 + vw P3 tau_n z vs pdgLive 878.3(4) = %+.4f (Tracer +0.331)\n", std::fabs(zl - 0.331) < 5e-4 ? "PASS" : "FAIL", zl);
