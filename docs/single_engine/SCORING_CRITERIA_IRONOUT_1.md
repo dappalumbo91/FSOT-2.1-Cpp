@@ -34,7 +34,7 @@ in the formula column (IRONOUT-1 #2). The archive key is kept, and the target is
 - m_K± Cheng → PDG 493.677(15)
 - r_p Grinin → CODATA 2022 0.84075(64)
 - m_H CMS 2020 → PDG 125.20(11)
-- τ_n UCNτ → PDG 2024 878.4(5) s, with UCNτ and Pattie kept as gates
+- τ_n UCNτ → PDG 2024 878.4(5) s is **PROPOSED, NOT APPLIED**. Ruling t992u (c65ff89d) fixes the UCNτ/Pattie gates, so switching needs Damian. It would move vt P2 877.848 s from z +0.10 (UCNτ) to z −1.10 (PDG): out of bar, but SM-PARITY (|−0.55| ≤ |SM 879.65 − 878.4| = 1.25 s).
 
 The pre-registered dial-in records (golden/folded_routes.tsv) are not edited.
 
