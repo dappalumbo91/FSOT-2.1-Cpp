@@ -32,8 +32,8 @@ the Python, 13,841/13,841 lines).
   scalars, more than half of the gated scalars are these records.
 - **The hub already discloses the principle.** `data/ledger_b_null_models.json` (hub @ ac1ef731, 2026-09-29)
   reports `beats_identity_cm = false` and `null_identity_cm_error_pct = 0.0`, with the note "B is
-  engineering. Do not quote 477/477 as ToE accuracy."
-- **Why it matters.** A reader of "477/477 green" will assume each file contains independent predictions.
+  engineering. Do not quote 477/477 as ToE accuracy; recomputing from the formula gives 470 pass / 7 fail."
+- **Why it matters.** A reader of "477/477 green" (stored-field gate; recomputing from the formula gives 470 pass / 7 fail) will assume each file contains independent predictions.
   For files dominated by `fsot_prediction`, the pass is mostly a property of the c = m(1+|S|f) step.
 - **Suggested check.** Treat `fsot_prediction` the same as `fsot_correction` in `classify_record`, then
   re-run `audit_all_benchmark_margins.py` and report how many files still have gated scalars and whether
@@ -617,7 +617,7 @@ The catalog half of `owner-decisions-2026-10-02i` is in `include/fsot/host/catal
 
 C++ origin/main before this entry reproduces the claimed solves: Linux ctest 86/86 and MSVC ctest 85/85, including the precision gate 91/91 at z ≤ 1 and 89/91 at 2%, the ledger golden, the thirteen catalog leaves, and the pion residue still a miss at z 3.631. The pin stays AEB2AD.
 
-The same day, Lean `vendor/fsot_gr_sm.py` `run_full_t3_t4_suite` and `vendor/fsot_dynamics.py` `run_dynamics_consistency_suite` were run on that pin and wrote nothing. T3/T4 is 99 rows, 59 GR and 40 SM, median error 0.003027%, maximum 0.363% on `dm2_31_abs`. T2 is 18 rows. The September Label B report still says T1–T6 pass. That median is not the z ≤ 1 credibility claim, and 477/477 remains a residual-file count.
+The same day, Lean `vendor/fsot_gr_sm.py` `run_full_t3_t4_suite` and `vendor/fsot_dynamics.py` `run_dynamics_consistency_suite` were run on that pin and wrote nothing. T3/T4 is 99 rows, 59 GR and 40 SM, median error 0.003027%, maximum 0.363% on `dm2_31_abs`. T2 is 18 rows. The September Label B report still says T1–T6 pass. That median is not the z ≤ 1 credibility claim, and 477/477 remains a residual-file count (stored-field gate; recomputing from the formula gives 470 pass / 7 fail).
 
 Most of those 117 rows set the measured side equal to the computed side, or normalize a structural flag to 0 or 1. That includes the Einstein trace-reverse toy, the weak-field factor, the acoustic cone, exact c, the Casimirs, N_c, β₀, the spin-2 helicity and degree-of-freedom flags, Wilson σ = (√σ)², the Polyakov and θ_QCD flags, and the five viscosity definitions. Diatomic γ is 1 + 2/5 = 1.4. The US 1976 scale height is R T/(μ g) = 8434.660 compared with the same quotient printed as 8434.5. The explicit Euler row removes 8.206% of its offset (contraction 0.08206 toward 1) and still stores error 0%, because the scorer only asks whether the residual shrank. The emergent charm row sums to 1.001755 in squares, 0.176% off 1, and the 0.5% gate still accepts it.
 

@@ -6,12 +6,51 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 
 | section | row | before | after | measured | rel% before | rel% after | why |
 |---|---|---|---|---|---|---|---|
+| wave1 | alpha_s(M_Z) | 0.11709966304863832 | 0.117908816617884 | 0.1179 | 0.678827 | 0.007478 | IRONOUT-2 unify: seed -> tip leaf alpha_s |
+| wave1 | T_CMB | 2.7247116903430662 | 2.72573880197729 | 2.72548 | 0.028190 | 0.009496 | IRONOUT-2 unify: seed -> scored pin T_CMB |
 | validation_suite | DNA_base_pair | 3.3964531607189791 | 3.3964545123380183 | 3.4 | 0.104319 | 0.104279 | measured a0=0.529177 -> seed leaf a_0 |
-| validation_suite | Proton_radius | 0.8413 | 0.84124854096976834 | 0.8413 | 0.000000 | 0.006117 | target literal -> seed leaf r_p |
-| validation_suite | Feigenbaum_delta | 4.6692109130897192 | 4.6692109130897193 | 4.6692 | 0.000234 | 0.000234 | B-03: 0.333333333333333 -> 1/3 |
-| validation_suite | Feigenbaum_alpha | 2.5029671355214552 | 2.5029671355214546 | 2.5029 | 0.002682 | 0.002682 | B-03: 0.333333333333333 -> 1/3 |
+| validation_suite | Proton_radius | 0.8413 | 0.84124854096976834 | 0.84075 | 0.065418 | 0.059297 | target literal -> seed leaf r_p; target -> CODATA 2022 r_p 0.84075(64) fm (was 0.8413) |
+| validation_suite | sin2_theta_W | 0.23122202914793052 | 0.231275280502387 | 0.23122 | 0.000878 | 0.023908 | IRONOUT-2 unify: seed -> tip leaf sin2_theta_W_MSbar |
+| validation_suite | Feigenbaum_delta | 4.6692109130897192 | 4.6691979572796083 | 4.6692 | 0.000234 | 0.000044 | IRONOUT-2 unify: duplicate -> wave4 Feigenbaum_delta |
+| validation_suite | Feigenbaum_alpha | 2.5029671355214552 | 2.5029081532028084 | 2.5029 | 0.002682 | 0.000326 | IRONOUT-2 unify: duplicate -> wave4 Feigenbaum_alpha |
 | validation_suite | Apery_zeta3 | 1.202047669357749 | 1.2020476693577489 | 1.20206 | 0.001026 | 0.001026 | B-03: 0.333333333333333 -> 1/3 |
 | validation_suite | Water_anomaly_C | 3.9799735124412239 | 3.9799735124412239 | 3.98 | 0.000666 | 0.000666 | B-03: 0.333333333333333 -> 1/3 |
+| wave2 | 1/alpha_em | 137.03619755957267 | 137.035999165943 | 137.036 | 0.000144 | 0.000001 | IRONOUT-2 unify: seed -> tip leaf alpha_inv |
+| wave2 | sin2_theta_W | 0.23118997459960096 | 0.231275280502387 | 0.23122 | 0.012986 | 0.023908 | IRONOUT-2 unify: seed -> tip leaf sin2_theta_W_MSbar |
+| wave2 | M_W/M_Z | 0.88120248099687407 | 0.881358368021383 | 0.88147 | 0.030349 | 0.012664 | IRONOUT-2 unify: seed -> tip leaf m_W/m_Z (host M_W) |
+| wave2 | m_pi/m_p | 0.14441868531025276 | 0.148752523565799 | 0.14446 | 0.028599 | 2.971427 | IRONOUT-2 unify: seed -> scored pin m_pi/m_p |
+| wave3 | \|V_cb\| | 0.042143511565156062 | 0.0418939191239346 | 0.0422 | 0.133859 | 0.725310 | IRONOUT-2 unify: closed form -> tip CKM leaf V_cb |
+| wave3 | sin_theta_C | 0.22759115424752144 | 0.22449460917503829 | 0.22431 | 1.462777 | 0.082301 | IRONOUT-2 unify: sin theta_C = \|V_us\|: -> wave3 \|V_us\| closed form (closest Cabibbo value); target -> PDG 2026 CKM review Eq. (12.8) direct \|V_us\| 0.22431(85) (was stale authority target 0.22759) |
+| wave3 | Deuteron_binding_MeV | 2.2245646484625283 | 2.22456621408218 | 2.224566 | 0.000061 | 0.000010 | IRONOUT-2 unify: seed -> scored pin B_d |
+| wave3 | Neutron_lifetime_s | 878.59285139228322 | 878.43253963871671 | 878.4 | 0.021955 | 0.003704 | IRONOUT-2 unify: tau_n closed form -> carried vv P3 + vw P3 chain (closest to pdgLive 878.3(4)) |
+| wave3 | Ising2D_beta | 0.32653240136824639 | 0.32641897187914054 | 0.32653 | 0.000735 | 0.034002 | IRONOUT-1 #2: mislabeled 2D -> 3D Ising beta = in-bar beta_dyn |
+| wave3 | Ising2D_nu | 0.62998450626550964 | 0.62997096599232283 | 0.63002 | 0.005634 | 0.007783 | IRONOUT-1 #2: mislabeled 2D -> 3D Ising nu = in-bar nu_dyn |
+| wave3 | Ising2D_gamma | 1.2376425234447493 | 1.2370749542186874 | 1.2372 | 0.035768 | 0.010107 | IRONOUT-1 #2: 3D Ising gamma by Rushbrooke+Josephson |
+| wave4 | Dm2_21/Dm2_32 | 0.029517011480286421 | 0.0304147644311715 | 0.0295 | 0.057666 | 3.100896 | IRONOUT-2 unify: seed -> scored pin Dm2 ratio |
+| wave4 | \|V_ub\| | 0.0039212562933861366 | 0.00374199347253333 | 0.00382 | 2.650688 | 2.042056 | IRONOUT-2 unify: seed -> tip CKM leaf V_ub |
+| wave4 | \|V_td\| | 0.0085708009802210686 | 0.0086013655784844 | 0.00857 | 0.009346 | 0.365993 | IRONOUT-2 unify: closed form -> tip CKM leaf V_td |
+| wave4 | \|V_ts\| | 0.040503304715082249 | 0.0411696875380703 | 0.0405 | 0.008160 | 1.653549 | IRONOUT-2 unify: closed form -> tip CKM leaf V_ts |
+| wave4 | Jarlskog_J | 3.0727717866654671e-05 | 3.13591416718917e-05 | 3.08e-05 | 0.234682 | 1.815395 | IRONOUT-2 unify: closed form -> tip J leaf |
+| wave4 | mu_p_muN | 2.7928522162641151 | 2.79284734443575 | 2.79285 | 0.000079 | 0.000095 | IRONOUT-2 unify: seed -> tip leaf mu_p |
+| wave4 | m_c/m_b | 0.29489607177654834 | 0.304178447628559 | 0.291 | 1.338856 | 4.528676 | IRONOUT-2 unify: seed -> scored pin m_c/m_b |
+| wave5 | Gamma_Z/M_Z | 0.027489782887668835 | 0.0273658036393593 | 0.02749 | 0.000790 | 0.451787 | IRONOUT-2 unify: seed -> tip leaf Gamma_Z/M_Z |
+| wave7 | Golden_angle_deg | 137.50601880311289 | 137.50776405003785 | 137.508 | 0.001441 | 0.000172 | IRONOUT-2 unify: duplicate -> validation_suite Golden_angle (exact) |
+| wave7 | Ising3D_eta | 0.036408193997131074 | 0.036298462945730299 | 0.0363 | 0.298055 | 0.004234 | IRONOUT-1 #2: Fisher from in-bar nu, beta |
+| wave7 | Ising3D_alpha | 0.11004872741790349 | 0.1100871020230315 | 0.1101 | 0.046569 | 0.011715 | IRONOUT-1 #2: Josephson from in-bar nu |
+| wave7 | Ising3D_delta | 4.7887467535409367 | 4.7898377876048367 | 4.7898 | 0.021989 | 0.000789 | IRONOUT-1 #2: Widom from in-bar nu, beta |
+| wave7 | m_tau/m_mu | 16.816910212024429 | 16.8183699756907 | 16.817 | 0.000534 | 0.008146 | IRONOUT-2 unify: seed -> tip leaf ratio (m_tau/m_e)/(m_mu/m_e) |
+| wave8 | \|V_cd\| | 0.22100780479132599 | 0.225149539040889 | 0.2247 | 1.643167 | 0.200062 | IRONOUT-2 unify: closed form -> tip CKM leaf V_cd (closer to PDG 2026 direct 0.2247(22)); target -> PDG 2026 CKM review Eq. (12.9) direct \|V_cd\| 0.2247(22) (was 0.221) |
+| wave8 | \|V_cs\| | 0.97491348531315561 | 0.97342312722172 | 0.969 | 0.610267 | 0.456463 | IRONOUT-2 unify: closed form -> tip CKM leaf V_cs (closer to PDG 2026 direct 0.969(5)); target -> PDG 2026 CKM review Eq. (12.10) direct \|V_cs\| 0.969(5) (was fit 0.9735) |
+| wave8 | He4_binding_MeV | 28.300716936569171 | 28.2956623785975 | 28.3 | 0.002533 | 0.015327 | IRONOUT-2 unify: seed -> tip leaf B_He4 |
+| wave8 | Triton_binding_MeV | 8.4808001626345563 | 8.48179631631388 | 8.482 | 0.014146 | 0.002401 | IRONOUT-2 unify: seed -> tip leaf B_H3 |
+| wave8 | Deuteron_mu_muN | 0.85739141812803831 | 0.857438231894115 | 0.8574 | 0.001001 | 0.004459 | IRONOUT-2 unify: seed -> scored pin mu_d |
+| wave8 | XY_beta | 0.34858759969634014 | 0.34863743502229235 | 0.3486 | 0.003557 | 0.010739 | IRONOUT-1 #2: O(2) beta from in-bar nu, eta |
+| wave8 | XY_gamma | 1.3177317120795234 | 1.3176981363565794 | 1.3177 | 0.002407 | 0.000141 | IRONOUT-1 #2: O(2) gamma from in-bar nu, eta (one exponent set) |
+| wave8 | H2O_bond_angle | 104.4405425791162 | 104.53680149989006 | 104.5 | 0.056897 | 0.035217 | IRONOUT-2 unify: duplicate -> validation_suite Water_bond_angle |
+| wave9 | \|V_tb\| | 0.99907651926122877 | 0.999122449770219 | 0.9991 | 0.002350 | 0.002247 | IRONOUT-2 unify: seed -> tip CKM leaf V_tb |
+| wave10 | m_mu/m_e | 206.76963859712172 | 206.768281576289 | 206.768283 | 0.000656 | 0.000001 | IRONOUT-2 unify: seed -> tip leaf m_mu/m_e |
+| wave10 | (g-2)/2_electron | 0.0011596599648779513 | 0.00115965218047269 | 0.00115965 | 0.000859 | 0.000188 | IRONOUT-2 unify: seed -> tip leaf a_e |
+| lepton_ratios | m_tau/m_e_lepton | 3477.5131796945303 | 3477.50545878783 | 3477.48 | 0.000954 | 0.000732 | IRONOUT-2 unify: lepton_ratios formula -> tip leaf m_tau/m_e |
 | lepton_ratios | m_tau/m_mu_lepton | 16.817284993122837 | 16.817284993117165 | 16.817 | 0.001695 | 0.001695 | B-03: 0.333333333333333 -> 1/3 |
 | lepton_ratios | m_mu/m_e_lepton | 206.76828192272686 | 206.76828192279578 | 206.768 | 0.000136 | 0.000136 | B-03: 0.333333333333333 -> 1/3 |
 | lepton_ratios | Chain_consistency_% | 0.0066730174602601313 | 0.0066730174606555143 | - | - | - | B-03: 0.333333333333333 -> 1/3 |
@@ -19,8 +58,9 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 | dynamical_systems | Ising3D_beta_dyn | 0.32641897187914057 | 0.32641897187914054 | 0.3264 | 0.005812 | 0.005812 | B-03: 0.333333333333333 -> 1/3 |
 | dynamical_systems | Ising3D_nu_dyn | 0.62997096599232268 | 0.62997096599232283 | 0.63 | 0.004609 | 0.004609 | B-03: 0.333333333333333 -> 1/3 |
 | predictions | CMB_tau | 0.05399951127994737 | 0.053999511279937676 | 0.054 | 0.000905 | 0.000905 | B-03: 0.333333333333333 -> 1/3 |
+| chemistry_ionization | IE_H | 13.588429893109516 | 13.598434743366637 | 13.598 | 0.070379 | 0.003197 | IRONOUT-1 #3: reduced-mass Dirac + 1s Lamb from in-bar R_inf, alpha, m_p/m_e (ln k0 SCAFFOLD_PENDING_FSOT_DERIVATION) |
 
-13 rows changed.
+53 rows changed.
 
 ## 2. D-02 alternative C_cosm = 1/(10 phi) (rejected by the decade derivation; shown, not applied)
 
@@ -28,8 +68,7 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 |---|---|---|---|---|---|---|
 | wave1 | n_s | 0.963333836595472 | 0.963811947229161 | 0.9649 | 0.162314 | 0.112763 |
 | validation_suite | V27_n_s | 0.963333836595472 | 0.963811947229161 | 0.9649 | 0.162314 | 0.112763 |
-| wave4 | |V_ub| | 0.00392125629338614 | 0.00381966011250105 | 0.00382 | 2.650688 | 0.008898 |
-| wave4 | m_c/m_b | 0.294896071776548 | 0.291050756786978 | 0.291 | 1.338856 | 0.017442 |
+| wave4 | m_c/m_b | 0.304178447628559 | 0.300333132638989 | 0.291 | 4.528676 | 3.207262 |
 | wave5 | Laplace_limit | 0.663147995736047 | 0.662743411614225 | 0.662743 | 0.061109 | 0.000062 |
 | wave6 | Madelung_CsCl | 1.76307824447637 | 1.76267366035454 | 1.762672 | 0.023047 | 0.000094 |
 | wave6 | Perc_sq_site | 0.592063752985289 | 0.592750844670853 | 0.592746 | 0.115099 | 0.000817 |
@@ -44,25 +83,39 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 
 | section | row | canonical (QM D=6) | QM D=5 | measured | rel% D6 | rel% D5 |
 |---|---|---|---|---|---|---|
-| wave2 | M_W/M_Z | 0.881202480996874 | 0.875373665319297 | 0.88147 | 0.030349 | 0.691610 |
 | wave2 | Omega_Lambda | 0.684609232397667 | 0.682736038135278 | 0.6847 | 0.013257 | 0.286835 |
 | wave2 | sigma_8 | 0.810939879367982 | 0.808381839410747 | 0.8111 | 0.019741 | 0.335120 |
 | wave3 | |V_us| | 0.224494609175038 | 0.229586479099665 | 0.2243 | 0.086763 | 2.356879 |
-| wave3 | |V_cb| | 0.0421435115651561 | 0.0419188788072566 | 0.0422 | 0.133859 | 0.666164 |
-| wave3 | Ising2D_gamma | 1.23764252344475 | 1.24822387173975 | 1.2372 | 0.035768 | 0.891034 |
+| wave3 | sin_theta_C | 0.224494609175038 | 0.229586479099665 | 0.22431 | 0.082301 | 2.352316 |
 | wave3 | m_H/m_W | 1.55914737159333 | 1.55083682600647 | 1.5595 | 0.022612 | 0.555510 |
 
 ## 4. §43.5vt folded (Damian t994u, 2026-11-11 1:00 PM EST): G_F and the rows that read it — flag SM_PARITY_REFINE_LATER
 
-Before = the Z-2 tip chain (all vt terms off; audit/score_2026-10-02z.tsv:13-14, vk tau_n 880.1412523 s; in this engine §43.5vt was a HOOK). After = carried route P2 (C1+C2+C3+C5mu+C6, no C7), live in fold::vt::Chain. P1 (with C7) is the documented alternate. Gates per ruling t992u (sha8 c65ff89d): Gate A |z| <= 1; Gate B |G_F - G_mu| <= 809.87 ppm. Not ADOPT; no GO-MERGE.
+Before = the Z-2 tip chain (all vt terms off; audit/score_2026-10-02z.tsv:13-14, vk tau_n 880.1412523 s; in this engine §43.5vt was a HOOK). After = route P2 (C1+C2+C3+C5mu+C6, no C7), live in fold::vt::Chain, carried until IRONOUT-2 and now an ALTERNATE (carried route: §5). P1 (with C7) is the documented alternate. Gates per ruling t992u (sha8 c65ff89d): Gate A |z| <= 1; Gate B |G_F - G_mu| <= 809.87 ppm. Not ADOPT; no GO-MERGE.
 
 | row | reference | before (Z-2) | z before | after (vt P2) | z after | alternate (vt P1) | z P1 |
 |---|---|---|---|---|---|---|---|
 | G_F [GeV^-2] | CODATA 2022 1.1663787(6)e-5 | 1.16538450843e-05 | -1656.985950 | 1.16690544271959e-05 | 877.904533 | 1.16704997054391e-05 | 1118.784240 |
 | G_F vs G_mu [ppm] (Gate B <= 809.87) | PDG G_mu 1.1663788e-5 | -852.460256 | Gate B FAIL | 451.519455 | Gate B ACCEPT | 575.431021 | Gate B ACCEPT |
 | tau_mu strict MuLan (diagnostic) | 2196980.3(2.2) ps | 1707.103057 ppm | 1704.759903 | -902.427668 ppm | -901.189004 | -1149.869441 ppm | -1148.291141 |
-| Gamma_Z/M_Z (A1 width, reads G_F) | 0.02736653946(2523) | 0.0272404432951 | -4.997866 | 0.0272759945865 | -3.588778 | 0.0272793728724 | -3.454879 |
+| Gamma_Z/M_Z (A1 width at this G_F; DIAGNOSTIC, not scored since IRONOUT-1) | 0.02736653946(2523) | 0.0272404432951 | -4.997866 | 0.0272759945865 | -3.588778 | 0.0272793728724 | -3.454879 |
 | tau_n [s] vs UCNtau | 877.82 +- 0.287445647 | 880.1412523 | 8.075448 | 877.8484108 | 0.098839 | 877.6309982 | -0.657522 |
 | tau_n [s] vs Pattie | 877.7 +- 0.761577311 | 880.1412523 | 3.205521 | 877.8484108 | 0.194873 | 877.6309982 | -0.090604 |
 
-Unchanged: the catalog closed forms wave3 Neutron_lifetime_s (pi^7 theta_S) and wave5 Gamma_Z/M_Z (phi^5/e^6), and the gz:Gamma_Z_MeV folded routes, do not read G_F. (l): V_ud and g_A stay hosted inside tau_vk, never scored. Hooks for §43.5vv (Delta r), §43.5vw (Delta R^V) and §43.5vx (g_A): fold::vt::Hooks.
+The catalog closed forms wave3 Neutron_lifetime_s (pi^7 theta_S) and wave5 Gamma_Z/M_Z (phi^5/e^6), and the gz:Gamma_Z_MeV folded routes, do not read G_F (IRONOUT-2: the canonical wave3 Neutron_lifetime_s row now takes the carried chain tau_n, §5; the closed form stays in the parity column). IRONOUT-1: the scored Gamma_Z/M_Z folded row reads the tip leaf (phi^5/e^6)(1 - alpha/phi), not the vt G_F. (l): V_ud and g_A stay hosted inside tau_vk, never scored. Hooks for §43.5vv (Delta r), §43.5vw (Delta R^V) and §43.5vx (g_A): fold::vt::Hooks.
+
+## 5. IRONOUT-2 carried G_F route: §43.5vv P3 + §43.5vw P3 Delta_R^V (parent steering 2026-11-11 1:55 PM EST) — flag SM_PARITY_REFINE_LATER
+
+vv P3 (Tracer FOLD f66b7985): G = G0 [1/(1 - Dr_A(G)) + Dr_P1(G) - Dr_A(G)], remainder unresummed, solved live (Hooks::vv_p3). vw P3 (Tracer FOLD ce51de78): non-Born axial gammaW box rebuilt from the 3-loop BjSR alpha_g1, Delta_R^V 0.02446134516 -> 0.02380031545 (Hooks::tau_vk_override = 880.709526723 s; golden/vv_vw_package.tsv, tools/gen_vv_vw_package.py). The engine gammaW box is overstated by +0.343 alpha/pi (a -0.683 s tau_n lever), offset by the omitted CMS eq.(19) QED enhancement (+3.59e-4) and a low Born / vector constant; see include/fsot/fold/vt_gf.hpp. tau_n primary = pdgLive 878.3 +- 0.4 s (PDG 2024 878.4 +- 0.5, UCNtau, Pattie secondary). Not ADOPT; no GO-MERGE.
+
+| row | reference | before (vt P2, carried until now) | z before | after (vv P3 + vw P3) | z after | vv P3 only (no vw) | z |
+|---|---|---|---|---|---|---|---|
+| G_F [GeV^-2] | CODATA 2022 1.1663787(6)e-5 | 1.16690544271959e-05 | 877.904533 | 1.16689453394674e-05 | 859.723245 | (same G_F) | - |
+| G_F vs G_mu [ppm] (Gate B <= 809.87) | PDG G_mu 1.1663788e-5 | 451.519455 | Gate B ACCEPT | 442.166770 | Gate B ACCEPT | - | - |
+| tau_mu strict MuLan (diagnostic; G_mu-ratio scaling; vv P3 G_F carries the W-propagator term in Delta r, PDG eq.(10.9) direct gives z -882.71; vv score.py -883.24 double-counts the W propagator and omits H2 sqrt(rho) and H3) | 2196980.3(2.2) ps | -902.427668 ppm | -901.189004 | -883.747351 ppm | -882.534328 | - | - |
+| tau_n [s] vs pdgLive (PRIMARY) | 878.3 +- 0.4 | 877.8484108 | -1.128973 | 878.4325396 | 0.331349 | 877.8657345 | -1.085664 |
+| tau_n [s] vs PDG 2024 | 878.4 +- 0.5 | 877.8484108 | -1.103178 | 878.4325396 | 0.065079 | 877.8657345 | -1.068531 |
+| tau_n [s] vs UCNtau | 877.82 +- 0.287445647 | 877.8484108 | 0.098839 | 878.4325396 | 2.130976 | 877.8657345 | 0.159106 |
+| tau_n [s] vs Pattie | 877.7 +- 0.761577311 | 877.8484108 | 0.194873 | 878.4325396 | 0.961872 | 877.8657345 | 0.217620 |
+
+M_W diagnostic (not adopted): the chain reads the host M_W leaf 80.3687519242 GeV (z -0.03 vs PDG 80.3692(133)). With the superseded seed closed form M_W = 80.354537 GeV (z -1.1) the carried vv P3 G_F would be 1.16689184588e-05 (-2.303608 ppm vs carried) and tau_n 878.4365871 s. The engine-wide M_W is unchanged, so the vt/vv G_F chain is unchanged by IRONOUT-2.

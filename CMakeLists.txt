@@ -165,6 +165,8 @@ if(Boost_FOUND)
   set_tests_properties(precision_report_md PROPERTIES DEPENDS precision_report)
 endif()
 if(Python3_Interpreter_FOUND)
+  add_test(NAME readme_gate_counts COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/check_readme_gate_counts.py)
+  add_test(NAME vw_validate_bars COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/vw_validate_bars.py)
   add_test(NAME references_check COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/check_references.py)
   add_test(NAME refinement_freeze COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_refinement_freeze.py)
   add_test(NAME refinement_freeze_b COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_refinement_freeze_b.py)
@@ -318,24 +320,32 @@ if(Boost_FOUND)
   add_executable(test_folded_routes tests/test_folded_routes.cpp)
   target_link_libraries(test_folded_routes PRIVATE fsot)
   target_compile_definitions(test_folded_routes PRIVATE FSOT_FOLDED_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/folded_routes.tsv"
-                             FSOT_VT_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vt_package.tsv")
+                             FSOT_VT_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vt_package.tsv"
+                             FSOT_VV_VW_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vv_vw_package.tsv")
   add_test(NAME folded_routes COMMAND test_folded_routes)
   # §43.5vt (Damian t994u): G_F / tau_n chain folded, flagged SM_PARITY_REFINE_LATER
   add_executable(test_vt_gf tests/test_vt_gf.cpp)
   target_link_libraries(test_vt_gf PRIVATE fsot)
-  target_compile_definitions(test_vt_gf PRIVATE FSOT_VT_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vt_package.tsv")
+  target_compile_definitions(test_vt_gf PRIVATE FSOT_VT_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vt_package.tsv"
+                             FSOT_VV_VW_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vv_vw_package.tsv")
   add_test(NAME vt_gf COMMAND test_vt_gf)
 endif()
 if(Boost_FOUND)
   add_executable(fsot_single_engine apps/fsot_single_engine.cpp)
   target_link_libraries(fsot_single_engine PRIVATE fsot)
-  target_compile_definitions(fsot_single_engine PRIVATE FSOT_VT_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vt_package.tsv")
+  target_compile_definitions(fsot_single_engine PRIVATE FSOT_VT_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vt_package.tsv"
+                             FSOT_PRECISION_TSV="${CMAKE_CURRENT_SOURCE_DIR}/audit/precision_2026-10-02.tsv"
+                             FSOT_VV_VW_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vv_vw_package.tsv")
   add_test(NAME single_engine_table COMMAND fsot_single_engine --table ${CMAKE_CURRENT_BINARY_DIR}/single_engine_table.tsv
            --folded ${CMAKE_CURRENT_SOURCE_DIR}/golden/folded_routes.tsv ${CMAKE_CURRENT_BINARY_DIR}/single_engine_folded.tsv
            --before-after ${CMAKE_CURRENT_BINARY_DIR}/BEFORE_AFTER.md)
   add_test(NAME single_engine_before_after_committed COMMAND ${CMAKE_COMMAND} -E compare_files
            ${CMAKE_CURRENT_BINARY_DIR}/BEFORE_AFTER.md ${CMAKE_CURRENT_SOURCE_DIR}/docs/single_engine/BEFORE_AFTER.md)
   set_tests_properties(single_engine_before_after_committed PROPERTIES DEPENDS single_engine_table)
+  # IRONOUT-1 (Damian t995u): re-derived rows in bar, scaling relations exact, parity untouched
+  add_executable(test_ironout1 tests/test_ironout1.cpp)
+  target_link_libraries(test_ironout1 PRIVATE fsot)
+  add_test(NAME ironout1 COMMAND test_ironout1)
 endif()
 if(Boost_FOUND)
   add_test(NAME single_engine_table_golden COMMAND ${CMAKE_COMMAND} -E compare_files

@@ -1,0 +1,16 @@
+# IRONOUT-2: Tracer §43.5vw validate bars derived by GB under the principle Damian accepted in t1004s4215 (no Damian-named numbers); audited by Tracer at 1f0192f (none tailored). Source record: dialin/out_vw_tau_n_drv_gamma_w_box_bjsr_interpolator/validate_run.txt sha256 4c66f06d746e2b136263134fb00aa768102292ac15f6a1a7836105dcfda98c63 (frozen, not edited); vw FOLD ce51de78 §3(b); score.py eb03ab5a. Derivations: tools/vw_validate_bars.py.
+check	kind	measured	old_bar	new_bar	status	why
+iii_a2_a3_vs_analytic	bar	0.00293579	5e-4	0.0098	derived by GB under the principle Damian accepted in t1004s4215 (no Damian-named numbers)	input precision: CMS/BCK print half-ULP per coefficient x n_f^k; analytic a^2,a^3 re-integration moves tau_n by ~+1.2e-6 s only
+iv_continuity_m_c	bar	1.04385e-11	1e-12	1.241486048e-11	derived by GB under the principle Damian accepted in t1004s4215 (no Damian-named numbers)	probe-bias bar e|beta_3-beta_4|: the frozen check subtracts 1.01*2e|beta_hi| while a continuous runner moves e(|beta_lo|+|beta_hi|); effective tolerance 1.98e-12; true jump ~1e-17
+iv_continuity_m_b	bar	2.92672e-12	1e-12	3.543970751e-12	derived by GB under the principle Damian accepted in t1004s4215 (no Damian-named numbers)	probe-bias bar e|beta_4-beta_5| (same rule); effective tolerance 6.17e-13
+iv_continuity_m_t	bar	5.88029e-13	1e-12	7.193047325e-13	derived by GB under the principle Damian accepted in t1004s4215 (no Damian-named numbers)	probe-bias bar e|beta_5-beta_6| (same rule; the frozen 1e-12 bar passed already)
+iv_runner_vs_tip_AlphaS	bar	2.02652e-6	1e-6	2.056077953e-06	derived by GB under the principle Damian accepted in t1004s4215 (no Damian-named numbers)	input-fixed tip grid: n_f straddle at m_b (grid fraction f=0.085, actual h 0.99999719e-3) carried to mu + h^2/8|alpha''|, max over the 8 validate scales
+alpha_s_at_m_c	input	0.3482489423802478	-	-	-	live re-run of Tracer's runner (validate_run prints 0.3482489424)
+alpha_s_at_m_b	input	0.2148141650084746	-	-	-	same (0.2148141650)
+alpha_s_at_m_t	input	0.10687961598198654	-	-	-	same (0.1068796160)
+m_b_pole_GeV	input	4.6226464664712905	-	-	-	score_run tip inputs (MB_POLE)
+M_Z_GeV	input	91.1873703594484	-	-	-	score_run tip inputs (M_Z)
+m_tau_GeV	input	1.7770016401823334	-	-	-	tip m_tau leaf (vn.mtau)
+iv_continuity_m_c_live_stat	input	1.0438522311132231e-11	-	-	-	live re-run of Tracer's runner (score.py eb03ab5a, /tmp copy), full precision
+iv_continuity_m_b_live_stat	input	2.9267193842062103e-12	-	-	-	same
+iv_continuity_m_t_live_stat	input	5.880293781112964e-13	-	-	-	same

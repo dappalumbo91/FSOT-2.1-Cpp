@@ -36,8 +36,7 @@ tab = tsv(B / "single_engine_table.tsv")
 for r in tab:
     if r["kind"] == "definition" or not r["rel_pct"]: continue
     if r["section"] == "validation_suite" and r["name"].startswith("V2"): continue  # relays of wave1 rows
-    if r["z"]:
-        scored.append(dict(obs=f'{r["section"]}|{r["name"]}', src="closed form (sigma in authority)", value=f'{float(r["value"]):.12g}', ref=f'{float(r["measured"]):.12g} ± {r["sigma"]}', z=float(r["z"]), note=r["sensitive"]))
+    # IRONOUT-1 #6: the authority sigma field is a claimed-|z| tag, not an uncertainty; table rows are never z-scored here.
     rel = float(r["rel_pct"])
     if rel > 0.5:
         unscored.append(dict(obs=f'{r["section"]}|{r["name"]}', formula=r["formula"], value=f'{float(r["value"]):.12g}', ref=f'{float(r["measured"]):.12g}', rel=rel, sens=r["sensitive"].strip(),
