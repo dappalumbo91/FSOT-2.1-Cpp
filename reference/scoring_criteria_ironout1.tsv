@@ -1,0 +1,31 @@
+#key	change	engine_or_route_target	accepted_value	sigma	citation	note
+chemistry_molecular|dipole_HCl	stale_target	1.08	1.1086	0.0003	Kaiser, J. Chem. Phys. 53, 1686 (1970); NIST CCCBDB exp. dipole HCl	formula not retuned; row stays outside until re-derived
+wave8|Perc_FCC_site	stale_target	0.1982	0.1992365	1e-6	Lorenz & Ziff, J. Phys. A 31, 8147 (1998)	0.1982 is not a published FCC site threshold
+wave2|sin2_theta_W	stale_target	0.23122	0.23129	4e-5	PDG 2024 Electroweak review, s^2_W(M_Z) MSbar	engine pin already scored at 0.23129
+validation_suite|sin2_theta_W	stale_target	0.23122	0.23129	4e-5	PDG 2024 Electroweak review	same observable as wave2
+wave3|sin_theta_C	stale_target	0.22759	0.22501	0.00068	PDG 2024 CKM review, Wolfenstein lambda (global fit)	origin of 0.22759 not found; FSOT carries 3 Cabibbo values (Damian decision)
+wave8|BR_H_gg	stale_target	0.0785	0.0818	—	LHCHXSWG YR4 BR(H->gg) at m_H=125.09 GeV	theory number, not a measurement
+wave7|Ising3D_eta	stale_target	0.0363	0.0362978	2e-6	Kos, Poland, Simmons-Duffin, Vichi, JHEP 08 (2016) 036	bootstrap
+wave7|Ising3D_delta	stale_target	4.7898	4.78984	1e-5	Kos et al. 2016 (via scaling)	bootstrap
+wave3|Ising2D_beta	relabel_3D	0.32653	0.326419	3e-6	Kos et al. 2016	archive key says 2D; 2D Ising beta is exactly 1/8
+wave3|Ising2D_nu	relabel_3D	0.63002	0.629971	4e-6	Kos et al. 2016	2D Ising nu is exactly 1
+wave3|Ising2D_gamma	relabel_3D	1.2372	1.237075	1e-5	Kos et al. 2016	2D Ising gamma is exactly 7/4
+wave8|SAW_gamma_3D	stale_target	1.1575	1.156953	1e-6	Clisby, J. Phys. A 50, 264003 (2017)	
+wave8|KT_T/J	stale_target	0.8935	0.8929	1e-4	Hasenbusch, J. Phys. A 38, 5869 (2005)	
+dynamical_systems|Henon_Lyapunov	stale_target	0.4192	0.41922	1e-5	Henon map largest Lyapunov exponent (numerics)	
+validation_suite|Age_over_T_CMB	stale_target	5.043	5.06219	0.0085	PDG 2024: 13.797(23) Gyr / 2.7255 K	5.043 is arithmetic error
+wave6|Water_max_density_C	stale_target	3.98	3.983035	0.00067	Tanaka et al., Metrologia 38, 301 (2001)	
+validation_suite|Water_anomaly_C	stale_target	3.98	3.983035	0.00067	Tanaka et al. 2001	
+chemistry_molecular|BP_H₂O	stale_target	373.15	373.124	0.001	ITS-90 normal boiling point of VSMOW	373.15 is pre-ITS-90
+chemistry_molecular|BP_CO₂_sub	stale_target	194.65	194.686	0.01	NIST WebBook CO2 sublimation point at 1 atm	
+chemistry_molecular|dipole_H₂O	rounded_target	1.85	1.8546	0.0004	Clough et al., J. Chem. Phys. 59, 2254 (1973)	
+chemistry_molecular|dipole_NH₃	rounded_target	1.47	1.4718	0.0002	NIST CCCBDB	
+chemistry_molecular|pKw_water	rounded_target	14	13.995	0.005	IUPAC, pKw at 25 C	
+43.5qj/qk/ql/qm-GZ_*_TIP	world_average	ALEPH/DELPHI/L3/OPAL single experiment	2495.5	2.3	PDG 2024 Gamma_Z (LEP combination)	single-experiment gate kept as secondary
+43.5pp-DM2_21_SOLAR	world_average	6.10e-5 +- 0.95e-5 (solar only)	7.49e-5	0.19e-5	NuFIT 6.0 (2024) Dm2_21	single-experiment gate kept as secondary
+43.5qy-MK_CHENG_TIP	world_average	493.657 +- 0.020	493.677	0.015	PDG 2024 m_K+-	single-experiment gate kept as secondary
+43.5rh-RP_GRININ_TIP	world_average	0.8482 +- 0.0038	0.84075	0.00064	CODATA 2022 r_p	single-experiment gate kept as secondary
+43.5rn-MH_CMS2020_TIP	world_average	125.38 +- 0.14	125.20	0.11	PDG 2024 m_H	single-experiment gate kept as secondary
+tau_n (UCNtau 877.82 +- 0.287)	world_average	UCNtau 2025 single experiment	878.4	0.5	PDG 2024 neutron mean life (bottle average)	UCNtau / Pattie gates kept as secondary; beam-bottle tension noted
+43.5sn Gamma1s_meV	benchmark	SM 816 +- 20 (estimate)	816.2	17.6	Deser LO with delta_Gamma 0.006(5), a- = 86.1(9)e-3 M_pi^-1 (Baru et al. 2011), same Deser freeze as the route	SM benchmark computed, not estimated; Hirtl 856(27) remains the only measurement
+single_engine_table:sigma	sigma_semantics	authority "sigma" field used as absolute sigma (z = diff/sigma)	—	—	authority fsot_compute.py Result.sigma printed as "σ=" next to the target; matches claimed |z| (H0 2.1 = (68.44-67.4)/0.5, alpha_s 0.9, T_CMB 1.3, tau_n 0.4)	column renamed auth_sigma_tag; table z left blank; worst_residuals no longer z-scores table rows

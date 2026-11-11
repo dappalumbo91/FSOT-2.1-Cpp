@@ -40,7 +40,10 @@ int main(int argc, char** argv) {
   for (int i = 1; i < argc; ++i) {
     if (!std::strcmp(argv[i], "--table") && i + 1 < argc) {
       std::ofstream o(argv[++i], std::ios::binary);
-      o << "#section\tname\tformula\tkind\tvalue\tvalue_parity\tvalue_c_cosm_10phi\tvalue_qm_D5\tmeasured\tsigma\trel_pct\tz\tsensitive\n";
+      // IRONOUT-1 #6 (criteria, not physics): the authority's printed "sigma" field is its claimed |z| tag (e.g. H0 2.1 =
+      // (68.44 - 67.4)/0.5), NOT an absolute uncertainty. It is carried as auth_sigma_tag and no z is computed from it
+      // (z left blank); scored z comes only from fsot_precision (published sigma) and the folded routes.
+      o << "#section\tname\tformula\tkind\tvalue\tvalue_parity\tvalue_c_cosm_10phi\tvalue_qm_D5\tmeasured\tauth_sigma_tag\trel_pct\tz\tsensitive\n";
       for (auto& r : T) {
         const std::string k = key(r);
         std::string sens;
@@ -51,7 +54,6 @@ int main(int argc, char** argv) {
         if (r.measured) {
           const R rel = m::fabs(r.value - *r.measured) / m::fabs(*r.measured) * R(100);
           o << s30(*r.measured) << '\t' << (r.sigma ? std::to_string(*r.sigma) : "") << '\t' << double(rel) << '\t';
-          if (r.sigma && *r.sigma > 0) o << double((r.value - *r.measured) / R(*r.sigma));
         } else o << "\t\t\t";
         o << '\t' << sens << '\n';
       }
