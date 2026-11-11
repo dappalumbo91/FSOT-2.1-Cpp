@@ -320,3 +320,25 @@ if(Boost_FOUND)
   target_compile_definitions(test_folded_routes PRIVATE FSOT_FOLDED_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/folded_routes.tsv")
   add_test(NAME folded_routes COMMAND test_folded_routes)
 endif()
+if(Boost_FOUND)
+  add_executable(fsot_single_engine apps/fsot_single_engine.cpp)
+  target_link_libraries(fsot_single_engine PRIVATE fsot)
+  add_test(NAME single_engine_table COMMAND fsot_single_engine --table ${CMAKE_CURRENT_BINARY_DIR}/single_engine_table.tsv
+           --folded ${CMAKE_CURRENT_SOURCE_DIR}/golden/folded_routes.tsv ${CMAKE_CURRENT_BINARY_DIR}/single_engine_folded.tsv
+           --before-after ${CMAKE_CURRENT_BINARY_DIR}/BEFORE_AFTER.md)
+  add_test(NAME single_engine_before_after_committed COMMAND ${CMAKE_COMMAND} -E compare_files
+           ${CMAKE_CURRENT_BINARY_DIR}/BEFORE_AFTER.md ${CMAKE_CURRENT_SOURCE_DIR}/docs/single_engine/BEFORE_AFTER.md)
+  set_tests_properties(single_engine_before_after_committed PROPERTIES DEPENDS single_engine_table)
+endif()
+if(Boost_FOUND)
+  add_test(NAME single_engine_table_golden COMMAND ${CMAKE_COMMAND} -E compare_files
+           ${CMAKE_CURRENT_BINARY_DIR}/single_engine_table.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/single_engine_table.tsv)
+  add_test(NAME single_engine_folded_golden COMMAND ${CMAKE_COMMAND} -E compare_files
+           ${CMAKE_CURRENT_BINARY_DIR}/single_engine_folded.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/single_engine_folded.tsv)
+  add_test(NAME worst_residuals COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/worst_residuals.py
+           ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR}/WORST_RESIDUALS.md)
+  add_test(NAME worst_residuals_committed COMMAND ${CMAKE_COMMAND} -E compare_files
+           ${CMAKE_CURRENT_BINARY_DIR}/WORST_RESIDUALS.md ${CMAKE_CURRENT_SOURCE_DIR}/docs/single_engine/WORST_RESIDUALS.md)
+  set_tests_properties(single_engine_table_golden single_engine_folded_golden worst_residuals PROPERTIES DEPENDS "single_engine_table;precision_report")
+  set_tests_properties(worst_residuals_committed PROPERTIES DEPENDS worst_residuals)
+endif()
