@@ -52,4 +52,4 @@ The single-engine table used it as an absolute σ: z = diff/sigma. For example, 
 Scored z now comes only from fsot_precision (published σ) and the folded routes. A side effect: `wave8|m_t/m_b` (rel 0.38 %) drops out of WORST_RESIDUALS §A. It had z −1.58 only against the claimed-z tag. It has no published-σ pin, so it needs one.
 
 ## 5. SM benchmark for πH Γ1s
-The scorecard's mainstream number for πH Γ1s was "816 ± 20 (estimate)". It is replaced by a computed value: the same Deser freeze the route uses (8α³μ_c²q₀(1+1/P)(1+δ_Γ)², δ_Γ = 0.006(5)) at a⁻ = 86.1(9)e-3 M_π⁻¹ (Baru et al. 2011) gives 816.2 ± 17.6 meV.
+The scorecard's mainstream number for πH Γ1s was "816 ± 20 (estimate)". It is replaced by a computed value: the same Deser freeze the route uses (8α³μ_c²q₀(1+1/P)(1+δ_Γ)², δ_Γ = 0.006(5)) at a⁻ = 86.1(9)e-3 M_π⁻¹ (Baru et al. 2011) gives 816.1 ± 18.9 meV.
