@@ -1,8 +1,9 @@
 // fsot/fold/vt_gf.hpp — §43.5vt folded: G_F from the tip-native higher-order Δr chain, and τ_n through it.
 //
 // STATUS SM_PARITY_REFINE_LATER (Damian t994u, 2026-11-11 1:00 PM EST; ruling RULING_t992u_SM_PARITY_GATE.md sha8
-// c65ff89d): τ_n passes Gate A; G_F fails Gate A (strict MuLan τ_μ z ≈ −901) and is ACCEPTED at Gate B
-// (|FSOT − G_μ| = +452 ppm ≤ max(σ_SM,pred 809.87 ppm, |SM res| 665.56 ppm)). Not ADOPT, no GO-MERGE.
+// c65ff89d): τ_n passes Gate A; G_F fails Gate A (strict MuLan τ_μ z = −883.24 on the carried vv P3 route, vv score.py
+// vRS form; vt P2 alternate −901) and is ACCEPTED at Gate B (|FSOT − G_μ| = +441.65 ppm on vv P3, vt P2 +452 ppm,
+// ≤ max(σ_SM,pred 809.87 ppm, |SM res| 665.56 ppm)). Not ADOPT, no GO-MERGE.
 //
 // Carried route P2 = C1+C2+C3+C5µ+C6 (no C7), by the pre-registered lowest-χ²/N rule; P1 (with C7) is the documented
 // alternate. Source: tracer dialin/out_vt_tau_n_gf_z2_mu_consistent_dr2_completion/{score.py ebdda985, results.tsv
