@@ -83,6 +83,19 @@ template <class R> void ironout1(const Engine<R>& F, const leaves::SeedLeaves<R>
     set("wave8", "XY_beta", nu * (d - R(2) + et) / R(2), "beta = nu (d - 2 + eta)/2 (Fisher+Rushbrooke+Josephson, d=3)" + src, "IRONOUT-1 #2: O(2) beta from in-bar nu, eta");
     set("wave8", "XY_gamma", nu * (R(2) - et), "gamma = nu (2 - eta) (Fisher)" + src, "IRONOUT-1 #2: O(2) gamma from in-bar nu, eta (one exponent set)");
   }
+  {  // #3 IE_H [eV]
+    R Rinf = R(0), rpe = R(0);
+    for (auto& [id, v] : L.mp_values()) { if (id == "R_inf") Rinf = v; if (id == "m_p_over_m_e") rpe = v; }
+    const R a = L.alpha(), pi = F.PI;
+    const R mc2 = R(2) * Rinf * L.si.h * L.si.c / (a * a) / L.si.e;  // m_e c^2 [eV] = 2 R_inf h c / alpha^2
+    const R mu = R(1) / (R(1) + R(1) / rpe);                           // mu / m_e
+    const R dirac = mu * mc2 * (R(1) - m::sqrt(R(1) - a * a));          // Dirac 1s binding, reduced mass
+    const R lnk0 = lit<R>("2.984128555765");                           // 1s Bethe logarithm (pure number)
+    const R lamb = R(4) * m::ipow(a, 5) * mc2 / (R(3) * pi) * m::ipow(mu, 3) * (m::ln(R(1) / (a * a)) - lnk0 + R(19) / R(30));
+    set("chemistry_ionization", "IE_H", dirac - lamb,
+        "mu c^2 [1 - sqrt(1 - alpha^2)] - (4 alpha^5 m c^2 / 3 pi) mu^3 [ln alpha^-2 - ln k0(1s) + 19/30]; m c^2 = 2 R_inf h c / alpha^2, mu = 1/(1 + m_e/m_p) [seed leaves R_inf, alpha, m_p/m_e]",
+        "IRONOUT-1 #3: reduced-mass Dirac + 1s Lamb from in-bar R_inf, alpha, m_p/m_e");
+  }
 }
 
 template <class R> std::vector<Row<R>> table(const Engine<R>& F, bool derived) {

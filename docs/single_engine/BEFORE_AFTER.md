@@ -27,8 +27,9 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 | dynamical_systems | Ising3D_beta_dyn | 0.32641897187914057 | 0.32641897187914054 | 0.3264 | 0.005812 | 0.005812 | B-03: 0.333333333333333 -> 1/3 |
 | dynamical_systems | Ising3D_nu_dyn | 0.62997096599232268 | 0.62997096599232283 | 0.63 | 0.004609 | 0.004609 | B-03: 0.333333333333333 -> 1/3 |
 | predictions | CMB_tau | 0.05399951127994737 | 0.053999511279937676 | 0.054 | 0.000905 | 0.000905 | B-03: 0.333333333333333 -> 1/3 |
+| chemistry_ionization | IE_H | 13.588429893109516 | 13.598434743366637 | 13.598 | 0.070379 | 0.003197 | IRONOUT-1 #3: reduced-mass Dirac + 1s Lamb from in-bar R_inf, alpha, m_p/m_e |
 
-21 rows changed.
+22 rows changed.
 
 ## 2. D-02 alternative C_cosm = 1/(10 phi) (rejected by the decade derivation; shown, not applied)
 
