@@ -15,14 +15,14 @@ FSOT	L-A1 M_pi0 HELD-OUT (/m_e = 255.567915)	FSOT M_pi+, M_K+, m_u/m_d, m_s/m_d	
 FSOT	L-A1 M_K0 HELD-OUT (/m_e = 973.77316)	FSOT M_pi+, M_K+, m_u/m_d, m_s/m_d	497.597063107	497.611	0.013	1.0721	PASS	-0.0028008 %	FSOT	validation passed
 FSOT	L-A1 M_eta HELD-OUT (/m_e = 1107.44606)	FSOT M_pi+, M_K+, m_u/m_d, m_s/m_d	565.903776761	547.862	0.017	1061.3	FAIL	3.2931 %	FSOT	validation FAILED
 FSOT	L-A1 M_K0 - M_K+ [MeV]	held-out	3.91685178528	-	-	-	info	-	FSOT	PDG 3.934(20) MeV (LO, EM by Dashen)
-FSOT	L-B1a m_ud (Sigma^1/3 = 0.25 GeV (pin 1/4))	L-A1 b, K-1a F_pi	4.59691382344	3.387	0.039	31.023	FAIL	35.722 %	HYBRID	validation passed; F_pi is K-1a hybrid
-FSOT	L-B1a m_s = y m_d	same	127.177798728	92.4	1.0	34.778	FAIL	37.638 %	HYBRID	FLAG 2024 2+1; m_d = 6.29701, m_u = 2.89682
-FSOT	L-B1b m_ud (Sigma^1/3 = (272/338) FSOT Lambda3)	L-A1 b, K-1a F_pi	3.60306478808	3.387	0.039	5.5401	PASS	6.3792 %	HYBRID	validation passed; F_pi is K-1a hybrid
-FSOT	L-B1b m_s = y m_d	same	99.6820619271	92.4	1.0	7.2821	PASS	7.881 %	HYBRID	FLAG 2024 2+1; m_d = 4.9356, m_u = 2.27053
-FSOT	L-B1c m_ud (Sigma^1/3 = m_p/4)	L-A1 b, K-1a F_pi	5.56518965972	3.387	0.039	55.851	FAIL	64.31 %	HYBRID	validation passed; F_pi is K-1a hybrid
-FSOT	L-B1c m_s = y m_d	same	153.966029734	92.4	1.0	61.566	FAIL	66.63 %	HYBRID	FLAG 2024 2+1; m_d = 7.62338, m_u = 3.50699
-FSOT	L-B2 f_pi (K-1a, round k)	frozen	91.7765767727	-	-	-	info	-	HYBRID	
-FSOT	L-B4 g_piNN (K-4, round k)	frozen	12.9211006767	-	-	-	info	-	HYBRID	
+FSOT	L-B1a m_ud (Sigma^1/3 = 0.25 GeV (pin 1/4))	L-A1 b, K-1a F_pi	4.48776705098	3.387	0.039	28.225	FAIL	32.5 %	HYBRID	validation passed; F_pi is K-1a hybrid
+FSOT	L-B1a m_s = y m_d	same	124.158154072	92.4	1.0	31.758	FAIL	34.37 %	HYBRID	FLAG 2024 2+1; m_d = 6.14749, m_u = 2.82804
+FSOT	L-B1b m_ud (Sigma^1/3 = (272/338) FSOT Lambda3)	L-A1 b, K-1a F_pi	3.64661655879	3.387	0.039	6.6568	PASS	7.6651 %	HYBRID	validation passed; F_pi is K-1a hybrid
+FSOT	L-B1b m_s = y m_d	same	100.886961245	92.4	1.0	8.487	PASS	9.185 %	HYBRID	FLAG 2024 2+1; m_d = 4.99526, m_u = 2.29797
+FSOT	L-B1c m_ud (Sigma^1/3 = m_p/4)	L-A1 b, K-1a F_pi	5.43305264066	3.387	0.039	52.463	FAIL	60.409 %	HYBRID	validation passed; F_pi is K-1a hybrid
+FSOT	L-B1c m_s = y m_d	same	150.310339012	92.4	1.0	57.91	FAIL	62.674 %	HYBRID	FLAG 2024 2+1; m_d = 7.44238, m_u = 3.42373
+FSOT	L-B2 f_pi (K-1a, round k)	frozen	90.6804833492	-	-	-	info	-	HYBRID	
+FSOT	L-B4 g_piNN (K-4, round k)	frozen	13.0772834952	-	-	-	info	-	HYBRID	
 FSOT	L-C1 r_p = 4 hbar/(m_p c) [fm]	anchored m_p	0.841235640094	0.8409	0.0004	0.8391	PASS	0.039914 %	FSOT (coefficient not derived)	known coincidence; noticed before freeze; look-elsewhere 8
 L-M	required g for m_pi+- (PP, D_eff 5)	measured/(N A_unit)	1.95695186728	-	-	-	info	-		g each leaf needs; train
 L-M	required g for B(2H) (NUC, D_eff 12)	measured/(N A_unit)	1.95695237017	-	-	-	info	-		g each leaf needs; train

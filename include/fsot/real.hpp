@@ -42,8 +42,14 @@ template <> struct real_traits<double> {
 };
 template <> struct real_traits<long double> {
   static const char* name() { return "long double"; }
-  static long double pi() { return std::numbers::pi_v<long double>; }
-  static long double e() { return std::numbers::e_v<long double>; }
+  // Some libcs (libc++ on zig-c++, observed 2026-11-11) define
+  // std::numbers::pi_v/e_v<long double> as the 53-bit double constants
+  // (rel 3.9e-17 vs 4*atanl(1)). That is enough to spoil the
+  // lepton-ratio cancellation row Chain_consistency_% (condition ~1.5e4)
+  // at the 1e-15 long-double bar. Use 50-digit literals so the 80-bit
+  // values are correctly rounded, matching strtold / 4*atanl(1).
+  static long double pi() { return 3.14159265358979323846264338327950288419716939937510L; }
+  static long double e() { return 2.71828182845904523536028747135266249775724709369995L; }
   static long double lit(const char* s) { return std::strtold(s, nullptr); }
 };
 #if defined(FSOT_HAVE_FLOAT128)
