@@ -33,11 +33,12 @@
 //     (0.7848 vs 0.85, -1.5e-4). vw P3 corrects the box only; (i)-(iii) remain open (future leaves). Pion-box lattice
 //     check (Feng et al. 2.830(28)e-3): route low-Q under-represents (-27 sigma), engine high-Q overshoots (+5.9 sigma);
 //     a diagnostic only, never a gate.
-//   vw validate record has 4 FAILs that are mis-set bars with no scored number moving (vw FOLD §3(b), rc.py f42d4feb):
-//     (iii) a^2, a^3 vs analytic 0.00294 > 5e-4 bar (CMS print rounding; re-integration moves tau by ~+1.2e-6 s);
-//     (iv) alpha_s continuity at m_c 1.04e-11 and at m_b 2.93e-12 > 1e-12 (one-sided grid lookup; true limits agree to
-//     5.6e-17); (iv) runner vs tip AlphaS 2.03e-6 > 1e-6 (tip AlphaS linear-interpolation step at thresholds; 4.7e-15
-//     at the tip's own nodes). Folding a vw route needs Damian's sign-off on these (t999u Q5).
+//   vw validate bars ACCEPTED by Damian (t1004s4215), re-set to the precision of their inputs (reference/
+//     vw_validate_bars.tsv, tools/vw_validate_bars.py, ctest vw_validate_bars): (iii) a^2, a^3 vs analytic 0.00294 <=
+//     9.8e-3 (print half-ULP, was 5e-4); (iv) alpha_s continuity at m_c 1.04e-11 <= 1.24e-11 and at m_b 2.93e-12 <=
+//     3.55e-12 (e|beta_{nf-1}-beta_nf| slope jump at the +-1e-9 probe, was 1e-12); (iv) runner vs tip AlphaS 2.03e-6 <=
+//     1.20e-5 (tip AlphaS h=1e-3 midpoint-n_f straddle + interpolation, was 1e-6). Full vw validate re-run with these
+//     bars: no FAIL. The frozen record (validate_run 4c66f06d) is not edited. No scored number moves.
 // Status of the carried G_F and the rows reading it stays SM_PARITY_REFINE_LATER.
 //
 // Hooks for the leaves still refining it (left empty = vt P2 as folded):

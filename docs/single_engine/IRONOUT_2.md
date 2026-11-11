@@ -52,13 +52,19 @@ Tests: ctest 110/111 (only `golden` Chain_consistency_% long-double rel 1.4e-12,
   - The engine total was offset by three things: the omitted CMS eq.(19) QED enhancement (+3.59e-4), a low vector
     constant (−0.81e-4) and a low Born term (0.7848 vs 0.85, −1.5e-4).
   - vw P3 corrects only the box. The three offsets remain open.
-- **vw validate: 4 FAILs, all mis-set bars, no scored number moves (for Damian, t999u Q5):**
-  1. (iii) a², a³ vs analytic: 0.00294 vs a 5e-4 bar. The cause is CMS print rounding; re-integrating moves τ by
-     about +1.2e-6 s.
-  2. (iv) α_s continuity at m_c: 1.04e-11 vs a 1e-12 bar. A one-sided grid lookup; the true limits agree to 5.6e-17.
-  3. (iv) α_s continuity at m_b: 2.93e-12 vs a 1e-12 bar. Same cause.
-  4. (iv) runner vs tip AlphaS: 2.03e-6 vs a 1e-6 bar. The cause is the tip AlphaS linear-interpolation step at
-     thresholds; the two agree to 4.7e-15 at the tip's own nodes.
+- **vw validate bars: ACCEPTED by Damian (t1004s4215).** The 4 former FAILs were mis-set bars, and no scored number
+  moves. Each bar is re-set to the precision of its own inputs in `reference/vw_validate_bars.tsv`. The bars are derived
+  in `tools/vw_validate_bars.py` (stdlib; check (iii) is recomputed live) and checked by ctest `vw_validate_bars`:
+
+  | check | measured | old bar | accepted bar | derivation |
+  |---|---|---|---|---|
+  | (iii) a², a³ vs analytic | 0.00293579 | 5e-4 | 9.8e-3 | half-ULP of each printed CMS/BCK coefficient × n_f^k (a³ at n_f = 6); re-integrating moves τ by about +1.2e-6 s |
+  | (iv) α_s continuity at m_c | 1.04385e-11 | 1e-12 | 1.24198e-11 | e·\|β₃ − β₄\| at α_s 0.34825 (slope jump at the ±1e-9 probe) + 64 ε α |
+  | (iv) α_s continuity at m_b | 2.92672e-12 | 1e-12 | 3.54702e-12 | e·\|β₄ − β₅\| at α_s 0.21481 + 64 ε α |
+  | (iv) runner vs tip AlphaS | 2.02652e-6 | 1e-6 | 1.19982e-5 | the tip AlphaS resolution: the h/2 midpoint-n_f straddle at m_b (h = 1e-3), carried to µ, + h²/8 \|α''\| |
+
+  Tracer's full `score.py --validate` was re-run in a /tmp copy with these four bars and gives **no FAIL**
+  (validate_run sha256 cc41d299…). The ledger's frozen record (4c66f06d) is not edited.
 - **M_W diagnostic:** the host M_W leaf 80.3687519 GeV is kept (z −0.03; the seed closed form 80.354537 has z −1.1).
   Had the seed M_W been used, the carried G_F would move −2.30 ppm and τ_n would be 878.4366 s. Since M_W is not changed,
   the vt/vv G_F chain is unchanged by unification.
