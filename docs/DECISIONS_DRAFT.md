@@ -243,7 +243,7 @@ rewriting stored `error_pct` to match the fields would **not** change the
 corrected headlines (9 / 7 / 471) if no other field changes.
 
 It **would** change parity mode. Parity trusts the stored error and is
-477/477 green with 0 scalars over 0.5%. Writing the recomputed errors into
+477/477 green (stored-field gate; recomputing from the formula gives 470 pass / 7 fail) with 0 scalars over 0.5%. Writing the recomputed errors into
 the hub would make parity fail the same 9 rows. That is a new ledger-data
 commit, not a silent fix.
 

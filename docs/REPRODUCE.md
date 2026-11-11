@@ -429,7 +429,7 @@ Rust↔Lean bridge passed, QEMU serial and disk passed. ESP32 stayed skipped, so
 | Layer | Expected |
 |---|---|
 | Hub pin | `vendor/fsot_compute.py` sha256 starts `AEB2AD` |
-| Hub CI | margin audit green 477/477 fail=0; tier_scalar closed, fails 0; TOE Label A/B True, criteria 6/6; z3 4.13.3 → sat; 24 obligations exported; navigator 375 panels / 19 routes; contested pooled 0.007871 %; parameter audit freeze_ok, domain_table_sha256 8e30e85e… |
+| Hub CI | margin audit green 477/477 fail=0 (stored-field gate; recomputing from the formula gives 470 pass / 7 fail); tier_scalar closed, fails 0; TOE Label A/B True, criteria 6/6; z3 4.13.3 → sat; 24 obligations exported; navigator 375 panels / 19 routes; contested pooled 0.007871 %; parameter audit freeze_ok, domain_table_sha256 8e30e85e… |
 | Lean 4 v4.31.0 | all 567 `FSOT.*` modules + `FSOT2_0_Compute`, 0 errors, 0 `sorry`, 0 `axiom` |
 | Multiprover | `overall_ok`, `seven_way_bare_metal` and `github_ready` all True; Coq 49/49 (Rocq 9.0.1), Isabelle 46/46, SMT 2205, TLC pass, Rust replay 2130, Rust↔Lean bridge (boot_scalar 0.09928895626861721), F* pass, QEMU serial+disk pass, hardware_bare_metal pass, GR/SM/CKM 288/288; ESP32 skipped (needs the board) |
 | Siblings + twins | 23/23 PASS: Chua cross_proof 11/11 (10 required + Isabelle); Genetics verify_cross 21 OK, cross_proof 10/10, system_verify n=259 fail=0, cargo, Haskell, Zig host; Neural smoke + language gates (SMILES hit_rate 99.4 %, median 0.058 %) + formal Lean; zig `suite` 67 PASS markers; Haskell test/selftest/parity/phase-a; Idris build/scalpel/phase-a |

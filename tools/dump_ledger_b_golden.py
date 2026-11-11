@@ -2,7 +2,7 @@
 """Golden values for the C++ Ledger B re-scorer, produced by the hub's own Python.
 
 Runs FSOT-2.1-Lean `scripts/benchmark_margin_lib.analyze_benchmark` (the code behind
-data/benchmark_margin_audit.json and the 477/477 green gate) over every
+data/benchmark_margin_audit.json and the 477/477 green gate; recomputing from the formula gives 470 pass / 7 fail) over every
 data/*_benchmark.json at the pinned hub data commit, and re-scores every Ledger B
 record (eval_kind fsot_prediction / fsot_correction routed to a 35-core domain) with
 the hub's own law c = m(1+|S|f), f = ALPHA (scripts/fsot_api_predict_lib.fsot_correct),

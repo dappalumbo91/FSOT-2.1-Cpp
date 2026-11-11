@@ -52,7 +52,7 @@ On the reference box (Debian 13, GCC 14.2, CMake 3.31, Boost 1.83, Python 3.13, 
 | Layer | Command | Typical time (warm) |
 |-------|---------|---------------------|
 | Pin | sha256 of `vendor/fsot_compute.py` must start with **AEB2AD** (see `docs/PIN_LINEAGE.md`) | 0 s |
-| CI `margin-and-toe` | `audit_all_benchmark_margins.py` (green gate: 477/477 panels), tier-scalar soft report, `build_toe_gap_closure.py` (Label A/B, T1–T6) | ~20 s |
+| CI `margin-and-toe` | `audit_all_benchmark_margins.py` (green gate: 477/477 panels (stored-field gate; recomputing from the formula gives 470 pass / 7 fail)), tier-scalar soft report, `build_toe_gap_closure.py` (Label A/B, T1–T6) | ~20 s |
 | CI `scientific-catalog-smt` | `run_smt2_catalog.py` with z3 4.13.3, `export_cross_proof_obligations.py` | ~5 s |
 | CI `publication-smoke` | domain navigator, contested observables, parameter-count audit | ~10 s |
 | Lean 4 | `lake exe cache get`, then `lake build` of **all 567 `FSOT.*` modules** + `FSOT2_0_Compute`, plus a grep for `sorry`/`axiom`. The default target only reaches 11 modules, so every module is named explicitly. | cold ~6 min (84 s cache + 334 s build); warm ~10 s |
@@ -93,7 +93,7 @@ On the reference box (Debian 13, GCC 14.2, CMake 3.31, Boost 1.83, Python 3.13, 
 
 Full run `runs/20261002-000121` (hub 56fcbf31). The sibling re-run `runs/20261002-010811` was done after rebuilding Idris2.
 
-* **Hub CI (3 jobs):** all PASS. Green gate 477/477, tier-scalar closed, Label A/B with T1–T6 6/6, z3 `sat`, navigator/contested/parameter audit OK.
+* **Hub CI (3 jobs):** all PASS. Green gate 477/477 (stored-field gate; recomputing from the formula gives 470 pass / 7 fail), tier-scalar closed, Label A/B with T1–T6 6/6, z3 `sat`, navigator/contested/parameter audit OK.
 * **Lean:** 567/567 modules + exe build. 0 errors, 0 `sorry`, 0 `axiom`.
 * **Multiprover:** `overall_ok=True`, `seven_way_bare_metal=True`, `github_ready=True`. Coq 49/49, Isabelle 46/46, SMT 2205, Rust replay 2130, F\* / QEMU serial+disk / hardware_bare_metal / TLC all pass. ESP32 skipped. 1556 s.
 * **Siblings + twins:** 23/23 PASS (3 min warm).
@@ -107,7 +107,7 @@ Timing on the reference box: the full run with the runner took about 56 min, abo
 2. FSOT-Genetics: `scripts/system_verify.py` needs `scipy`, which was missing from `requirements.txt`. **Fixed in `f677663`**: 259/0 in a fresh venv.
 3. fsot-neuron-zig: the README listed modes that were never implemented (`logic-probe`, `verify-stamp`, `mind-smoke`, …). **README corrected in `68e43ce`**. `suite` gives 67 PASS markers.
 4. FSOT-2.1-Neural `fsot_nuron/chemical_codon.py` looks for the SMILES dataset only at two Windows paths, with no env override. `tools/run_neural_language_verify.py` injects the public hub copy in-process. The repo is not edited.
-5. Inside the runner, the regenerated `Living_FSOT_Hardware` panel scores pooled 100% on the reference box (host-hardware audit). The regenerated `Math_Generator_Benchmark_Formula_Eval` scores 1.0049%. Both come from data rewritten by the runner. The committed data passes 477/477.
+5. Inside the runner, the regenerated `Living_FSOT_Hardware` panel scores pooled 100% on the reference box (host-hardware audit). The regenerated `Math_Generator_Benchmark_Formula_Eval` scores 1.0049%. Both come from data rewritten by the runner. The committed data passes 477/477 (stored-field gate; recomputing from the formula gives 470 pass / 7 fail).
 
 ## Last results (2026-10-07, FSOTHUB)
 
