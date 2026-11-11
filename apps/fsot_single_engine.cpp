@@ -4,6 +4,7 @@
 //   --folded  <tsv> <out.tsv>  folded dial-in routes re-derived live and re-scored (input golden/folded_routes.tsv)
 //   --before-after <out.md>    every row whose value differs from authority parity, and the variant deltas
 //   §43.5vt (Damian t994u): the folded G_F / tau_n rows and every row that reads G_F carry SM_PARITY_REFINE_LATER
+#include <array>
 #include <cstdio>
 #include <cstring>
 #include <fstream>
@@ -38,7 +39,9 @@ int main(int argc, char** argv) {
       const auto t1 = line.find('\t'), t2 = line.find('\t', t1 + 1), t3 = line.find('\t', t2 + 1), t4 = line.find('\t', t3 + 1);
       pins.emplace(line.substr(0, t1), line.substr(t3 + 1, t4 - t3 - 1));
     }
-    for (auto* X : {&T, &A, &B}) derive::ironout2(*X, pins);
+    // T: frozen pins as scored. A/B (D-02 10phi, D-04 QM-D5): a pin that is a live seed leaf follows its variant engine.
+    const auto lc = leaves::SeedLeaves<R>(canon).mp_values(), la = leaves::SeedLeaves<R>(e10).mp_values(), lb = leaves::SeedLeaves<R>(d5).mp_values();
+    derive::ironout2(T, pins); derive::ironout2(A, pins, &lc, &la); derive::ironout2(B, pins, &lc, &lb);
   }
   std::map<std::string, R> pv, av, bv;
   leaves::SeedLeaves<R> VL(canon);
@@ -103,9 +106,21 @@ int main(int argc, char** argv) {
         std::string pl = c[2];
         double pred = std::strtod(c[2].c_str(), nullptr);
         if (!c[7].empty()) if (auto v = live(c[7])) { pl = s30(*v); pred = double(*v); }
+        // IRONOUT-2 r4 (Tracer REFINEMENT_LIST r4; Scout WAVE90 43_5wf, PDG 2026 / CODATA 2022): single-experiment targets
+        // filed with the ledger routes are scored against the current world average. The ledger file keeps the filed target.
+        static const std::map<std::string, std::array<const char*, 3>> wa = {
+            {"43.5qk-GZ_DELPHI_TIP", {"2495.5", "2.3", "PDG 2026 Gamma_Z OUR EVALUATION (was DELPHI 2487.6(41))"}},
+            {"43.5ql-GZ_L3_TIP", {"2495.5", "2.3", "PDG 2026 Gamma_Z OUR EVALUATION (was L3 2502.4(42))"}},
+            {"43.5rh-RP_GRININ_TIP", {"0.84075", "0.00064", "CODATA 2022 r_p (was Grinin 0.8482(38))"}},
+            {"43.5rn-MH_CMS2020_TIP", {"125.13", "0.11", "PDG 2026 m_H average (was CMS 2020 125.38(14))"}},
+            {"43.5pp-DM2_21_SOLAR", {"7.60e-5", "0.17e-5", "PDG 2026 Dm2_21 OUR AVERAGE (was SK solar-only 6.10(95)e-5)"}},
+            {"43.5qy-MK_CHENG_TIP", {"493.677", "0.015", "PDG 2026 m_K+- OUR FIT (was Cheng 1975 493.657(20))"}},
+        };
+        std::string note;
+        if (auto w = wa.find(c[0]); w != wa.end()) { c[3] = w->second[0]; c[4] = w->second[1]; note = std::string(" WA-RETARGET: ") + w->second[2]; }
         std::string z;
         if (!c[3].empty() && !c[4].empty()) z = std::to_string((pred - std::strtod(c[3].c_str(), nullptr)) / std::strtod(c[4].c_str(), nullptr));
-        std::string flag = c[6].find(fold::vt::kStatus) != std::string::npos ? std::string(fold::vt::kStatus) : "";
+        std::string flag = (c[6].find(fold::vt::kStatus) != std::string::npos ? std::string(fold::vt::kStatus) : "") + note;
         if (c[6].rfind("ALTERNATE", 0) == 0) flag += " ALTERNATE";
         o << c[0] << '\t' << c[1] << '\t' << pl << '\t' << c[2] << '\t' << c[3] << '\t' << c[4] << '\t' << z << '\t' << c[7] << '\t' << flag << '\n';
       }
@@ -123,6 +138,11 @@ int main(int argc, char** argv) {
         const auto d = fold::vt::mu_diag(sol.GF);
         o << "tau_mu strict MuLan (diagnostic)\ttau_mu [" << (std::string(rt) == "vvP3" ? "" : "vt ") << rt << " G_F]\t" << std::to_string(2196980.3 * (1 + d.tau_mu_ppm * 1e-6)) << "\t\t2196980.3\t2.2\t" << std::to_string(d.z_mulan)
           << "\tvt:tau_mu_" << rt << '\t' << fl << " DIAGNOSTIC (Gate B " << (d.gateB ? "ACCEPT" : "FAIL") << ", G_F vs G_mu " << std::to_string(d.ppm_vs_Gmu) << " ppm)\n";
+      }
+      {  // IRONOUT-2 r4: M_W host leaf vs PDG 2026 80.3625(77) (score target only; never an input to the Delta r chain)
+        const R mw = vin.MW;
+        o << "M_W host leaf (diagnostic)\tM_W_GeV\t" << s30(mw) << "\t\t80.3625\t0.0077\t" << std::to_string(double((mw - lit<R>("80.3625")) / lit<R>("0.0077")))
+          << "\tleaf:m_W_MeV/1000\tWA-RETARGET: PDG 2026 M_W OUR EVALUATION (was PDG 2024 80.3692(133)); score target only\n";
       }
     } else if (!std::strcmp(argv[i], "--before-after") && i + 1 < argc) {
       std::ofstream o(argv[++i], std::ios::binary);

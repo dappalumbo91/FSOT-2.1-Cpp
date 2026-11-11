@@ -3,8 +3,8 @@ tau_n (all FSOT tau_n rows)	world_average_PRIMARY	UCNtau 2025 877.82 +- 0.287 (s
 wave3|sin_theta_C	world_average	0.22759 (unexplained)	0.22431	0.00085	PDG 2024 CKM review Eq. (12.8): |V_us| = 0.22431 +- 0.00085 (direct, K_l3 + K_mu2/pi_mu2); PDG: lambda = sin(theta_Cabibbo) = |V_us|	PDG 2024 global fit lambda 0.22501(68) reported as SECONDARY (was the ironout1 primary)
 CKM_V_ud (+ pin:wave8||V_ud|, wave8||V_ud|)	world_average	PDG global fit 0.97435(16)	0.97367	0.00032	PDG 2024 CKM review Eq. (12.7), superallowed 0+->0+ (direct)	global fit (Eq. 12.27) assumes unitarity: a fit, not an observation
 CKM_V_us (+ pin:wave3||V_us|)	world_average	PDG global fit 0.22501(68)	0.22431	0.00085	PDG 2024 CKM review Eq. (12.8)	
-CKM_V_cd (+ pin:wave8||V_cd|, wave8||V_cd|)	world_average	PDG global fit 0.22487(68)	0.221	0.004	PDG 2024 CKM review Eq. (12.9)	
-CKM_V_cs (+ pin:wave8||V_cs|, wave8||V_cs|)	world_average	PDG global fit 0.97349(16)	0.975	0.006	PDG 2024 CKM review Eq. (12.10)	
+CKM_V_cd (+ pin:wave8||V_cd|, wave8||V_cd|)	world_average	PDG global fit 0.22487(68)	0.2247	0.0022	PDG 2026 CKM review Eq. (12.9) direct (Scout WAVE90 43_5wf)	r4: was PDG 2024 0.221(4); wave8 row now takes the leaf (leaf z +0.20 vs closed form -1.68)
+CKM_V_cs (+ pin:wave8||V_cs|, wave8||V_cs|)	world_average	PDG global fit 0.97349(16)	0.969	0.005	PDG 2026 CKM review Eq. (12.10) direct (Scout WAVE90 43_5wf)	r4: was PDG 2024 0.975(6); wave8 row now takes the leaf (leaf z +0.88 vs closed form +1.18)
 CKM_V_cb (+ pin:wave3||V_cb|)	world_average	PDG global fit 0.04183(79)	0.0411	0.0012	PDG 2024 CKM review Eq. (12.11) (incl. + excl. average)	
 CKM_V_ub (+ pin:wave4||V_ub|, wave4||V_ub|)	world_average	PDG global fit 0.003732(90)	0.00382	0.00020	PDG 2024 CKM review Eq. (12.12)	
 CKM_V_td (+ pin:wave4||V_td|)	world_average	PDG global fit 0.00858(19)	0.0086	0.0002	PDG 2024 CKM review Eq. (12.13) (B mixing + LQCD)	
@@ -14,3 +14,14 @@ J_CKM	no_direct_value	PDG global fit 3.12(13)e-5	3.12e-5	0.13e-5	PDG 2024 CKM re
 frozen audit/precision_2026-10-02.tsv	not_edited	global-fit CKM references	—	—	reference/published_2026-10-02.tsv (freeze 2026-10-02)	the dated precision audit is a frozen record; the world-average CKM targets above are applied in the scorecard (build_ironout2.py) and documented here, not by rewriting the freeze
 IE_H Bethe log ln k0(1s) = 2.984128555765	SCAFFOLD_PENDING_FSOT_DERIVATION	—	—	—	Drake & Swainson, PRA 41, 1243 (1990)	Coulomb-problem number allowed as temporary scaffolding only (Damian t999u)
 IE_He eigenvalue candidate (not adopted)	SCAFFOLD_PENDING_FSOT_DERIVATION	—	—	—	Drake, Springer Handbook of AMO Physics (2006), He ground state	candidate only (z ~ +11), not in the engine
+wave5|D_H_ratio	world_average	2.547e-5	2.508e-5	0.029e-5	PDG 2026 BBN review Eq. (24.2)	r4 (Tracer REFINEMENT_LIST r4)
+wave2|tau_reion	world_average	0.0544 (no sigma)	0.0544	0.0073	Planck 2018 VI TT,TE,EE+lowE+lensing = PDG 2026 cosmology 0.054(7)	r4: sigma added; LCDM FIT, not a direct measurement
+wave8|gamma_2_Stieltjes	exact	-0.00946	-0.0096903631928723185	0	Stieltjes constant gamma_2 (exact; DLMF 25.2.4)	r4: scored by rel% only (no z)
+wave4|r_p_fm, validation_suite|Proton_radius, 43.5rh-RP_GRININ_TIP	world_average	0.8414 / 0.8413 / Grinin 0.8482(38)	0.84075	0.00064	CODATA 2022	r4
+43.5qk-GZ_DELPHI_TIP, 43.5ql-GZ_L3_TIP	world_average	DELPHI 2487.6(41) / L3 2502.4(42)	2495.5	2.3	PDG 2026 Gamma_Z OUR EVALUATION (MeV)	r4
+43.5rn-MH_CMS2020_TIP	world_average	CMS 2020 125.38(14)	125.13	0.11	PDG 2026 m_H average (GeV)	r4
+43.5pp-DM2_21_SOLAR	world_average	SK solar-only 6.10(95)e-5	7.60e-5	0.17e-5	PDG 2026 Dm2_21 OUR AVERAGE (eV^2)	r4
+43.5qy-MK_CHENG_TIP	world_average	Cheng 1975 493.657(20)	493.677	0.015	PDG 2026 m_K+- OUR FIT (MeV)	r4
+M_W host leaf (folded diagnostic)	world_average	PDG 2024 80.3692(133)	80.3625	0.0077	PDG 2026 M_W OUR EVALUATION (GeV)	r4: score target only, never an input to the Delta r chain
+wave4|m_c/m_b	AMBIGUOUS (unchanged)	0.291	0.291		(scheme/scale ambiguous: MSbar ratio at which scale?)	r4: left as filed; flagged ambiguous
+m_pi/m_p rows	AMBIGUOUS (unchanged)	0.14446	0.14446		(charged vs neutral pion ambiguous)	r4: left as filed; flagged ambiguous

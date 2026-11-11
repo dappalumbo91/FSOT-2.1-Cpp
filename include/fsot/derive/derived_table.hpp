@@ -146,11 +146,22 @@ inline const std::vector<Unify>& ironout2_list() {
       {"validation_suite", "Feigenbaum_delta", "row:wave4|Feigenbaum_delta", "duplicate -> wave4 Feigenbaum_delta"},
       {"validation_suite", "Feigenbaum_alpha", "row:wave4|Feigenbaum_alpha", "duplicate -> wave4 Feigenbaum_alpha"},
       {"wave3", "sin_theta_C", "row:wave3||V_us|", "sin theta_C = |V_us|: -> wave3 |V_us| closed form (closest Cabibbo value)"},
+      // IRONOUT-2 r4 (Tracer REFINEMENT_LIST r4 LAMBDA-CKM): against PDG 2026 direct |V_cd| 0.2247(22) / |V_cs| 0.969(5) the
+      // tip CKM leaf is closer than the wave8 closed form (V_cd: leaf z +0.20 vs closed form -1.68; V_cs: +0.88 vs +1.18).
+      // Keep-the-closest rule: the rows take the leaf (no leaf changes; no in-bar row leaves its bar).
+      {"wave8", "|V_cd|", "pin:wave8||V_cd|", "closed form -> tip CKM leaf V_cd (closer to PDG 2026 direct 0.2247(22))"},
+      {"wave8", "|V_cs|", "pin:wave8||V_cs|", "closed form -> tip CKM leaf V_cs (closer to PDG 2026 direct 0.969(5))"},
   };
   return u;
 }
 // pins: id -> value string from the frozen precision audit (audit/precision_2026-10-02.tsv, the tip's scored values).
-template <class R> void ironout2(std::vector<Row<R>>& out, const std::map<std::string, std::string>& pins) {
+// lv_canon / lv_var (optional): seed-leaf values of the canonical and of THIS table's engine. A frozen pin that is a live
+// seed leaf (canonical leaf == pin to 1e-12) is carried into a variant engine (D-02 10phi / D-04 QM-D5 columns) as
+// pin * leaf_var / leaf_canon, so a variant that moves the leaf's inputs (e.g. C_cosm for m_c/m_b) moves the row too
+// (bug found by Tracer r4: the 10phi column showed the m_c/m_b pin frozen at its canonical value).
+template <class R> void ironout2(std::vector<Row<R>>& out, const std::map<std::string, std::string>& pins,
+                                 const std::vector<std::pair<std::string, R>>* lv_canon = nullptr,
+                                 const std::vector<std::pair<std::string, R>>* lv_var = nullptr) {
   auto find = [&](const std::string& sec, const std::string& nm) -> Row<R>* {
     for (auto& r : out) if (r.section == sec && r.name == nm) return &r;
     return nullptr;
@@ -168,7 +179,15 @@ template <class R> void ironout2(std::vector<Row<R>>& out, const std::map<std::s
     } else {
       auto it = pins.find(s);
       if (it == pins.end()) throw std::runtime_error("ironout2: no precision value " + s);
-      todo.emplace_back(r, lit<R>(it->second.c_str()));
+      R v = lit<R>(it->second.c_str());
+      if (lv_canon && lv_var) {
+        const std::string* hit = nullptr; R lc = 0;
+        for (const auto& [id, val] : *lv_canon)
+          if (val != R(0) && m::fabs(val / v - R(1)) < lit<R>("1e-12")) { if (hit) { hit = nullptr; break; } hit = &id; lc = val; }
+        if (hit)
+          for (const auto& [id, val] : *lv_var) if (id == *hit) { v = v * (val / lc); break; }
+      }
+      todo.emplace_back(r, v);
     }
   }
   for (std::size_t i = 0; i < todo.size(); ++i) {
@@ -182,15 +201,23 @@ template <class R> void ironout2(std::vector<Row<R>>& out, const std::map<std::s
   // IRONOUT-2 criteria (Damian t999u; Tracer 2026-11-11): rows whose authority target is stale are scored against the
   // world average of reference/scoring_criteria_ironout2.tsv. Only the comparison target moves, never a value.
   struct Retarget { const char* sec; const char* name; const char* obs; double sigma; const char* src; };
+  // sigma 0 = exact constant (no z). Values: Scout WAVE90 re-extract 43_5wf (PDG 2026, Takahashi et al. IJMPA 41 2630011).
   static const Retarget rt[] = {
-      {"wave3", "sin_theta_C", "0.22431", 0.00085, "PDG 2024 CKM review Eq. (12.8) direct |V_us| 0.22431(85) (was stale authority target 0.22759)"},
+      {"wave3", "sin_theta_C", "0.22431", 0.00085, "PDG 2026 CKM review Eq. (12.8) direct |V_us| 0.22431(85) (was stale authority target 0.22759)"},
+      {"wave8", "|V_cd|", "0.2247", 0.0022, "PDG 2026 CKM review Eq. (12.9) direct |V_cd| 0.2247(22) (was 0.221)"},
+      {"wave8", "|V_cs|", "0.969", 0.005, "PDG 2026 CKM review Eq. (12.10) direct |V_cs| 0.969(5) (was fit 0.9735)"},
+      {"wave5", "D_H_ratio", "2.508e-5", 0.029e-5, "PDG 2026 BBN review Eq. (24.2) (D/H)_p 2.508(29)e-5 (was 2.547e-5)"},
+      {"wave2", "tau_reion", "0.0544", 0.0073, "Planck 2018 VI TT,TE,EE+lowE+lensing 0.0544(73) = PDG 2026 cosmology 0.054(7) (sigma added; FIT LCDM)"},
+      {"wave8", "gamma_2_Stieltjes", "-0.0096903631928723185", 0.0, "exact Stieltjes constant gamma_2 (was -0.00946)"},
+      {"wave4", "r_p_fm", "0.84075", 0.00064, "CODATA 2022 r_p 0.84075(64) fm (was 0.8414)"},
+      {"validation_suite", "Proton_radius", "0.84075", 0.00064, "CODATA 2022 r_p 0.84075(64) fm (was 0.8413)"},
   };
   for (const auto& t : rt) {
     Row<R>* r = find(t.sec, t.name);
     if (!r) throw std::runtime_error(std::string("ironout2 retarget: no row ") + t.sec + "|" + t.name);
     r->measured = lit<R>(t.obs);
     r->sigma.reset();  // the authority's claimed-|z| tag referred to the stale target
-    r->wa_sigma = t.sigma;
+    if (t.sigma > 0) r->wa_sigma = t.sigma; else r->wa_sigma.reset();
     r->why += std::string("; target -> ") + t.src;
   }
 }

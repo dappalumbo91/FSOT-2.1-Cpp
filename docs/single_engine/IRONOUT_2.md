@@ -90,7 +90,7 @@ Tests: ctest 110/111 (only `golden` Chain_consistency_% long-double rel 1.4e-12,
 | g_A | 1.27506 (τ_n chain, vs PDG λ 1.2754(13): −0.26); profile 1.29169 (+12.5) | **not unified (CONFLICT)** | unifying to 1.27506 pushes MINERvA bin 8 [Q² 0.3–0.4] out of bar: z −0.953 → −1.048 (pred 0.72383 → 0.7141 vs 0.821 ± 0.102); bin 5 comes in (−1.069 → −0.98), χ²_cov/dof 0.746 → 0.732; πH a⁻ shift not computed |
 | V_ud | hosted √(1−λ²) 0.974324 (+2.04 vs 0.97367(32)); closed form A_in − ln2 0.973707 (+0.12) | **EXCLUDED (steering)**; hosted stays | none. Swapping would move τ_vk by (0.974324/0.973707)² = 1.001268 |
 | λ = sin θ_C = V_us | wave3 \|V_us\| closed form 0.224495 (+0.22); CKM leaf 0.225150 (+0.99); old sin θ_C form 0.227591 (+3.86) | sin θ_C row → 0.224495; **CKM leaf NOT changed (CONFLICT)** | wave3 sin_theta_C. Leaf λ → 0.224495 would keep every CKM row in its direct bar (V_cd +1.04 → +0.87 comes in), but it changes the mainC tip leaf and V_ud = √(1−λ²) 0.974324 → 0.974475 inside τ_vk (τ_n ×0.99969 → 878.16 s) |
-| V_cd, V_cs | closed forms 0.221008 (+0.00), 0.974913 (−0.01) vs leaf 0.225150 (+1.04), 0.973423 (−0.26) | **CONFLICT**: the leaf is the tip CKM; closed forms not carried | none |
+| V_cd, V_cs | (superseded by r4, see below) closed forms 0.221008 (+0.00), 0.974913 (−0.01) vs leaf 0.225150 (+1.04), 0.973423 (−0.26) against PDG 2024 | was CONFLICT; **r4: rows take the leaf** | wave8 \|V_cd\|, \|V_cs\| |
 | V_ub, V_tb, V_cb, V_td, V_ts, J | leaf closer than the closed forms (e.g. V_ts −0.37 vs −1.11) | tip CKM leaf | wave4 \|V_ub\|, \|V_td\|, \|V_ts\|, Jarlskog_J, wave3 \|V_cb\|, wave9 \|V_tb\| |
 | m_μ/m_e | leaf 206.76828158 (−0.24); lepton_ratios 206.76828192 (−0.17); seed 206.76964 (+295) | leaf (lepton_ratios closer but **CONFLICT**: tip leaf) | wave10 seed → leaf |
 | m_τ/m_μ | leaf ratio 16.818370 (+0.80); lepton_ratios 16.817285 (−0.48); seed 16.816910 (−0.92) | leaf ratio (lepton_ratios closer but **CONFLICT**: inconsistent with the m_τ/m_e and m_μ/m_e leaves) | wave7 seed → leaf ratio |
@@ -237,3 +237,34 @@ The table row `wave3|sin_theta_C` is now scored against the PDG 2024 direct valu
 z = +0.217, which agrees with the scorecard's +0.22. The authority catalog (`closed_forms*.gen.inc`, generated from
 fsot_compute.py and checked by regen-diff) still prints 0.22759 as its own target. That is upstream, and the engine
 table no longer scores against it.
+
+## r4 — stale targets, V_cd/V_cs, the m_c/m_b variant pin (Tracer REFINEMENT_LIST r4)
+
+Values: Scout WAVE90 re-extract 43_5wf (PDG 2026 / CODATA 2022); full list in `reference/scoring_criteria_ironout2.tsv`.
+Authority-generated catalog targets (`closed_forms*.gen.inc`) and the ledger route file (`golden/folded_routes.tsv`)
+keep their filed targets; the single engine scores against the world average (`Retarget` in `derived_table.hpp`,
+`WA-RETARGET` in `fsot_single_engine --folded`). No engine value moves except m_c/m_b 10φ and the two CKM rows below.
+
+| row | old target | world average | engine value | z after |
+|---|---|---|---|---|
+| wave5 D_H_ratio | 2.547e-5 (0.09 %) | 2.508(29)e-5 PDG 2026 BBN Eq. 24.2 | 2.544683e-5 | **+1.26** (now out of bar; honest) |
+| wave2 tau_reion | 0.0544 (no σ) | 0.0544(73) Planck 2018 / PDG 2026 | 0.0543966 | −0.0005 |
+| wave8 gamma_2_Stieltjes | −0.00946 | −0.00969036319287232 (exact) | −0.00968635 | rel 0.041 % (no z) |
+| wave4 r_p_fm / validation Proton_radius / 43.5rh | 0.8414 / 0.8413 / Grinin 0.8482(38) | 0.84075(64) CODATA 2022 | 0.8412485 | +0.78 |
+| 43.5qk / 43.5ql Γ_Z | DELPHI 2487.6(41) / L3 2502.4(42) | 2495.5(23) MeV PDG 2026 | 2495.4157 | −0.04 |
+| 43.5rn m_H | CMS 2020 125.38(14) | 125.13(11) GeV | 125.1581 | +0.26 |
+| 43.5pp Δm²_21 | SK solar 6.10(95)e-5 | 7.60(17)e-5 eV² | 7.5247e-5 | −0.44 |
+| 43.5qy m_K± | Cheng 493.657(20) | 493.677(15) MeV | 493.6802 | +0.21 |
+| M_W (folded diagnostic, score only) | PDG 2024 80.3692(133) | 80.3625(77) GeV | host leaf | +0.81 |
+| wave3 sin_theta_C | 0.22759 | 0.22431(85) (done earlier) | 0.224495 | +0.22 |
+
+Left as filed and flagged **AMBIGUOUS**: m_π/m_p 0.14446 (charged vs neutral), m_c/m_b 0.291 (scheme/scale).
+
+**V_cd / V_cs (reverses the CONFLICT above).** Against PDG 2026 direct |V_cd| 0.2247(22), |V_cs| 0.969(5): closed form
+z −1.68 / +1.18, tip CKM leaf z +0.20 / +0.88. Keep-the-closest: the wave8 rows take the leaf (pin:wave8||V_cd|,
+pin:wave8||V_cs|). No leaf moves, so no other row changes; both rows end in bar, no in-bar row leaves its bar.
+
+**m_c/m_b 10φ column (bug).** The unify step wrote the frozen precision-audit pin string into every variant table
+(canonical, 10φ, d5), so the 10φ column could not move. Fix: when a variant's pin equals a canonical leaf to 1e-12,
+the variant takes pin × leaf_var/leaf_canon from the same seed variant's leaves. m_c/m_b 10φ: 0.304178 → **0.300333**;
+the row's sensitivity flag becomes D-02 (variant-sensitive, as expected). C_cosm is unchanged. No other row moves.

@@ -9,7 +9,7 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 | wave1 | alpha_s(M_Z) | 0.11709966304863832 | 0.117908816617884 | 0.1179 | 0.678827 | 0.007478 | IRONOUT-2 unify: seed -> tip leaf alpha_s |
 | wave1 | T_CMB | 2.7247116903430662 | 2.72573880197729 | 2.72548 | 0.028190 | 0.009496 | IRONOUT-2 unify: seed -> scored pin T_CMB |
 | validation_suite | DNA_base_pair | 3.3964531607189791 | 3.3964545123380183 | 3.4 | 0.104319 | 0.104279 | measured a0=0.529177 -> seed leaf a_0 |
-| validation_suite | Proton_radius | 0.8413 | 0.84124854096976834 | 0.8413 | 0.000000 | 0.006117 | target literal -> seed leaf r_p |
+| validation_suite | Proton_radius | 0.8413 | 0.84124854096976834 | 0.84075 | 0.065418 | 0.059297 | target literal -> seed leaf r_p; target -> CODATA 2022 r_p 0.84075(64) fm (was 0.8413) |
 | validation_suite | sin2_theta_W | 0.23122202914793052 | 0.231275280502387 | 0.23122 | 0.000878 | 0.023908 | IRONOUT-2 unify: seed -> tip leaf sin2_theta_W_MSbar |
 | validation_suite | Feigenbaum_delta | 4.6692109130897192 | 4.6691979572796083 | 4.6692 | 0.000234 | 0.000044 | IRONOUT-2 unify: duplicate -> wave4 Feigenbaum_delta |
 | validation_suite | Feigenbaum_alpha | 2.5029671355214552 | 2.5029081532028084 | 2.5029 | 0.002682 | 0.000326 | IRONOUT-2 unify: duplicate -> wave4 Feigenbaum_alpha |
@@ -20,7 +20,7 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 | wave2 | M_W/M_Z | 0.88120248099687407 | 0.881358368021383 | 0.88147 | 0.030349 | 0.012664 | IRONOUT-2 unify: seed -> tip leaf m_W/m_Z (host M_W) |
 | wave2 | m_pi/m_p | 0.14441868531025276 | 0.148752523565799 | 0.14446 | 0.028599 | 2.971427 | IRONOUT-2 unify: seed -> scored pin m_pi/m_p |
 | wave3 | \|V_cb\| | 0.042143511565156062 | 0.0418939191239346 | 0.0422 | 0.133859 | 0.725310 | IRONOUT-2 unify: closed form -> tip CKM leaf V_cb |
-| wave3 | sin_theta_C | 0.22759115424752144 | 0.22449460917503829 | 0.22431 | 1.462777 | 0.082301 | IRONOUT-2 unify: sin theta_C = \|V_us\|: -> wave3 \|V_us\| closed form (closest Cabibbo value); target -> PDG 2024 CKM review Eq. (12.8) direct \|V_us\| 0.22431(85) (was stale authority target 0.22759) |
+| wave3 | sin_theta_C | 0.22759115424752144 | 0.22449460917503829 | 0.22431 | 1.462777 | 0.082301 | IRONOUT-2 unify: sin theta_C = \|V_us\|: -> wave3 \|V_us\| closed form (closest Cabibbo value); target -> PDG 2026 CKM review Eq. (12.8) direct \|V_us\| 0.22431(85) (was stale authority target 0.22759) |
 | wave3 | Deuteron_binding_MeV | 2.2245646484625283 | 2.22456621408218 | 2.224566 | 0.000061 | 0.000010 | IRONOUT-2 unify: seed -> scored pin B_d |
 | wave3 | Neutron_lifetime_s | 878.59285139228322 | 878.43253963871671 | 878.4 | 0.021955 | 0.003704 | IRONOUT-2 unify: tau_n closed form -> carried vv P3 + vw P3 chain (closest to pdgLive 878.3(4)) |
 | wave3 | Ising2D_beta | 0.32653240136824639 | 0.32641897187914054 | 0.32653 | 0.000735 | 0.034002 | IRONOUT-1 #2: mislabeled 2D -> 3D Ising beta = in-bar beta_dyn |
@@ -39,6 +39,8 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 | wave7 | Ising3D_alpha | 0.11004872741790349 | 0.1100871020230315 | 0.1101 | 0.046569 | 0.011715 | IRONOUT-1 #2: Josephson from in-bar nu |
 | wave7 | Ising3D_delta | 4.7887467535409367 | 4.7898377876048367 | 4.7898 | 0.021989 | 0.000789 | IRONOUT-1 #2: Widom from in-bar nu, beta |
 | wave7 | m_tau/m_mu | 16.816910212024429 | 16.8183699756907 | 16.817 | 0.000534 | 0.008146 | IRONOUT-2 unify: seed -> tip leaf ratio (m_tau/m_e)/(m_mu/m_e) |
+| wave8 | \|V_cd\| | 0.22100780479132599 | 0.225149539040889 | 0.2247 | 1.643167 | 0.200062 | IRONOUT-2 unify: closed form -> tip CKM leaf V_cd (closer to PDG 2026 direct 0.2247(22)); target -> PDG 2026 CKM review Eq. (12.9) direct \|V_cd\| 0.2247(22) (was 0.221) |
+| wave8 | \|V_cs\| | 0.97491348531315561 | 0.97342312722172 | 0.969 | 0.610267 | 0.456463 | IRONOUT-2 unify: closed form -> tip CKM leaf V_cs (closer to PDG 2026 direct 0.969(5)); target -> PDG 2026 CKM review Eq. (12.10) direct \|V_cs\| 0.969(5) (was fit 0.9735) |
 | wave8 | He4_binding_MeV | 28.300716936569171 | 28.2956623785975 | 28.3 | 0.002533 | 0.015327 | IRONOUT-2 unify: seed -> tip leaf B_He4 |
 | wave8 | Triton_binding_MeV | 8.4808001626345563 | 8.48179631631388 | 8.482 | 0.014146 | 0.002401 | IRONOUT-2 unify: seed -> tip leaf B_H3 |
 | wave8 | Deuteron_mu_muN | 0.85739141812803831 | 0.857438231894115 | 0.8574 | 0.001001 | 0.004459 | IRONOUT-2 unify: seed -> scored pin mu_d |
@@ -58,7 +60,7 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 | predictions | CMB_tau | 0.05399951127994737 | 0.053999511279937676 | 0.054 | 0.000905 | 0.000905 | B-03: 0.333333333333333 -> 1/3 |
 | chemistry_ionization | IE_H | 13.588429893109516 | 13.598434743366637 | 13.598 | 0.070379 | 0.003197 | IRONOUT-1 #3: reduced-mass Dirac + 1s Lamb from in-bar R_inf, alpha, m_p/m_e (ln k0 SCAFFOLD_PENDING_FSOT_DERIVATION) |
 
-51 rows changed.
+53 rows changed.
 
 ## 2. D-02 alternative C_cosm = 1/(10 phi) (rejected by the decade derivation; shown, not applied)
 
@@ -66,6 +68,7 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 |---|---|---|---|---|---|---|
 | wave1 | n_s | 0.963333836595472 | 0.963811947229161 | 0.9649 | 0.162314 | 0.112763 |
 | validation_suite | V27_n_s | 0.963333836595472 | 0.963811947229161 | 0.9649 | 0.162314 | 0.112763 |
+| wave4 | m_c/m_b | 0.304178447628559 | 0.300333132638989 | 0.291 | 4.528676 | 3.207262 |
 | wave5 | Laplace_limit | 0.663147995736047 | 0.662743411614225 | 0.662743 | 0.061109 | 0.000062 |
 | wave6 | Madelung_CsCl | 1.76307824447637 | 1.76267366035454 | 1.762672 | 0.023047 | 0.000094 |
 | wave6 | Perc_sq_site | 0.592063752985289 | 0.592750844670853 | 0.592746 | 0.115099 | 0.000817 |
