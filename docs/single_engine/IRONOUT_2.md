@@ -52,23 +52,32 @@ Tests: ctest 110/111 (only `golden` Chain_consistency_% long-double rel 1.4e-12,
   - The engine total was offset by three things: the omitted CMS eq.(19) QED enhancement (+3.59e-4), a low vector
     constant (−0.81e-4) and a low Born term (0.7848 vs 0.85, −1.5e-4).
   - vw P3 corrects only the box. The three offsets remain open.
-- **vw validate bars: ACCEPTED by Damian (t1004s4215), then re-derived from first principles (Tracer suspected the
-  first set was tailored).** The former FAILs were mis-set bars, and no scored number moves. The bars are in
-  `reference/vw_validate_bars.tsv`, derived in `tools/vw_validate_bars.py` and checked by ctest `vw_validate_bars`:
+- **vw validate bars, derived by GB under the principle Damian accepted in t1004s4215 (no Damian-named numbers).**
+  Tracer audited the bars at 1f0192f and found none tailored. Their fixes F0–F5 are applied, and the brief "P + 8 ulp"
+  continuity variant from 9ca5aac is superseded. The former FAILs were mis-set bars, and no scored number moves. The
+  bars are in `reference/vw_validate_bars.tsv`, derived in `tools/vw_validate_bars.py` (which does not use the
+  measured residual; checks are two-sided, |value| ≤ bar) and checked by ctest `vw_validate_bars`:
 
-  | check | measured | old bar | first accepted bar | final bar | derivation | residual-tailored? |
-  |---|---|---|---|---|---|---|
-  | (iii) a², a³ vs analytic | 0.00293579 | 5e-4 | 9.8e-3 | 9.8e-3 | half-ULP of each printed CMS/BCK coefficient × n_f^k; recomputed live | no (3.3× headroom) |
-  | (iv) α_s continuity at m_c | 1.04385e-11 | 1e-12 | 1.24198e-11 | **1.043915608e-11** | the check's a-priori statistic P = e(\|β₃\| − 1.02\|β₄\|) for an exactly continuous α_s + 8 ulp(α) round-off; live defect −1.5e-17 | first bar: not computed from the residual, but its 19 % headroom had no principle → withdrawn |
-  | (iv) α_s continuity at m_b | 2.92672e-12 | 1e-12 | 3.54702e-12 | **2.927098064e-12** | same, P = e(\|β₄\| − 1.02\|β₅\|); live defect +2.9e-18 | same (21 %) → withdrawn |
-  | (iv) runner vs tip AlphaS | 2.02652e-6 | 1e-6 | 1.19982e-5 | 1.19982e-5 | worst-case tip straddle (h/2)\|β₄ − β₅\| at m_b, documented h = 1e-3, carried to µ, + h²/8\|α''\| | no (5.9× headroom) |
+  | check | measured | old bar | bar | kind | derivation |
+  |---|---|---|---|---|---|
+  | (iii) a², a³ vs analytic | 0.00293579 | 5e-4 | 9.8e-3 | input precision | half-ULP of each printed CMS/BCK coefficient × n_f^k; recomputed live |
+  | (iv) α_s continuity at m_c | 1.04385e-11 | 1e-12 | 1.24149e-11 | probe bias | e·\|β₃ − β₄\| |
+  | (iv) α_s continuity at m_b | 2.92672e-12 | 1e-12 | 3.54397e-12 | probe bias | e·\|β₄ − β₅\| |
+  | (iv) α_s continuity at m_t | 5.88029e-13 | 1e-12 | 7.19305e-13 | probe bias | e·\|β₅ − β₆\| (same rule at all three thresholds; Tracer quoted 7.21e-13) |
+  | (iv) runner vs tip AlphaS | 2.02652e-6 | 1e-6 | 2.05608e-6 | input-fixed grid | the tip grid's n_f straddle at m_b plus h²/8\|α''\|, maximum over the 8 validate scales |
 
-  The cross-check explains the runner residual: the actual straddle fraction of the tip grid at m_b (f = 0.08517)
-  predicts 2.041e-6 / 1.670e-6 / 1.483e-6 at µ = 2 / 3 / 4 GeV, against the measured 2.0265e-6 / 1.6607e-6 / 1.4773e-6.
-  Tracer's "4.7e-15 at the tip's own nodes" holds only above m_b; below it the nodes differ by 2.17e-6.
-
-  Tracer's full `score.py --validate`, re-run in a /tmp copy with the final bars, gives **no FAIL**
-  (validate_run sha256 61ccb475…). The ledger's frozen record (4c66f06d) is not edited.
+  - **Continuity rows (probe-bias bars).** The frozen check subtracts 1.01·2e\|β_hi\|, while a continuous runner
+    moves e(\|β_lo\| + \|β_hi\|) across the probe. So even with zero true jump the statistic carries the probe bias
+    P = e(\|β_lo\| − 1.02\|β_hi\|).
+    - Effective tolerance on the true jump (bar − P): 1.98e-12 at m_c, 6.17e-13 at m_b, 1.31e-13 at m_t.
+    - Offset-corrected true jump from a live re-run of Tracer's runner: −1.5e-17, +2.9e-18, −5.4e-18.
+    - The 64εα round-off term is dropped: it is ≤ 4.9e-15, far below every effective tolerance.
+  - **Runner vs tip AlphaS (input-fixed grid).** The actual step is h = 0.99999719e-3, and m_b sits at grid position
+    x = 5963.915, so the straddle fraction is f = 0.085, fixed by the inputs (not the worst case ½). The resulting bar
+    reproduces the measured 2.0265e-6 / 1.6607e-6 / 1.4773e-6 at µ = 2 / 3 / 4 GeV and stays sensitive to any real
+    disagreement.
+  - Tracer's full `score.py --validate`, re-run in a /tmp copy with these bars, gives **no FAIL** (validate_run sha256
+    8b4c5ea6…). The ledger's frozen record (4c66f06d) is not edited.
 - **M_W diagnostic:** the host M_W leaf 80.3687519 GeV is kept (z −0.03; the seed closed form 80.354537 has z −1.1).
   Had the seed M_W been used, the carried G_F would move −2.30 ppm and τ_n would be 878.4366 s. Since M_W is not changed,
   the vt/vv G_F chain is unchanged by unification.
