@@ -32,7 +32,7 @@ Tests: ctest 110/111 (only `golden` Chain_consistency_% long-double rel 1.4e-12,
 | τ_n [s] | 877.8484108 | 878.4325396 | 878.4325396 |
 | z vs pdgLive 878.3(4) | −1.13 | **+0.33** | +0.331 |
 | z vs PDG 2024 / UCNτ / Pattie | −1.10 / +0.10 / +0.19 | +0.07 / +2.13 / +0.96 | +0.0651 / +2.1310 / +0.96187 |
-| τ_μ strict MuLan z (diag) | −901.2 | −881.50 (G_μ-ratio scaling; PDG eq.(10.9) direct −881.67) | −883.24 (vRS form: double-counts the W propagator, omits H2 √ρ and H3; see below) |
+| τ_μ strict MuLan z (diag) | −901.2 | −882.71 (PDG eq.(10.9) direct, W term in Δr; G_μ-ratio scaling −882.53; before the W term −881.67 / −881.50) | −883.24 (vRS form: double-counts the W propagator, omits H2 √ρ and H3; see below) |
 
 - vv P3 G: fixed point G = G0[1/(1 − Δr_A) + Δr_P1 − Δr_A], solved live (Hooks::vv_p3). Reproduces vv score.py to rel
   5e-51 (G_chain), G_F to 3e-50 of the banked value.
@@ -52,19 +52,23 @@ Tests: ctest 110/111 (only `golden` Chain_consistency_% long-double rel 1.4e-12,
   - The engine total was offset by three things: the omitted CMS eq.(19) QED enhancement (+3.59e-4), a low vector
     constant (−0.81e-4) and a low Born term (0.7848 vs 0.85, −1.5e-4).
   - vw P3 corrects only the box. The three offsets remain open.
-- **vw validate bars: ACCEPTED by Damian (t1004s4215).** The 4 former FAILs were mis-set bars, and no scored number
-  moves. Each bar is re-set to the precision of its own inputs in `reference/vw_validate_bars.tsv`. The bars are derived
-  in `tools/vw_validate_bars.py` (stdlib; check (iii) is recomputed live) and checked by ctest `vw_validate_bars`:
+- **vw validate bars: ACCEPTED by Damian (t1004s4215), then re-derived from first principles (Tracer suspected the
+  first set was tailored).** The former FAILs were mis-set bars, and no scored number moves. The bars are in
+  `reference/vw_validate_bars.tsv`, derived in `tools/vw_validate_bars.py` and checked by ctest `vw_validate_bars`:
 
-  | check | measured | old bar | accepted bar | derivation |
-  |---|---|---|---|---|
-  | (iii) a², a³ vs analytic | 0.00293579 | 5e-4 | 9.8e-3 | half-ULP of each printed CMS/BCK coefficient × n_f^k (a³ at n_f = 6); re-integrating moves τ by about +1.2e-6 s |
-  | (iv) α_s continuity at m_c | 1.04385e-11 | 1e-12 | 1.24198e-11 | e·\|β₃ − β₄\| at α_s 0.34825 (slope jump at the ±1e-9 probe) + 64 ε α |
-  | (iv) α_s continuity at m_b | 2.92672e-12 | 1e-12 | 3.54702e-12 | e·\|β₄ − β₅\| at α_s 0.21481 + 64 ε α |
-  | (iv) runner vs tip AlphaS | 2.02652e-6 | 1e-6 | 1.19982e-5 | the tip AlphaS resolution: the h/2 midpoint-n_f straddle at m_b (h = 1e-3), carried to µ, + h²/8 \|α''\| |
+  | check | measured | old bar | first accepted bar | final bar | derivation | residual-tailored? |
+  |---|---|---|---|---|---|---|
+  | (iii) a², a³ vs analytic | 0.00293579 | 5e-4 | 9.8e-3 | 9.8e-3 | half-ULP of each printed CMS/BCK coefficient × n_f^k; recomputed live | no (3.3× headroom) |
+  | (iv) α_s continuity at m_c | 1.04385e-11 | 1e-12 | 1.24198e-11 | **1.043915608e-11** | the check's a-priori statistic P = e(\|β₃\| − 1.02\|β₄\|) for an exactly continuous α_s + 8 ulp(α) round-off; live defect −1.5e-17 | first bar: not computed from the residual, but its 19 % headroom had no principle → withdrawn |
+  | (iv) α_s continuity at m_b | 2.92672e-12 | 1e-12 | 3.54702e-12 | **2.927098064e-12** | same, P = e(\|β₄\| − 1.02\|β₅\|); live defect +2.9e-18 | same (21 %) → withdrawn |
+  | (iv) runner vs tip AlphaS | 2.02652e-6 | 1e-6 | 1.19982e-5 | 1.19982e-5 | worst-case tip straddle (h/2)\|β₄ − β₅\| at m_b, documented h = 1e-3, carried to µ, + h²/8\|α''\| | no (5.9× headroom) |
 
-  Tracer's full `score.py --validate` was re-run in a /tmp copy with these four bars and gives **no FAIL**
-  (validate_run sha256 cc41d299…). The ledger's frozen record (4c66f06d) is not edited.
+  The cross-check explains the runner residual: the actual straddle fraction of the tip grid at m_b (f = 0.08517)
+  predicts 2.041e-6 / 1.670e-6 / 1.483e-6 at µ = 2 / 3 / 4 GeV, against the measured 2.0265e-6 / 1.6607e-6 / 1.4773e-6.
+  Tracer's "4.7e-15 at the tip's own nodes" holds only above m_b; below it the nodes differ by 2.17e-6.
+
+  Tracer's full `score.py --validate`, re-run in a /tmp copy with the final bars, gives **no FAIL**
+  (validate_run sha256 61ccb475…). The ledger's frozen record (4c66f06d) is not edited.
 - **M_W diagnostic:** the host M_W leaf 80.3687519 GeV is kept (z −0.03; the seed closed form 80.354537 has z −1.1).
   Had the seed M_W been used, the carried G_F would move −2.30 ppm and τ_n would be 878.4366 s. Since M_W is not changed,
   the vt/vv G_F chain is unchanged by unification.
@@ -203,8 +207,20 @@ ledger is read-only, so the fix is on the reporting side: the C++ keeps the scal
 eq.(10.9) as the independent check (`tests/test_vt_gf.cpp`). The vv τ_μ should drop the W factor and add H2 √ρ and H3
 (Tracer).
 
-Open (tiny): the engine Δr chain does not carry the 3m_μ²/(5M_W²) term explicitly. That is 0.52 ppm in G_F, far below
-the +441.65 ppm SM-parity gap.
+**W-propagator term now carried in Δr (Tracer's check of 1f0192f).** Moving 3m_μ²/(5M_W²) out of the τ_μ formula
+without adding it to Δr would have dropped it entirely. The carried chain now applies it:
+
+- 1 − Δr → (1 − Δr)(1 − Δr_W), with Δr_W = 1 − (1 + 3m_μ²/(5M_W²))^(−1/2) = 5.1851e-7, using the engine's m_μ and M_W
+  leaves (`Hooks::w_prop_dr`, on for vv P3 only).
+- G_F: 1.16689392890418e-5 → **1.16689453394674e-5**, a +0.5185 ppm shift.
+- Gate B margin: **442.17 ppm**, still ACCEPT.
+- Consistent strict MuLan z: **−882.71** from PDG eq.(10.9) direct, −882.53 from the G_μ-ratio scaling.
+- τ_n is unchanged. The term is m_μ-specific; for neutron decay q² ≈ (m_n − m_p)², which gives < 1e-10.
+- The term is applied to the absolute G_F, not inside the ratio fixed point. Inside the fixed point the P0 baseline
+  would cancel it; the x_t feedback of a 0.5 ppm G shift is < 1e-9 relative.
+- The vt P2 / P1 alternates stay as Tracer filed them (no W term). The pre-W value is kept as `Solution::GF_noW` and is
+  still checked against Tracer's package to 1e-25.
+- Tests: Δr_W, the +0.5185 ppm shift, the 442.17 ppm margin, z −882.71, and that the W term does not leak into vt P2.
 
 ## sin θ_C target
 The table row `wave3|sin_theta_C` is now scored against the PDG 2024 direct value |V_us| = 0.22431 ± 0.00085

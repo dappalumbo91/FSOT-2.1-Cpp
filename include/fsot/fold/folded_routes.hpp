@@ -51,6 +51,7 @@ template <class R> struct Live {
       const auto s = vvw->solve(vt::P1());  // route ignored: Hooks::vv_p3 selects the vv P3 fixed point
       if (key == "vvw:tau_n") return s.tau_n;
       if (key == "vvw:G_F") return s.GF;
+      if (key == "vvw:G_F_noW") return s.GF_noW;
       if (key == "vvw:tau_n_vvP3") return vvw->pk.at("tau_vk_s") / (s.ratio * s.ratio);
     }
     return std::nullopt;

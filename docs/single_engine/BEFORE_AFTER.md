@@ -107,12 +107,12 @@ vv P3 (Tracer FOLD f66b7985): G = G0 [1/(1 - Dr_A(G)) + Dr_P1(G) - Dr_A(G)], rem
 
 | row | reference | before (vt P2, carried until now) | z before | after (vv P3 + vw P3) | z after | vv P3 only (no vw) | z |
 |---|---|---|---|---|---|---|---|
-| G_F [GeV^-2] | CODATA 2022 1.1663787(6)e-5 | 1.16690544271959e-05 | 877.904533 | 1.16689392890418e-05 | 858.714840 | (same G_F) | - |
-| G_F vs G_mu [ppm] (Gate B <= 809.87) | PDG G_mu 1.1663788e-5 | 451.519455 | Gate B ACCEPT | 441.648034 | Gate B ACCEPT | - | - |
-| tau_mu strict MuLan (diagnostic; G_mu-ratio scaling; PDG eq.(10.9) direct gives z -881.67; vv score.py -883.24 double-counts the W propagator and omits H2 sqrt(rho) and H3) | 2196980.3(2.2) ps | -902.427668 ppm | -901.189004 | -882.711254 ppm | -881.499652 | - | - |
+| G_F [GeV^-2] | CODATA 2022 1.1663787(6)e-5 | 1.16690544271959e-05 | 877.904533 | 1.16689453394674e-05 | 859.723245 | (same G_F) | - |
+| G_F vs G_mu [ppm] (Gate B <= 809.87) | PDG G_mu 1.1663788e-5 | 451.519455 | Gate B ACCEPT | 442.166770 | Gate B ACCEPT | - | - |
+| tau_mu strict MuLan (diagnostic; G_mu-ratio scaling; vv P3 G_F carries the W-propagator term in Delta r, PDG eq.(10.9) direct gives z -882.71; vv score.py -883.24 double-counts the W propagator and omits H2 sqrt(rho) and H3) | 2196980.3(2.2) ps | -902.427668 ppm | -901.189004 | -883.747351 ppm | -882.534328 | - | - |
 | tau_n [s] vs pdgLive (PRIMARY) | 878.3 +- 0.4 | 877.8484108 | -1.128973 | 878.4325396 | 0.331349 | 877.8657345 | -1.085664 |
 | tau_n [s] vs PDG 2024 | 878.4 +- 0.5 | 877.8484108 | -1.103178 | 878.4325396 | 0.065079 | 877.8657345 | -1.068531 |
 | tau_n [s] vs UCNtau | 877.82 +- 0.287445647 | 877.8484108 | 0.098839 | 878.4325396 | 2.130976 | 877.8657345 | 0.159106 |
 | tau_n [s] vs Pattie | 877.7 +- 0.761577311 | 877.8484108 | 0.194873 | 878.4325396 | 0.961872 | 877.8657345 | 0.217620 |
 
-M_W diagnostic (not adopted): the chain reads the host M_W leaf 80.3687519242 GeV (z -0.03 vs PDG 80.3692(133)). With the superseded seed closed form M_W = 80.354537 GeV (z -1.1) the carried vv P3 G_F would be 1.16689124062e-05 (-2.303792 ppm vs carried) and tau_n 878.4365871 s. The engine-wide M_W is unchanged, so the vt/vv G_F chain is unchanged by IRONOUT-2.
+M_W diagnostic (not adopted): the chain reads the host M_W leaf 80.3687519242 GeV (z -0.03 vs PDG 80.3692(133)). With the superseded seed closed form M_W = 80.354537 GeV (z -1.1) the carried vv P3 G_F would be 1.16689184588e-05 (-2.303608 ppm vs carried) and tau_n 878.4365871 s. The engine-wide M_W is unchanged, so the vt/vv G_F chain is unchanged by IRONOUT-2.

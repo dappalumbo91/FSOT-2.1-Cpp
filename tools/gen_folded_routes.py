@@ -57,7 +57,10 @@ def vvw_rows():
     for g, o, sg, pr in TAU_GATES:
         z = f"{(float(t_vw) - float(o)) / float(sg):.6g}"
         out.append([VW_ID, f"tau_n_s {g} [vvP3+vwP3]", t_vw, o, sg, z, f"{role} · tau_n {pr} · {gate} · {FLAG}", "vvw:tau_n", sw])
-    out.append([VV_ID, "G_F_GeVm2 [vvP3]", gf, "1.1663787e-5", "6e-12", "", f"{role} · {gate} · {FLAG}", "vvw:G_F", sv])
+    out.append([VV_ID, "G_F_GeVm2 [vvP3, no W-prop term]", gf, "1.1663787e-5", "6e-12", "", f"Tracer's vv P3 G_F as filed (Delta r without 3m_mu^2/5M_W^2) · {gate} · {FLAG}", "vvw:G_F_noW", sv])
+    # IRONOUT-2 (Tracer check of 1f0192f): the carried G_F carries the W-propagator term in Delta r (PDG eq.(10.9) fn.3, MuLan
+    # convention): G_F = G_F,noW (1 + 3 m_mu^2/(5 M_W^2))^(1/2) with the engine m_mu, M_W leaves; C++ value (fold::vt::Chain::solve)
+    out.append([VV_ID, "G_F_GeVm2 [vvP3 + W-prop in Delta r]", "1.16689453394674e-5", "1.1663787e-5", "6e-12", "", f"{role} · W-propagator term in Delta r (+0.5185 ppm, IRONOUT-2 C++) · {gate} · {FLAG}", "vvw:G_F", "fsot_cpp:include/fsot/fold/vt_gf.hpp Chain::solve (Hooks::w_prop_dr)"])
     z = f"{(float(t_vv) - 878.3) / 0.4:.6g}"
     out.append([VV_ID, "tau_n_s pdgLive [vvP3 only]", t_vv, "878.3", "0.4", z, f"ALTERNATE vv P3 without the vw Delta_R^V correction · {gate} · {FLAG}", "vvw:tau_n_vvP3", sv])
     return out

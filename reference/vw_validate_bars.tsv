@@ -1,9 +1,11 @@
-# IRONOUT-2: Tracer §43.5vw validate bars re-set to input precision; ACCEPTED by Damian (t1004s4215). Source record: dialin/out_vw_tau_n_drv_gamma_w_box_bjsr_interpolator/validate_run.txt sha256 4c66f06d746e2b136263134fb00aa768102292ac15f6a1a7836105dcfda98c63 (frozen, not edited); vw FOLD ce51de78 §3(b); score.py eb03ab5a. Derivations: tools/vw_validate_bars.py. Full vw score.py --validate re-run with these bars in a /tmp copy: no FAIL (validate_run sha256 cc41d299882f339b…).
+# IRONOUT-2: Tracer §43.5vw validate bars re-set to input precision; ACCEPTED by Damian (t1004s4215). Source record: dialin/out_vw_tau_n_drv_gamma_w_box_bjsr_interpolator/validate_run.txt sha256 4c66f06d746e2b136263134fb00aa768102292ac15f6a1a7836105dcfda98c63 (frozen, not edited); vw FOLD ce51de78 §3(b); score.py eb03ab5a. Derivations: tools/vw_validate_bars.py. Continuity bars re-derived 2026-11-11 (a-priori statistic P + 8 ulp); full vw score.py --validate re-run with these bars in a /tmp copy: see IRONOUT_2.md.
 check	kind	measured	old_bar	new_bar	status	why
 iii_a2_a3_vs_analytic	bar	0.00293579	5e-4	0.0098	ACCEPTED_t1004s4215	CMS/BCK print precision (half-ULP per printed coefficient x n_f^k); analytic a^2,a^3 re-integration moves tau_n by ~+1.2e-6 s only
-iv_continuity_m_c	bar	1.04385e-11	1e-12	1.24198e-11	ACCEPTED_t1004s4215	slope jump of a continuous alpha_s across the n_f switch, probed at +-1e-9 (true limits agree to 5.6e-17)
-iv_continuity_m_b	bar	2.92672e-12	1e-12	3.54702e-12	ACCEPTED_t1004s4215	same, at m_b
-iv_runner_vs_tip_AlphaS	bar	2.02652e-6	1e-6	1.19982e-05	ACCEPTED_t1004s4215	tip AlphaS resolution: midpoint n_f straddle step at m_b (h=1e-3) + linear interpolation (4.7e-15 at the tip's own nodes)
+iv_continuity_m_c	bar	1.04385e-11	1e-12	1.043915608e-11	ACCEPTED_t1004s4215	slope jump of a continuous alpha_s at the +-1e-9 probe: a-priori statistic P + 8 ulp(alpha) double round-off (re-derived; the first bar e|dbeta| withdrawn as un-principled headroom)
+iv_continuity_m_b	bar	2.92672e-12	1e-12	2.927098064e-12	ACCEPTED_t1004s4215	slope jump of a continuous alpha_s at the +-1e-9 probe: a-priori statistic P + 8 ulp(alpha) double round-off (re-derived; the first bar e|dbeta| withdrawn as un-principled headroom)
+iv_runner_vs_tip_AlphaS	bar	2.02652e-6	1e-6	1.199820892e-05	ACCEPTED_t1004s4215	worst-case tip straddle (h/2)|beta_4-beta_5| at m_b (documented h=1e-3) + h^2/8|alpha''|; exact straddle f=0.08517 predicts 2.041e-6 (measured 2.0265e-6)
 alpha_s_at_m_c	input	0.3482489424	-	-	-	validate_run (iv) m_c line
 alpha_s_at_m_b	input	0.2148141650	-	-	-	validate_run (iv) m_b line
 m_b_pole_GeV	input	4.62264647	-	-	-	score_run tip inputs (MB_POLE)
+iv_continuity_m_c_live_stat	input	1.0438522311132231e-11	-	-	-	live re-run of Tracer's runner (score.py eb03ab5a, /tmp copy), full precision
+iv_continuity_m_b_live_stat	input	2.9267193842062103e-12	-	-	-	same

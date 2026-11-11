@@ -10,15 +10,22 @@ code ((iii), exact) live. It prints PASS/FAIL per row and exits non-zero on any 
   (iii) a^2, a^3 printed vs analytic: the CMS/BCK coefficients are printed to fixed decimals
         (4.583 - 0.3333 nf; 41.44 - 7.607 nf + 0.1775 nf^2), so the bar is the half-unit-in-the-last-place
         bound sum_k 0.5*10^-d_k * nf^k, per order, per n_f (max at n_f = 6: a^2 8.0e-4, a^3 9.8e-3).
-  (iv)  alpha_s continuity at m_c, m_b: alpha_s is continuous but its slope jumps (n_f switch). The check
-        probes t_th +- e (e = 1e-9) and subtracts 1.01 * 2e |beta(alpha, n_f above)|, so a perfectly
-        continuous runner still leaves e * (|beta_{n_f-1}| - 1.01 |beta_{n_f}|) ~ e * |beta_{n_f-1} - beta_{n_f}|.
-        Bar = e * |beta(alpha_th, n_f-1) - beta(alpha_th, n_f)| + 64 eps alpha_th (double round-off).
-  (iv)  runner vs tip AlphaS: the tip AlphaS (tools/score_2026_10_02i.py AlphaS, h = 1e-3 in ln mu^2) picks
-        n_f at each RK step midpoint and linearly interpolates its grid. Its own resolution at mu is the
-        straddling step at the threshold crossed between M_Z and mu, (h/2)|beta_{n_f} - beta_{n_f+1}| at
-        alpha_th, carried to mu by beta(alpha_mu)/beta(alpha_th), plus h^2/8 |alpha''| from interpolation,
-        relative to alpha_mu. Bar = max over the validate's mu in (m_tau, m_b) of that.
+  (iv)  alpha_s continuity at m_c, m_b (re-derived 2026-11-11 after Tracer flagged the first bars as tailored): alpha_s is
+        continuous but its slope jumps at the n_f switch. The check's statistic |a(t+e) - a(t-e)| - 1.01*2e|beta(a, n_f above)|
+        (e = 1e-9) therefore has the exact a-priori value P = e*(|beta(a, n_f-1)| - 1.02*|beta(a, n_f)|) for a perfectly
+        continuous runner. The continuity DEFECT is statistic - P, and its honest bound is double round-off in the two short
+        RK4 legs from the shared grid node: 8 ulp(alpha_th). Bar on the statistic = P + 8 ulp(alpha); the full-precision
+        statistics from a live re-run of Tracer's runner are banked and checked against it (defects -1.5e-17, +2.9e-18).
+        (The first bars, e*|beta_{n_f-1} - beta_{n_f}|, were not fitted to the residuals but sat 19-21 % above them for no
+        principled reason; they are withdrawn.)
+  (iv)  runner vs tip AlphaS: the tip AlphaS (tools/score_2026_10_02i.py AlphaS, documented grid h = 1e-3 in ln mu^2) picks
+        n_f at each RK step midpoint, so the step straddling m_b integrates a fraction f of h with the wrong n_f. Worst case
+        (any threshold position) f = 1/2: bar = (h/2)|beta_4 - beta_5| at alpha(m_b), carried to mu by beta(alpha_mu)/beta(alpha_b),
+        + h^2/8 |alpha''| (interpolation), relative to alpha_mu, max over the validate's mu in (m_tau, m_b). Not tailored: it does
+        not use the residual. Cross-check: the actual straddle fraction of this grid (f = 0.08517, threshold at grid x 5963.915)
+        predicts 2.041e-6 / 1.670e-6 / 1.483e-6 at mu = 2 / 3 / 4 GeV vs the measured 2.0265e-6 / 1.6607e-6 / 1.4773e-6,
+        so the residual is fully explained (Tracer's "4.7e-15 at the tip's own nodes" holds only above m_b; below it the
+        nodes differ by 2.17e-6).
 """
 import math, sys, os, csv
 
@@ -55,11 +62,14 @@ def main():
     bar_iii = max(max(u2(n), u3(n)) for n in range(3, 7))
     bars = {"iii_a2_a3_vs_analytic": (bar_iii, ok_iii, f"live max {live:.6g} (recorded {rows['iii_a2_a3_vs_analytic']['measured']}); per order/n_f half-ULP of print")}
 
-    # (iv) continuity at m_c, m_b
+    # (iv) continuity at m_c, m_b: bar = P + 8 ulp(alpha), P the statistic's a-priori slope-jump value
     e = 1e-9
     for key, a_th, nlo in (("iv_continuity_m_c", inp["alpha_s_at_m_c"], 3), ("iv_continuity_m_b", inp["alpha_s_at_m_b"], 4)):
-        b = e * abs(beta(a_th, nlo) - beta(a_th, nlo + 1)) + 64 * eps * a_th
-        bars[key] = (b, None, f"e|beta_{nlo}-beta_{nlo+1}| at alpha_s {a_th}")
+        P = e * (abs(beta(a_th, nlo)) - 1.02 * abs(beta(a_th, nlo + 1)))
+        u = 8 * eps * a_th
+        live_stat = inp[key + "_live_stat"]
+        ok = abs(live_stat - P) <= u
+        bars[key] = (P + u, ok, f"P = e(|beta_{nlo}|-1.02|beta_{nlo+1}|) = {P:.10g}; live statistic {live_stat:.17g}, defect {live_stat - P:+.3g} vs 8 ulp {u:.3g}")
 
     # (iv) runner vs tip AlphaS, mu in the validate list with m_tau < mu < m_b (b threshold crossed from M_Z)
     h = 1e-3; mb = inp["m_b_pole_GeV"]; ab = inp["alpha_s_at_m_b"]; tb = 2 * math.log(mb)
@@ -72,12 +82,13 @@ def main():
     bars["iv_runner_vs_tip_AlphaS"] = (worst, None, f"(h/2)|beta_4-beta_5| at m_b carried to mu in (m_tau,m_b) + h^2/8|alpha''|, h={h}")
 
     for k, (bar, ok_live, note) in bars.items():
-        r = rows[k]; meas = float(r["measured"]); ok = meas <= bar and (ok_live is None or ok_live)
+        r = rows[k]; meas = float(r["measured"]); half = 0.5 * 10 ** (math.floor(math.log10(meas)) - 5)  # record prints 6 s.f.
+        ok = meas <= bar + half and (ok_live is None or ok_live)
         fails += not ok
         out.append(f"[{'PASS' if ok else 'FAIL'}] {k}: measured {meas:.6g} vs precision bar {bar:.3g} (old bar {r['old_bar']}; {r['status']}) {note}")
         if r["new_bar"] != "PLACEHOLDER" and abs(float(r["new_bar"]) / bar - 1) > 1e-3:
             fails += 1; out.append(f"[FAIL] {k}: reference new_bar {r['new_bar']} != derived {bar:.6g}")
-    [print(f"BAR\t{k}\t{b[0]:.6g}") for k, b in bars.items()] if "--bars" in sys.argv else None
+    [print(f"BAR\t{k}\t{b[0]:.10g}") for k, b in bars.items()] if "--bars" in sys.argv else None
     print("\n".join(out)); print("VW VALIDATE (accepted bars): " + ("no FAIL" if not fails else f"{fails} FAIL"))
     return 1 if fails else 0
 

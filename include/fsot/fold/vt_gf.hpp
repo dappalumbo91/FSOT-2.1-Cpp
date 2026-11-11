@@ -1,8 +1,10 @@
 // fsot/fold/vt_gf.hpp — §43.5vt folded: G_F from the tip-native higher-order Δr chain, and τ_n through it.
 //
 // STATUS SM_PARITY_REFINE_LATER (Damian t994u, 2026-11-11 1:00 PM EST; ruling RULING_t992u_SM_PARITY_GATE.md sha8
-// c65ff89d): τ_n passes Gate A; G_F fails Gate A (strict MuLan τ_μ z = −881.50 on the carried vv P3 route, PDG eq.(10.9)
-// direct −881.67; vt P2 alternate −901; vv score.py's −883.24 double-counts the W propagator, see tau_mu_pdg_s) and is ACCEPTED at Gate B (|FSOT − G_μ| = +441.65 ppm on vv P3, vt P2 +452 ppm,
+// c65ff89d): τ_n passes Gate A; G_F fails Gate A (strict MuLan τ_μ z = −882.71 on the carried vv P3 route with the
+// W-propagator term 3m_μ²/(5M_W²) carried in Δr (G_F +0.5185 ppm), PDG eq.(10.9) direct; G_μ-ratio scaling −882.53; vt P2
+// alternate −901 (no W term); vv score.py's −883.24 double-counts that term, see tau_mu_pdg_s) and is ACCEPTED at Gate B
+// (|FSOT − G_μ| = +442.17 ppm on vv P3 = 441.65 + 0.5185, vt P2 +452 ppm,
 // ≤ max(σ_SM,pred 809.87 ppm, |SM res| 665.56 ppm)). Not ADOPT, no GO-MERGE.
 //
 // Carried route P2 = C1+C2+C3+C5µ+C6 (no C7), by the pre-registered lowest-χ²/N rule; P1 (with C7) is the documented
@@ -22,7 +24,7 @@
 //     The O(alpha^2) heavy-top remainder enters linearly, outside the CHJ/FKS product (scheme alternative at reducible
 //     O(alpha^3)). It is G-dependent and sits outside the resummation, so neither a constant vv_rem_add nor a vv_route
 //     term switch can express it: Hooks::vv_p3 selects this fixed point (solve_raw_vv_p3), solved live here.
-//     G_F 1.16689392890418e-5 (+441.65 ppm vs G_mu; Gate B ACCEPT, 809.87 ppm), tau_n (vk tau_vk) 877.8657345 s.
+//     G_F 1.16689392890418e-5 (+441.65 ppm vs G_mu; Gate B ACCEPT, 809.87 ppm; before the W-propagator Δr term, carried 1.16689453394674e-5, +442.17 ppm), tau_n (vk tau_vk) 877.8657345 s.
 //   vw P3 (3-loop alpha_g1 BjSR interpolator; vw score.py eb03ab5a): Delta_R^V 0.02380031545 replaces the engine's
 //     0.0244613452 by swapping ONLY the non-Born axial gammaW box subset (C_dis + C3pole -> 2(I1 + I2)); tau_vk is
 //     rebuilt by vk_tau(dC) in tools/gen_vv_vw_package.py and enters through Hooks::tau_vk_override. tau_n 878.4325396 s.
@@ -95,13 +97,15 @@ template <class R> struct Hooks {
   std::optional<Route> vv_route;     // §43.5vv: replace the term switches (e.g. C2/C5µ off when vv supplies them)
   std::optional<R> tau_vk_override;  // §43.5vw / §43.5vx: τ_vk rebuilt with the refined ΔR^V and/or g_A^eff
   bool vv_p3 = false;                // §43.5vv P3: remainder unresummed fixed point (solve_raw_vv_p3); IRONOUT-2 carried
+  bool w_prop_dr = false;            // IRONOUT-2: W-propagator 3m_mu^2/(5M_W^2) carried in Delta r (PDG eq.(10.9) fn.3 / MuLan)
 };
 
 // Electroweak inputs; by default the engine seed leaves (checked == package in tests/test_vt_gf.cpp).
-template <class R> struct Inputs { R MW, MZ, alpha, s2, mt; };
+template <class R> struct Inputs { R MW, MZ, alpha, s2, mt; R mmu = R(0); };  // mmu [GeV]: engine m_mu leaf (W-propagator term)
 
 template <class R> struct Solution {
   R G, ratio, GF, tau_n, dr, drho, rem, c5mu, c7; int iterations; R last_step;
+  R GF_noW = R(0), dr_W = R(0);  // IRONOUT-2: G_F before the W-propagator Delta r term, and that term
 };
 
 template <class R> struct Chain {
@@ -190,6 +194,18 @@ template <class R> struct Chain {
     auto s = hooks.vv_p3 ? solve_raw_vv_p3() : solve_raw(r, true);
     s.ratio = s.G / p0.G;
     s.GF = pk.at("GF_Z2") * s.ratio;
+    s.GF_noW = s.GF;
+    // IRONOUT-2 (Tracer check of 1f0192f): G_μ = 1.1663788(6)e-5 is defined by the Fermi-theory τ_μ formula (PDG eq.(10.9))
+    // with the tree W propagator 3m_μ²/(5M_W²) moved INTO Δr (fn. 3; MuLan convention). Neither the tip Δr (hence the
+    // carried G_F,Z2) nor the chain carried it, so G_F here is the q² = 0 four-fermion coupling. Carried in Δr as
+    // 1 − Δr → (1 − Δr)(1 − Δr_W), Δr_W = 1 − (1 + 3m_μ²/(5M_W²))^{-1/2} ≈ +5.185e-7 (engine m_μ, M_W leaves), i.e.
+    // G_F → G_F/(1 − Δr_W): +0.5185 ppm. Applied to the absolute G_F, not inside the ratio fixed point: the P0 baseline
+    // would cancel it in s.ratio, and the 0.5 ppm feedback through x_t is < 1e-9 relative. τ_n keeps τ_vk/ratio²: the
+    // m_μ-specific propagator term is not part of the neutron-decay coupling (q² ≈ (m_n − m_p)² ⇒ < 1e-10).
+    if (hooks.w_prop_dr && in.mmu > R(0)) {
+      s.dr_W = R(1) - R(1) / m::sqrt(R(1) + R(3) * in.mmu * in.mmu / (R(5) * in.MW * in.MW));
+      s.GF = s.GF_noW / (R(1) - s.dr_W);
+    }
     const R tvk = hooks.tau_vk_override ? *hooks.tau_vk_override : pk.at("tau_vk_s");
     s.tau_n = tvk / (s.ratio * s.ratio);
     return s;
@@ -198,7 +214,7 @@ template <class R> struct Chain {
 
 // IRONOUT-2 carried hooks: vv P3 G_F + vw P3 Delta_R^V (tau_vk rebuilt), from golden/vv_vw_package.tsv.
 template <class R> Hooks<R> vv_p3_vw_p3(const Package<R>& vvw) {
-  Hooks<R> h; h.vv_p3 = true; h.tau_vk_override = vvw.at("tau_vk_vwP3_s"); return h;
+  Hooks<R> h; h.vv_p3 = true; h.w_prop_dr = true; h.tau_vk_override = vvw.at("tau_vk_vwP3_s"); return h;
 }
 
 // Electroweak inputs from the engine's seed leaves (vn score.py:62-64 definitions).
@@ -210,6 +226,7 @@ template <class R> Inputs<R> engine_inputs(const leaves::SeedLeaves<R>& L) {
   Inputs<R> in;
   in.MW = L.m_W_MeV() / R(1000); in.MZ = L.m_Z_MeV() / R(1000); in.alpha = L.alpha();
   in.s2 = R(1) - (in.MW / in.MZ) * (in.MW / in.MZ); in.mt = leaf(L, "m_t_over_m_W") * in.MW;
+  in.mmu = leaf(L, "m_mu_kg") * L.si.c * L.si.c / (L.si.e * lit<R>("1e9"));
   return in;
 }
 
@@ -239,8 +256,9 @@ template <class R> MuDiag mu_diag(const R& GF) {
 //   ħ/τ_μ = G² m_μ⁵/(192π³) F(ρ)[1 + H1 α̂/π + H2 α̂²/π² + H3 α̂³/π³], ρ = m_e²/m_μ², α̂⁻¹ = α⁻¹ + ln ρ/(3π),
 //   H1 = 25/8 − π²/2 − (9 + 4π² + 12 ln ρ)ρ + 16π²ρ^{3/2}, H2 = 156815/5184 − 518π²/81 − 895ζ3/36 + 67π⁴/720 + 53π² ln2/6
 //   − 0.042(had) − (5/4)π²√ρ, H3 = −15.3; NO W-propagator factor (PDG footnote 3 / MuLan: 3m_μ²/(5M_W²) is in Δr).
-// With tip m_e, m_μ, α it gives τ_μ(G_μ) = MuLan − 0.175 ppm (z −0.18, inside G_μ's printed rounding ±0.17 ppm), and
-// on the carried vv P3 G_F z −881.67, agreeing with the scaling diagnostic (−881.50) to 0.18. The vv score.py vRS
+// With tip m_e, m_μ, α it gives τ_μ(G_μ) = MuLan − 0.175 ppm (z −0.18, inside G_μ's printed rounding ±0.17 ppm). On the
+// carried vv P3 G_F WITHOUT the W term it gave z −881.67 (1f0192f) — but that G_F lacked the W-propagator term entirely
+// (Tracer): it is now carried in Δr (Chain::solve, Hooks::w_prop_dr), G_F +0.5185 ppm, consistent z −882.71. The vv score.py vRS
 // τ_μ (−883.24) is the inconsistent one: it multiplies by (1 + 3m_μ²/(5M_W²)) although G_μ already absorbs that term
 // into Δr (−1.037 ppm, Δz −1.04), omits H2's −(5/4)π²√ρ (−0.329 ppm, Δz −0.33) and H3 (−0.197 ppm, Δz −0.20); the last
 // −0.175 ppm (Δz −0.17) is common to any absolute eq.(10.9) evaluation against the rounded G_μ, which the ratio scaling
