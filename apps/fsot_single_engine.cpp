@@ -41,9 +41,6 @@ int main(int argc, char** argv) {
     for (auto* X : {&T, &A, &B}) derive::ironout2(*X, pins);
   }
   std::map<std::string, R> pv, av, bv;
-  for (auto& r : P) pv.emplace(key(r), r.value);
-  for (auto& r : A) av.emplace(key(r), r.value);
-  for (auto& r : B) bv.emplace(key(r), r.value);
   leaves::SeedLeaves<R> VL(canon);
   const auto vpk = fold::vt::Package<R>::load(FSOT_VT_PACKAGE_TSV);
   const fold::vt::Chain<R> vch{vpk, fold::vt::engine_inputs(VL)};
@@ -56,6 +53,19 @@ int main(int argc, char** argv) {
   vvw.hooks = fold::vt::vv_p3_vw_p3(vvwpk);
   const auto v3 = vvw.solve(fold::vt::P1());
   const R tau_vv_only = vpk.at("tau_vk_s") / (v3.ratio * v3.ratio);
+  // IRONOUT-2 unify tau_n: of the FSOT tau_n values (closed form pi^7 theta_S 878.5929, vt P2 877.8484, vt P1 877.6310,
+  // vv P3 877.8657, vv P3 + vw P3 878.4325) the carried chain value lands closest to the pdgLive primary 878.3(4)
+  // (z +0.33 vs the closed form's +0.73), so the catalog row reads it; the closed form stays in the parity column.
+  for (auto* X : {&T, &A, &B})
+    for (auto& r : *X)
+      if (r.section == "wave3" && r.name == "Neutron_lifetime_s") {
+        r.value = v3.tau_n; r.kind = derive::RowKind::derived_replacement;
+        r.formula += " [IRONOUT-2 unify: value = carried G_F chain tau_n (vv P3 + vw P3 Delta_R^V), fold::vt::Chain]";
+        r.why = "IRONOUT-2 unify: tau_n closed form -> carried vv P3 + vw P3 chain (closest to pdgLive 878.3(4))";
+      }
+  for (auto& r : P) pv.emplace(key(r), r.value);
+  for (auto& r : A) av.emplace(key(r), r.value);
+  for (auto& r : B) bv.emplace(key(r), r.value);
   const R gzref = lit<R>("0.02736653946"), gzsig = lit<R>("2.523e-5");  // audit/score_2026-10-02z.tsv:14 reference (published Gamma_Z/m_Z)
   auto gz = [&](const R& GF) { return fold::vt::gz_over_mz_A1(canon, GF, vin.MZ, s2h, vin.alpha); };
   for (int i = 1; i < argc; ++i) {
@@ -163,7 +173,8 @@ int main(int argc, char** argv) {
       for (auto [g, c, sg] : {std::tuple{"UCNtau", "877.82", "0.287445647"}, std::tuple{"Pattie", "877.7", "0.761577311"}})
         o << "| tau_n [s] vs " << g << " | " << c << " +- " << sg << " | " << v0.tau_n.str(10) << " | " << zs(v0.tau_n, c, sg) << " | " << v2.tau_n.str(10) << " | " << zs(v2.tau_n, c, sg)
           << " | " << v1.tau_n.str(10) << " | " << zs(v1.tau_n, c, sg) << " |\n";
-      o << "\nUnchanged: the catalog closed forms wave3 Neutron_lifetime_s (pi^7 theta_S) and wave5 Gamma_Z/M_Z (phi^5/e^6), and the gz:Gamma_Z_MeV folded routes, do not read G_F. "
+      o << "\nThe catalog closed forms wave3 Neutron_lifetime_s (pi^7 theta_S) and wave5 Gamma_Z/M_Z (phi^5/e^6), and the gz:Gamma_Z_MeV folded routes, do not read G_F "
+           "(IRONOUT-2: the canonical wave3 Neutron_lifetime_s row now takes the carried chain tau_n, §5; the closed form stays in the parity column). "
            "IRONOUT-1: the scored Gamma_Z/M_Z folded row reads the tip leaf (phi^5/e^6)(1 - alpha/phi), not the vt G_F. "
            "(l): V_ud and g_A stay hosted inside tau_vk, never scored. Hooks for §43.5vv (Delta r), §43.5vw (Delta R^V) and §43.5vx (g_A): fold::vt::Hooks.\n";
       o << "\n## 5. IRONOUT-2 carried G_F route: §43.5vv P3 + §43.5vw P3 Delta_R^V (parent steering 2026-11-11 1:55 PM EST) — flag " << fold::vt::kStatus << "\n\n"

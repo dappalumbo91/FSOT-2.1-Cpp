@@ -22,6 +22,7 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 | wave3 | \|V_cb\| | 0.042143511565156062 | 0.0418939191239346 | 0.0422 | 0.133859 | 0.725310 | IRONOUT-2 unify: closed form -> tip CKM leaf V_cb |
 | wave3 | sin_theta_C | 0.22759115424752144 | 0.22449460917503829 | 0.22759 | 0.000507 | 1.360073 | IRONOUT-2 unify: sin theta_C = \|V_us\|: -> wave3 \|V_us\| closed form (closest Cabibbo value) |
 | wave3 | Deuteron_binding_MeV | 2.2245646484625283 | 2.22456621408218 | 2.224566 | 0.000061 | 0.000010 | IRONOUT-2 unify: seed -> scored pin B_d |
+| wave3 | Neutron_lifetime_s | 878.59285139228322 | 878.43253963871671 | 878.4 | 0.021955 | 0.003704 | IRONOUT-2 unify: tau_n closed form -> carried vv P3 + vw P3 chain (closest to pdgLive 878.3(4)) |
 | wave3 | Ising2D_beta | 0.32653240136824639 | 0.32641897187914054 | 0.32653 | 0.000735 | 0.034002 | IRONOUT-1 #2: mislabeled 2D -> 3D Ising beta = in-bar beta_dyn |
 | wave3 | Ising2D_nu | 0.62998450626550964 | 0.62997096599232283 | 0.63002 | 0.005634 | 0.007783 | IRONOUT-1 #2: mislabeled 2D -> 3D Ising nu = in-bar nu_dyn |
 | wave3 | Ising2D_gamma | 1.2376425234447493 | 1.2370749542186874 | 1.2372 | 0.035768 | 0.010107 | IRONOUT-1 #2: 3D Ising gamma by Rushbrooke+Josephson |
@@ -57,7 +58,7 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 | predictions | CMB_tau | 0.05399951127994737 | 0.053999511279937676 | 0.054 | 0.000905 | 0.000905 | B-03: 0.333333333333333 -> 1/3 |
 | chemistry_ionization | IE_H | 13.588429893109516 | 13.598434743366637 | 13.598 | 0.070379 | 0.003197 | IRONOUT-1 #3: reduced-mass Dirac + 1s Lamb from in-bar R_inf, alpha, m_p/m_e (ln k0 SCAFFOLD_PENDING_FSOT_DERIVATION) |
 
-50 rows changed.
+51 rows changed.
 
 ## 2. D-02 alternative C_cosm = 1/(10 phi) (rejected by the decade derivation; shown, not applied)
 
@@ -98,7 +99,7 @@ Before = the Z-2 tip chain (all vt terms off; audit/score_2026-10-02z.tsv:13-14,
 | tau_n [s] vs UCNtau | 877.82 +- 0.287445647 | 880.1412523 | 8.075448 | 877.8484108 | 0.098839 | 877.6309982 | -0.657522 |
 | tau_n [s] vs Pattie | 877.7 +- 0.761577311 | 880.1412523 | 3.205521 | 877.8484108 | 0.194873 | 877.6309982 | -0.090604 |
 
-Unchanged: the catalog closed forms wave3 Neutron_lifetime_s (pi^7 theta_S) and wave5 Gamma_Z/M_Z (phi^5/e^6), and the gz:Gamma_Z_MeV folded routes, do not read G_F. IRONOUT-1: the scored Gamma_Z/M_Z folded row reads the tip leaf (phi^5/e^6)(1 - alpha/phi), not the vt G_F. (l): V_ud and g_A stay hosted inside tau_vk, never scored. Hooks for §43.5vv (Delta r), §43.5vw (Delta R^V) and §43.5vx (g_A): fold::vt::Hooks.
+The catalog closed forms wave3 Neutron_lifetime_s (pi^7 theta_S) and wave5 Gamma_Z/M_Z (phi^5/e^6), and the gz:Gamma_Z_MeV folded routes, do not read G_F (IRONOUT-2: the canonical wave3 Neutron_lifetime_s row now takes the carried chain tau_n, §5; the closed form stays in the parity column). IRONOUT-1: the scored Gamma_Z/M_Z folded row reads the tip leaf (phi^5/e^6)(1 - alpha/phi), not the vt G_F. (l): V_ud and g_A stay hosted inside tau_vk, never scored. Hooks for §43.5vv (Delta r), §43.5vw (Delta R^V) and §43.5vx (g_A): fold::vt::Hooks.
 
 ## 5. IRONOUT-2 carried G_F route: §43.5vv P3 + §43.5vw P3 Delta_R^V (parent steering 2026-11-11 1:55 PM EST) — flag SM_PARITY_REFINE_LATER
 
