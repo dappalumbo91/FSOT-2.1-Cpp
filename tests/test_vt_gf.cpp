@@ -77,6 +77,37 @@ int main() {
   // Live keys used by golden/folded_routes.tsv
   fold::Live<R> live{F, L, &ch};
   if (!live("vt:G_F_P2") || *live("vt:G_F_P2") != p2.GF || !live("vt:tau_n_P1") || *live("vt:tau_n_P1") != p1.tau_n) { ++fails; std::puts("  [FAIL] live vt keys"); }
+  // IRONOUT-2: carried vv P3 G_F + vw P3 Delta_R^V (Tracer vv FOLD f66b7985, vw FOLD ce51de78), reproduced live to ~1e-12
+  {
+    const auto vvw = fold::vt::Package<R>::load(FSOT_VV_VW_PACKAGE_TSV);
+    std::printf("vv/vw package: %s\n", vvw.header.empty() ? "(header)" : vvw.header.c_str());
+    fold::vt::Chain<R> c3 = ch; c3.hooks = fold::vt::vv_p3_vw_p3(vvw);
+    const auto raw = c3.solve_raw_vv_p3(), p0r = c3.solve_raw(fold::vt::P0());
+    eq("vv OFF G_chain (vv score.py build)", p0r.G, vvw.at("vv_OFF_G_chain").str(50).c_str(), 1e-25);
+    eq("vv P3 G_chain (solve_P3, live)", raw.G, vvw.at("vv_P3_G_chain").str(50).c_str(), 1e-25);
+    eq("vv A  Dr check: P1 G_chain (vt solve) ", c3.solve_raw(fold::vt::P1()).G, vvw.at("vv_P1_G_chain").str(50).c_str(), 1e-25);
+    const auto s3 = c3.solve(fold::vt::P1());
+    eq("vv P3 G_F [GeV^-2] (FOLD 1.16689392890418e-5)", s3.GF, "1.16689392890418e-5", 1e-14);
+    eq("vv P3 G_F vs package (50 digits)", s3.GF, vvw.at("vv_P3_GF").str(50).c_str(), 1e-25);
+    eq("vv P3 tau_n (no vw) [s] (FOLD 877.8657345)", pk.at("tau_vk_s") / (s3.ratio * s3.ratio), "877.8657345", 1e-10);
+    eq("vv P3 tau_n (no vw) vs package", pk.at("tau_vk_s") / (s3.ratio * s3.ratio), vvw.at("vv_P3_tau_n_s").str(50).c_str(), 1e-12);
+    eq("vv P3 + vw P3 tau_n [s] (FOLD 878.4325396)", s3.tau_n, "878.4325396", 1e-10);
+    eq("vv P3 + vw P3 tau_n vs vw score.py tau_of", s3.tau_n, vvw.at("vw_P3_tau_n_s").str(50).c_str(), 1e-12);
+    eq("vw P3 Delta_R^V (FOLD 0.02380031545)", vvw.at("vw_P3_dRV"), "0.02380031545", 1e-10);
+    eq("vw d_eng == vt package vk_dRV_us", vvw.at("vw_d_eng"), pk.at("vk_dRV_us").str(50).c_str(), 1e-28);
+    const auto d = fold::vt::mu_diag(s3.GF);
+    std::printf("  vv P3: G_F vs G_mu %+.2f ppm (FOLD +441.65), strict MuLan z %+.2f (FOLD -883.24); Gate B %s; flag %s\n", d.ppm_vs_Gmu, d.z_mulan,
+                d.gateB ? "ACCEPT-AT-SM-PARITY" : "FAIL", fold::vt::kStatus);
+    if (std::fabs(d.ppm_vs_Gmu - 441.65) > 0.01 || !d.gateB) ++fails;
+    // tau_n vs the IRONOUT-2 primary (pdgLive 878.3 +- 0.4): Tracer re-score vw P3 z +0.331
+    const double zl = double((s3.tau_n - lit<R>("878.3")) / lit<R>("0.4"));
+    std::printf("  [%s] vv P3 + vw P3 tau_n z vs pdgLive 878.3(4) = %+.4f (Tracer +0.331)\n", std::fabs(zl - 0.331) < 5e-4 ? "PASS" : "FAIL", zl);
+    if (std::fabs(zl - 0.331) >= 5e-4) ++fails;
+    fold::Live<R> lv{F, L, &ch, &c3};
+    if (!lv("vvw:tau_n") || *lv("vvw:tau_n") != s3.tau_n || !lv("vvw:G_F") || *lv("vvw:G_F") != s3.GF) { ++fails; std::puts("  [FAIL] live vvw keys"); }
+    // vt P2 stays reproducible as the alternate (unchanged by the hooks on the separate chain)
+    if (ch.solve(fold::vt::P2()).GF != p2.GF) { ++fails; std::puts("  [FAIL] vt P2 alternate moved"); } else std::puts("  [PASS] vt P2 alternate unchanged");
+  }
   // double instantiation sanity (package read at double)
   { const auto pd = fold::vt::Package<double>::load(FSOT_VT_PACKAGE_TSV); Engine<double> Fd; leaves::SeedLeaves<double> Ld(Fd);
     fold::vt::Chain<double> cd{pd, fold::vt::engine_inputs(Ld)}; const double g = cd.solve(fold::vt::P2()).GF;

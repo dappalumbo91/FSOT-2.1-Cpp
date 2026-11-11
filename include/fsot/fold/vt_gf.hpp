@@ -14,6 +14,32 @@
 // here at every iteration. Only loop-invariant coefficients (one-loop B0/polylog integrals, α_s running, Δα, the
 // carried Z-2 G_F and the vk τ_n engine value) are banked in golden/vt_package.tsv (tools/gen_vt_package.py, 50 digits).
 //
+// IRONOUT-2 (parent steering 2026-11-11 1:55 PM EST; Tracer vv FOLD f66b7985 + addendum 0b15ece1, vw FOLD ce51de78):
+// the CARRIED G_F route is now §43.5vv P3 with §43.5vw P3's corrected Delta_R^V; vt P2 / vt P1 stay alternates.
+//   vv P3 (remainder unresummed; vv score.py solve_P3, 74db1004): G = G0 [1/(1 - Dr_A(G)) + Dr_P1(G) - Dr_A(G)], where
+//     Dr_A is the chain with C2 and C5mu removed (rho2 = 0, no C5/T_conv; C1, C3, C6, C7 kept) and Dr_P1 the full vt P1.
+//     The O(alpha^2) heavy-top remainder enters linearly, outside the CHJ/FKS product (scheme alternative at reducible
+//     O(alpha^3)). It is G-dependent and sits outside the resummation, so neither a constant vv_rem_add nor a vv_route
+//     term switch can express it: Hooks::vv_p3 selects this fixed point (solve_raw_vv_p3), solved live here.
+//     G_F 1.16689392890418e-5 (+441.65 ppm vs G_mu; Gate B ACCEPT, 809.87 ppm), tau_n (vk tau_vk) 877.8657345 s.
+//   vw P3 (3-loop alpha_g1 BjSR interpolator; vw score.py eb03ab5a): Delta_R^V 0.02380031545 replaces the engine's
+//     0.0244613452 by swapping ONLY the non-Born axial gammaW box subset (C_dis + C3pole -> 2(I1 + I2)); tau_vk is
+//     rebuilt by vk_tau(dC) in tools/gen_vv_vw_package.py and enters through Hooks::tau_vk_override. tau_n 878.4325396 s.
+//   Discrepancy node (vw FOLD §2): the engine's gammaW box is OVERSTATED by +0.343 alpha/pi (Delta_R^V +7.97e-4, a
+//     -0.683 s tau_n lever), 73 % below m_A (3-pole 0.4126 vs LFH 0.1628) and 27 % above (one-loop n_f=5 fixed-alpha_s
+//     C_dis 2.1112 vs 2.0179). The engine total nevertheless sat between CMS and Seng because the overstatement offsets
+//     (i) the omitted CMS eq.(19) QED leading-log enhancement of the box terms (1.022 A_NP + 1.065 A_P; +3.59e-4 at the
+//     tip box content), (ii) a low vector constant (0.016629 vs CMS 0.01671, -0.81e-4) and (iii) a low Born term
+//     (0.7848 vs 0.85, -1.5e-4). vw P3 corrects the box only; (i)-(iii) remain open (future leaves). Pion-box lattice
+//     check (Feng et al. 2.830(28)e-3): route low-Q under-represents (-27 sigma), engine high-Q overshoots (+5.9 sigma);
+//     a diagnostic only, never a gate.
+//   vw validate record has 4 FAILs that are mis-set bars with no scored number moving (vw FOLD §3(b), rc.py f42d4feb):
+//     (iii) a^2, a^3 vs analytic 0.00294 > 5e-4 bar (CMS print rounding; re-integration moves tau by ~+1.2e-6 s);
+//     (iv) alpha_s continuity at m_c 1.04e-11 and at m_b 2.93e-12 > 1e-12 (one-sided grid lookup; true limits agree to
+//     5.6e-17); (iv) runner vs tip AlphaS 2.03e-6 > 1e-6 (tip AlphaS linear-interpolation step at thresholds; 4.7e-15
+//     at the tip's own nodes). Folding a vw route needs Damian's sign-off on these (t999u Q5).
+// Status of the carried G_F and the rows reading it stays SM_PARITY_REFINE_LATER.
+//
 // Hooks for the leaves still refining it (left empty = vt P2 as folded):
 //   vv (Δr two-loop remainder): Hooks::vv_rem_add (additive to Δr_rem every iteration), or Hooks::vv_route to swap terms
 //   vw (ΔR^V, γW box) and vx (g_A^eff in 1+3g_A²): both live inside τ_vk; Hooks::tau_vk_override takes the rebuilt τ_vk
@@ -47,7 +73,7 @@ template <class R> struct Package {
     if (!in) throw std::runtime_error("cannot open " + path);
     std::string line;
     while (std::getline(in, line)) {
-      if (line.rfind("#vt_package", 0) == 0) { p.header = line; continue; }
+      if (line.rfind("#vt_package", 0) == 0 || line.rfind("#vv_vw_package", 0) == 0) { p.header = line; continue; }
       if (line.empty() || line[0] == '#') continue;
       std::stringstream ss(line); std::string k, val;
       std::getline(ss, k, '\t'); std::getline(ss, val, '\t');
@@ -66,6 +92,7 @@ template <class R> struct Hooks {
   std::optional<R> vv_rem_add;       // §43.5vv: extra Δr_rem term (e.g. FHWW/ACFW O(α²) completion minus what it replaces)
   std::optional<Route> vv_route;     // §43.5vv: replace the term switches (e.g. C2/C5µ off when vv supplies them)
   std::optional<R> tau_vk_override;  // §43.5vw / §43.5vx: τ_vk rebuilt with the refined ΔR^V and/or g_A^eff
+  bool vv_p3 = false;                // §43.5vv P3: remainder unresummed fixed point (solve_raw_vv_p3); IRONOUT-2 carried
 };
 
 // Electroweak inputs; by default the engine seed leaves (checked == package in tests/test_vt_gf.cpp).
@@ -119,10 +146,46 @@ template <class R> struct Chain {
     return Solution<R>{G, R(1), R(0), R(0), R(1) - omr, drho, rem, c5, d7, it, step};
   }
 
+  // Δr at fixed G (vv score.py dr_at; the solve_raw loop body without iteration). rho2_zero: config "A" (C2 removed).
+  R dr_at(const R& G, const Route& r, bool rho2_zero) const {
+    const R pi = real_traits<R>::pi(), s2 = in.s2, c2 = R(1) - s2, k = c2 / s2, NC = pk.at("NC");
+    const R a_s = pk.at("a_s_mt"), da = pk.at("Delta_alpha");
+    const R rho2 = rho2_zero ? R(0) : (r.c2 ? pk.at("rho2_C2") : pk.at("rho2_tip"));
+    const R q = R(1) - pk.at("q1") * a_s - pk.at("q2") * a_s * a_s + (r.c3 ? pk.at("q3_C3") * a_s * a_s * a_s : R(0));
+    const R ZT = (in.MZ / in.mt) * (in.MZ / in.mt);
+    const R xt = xt_of(G);
+    R rem = (r.c1 ? pk.at("rem_C1") : pk.at("rem_tip")) + (r.c7 ? pk.at("C7") : R(0));
+    if (r.c6) rem += R(-3) * xt * k * a_s * pk.at("CF") * (ZT * pk.at("C6_B1") + ZT * ZT * pk.at("C6_B2"));
+    if (r.c5) {
+      const R k8 = R(8) * in.MW * in.MW * G / m::sqrt(R(2)), e2s2 = R(4) * pi * in.alpha / s2;
+      const R sub_k8 = pk.at("C5_Ar") * xt * xt + pk.at("C5_Aa") * xt * k8;
+      R c5 = pk.at("C5_fh") * xt + pk.at("C5_fa") * xt - k * (e2s2 / k8) * sub_k8;
+      if (r.tconv) c5 += R(2) * k * k * NC * xt * (pk.at("C5mu_Y") - NC * xt0()) + k * R(3) * xt * pk.at("rem_C1");
+      rem += c5;
+    }
+    const R drho = R(3) * xt * (R(1) + xt * rho2) * q;
+    return R(1) - ((R(1) - da) * (R(1) + k * drho) - rem);
+  }
+  // §43.5vv P3: G = G0 [1/(1 - Dr_A(G)) + Dr_P1(G) - Dr_A(G)] (vv score.py solve_P3, fixed_point tol 1e-30).
+  Solution<R> solve_raw_vv_p3() const {
+    const R pi = real_traits<R>::pi();
+    const R G0 = pi * in.alpha / (m::sqrt(R(2)) * in.MW * in.MW * in.s2);
+    Route A; A.c2 = false; A.c5 = false; A.tconv = false;  // c1, c3, c6, c7 on; rho2 = 0
+    const R tol = lit<R>("1e-30");
+    R G = G0, step = 1, a = 0, p = 0; int it = 0;
+    for (; it < 400; ++it) {
+      a = dr_at(G, A, true); p = dr_at(G, P1(), false);
+      const R nG = G0 * (R(1) / (R(1) - a) + (p - a));
+      step = m::fabs(nG / G - R(1)); G = nG;
+      if (step < tol) { ++it; break; }
+    }
+    return Solution<R>{G, R(1), R(0), R(0), R(1) - G0 / G, R(0), p - a, R(0), pk.at("C7"), it, step};
+  }
+
   // ratio to the Z-2 re-solve, G_F = carried G_F,Z2 × ratio, τ_n = τ_vk / ratio² (score.py:225, (7a)).
   Solution<R> solve(Route r) const {
     const auto p0 = solve_raw(P0());
-    auto s = solve_raw(r, true);
+    auto s = hooks.vv_p3 ? solve_raw_vv_p3() : solve_raw(r, true);
     s.ratio = s.G / p0.G;
     s.GF = pk.at("GF_Z2") * s.ratio;
     const R tvk = hooks.tau_vk_override ? *hooks.tau_vk_override : pk.at("tau_vk_s");
@@ -130,6 +193,11 @@ template <class R> struct Chain {
     return s;
   }
 };
+
+// IRONOUT-2 carried hooks: vv P3 G_F + vw P3 Delta_R^V (tau_vk rebuilt), from golden/vv_vw_package.tsv.
+template <class R> Hooks<R> vv_p3_vw_p3(const Package<R>& vvw) {
+  Hooks<R> h; h.vv_p3 = true; h.tau_vk_override = vvw.at("tau_vk_vwP3_s"); return h;
+}
 
 // Electroweak inputs from the engine's seed leaves (vn score.py:62-64 definitions).
 template <class R> R leaf(const leaves::SeedLeaves<R>& L, const std::string& name) {

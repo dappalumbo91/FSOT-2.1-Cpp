@@ -87,7 +87,7 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 
 ## 4. §43.5vt folded (Damian t994u, 2026-11-11 1:00 PM EST): G_F and the rows that read it — flag SM_PARITY_REFINE_LATER
 
-Before = the Z-2 tip chain (all vt terms off; audit/score_2026-10-02z.tsv:13-14, vk tau_n 880.1412523 s; in this engine §43.5vt was a HOOK). After = carried route P2 (C1+C2+C3+C5mu+C6, no C7), live in fold::vt::Chain. P1 (with C7) is the documented alternate. Gates per ruling t992u (sha8 c65ff89d): Gate A |z| <= 1; Gate B |G_F - G_mu| <= 809.87 ppm. Not ADOPT; no GO-MERGE.
+Before = the Z-2 tip chain (all vt terms off; audit/score_2026-10-02z.tsv:13-14, vk tau_n 880.1412523 s; in this engine §43.5vt was a HOOK). After = route P2 (C1+C2+C3+C5mu+C6, no C7), live in fold::vt::Chain, carried until IRONOUT-2 and now an ALTERNATE (carried route: §5). P1 (with C7) is the documented alternate. Gates per ruling t992u (sha8 c65ff89d): Gate A |z| <= 1; Gate B |G_F - G_mu| <= 809.87 ppm. Not ADOPT; no GO-MERGE.
 
 | row | reference | before (Z-2) | z before | after (vt P2) | z after | alternate (vt P1) | z P1 |
 |---|---|---|---|---|---|---|---|
@@ -99,3 +99,19 @@ Before = the Z-2 tip chain (all vt terms off; audit/score_2026-10-02z.tsv:13-14,
 | tau_n [s] vs Pattie | 877.7 +- 0.761577311 | 880.1412523 | 3.205521 | 877.8484108 | 0.194873 | 877.6309982 | -0.090604 |
 
 Unchanged: the catalog closed forms wave3 Neutron_lifetime_s (pi^7 theta_S) and wave5 Gamma_Z/M_Z (phi^5/e^6), and the gz:Gamma_Z_MeV folded routes, do not read G_F. IRONOUT-1: the scored Gamma_Z/M_Z folded row reads the tip leaf (phi^5/e^6)(1 - alpha/phi), not the vt G_F. (l): V_ud and g_A stay hosted inside tau_vk, never scored. Hooks for §43.5vv (Delta r), §43.5vw (Delta R^V) and §43.5vx (g_A): fold::vt::Hooks.
+
+## 5. IRONOUT-2 carried G_F route: §43.5vv P3 + §43.5vw P3 Delta_R^V (parent steering 2026-11-11 1:55 PM EST) — flag SM_PARITY_REFINE_LATER
+
+vv P3 (Tracer FOLD f66b7985): G = G0 [1/(1 - Dr_A(G)) + Dr_P1(G) - Dr_A(G)], remainder unresummed, solved live (Hooks::vv_p3). vw P3 (Tracer FOLD ce51de78): non-Born axial gammaW box rebuilt from the 3-loop BjSR alpha_g1, Delta_R^V 0.02446134516 -> 0.02380031545 (Hooks::tau_vk_override = 880.709526723 s; golden/vv_vw_package.tsv, tools/gen_vv_vw_package.py). The engine gammaW box is overstated by +0.343 alpha/pi (a -0.683 s tau_n lever), offset by the omitted CMS eq.(19) QED enhancement (+3.59e-4) and a low Born / vector constant; see include/fsot/fold/vt_gf.hpp. tau_n primary = pdgLive 878.3 +- 0.4 s (PDG 2024 878.4 +- 0.5, UCNtau, Pattie secondary). Not ADOPT; no GO-MERGE.
+
+| row | reference | before (vt P2, carried until now) | z before | after (vv P3 + vw P3) | z after | vv P3 only (no vw) | z |
+|---|---|---|---|---|---|---|---|
+| G_F [GeV^-2] | CODATA 2022 1.1663787(6)e-5 | 1.16690544271959e-05 | 877.904533 | 1.16689392890418e-05 | 858.714840 | (same G_F) | - |
+| G_F vs G_mu [ppm] (Gate B <= 809.87) | PDG G_mu 1.1663788e-5 | 451.519455 | Gate B ACCEPT | 441.648034 | Gate B ACCEPT | - | - |
+| tau_mu strict MuLan (diagnostic; G_mu-ratio scaling, vv score.py vRS form gives z -883.24) | 2196980.3(2.2) ps | -902.427668 ppm | -901.189004 | -882.711254 ppm | -881.499652 | - | - |
+| tau_n [s] vs pdgLive (PRIMARY) | 878.3 +- 0.4 | 877.8484108 | -1.128973 | 878.4325396 | 0.331349 | 877.8657345 | -1.085664 |
+| tau_n [s] vs PDG 2024 | 878.4 +- 0.5 | 877.8484108 | -1.103178 | 878.4325396 | 0.065079 | 877.8657345 | -1.068531 |
+| tau_n [s] vs UCNtau | 877.82 +- 0.287445647 | 877.8484108 | 0.098839 | 878.4325396 | 2.130976 | 877.8657345 | 0.159106 |
+| tau_n [s] vs Pattie | 877.7 +- 0.761577311 | 877.8484108 | 0.194873 | 878.4325396 | 0.961872 | 877.8657345 | 0.217620 |
+
+M_W diagnostic (not adopted): the chain reads the host M_W leaf 80.3687519242 GeV (z -0.03 vs PDG 80.3692(133)). With the superseded seed closed form M_W = 80.354537 GeV (z -1.1) the carried vv P3 G_F would be 1.16689124062e-05 (-2.303792 ppm vs carried) and tau_n 878.4365871 s. The engine-wide M_W is unchanged, so the vt/vv G_F chain is unchanged by IRONOUT-2.
