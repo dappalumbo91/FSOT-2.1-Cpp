@@ -12,6 +12,14 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 | validation_suite | Feigenbaum_alpha | 2.5029671355214552 | 2.5029671355214546 | 2.5029 | 0.002682 | 0.002682 | B-03: 0.333333333333333 -> 1/3 |
 | validation_suite | Apery_zeta3 | 1.202047669357749 | 1.2020476693577489 | 1.20206 | 0.001026 | 0.001026 | B-03: 0.333333333333333 -> 1/3 |
 | validation_suite | Water_anomaly_C | 3.9799735124412239 | 3.9799735124412239 | 3.98 | 0.000666 | 0.000666 | B-03: 0.333333333333333 -> 1/3 |
+| wave3 | Ising2D_beta | 0.32653240136824639 | 0.32641897187914054 | 0.32653 | 0.000735 | 0.034002 | IRONOUT-1 #2: mislabeled 2D -> 3D Ising beta = in-bar beta_dyn |
+| wave3 | Ising2D_nu | 0.62998450626550964 | 0.62997096599232283 | 0.63002 | 0.005634 | 0.007783 | IRONOUT-1 #2: mislabeled 2D -> 3D Ising nu = in-bar nu_dyn |
+| wave3 | Ising2D_gamma | 1.2376425234447493 | 1.2370749542186874 | 1.2372 | 0.035768 | 0.010107 | IRONOUT-1 #2: 3D Ising gamma by Rushbrooke+Josephson |
+| wave7 | Ising3D_eta | 0.036408193997131074 | 0.036298462945730299 | 0.0363 | 0.298055 | 0.004234 | IRONOUT-1 #2: Fisher from in-bar nu, beta |
+| wave7 | Ising3D_alpha | 0.11004872741790349 | 0.1100871020230315 | 0.1101 | 0.046569 | 0.011715 | IRONOUT-1 #2: Josephson from in-bar nu |
+| wave7 | Ising3D_delta | 4.7887467535409367 | 4.7898377876048367 | 4.7898 | 0.021989 | 0.000789 | IRONOUT-1 #2: Widom from in-bar nu, beta |
+| wave8 | XY_beta | 0.34858759969634014 | 0.34863743502229235 | 0.3486 | 0.003557 | 0.010739 | IRONOUT-1 #2: O(2) beta from in-bar nu, eta |
+| wave8 | XY_gamma | 1.3177317120795234 | 1.3176981363565794 | 1.3177 | 0.002407 | 0.000141 | IRONOUT-1 #2: O(2) gamma from in-bar nu, eta (one exponent set) |
 | lepton_ratios | m_tau/m_mu_lepton | 16.817284993122837 | 16.817284993117165 | 16.817 | 0.001695 | 0.001695 | B-03: 0.333333333333333 -> 1/3 |
 | lepton_ratios | m_mu/m_e_lepton | 206.76828192272686 | 206.76828192279578 | 206.768 | 0.000136 | 0.000136 | B-03: 0.333333333333333 -> 1/3 |
 | lepton_ratios | Chain_consistency_% | 0.0066730174602601313 | 0.0066730174606555143 | - | - | - | B-03: 0.333333333333333 -> 1/3 |
@@ -20,7 +28,7 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 | dynamical_systems | Ising3D_nu_dyn | 0.62997096599232268 | 0.62997096599232283 | 0.63 | 0.004609 | 0.004609 | B-03: 0.333333333333333 -> 1/3 |
 | predictions | CMB_tau | 0.05399951127994737 | 0.053999511279937676 | 0.054 | 0.000905 | 0.000905 | B-03: 0.333333333333333 -> 1/3 |
 
-13 rows changed.
+21 rows changed.
 
 ## 2. D-02 alternative C_cosm = 1/(10 phi) (rejected by the decade derivation; shown, not applied)
 
@@ -49,7 +57,6 @@ Before = authority parity (pin AEB2AD, rung-6 QM, the C++ golden). After = the s
 | wave2 | sigma_8 | 0.810939879367982 | 0.808381839410747 | 0.8111 | 0.019741 | 0.335120 |
 | wave3 | |V_us| | 0.224494609175038 | 0.229586479099665 | 0.2243 | 0.086763 | 2.356879 |
 | wave3 | |V_cb| | 0.0421435115651561 | 0.0419188788072566 | 0.0422 | 0.133859 | 0.666164 |
-| wave3 | Ising2D_gamma | 1.23764252344475 | 1.24822387173975 | 1.2372 | 0.035768 | 0.891034 |
 | wave3 | m_H/m_W | 1.55914737159333 | 1.55083682600647 | 1.5595 | 0.022612 | 0.555510 |
 
 ## 4. §43.5vt folded (Damian t994u, 2026-11-11 1:00 PM EST): G_F and the rows that read it — flag SM_PARITY_REFINE_LATER

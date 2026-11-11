@@ -102,7 +102,7 @@ int main(int argc, char** argv) {
         if (!pv.count(k) || pv.at(k) == r.value) continue;
         ++n;
         auto rel = [&](const R& v) { return r.measured ? std::to_string(double(m::fabs(v - *r.measured) / m::fabs(*r.measured) * R(100))) : std::string("-"); };
-        const char* why = r.kind == derive::RowKind::derived_replacement ? (r.name == "DNA_base_pair" ? "measured a0=0.529177 -> seed leaf a_0" : "target literal -> seed leaf r_p") : "B-03: 0.333333333333333 -> 1/3";
+        const std::string why = r.kind == derive::RowKind::derived_replacement ? r.why : std::string("B-03: 0.333333333333333 -> 1/3");
         o << "| " << r.section << " | " << r.name << " | " << pv.at(k).str(17) << " | " << r.value.str(17) << " | " << (r.measured ? r.measured->str(10) : "-")
           << " | " << rel(pv.at(k)) << " | " << rel(r.value) << " | " << why << " |\n";
       }
