@@ -7,8 +7,8 @@ pasted into the engine.
 
 | quantity | pass-1 primary | pass-2 primary (world average) | secondary gates |
 |---|---|---|---|
-| τ_n (every FSOT τ_n row) | UCNτ 2025 877.82 ± 0.287 s | **PDG 2024 878.4 ± 0.5 s** | UCNτ 877.82 ± 0.287; Pattie 2018 877.7 ± 0.76 |
-| sin θ_C (wave3) | PDG global-fit λ 0.22501(68) | **PDG 2024 \|V_us\| 0.22431 ± 0.00085** (Eq. 12.8; λ = sin θ_C = \|V_us\|) | — |
+| τ_n (every FSOT τ_n row) | UCNτ 2025 877.82 ± 0.287 s | **pdgLive 878.3 ± 0.4 s** (current PDG world average; corrects a698a6b, which set 878.4 ± 0.5) | PDG 2024 RPP 878.4 ± 0.5; UCNτ 877.82 ± 0.287; Pattie 2018 877.7 ± 0.76; Gate B threshold vs world average 1.583 s |
+| sin θ_C (wave3) | PDG global-fit λ 0.22501(68) | **PDG 2024 \|V_us\| 0.22431 ± 0.00085** (Eq. 12.8; λ = sin θ_C = \|V_us\|) | global fit 0.22501 ± 0.00068 |
 | \|V_ud\| | global fit 0.97435(16) | **0.97367 ± 0.00032** (Eq. 12.7, superallowed) | — |
 | \|V_us\| | 0.22501(68) | **0.22431 ± 0.00085** (12.8) | — |
 | \|V_cd\| | 0.22487(68) | **0.221 ± 0.004** (12.9) | — |
@@ -29,3 +29,6 @@ routes onto their world averages). H0 has no agreed world value (tension) and ke
 
 Scaffolding (allowed temporarily, t999u): the 1s Bethe logarithm ln k0 = 2.984128555765 in IE_H and the He
 ground-state eigenvalue used for the (not adopted) IE_He candidate are flagged **SCAFFOLD_PENDING_FSOT_DERIVATION**.
+
+V_ud stays EXCLUDED from unification (parent steering, 1:55 PM EST): no V_ud value is swapped or unified; the
+direct-value z of each FSOT V_ud is reported only.
