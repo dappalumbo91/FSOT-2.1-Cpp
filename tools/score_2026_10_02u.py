@@ -65,7 +65,7 @@ for path, sec, key, c, sg, lab in (("audit/score_2026-10-02t.tsv", "T-1", "T-1 c
 s = "U2-1"  # FREEZE_2026-10-02u2
 from mpmath import log as _log, eigsy, atan, pi as _pi
 from fsot02d import pi
-P = X.pins(); G2 = P["wave9|Gluon_condensate"]; L3 = mpf("334.432838067")
+P = X.pins(); G2 = P["wave9|Gluon_condensate"]; L3 = mpf("333.200260643")
 for line in open(R / "audit/score_2026-10-02s2.tsv", encoding="utf-8"):
     f = line.rstrip("\n").split("\t")
     if len(f) > 3 and f[0] == "S2-1" and f[1].startswith("S2-1 Lambda^(3)"): L3 = mpf(f[3])

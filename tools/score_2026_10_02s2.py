@@ -27,7 +27,8 @@ def bcoef(nf):
     return b0, b1, b2, b3
 def lnmu2_over_L2(al, nf):
     b0, b1, b2, b3 = bcoef(nf)
-    R = lambda x: -1 / (x**2 * (b0 + b1 * x + b2 * x**2 + b3 * x**3)) + 1 / (b0 * x**2) - b1 / (b0**2 * x)
+    # x^2 cancellation done analytically (identical integrand; dps-stable; retires the naive-quad 334.43 artifact)
+    R = lambda x: ((b0 * b2 - b1**2) + (b0 * b3 - b1 * b2) * x - b1 * b3 * x**2) / (b0**2 * (b0 + b1 * x + b2 * x**2 + b3 * x**3))
     return 1 / (b0 * al) + b1 / b0**2 * ln(b0 * al) + quad(R, [0, al])
 def Lam(al, mu, nf): return mu * mp.exp(-lnmu2_over_L2(al, nf) / 2)
 def alpha_at(mu, Lm, nf):  # bisection (f decreasing in alpha on (0.05, 0.6)); 90 halvings

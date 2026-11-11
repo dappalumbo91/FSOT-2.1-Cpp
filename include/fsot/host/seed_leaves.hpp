@@ -69,6 +69,18 @@ template <class R> struct SeedLeaves {
   R g_p() const {
     return m::ipow(F.A_IN * F.P_NEW / F.P_BASE, 2) + (alpha() / m::ipow(F.PSI_CON, 3)) * (R(1) + yy() * yy());
   }
+  // Tip host atom mu_R (dial-in 43.5tm, BRIEF f55c4953, CLAIM 5cfd9cf5): zero-LEC CPT charge-conjugation
+  // host. mu_p/mu_N = g_p/2; C flips the moment sign, |mu| invariant: mu_pbar/mu_N = -g_p/2. Soft-clean
+  // held-outs Schneider 2017 mu_p 2.79284734462(82), SMORRA 2017 |mu_pbar| 2.7928473441(42). Not ADOPT;
+  // not in the 91-leaf golden map.
+  R mu_p_host() const { return g_p() / R(2); }
+  R mu_pbar_host() const { return -g_p() / R(2); }
+  // Tip host atoms c_D/c_E (dial-in 43.5to, BRIEF 81ccb768, CLAIM 9895b15c; sw map fold 86809f18):
+  // zero-LEC seed-native 3NF LECs c_D = 1 - POOF, c_E = -POOF/3 (POOF = Engine Layer-1 atom). Soft-clean
+  // Gazit 2019 erratum PRL 122 029901(E) disclose-only (c_D=0.83±0.24, c_E=-0.052 +0.033/-0.034).
+  // Not ADOPT; not in the 91-leaf golden map. NO 3N/4N solver invent (sw WALL stands).
+  R c_D_host() const { return R(1) - F.POOF; }
+  R c_E_host() const { return -F.POOF / R(3); }
   R w_product() const { return m::pow(F.THETA_S, R(-6)) * m::pow(F.C_FACTOR, R(-4)) * F.GAMMA * F.GAMMA; }
   R m_W_MeV() const { return w_product() + m::pow(F.E, F.E); }
   R m_Z_MeV() const { return w_product() / m::sqrt(R(1) - (F.POOF + F.K / R(6))); }
@@ -166,5 +178,11 @@ template <class R> CKM ckm_double(const Engine<R>& F) {
   k.mags["V_tb"] = 1.0 - 0.5 * std::pow(A, 2.0) * std::pow(lam, 4.0);
   return k;
 }
+
+// Tip host atom (dial-in 43.5tk, BRIEF 30ea04fc; tg note dd8f76d7, WAVE58 fold 19b681eb): zero-LEC
+// gradient-flow/Sommer ratio sqrt(8 t0)/r0 = sqrt(8)/N_c (i.e. sqrt(t0)/r0 = 1/N_c), N_c = 3 as in
+// nucleon_delta.hpp:4; the 8 = 2*D with D = 4 (core.hpp:55 Richardson_D=4). Soft-clean held-outs
+// Ce-Consonni 0.941(7), Francis 0.944(8). Not ADOPT; not in the 91-leaf golden map.
+template <class R> R sqrt8t0_over_r0() { return m::sqrt(R(2 * 4)) / R(3); }
 
 }  // namespace fsot::leaves

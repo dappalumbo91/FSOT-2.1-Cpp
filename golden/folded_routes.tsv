@@ -1,0 +1,93 @@
+#folded_routes	ledger_sha256=2201ef2c40109b4d4137f9f804b9695287f5b31370635e8e4fe28c720c392e1e	rows=85	vt=dialin/out_vt_tau_n_gf_z2_mu_consistent_dr2_completion/results.tsv (t994u)
+#route	leaf	pred_recorded	obs	sigma	z_recorded	verdict	live	source
+43.5ag-HVP-G0	-					FOLDED		no results.tsv (route-level record only)
+43.5am-SIGSEA	-					FOLDED-WALL		no results.tsv (route-level record only)
+43.5ao-A1	-					FOLDED-PARTIAL		no results.tsv (route-level record only)
+43.5bh-NMOM	-					FOLDED-PARTIAL-WALL		no results.tsv (route-level record only)
+43.5bi-AXRES	-					FOLDED-PARTIAL-WALL		no results.tsv (route-level record only)
+43.5bl-LBAR3	-					FOLDED-PARTIAL		no results.tsv (route-level record only)
+43.5bw-FKSC	-					FOLDED-WALL		no results.tsv (route-level record only)
+43.5cb-GZSIG	-					FOLDED-PASS		no results.tsv (route-level record only)
+43.5db-MK0M2B	-					FOLDED-PASS		no results.tsv (route-level record only)
+43.5dr-HELDOUTPREP	-					FOLDED-PASS(+SSN WALL)		no results.tsv (route-level record only)
+43.5dt-NCORDER	-					FOLDED-PASS		no results.tsv (route-level record only)
+43.5dv-H0MULTI	-					FOLDED-PASS(+EXPLORATORY)		no results.tsv (route-level record only)
+43.5ea-H0SIG	-					FOLDED-PASS		no results.tsv (route-level record only)
+43.5ec-RHOSIG	-					FOLDED-G-R_STOP		no results.tsv (route-level record only)
+43.5ed-RHONATIVE	-					FOLDED-MIXED		no results.tsv (route-level record only)
+43.5pj/pk	pj	0.0024440595796881441525737560990138552596665561832881	2.466e-3	0.060e-3	-0.365674	PASS-EXPL in-bar	leaf:dm2_32	dialin/out_pj_dm2_32_reactor_tip/results.tsv@b3fae31a
+43.5pm-NU_SPLIT_SELECTOR	-					FOLDED		dialin/out_pm_nu_split_selector/results.tsv@45cdb895 (selector/aggregate; route-level record only)
+43.5pp-DM2_21_SOLAR	V_tip_pathA	7.52467124536458e-5	6.10e-5	0.95e-5	1.49965	PASS-EXPLORATORY	dm21:pathA	dialin/out_pp_dm2_21_solar_tip/results.tsv@0631a0d1
+43.5pq-DM2_21_KAMLAND	V_tip_pathA	7.52467124536458e-5	7.53e-5	0.18e-5	-0.0296042	PASS-EXPLORATORY	dm21:pathA	dialin/out_pq_dm2_21_kamland_tip/results.tsv@8f83f937
+43.5pt-MW_CMS	V_tip_MeV	80368.751924164825565	80360.2	9.9	0.863831	PASS-EXPL in-bar	leaf:m_W_MeV	dialin/out_pt_mw_cms_tip/results.tsv@11ab53d4
+43.5pu-MW_ATLAS	V_tip_MeV	80368.751924164825565	80366.5	15.9	0.14163	PASS-EXPL in-bar	leaf:m_W_MeV	dialin/out_pu_mw_atlas_tip/results.tsv@9cb09e6e
+43.5pv-MW_LEP	V_tip_MeV	80368.751924164825565	80376	33	-0.219639	PASS-EXPL in-bar	leaf:m_W_MeV	dialin/out_pv_mw_lep_tip/results.tsv@252d13db
+43.5pw-MW_COLLIDER_SELECTOR	-					FOLDED		dialin/out_pw_mw_collider_selector/results.tsv@ebdb9b0f (selector/aggregate; route-level record only)
+43.5py-MTAU_BELLE2	V_tip_MeV	1777.0016401823334574	1777.09	0.136015	-0.649634	PASS-EXPL in-bar	leaf:m_tau_MeV	dialin/out_py_mtau_belle2_tip/results.tsv@5e130f40
+43.5pz-MTAU_BESIII	V_tip_MeV	1777.0016401823334574	1776.91	0.176918	0.517981	PASS-EXPL in-bar	leaf:m_tau_MeV	dialin/out_pz_mtau_besiii_tip/results.tsv@a983bfb9
+43.5qa-MTAU_KEDR	V_tip_MeV	1777.0016401823334574	1776.81	0.291548	0.65732	PASS-EXPL in-bar	leaf:m_tau_MeV	dialin/out_qa_mtau_kedr_tip/results.tsv@940d691f
+43.5qb-MTAU_SELECTOR	-					FOLDED		dialin/out_qb_mtau_selector/results.tsv@ecc103fd (selector/aggregate; route-level record only)
+43.5qd-MZ_ALEPH	V_tip_MeV	91187.370359448387778343	91188.5	3.1	-0.3644	PASS-EXPL in-bar	leaf:m_Z_MeV	dialin/out_qd_mz_aleph_tip/results.tsv@256b62cf
+43.5qe-MZ_DELPHI	V_tip_MeV	91187.370359448387778343	91186.3	2.8	0.382271	PASS-EXPL in-bar	leaf:m_Z_MeV	dialin/out_qe_mz_delphi_tip/results.tsv@76c8a677
+43.5qf-MZ_L3	V_tip_MeV	91187.370359448387778343	91189.8	3.1	-0.783755	PASS-EXPL in-bar	leaf:m_Z_MeV	dialin/out_qf_mz_l3_tip/results.tsv@e31eeedb
+43.5qg-MZ_OPAL	V_tip_MeV	91187.370359448387778343	91185.2	3.0	0.723453	PASS-EXPL in-bar	leaf:m_Z_MeV	dialin/out_qg_mz_opal_tip/results.tsv@133ce7de
+43.5qh-MZ_SELECTOR	-					FOLDED		dialin/out_qh_mz_selector/results.tsv@96d139cf (selector/aggregate; route-level record only)
+43.5qj-GZ_ALEPH_TIP	V_tip_MeV	2495.4156716462004369483	2495.1	4.3	0.073412	PASS-EXPL in-bar	gz:Gamma_Z_MeV	dialin/out_qj_gz_aleph_tip/results.tsv@a2a6a968
+43.5qk-GZ_DELPHI_TIP	V_tip_MeV	2495.4156716462004369483	2487.6	4.1	1.90626	PASS-EXPLORATORY	gz:Gamma_Z_MeV	dialin/out_qk_gz_delphi_tip/results.tsv@b7e511a2
+43.5ql-GZ_L3_TIP	V_tip_MeV	2495.4156716462004369483	2502.4	4.2	-1.66294	PASS-EXPLORATORY	gz:Gamma_Z_MeV	dialin/out_ql_gz_l3_tip/results.tsv@cd26c7c3
+43.5qm-GZ_OPAL_TIP	V_tip_MeV	2495.4156716462004369483	2494.8	4.1	0.150164	PASS-EXPL in-bar	gz:Gamma_Z_MeV	dialin/out_qm_gz_opal_tip/results.tsv@c779fa49
+43.5qn-GZ_SELECTOR	-					FOLDED		dialin/out_qn_gz_selector/results.tsv@e1ab153c (selector/aggregate; route-level record only)
+43.5qp-DPM_KEDR_TIP	V_tip_MeV	1869.6602588035399231353	1869.56	0.307937	0.325583	PASS-EXPL in-bar	leaf:m_D_pm_MeV	dialin/out_qp_dpm_kedr_tip/results.tsv@68af9055
+43.5qq-DPM_ACCMOR_TIP	V_tip_MeV	1869.6602588035399231353	1870.0	1.11803	-0.303874	PASS-EXPL in-bar	leaf:m_D_pm_MeV	dialin/out_qq_dpm_accmor_tip/results.tsv@1aed1a1c
+43.5qr-DPM_SPEAR_TIP	V_tip_MeV	1869.6602588035399231353	1869.4	0.6	0.433765	PASS-EXPL in-bar	leaf:m_D_pm_MeV	dialin/out_qr_dpm_spear_tip/results.tsv@69620511
+43.5qs-DPM_SELECTOR	-					FOLDED		dialin/out_qs_dpm_selector/results.tsv@e331026b (selector/aggregate; route-level record only)
+43.5qw-MK_LUM_TIP	V_tip_MeV	493.68021132210538231609	493.64	0.054	0.744654	PASS-EXPL	leaf:m_K_pm_MeV	dialin/out_qw_mk_lum_tip/results.tsv@51309a7d
+43.5qx-MK_BARKOV_TIP	V_tip_MeV	493.68021132210538231609	493.67	0.029	0.352115	PASS-EXPL	leaf:m_K_pm_MeV	dialin/out_qx_mk_barkov_tip/results.tsv@6287d96a
+43.5qy-MK_CHENG_TIP	V_tip_MeV	493.68021132210538231609	493.657	0.02	1.16057	PASS-EXPL	leaf:m_K_pm_MeV	dialin/out_qy_mk_cheng_tip/results.tsv@7d6694cf
+43.5qz-MK_BACKENSTOSS_TIP	V_tip_MeV	493.68021132210538231609	493.691	0.04	-0.269717	PASS-EXPL	leaf:m_K_pm_MeV	dialin/out_qz_mk_backenstoss_tip/results.tsv@c0fbad1d
+43.5ra-MK_SELECTOR	-					FOLDED		dialin/out_ra_mk_selector/results.tsv@8f8fd8f2 (selector/aggregate; route-level record only)
+43.5rc-RP_CREMA2013_TIP	V_tip_fm	0.84124854096976834119884	0.84087	0.00039	0.970618	PASS-EXPL	leaf:r_p_fm	dialin/out_rc_rp_crema2013_tip/results.tsv@e8ecd644
+43.5rd-RP_PRAD_TIP	V_tip_fm	0.84124854096976834119884	0.831	0.01389	0.737836	PASS-EXPL	leaf:r_p_fm	dialin/out_rd_rp_prad_tip/results.tsv@de870d61
+43.5re-RP_BEZGINOV_TIP	V_tip_fm	0.84124854096976834119884	0.833	0.01	0.824854	PASS-EXPL	leaf:r_p_fm	dialin/out_re_rp_bezginov_tip/results.tsv@37dd4feb
+43.5rf-RP_BEYER_TIP	V_tip_fm	0.84124854096976834119884	0.8335	0.0095	0.815636	PASS-EXPL	leaf:r_p_fm	dialin/out_rf_rp_beyer_tip/results.tsv@1b267c16
+43.5rh-RP_GRININ_TIP	V_tip_fm	0.84124854096976834119884	0.8482	0.0038	-1.82933	PASS-EXPL	leaf:r_p_fm	dialin/out_rh_rp_grinin_tip/results.tsv@e03ea25f
+43.5rj-RP_SELECTOR	-					FOLDED		dialin/out_rj_rp_selector/results.tsv@cd267a05 (selector/aggregate; route-level record only)
+43.5rl-MH_ATLAS2023_TIP	V_tip_GeV	125.15809774433902495425	125.11	0.11	0.437252	PASS-EXPL	leaf:m_H_GeV	dialin/out_rl_mh_atlas2023_tip/results.tsv@7808fc62
+43.5rm-MH_CMS2024_TIP	V_tip_GeV	125.15809774433902495425	125.04	0.12	0.984148	PASS-EXPL	leaf:m_H_GeV	dialin/out_rm_mh_cms2024_tip/results.tsv@df5a3ed8
+43.5rn-MH_CMS2020_TIP	V_tip_GeV	125.15809774433902495425	125.38	0.14	-1.58502	PASS-EXPL	leaf:m_H_GeV	dialin/out_rn_mh_cms2020_tip/results.tsv@8b3daaae
+43.5rp-MH_SELECTOR	-					FOLDED		dialin/out_rp_mh_selector/results.tsv@d9742ea6 (selector/aggregate; route-level record only)
+43.5ry-RA2_AXIAL_DIPOLE_TIP	Meyer16_nud_zexp	0.412100058153824691	0.46	0.22	-0.2177	FOLDED	nucleon:r_v2_over_2	dialin/out_ry_ra2_axial_dipole/results.tsv@ada50541
+43.5ry-RA2_AXIAL_DIPOLE_TIP	Hill18_MuCap_MODELDEP	0.412100058153824691	0.46	0.24	-0.1996	FOLDED	nucleon:r_v2_over_2	dialin/out_ry_ra2_axial_dipole/results.tsv@ada50541
+43.5ry-RA2_AXIAL_DIPOLE_TIP	MINERvA23_H_k8	0.412100058153824691	0.5329	0.2482	-0.4867	FOLDED	nucleon:r_v2_over_2	dialin/out_ry_ra2_axial_dipole/results.tsv@ada50541
+43.5sa-FORCE_WAVE44_END	-					FORCE		no results.tsv (route-level record only)
+43.5sd-GAQ2_MINERVA15_TIP	bin1[0.0125,0.025]	1.9572	3.06	1.881	+0.586	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sd-GAQ2_MINERVA15_TIP	bin2[0.025,0.0375]	1.8782	0.779	0.7616	-1.443	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sd-GAQ2_MINERVA15_TIP	bin3[0.0375,0.05]	1.802	0.596	0.5805	-2.078	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sd-GAQ2_MINERVA15_TIP	bin4[0.05,0.1]	1.6261	1.25	0.4037	-0.932	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sd-GAQ2_MINERVA15_TIP	bin5[0.1,0.15]	1.3817	1.13	0.2354	-1.069	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sd-GAQ2_MINERVA15_TIP	bin6[0.15,0.2]	1.184	0.962	0.1685	-1.317	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sd-GAQ2_MINERVA15_TIP	bin7[0.2,0.3]	0.95445	0.979	0.1356	+0.181	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sd-GAQ2_MINERVA15_TIP	bin8[0.3,0.4]	0.72383	0.821	0.102	+0.953	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sd-GAQ2_MINERVA15_TIP	bin9[0.4,0.6]	0.49299	0.49	0.0781	-0.038	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sd-GAQ2_MINERVA15_TIP	bin10[0.6,0.8]	0.30038	0.296	0.06181	-0.071	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sd-GAQ2_MINERVA15_TIP	bin11[0.8,1.0]	0.18841	0.206	0.05167	+0.340	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sd-GAQ2_MINERVA15_TIP	bin12[1.0,1.2]	0.12114	0.138	0.03834	+0.440	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sd-GAQ2_MINERVA15_TIP	bin13[1.2,2.0]	0.049008	0.0561	0.01568	+0.452	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sd-GAQ2_MINERVA15_TIP	bin14[2.0,4.0]	0.0060624	0.0112	0.005657	+0.908	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sd-GAQ2_MINERVA15_TIP	bin15[4.0,6.0]	0.00024363	0.00587	0.004405	+1.277	FOLDED		dialin/out_sd_gaq2_minerva15/results.tsv@fa0970da
+43.5sf-FORCE_WAVE45_END	-					FORCE		no results.tsv (route-level record only)
+43.5sn-PIH_AMINUS_NLO_INVENT_LEC	a_minus_x1e3_Mpi	85.5940204503	86.1	0.9	-0.562199	FOLDED-PASS-EXPL-INCLUDE		dialin/out_sn_pih_aminus_nlo/results.tsv@52fa4ee2
+43.5sn-PIH_AMINUS_NLO_INVENT_LEC	Gamma1s_meV	806.575989214	856.0	27.0	-1.830519	FOLDED-PASS-EXPL-INCLUDE		dialin/out_sn_pih_aminus_nlo/results.tsv@52fa4ee2
+43.5tg-SQRT8T0_OVER_R0_INVENT_EXTEND	PRIMARY sqrt8/N_c	0.9428090416				PASS	host:sqrt8t0_over_r0	dialin/out_tg_sqrt8t0_over_r0/results.tsv@9eee035b
+43.5tk-SQRT8T0_OVER_R0_TIP_COMMIT	Ce-Consonni	0.9428090416	0.941	0.007	-0.258	FOLDED-PASS	host:sqrt8t0_over_r0	dialin/out_tk_sqrt8t0_r0_tip_commit/results.tsv@267046b1
+43.5tk-SQRT8T0_OVER_R0_TIP_COMMIT	Francis	0.9428090416	0.944	0.008	+0.149	FOLDED-PASS	host:sqrt8t0_over_r0	dialin/out_tk_sqrt8t0_r0_tip_commit/results.tsv@267046b1
+43.5tm-MU_R_TIP_HOST	Schneider2017_mu_p	2.79284734443575	2.79284734462	8.2e-10	-0.225	FOLDED-PASS	host:mu_p	dialin/out_tm_mu_r_tip_host/results.tsv@09bbf59f
+43.5tm-MU_R_TIP_HOST	SMORRA2017_abs_mu_pbar	2.79284734443575	2.7928473441	4.2e-09	+0.080	FOLDED-PASS	host:mu_p	dialin/out_tm_mu_r_tip_host/results.tsv@09bbf59f
+43.5to-THREE_N_CDCE_TIP_COMMIT	Gazit2019_c_D	0.846517785106	0.83	0.24	+0.068824	FOLDED-PASS	host:c_D	dialin/out_to_three_n_cdce_tip_commit/results.tsv@02b91200
+43.5to-THREE_N_CDCE_TIP_COMMIT	Gazit2019_c_E	-0.051160738298	-0.052	0.033	+0.025432	FOLDED-PASS	host:c_E	dialin/out_to_three_n_cdce_tip_commit/results.tsv@02b91200
+43.5vt-TAU_N_GF_Z2_MU_CONSISTENT_DR2_COMPLETION_INVENT_EXTEND	tau_n_s UCNtau [P2]	877.8484108	877.82	0.287445647	0.098839	CARRIED P2 C1+C2+C3+C5mu+C6 (no C7) · Gate A PASS (tau_n), G_F Gate A FAIL / Gate B ACCEPT-AT-SM-PARITY (t992u c65ff89d) · SM_PARITY_REFINE_LATER	vt:tau_n_P2	dialin/out_vt_tau_n_gf_z2_mu_consistent_dr2_completion/results.tsv@90b5458e
+43.5vt-TAU_N_GF_Z2_MU_CONSISTENT_DR2_COMPLETION_INVENT_EXTEND	tau_n_s Pattie [P2]	877.8484108	877.7	0.761577311	0.19487	CARRIED P2 C1+C2+C3+C5mu+C6 (no C7) · Gate A PASS (tau_n), G_F Gate A FAIL / Gate B ACCEPT-AT-SM-PARITY (t992u c65ff89d) · SM_PARITY_REFINE_LATER	vt:tau_n_P2	dialin/out_vt_tau_n_gf_z2_mu_consistent_dr2_completion/results.tsv@90b5458e
+43.5vt-TAU_N_GF_Z2_MU_CONSISTENT_DR2_COMPLETION_INVENT_EXTEND	G_F_GeVm2 [P2]	1.16690544271959e-5	1.1663787e-5	6e-12		CARRIED P2 C1+C2+C3+C5mu+C6 (no C7) · Gate A PASS (tau_n), G_F Gate A FAIL / Gate B ACCEPT-AT-SM-PARITY (t992u c65ff89d) · SM_PARITY_REFINE_LATER	vt:G_F_P2	dialin/out_vt_tau_n_gf_z2_mu_consistent_dr2_completion/results.tsv@90b5458e
+43.5vt-TAU_N_GF_Z2_MU_CONSISTENT_DR2_COMPLETION_INVENT_EXTEND	tau_n_s UCNtau [P1]	877.6309982	877.82	0.287445647	-0.65752	ALTERNATE P1 C1+C2+C3+C5mu+C6+C7 (documented, not carried) · Gate A PASS (tau_n), G_F Gate A FAIL / Gate B ACCEPT-AT-SM-PARITY (t992u c65ff89d) · SM_PARITY_REFINE_LATER	vt:tau_n_P1	dialin/out_vt_tau_n_gf_z2_mu_consistent_dr2_completion/results.tsv@90b5458e
+43.5vt-TAU_N_GF_Z2_MU_CONSISTENT_DR2_COMPLETION_INVENT_EXTEND	tau_n_s Pattie [P1]	877.6309982	877.7	0.761577311	-0.090604	ALTERNATE P1 C1+C2+C3+C5mu+C6+C7 (documented, not carried) · Gate A PASS (tau_n), G_F Gate A FAIL / Gate B ACCEPT-AT-SM-PARITY (t992u c65ff89d) · SM_PARITY_REFINE_LATER	vt:tau_n_P1	dialin/out_vt_tau_n_gf_z2_mu_consistent_dr2_completion/results.tsv@90b5458e
+43.5vt-TAU_N_GF_Z2_MU_CONSISTENT_DR2_COMPLETION_INVENT_EXTEND	G_F_GeVm2 [P1]	1.16704997054391e-5	1.1663787e-5	6e-12		ALTERNATE P1 C1+C2+C3+C5mu+C6+C7 (documented, not carried) · Gate A PASS (tau_n), G_F Gate A FAIL / Gate B ACCEPT-AT-SM-PARITY (t992u c65ff89d) · SM_PARITY_REFINE_LATER	vt:G_F_P1	dialin/out_vt_tau_n_gf_z2_mu_consistent_dr2_completion/results.tsv@90b5458e
