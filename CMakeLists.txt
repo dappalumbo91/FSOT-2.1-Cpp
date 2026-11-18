@@ -149,6 +149,14 @@ if(Boost_FOUND)
   add_executable(test_genetics_protein_scalars tests/test_genetics_protein_scalars.cpp)
   target_link_libraries(test_genetics_protein_scalars PRIVATE fsot)
   add_test(NAME genetics_protein_scalars_golden COMMAND test_genetics_protein_scalars)
+  add_executable(fsot_cpl_joint apps/fsot_cpl_joint.cpp)
+  target_link_libraries(fsot_cpl_joint PRIVATE fsot)
+  add_test(NAME cpl_joint_report
+           COMMAND fsot_cpl_joint --refs ${CMAKE_CURRENT_SOURCE_DIR}/reference/cpl_w0wa_joint_2026-11-18.tsv
+                   --out ${CMAKE_CURRENT_BINARY_DIR}/cpl_w0wa_joint_2026-11-18.tsv)
+  add_test(NAME cpl_joint_report_golden COMMAND ${CMAKE_COMMAND} -E compare_files
+           ${CMAKE_CURRENT_BINARY_DIR}/cpl_w0wa_joint_2026-11-18.tsv ${CMAKE_CURRENT_SOURCE_DIR}/audit/cpl_w0wa_joint_2026-11-18.tsv)
+  set_tests_properties(cpl_joint_report_golden PROPERTIES DEPENDS cpl_joint_report)
   add_executable(fsot_precision apps/fsot_precision.cpp)
   target_link_libraries(fsot_precision PRIVATE fsot)
   add_test(NAME precision_report

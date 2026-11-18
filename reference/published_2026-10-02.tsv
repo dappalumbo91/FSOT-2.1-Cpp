@@ -39,12 +39,12 @@ BR_Z_inv	direct	0.20000	0.00055	0.00055	1	PDG2024:sum-gauge-higgs-bosons	pdg2024
 BR_Z_had	direct	0.69911	0.00056	0.00056	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:128	
 A_e	direct	0.1515	0.0019	0.0019	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:97	
 A_FB_0l	direct	0.0171	0.0010	0.0010	1	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:105	printed in percent
-m_H_GeV	direct	125.20	0.11	0.11	GeV	PDG2024:sum-gauge-higgs-bosons	pdg2024_extracts:sum-gauge-higgs-bosons:202	
+m_H_GeV	direct	125.13	0.11	0.11	GeV	PDG2026:list-higgs-boson	pdg2026_extracts:list-higgs-boson:23	PDG 2026 OUR AVERAGE (S=1.5); was PDG 2024 125.20(11) (SPEC t1027s4342 §3)
 m_tau_MeV	direct	1776.93	0.09	0.09	MeV	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:70	
-sin2_12	direct	0.307	0.013	0.013	1	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:539	
+sin2_12	direct	0.307	0.012	0.012	1	PDG2026:list-neutrino-mixing	pdg2026_extracts:list-neutrino-mixing:1179	PDG 2026 listing ABE 24B FIT (KamLAND+global solar); review Table 14.7 global fits 0.303-0.308
 sin2_23	direct	0.558	0.021	0.015	1	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:544+-1	+0.015 on the line above in the PDF
 sin2_23_nufit	direct	0.470	0.014	0.017	1	NUFIT61	normal-ordering-with-SK	NuFIT 6.1 normal ordering with SK; same 1 sigma interval without SK; 3 sigma 0.435 to 0.584; predates the 2026-10-02 freeze
-sin2_13	direct	0.0219	0.0007	0.0007	1	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:552	
+sin2_13	direct	0.0218	0.0007	0.0007	1	PDG2026:list-neutrino-mixing	pdg2026_extracts:list-neutrino-mixing:1300	PDG 2026 listing, reactor average
 dm2_21	direct	7.53e-5	0.18e-5	0.18e-5	eV^2	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:540	
 dm2_32	direct	2.455e-3	0.028e-3	0.028e-3	eV^2	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:546	
 delta_CP_over_pi	direct	1.19	0.22	0.22	pi rad	PDG2024:sum-leptons	pdg2024_extracts:sum-leptons:553	
@@ -57,22 +57,22 @@ m_K_pm_MeV	direct	493.677	0.015	0.015	MeV	PDG2024:sum-mesons	pdg2024_extracts:su
 m_D_pm_MeV	direct	1869.66	0.05	0.05	MeV	PDG2024:sum-mesons	pdg2024_extracts:sum-mesons:2101	
 r_p_fm	direct	0.8409	0.0004	0.0004	fm	PDG2024:sum-baryons	pdg2024_extracts:sum-baryons:29	
 tau_n_s	direct	878.4	0.5	0.5	s	PDG2024:sum-baryons	pdg2024_extracts:sum-baryons:177	
-CKM_V_ud	direct	0.97435	0.00016	0.00016	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:689+-2	global fit, Eq. (12.27)
-CKM_V_us	direct	0.22501	0.00068	0.00068	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:689+-2	global fit, Eq. (12.27)
+CKM_V_ud	direct	0.97431	0.00016	0.00016	1	PDG2026:rev-ckm-matrix	pdg2026_extracts:rev-ckm-matrix:691	FIT (unitarity), PDG 2026 Eq. (12.27); was PDG 2024 0.97435(16)
+CKM_V_us	direct	0.22517	0.00068	0.00068	1	PDG2026:rev-ckm-matrix	pdg2026_extracts:rev-ckm-matrix:691	FIT (unitarity; = lambda), PDG 2026 Eq. (12.27); was PDG 2024 0.22501(68)
 CKM_V_ub	direct	0.003732	0.000085	0.000090	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:689+-2	global fit, Eq. (12.27)
 CKM_V_cd	direct	0.22487	0.00068	0.00068	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:692+-2	global fit, Eq. (12.27)
 CKM_V_cs	direct	0.97349	0.00016	0.00016	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:692+-2	global fit, Eq. (12.27)
 CKM_V_cb	direct	0.04183	0.00069	0.00079	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:692+-2	global fit, Eq. (12.27)
 CKM_V_td	direct	0.00858	0.00017	0.00019	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:695+-2	global fit, Eq. (12.27)
 CKM_V_ts	direct	0.04111	0.00068	0.00077	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:695+-2	global fit, Eq. (12.27)
-CKM_V_tb	direct	0.999118	0.000034	0.000029	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:697+-2	global fit, Eq. (12.27)
-CKM_V_ud_direct	direct	0.97367	0.00032	0.00032	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:109	direct (superallowed beta), Eq. (12.7); secondary column only
-CKM_V_us_direct	direct	0.22431	0.00085	0.00085	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:146	direct (K decays), Eq. (12.8); secondary column only
+CKM_V_tb	direct	0.999115	0.000034	0.000029	1	PDG2026:rev-ckm-matrix	pdg2026_extracts:rev-ckm-matrix:700+-1	FIT (unitarity), PDG 2026 Eq. (12.27); was PDG 2024 0.999118
+CKM_V_ud_direct	direct	0.97367	0.00032	0.00032	1	PDG2026:rev-ckm-matrix	pdg2026_extracts:rev-ckm-matrix:109	direct (superallowed beta), PDG 2026 Eq. (12.7); t999u observational primary for a derived V_ud
+CKM_V_us_direct	direct	0.22431	0.00085	0.00085	1	PDG2026:rev-ckm-matrix	pdg2026_extracts:rev-ckm-matrix:146	direct (K decays), PDG 2026 Eq. (12.8); secondary column only
 J_CKM	direct	3.12e-5	0.12e-5	0.13e-5	1	PDG2024:rev-ckm-matrix	pdg2024_extracts:rev-ckm-matrix:739+-2	
 sin2_theta_W_MSbar	direct	0.23129	0.00004	0.00004	1	PDG2024:rev-standard-model	pdg2024_extracts:rev-standard-model:405	
 R_b	direct	0.21629	0.00066	0.00066	1	PDG2024:rev-standard-model	pdg2024_extracts:rev-standard-model:1563	
 R_c	direct	0.1721	0.0030	0.0030	1	PDG2024:rev-standard-model	pdg2024_extracts:rev-standard-model:1564	
-alpha_s_MZ	direct	0.1180	0.0009	0.0009	1	PDG2024:rev-qcd	pdg2024_extracts:rev-qcd:2278	
+alpha_s_MZ	direct	0.1180	0.0009	0.0009	1	PDG2026:rev-qcd	pdg2026_extracts:rev-qcd:2494	PDG 2026 QCD review Eq. (9.25) (labelled "PDG 2025 average"); number unchanged
 H0	direct	67.4	0.5	0.5	km s^-1 Mpc^-1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:62	h = 0.674(5)
 T0_K	direct	2.7255	0.0006	0.0006	K	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:53	
 Omega_b_h2	direct	0.02237	0.00015	0.00015	1	PDG2024:rev-astrophysical-constants	pdg2024_extracts:rev-astrophysical-constants:79	
@@ -157,3 +157,8 @@ sin2_eff_lept_SM	direct	0.23161	0.00004	0.00004	1	PDG2024:rev-standard-model	pdg
 m_n_MeV	direct	939.56542194	0.00000048	0.00000048	MeV	CODATA2022	neutron mass energy equivalent in MeV	02h trace (deuteron binding)
 m_d_MeV	direct	1875.61294500	0.00000058	0.00000058	MeV	CODATA2022	deuteron mass energy equivalent in MeV	02h trace (deuteron binding)
 M_W_SM_GeV	direct	80.353	0.006	0.006	GeV	PDG2024:rev-standard-model	pdg2024_extracts:rev-standard-model:2070	02h GZ-1 validation V1 (SM M_W, M_H 125.10, no M_W/Gamma_W constraint)
+li7_h_obs	direct	1.45e-10	0.25e-10	0.25e-10	1	PDG2026:rev-bbang-nucleosynthesis	pdg2026_extracts:rev-bbang-nucleosynthesis:291	observed 7Li/H (Spite plateau), Eq. (24.4); t999u primary
+li7_h_bbn	direct	4.72e-10	0.7e-10	0.7e-10	1	PDG2026:rev-bbang-nucleosynthesis	pdg2026_extracts:rev-bbang-nucleosynthesis:416	BBN theory 7Li/H, Eq. (24.10); theory, not a target
+li7_underproduction	ratio:li7_h_bbn/li7_h_obs				1	derived		dimensionless lithium underproduction factor BBN/obs = 3.255(740), quadrature (SPEC t1027s4342 §4.2)
+w0_cpl_unite	direct	-0.861	0.042	0.044	1	ARXIV:2609.05053	arxiv_extracts:2609.05053:abstract	Unite+CMB+DES&DESI BAO, flat w0waCDM (CPL) w0; 68%; no published rho(w0,w_a) (SPEC t1027s4342 §2)
+wa_cpl_unite	direct	-0.60	0.19	0.17	1	ARXIV:2609.05053	arxiv_extracts:2609.05053:abstract	Unite+CMB+DES&DESI BAO, flat w0waCDM (CPL) w_a; replaces the stale -0.83 (a rounded DESI w0) as the w_a target

@@ -6,6 +6,7 @@ committed under reference/evidence/ (stdlib only; no network).
                     (https://physics.nist.gov/cuu/Constants/Table/allascii.txt).
   PDG2024 rows    : central and sigma digits (up to a power-of-ten display scale)
                     must appear on the cited pdftotext line(s) of the PDG 2024 PDF.
+  PDG2026 rows    : same check against reference/evidence/pdg2026_extracts.tsv (PDG 2026 PDFs).
   AME2020 rows    : binding energy recomputed from the mass excesses in the extract.
   IAEA rows       : magnetic dipole and uncertainty equal the committed LiveChart API extract.
   ARXIV rows      : central and sigma digits must appear in the quoted text of
@@ -44,9 +45,9 @@ def codata():
         out[name] = (rest[0].replace(" ", "").replace("...", ""), rest[1].replace(" ", ""))
     return out
 
-def pdg_lines():
+def pdg_lines(edition="2024"):
     d = {}
-    for line in open(os.path.join(ROOT, "evidence", "pdg2024_extracts.tsv"), encoding="utf-8"):
+    for line in open(os.path.join(ROOT, "evidence", f"pdg{edition}_extracts.tsv"), encoding="utf-8"):
         if line.startswith("#"):
             continue
         doc, ln, text = line.rstrip("\n").split("\t", 2)
@@ -61,8 +62,8 @@ def scaled(x, k):
     s = format(v, "f")
     return s.lstrip("-")
 
-def check_pdg(r, lines):
-    m = re.match(r"pdg2024_extracts:([^:]+):(\d+)(?:\+-(\d+))?$", r["evidence"])
+def check_pdg(r, lines, edition="2024"):
+    m = re.match(r"pdg" + edition + r"_extracts:([^:]+):(\d+)(?:\+-(\d+))?$", r["evidence"])
     if not m:
         return "bad evidence ref"
     doc, ln, ex = m.group(1), int(m.group(2)), int(m.group(3) or 0)
@@ -132,6 +133,9 @@ def check_arxiv(r):
         if all(re.search(re.escape(c) + r"\)?±\(?" + re.escape(scaled(sg, k)) + r"0*(?![0-9])", t) or
                re.search(r"\(" + re.escape(c) + r"0*±" + re.escape(scaled(sg, k)) + r"0*\)", t) for sg in {r["sm"], r["sp"]}):
             return None
+        # asymmetric LaTeX form c^{+sp}_{-sm} (braces already stripped)
+        if re.search(re.escape(c) + r"0*\^\+" + re.escape(scaled(r["sp"], k)) + r"0*_-" + re.escape(scaled(r["sm"], k)) + r"0*(?![0-9])", t):
+            return None
     return f"digits not found in arxiv extract {m.group(1)} {m.group(2)}: {txt!r}"
 
 def check_iaea(r):
@@ -163,7 +167,7 @@ def check_nufit(r):
 def main():
     rows = load_rows()
     keys = {r["key"] for r in rows}
-    cd, pl = codata(), pdg_lines()
+    cd, pl, pl26 = codata(), pdg_lines(), pdg_lines("2026")
     bad = 0
     counts = {}
     for r in rows:
@@ -183,6 +187,8 @@ def main():
                 err = f"CODATA {v} != ({r['central']}, {r['sm']})"
         elif src == "PDG2024":
             err = check_pdg(r, pl)
+        elif src == "PDG2026":
+            err = check_pdg(r, pl26, "2026")
         elif src == "AME2020":
             err = check_ame(r)
         elif src == "ARXIV":

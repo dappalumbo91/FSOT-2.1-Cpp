@@ -1,0 +1,28 @@
+#doc	line	text   (pdftotext -layout of https://pdg.lbl.gov/2026/{listings|reviews}/rpp2026-<doc>.pdf, fetched 2026-11-18; line = 1-based newline-delimited line)
+rev-qcd	2494	                                  αs (m2Z ) = 0.1180 ± 0.0009         (PDG 2025 average) .                  (9.25)
+rev-ckm-matrix	109	                                  |Vud | = 0.97367 ± 0.00032 .                            (12.7)
+rev-ckm-matrix	146	                                           |Vus | = 0.22431 ± 0.00085 .                                         (12.8)
+rev-ckm-matrix	680	                                                                             +0.017
+rev-ckm-matrix	681	                     λ = 0.22517 ± 0.00068 ,                        A = 0.826−0.015 ,
+rev-ckm-matrix	682	                     ρ̄ = 0.1576+0.0092
+rev-ckm-matrix	683	                                −0.0091 ,                            η̄ = 0.3556+0.0071
+rev-ckm-matrix	684	                                                                                −0.0069 .              (12.26)
+rev-ckm-matrix	686	These values are obtained using the method of Refs. [6, 113]. The prescription of Refs. [114, 134]
+rev-ckm-matrix	687	gives λ = 0.22519 ± 0.00068, A = 0.820 ± 0.011, ρ̄ = 0.1561 ± 0.0088, and η̄ = 0.3587 ± 0.0069 [135];
+rev-ckm-matrix	688	these results are very close to one another. The fit results for the magnitudes of all nine CKM
+rev-ckm-matrix	689	elements are
+rev-ckm-matrix	691	                   0.97431 ± 0.00016 0.22517 ± 0.00068 0.003763+0.000088
+rev-ckm-matrix	692	                                                                                       
+rev-ckm-matrix	693	                                                               −0.000083
+rev-ckm-matrix	694	           VCKM = 0.22503 ± 0.00068 0.97345 ± 0.00016 0.04189+0.00081
+rev-ckm-matrix	695	                                                               −0.00069  ,                            (12.27)
+rev-ckm-matrix	696	                                                                        
+rev-ckm-matrix	698	                     0.00863+0.00019
+rev-ckm-matrix	699	                            −0.00017   0.04117+0.00079
+rev-ckm-matrix	700	                                              −0.00068 0.999115+0.000029
+rev-ckm-matrix	701	                                                               −0.000034
+list-higgs-boson	23	125.13± 0.11 OUR AVERAGE Error includes scale factor of 1.5. See the ideogram below.
+rev-bbang-nucleosynthesis	291	                                  Li/H|p = (1.45 ± 0.25) × 10−10 .                             (24.4)
+rev-bbang-nucleosynthesis	416	                                     Li/H|p = (4.72 ± 0.7) × 10−10                                (24.10)
+list-neutrino-mixing	1179	0.307± 0.012             1 ABE              24B FIT       KamLAND+global solar; 3ν
+list-neutrino-mixing	1300	    sin2 (θ13 ) = 0.0218 ± 0.0007 coming from reactor neutrino experiments, using all solar

@@ -38,6 +38,8 @@
 #include "fsot/host/pmns_phase.hpp"
 #include "fsot/host/precision_gate.hpp"
 #include "fsot/host/seed_leaves.hpp"
+#include "fsot/host/quantum_vcb_lithium.hpp"
+#include "fsot/host/sigma_fsot.hpp"
 
 using namespace fsot;
 using R = mp169;
@@ -116,6 +118,8 @@ struct Out {
   std::string id, route, source, ref_key, unit, src_link, pin_target, hist, cause;
   bool record = false, od_superseded = false; LD value = 0; R vr = 0, rvr = 0; gate::Ref ref{}; gate::Score s{};
   std::string rid; LD rvalue = 0; gate::Score rs{};  // frozen-pending refinement (REFINEMENTS_2026-10-02b)
+  R vr5 = 0; std::vector<double> alt;  // SPEC t1027s4342 §1: D_eff-5 value of the same route; extra in-engine competing forms
+  sigma::Parts sg{}; double zc = 0;
 };
 
 static std::string fmt(const char* f, double v) { char b[64]; std::snprintf(b, sizeof b, f, v); return b; }
@@ -132,11 +136,13 @@ int main(int argc, char** argv) {
   std::puts("fsot_precision: needs Boost.Multiprecision"); return 0;
 #else
   std::string refs_p, map_p, lin_p, tsv_p, md_p;
+  double k_report = 0;  // SPEC t1027s4342 §1.4: k is a parameter only (Damian t1031u HOLD); never a verdict
   for (int i = 1; i + 1 < argc; i += 2) {
     std::string a = argv[i];
     if (a == "--refs") refs_p = argv[i + 1]; else if (a == "--map") map_p = argv[i + 1];
     else if (a == "--lineage") lin_p = argv[i + 1]; else if (a == "--tsv-out") tsv_p = argv[i + 1];
     else if (a == "--md-out") md_p = argv[i + 1];
+    else if (a == "--k-report") k_report = std::strtod(argv[i + 1], nullptr);
   }
   if (refs_p.empty() || map_p.empty() || lin_p.empty()) { std::fprintf(stderr, "usage: see header\n"); return 2; }
 
@@ -188,14 +194,27 @@ int main(int argc, char** argv) {
   for (auto& [name, fn] : eng6.sections())
     for (auto& r : (eng6.*fn)()) ownerv[std::string(name) + "|" + r.name] = R(r.computed);
 
-  std::vector<Out> outs;
-  for (auto& f : read_tsv(map_p)) {
-    Out o; o.id = f.at(0); o.route = f.at(1); o.source = f.at(2); o.ref_key = f.at(3);
-    const R scale = num(f.at(4)); o.record = f.at(5) == "1"; const std::string note = f.size() > 6 ? f[6] : "";
-    auto rit = refs.find(o.ref_key);
-    if (rit == refs.end()) { std::fprintf(stderr, "unknown ref %s\n", o.ref_key.c_str()); return 2; }
-    const RefRow& rr = rit->second;
-    o.ref = {to_d(rr.c), to_d(rr.sm), to_d(rr.sp)}; o.unit = rr.unit; o.src_link = source_link(rr, refs);
+  // SPEC t1027s4342 §1 sigma_D: D-04 alternative engine (QM at the nest-rule rung 5), same construction as
+  // derive::with_qm_rung(5) in fsot_single_engine.
+  Engine<R> e5;
+  for (auto& d : e5.DOMAINS) if (d.name == "Quantum_Mechanics") d.D_eff = 5;
+  e5.S_QUANT = e5.domain_scalar("Quantum_Mechanics");
+  std::map<std::string, R> leafv5;
+  for (auto& [id, v] : leaves::SeedLeaves<R>(e5).mp_values()) leafv5[id] = v;
+  const auto ckm5 = leaves::ckm_double(e5);
+  for (auto& [k, v] : ckm5.mags) leafv5["CKM_" + k] = R(v);
+  std::map<std::string, R> seedv5 = {{"seed_alpha_s_MZ", R(2) * (e5.POOF / e5.PSI_CON) * (e5.POOF / e5.PSI_CON)}};
+  std::map<std::string, std::pair<R, R>> pinv5;
+  std::map<std::string, R> ownerv5;  // owner (OD) rows are carried at rung 6; their rung-5 counterpart is e5 itself
+  for (auto& [name, fn] : e5.sections())
+    for (auto& r : (e5.*fn)()) {
+      pinv5[std::string(name) + "|" + r.name] = {R(r.computed), r.measured ? R(*r.measured) : R(0)};
+      ownerv5[std::string(name) + "|" + r.name] = R(r.computed);
+    }
+  // Row evaluation for one engine context (canonical D6, and the D-04 D5 alternative for sigma_D).
+  auto evalv = [&](Engine<R>& eng, std::map<std::string, R>& leafv, const decltype(ckm)& ckm,
+                   std::map<std::string, std::pair<R, R>>& pinv, std::map<std::string, R>& ownerv,
+                   std::map<std::string, R>& seedv, Out& o, const R& scale) -> int {
     if (o.route == "leaf") {
       auto it = leafv.find(o.source); if (it == leafv.end()) { std::fprintf(stderr, "no leaf %s\n", o.source.c_str()); return 2; }
       o.vr = it->second * scale;
@@ -276,9 +295,28 @@ int main(int argc, char** argv) {
                               - ps * ps * eng.C_FACTOR * eng.C_FACTOR / eng.P_BASE);
       const R piece = R(1) + R(1) / (R(4) * eng.PI * eng.PI);
       o.vr = bare * (R(1) + m::ipow(alpha, 2) * piece) * scale;
+    } else if (o.route == "lifac") {
+      // SPEC t1027s4342 §4.2: canonical lithium underproduction factor pi*C_EFF (include/fsot/host/quantum_vcb_lithium.hpp)
+      if (o.source != "pi_C_EFF") { std::fprintf(stderr, "no lifac source %s\n", o.source.c_str()); return 2; }
+      o.vr = quantum::lithium_factor(eng) * scale;
     } else {
       auto it = pinv.find(o.source); if (it == pinv.end()) { std::fprintf(stderr, "no pin row %s\n", o.source.c_str()); return 2; }
       o.vr = it->second.first * scale; o.pin_target = fmt("%.10g", to_d(it->second.second * scale));
+    }
+    return 0;
+  };
+  std::vector<Out> outs;
+  for (auto& f : read_tsv(map_p)) {
+    Out o; o.id = f.at(0); o.route = f.at(1); o.source = f.at(2); o.ref_key = f.at(3);
+    const R scale = num(f.at(4)); o.record = f.at(5) == "1"; const std::string note = f.size() > 6 ? f[6] : "";
+    auto rit = refs.find(o.ref_key);
+    if (rit == refs.end()) { std::fprintf(stderr, "unknown ref %s\n", o.ref_key.c_str()); return 2; }
+    const RefRow& rr = rit->second;
+    o.ref = {to_d(rr.c), to_d(rr.sm), to_d(rr.sp)}; o.unit = rr.unit; o.src_link = source_link(rr, refs);
+    if (int rc = evalv(eng, leafv, ckm, pinv, ownerv, seedv, o, scale)) return rc;
+    {  // sigma_D: same route on the QM-rung-5 engine (D-04 alternative); t1023u keeps D6 carried
+      Out o5 = o;
+      o.vr5 = evalv(e5, leafv5, ckm5, pinv5, ownerv5, seedv5, o5, scale) == 0 ? o5.vr : o.vr;
     }
     o.value = to_d(o.vr);
     o.s = score_r(o.vr, rr);
@@ -400,23 +438,46 @@ int main(int argc, char** argv) {
           return 2;
         }
         v = m::fabs(outs[gi->second].vr) / R(2) - R(1); how = "|g_e|/2 - 1 of leaf g_e";
+        p.vr5 = m::fabs(outs[gi->second].vr5) / R(2) - R(1);
       } else if (tid == "od1_to_32") {  // exact NO identity; od1 must be the dm2_21_over_dm2_31 record
         auto ti = idx.find("od1:wave4|Dm2_21/Dm2_31");
         if (ti == idx.end() || !outs[ti->second].record || outs[ti->second].ref_key != "dm2_21_over_dm2_31") {
           std::fprintf(stderr, "od1 is not the dm2_21_over_dm2_31 record\n"); return 2; }
         const R r = outs[ti->second].vr;
         v = r / (R(1) - r); how = "r/(1-r) of record od1 (Dm2_32 = Dm2_31 - Dm2_21, NO)";
+        const R r5 = outs[ti->second].vr5; p.vr5 = r5 / (R(1) - r5);
       } else {
         auto ti = idx.find(tid);
         if (ti == idx.end()) { std::fprintf(stderr, "no twin row %s\n", tid.c_str()); return 2; }
         const Out& t = outs[ti->second];
         if (t.ref_key != p.ref_key || !t.record) { std::fprintf(stderr, "twin %s is not a record of %s\n", tid.c_str(), p.ref_key.c_str()); return 2; }
         v = t.vr; how = "record twin " + tid + " (route " + t.route + ")";
+        p.vr5 = t.vr5;
+        outs[ti->second].alt.push_back(to_d(p.vr));  // SPEC §1.2: the legacy closed form is a competing form of the twin
       }
       const R old = p.vr;
+      p.alt.push_back(to_d(old));
       p.vr = v; p.value = to_d(v); p.s = score_r(v, rr);
       p.cause = "pin evaluates " + how + "; legacy closed form " + fmt("%.15g", to_d(old)) + " z=" + fz(score_r(old, rr).z) +
                 " no longer scored (TRACE 19)";
+    }
+  }
+
+  // SPEC t1027s4342 §1: sigma_FSOT per row (reporting only; k on HOLD, Damian t1031u). Competing forms of a quantity
+  // = every row value scored against the same reference + the legacy closed forms those rows replaced (TRACE 19)
+  // + constructed survey definitions (S_8 = sigma_8 sqrt(Omega_m/0.3), wave2 rows of the same engine).
+  {
+    for (auto& o : outs)
+      if (o.id == "pin:wave8|S_8")
+        o.alt.push_back(to_d(pinv.at("wave2|sigma_8").first * m::sqrt(pinv.at("wave2|Omega_m").first / R("0.3"))));
+    std::map<std::string, std::vector<double>> forms;
+    for (auto& o : outs) {
+      forms[o.ref_key].push_back(o.value);
+      for (double a : o.alt) forms[o.ref_key].push_back(a);
+    }
+    for (auto& o : outs) {
+      o.sg = sigma::parts(forms.at(o.ref_key), o.value, to_d(o.vr5));
+      o.zc = sigma::z_combined(o.value, o.ref.central, o.ref.sigma_minus, o.ref.sigma_plus, o.sg.fsot);
     }
   }
 
@@ -438,14 +499,15 @@ int main(int argc, char** argv) {
   };
 
   FILE* tsv = tsv_p.empty() ? stdout : std::fopen(tsv_p.c_str(), "wb");
-  std::fprintf(tsv, "#id\troute\trecord\tvalue\tunit\tref_key\tcentral\tsigma_minus\tsigma_plus\tppm\tz\tpass_z<=1\trel_pct\tpass_2pct\tpin_target\thistorical_best\tcause\tsource\trefined_id\trefined_value\trefined_z\trefined_pass_z<=1\n");
+  std::fprintf(tsv, "#id\troute\trecord\tvalue\tunit\tref_key\tcentral\tsigma_minus\tsigma_plus\tppm\tz\tpass_z<=1\trel_pct\tpass_2pct\tpin_target\thistorical_best\tcause\tsource\trefined_id\trefined_value\trefined_z\trefined_pass_z<=1\tsigma_mult\tsigma_D\tsigma_prec\tsigma_fsot\tz_combined\n");
   for (auto& o : outs) {
     std::fprintf(tsv, "%s\t%s\t%d\t%.15g\t%s\t%s\t%.15g\t%.6g\t%.6g\t%.6g\t%.4g\t%s\t%.6g\t%s\t%s\t%s\t%s\t%s", o.id.c_str(), o.route.c_str(),
                  o.record, o.value, o.unit.c_str(), o.ref_key.c_str(), o.ref.central, o.ref.sigma_minus, o.ref.sigma_plus, o.s.ppm, o.s.z,
                  o.s.pass_z ? "PASS" : "FAIL", o.s.rel_pct, o.s.pass_old ? "PASS" : "FAIL", o.pin_target.c_str(), o.hist.c_str(),
                  o.cause.c_str(), o.src_link.c_str());
-    if (o.rid.empty()) std::fprintf(tsv, "\t\t\t\t\n");
-    else std::fprintf(tsv, "\t%s\t%.15g\t%.4g\t%s\n", o.rid.c_str(), o.rvalue, o.rs.z, o.rs.pass_z ? "PASS (frozen-pending)" : "FAIL (open)");
+    if (o.rid.empty()) std::fprintf(tsv, "\t\t\t\t");
+    else std::fprintf(tsv, "\t%s\t%.15g\t%.4g\t%s", o.rid.c_str(), o.rvalue, o.rs.z, o.rs.pass_z ? "PASS (frozen-pending)" : "FAIL (open)");
+    std::fprintf(tsv, "\t%.8g\t%.8g\t%.8g\t%.8g\t%+.4f\n", o.sg.mult, o.sg.D, o.sg.prec, o.sg.fsot, o.zc);
   }
   if (tsv != stdout) std::fclose(tsv);
 
@@ -482,6 +544,9 @@ int main(int argc, char** argv) {
   summarize(true, md, "record set if the passing frozen-pending refinements were adopted (NOT confirmed)", true);
   summarize(true, md, "record set without the owner decisions OD-1/OD-2 (pinned rows only; audit/OWNER_DECISIONS_2026-10-02i.md)", false, true);
   std::fprintf(md, "```\n\n");
+  std::fprintf(md, "sigma_FSOT (SPEC t1027s4342 §1): the tsv carries sigma_mult, sigma_D, sigma_prec, sigma_fsot and the signed "
+                   "z_combined = (v - central)/sqrt(sigma_obs^2 + sigma_fsot^2). Reporting only: the kill band k is on HOLD "
+                   "(Damian t1031u, 2026-11-18); no verdict is derived from z_combined.\n\n");
   std::fprintf(md, "| id | route | rec | confirmed value | unit | central | sigma (-/+) | ppm | z | z<=1 | 2%% | frozen-pending refined (id: value, z) | historical best | cause / note | source |\n");
   std::fprintf(md, "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n");
   for (auto& o : outs) {
@@ -505,6 +570,11 @@ int main(int argc, char** argv) {
   if (md != stdout) std::fclose(md);
   summarize(true, stdout, "record set (scored)");
   summarize(false, stdout, "all rows");
+  if (k_report > 0) {  // count only; no PASS/FAIL (t1031u)
+    int n = 0, in = 0;
+    for (auto& o : outs) if (o.record) { ++n; in += std::fabs(o.zc) < k_report; }
+    std::printf("REPORT ONLY (k on HOLD, t1031u): record rows with |z_combined| < %g: %d/%d\n", k_report, in, n);
+  }
   summarize(true, stdout, "record set with passing frozen-pending refinements (NOT confirmed)", true);
   summarize(true, stdout, "record set without owner decisions (pinned only)", false, true);
   return 0;

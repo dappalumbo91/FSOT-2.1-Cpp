@@ -1,0 +1,13 @@
+# Joint CPL (w0, w_a) references for the 2D chi^2 report (SPEC t1027s4342 §2; Scout bank 43_5ww,
+# refine_bots/tracer/dialin/WAVE102_W0WA_CORRELATION_43_5ww.md sha8 42c70ede, tsv 50e9e8d0).
+# rho_status: CHAIN = Scout-derived from official chains (DESI DR2 public cobaya/base_w_wa chains, SHA-256 verified,
+#             30% burn-in, weighted sample correlation; NOT a printed value);
+#             FOM_APPROX = Scout-derived from the printed FoM 315 with symmetrized sigmas (approximate; Unite prints no rho,
+#             chains not public until acceptance) -> sensitivity line only; the Unite row is primarily reported as 1D pulls.
+# sigmas: 68% intervals as printed (minus, plus). DESI Table V = posterior means; Unite Table 8 = medians.
+#id	w0	w0_sigma_minus	w0_sigma_plus	wa	wa_sigma_minus	wa_sigma_plus	rho	rho_status	source
+desi_dr2_cmb	-0.42	0.21	0.21	-1.75	0.58	0.58	-0.978	CHAIN	ARXIV:2503.14738 Table V p20; rho Scout-derived from official chains
+desi_dr2_cmb_pantheonplus	-0.838	0.055	0.055	-0.62	0.19	0.22	-0.894	CHAIN	ARXIV:2503.14738 Table V p20; rho Scout-derived from official chains
+desi_dr2_cmb_union3	-0.667	0.088	0.088	-1.09	0.27	0.31	-0.933	CHAIN	ARXIV:2503.14738 Table V p20; rho Scout-derived from official chains
+desi_dr2_cmb_desy5	-0.752	0.057	0.057	-0.86	0.20	0.23	-0.905	CHAIN	ARXIV:2503.14738 Table V p20; rho Scout-derived from official chains
+unite_bao_cmb	-0.861	0.042	0.044	-0.60	0.19	0.17	-0.91	FOM_APPROX	ARXIV:2609.05053v2 Table 8 p17; FoM 315 p15; rho approximate (not printed)
