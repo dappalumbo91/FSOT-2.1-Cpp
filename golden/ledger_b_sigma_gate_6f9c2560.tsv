@@ -1,4 +1,5 @@
 #Ledger B sigma gate (item 94; |z| = |c - m|/sigma_m <= 2; pin AEB2AD)
+#PROVISIONAL: the |z| <= 2 threshold is not a Damian-named gate (Tracer #111); verdicts are a report until he names one
 #correction_law rows read m as input: NON_EVIDENTIAL even when they pass; NO_SIGMA rows are not scored
 #summary	correction_law NO_SIGMA	138700
 #summary	correction_law PASS	484

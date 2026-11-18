@@ -576,6 +576,9 @@ inline Margin analyze_benchmark(const json& doc, const std::string& file_name, c
 // The parity gate (0.5 % relative) cannot fail on a Ledger B correction-law row: c = m(1+|S|alpha) gives
 // err_pct = 100|S|alpha < 0.5 % for every measurement (Lean SeedBracketsTight ledger_b_err_lt_half_any_measurement).
 // This gate scores every finite scalar against its MEASUREMENT sigma instead: z = (c - m)/sigma_m, PASS iff |z| <= 2.
+// PROVISIONAL THRESHOLD (Tracer #111): |z| <= 2 is GB's working choice, NOT a gate number Damian has named
+// (t1016u asks for a real Ledger B gate without a number). Until he names one, the verdicts are a report, not a gate;
+// change SIGMA_GATE_Z_PROVISIONAL when he does.
 //  * sigma_m = resolve_reference_uncertainty_pct(row) * |m| / 100 (row field, literature anchor or class default;
 //    the source is reported). No sigma -> NO_SIGMA (not scored, never counted green).
 //  * Correction-law rows (eval_kind fsot_prediction / fsot_correction) read the measured value as input, so they are
@@ -612,6 +615,7 @@ inline std::string reference_uncertainty_source(const json& row, const Literatur
   return "literature_anchor";
 }
 
+inline constexpr double SIGMA_GATE_Z_PROVISIONAL = 2.0;  // provisional (#111) until Damian names the gate
 struct SigmaRow {
   long index = 0;
   std::string name, property, eval_kind, sigma_source, verdict;
@@ -660,7 +664,7 @@ inline std::vector<SigmaRow> sigma_gate(const json& doc, const std::string& file
     if (!sig) { s.verdict = "NO_SIGMA"; out.push_back(s); continue; }
     s.sigma = *sig;
     s.z = (s.computed - s.measured) / s.sigma;
-    s.verdict = std::fabs(s.z) <= 2.0 ? "PASS" : "FAIL";
+    s.verdict = std::fabs(s.z) <= SIGMA_GATE_Z_PROVISIONAL ? "PASS" : "FAIL";
     out.push_back(s);
   }
   return out;

@@ -38,6 +38,14 @@ the Python, 13,841/13,841 lines).
 - **Suggested check.** Treat `fsot_prediction` the same as `fsot_correction` in `classify_record`, then
   re-run `audit_all_benchmark_margins.py` and report how many files still have gated scalars and whether
   they remain green. This repo can compute that from the same code path. It is not changed here.
+- **Sigma gate (IRONOUT-2 item 94, 894b515; PROVISIONAL threshold).** `fsot_ledger_b --sigma-gate-out` scores every
+  finite relative scalar as z = (c − m)/σ_m, σ from `resolve_reference_uncertainty_pct` with its source labelled
+  (row / literature_anchor / class_default_biochem_0.2pct / class_default_behavioral_0.15pct / world_average).
+  Correction-law rows are reported NON_EVIDENTIAL; rows without σ are NO_SIGMA and never green. **The pass line
+  |z| ≤ 2 (`SIGMA_GATE_Z_PROVISIONAL`) is GB's working choice, not a gate number Damian has named (Tracer #111);
+  until he names one, the verdicts are a report, not a gate.** At hub 6f9c256: independent 1390 pass / 23 fail
+  (8 distinct biochem rows repeated across corpora) / 39044 NO_SIGMA; correction-law 484 pass (non-evidential) /
+  138700 NO_SIGMA. Golden: `golden/ledger_b_sigma_gate_6f9c2560.tsv` (ctest `ledger_b_sigma_gate`).
 
 ### A-02 · The stored Ledger B amplitudes are the older per-domain table, not f = ALPHA
 - **Observed.** For the 139,400 gated `fsot_prediction` records, f was inferred as `(c/m − 1)/|S|` from the

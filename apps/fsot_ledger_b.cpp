@@ -3,7 +3,7 @@
 //   fsot_ledger_b --hub /path/to/FSOT-2.1-Lean [--out out.tsv] [--golden golden/ledger_b_XXXXXXXX.tsv]
 //                 [--corrected-out corrected.tsv [--genuine-misses-out misses.tsv]]
 //                 [--tier-evidence golden/tier_evidence_X.json --tiers-out tiers.tsv]
-//                 [--sigma-gate-out sigma_gate.tsv]   (item 94: |z| <= 2 against the measurement sigma; see ledger_b.hpp)
+//                 [--sigma-gate-out sigma_gate.tsv]   (item 94: |z| <= 2 against the measurement sigma, PROVISIONAL threshold #111; see ledger_b.hpp)
 // --corrected-out writes the corrected-mode report (docs/AUDIT_LOG.md "Fixed in C++"): gate errors recomputed
 // from computed/measured (old vs new counts), Ledger B structural corrections vs genuine predictions,
 // round(c,6) vs significant-digit emitter reproducibility, and NaN/Infinity tokens read per file.
@@ -255,6 +255,7 @@ int main(int argc, char** argv) {
   if (!sigma_out.empty()) {
     std::ofstream o(sigma_out, std::ios::binary);
     o << "#Ledger B sigma gate (item 94; |z| = |c - m|/sigma_m <= 2; pin " << AUTHORITY_PIN_PREFIX << ")\n";
+    o << "#PROVISIONAL: the |z| <= 2 threshold is not a Damian-named gate (Tracer #111); verdicts are a report until he names one\n";
     o << "#correction_law rows read m as input: NON_EVIDENTIAL even when they pass; NO_SIGMA rows are not scored\n";
     for (auto& [k, n] : SG) o << "#summary\t" << k << "\t" << n << "\n";
     o << "file\tindex\tname\tproperty\teval_kind\tcomputed\tmeasured\tsigma\tsigma_source\tz\tverdict\n";
