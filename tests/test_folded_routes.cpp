@@ -20,7 +20,10 @@ int main() {
   Engine<mp169> F; leaves::SeedLeaves<mp169> L(F);
   const auto vpk = fold::vt::Package<mp169>::load(FSOT_VT_PACKAGE_TSV);
   const fold::vt::Chain<mp169> vch{vpk, fold::vt::engine_inputs(L)};
-  fold::Live<mp169> live{F, L, &vch};
+  const auto vvwpk = fold::vt::Package<mp169>::load(FSOT_VV_VW_PACKAGE_TSV);
+  fold::vt::Chain<mp169> vvw{vpk, fold::vt::engine_inputs(L)};
+  vvw.hooks = fold::vt::vv_p3_vw_p3(vvwpk);
+  fold::Live<mp169> live{F, L, &vch, &vvw};
   int flagged = 0;
   std::string line; int rows = 0, live_ok = 0, live_n = 0, z_ok = 0, z_n = 0, inbar = 0, outbar = 0, fails = 0, hooks = 0, rec_only = 0;
   double worst_rel = 0; std::string worst;
@@ -31,7 +34,7 @@ int main() {
     c.resize(9);
     if (c[0] == "HOOK") { ++hooks; std::printf("  HOOK %s: %s\n", c[1].c_str(), c[6].c_str()); continue; }
     ++rows;
-    if (c[0].rfind("43.5vt", 0) == 0) {  // t994u: every vt row must carry the status flag
+    if (c[0].rfind("43.5vt", 0) == 0 || c[0].rfind("43.5vv", 0) == 0 || c[0].rfind("43.5vw", 0) == 0) {  // t994u: every G_F-chain row carries the flag
       if (c[6].find(fold::vt::kStatus) == std::string::npos) { std::printf("  FAIL %s %s: missing %s\n", c[0].c_str(), c[1].c_str(), fold::vt::kStatus); ++fails; }
       else ++flagged;
     }

@@ -52,6 +52,14 @@ int main() {
   std::printf("  Gamma_Z/M_Z A1 at vt P2 G_F = %s  z %+.4f (was %+.4f at Z-2)  [%s]\n", gz2.str(15).c_str(),
               double((gz2 - lit<R>("0.02736653946")) / lit<R>("2.523e-5")),
               double((fold::vt::gz_over_mz_A1(F, pk.at("GF_Z2"), in.MZ, s2h, in.alpha) - lit<R>("0.02736653946")) / lit<R>("2.523e-5")), fold::vt::kStatus);
+  // IRONOUT-1 #1: the scored Z width reads the tip leaf (phi^5/e^6)(1 - alpha/phi), not any G_F; it must stay in bar.
+  {
+    fold::Live<R> lv{F, L, nullptr};
+    const auto gzl = lv("gz:Gamma_Z_over_M_Z");
+    const double zl = gzl ? double((*gzl - lit<R>("0.02736653946")) / lit<R>("2.523e-5")) : 99;
+    std::printf("  IRONOUT-1 Gamma_Z/M_Z tip leaf = %s  z %+.4f (G_F-independent; A1-at-vt-G_F is diagnostic only)\n", gzl ? gzl->str(15).c_str() : "?", zl);
+    if (!gzl || std::fabs(zl) > 1 || *gzl != lv.gz_ratio()) ++fails;
+  }
   // ruling t992u diagnostics
   for (auto [nm, s, ppm, z] : {std::tuple{"P2", p2, 451.52, -901.2}, std::tuple{"P1", p1, 575.43, -1148.3}}) {
     const auto d = fold::vt::mu_diag(s.GF);
@@ -69,6 +77,58 @@ int main() {
   // Live keys used by golden/folded_routes.tsv
   fold::Live<R> live{F, L, &ch};
   if (!live("vt:G_F_P2") || *live("vt:G_F_P2") != p2.GF || !live("vt:tau_n_P1") || *live("vt:tau_n_P1") != p1.tau_n) { ++fails; std::puts("  [FAIL] live vt keys"); }
+  // IRONOUT-2: carried vv P3 G_F + vw P3 Delta_R^V (Tracer vv FOLD f66b7985, vw FOLD ce51de78), reproduced live to ~1e-12
+  {
+    const auto vvw = fold::vt::Package<R>::load(FSOT_VV_VW_PACKAGE_TSV);
+    std::printf("vv/vw package: %s\n", vvw.header.empty() ? "(header)" : vvw.header.c_str());
+    fold::vt::Chain<R> c3 = ch; c3.hooks = fold::vt::vv_p3_vw_p3(vvw);
+    const auto raw = c3.solve_raw_vv_p3(), p0r = c3.solve_raw(fold::vt::P0());
+    eq("vv OFF G_chain (vv score.py build)", p0r.G, vvw.at("vv_OFF_G_chain").str(50).c_str(), 1e-25);
+    eq("vv P3 G_chain (solve_P3, live)", raw.G, vvw.at("vv_P3_G_chain").str(50).c_str(), 1e-25);
+    eq("vv A  Dr check: P1 G_chain (vt solve) ", c3.solve_raw(fold::vt::P1()).G, vvw.at("vv_P1_G_chain").str(50).c_str(), 1e-25);
+    const auto s3 = c3.solve(fold::vt::P1());
+    eq("vv P3 G_F before W term (FOLD 1.16689392890418e-5)", s3.GF_noW, "1.16689392890418e-5", 1e-14);
+    eq("vv P3 G_F before W term vs package (50 digits)", s3.GF_noW, vvw.at("vv_P3_GF").str(50).c_str(), 1e-25);
+    eq("vv P3 tau_n (no vw) [s] (FOLD 877.8657345)", pk.at("tau_vk_s") / (s3.ratio * s3.ratio), "877.8657345", 1e-10);
+    eq("vv P3 tau_n (no vw) vs package", pk.at("tau_vk_s") / (s3.ratio * s3.ratio), vvw.at("vv_P3_tau_n_s").str(50).c_str(), 1e-12);
+    eq("vv P3 + vw P3 tau_n [s] (FOLD 878.4325396)", s3.tau_n, "878.4325396", 1e-10);
+    eq("vv P3 + vw P3 tau_n vs vw score.py tau_of", s3.tau_n, vvw.at("vw_P3_tau_n_s").str(50).c_str(), 1e-12);
+    eq("vw P3 Delta_R^V (FOLD 0.02380031545)", vvw.at("vw_P3_dRV"), "0.02380031545", 1e-10);
+    eq("vw d_eng == vt package vk_dRV_us", vvw.at("vw_d_eng"), pk.at("vk_dRV_us").str(50).c_str(), 1e-28);
+    {  // IRONOUT-2: W propagator 3m_mu^2/(5M_W^2) carried in Delta r (engine m_mu, M_W): G_F +0.5185 ppm (Tracer)
+      const R dW = R(3) * in.mmu * in.mmu / (R(5) * in.MW * in.MW);
+      eq("Delta r_W = 1 - (1 + 3m_mu^2/5M_W^2)^(-1/2)", s3.dr_W, (R(1) - R(1) / m::sqrt(R(1) + dW)).str(50).c_str(), 1e-40);
+      eq("G_F = G_F,noW * sqrt(1 + 3m_mu^2/5M_W^2)", s3.GF, (s3.GF_noW * m::sqrt(R(1) + dW)).str(50).c_str(), 1e-40);
+      const double sh = double((s3.GF / s3.GF_noW - R(1)) * R(1e6));
+      std::printf("  [%s] W-term G_F shift %+.4f ppm (Tracer +0.5185)\n", std::fabs(sh - 0.5185) < 5e-4 ? "PASS" : "FAIL", sh);
+      if (std::fabs(sh - 0.5185) >= 5e-4) ++fails;
+      if (ch.solve(fold::vt::P2()).dr_W != R(0)) { ++fails; std::puts("  [FAIL] W term leaked into vt P2 alternate"); }
+    }
+    const auto d = fold::vt::mu_diag(s3.GF);
+    std::printf("  vv P3: G_F vs G_mu %+.2f ppm (FOLD +441.65), strict MuLan z %+.2f (scaling; vv vRS -883.24 double-counts W prop.); Gate B %s; flag %s\n", d.ppm_vs_Gmu, d.z_mulan,
+                d.gateB ? "ACCEPT-AT-SM-PARITY" : "FAIL", fold::vt::kStatus);
+    if (std::fabs(d.ppm_vs_Gmu - 442.17) > 0.01 || !d.gateB) ++fails;  // 441.65 + 0.5185 (W term in Delta r)
+    {  // tau_mu: direct PDG eq.(10.9) vs the G_mu-ratio scaling diagnostic (cause of the vv -883.24 / C++ -881.50 gap)
+      const auto lv = L.mp_values(); R me = 0, mmu = 0; for (auto& [id, v] : lv) { if (id == "m_e_kg") me = v; if (id == "m_mu_kg") mmu = v; }
+      const R a = L.alpha(), Gmu = lit<R>("1.1663788e-5"), obs = lit<R>("2196980.3e-12"), sg = lit<R>("2.2e-12");
+      const double ppm0 = double((fold::vt::tau_mu_pdg_s(Gmu, me, mmu, a, L.si) / obs - R(1)) * R(1e6));
+      const double zd = double((fold::vt::tau_mu_pdg_s(s3.GF, me, mmu, a, L.si) - obs) / sg);
+      const double zw = double((fold::vt::tau_mu_pdg_s(s3.GF_noW, me, mmu, a, L.si, true, in.MW) - obs) / sg);  // W in tau formula instead
+      // consistent MuLan z with the W term in Delta r: Tracer -882.71; equal to putting it in the rate at G_F,noW
+      const bool ok = std::fabs(ppm0) < 0.25 && std::fabs(zd - d.z_mulan) < 0.25 && std::fabs(zd - (-882.71)) < 0.01 && std::fabs(zw - zd) < 1e-6;
+      std::printf("  [%s] tau_mu PDG eq.(10.9) at G_mu: %+.3f ppm vs MuLan; vv P3 (W in Dr) z direct %+.2f vs scaling %+.2f; W in rate at G_F,noW %+.2f\n",
+                  ok ? "PASS" : "FAIL", ppm0, zd, d.z_mulan, zw);
+      if (!ok) ++fails;
+    }
+    // tau_n vs the IRONOUT-2 primary (pdgLive 878.3 +- 0.4): Tracer re-score vw P3 z +0.331
+    const double zl = double((s3.tau_n - lit<R>("878.3")) / lit<R>("0.4"));
+    std::printf("  [%s] vv P3 + vw P3 tau_n z vs pdgLive 878.3(4) = %+.4f (Tracer +0.331)\n", std::fabs(zl - 0.331) < 5e-4 ? "PASS" : "FAIL", zl);
+    if (std::fabs(zl - 0.331) >= 5e-4) ++fails;
+    fold::Live<R> lv{F, L, &ch, &c3};
+    if (!lv("vvw:tau_n") || *lv("vvw:tau_n") != s3.tau_n || !lv("vvw:G_F") || *lv("vvw:G_F") != s3.GF) { ++fails; std::puts("  [FAIL] live vvw keys"); }
+    // vt P2 stays reproducible as the alternate (unchanged by the hooks on the separate chain)
+    if (ch.solve(fold::vt::P2()).GF != p2.GF) { ++fails; std::puts("  [FAIL] vt P2 alternate moved"); } else std::puts("  [PASS] vt P2 alternate unchanged");
+  }
   // double instantiation sanity (package read at double)
   { const auto pd = fold::vt::Package<double>::load(FSOT_VT_PACKAGE_TSV); Engine<double> Fd; leaves::SeedLeaves<double> Ld(Fd);
     fold::vt::Chain<double> cd{pd, fold::vt::engine_inputs(Ld)}; const double g = cd.solve(fold::vt::P2()).GF;

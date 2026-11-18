@@ -283,7 +283,11 @@ jobs:
           ctest --test-dir build -R ledger_b --output-on-failure -j1
 
   bare-metal:
-    runs-on: ubuntu-latest
+    # Pinned 2026-11-18: ubuntu-latest moved to ubuntu-26.04 (image 20261111; QEMU 10.2.1, newer GCC) and the kernel
+    # now stops after the banner on every commit, including main f3555bc whose kernel sources are unchanged from the
+    # last green run (ubuntu-24.04, QEMU 8.2.2). Engine values are not involved; porting the kernel to the 26.04
+    # toolchain/QEMU is tracked as a follow-up. Do not unpin until that port is green.
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
