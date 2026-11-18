@@ -42,7 +42,7 @@ G2 = P["wave9|Gluon_condensate"]; n, q, L0 = chain(G2)
 info(s, "FSOT <(alpha_s/pi)G^2> = C_cosm - e^-3 [GeV^4]", "pin wave9", G2, "FSOT", "unit read in GeV^4 (stated); SVZ phenomenology 0.012")
 info(s, "instanton density n = <(alpha_s/pi)G^2>/8 [GeV^4]", "Int g^2G^2 = 32 pi^2 per instanton", n, "FSOT", "n = " + nstr(n / mpf("0.1973269804")**4, 5) + " fm^-4")
 emit(s, "T-1 chi^1/4 = n^(1/4) (dilute pure-gauge ensemble)", "pin wave9", q, "185.3", "5.7", "0.10", "FSOT", "validation " + ("passed" if v0 else "FAILED") + "; disclosed before freeze: about +8 %")
-info(s, "Lambda^(0)_MSbar = n^(1/4) e^(-1/22)/0.65", "DP relation", L0, "FSOT", "ratio to FSOT-only Lambda^(3) 334.43: " + nstr(L0 / col("audit/score_2026-10-02s2.tsv", "S2-1", "S2-1 Lambda^(3)"), 5))
+info(s, "Lambda^(0)_MSbar = n^(1/4) e^(-1/22)/0.65", "DP relation", L0, "FSOT", "ratio to FSOT-only Lambda^(3) 333.20: " + nstr(L0 / col("audit/score_2026-10-02s2.tsv", "S2-1", "S2-1 Lambda^(3)"), 5))
 alpha = 1 / L["alpha_inv"]; x, y = P["wave7|m_u/m_d"], P["wave7|m_s/m_d"]; mud = (1 + x) / 2; Qf = sqrt((y**2 - mud**2) / (1 - x**2))
 F3 = mp / (2 * sqrt(3) * pi); MK = L["m_K_pm_MeV"]; Mpi = L["m_pi_pm_MeV"]
 Dp = 12 * pi * alpha * log(2) * F3**2; p0 = sqrt(Mpi**2 - Dp); DK = Dp; split = mpf(0)

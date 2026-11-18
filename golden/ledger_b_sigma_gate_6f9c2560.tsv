@@ -1,0 +1,122 @@
+#Ledger B sigma gate (item 94; |z| = |c - m|/sigma_m <= 2; pin AEB2AD)
+#PROVISIONAL: the |z| <= 2 threshold is not a Damian-named gate (Tracer #111); verdicts are a report until he names one
+#correction_law rows read m as input: NON_EVIDENTIAL even when they pass; NO_SIGMA rows are not scored
+#summary	correction_law NO_SIGMA	138700
+#summary	correction_law PASS	484
+#summary	correction_law PASS sigma=class_default_behavioral_0.15pct	3
+#summary	correction_law PASS sigma=class_default_biochem_0.2pct	272
+#summary	correction_law PASS sigma=literature_anchor	5
+#summary	correction_law PASS sigma=row	204
+#summary	independent FAIL	23
+#summary	independent FAIL sigma=row	23
+#summary	independent NO_SIGMA	39044
+#summary	independent PASS	1390
+#summary	independent PASS sigma=class_default_biochem_0.2pct	800
+#summary	independent PASS sigma=literature_anchor	6
+#summary	independent PASS sigma=row	580
+#summary	independent PASS sigma=world_average	4
+file	index	name	property	eval_kind	computed	measured	sigma	sigma_source	z	verdict
+clinical_medicine_extension_benchmark.json	179	lysozyme	§21 Protein ΔG		-9.160572302574996	-9.2	0.0138	row	2.857079523550939	FAIL
+clinical_medicine_extension_benchmark.json	180	RNase A	§21 Protein ΔG		-8.683186676986617	-8.7	0.013049999999999999	row	1.2883772424047688	PASS
+clinical_medicine_extension_benchmark.json	181	cytochrome c	§21 Protein ΔG		-10.081950177328737	-10.1	0.015149999999999999	row	1.1914074370470105	PASS
+clinical_medicine_extension_benchmark.json	182	myoglobin	§21 Protein ΔG		-13.562305898749054	-13.6	0.0204	row	1.8477500613208588	PASS
+clinical_medicine_extension_benchmark.json	185	chymotrypsin inh.	§21 Protein ΔG		-4.291643461547232	-4.3	0.006449999999999999	row	1.295587357018254	PASS
+clinical_medicine_extension_benchmark.json	190	Val_pK₁	§22 Amino Acid pKa		2.2980601642983487	2.29	0.0034349999999999997	row	2.346481600683744	FAIL
+clinical_medicine_extension_benchmark.json	193	Leu_pK₂	§22 Amino Acid pKa		9.716122186194907	9.74	0.014610000000000001	row	-1.634347283031707	PASS
+clinical_medicine_extension_benchmark.json	195	Glu_pKR	§22 Amino Acid pKa		4.23606797749979	4.25	0.006375	row	-2.185415294150619	FAIL
+clinical_medicine_extension_benchmark.json	199	Lys_pKR	§22 Amino Acid pKa		10.501724959917917	10.53	0.015795	row	-1.7901259944338317	PASS
+clinical_medicine_extension_benchmark.json	202	Pro_pK₂	§22 Amino Acid pKa		10.571672795662035	10.6	0.015899999999999997	row	-1.781585178488322	PASS
+clinical_medicine_extension_benchmark.json	203	Phe_pK₁	§22 Amino Acid pKa		2.575736191370456	2.58	0.00387	row	-1.101759335799514	PASS
+clinical_medicine_extension_benchmark.json	208	morphine/μ-opioid	§23 Drug pKd		8.176996891207093	8.2	0.012299999999999998	row	-1.870171446577752	PASS
+clinical_medicine_extension_benchmark.json	213	digoxin/Na-K-ATPase	§23 Drug pKd		8.47213595499958	8.5	0.01275	row	-2.185415294150619	FAIL
+clinical_medicine_extension_benchmark.json	215	nicotine/nAChR	§23 Drug pKd		7.088753822260279	7.1	0.01065	row	-1.055979130490196	PASS
+clinical_medicine_extension_benchmark.json	224	lactate dehydrogenase	§24 Enzyme kcat		2.9881104386953425	3.0	0.0045	row	-2.6421247343683243	FAIL
+clinical_medicine_extension_benchmark.json	230	β-galactosidase	§35 Michaelis Km		4.012412406515011	4.0	0.006	row	2.0687344191685497	FAIL
+clinical_medicine_extension_benchmark.json	237	acetazolamide_CAII	§65 Enzyme pKi		7.901075596837235	7.92	0.01188	row	-1.5929632291889453	PASS
+clinical_medicine_extension_benchmark.json	239	sildenafil_PDE5	§65 Enzyme pKi		8.436029729518202	8.4	0.0126	row	2.859502342714404	FAIL
+clinical_medicine_extension_benchmark.json	240	donepezil_AChE	§65 Enzyme pKi		7.642042758526128	7.66	0.01149	row	-1.5628582657852053	PASS
+clinical_medicine_extension_benchmark.json	242	warfarin_VKORC1	§65 Enzyme pKi		6.276886301348152	6.3	0.00945	row	-2.445894037232579	FAIL
+clinical_medicine_extension_benchmark.json	245	ibuprofen_COX2	§65 Enzyme pKi		5.33631581720894	5.35	0.008025	row	-1.705194117265945	PASS
+clinical_medicine_extension_benchmark.json	246	penicillinG_PBP	§65 Enzyme pKi		7.321044173173944	7.3	0.01095	row	1.9218422989903523	PASS
+clinical_medicine_extension_benchmark.json	249	AT/TA	§71 DNA Stacking ΔG		-0.8775179415719043	-0.88	0.00132	row	1.8803472940118782	PASS
+clinical_medicine_extension_benchmark.json	257	GG/CC	§71 DNA Stacking ΔG		-1.8366053309085486	-1.84	0.0027600000000000003	row	1.2299525693664761	PASS
+crc_handbook_properties_benchmark.json	89	H₂SO₄(2)	§5b pKa		1.9944908981985554	1.99	0.00398	class_default_biochem_0.2pct	1.1283663815465867	PASS
+crc_handbook_properties_benchmark.json	92	H₂S(1)	§5b pKa		7.0	7.02	0.014039999999999999	class_default_biochem_0.2pct	-1.4245014245013943	PASS
+dark_sector_open_problems_benchmark.json	8	D_H_ratio	deuterium_abundance		2.5446825859417006e-05	2.508e-05	2.9e-07	world_average	1.2649167566103645	PASS
+immunology_benchmark.json	3	lysozyme	§21 Protein ΔG		-9.160572302574996	-9.2	0.0184	row	2.1428096426632046	FAIL
+immunology_benchmark.json	6	myoglobin	§21 Protein ΔG		-13.562305898749054	-13.6	0.027200000000000002	row	1.385812545990644	PASS
+immunology_benchmark.json	14	Val_pK₁	§22 Amino Acid pKa		2.2980601642983487	2.29	0.00458	row	1.7598612005128078	PASS
+immunology_benchmark.json	17	Leu_pK₂	§22 Amino Acid pKa		9.716122186194907	9.74	0.01948	row	-1.2257604622737803	PASS
+immunology_benchmark.json	19	Glu_pKR	§22 Amino Acid pKa		4.23606797749979	4.25	0.0085	row	-1.639061470612964	PASS
+immunology_benchmark.json	23	Lys_pKR	§22 Amino Acid pKa		10.501724959917917	10.53	0.02106	row	-1.3425944958253737	PASS
+immunology_benchmark.json	26	Pro_pK₂	§22 Amino Acid pKa		10.571672795662035	10.6	0.0212	row	-1.3361888838662415	PASS
+immunology_benchmark.json	32	morphine/μ-opioid	§23 Drug pKd		8.176996891207093	8.2	0.016399999999999998	row	-1.402628584933314	PASS
+immunology_benchmark.json	37	digoxin/Na-K-ATPase	§23 Drug pKd		8.47213595499958	8.5	0.017	row	-1.639061470612964	PASS
+immunology_benchmark.json	48	lactate dehydrogenase	§24 Enzyme kcat		2.9881104386953425	3.0	0.006000000000000001	row	-1.9815935507762428	PASS
+immunology_benchmark.json	54	β-galactosidase	§35 Michaelis Km		4.012412406515011	4.0	0.008	row	1.5515508143764123	PASS
+immunology_benchmark.json	61	acetazolamide_CAII	§65 Enzyme pKi		7.901075596837235	7.92	0.01584	row	-1.194722421891709	PASS
+immunology_benchmark.json	63	sildenafil_PDE5	§65 Enzyme pKi		8.436029729518202	8.4	0.016800000000000002	row	2.1446267570358026	FAIL
+immunology_benchmark.json	64	donepezil_AChE	§65 Enzyme pKi		7.642042758526128	7.66	0.01532	row	-1.172143699338904	PASS
+immunology_benchmark.json	66	warfarin_VKORC1	§65 Enzyme pKi		6.276886301348152	6.3	0.0126	row	-1.834420527924434	PASS
+immunology_benchmark.json	69	ibuprofen_COX2	§65 Enzyme pKi		5.33631581720894	5.35	0.010700000000000001	row	-1.2788955879494586	PASS
+immunology_benchmark.json	70	penicillinG_PBP	§65 Enzyme pKi		7.321044173173944	7.3	0.0146	row	1.4413817242427642	PASS
+immunology_benchmark.json	73	AT/TA	§71 DNA Stacking ΔG		-0.8775179415719043	-0.88	0.0017600000000000003	row	1.4102604705089083	PASS
+malware_threat_intelligence_cybersecurity_benchmark.json	43	lysozyme	§21 Protein ΔG		-9.160572302574996	-9.2	0.0138	row	2.857079523550939	FAIL
+malware_threat_intelligence_cybersecurity_benchmark.json	44	RNase A	§21 Protein ΔG		-8.683186676986617	-8.7	0.013049999999999999	row	1.2883772424047688	PASS
+malware_threat_intelligence_cybersecurity_benchmark.json	45	cytochrome c	§21 Protein ΔG		-10.081950177328737	-10.1	0.015149999999999999	row	1.1914074370470105	PASS
+malware_threat_intelligence_cybersecurity_benchmark.json	46	myoglobin	§21 Protein ΔG		-13.562305898749054	-13.6	0.0204	row	1.8477500613208588	PASS
+malware_threat_intelligence_cybersecurity_benchmark.json	49	chymotrypsin inh.	§21 Protein ΔG		-4.291643461547232	-4.3	0.006449999999999999	row	1.295587357018254	PASS
+malware_threat_intelligence_cybersecurity_benchmark.json	54	Val_pK₁	§22 Amino Acid pKa		2.2980601642983487	2.29	0.0034349999999999997	row	2.346481600683744	FAIL
+malware_threat_intelligence_cybersecurity_benchmark.json	57	Leu_pK₂	§22 Amino Acid pKa		9.716122186194907	9.74	0.014610000000000001	row	-1.634347283031707	PASS
+malware_threat_intelligence_cybersecurity_benchmark.json	59	Glu_pKR	§22 Amino Acid pKa		4.23606797749979	4.25	0.006375	row	-2.185415294150619	FAIL
+malware_threat_intelligence_cybersecurity_benchmark.json	63	lysozyme	§21 Protein ΔG		-9.160572302574996	-9.2	0.0138	row	2.857079523550939	FAIL
+malware_threat_intelligence_cybersecurity_benchmark.json	64	RNase A	§21 Protein ΔG		-8.683186676986617	-8.7	0.013049999999999999	row	1.2883772424047688	PASS
+malware_threat_intelligence_cybersecurity_benchmark.json	65	cytochrome c	§21 Protein ΔG		-10.081950177328737	-10.1	0.015149999999999999	row	1.1914074370470105	PASS
+malware_threat_intelligence_cybersecurity_benchmark.json	66	myoglobin	§21 Protein ΔG		-13.562305898749054	-13.6	0.0204	row	1.8477500613208588	PASS
+malware_threat_intelligence_cybersecurity_benchmark.json	69	chymotrypsin inh.	§21 Protein ΔG		-4.291643461547232	-4.3	0.006449999999999999	row	1.295587357018254	PASS
+malware_threat_intelligence_cybersecurity_benchmark.json	74	Val_pK₁	§22 Amino Acid pKa		2.2980601642983487	2.29	0.0034349999999999997	row	2.346481600683744	FAIL
+malware_threat_intelligence_cybersecurity_benchmark.json	77	Leu_pK₂	§22 Amino Acid pKa		9.716122186194907	9.74	0.014610000000000001	row	-1.634347283031707	PASS
+malware_threat_intelligence_cybersecurity_benchmark.json	79	Glu_pKR	§22 Amino Acid pKa		4.23606797749979	4.25	0.006375	row	-2.185415294150619	FAIL
+malware_threat_intelligence_cybersecurity_benchmark.json	83	Lys_pKR	§22 Amino Acid pKa		10.501724959917917	10.53	0.015795	row	-1.7901259944338317	PASS
+neuroimmunology_benchmark.json	3	lysozyme	§21 Protein ΔG		-9.160572302574996	-9.2	0.0184	row	2.1428096426632046	FAIL
+neuroimmunology_benchmark.json	6	myoglobin	§21 Protein ΔG		-13.562305898749054	-13.6	0.027200000000000002	row	1.385812545990644	PASS
+neuroimmunology_benchmark.json	14	Val_pK₁	§22 Amino Acid pKa		2.2980601642983487	2.29	0.00458	row	1.7598612005128078	PASS
+neuroimmunology_benchmark.json	17	Leu_pK₂	§22 Amino Acid pKa		9.716122186194907	9.74	0.01948	row	-1.2257604622737803	PASS
+neuroimmunology_benchmark.json	19	Glu_pKR	§22 Amino Acid pKa		4.23606797749979	4.25	0.0085	row	-1.639061470612964	PASS
+neuroimmunology_benchmark.json	23	Lys_pKR	§22 Amino Acid pKa		10.501724959917917	10.53	0.02106	row	-1.3425944958253737	PASS
+neuroimmunology_benchmark.json	26	Pro_pK₂	§22 Amino Acid pKa		10.571672795662035	10.6	0.0212	row	-1.3361888838662415	PASS
+neuroimmunology_benchmark.json	32	morphine/μ-opioid	§23 Drug pKd		8.176996891207093	8.2	0.016399999999999998	row	-1.402628584933314	PASS
+neuroimmunology_benchmark.json	37	digoxin/Na-K-ATPase	§23 Drug pKd		8.47213595499958	8.5	0.017	row	-1.639061470612964	PASS
+neuroimmunology_benchmark.json	48	lactate dehydrogenase	§24 Enzyme kcat		2.9881104386953425	3.0	0.006000000000000001	row	-1.9815935507762428	PASS
+neuroimmunology_benchmark.json	54	β-galactosidase	§35 Michaelis Km		4.012412406515011	4.0	0.008	row	1.5515508143764123	PASS
+neuroimmunology_benchmark.json	61	acetazolamide_CAII	§65 Enzyme pKi		7.901075596837235	7.92	0.01584	row	-1.194722421891709	PASS
+neuroimmunology_benchmark.json	63	sildenafil_PDE5	§65 Enzyme pKi		8.436029729518202	8.4	0.016800000000000002	row	2.1446267570358026	FAIL
+neuroimmunology_benchmark.json	64	donepezil_AChE	§65 Enzyme pKi		7.642042758526128	7.66	0.01532	row	-1.172143699338904	PASS
+neuroimmunology_benchmark.json	66	warfarin_VKORC1	§65 Enzyme pKi		6.276886301348152	6.3	0.0126	row	-1.834420527924434	PASS
+neuroimmunology_benchmark.json	69	ibuprofen_COX2	§65 Enzyme pKi		5.33631581720894	5.35	0.010700000000000001	row	-1.2788955879494586	PASS
+neuroimmunology_benchmark.json	70	penicillinG_PBP	§65 Enzyme pKi		7.321044173173944	7.3	0.0146	row	1.4413817242427642	PASS
+neuroimmunology_benchmark.json	73	AT/TA	§71 DNA Stacking ΔG		-0.8775179415719043	-0.88	0.0017600000000000003	row	1.4102604705089083	PASS
+oncology_benchmark.json	3	lysozyme	§21 Protein ΔG		-9.160572302574996	-9.2	0.0184	row	2.1428096426632046	FAIL
+oncology_benchmark.json	6	myoglobin	§21 Protein ΔG		-13.562305898749054	-13.6	0.027200000000000002	row	1.385812545990644	PASS
+oncology_benchmark.json	12	morphine/μ-opioid	§23 Drug pKd		8.176996891207093	8.2	0.016399999999999998	row	-1.402628584933314	PASS
+oncology_benchmark.json	17	digoxin/Na-K-ATPase	§23 Drug pKd		8.47213595499958	8.5	0.017	row	-1.639061470612964	PASS
+oncology_benchmark.json	28	lactate dehydrogenase	§24 Enzyme kcat		2.9881104386953425	3.0	0.006000000000000001	row	-1.9815935507762428	PASS
+oncology_benchmark.json	34	β-galactosidase	§35 Michaelis Km		4.012412406515011	4.0	0.008	row	1.5515508143764123	PASS
+oncology_benchmark.json	41	acetazolamide_CAII	§65 Enzyme pKi		7.901075596837235	7.92	0.01584	row	-1.194722421891709	PASS
+oncology_benchmark.json	43	sildenafil_PDE5	§65 Enzyme pKi		8.436029729518202	8.4	0.016800000000000002	row	2.1446267570358026	FAIL
+oncology_benchmark.json	44	donepezil_AChE	§65 Enzyme pKi		7.642042758526128	7.66	0.01532	row	-1.172143699338904	PASS
+oncology_benchmark.json	46	warfarin_VKORC1	§65 Enzyme pKi		6.276886301348152	6.3	0.0126	row	-1.834420527924434	PASS
+oncology_benchmark.json	49	ibuprofen_COX2	§65 Enzyme pKi		5.33631581720894	5.35	0.010700000000000001	row	-1.2788955879494586	PASS
+oncology_benchmark.json	50	penicillinG_PBP	§65 Enzyme pKi		7.321044173173944	7.3	0.0146	row	1.4413817242427642	PASS
+stumped_observables_panel_benchmark.json	9	D_H_ratio	fsot_compute_scalar		2.5446825859417006e-05	2.508e-05	2.9e-07	world_average	1.2649167566103645	PASS
+virology_extension_benchmark.json	23	lysozyme	§21 Protein ΔG		-9.160572302574996	-9.2	0.0138	row	2.857079523550939	FAIL
+virology_extension_benchmark.json	24	RNase A	§21 Protein ΔG		-8.683186676986617	-8.7	0.013049999999999999	row	1.2883772424047688	PASS
+virology_extension_benchmark.json	25	cytochrome c	§21 Protein ΔG		-10.081950177328737	-10.1	0.015149999999999999	row	1.1914074370470105	PASS
+virology_extension_benchmark.json	26	myoglobin	§21 Protein ΔG		-13.562305898749054	-13.6	0.0204	row	1.8477500613208588	PASS
+virology_extension_benchmark.json	29	chymotrypsin inh.	§21 Protein ΔG		-4.291643461547232	-4.3	0.006449999999999999	row	1.295587357018254	PASS
+virology_extension_benchmark.json	34	Val_pK₁	§22 Amino Acid pKa		2.2980601642983487	2.29	0.0034349999999999997	row	2.346481600683744	FAIL
+virology_extension_benchmark.json	37	Leu_pK₂	§22 Amino Acid pKa		9.716122186194907	9.74	0.014610000000000001	row	-1.634347283031707	PASS
+virology_extension_benchmark.json	39	Glu_pKR	§22 Amino Acid pKa		4.23606797749979	4.25	0.006375	row	-2.185415294150619	FAIL
+virology_extension_benchmark.json	43	Lys_pKR	§22 Amino Acid pKa		10.501724959917917	10.53	0.015795	row	-1.7901259944338317	PASS
+virology_extension_benchmark.json	46	Pro_pK₂	§22 Amino Acid pKa		10.571672795662035	10.6	0.015899999999999997	row	-1.781585178488322	PASS
+virology_extension_benchmark.json	47	Phe_pK₁	§22 Amino Acid pKa		2.575736191370456	2.58	0.00387	row	-1.101759335799514	PASS
