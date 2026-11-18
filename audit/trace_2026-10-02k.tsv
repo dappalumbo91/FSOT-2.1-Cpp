@@ -29,14 +29,14 @@ B unit audit	17	T_CMB [K]	2.72471169034	-	-	-	-	UNIT-READ (kelvin; k_B defined)
 B unit audit	18	H0 [km/s/Mpc]	68.4449955638	-	-	-	-	UNIT-READ
 C link tests	1	m_pi/m_e	273.132343821	273.1324395	0.0003523	PDG/CODATA	0.2717	unit-free; reproduces only because the leaf matches 139.57 in MeV
 C link tests	2	m_pi/m_p	0.148752523566	0.1487525757	1.918e-7	PDG	0.2717	hub pin wave2|m_pi/m_p = K P_new ln(pi) = 0.14441869 is a different closed form (pi0/p 0.14386)
-C link tests	3	m_pi/Lambda^(5) (FSOT Lambda from J-1)	0.666131049413	0.6552600469	0.02461	FLAG 2024 Lambda^(5) 213(8)	0.4417	QCD: m_pi^2 ~ 2 B m_ud, so m_pi/Lambda measures m_ud/Lambda (a free QCD parameter); the 3.8 % Lambda error cannot test an exact factor
-C link tests	4	m_pi/Lambda^(3) (FSOT Lambda, external thresholds)	0.414229067582	0.4129301479	0.01222	FLAG 2024 Lambda^(3) 338(10)	0.1063	close to sqrt2 - 1 = 0.41421 (noted; one of many simple numbers inside the 3 % band: not claimed)
+C link tests	3	m_pi/Lambda^(5) (FSOT Lambda from J-1)	0.672413308461	0.6552600469	0.02461	FLAG 2024 Lambda^(5) 213(8)	0.697	QCD: m_pi^2 ~ 2 B m_ud, so m_pi/Lambda measures m_ud/Lambda (a free QCD parameter); the 3.8 % Lambda error cannot test an exact factor
+C link tests	4	m_pi/Lambda^(3) (FSOT Lambda, external thresholds)	0.41923602983	0.4129301479	0.01222	FLAG 2024 Lambda^(3) 338(10)	0.5162	close to sqrt2 - 1 = 0.41421 (noted; one of many simple numbers inside the 3 % band: not claimed)
 C link tests	5	m_K/m_e	966.108072693	966.1017881	0.02935	PDG	0.2141	
-C link tests	6	m_K/Lambda^(3)	1.46518731739	1.46058284	0.04321	FLAG	0.1066	
+C link tests	6	m_K/Lambda^(3)	1.48289765729	1.46058284	0.04321	FLAG	0.5164	
 C link tests	7	any AEB2AD pin within 1 ppm of m_pi/m_e?	273.132343821	-	-	-	-	none of 204 pins
 C link tests	8	any AEB2AD pin within 1 ppm of m_pi/m_p?	0.148752523566	-	-	-	-	none of 204 pins
-C link tests	9	any AEB2AD pin within 1 ppm of m_pi/Lambda5?	0.666131049413	-	-	-	-	none of 204 pins
-C link tests	10	any AEB2AD pin within 1 ppm of m_pi/Lambda3?	0.414229067582	-	-	-	-	none of 204 pins
+C link tests	9	any AEB2AD pin within 1 ppm of m_pi/Lambda5?	0.672413308461	-	-	-	-	none of 204 pins
+C link tests	10	any AEB2AD pin within 1 ppm of m_pi/Lambda3?	0.41923602983	-	-	-	-	none of 204 pins
 C link tests	11	any AEB2AD pin within 1 ppm of m_K/m_e?	966.108072693	-	-	-	-	none of 204 pins
 C link tests	12	any AEB2AD pin within 1 ppm of 1/m_e[MeV]?	1.95695118122	-	-	-	-	none of 204 pins
 D pion lineage	1	2026-07-14 856694ca (archive import)	-	-	-	hub git log	-	FSOT SMILES Lab dataset (Damian desktop project) S66 Particle Masses Tier 18: pion_pm = e^5 - pi^2 = 138.5436 'MeV' vs target 139.57 (0.74 %), same formula for pi0

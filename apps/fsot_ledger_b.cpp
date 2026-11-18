@@ -3,6 +3,7 @@
 //   fsot_ledger_b --hub /path/to/FSOT-2.1-Lean [--out out.tsv] [--golden golden/ledger_b_XXXXXXXX.tsv]
 //                 [--corrected-out corrected.tsv [--genuine-misses-out misses.tsv]]
 //                 [--tier-evidence golden/tier_evidence_X.json --tiers-out tiers.tsv]
+//                 [--sigma-gate-out sigma_gate.tsv]   (item 94: |z| <= 2 against the measurement sigma, PROVISIONAL threshold #111; see ledger_b.hpp)
 // --corrected-out writes the corrected-mode report (docs/AUDIT_LOG.md "Fixed in C++"): gate errors recomputed
 // from computed/measured (old vs new counts), Ledger B structural corrections vs genuine predictions,
 // round(c,6) vs significant-digit emitter reproducibility, and NaN/Infinity tokens read per file.
@@ -54,7 +55,7 @@ static std::optional<json> load(const fs::path& p, fsot::py::NonFiniteLog* log =
 }
 
 int main(int argc, char** argv) {
-  std::string hub, out, golden, corrected_out, tier_evidence, tiers_out, misses_out;
+  std::string hub, out, golden, corrected_out, tier_evidence, tiers_out, misses_out, sigma_out;
   std::vector<std::string> misses{"file\tindex\tname\tproperty\teval_kind\tcomputed\tmeasured\tstored_error_pct\trecomputed_error_pct\taware_kind\taware_effective\twithin_display\twithin_literature"};
   for (int i = 1; i + 1 < argc; i += 2) {
     std::string a = argv[i];
@@ -65,6 +66,7 @@ int main(int argc, char** argv) {
     else if (a == "--tier-evidence") tier_evidence = argv[i + 1];
     else if (a == "--tiers-out") tiers_out = argv[i + 1];
     else if (a == "--genuine-misses-out") misses_out = argv[i + 1];
+    else if (a == "--sigma-gate-out") sigma_out = argv[i + 1];
   }
   if (hub.empty()) { std::fprintf(stderr, "usage: fsot_ledger_b --hub DIR [--out F] [--golden F]\n"); return 2; }
   const auto t0 = std::chrono::steady_clock::now();
@@ -102,6 +104,8 @@ int main(int argc, char** argv) {
   struct { long files_nonfinite = 0, nan = 0, inf = 0, scalars = 0, stored_over = 0, gate_over = 0, disagree = 0, stored_only = 0,
            green_old = 0, green_new = 0, lb_scalars = 0, genuine = 0, genuine_over = 0, emit_dp = 0, emit_sig = 0,
            zero_target = 0, bound_rows = 0, contraction_rows = 0, computed_rounded = 0; } C;
+  std::map<std::string, long> SG;
+  std::vector<std::string> sgrows;
   for (auto& p : files) {
     const std::string name = p.filename().string();
     fsot::py::NonFiniteLog nf;
@@ -116,6 +120,17 @@ int main(int argc, char** argv) {
                    name.c_str(), nf.total(), nf.first_lines.empty() ? 0L : nf.first_lines[0]);
     }
     if (!doc) { add(name, "load_error", "True"); continue; }
+    if (!sigma_out.empty()) {
+      for (const auto& g : fsot::ledger_b::sigma_gate(*doc, name, lit)) {
+        ++SG[std::string(g.correction_law ? "correction_law " : "independent ") + g.verdict];
+        if (g.verdict != "NO_SIGMA")
+          ++SG[std::string(g.correction_law ? "correction_law " : "independent ") + g.verdict + " sigma=" + g.sigma_source];
+        if (g.verdict == "FAIL" || (!g.correction_law && g.verdict != "NO_SIGMA" && std::fabs(g.z) > 1.0))
+          sgrows.push_back(name + "\t" + std::to_string(g.index) + "\t" + g.name + "\t" + g.property + "\t" + g.eval_kind + "\t" +
+                           fsot::py::repr(g.computed) + "\t" + fsot::py::repr(g.measured) + "\t" + fsot::py::repr(g.sigma) + "\t" +
+                           g.sigma_source + "\t" + fsot::py::repr(g.z) + "\t" + g.verdict + (g.correction_law ? " NON_EVIDENTIAL" : ""));
+      }
+    }
     auto m = fsot::ledger_b::analyze_benchmark(*doc, name, lit);
     if (m.excluded) add(name, "excluded", "True");
     else {
@@ -236,6 +251,15 @@ int main(int argc, char** argv) {
     cadd("#summary", "lb_emit_irreproducible_round6_vs_sig12", fmt(C.emit_dp) + " -> " + fmt(C.emit_sig) + " of " + fmt(tot.lb));
     std::ofstream o(corrected_out, std::ios::binary);
     for (auto& l : corr) o << l << "\n";
+  }
+  if (!sigma_out.empty()) {
+    std::ofstream o(sigma_out, std::ios::binary);
+    o << "#Ledger B sigma gate (item 94; |z| = |c - m|/sigma_m <= 2; pin " << AUTHORITY_PIN_PREFIX << ")\n";
+    o << "#PROVISIONAL: the |z| <= 2 threshold is not a Damian-named gate (Tracer #111); verdicts are a report until he names one\n";
+    o << "#correction_law rows read m as input: NON_EVIDENTIAL even when they pass; NO_SIGMA rows are not scored\n";
+    for (auto& [k, n] : SG) o << "#summary\t" << k << "\t" << n << "\n";
+    o << "file\tindex\tname\tproperty\teval_kind\tcomputed\tmeasured\tsigma\tsigma_source\tz\tverdict\n";
+    for (auto& l : sgrows) o << l << "\n";
   }
   if (!misses_out.empty()) { std::ofstream o(misses_out, std::ios::binary); for (auto& l : misses) o << l << "\n"; }
   if (do_tiers) {

@@ -15,6 +15,10 @@ using namespace fsot;
 int main() {
 #if !defined(FSOT_HAVE_BOOST_MP)
   std::puts("SEED LEAVES: skipped (needs Boost.Multiprecision)");
+  {
+    const double v = static_cast<double>(leaves::sqrt8t0_over_r0<double>());
+    if (std::abs(v - 0.9428090415820634) > 1e-15) { std::fprintf(stderr, "sqrt8t0_over_r0 %.17g\n", v); return 1; }
+  }
   return 0;
 #else
   std::ifstream in(FSOT_SEED_LEAVES_TSV);
@@ -41,6 +45,20 @@ int main() {
     ++checked;
     if (rel > worst) { worst = rel; worst_id = id; }
     if (!(rel <= 1e-40)) { std::printf("  %-20s FAIL rel=%.3e\n", id.c_str(), rel); ++failed; }
+  }
+  {  // 43.5tm mu_R host atom: CPT mu_pbar = -mu_p = -g_p/2
+    const double mp = static_cast<double>(L.mu_p_host()), mpb = static_cast<double>(L.mu_pbar_host());
+    if (std::abs(mp - 2.79284734443575) > 1e-12 || mp + mpb != 0.0) {
+      std::fprintf(stderr, "mu_R host %.17g %.17g\n", mp, mpb); ++failed;
+    }
+  }
+  {  // 43.5to c_D/c_E host atoms: c_D=1-POOF, c_E=-POOF/3 (BRIEF 81ccb768 CLAIM 9895b15c)
+    const double cD = static_cast<double>(L.c_D_host()), cE = static_cast<double>(L.c_E_host());
+    const double poof = static_cast<double>(eng.POOF);
+    if (std::abs(cD - (1.0 - poof)) > 1e-15 || std::abs(cE - (-poof / 3.0)) > 1e-15 ||
+        std::abs(cD - 0.8465177851055492) > 1e-12 || std::abs(cE - (-0.05116073829815027)) > 1e-12) {
+      std::fprintf(stderr, "c_D/c_E host %.17g %.17g (POOF %.17g)\n", cD, cE, poof); ++failed;
+    }
   }
   auto ckm = leaves::ckm_double(eng);
   int ckm_ok = 0;
