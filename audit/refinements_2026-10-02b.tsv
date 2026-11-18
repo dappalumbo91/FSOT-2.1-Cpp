@@ -9,10 +9,10 @@ fix	F2	alpha_s(M_Z)	2*(POOF/psi_con)^2	0.117908816617884	alpha_s_MZ	0.118	0.0009
 alternate	F2	alpha_s(M_Z)	1/(e*pi) (wave1 pin)	0.117099663048638	alpha_s_MZ	0.118	0.0009	1.00037	FAIL	printed, not scored
 held_out	F2	alpha_s(M_Z)	2*(POOF/psi_con)^2	0.117908816617884	alpha_s_MZ_nolattice	0.1175	0.001	0.408817	PASS	input to the PDG average; correlated
 held_out	F2	alpha_s(M_Z)	2*(POOF/psi_con)^2	0.117908816617884	alpha_s_MZ_FLAG2021	0.1184	0.0008	0.613979	PASS	input to the PDG average; correlated
-candidate	C-MHW-1	m_H/m_W	leaf m_H / leaf m_W	1.55729801381558	m_H_over_m_W	1.5578107036	0.00139275	0.368113	PASS	chosen (S1)
-candidate	C-MHW-2	m_H/m_W	1/(3 P_new (1-C_factor))	1.55813359128402	m_H_over_m_W	1.5578107036	0.00139275	0.231835	PASS	not chosen
-held_out	C-MHW-1	m_H/m_Z	leaf m_H / leaf m_Z	1.37253763597944	m_H_over_m_Z	1.37298767382	0.00120667	0.372957	PASS	sibling
-held_out	C-MHW-1	m_H/m_t	leaf m_H / (leaf m_t/m_W * leaf m_W)	0.72440352354575	m_H_over_m_t	0.725502694559	0.00137577	0.798952	PASS	sibling
+candidate	C-MHW-1	m_H/m_W	leaf m_H / leaf m_W	1.55729801381558	m_H_over_m_W	1.55693972318	0.00139272	0.257259	PASS	chosen (S1)
+candidate	C-MHW-2	m_H/m_W	1/(3 P_new (1-C_factor))	1.55813359128402	m_H_over_m_W	1.55693972318	0.00139272	0.857218	PASS	not chosen
+held_out	C-MHW-1	m_H/m_Z	leaf m_H / leaf m_Z	1.37253763597944	m_H_over_m_Z	1.37222002895	0.00120667	0.263209	PASS	sibling
+held_out	C-MHW-1	m_H/m_t	leaf m_H / (leaf m_t/m_W * leaf m_W)	0.72440352354575	m_H_over_m_t	0.725097062062	0.00137516	0.504332	PASS	sibling
 candidate	C-DM-1	Dm2_21/Dm2_32	(POOF G P_new)^3 / [(G SUCTION)^3 (1+yy)]	0.030787593346332	dm2_21_over_dm2_32	0.0306720977597	0.000812377	0.14217	PASS	chosen (S1)
 held_out	C-DM-1	Dm2_21	(POOF G P_new)^3	7.52467124536458e-5	dm2_21	7.53e-5	1.8e-6	0.0296042	PASS	sibling
 held_out	C-DM-1	Dm2_21/Dm2_31 (convention check)	same value	0.030787593346332	dm2_21/(dm2_32+dm2_21)	0.029759317077	0.000764744	1.3446	FAIL	normal ordering, PDG 2024 inputs; not the row's label

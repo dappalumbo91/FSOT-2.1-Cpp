@@ -52,6 +52,12 @@ the Python, 13,841/13,841 lines).
   not edited. The SPEC 2c8264f1 conversion of remaining class-default rows to NO_SIGMA is on hold pending
   Tracer's addendum; those rows keep `class_default_biochem_0.2pct`. pKa last-digit σ is not invented; the water
   row is unchanged.
+  CI ledger-b (PR #8): `audit/refinements_2026-10-02b.tsv`, `audit/trace_2026-10-02h.tsv` and
+  `docs/PHYSICAL_MAP.md` were regenerated with the repo tools after the t1027s4342 PDG 2026 retarget
+  (`m_H` 125.20→125.13 GeV, CKM V_ud/V_us/V_tb, sin²θ12/θ13). FSOT computed values are unchanged;
+  z and published centrals update in place. All still-confirmed. On the 02h trace, the D_eff=6
+  diagnostic of S_quant(1+ψ_con) vs the new m_H/m_W moves from z 0.96 (ok) to z 1.585 (BREAK);
+  the frozen-pending C-MHW-1 leaf ratio remains PASS (z 0.26).
 
 ### A-02 · The stored Ledger B amplitudes are the older per-domain table, not f = ALPHA
 - **Observed.** For the 139,400 gated `fsot_prediction` records, f was inferred as `(c/m − 1)/|S|` from the
