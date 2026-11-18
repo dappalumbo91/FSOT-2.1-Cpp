@@ -281,7 +281,8 @@ if(nlohmann_json_FOUND AND (Boost_FOUND OR FSOT_WITH_FLOAT128))
              --corrected-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_corrected.tsv
              --genuine-misses-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_genuine_misses.tsv
              --tier-evidence ${CMAKE_CURRENT_SOURCE_DIR}/golden/tier_evidence_6f9c2560.json
-             --tiers-out ${CMAKE_CURRENT_BINARY_DIR}/evidence_tiers.tsv)
+             --tiers-out ${CMAKE_CURRENT_BINARY_DIR}/evidence_tiers.tsv
+             --sigma-gate-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_sigma_gate.tsv)
     add_test(NAME evidence_tiers_report COMMAND ${CMAKE_COMMAND} -E compare_files
              ${CMAKE_CURRENT_BINARY_DIR}/evidence_tiers.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/evidence_tiers_6f9c2560.tsv)
     set_tests_properties(evidence_tiers_report PROPERTIES DEPENDS ledger_b)
@@ -291,6 +292,10 @@ if(nlohmann_json_FOUND AND (Boost_FOUND OR FSOT_WITH_FLOAT128))
     add_test(NAME ledger_b_genuine_misses COMMAND ${CMAKE_COMMAND} -E compare_files
              ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_genuine_misses.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_b_genuine_misses_6f9c2560.tsv)
     set_tests_properties(ledger_b_genuine_misses PROPERTIES DEPENDS ledger_b)
+    # item 94: sigma gate (|z| <= 2 vs the measurement sigma); the 0.5 % parity gate cannot fail on correction-law rows.
+    add_test(NAME ledger_b_sigma_gate COMMAND ${CMAKE_COMMAND} -E compare_files
+             ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_sigma_gate.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_b_sigma_gate_6f9c2560.tsv)
+    set_tests_properties(ledger_b_sigma_gate PROPERTIES DEPENDS ledger_b)
   endif()
 else()
   message(STATUS "fsot: nlohmann_json not found; fsot_ledger_b disabled")
