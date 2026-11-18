@@ -137,6 +137,15 @@ if(Boost_FOUND)
   add_executable(test_fluid_lab tests/test_fluid_lab.cpp)
   target_link_libraries(test_fluid_lab PRIVATE fsot)
   add_test(NAME fluid_lab_pass COMMAND test_fluid_lab)
+  add_executable(test_chua_branch_l tests/test_chua_branch_l.cpp)
+  target_link_libraries(test_chua_branch_l PRIVATE fsot)
+  add_test(NAME chua_branch_l_golden COMMAND test_chua_branch_l)
+  add_executable(test_quantum_rc_fornax tests/test_quantum_rc_fornax.cpp)
+  target_link_libraries(test_quantum_rc_fornax PRIVATE fsot)
+  add_test(NAME quantum_rc_fornax_golden COMMAND test_quantum_rc_fornax)
+  add_executable(test_quantum_vcb_lithium tests/test_quantum_vcb_lithium.cpp)
+  target_link_libraries(test_quantum_vcb_lithium PRIVATE fsot)
+  add_test(NAME quantum_vcb_lithium_golden COMMAND test_quantum_vcb_lithium)
   add_executable(test_genetics_protein_scalars tests/test_genetics_protein_scalars.cpp)
   target_link_libraries(test_genetics_protein_scalars PRIVATE fsot)
   add_test(NAME genetics_protein_scalars_golden COMMAND test_genetics_protein_scalars)
@@ -156,6 +165,8 @@ if(Boost_FOUND)
   set_tests_properties(precision_report_md PROPERTIES DEPENDS precision_report)
 endif()
 if(Python3_Interpreter_FOUND)
+  add_test(NAME readme_gate_counts COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/check_readme_gate_counts.py)
+  add_test(NAME vw_validate_bars COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/vw_validate_bars.py)
   add_test(NAME references_check COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/check_references.py)
   add_test(NAME refinement_freeze COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_refinement_freeze.py)
   add_test(NAME refinement_freeze_b COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_refinement_freeze_b.py)
@@ -270,7 +281,8 @@ if(nlohmann_json_FOUND AND (Boost_FOUND OR FSOT_WITH_FLOAT128))
              --corrected-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_corrected.tsv
              --genuine-misses-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_genuine_misses.tsv
              --tier-evidence ${CMAKE_CURRENT_SOURCE_DIR}/golden/tier_evidence_6f9c2560.json
-             --tiers-out ${CMAKE_CURRENT_BINARY_DIR}/evidence_tiers.tsv)
+             --tiers-out ${CMAKE_CURRENT_BINARY_DIR}/evidence_tiers.tsv
+             --sigma-gate-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_sigma_gate.tsv)
     add_test(NAME evidence_tiers_report COMMAND ${CMAKE_COMMAND} -E compare_files
              ${CMAKE_CURRENT_BINARY_DIR}/evidence_tiers.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/evidence_tiers_6f9c2560.tsv)
     set_tests_properties(evidence_tiers_report PROPERTIES DEPENDS ledger_b)
@@ -280,6 +292,10 @@ if(nlohmann_json_FOUND AND (Boost_FOUND OR FSOT_WITH_FLOAT128))
     add_test(NAME ledger_b_genuine_misses COMMAND ${CMAKE_COMMAND} -E compare_files
              ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_genuine_misses.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_b_genuine_misses_6f9c2560.tsv)
     set_tests_properties(ledger_b_genuine_misses PROPERTIES DEPENDS ledger_b)
+    # item 94: sigma gate (|z| <= 2 vs the measurement sigma); the 0.5 % parity gate cannot fail on correction-law rows.
+    add_test(NAME ledger_b_sigma_gate COMMAND ${CMAKE_COMMAND} -E compare_files
+             ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_sigma_gate.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_b_sigma_gate_6f9c2560.tsv)
+    set_tests_properties(ledger_b_sigma_gate PROPERTIES DEPENDS ledger_b)
   endif()
 else()
   message(STATUS "fsot: nlohmann_json not found; fsot_ledger_b disabled")
@@ -296,4 +312,55 @@ add_executable(bench_cpp bench/bench_cpp.cpp)
 target_link_libraries(bench_cpp PRIVATE fsot)
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   target_compile_options(bench_cpp PRIVATE -O3 -march=native)
+endif()
+
+# ---- single-engine consolidation (fsot_unified Phase 3): derivations for D-01..D-10, derived table, folded routes ----
+add_executable(test_derivations tests/test_derivations.cpp)
+target_link_libraries(test_derivations PRIVATE fsot)
+if(FSOT_HUB_DATA)
+  target_compile_definitions(test_derivations PRIVATE FSOT_HUB_DATA_DIR="${FSOT_HUB_DATA}")
+endif()
+add_test(NAME derivations COMMAND test_derivations)
+if(Boost_FOUND)
+  add_executable(test_folded_routes tests/test_folded_routes.cpp)
+  target_link_libraries(test_folded_routes PRIVATE fsot)
+  target_compile_definitions(test_folded_routes PRIVATE FSOT_FOLDED_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/folded_routes.tsv"
+                             FSOT_VT_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vt_package.tsv"
+                             FSOT_VV_VW_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vv_vw_package.tsv")
+  add_test(NAME folded_routes COMMAND test_folded_routes)
+  # §43.5vt (Damian t994u): G_F / tau_n chain folded, flagged SM_PARITY_REFINE_LATER
+  add_executable(test_vt_gf tests/test_vt_gf.cpp)
+  target_link_libraries(test_vt_gf PRIVATE fsot)
+  target_compile_definitions(test_vt_gf PRIVATE FSOT_VT_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vt_package.tsv"
+                             FSOT_VV_VW_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vv_vw_package.tsv")
+  add_test(NAME vt_gf COMMAND test_vt_gf)
+endif()
+if(Boost_FOUND)
+  add_executable(fsot_single_engine apps/fsot_single_engine.cpp)
+  target_link_libraries(fsot_single_engine PRIVATE fsot)
+  target_compile_definitions(fsot_single_engine PRIVATE FSOT_VT_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vt_package.tsv"
+                             FSOT_PRECISION_TSV="${CMAKE_CURRENT_SOURCE_DIR}/audit/precision_2026-10-02.tsv"
+                             FSOT_VV_VW_PACKAGE_TSV="${CMAKE_CURRENT_SOURCE_DIR}/golden/vv_vw_package.tsv")
+  add_test(NAME single_engine_table COMMAND fsot_single_engine --table ${CMAKE_CURRENT_BINARY_DIR}/single_engine_table.tsv
+           --folded ${CMAKE_CURRENT_SOURCE_DIR}/golden/folded_routes.tsv ${CMAKE_CURRENT_BINARY_DIR}/single_engine_folded.tsv
+           --before-after ${CMAKE_CURRENT_BINARY_DIR}/BEFORE_AFTER.md)
+  add_test(NAME single_engine_before_after_committed COMMAND ${CMAKE_COMMAND} -E compare_files
+           ${CMAKE_CURRENT_BINARY_DIR}/BEFORE_AFTER.md ${CMAKE_CURRENT_SOURCE_DIR}/docs/single_engine/BEFORE_AFTER.md)
+  set_tests_properties(single_engine_before_after_committed PROPERTIES DEPENDS single_engine_table)
+  # IRONOUT-1 (Damian t995u): re-derived rows in bar, scaling relations exact, parity untouched
+  add_executable(test_ironout1 tests/test_ironout1.cpp)
+  target_link_libraries(test_ironout1 PRIVATE fsot)
+  add_test(NAME ironout1 COMMAND test_ironout1)
+endif()
+if(Boost_FOUND)
+  add_test(NAME single_engine_table_golden COMMAND ${CMAKE_COMMAND} -E compare_files
+           ${CMAKE_CURRENT_BINARY_DIR}/single_engine_table.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/single_engine_table.tsv)
+  add_test(NAME single_engine_folded_golden COMMAND ${CMAKE_COMMAND} -E compare_files
+           ${CMAKE_CURRENT_BINARY_DIR}/single_engine_folded.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/single_engine_folded.tsv)
+  add_test(NAME worst_residuals COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/worst_residuals.py
+           ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR}/WORST_RESIDUALS.md)
+  add_test(NAME worst_residuals_committed COMMAND ${CMAKE_COMMAND} -E compare_files
+           ${CMAKE_CURRENT_BINARY_DIR}/WORST_RESIDUALS.md ${CMAKE_CURRENT_SOURCE_DIR}/docs/single_engine/WORST_RESIDUALS.md)
+  set_tests_properties(single_engine_table_golden single_engine_folded_golden worst_residuals PROPERTIES DEPENDS "single_engine_table;precision_report")
+  set_tests_properties(worst_residuals_committed PROPERTIES DEPENDS worst_residuals)
 endif()

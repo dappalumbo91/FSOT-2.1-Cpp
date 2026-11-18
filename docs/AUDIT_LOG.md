@@ -32,12 +32,20 @@ the Python, 13,841/13,841 lines).
   scalars, more than half of the gated scalars are these records.
 - **The hub already discloses the principle.** `data/ledger_b_null_models.json` (hub @ ac1ef731, 2026-09-29)
   reports `beats_identity_cm = false` and `null_identity_cm_error_pct = 0.0`, with the note "B is
-  engineering. Do not quote 477/477 as ToE accuracy."
-- **Why it matters.** A reader of "477/477 green" will assume each file contains independent predictions.
+  engineering. Do not quote 477/477 as ToE accuracy; recomputing from the formula gives 470 pass / 7 fail."
+- **Why it matters.** A reader of "477/477 green" (stored-field gate; recomputing from the formula gives 470 pass / 7 fail) will assume each file contains independent predictions.
   For files dominated by `fsot_prediction`, the pass is mostly a property of the c = m(1+|S|f) step.
 - **Suggested check.** Treat `fsot_prediction` the same as `fsot_correction` in `classify_record`, then
   re-run `audit_all_benchmark_margins.py` and report how many files still have gated scalars and whether
   they remain green. This repo can compute that from the same code path. It is not changed here.
+- **Sigma gate (IRONOUT-2 item 94, 894b515; PROVISIONAL threshold).** `fsot_ledger_b --sigma-gate-out` scores every
+  finite relative scalar as z = (c − m)/σ_m, σ from `resolve_reference_uncertainty_pct` with its source labelled
+  (row / literature_anchor / class_default_biochem_0.2pct / class_default_behavioral_0.15pct / world_average).
+  Correction-law rows are reported NON_EVIDENTIAL; rows without σ are NO_SIGMA and never green. **The pass line
+  |z| ≤ 2 (`SIGMA_GATE_Z_PROVISIONAL`) is GB's working choice, not a gate number Damian has named (Tracer #111);
+  until he names one, the verdicts are a report, not a gate.** At hub 6f9c256: independent 1390 pass / 23 fail
+  (8 distinct biochem rows repeated across corpora) / 39044 NO_SIGMA; correction-law 484 pass (non-evidential) /
+  138700 NO_SIGMA. Golden: `golden/ledger_b_sigma_gate_6f9c2560.tsv` (ctest `ledger_b_sigma_gate`).
 
 ### A-02 · The stored Ledger B amplitudes are the older per-domain table, not f = ALPHA
 - **Observed.** For the 139,400 gated `fsot_prediction` records, f was inferred as `(c/m − 1)/|S|` from the
@@ -617,7 +625,7 @@ The catalog half of `owner-decisions-2026-10-02i` is in `include/fsot/host/catal
 
 C++ origin/main before this entry reproduces the claimed solves: Linux ctest 86/86 and MSVC ctest 85/85, including the precision gate 91/91 at z ≤ 1 and 89/91 at 2%, the ledger golden, the thirteen catalog leaves, and the pion residue still a miss at z 3.631. The pin stays AEB2AD.
 
-The same day, Lean `vendor/fsot_gr_sm.py` `run_full_t3_t4_suite` and `vendor/fsot_dynamics.py` `run_dynamics_consistency_suite` were run on that pin and wrote nothing. T3/T4 is 99 rows, 59 GR and 40 SM, median error 0.003027%, maximum 0.363% on `dm2_31_abs`. T2 is 18 rows. The September Label B report still says T1–T6 pass. That median is not the z ≤ 1 credibility claim, and 477/477 remains a residual-file count.
+The same day, Lean `vendor/fsot_gr_sm.py` `run_full_t3_t4_suite` and `vendor/fsot_dynamics.py` `run_dynamics_consistency_suite` were run on that pin and wrote nothing. T3/T4 is 99 rows, 59 GR and 40 SM, median error 0.003027%, maximum 0.363% on `dm2_31_abs`. T2 is 18 rows. The September Label B report still says T1–T6 pass. That median is not the z ≤ 1 credibility claim, and 477/477 remains a residual-file count (stored-field gate; recomputing from the formula gives 470 pass / 7 fail).
 
 Most of those 117 rows set the measured side equal to the computed side, or normalize a structural flag to 0 or 1. That includes the Einstein trace-reverse toy, the weak-field factor, the acoustic cone, exact c, the Casimirs, N_c, β₀, the spin-2 helicity and degree-of-freedom flags, Wilson σ = (√σ)², the Polyakov and θ_QCD flags, and the five viscosity definitions. Diatomic γ is 1 + 2/5 = 1.4. The US 1976 scale height is R T/(μ g) = 8434.660 compared with the same quotient printed as 8434.5. The explicit Euler row removes 8.206% of its offset (contraction 0.08206 toward 1) and still stores error 0%, because the scorer only asks whether the residual shrank. The emergent charm row sums to 1.001755 in squares, 0.176% off 1, and the 0.5% gate still accepts it.
 
@@ -909,3 +917,23 @@ Closed forms (`fsot_report`, mp169):
   record with other non-ASCII uppercase letters in biochem name fields could diverge, and the CI golden
   diff would catch it.
 - `BTFloat` division is faithfully rounded, not correctly rounded (±1 ulp). + − × are correctly rounded.
+
+### H-tip · 2026-10-30: J-1 integrand stabilized (tip-intrinsic Λ^(3) = 333.200 MeV)
+The J-1 remainder integrand `-1/(x²β) + 1/(b0 x²) - b1/(b0² x)` cancels at small x; mpmath `quad` drifted (332.62–334.43 MeV with dps). The x² cancellation is now done analytically in tools/score_2026_10_02j.py and score_2026_10_02s2.py (same integral, same inputs, no new formula). Λ^(5,4,3) FSOT = 207.566 / 289.546 / 333.200260643 MeV at dps 15/30/60 (z 0.68 / 0.55 / 0.48 vs FLAG). The FLAG-input J-1 validation now reproduces FLAG to z 0.10 / 0.01 / 0.08. The frozen 334.43 is retired as a naive-quad artifact; FREEZE_2026-10-02s2/t/u2 files are left as historical records. Gate stays 91/91.
+
+### H-tip follow-up · 2026-11-11: re-freeze k/l/m/p/r after the J-1 integrand change (59bbaff)
+The 2026-10-30 J-1 integrand stabilization (commit 59bbaff, Λ^(3) FSOT 336.940 → 332.916 MeV; Λ^(5) 209.524 → 207.566) updated `audit/score_2026-10-02j.tsv` and the s2/t/u/w scores, but did not regenerate the downstream snapshots that *read* those Lambdas. That stale-k golden is what turned `ledger-b` red on PR #5 (first seen at 59bbaff; still present on merge `db2bc8f`). This is a legitimate regen, not a code regression: `tools/trace_2026_10_02k.py` / `score_2026_10_02k.py` were unchanged; only the J-1 inputs moved.
+
+Re-generated against hub `6f9c2560` (same pin as CI) and the post-59bbaff `score_j`:
+- `audit/trace_2026-10-02k.tsv` — only the six C-link rows that divide by FSOT Λ^(3) or Λ^(5)
+- `audit/score_2026-10-02k.tsv` — K-1a/b, K-4, K-5, D-1 (all still the same PASS/FAIL verdicts)
+- `audit/score_2026-10-02l.tsv` — L-B1* (GMOR with K-1a F_π) and the frozen L-B2/L-B4 info rows; L-B1b stays PASS
+- `audit/score_2026-10-02m.tsv` — M-2 held-out rows that use K-1a F_π; verdicts unchanged
+- `audit/score_2026-10-02p.tsv` — P-5 χ / η / η' (reads FSOT Λ^(3)); verdicts unchanged
+- `audit/score_2026-10-02r.tsv` — R-1 traces of the same Λ^(3); **R-1 M_η' flips FAIL → PASS** (5.80 % → 4.04 %). Other R-1 verdicts unchanged.
+- `audit/score_2026-10-02s.tsv` — S-2 FKS η/η' (reads P-4 F_π and the updated R-1 χ); S-2 M_η stays PASS, M_η' stays FAIL
+
+`FREEZE_2026-10-02k` (and l/m/p/r) decision files and their sha256 are left as historical records, same policy as 59bbaff for s2/t/u2. All later scores (n, o, q, s2, t–aq) already matched a live regen after this cascade.
+
+### H-toolchain · 2026-11-11: 80-bit π and e on long double
+`std::numbers::pi_v<long double>` and `e_v<long double>` on this box's zig-c++/libc++ are the 53-bit double constants (rel 3.9e-17 vs `4*atanl(1)` / a 50-digit literal). Engine<long double> then evaluates `Chain_consistency_%` = 100|(τ/μ)(μ/e)−(τ/e)|/(τ/e) to only ~double accuracy (rel 1.40e-12, mixed 9.33e-15 vs the 1e-15 bar). ubuntu-latest libstdc++ already ships correctly rounded 80-bit constants, which is why CI `golden` passed. `real_traits<long double>::pi()` / `e()` now use 50-digit `L` literals (agrees with `strtold` and `4*atanl(1)`). No tolerance was loosened.

@@ -572,6 +572,104 @@ inline Margin analyze_benchmark(const json& doc, const std::string& file_name, c
   return out;
 }
 
+// ---------------- sigma gate (IRONOUT-2 item 94, M-LEDGERB-TIGHT) ----------------
+// The parity gate (0.5 % relative) cannot fail on a Ledger B correction-law row: c = m(1+|S|alpha) gives
+// err_pct = 100|S|alpha < 0.5 % for every measurement (Lean SeedBracketsTight ledger_b_err_lt_half_any_measurement).
+// This gate scores every finite scalar against its MEASUREMENT sigma instead: z = (c - m)/sigma_m, PASS iff |z| <= 2.
+// PROVISIONAL THRESHOLD (Tracer #111): |z| <= 2 is GB's working choice, NOT a gate number Damian has named
+// (t1016u asks for a real Ledger B gate without a number). Until he names one, the verdicts are a report, not a gate;
+// change SIGMA_GATE_Z_PROVISIONAL when he does.
+//  * sigma_m = resolve_reference_uncertainty_pct(row) * |m| / 100 (row field, literature anchor or class default;
+//    the source is reported). No sigma -> NO_SIGMA (not scored, never counted green).
+//  * Correction-law rows (eval_kind fsot_prediction / fsot_correction) read the measured value as input, so they are
+//    reported as NON_EVIDENTIAL; their |z| = |S|alpha/sigma_rel still fails when the correction exceeds the
+//    measurement precision, which the 0.5 % gate could never see.
+//  * World-average overrides (Scout WAVE90 43_5wf): D/H 2.508(29)e-5, tau_reion 0.0544(73) replace stale targets.
+//  * zero targets, inequality bounds, contraction checks, sigma-distance and simulation rows are not relative and
+//    are skipped (they have their own checks).
+// Which branch of resolve_reference_uncertainty_pct supplied the sigma (same order as the resolver):
+// "row" (record field), "literature_anchor" (anchor/stump measured_uncertainty_pct), or a CLASS DEFAULT
+// ("class_default_biochem_0.2pct" / "class_default_behavioral_0.15pct"), which is a domain-wide precision
+// convention, not a measurement sigma; the gate scores it but labels it so a reader can drop it.
+inline std::string reference_uncertainty_source(const json& row, const Literature& lit) {
+  if (!is_none(get(row, "reference_uncertainty_pct")) || !is_none(get(row, "measured_uncertainty_rel")) ||
+      !is_none(get(row, "measured_uncertainty")))
+    return "row";
+  if (auto sci = get(row, "scientific_measurement"); sci && truthy(*sci) && sci->is_object() &&
+      !is_none(get(*sci, "reference_uncertainty_pct")))
+    return "row";
+  if (!is_none(get(row, "sigma")) && !is_none(get(row, "sigma_distance"))) return "row_error_pct";
+  const std::string prop = stumped_canonical_property(row, lit);
+  static const std::map<std::string, std::string> ALIASED = {  // = PROPERTY_ANCHOR_ALIASES in the resolver
+      {"H0_planck_km_s_Mpc", "hubble_constant"}, {"h0_planck_km_s_mpc", "hubble_constant"},
+      {"w0_bao_readout", "w0_constraint"}, {"wa_bao_readout", "dark_energy_eos"},
+      {"w0_cmb_readout", "w0_constraint"}, {"wa_cmb_readout", "dark_energy_eos"}};
+  auto al = ALIASED.find(prop);
+  const bool anchor = lit.anchor(prop) || (al != ALIASED.end() && lit.anchor(al->second));
+  if (!anchor && biochem_property({prop, str_or_empty(row, "name"), str_or_empty(row, "display_name"),
+                                   str_or_empty(row, "section_display_name")}))
+    return "class_default_biochem_0.2pct";
+  if (!anchor && (contains(lower_ascii(str_or_empty(row, "lab")), "neuroeconomics") || ends_with(prop, "_alpha") ||
+                  contains(prop, "transfer_pct")))
+    return "class_default_behavioral_0.15pct";
+  return "literature_anchor";
+}
+
+inline constexpr double SIGMA_GATE_Z_PROVISIONAL = 2.0;  // provisional (#111) until Damian names the gate
+struct SigmaRow {
+  long index = 0;
+  std::string name, property, eval_kind, sigma_source, verdict;
+  double computed = 0, measured = 0, sigma = 0, z = 0;
+  bool correction_law = false;
+};
+inline std::vector<SigmaRow> sigma_gate(const json& doc, const std::string& file_name, const Literature& lit) {
+  std::vector<SigmaRow> out;
+  if (AUDIT_EXCLUDED_BENCHMARKS.count(file_name)) return out;
+  static const std::map<std::string, std::pair<double, double>> WA = {
+      {"D_H_ratio", {2.508e-5, 0.029e-5}}, {"tau_reion", {0.0544, 0.0073}}};
+  long idx = -1;
+  for (const auto& r : material_records(doc)) {
+    ++idx;
+    if (classify_record(r, file_name) != "scalar") continue;
+    auto c = get(r, "computed");
+    auto m = get(r, "measured");
+    if (is_none(c) || is_none(m)) continue;
+    auto cf = to_float(*c), mf = to_float(*m);
+    if (!cf || !mf || !std::isfinite(*cf) || !std::isfinite(*mf) || *mf == 0) continue;
+    const std::string ekl = lower_ascii(str_or_empty(r, "eval_kind"));
+    const std::string formula = str_or_empty(r, "formula");
+    if (ekl == "simulation_aggregate" || (!is_none(get(r, "sigma_distance")) && !is_none(get(r, "sigma"))) ||
+        (!is_none(get(r, "expected_holes")) && !is_none(get(r, "match"))) || str_or_empty(r, "property") == "adversarial_hole_detected" ||
+        formula.find("\xE2\x89\xA4") != std::string::npos || formula.find("<=") != std::string::npos ||
+        (!is_none(get(r, "residual_after")) && !is_none(get(r, "initial_offset"))))
+      continue;
+    SigmaRow s;
+    s.index = idx;
+    s.name = str_or_empty(r, "name");
+    s.property = str_or_empty(r, "property");
+    s.eval_kind = str_or_empty(r, "eval_kind");
+    s.computed = *cf;
+    s.measured = *mf;
+    s.correction_law = s.eval_kind == "fsot_prediction" || s.eval_kind == "fsot_correction";
+    std::optional<double> sig;
+    if (auto w = WA.find(s.name); w != WA.end() && !s.correction_law) {
+      s.measured = w->second.first; sig = w->second.second; s.sigma_source = "world_average";
+    } else {
+      bool raised = false;
+      if (auto u = resolve_reference_uncertainty_pct(r, lit, raised); u && *u > 0) {
+        sig = *u * std::fabs(*mf) / 100.0;
+        s.sigma_source = reference_uncertainty_source(r, lit);
+      }
+    }
+    if (!sig) { s.verdict = "NO_SIGMA"; out.push_back(s); continue; }
+    s.sigma = *sig;
+    s.z = (s.computed - s.measured) / s.sigma;
+    s.verdict = std::fabs(s.z) <= SIGMA_GATE_Z_PROVISIONAL ? "PASS" : "FAIL";
+    out.push_back(s);
+  }
+  return out;
+}
+
 // ---------------- Ledger B re-score with the live law ----------------
 inline constexpr int EMIT_SIG_DIGITS = 12;  // corrected-mode emitter: significant digits, not decimal places
 struct LedgerBStats {
