@@ -9,11 +9,11 @@ FSOT	M-3a F = m_p/(2 sqrt3 pi) vs physical F_pi	FSOT m_p (anchored), N_c = 3	86.
 FSOT	M-3a F vs chiral-limit F_0 = F_pi/1.062	same	86.2160857638	86.69049238	0.7812	0.6073	PASS	-0.54724 %	FSOT (comparison HYBRID)	quark-level sigma model is a chiral-limit relation
 FSOT	M-3b g_A	-	-	-	-	-	no FSOT form	-	-	lattice 1.263 retained (EXTERNAL)
 FSOT	M-3c g_piNN = g_A m_N/F (M-3a F, lattice g_A)	HYBRID	13.7544447505	-	-	-	info	-	HYBRID	ref 13.17
-FSOT	M-2a M_pi0 HELD-OUT (K-1a F; /m_e = 261.630042)	FSOT alpha, M_pi+ leaf	133.692677044	134.9768	0.0005	2568.2	PASS	-0.95137 %	HYBRID	validation passed; Delta_pi = 1606.15
-FSOT	M-2b M_K0 HELD-OUT (K-1a F, eps = 0)	FSOT Q 22.73148, M_K+ leaf	498.142269983	497.611	0.013	40.867	PASS	0.10676 %	HYBRID	validation passed
-FSOT	M-2c M_eta HELD-OUT (K-1a F)	M-2a/b, chi lattice	516.628929156	547.862	0.017	1837.2	FAIL	-5.7009 %	HYBRID	validation FAILED; theta = 14.14 deg
-FSOT	M-2c M_eta' HELD-OUT (K-1a F)	same	1082.30399454	957.78	0.06	2075.4	FAIL	13.001 %	HYBRID	validation FAILED
-FSOT	M-2b M_K0 HELD-OUT (K-1a F, eps = 0.79)	FSOT Q 22.73148, M_K+ leaf	496.800211373	497.611	0.013	62.368	PASS	-0.16294 %	HYBRID	validation passed
+FSOT	M-2a M_pi0 HELD-OUT (K-1a F; /m_e = 261.909002)	FSOT alpha, M_pi+ leaf	133.835225025	134.9768	0.0005	2283.1	PASS	-0.84576 %	HYBRID	validation passed; Delta_pi = 1568.01
+FSOT	M-2b M_K0 HELD-OUT (K-1a F, eps = 0)	FSOT Q 22.73148, M_K+ leaf	498.168284165	497.611	0.013	42.868	PASS	0.11199 %	HYBRID	validation passed
+FSOT	M-2c M_eta HELD-OUT (K-1a F)	M-2a/b, chi lattice	517.959508805	547.862	0.017	1759.0	FAIL	-5.458 %	HYBRID	validation FAILED; theta = 13.801 deg
+FSOT	M-2c M_eta' HELD-OUT (K-1a F)	same	1092.30322002	957.78	0.06	2242.1	FAIL	14.045 %	HYBRID	validation FAILED
+FSOT	M-2b M_K0 HELD-OUT (K-1a F, eps = 0.79)	FSOT Q 22.73148, M_K+ leaf	496.858335795	497.611	0.013	57.897	PASS	-0.15126 %	HYBRID	validation passed
 FSOT	M-2a M_pi0 HELD-OUT (M-3a F; /m_e = 263.007688)	FSOT alpha, M_pi+ leaf	134.39665267	134.9768	0.0005	1160.3	PASS	-0.42981 %	FSOT	validation passed; Delta_pi = 1417.42
 FSOT	M-2b M_K0 HELD-OUT (M-3a F, eps = 0)	FSOT Q 22.73148, M_K+ leaf	498.271516358	497.611	0.013	50.809	PASS	0.13274 %	FSOT	validation passed
 FSOT	M-2c M_eta HELD-OUT (M-3a F)	M-2a/b, chi lattice	523.182969085	547.862	0.017	1451.7	PASS	-4.5046 %	HYBRID	validation FAILED; theta = 12.453 deg
