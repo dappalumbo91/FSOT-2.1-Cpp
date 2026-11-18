@@ -623,9 +623,14 @@ inline std::string reference_uncertainty_source(const json& row, const Literatur
   return "literature_anchor";
 }
 
-// Per-row measured-σ table (t1034u). Key = "file:index" in material_records.
+// Per-row measured-σ / target table (t1034u addendum 6aaf159b). Key = "file:index" in material_records.
+// gate=scored: numeric σ. gate=halo_dual: both 2% and 5% sys ends (do not pick one).
+// gate=no_sigma: drop the 0.2% default, leave unscored. gate=estimate: Trummal centrals, not in the Gaussian gate.
+enum class MeasuredGate { Scored, NoSigma, Estimate, HaloDual };
 struct MeasuredSigmaEntry {
+  MeasuredGate gate = MeasuredGate::Scored;
   double sigma = 0;
+  double sigma_5pct = 0;
   std::optional<double> corrected_measured;
   std::string sigma_source = "worklist_measured";
 };
@@ -659,7 +664,20 @@ inline bool load_measured_sigma_table(const std::string& path, MeasuredSigmaTabl
   };
   const int c_file = col("file"), c_index = col("index"), c_sigma = col("sigma");
   const int c_meas = col("corrected_measured"), c_src = col("sigma_source");
-  if (c_file < 0 || c_index < 0 || c_sigma < 0) { err = "header needs file, index, sigma"; return false; }
+  const int c_gate = col("gate"), c_sig5 = col("sigma_5pct");
+  if (c_file < 0 || c_index < 0) { err = "header needs file, index"; return false; }
+  auto parse_gate = [](const std::string& g, const std::string& src, bool has_sig) -> std::optional<MeasuredGate> {
+    if (g == "scored" || g == "SCORED") return MeasuredGate::Scored;
+    if (g == "no_sigma" || g == "NO_SIGMA") return MeasuredGate::NoSigma;
+    if (g == "estimate" || g == "ESTIMATE") return MeasuredGate::Estimate;
+    if (g == "halo_dual" || g == "HALO_DUAL") return MeasuredGate::HaloDual;
+    if (g.empty()) {
+      if (src == "NO_SIGMA") return MeasuredGate::NoSigma;
+      if (src == "ESTIMATE") return MeasuredGate::Estimate;
+      if (has_sig) return MeasuredGate::Scored;
+    }
+    return std::nullopt;
+  };
   long n = 0;
   while (std::getline(f, line)) {
     if (!line.empty() && line.back() == '\r') line.pop_back();
@@ -667,16 +685,40 @@ inline bool load_measured_sigma_table(const std::string& path, MeasuredSigmaTabl
     auto c = split(line);
     auto at = [&](int i) -> std::string { return (i >= 0 && i < int(c.size())) ? c[size_t(i)] : std::string(); };
     const std::string file = at(c_file), idx = at(c_index), sigs = at(c_sigma);
-    if (file.empty() || idx.empty() || sigs.empty()) { err = "blank file/index/sigma at data row " + std::to_string(n + 1); return false; }
+    if (file.empty() || idx.empty()) { err = "blank file/index at data row " + std::to_string(n + 1); return false; }
     MeasuredSigmaEntry e;
-    try { e.sigma = std::stod(sigs); }
-    catch (...) { err = "non-numeric sigma for " + file + ":" + idx; return false; }
-    if (!(e.sigma > 0) || !std::isfinite(e.sigma)) { err = "non-positive sigma for " + file + ":" + idx; return false; }
+    auto gopt = parse_gate(at(c_gate), at(c_src), !sigs.empty());
+    if (!gopt) { err = "unknown gate for " + file + ":" + idx; return false; }
+    e.gate = *gopt;
+    auto parse_pos = [&](const std::string& s, const char* what, double& dest) -> bool {
+      try { dest = std::stod(s); }
+      catch (...) { err = std::string("non-numeric ") + what + " for " + file + ":" + idx; return false; }
+      if (!(dest > 0) || !std::isfinite(dest)) { err = std::string("non-positive ") + what + " for " + file + ":" + idx; return false; }
+      return true;
+    };
+    if (e.gate == MeasuredGate::Scored) {
+      if (sigs.empty() || !parse_pos(sigs, "sigma", e.sigma)) {
+        if (err.empty()) err = "scored row missing sigma for " + file + ":" + idx;
+        return false;
+      }
+    } else if (e.gate == MeasuredGate::HaloDual) {
+      if (sigs.empty() || !parse_pos(sigs, "sigma (2pct)", e.sigma)) {
+        if (err.empty()) err = "halo_dual row missing sigma for " + file + ":" + idx;
+        return false;
+      }
+      if (at(c_sig5).empty() || !parse_pos(at(c_sig5), "sigma_5pct", e.sigma_5pct)) {
+        if (err.empty()) err = "halo_dual row missing sigma_5pct for " + file + ":" + idx;
+        return false;
+      }
+    }
     if (const std::string m = at(c_meas); !m.empty()) {
       try { e.corrected_measured = std::stod(m); }
       catch (...) { err = "non-numeric corrected_measured for " + file + ":" + idx; return false; }
     }
     if (const std::string s = at(c_src); !s.empty()) e.sigma_source = s;
+    else if (e.gate == MeasuredGate::NoSigma) e.sigma_source = "NO_SIGMA";
+    else if (e.gate == MeasuredGate::Estimate) e.sigma_source = "ESTIMATE";
+    else if (e.gate == MeasuredGate::HaloDual) e.sigma_source = "worklist_measured_halo";
     out[file + ":" + idx] = e;
     ++n;
   }
@@ -689,7 +731,9 @@ struct SigmaRow {
   long index = 0;
   std::string name, property, eval_kind, sigma_source, verdict;
   double computed = 0, measured = 0, sigma = 0, z = 0;
+  double sigma_5pct = 0, z_5pct = 0;
   bool correction_law = false;
+  bool dual_sigma = false;
 };
 inline std::vector<SigmaRow> sigma_gate(const json& doc, const std::string& file_name, const Literature& lit,
                                        const MeasuredSigmaTable& measured = {}) {
@@ -725,8 +769,35 @@ inline std::vector<SigmaRow> sigma_gate(const json& doc, const std::string& file
     const std::string mkey = file_name + ":" + std::to_string(idx);
     if (auto it = measured.find(mkey); it != measured.end()) {
       if (it->second.corrected_measured) s.measured = *it->second.corrected_measured;
-      sig = it->second.sigma;
       s.sigma_source = it->second.sigma_source.empty() ? "worklist_measured" : it->second.sigma_source;
+      if (it->second.gate == MeasuredGate::NoSigma) {
+        s.verdict = "NO_SIGMA";
+        s.sigma_source = "NO_SIGMA";
+        out.push_back(s);
+        continue;
+      }
+      if (it->second.gate == MeasuredGate::Estimate) {
+        s.verdict = "ESTIMATE";
+        s.sigma_source = "ESTIMATE";
+        out.push_back(s);
+        continue;
+      }
+      if (it->second.gate == MeasuredGate::HaloDual) {
+        s.dual_sigma = true;
+        s.sigma = it->second.sigma;
+        s.sigma_5pct = it->second.sigma_5pct;
+        s.z = (s.computed - s.measured) / s.sigma;
+        s.z_5pct = (s.computed - s.measured) / s.sigma_5pct;
+        s.sigma_source = "worklist_measured_halo";
+        // Both paper ends are reported; verdict is PASS only if both |z| sit under the provisional bar (they do).
+        // Do not collapse to a single sys as *the* σ.
+        s.verdict = (std::fabs(s.z) <= SIGMA_GATE_Z_PROVISIONAL && std::fabs(s.z_5pct) <= SIGMA_GATE_Z_PROVISIONAL)
+                        ? "PASS"
+                        : "FAIL";
+        out.push_back(s);
+        continue;
+      }
+      sig = it->second.sigma;
     } else if (auto w = WA.find(s.name); w != WA.end() && !s.correction_law) {
       s.measured = w->second.first; sig = w->second.second; s.sigma_source = "world_average";
     } else {

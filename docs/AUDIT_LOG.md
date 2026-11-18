@@ -46,12 +46,23 @@ the Python, 13,841/13,841 lines).
   until he names one, the verdicts are a report, not a gate.** At hub 6f9c256: independent 1390 pass / 23 fail
   (8 distinct biochem rows repeated across corpora) / 39044 NO_SIGMA; correction-law 484 pass (non-evidential) /
   138700 NO_SIGMA. Golden: `golden/ledger_b_sigma_gate_6f9c2560.tsv` (ctest `ledger_b_sigma_gate`).
-  t1034u / t1036s4386 (dev/next, report-only, k on hold): a per-row table `golden/ledger_b_measured_sigma_t1034u.tsv`
-  overrides σ and the z-central for Planck H0 67.36±0.54, PDG 2026 CKM λ/δ (and sin δ), phenol 9.994±0.005
-  (scored by Damian), and halo V_c 229.0 km/s (Eilers+2019; σ = 0.2 stat ⊕ 2.02 sys). Stored benchmark JSON is
-  not edited. The SPEC 2c8264f1 conversion of remaining class-default rows to NO_SIGMA is on hold pending
-  Tracer's addendum; those rows keep `class_default_biochem_0.2pct`. pKa last-digit σ is not invented; the water
-  row is unchanged.
+  t1034u / t1036s4386 / addendum 6aaf159b (dev/misses, branch addendum 36ca0315; report-only, k on hold):
+  the per-row table `golden/ledger_b_measured_sigma_t1034u.tsv` overrides σ and the z-central for Planck
+  H0 67.36±0.54, PDG 2026 CKM λ/δ (and sin δ), and phenol 9.994±0.005. Halo V_c is scored vs Eilers+2019
+  229.0 km/s at both systematic ends, σ_2% = hypot(0.2, 0.02×229) and σ_5% = hypot(0.2, 0.05×229);
+  neither end is *the* σ (the earlier 0.2⊕2.02 figure is withdrawn). Water (CD-0249) is retargeted to
+  IUPAC-consistent acid-dissociation pKa 14.0 and marked NO_SIGMA (do not invent σ; do not retarget to
+  CRC pKw 13.995). Ten CRC §5b pKa with no printed σ, 27 AnAge max-longevity rows, and 12 culinary
+  recipe-process targets are NO_SIGMA. Strong acids HCl/HBr/HI use Trummal 2016 Table 1 centrals and
+  are ESTIMATE (the ± is a ~90% interval, not 1σ; not in the Gaussian gate). The 371 quirkmod and
+  300 unity-ratio internal rows, and the 47 unclear rows in addendum §2.1, stay on
+  `class_default_biochem_0.2pct`. `engine_native_h0` is not retargeted (t1008u). Stored hub JSON is
+  not patched: CI clones the pinned hub, and Scout overlay 6cc621a4 / pack 60fe71c4 is applied only
+  as C++ table overrides (targets + gate), not by `git apply` on the hub and not by regenerating
+  stored `error_pct` / panel medians. pKa last-digit σ is not invented. Re-score (k report-only):
+  N=1360, χ²/N = 0.3609227321518973 (halo 2%) / 0.35857210351094404 (halo 5%), N_eff=636.9146005509642;
+  |z|≥2 is 24 rows (the same 8 biochemistry observables plus phenol at −9.618489705676936); halo is
+  PASS at both ends (z = −1.951138351321293 at 2%, −0.7810799666489716 at 5%); |z|≥3 is phenol only.
   CI ledger-b (PR #8): `audit/refinements_2026-10-02b.tsv`, `audit/trace_2026-10-02h.tsv` and
   `docs/PHYSICAL_MAP.md` were regenerated with the repo tools after the t1027s4342 PDG 2026 retarget
   (`m_H` 125.20→125.13 GeV, CKM V_ud/V_us/V_tb, sin²θ12/θ13). FSOT computed values are unchanged;

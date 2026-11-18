@@ -1,29 +1,42 @@
 #Ledger B sigma gate (item 94; |z| = |c - m|/sigma_m <= 2; pin AEB2AD)
 #PROVISIONAL: the |z| <= 2 threshold is not a Damian-named gate (Tracer #111); verdicts are a report until he names one
 #correction_law rows read m as input: NON_EVIDENTIAL even when they pass; NO_SIGMA rows are not scored
-#t1034u: worklist_measured overrides (Planck H0 67.36+/-0.54, PDG 2026 CKM, phenol 9.994+/-0.005, halo V_c 229.0 Eilers); class-default NO_SIGMA conversion ON HOLD; k report-only
+#t1034u addendum 6aaf159b / 36ca0315: Planck H0 67.36+/-0.54, PDG 2026 CKM, phenol 9.994+/-0.005, halo V_c 229.0 both 2% and 5% sys ends (no single sys chosen); water pKa 14.0 NO_SIGMA; CRC pKa/AnAge/recipes NO_SIGMA; strong acids ESTIMATE; internals stay on 0.2%; engine_native_h0 not retargeted; k report-only
 #summary	correction_law NO_SIGMA	138700
 #summary	correction_law PASS	484
 #summary	correction_law PASS sigma=class_default_behavioral_0.15pct	3
 #summary	correction_law PASS sigma=class_default_biochem_0.2pct	272
 #summary	correction_law PASS sigma=literature_anchor	5
 #summary	correction_law PASS sigma=row	204
-#summary	independent FAIL	25
+#summary	independent ESTIMATE	3
+#summary	independent FAIL	24
 #summary	independent FAIL sigma=row	23
-#summary	independent FAIL sigma=worklist_measured	2
-#summary	independent NO_SIGMA	39044
-#summary	independent PASS	1388
-#summary	independent PASS sigma=class_default_biochem_0.2pct	788
+#summary	independent FAIL sigma=worklist_measured	1
+#summary	independent NO_SIGMA	39094
+#summary	independent PASS	1336
+#summary	independent PASS sigma=class_default_biochem_0.2pct	735
 #summary	independent PASS sigma=literature_anchor	6
 #summary	independent PASS sigma=row	580
 #summary	independent PASS sigma=worklist_measured	10
+#summary	independent PASS sigma=worklist_measured_halo	1
 #summary	independent PASS sigma=world_average	4
-#summary	independent chi2	510.5599799865723
-#summary	independent N	1413
-#summary	independent chi2_over_N	0.3613304883132146
-#summary	independent N_eff_exact_clone	675.2008792695299
-#summary	independent |z|>=2	25
-#summary	independent |z|>=3	2
+#summary	independent chi2_halo_sys2pct	490.8549157265803
+#summary	independent chi2_halo_sys5pct	487.6580607748839
+#summary	independent N	1360
+#summary	independent chi2_over_N_halo_sys2pct	0.3609227321518973
+#summary	independent chi2_over_N_halo_sys5pct	0.35857210351094404
+#summary	independent N_eff_exact_clone	636.9146005509642
+#summary	independent |z|>=2_halo_sys2pct	24
+#summary	independent |z|>=2_halo_sys5pct	24
+#summary	independent |z|>=3_halo_sys2pct	1
+#summary	independent |z|>=3_halo_sys5pct	1
+#summary	independent class_default_biochem_0.2pct	735
+#summary	independent quirkmod_channel_strength	371
+#summary	independent scalar_ratio_unity	300
+#summary	independent chi2	490.8549157265803
+#summary	independent chi2_over_N	0.3609227321518973
+#summary	independent |z|>=2	24
+#summary	independent |z|>=3	1
 file	index	name	property	eval_kind	computed	measured	sigma	sigma_source	z	verdict
 clinical_medicine_extension_benchmark.json	179	lysozyme	§21 Protein ΔG		-9.160572302574996	-9.2	0.0138	row	2.857079523550939	FAIL
 clinical_medicine_extension_benchmark.json	180	RNase A	§21 Protein ΔG		-8.683186676986617	-8.7	0.013049999999999999	row	1.2883772424047688	PASS
@@ -49,12 +62,37 @@ clinical_medicine_extension_benchmark.json	245	ibuprofen_COX2	§65 Enzyme pKi		5
 clinical_medicine_extension_benchmark.json	246	penicillinG_PBP	§65 Enzyme pKi		7.321044173173944	7.3	0.01095	row	1.9218422989903523	PASS
 clinical_medicine_extension_benchmark.json	249	AT/TA	§71 DNA Stacking ΔG		-0.8775179415719043	-0.88	0.00132	row	1.8803472940118782	PASS
 clinical_medicine_extension_benchmark.json	257	GG/CC	§71 DNA Stacking ΔG		-1.8366053309085486	-1.84	0.0027600000000000003	row	1.2299525693664761	PASS
-crc_handbook_properties_benchmark.json	89	H₂SO₄(2)	§5b pKa		1.9944908981985554	1.99	0.00398	class_default_biochem_0.2pct	1.1283663815465867	PASS
+crc_handbook_properties_benchmark.json	79	HCl	§5b pKa		-6.299531169475074	-5.9		ESTIMATE		ESTIMATE
+crc_handbook_properties_benchmark.json	80	HBr	§5b pKa		-9.001660039999924	-8.8		ESTIMATE		ESTIMATE
+crc_handbook_properties_benchmark.json	81	HI	§5b pKa		-9.999120014147774	-9.5		ESTIMATE		ESTIMATE
+crc_handbook_properties_benchmark.json	82	HF	§5b pKa		3.1697638180476053	3.2		NO_SIGMA		NO_SIGMA
+crc_handbook_properties_benchmark.json	83	CH₃COOH	§5b pKa		4.759626642339688	4.756		NO_SIGMA		NO_SIGMA
+crc_handbook_properties_benchmark.json	84	H₂CO₃(1)	§5b pKa		6.349849835799246	6.35		NO_SIGMA		NO_SIGMA
+crc_handbook_properties_benchmark.json	85	H₂CO₃(2)	§5b pKa		10.329502751883204	10.33		NO_SIGMA		NO_SIGMA
+crc_handbook_properties_benchmark.json	86	NH₄⁺	§5b pKa		9.24987121949994	9.25		NO_SIGMA		NO_SIGMA
+crc_handbook_properties_benchmark.json	87	H₂O	§5b pKa		15.741976846811903	14.0		NO_SIGMA		NO_SIGMA
+crc_handbook_properties_benchmark.json	88	HCN	§5b pKa		9.208715777931866	9.21		NO_SIGMA		NO_SIGMA
+crc_handbook_properties_benchmark.json	89	H₂SO₄(2)	§5b pKa		1.9944908981985554	1.99		NO_SIGMA		NO_SIGMA
+crc_handbook_properties_benchmark.json	90	H₃PO₄(1)	§5b pKa		2.14960730325328	2.16		NO_SIGMA		NO_SIGMA
 crc_handbook_properties_benchmark.json	91	phenol	§5b pKa		9.945907551471615	9.994	0.005	worklist_measured	-9.618489705676936	FAIL
-crc_handbook_properties_benchmark.json	92	H₂S(1)	§5b pKa		7.0	7.02	0.014039999999999999	class_default_biochem_0.2pct	-1.4245014245013943	PASS
+crc_handbook_properties_benchmark.json	92	H₂S(1)	§5b pKa		7.0	7.05		NO_SIGMA		NO_SIGMA
+crc_handbook_properties_benchmark.json	93	HNO₂	§5b pKa		3.2500298670229353	3.25		NO_SIGMA		NO_SIGMA
+culinary_arts_benchmark.json	18	pumpkin_bread:bake_temperature_C	bake_temperature_C		175.083327	175.0		NO_SIGMA		NO_SIGMA
+culinary_arts_benchmark.json	19	pumpkin_bread:bake_time_min	bake_time_min		60.028569	60.0		NO_SIGMA		NO_SIGMA
+culinary_arts_benchmark.json	20	pumpkin_bread:pumpkin_mass_fraction	pumpkin_mass_fraction		0.310074	0.31		NO_SIGMA		NO_SIGMA
+culinary_arts_benchmark.json	21	pumpkin_bread:final_moisture_pct	final_moisture_pct		27.206476	27.2		NO_SIGMA		NO_SIGMA
+culinary_arts_benchmark.json	30	chocolate_chip_cookie:bake_temperature_C	bake_temperature_C		190.090469	190.0		NO_SIGMA		NO_SIGMA
+culinary_arts_benchmark.json	31	chocolate_chip_cookie:bake_time_min	bake_time_min		11.005238	11.0		NO_SIGMA		NO_SIGMA
+culinary_arts_benchmark.json	32	chocolate_chip_cookie:sugar_mass_fraction	sugar_mass_fraction		0.280067	0.28		NO_SIGMA		NO_SIGMA
+culinary_arts_benchmark.json	33	chocolate_chip_cookie:final_moisture_pct	final_moisture_pct		8.502024	8.5		NO_SIGMA		NO_SIGMA
+culinary_arts_benchmark.json	38	kimchi_batch:ferment_temperature_C	ferment_temperature_C		18.008571	18.0		NO_SIGMA		NO_SIGMA
+culinary_arts_benchmark.json	39	kimchi_batch:ferment_time_h	ferment_time_h		72.034283	72.0		NO_SIGMA		NO_SIGMA
+culinary_arts_benchmark.json	40	kimchi_batch:final_ph	final_ph		4.301024	4.3		NO_SIGMA		NO_SIGMA
+culinary_arts_benchmark.json	41	kimchi_batch:salt_mass_fraction	salt_mass_fraction		0.025006	0.025		NO_SIGMA		NO_SIGMA
 dark_sector_open_problems_benchmark.json	8	D_H_ratio	deuterium_abundance		2.5446825859417006e-05	2.508e-05	2.9e-07	world_average	1.2649167566103645	PASS
 foundational_ontology_spine_benchmark.json	22	zero_boundary_not_entity_panel	hubble_constant_km_s_mpc	live_formula	67.38395831285372	67.36	0.54	worklist_measured	0.04436724602541104	PASS
-founding_galactic_halo_rotation_panel_benchmark.json	0	mw_v_sun_kms	halo_rotation_velocity	literature_anchor	220.0552701541	229.0	2.0298768435548	worklist_measured	-4.406538196788162	FAIL
+founding_galactic_halo_rotation_panel_benchmark.json	0	mw_v_sun_kms	halo_rotation_velocity	literature_anchor	220.0552701541	229.0	4.58436473243567	worklist_measured_halo_sys2pct	-1.951138351321293	PASS
+founding_galactic_halo_rotation_panel_benchmark.json	0	mw_v_sun_kms	halo_rotation_velocity	literature_anchor	220.0552701541	229.0	11.4517465916776	worklist_measured_halo_sys5pct	-0.7810799666489716	PASS
 h0_planck_benchmark.json	19		planck_reference_km_s_mpc_class	live_formula	67.36	67.36	0.54	worklist_measured	0.0	PASS
 hubble_dark_sector_crosswalk_benchmark.json	17	None	hubble_constant_km_s_mpc	live_formula	67.38395831285372	67.36	0.54	worklist_measured	0.04436724602541104	PASS
 immunology_benchmark.json	3	lysozyme	§21 Protein ΔG		-9.160572302574996	-9.2	0.0184	row	2.1428096426632046	FAIL
@@ -75,6 +113,33 @@ immunology_benchmark.json	66	warfarin_VKORC1	§65 Enzyme pKi		6.276886301348152	
 immunology_benchmark.json	69	ibuprofen_COX2	§65 Enzyme pKi		5.33631581720894	5.35	0.010700000000000001	row	-1.2788955879494586	PASS
 immunology_benchmark.json	70	penicillinG_PBP	§65 Enzyme pKi		7.321044173173944	7.3	0.0146	row	1.4413817242427642	PASS
 immunology_benchmark.json	73	AT/TA	§71 DNA Stacking ΔG		-0.8775179415719043	-0.88	0.0017600000000000003	row	1.4102604705089083	PASS
+longevity_anage_catalog_panel_benchmark.json	35	Sebastes_babcocki	maximum_longevity_yrs	anage_longevity	106.02357	106.0		NO_SIGMA		NO_SIGMA
+longevity_anage_catalog_panel_benchmark.json	85	Macrochelys_temminckii	maximum_longevity_yrs	anage_longevity	70.315632	70.3		NO_SIGMA		NO_SIGMA
+longevity_anage_catalog_panel_benchmark.json	121	Acipenser_schrenckii	maximum_longevity_yrs	anage_longevity	60.013342	60.0		NO_SIGMA		NO_SIGMA
+longevity_anage_catalog_panel_benchmark.json	214	Kinosternon_baurii	maximum_longevity_yrs	anage_longevity	49.611029	49.6		NO_SIGMA		NO_SIGMA
+longevity_anage_catalog_panel_benchmark.json	287	Kinosternon_scorpioides	maximum_longevity_yrs	anage_longevity	44.70994	44.7		NO_SIGMA		NO_SIGMA
+longevity_anage_catalog_panel_benchmark.json	393	Kinosternon_subrubrum	maximum_longevity_yrs	anage_longevity	40.008895	40.0		NO_SIGMA		NO_SIGMA
+longevity_anage_catalog_panel_benchmark.json	403	Threskiornis_spinicollis	maximum_longevity_yrs	anage_longevity	39.408761	39.4		NO_SIGMA		NO_SIGMA
+longevity_anage_catalog_panel_benchmark.json	445	Threskiornis_aethiopicus	maximum_longevity_yrs	anage_longevity	37.008227	37.0		NO_SIGMA		NO_SIGMA
+longevity_anage_catalog_panel_benchmark.json	462	Kinosternon_sonoriense	maximum_longevity_yrs	anage_longevity	36.508116	36.5		NO_SIGMA		NO_SIGMA
+longevity_anage_catalog_panel_benchmark.json	576	Threskiornis_molucca	maximum_longevity_yrs	anage_longevity	33.207382	33.2		NO_SIGMA		NO_SIGMA
+longevity_anage_catalog_panel_benchmark.json	717	Equus_kiang	maximum_longevity_yrs	anage_longevity	30.106693	30.1		NO_SIGMA		NO_SIGMA
+longevity_anage_catalog_panel_benchmark.json	733	Triakis_semifasciata	maximum_longevity_yrs	anage_longevity	30.006671	30.0		NO_SIGMA		NO_SIGMA
+longevity_anage_catalog_panel_benchmark.json	778	Agkistrodon_contortrix	maximum_longevity_yrs	anage_longevity	29.806626	29.8		NO_SIGMA		NO_SIGMA
+longevity_anage_catalog_panel_benchmark.json	874	Threskiornis_melanocephalus	maximum_longevity_yrs	anage_longevity	28.206271	28.2		NO_SIGMA		NO_SIGMA
+longevity_extreme_species_panel_benchmark.json	92	Sebastes_babcocki	extreme_maximum_longevity_yrs	extreme_longevity	106.02357	106.0		NO_SIGMA		NO_SIGMA
+longevity_megadeep_ncbi_panel_benchmark.json	15	Acipenser_schrenckii	megadeep_maximum_longevity_yrs	megadeep_longevity	60.013342	60.0		NO_SIGMA		NO_SIGMA
+longevity_megadeep_ncbi_panel_benchmark.json	613	Equus_kiang	megadeep_maximum_longevity_yrs	megadeep_longevity	30.106693	30.1		NO_SIGMA		NO_SIGMA
+longevity_megadeep_ncbi_panel_benchmark.json	862	Kinosternon_baurii	megadeep_maximum_longevity_yrs	megadeep_longevity	49.611029	49.6		NO_SIGMA		NO_SIGMA
+longevity_megadeep_ncbi_panel_benchmark.json	864	Kinosternon_scorpioides	megadeep_maximum_longevity_yrs	megadeep_longevity	44.70994	44.7		NO_SIGMA		NO_SIGMA
+longevity_megadeep_ncbi_panel_benchmark.json	866	Kinosternon_sonoriense	megadeep_maximum_longevity_yrs	megadeep_longevity	36.508116	36.5		NO_SIGMA		NO_SIGMA
+longevity_megadeep_ncbi_panel_benchmark.json	868	Kinosternon_subrubrum	megadeep_maximum_longevity_yrs	megadeep_longevity	40.008895	40.0		NO_SIGMA		NO_SIGMA
+longevity_megadeep_ncbi_panel_benchmark.json	1011	Macrochelys_temminckii	megadeep_maximum_longevity_yrs	megadeep_longevity	70.315632	70.3		NO_SIGMA		NO_SIGMA
+longevity_megadeep_ncbi_panel_benchmark.json	1411	Sebastes_babcocki	megadeep_maximum_longevity_yrs	megadeep_longevity	106.02357	106.0		NO_SIGMA		NO_SIGMA
+longevity_megadeep_ncbi_panel_benchmark.json	1650	Threskiornis_aethiopicus	megadeep_maximum_longevity_yrs	megadeep_longevity	37.008227	37.0		NO_SIGMA		NO_SIGMA
+longevity_megadeep_ncbi_panel_benchmark.json	1653	Threskiornis_molucca	megadeep_maximum_longevity_yrs	megadeep_longevity	33.207382	33.2		NO_SIGMA		NO_SIGMA
+longevity_megadeep_ncbi_panel_benchmark.json	1655	Threskiornis_spinicollis	megadeep_maximum_longevity_yrs	megadeep_longevity	39.408761	39.4		NO_SIGMA		NO_SIGMA
+longevity_megadeep_ncbi_panel_benchmark.json	1674	Triakis_semifasciata	megadeep_maximum_longevity_yrs	megadeep_longevity	30.006671	30.0		NO_SIGMA		NO_SIGMA
 malware_threat_intelligence_cybersecurity_benchmark.json	43	lysozyme	§21 Protein ΔG		-9.160572302574996	-9.2	0.0138	row	2.857079523550939	FAIL
 malware_threat_intelligence_cybersecurity_benchmark.json	44	RNase A	§21 Protein ΔG		-8.683186676986617	-8.7	0.013049999999999999	row	1.2883772424047688	PASS
 malware_threat_intelligence_cybersecurity_benchmark.json	45	cytochrome c	§21 Protein ΔG		-10.081950177328737	-10.1	0.015149999999999999	row	1.1914074370470105	PASS
