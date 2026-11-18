@@ -11,10 +11,12 @@
 #pragma once
 #include <array>
 #include <cmath>
+#include <fstream>
 #include <initializer_list>
 #include <map>
 #include <optional>
 #include <set>
+#include <sstream>
 #include <string>
 #include <string_view>
 #include <unordered_map>
@@ -578,9 +580,14 @@ inline Margin analyze_benchmark(const json& doc, const std::string& file_name, c
 // This gate scores every finite scalar against its MEASUREMENT sigma instead: z = (c - m)/sigma_m, PASS iff |z| <= 2.
 // PROVISIONAL THRESHOLD (Tracer #111): |z| <= 2 is GB's working choice, NOT a gate number Damian has named
 // (t1016u asks for a real Ledger B gate without a number). Until he names one, the verdicts are a report, not a gate;
-// change SIGMA_GATE_Z_PROVISIONAL when he does.
+// change SIGMA_GATE_Z_PROVISIONAL when he does. k stays on hold (t1031u / t1034u).
 //  * sigma_m = resolve_reference_uncertainty_pct(row) * |m| / 100 (row field, literature anchor or class default;
 //    the source is reported). No sigma -> NO_SIGMA (not scored, never counted green).
+//  * t1034u / t1036s4386: a per-row measured-σ table (golden/ledger_b_measured_sigma_t1034u.tsv) may override
+//    sigma_m and the measured central value used for z (Planck H0 67.36±0.54, PDG 2026 CKM λ/δ, phenol 9.994±0.005,
+//    halo V_c 229.0 with σ = 0.2 stat ⊕ 2.02 sys). Stored benchmark JSON is not edited. The SPEC 2c8264f1
+//    conversion of class-default rows to NO_SIGMA is ON HOLD pending Tracer's superseding addendum; those rows
+//    keep class_default_biochem_0.2pct until then. pKa last-digit σ is not invented. Water is unchanged.
 //  * Correction-law rows (eval_kind fsot_prediction / fsot_correction) read the measured value as input, so they are
 //    reported as NON_EVIDENTIAL; their |z| = |S|alpha/sigma_rel still fails when the correction exceeds the
 //    measurement precision, which the 0.5 % gate could never see.
@@ -591,6 +598,7 @@ inline Margin analyze_benchmark(const json& doc, const std::string& file_name, c
 // "row" (record field), "literature_anchor" (anchor/stump measured_uncertainty_pct), or a CLASS DEFAULT
 // ("class_default_biochem_0.2pct" / "class_default_behavioral_0.15pct"), which is a domain-wide precision
 // convention, not a measurement sigma; the gate scores it but labels it so a reader can drop it.
+// Table overrides are labelled "worklist_measured".
 inline std::string reference_uncertainty_source(const json& row, const Literature& lit) {
   if (!is_none(get(row, "reference_uncertainty_pct")) || !is_none(get(row, "measured_uncertainty_rel")) ||
       !is_none(get(row, "measured_uncertainty")))
@@ -615,6 +623,67 @@ inline std::string reference_uncertainty_source(const json& row, const Literatur
   return "literature_anchor";
 }
 
+// Per-row measured-σ table (t1034u). Key = "file:index" in material_records.
+struct MeasuredSigmaEntry {
+  double sigma = 0;
+  std::optional<double> corrected_measured;
+  std::string sigma_source = "worklist_measured";
+};
+using MeasuredSigmaTable = std::map<std::string, MeasuredSigmaEntry>;
+
+inline bool load_measured_sigma_table(const std::string& path, MeasuredSigmaTable& out, std::string& err) {
+  std::ifstream f(path);
+  if (!f) { err = "cannot open"; return false; }
+  auto split = [](const std::string& line) {
+    std::vector<std::string> c;
+    std::string cur;
+    for (char ch : line) {
+      if (ch == '\t') { c.push_back(cur); cur.clear(); }
+      else if (ch != '\r') cur.push_back(ch);
+    }
+    c.push_back(cur);
+    return c;
+  };
+  std::string line;
+  std::vector<std::string> header;
+  while (std::getline(f, line)) {
+    if (!line.empty() && line.back() == '\r') line.pop_back();
+    if (line.empty() || line[0] == '#') continue;
+    header = split(line);
+    break;
+  }
+  if (header.empty()) { err = "missing header"; return false; }
+  auto col = [&](const char* name) -> int {
+    for (int i = 0; i < int(header.size()); ++i) if (header[size_t(i)] == name) return i;
+    return -1;
+  };
+  const int c_file = col("file"), c_index = col("index"), c_sigma = col("sigma");
+  const int c_meas = col("corrected_measured"), c_src = col("sigma_source");
+  if (c_file < 0 || c_index < 0 || c_sigma < 0) { err = "header needs file, index, sigma"; return false; }
+  long n = 0;
+  while (std::getline(f, line)) {
+    if (!line.empty() && line.back() == '\r') line.pop_back();
+    if (line.empty() || line[0] == '#') continue;
+    auto c = split(line);
+    auto at = [&](int i) -> std::string { return (i >= 0 && i < int(c.size())) ? c[size_t(i)] : std::string(); };
+    const std::string file = at(c_file), idx = at(c_index), sigs = at(c_sigma);
+    if (file.empty() || idx.empty() || sigs.empty()) { err = "blank file/index/sigma at data row " + std::to_string(n + 1); return false; }
+    MeasuredSigmaEntry e;
+    try { e.sigma = std::stod(sigs); }
+    catch (...) { err = "non-numeric sigma for " + file + ":" + idx; return false; }
+    if (!(e.sigma > 0) || !std::isfinite(e.sigma)) { err = "non-positive sigma for " + file + ":" + idx; return false; }
+    if (const std::string m = at(c_meas); !m.empty()) {
+      try { e.corrected_measured = std::stod(m); }
+      catch (...) { err = "non-numeric corrected_measured for " + file + ":" + idx; return false; }
+    }
+    if (const std::string s = at(c_src); !s.empty()) e.sigma_source = s;
+    out[file + ":" + idx] = e;
+    ++n;
+  }
+  if (n == 0) { err = "no data rows"; return false; }
+  return true;
+}
+
 inline constexpr double SIGMA_GATE_Z_PROVISIONAL = 2.0;  // provisional (#111) until Damian names the gate
 struct SigmaRow {
   long index = 0;
@@ -622,7 +691,8 @@ struct SigmaRow {
   double computed = 0, measured = 0, sigma = 0, z = 0;
   bool correction_law = false;
 };
-inline std::vector<SigmaRow> sigma_gate(const json& doc, const std::string& file_name, const Literature& lit) {
+inline std::vector<SigmaRow> sigma_gate(const json& doc, const std::string& file_name, const Literature& lit,
+                                       const MeasuredSigmaTable& measured = {}) {
   std::vector<SigmaRow> out;
   if (AUDIT_EXCLUDED_BENCHMARKS.count(file_name)) return out;
   static const std::map<std::string, std::pair<double, double>> WA = {
@@ -652,7 +722,12 @@ inline std::vector<SigmaRow> sigma_gate(const json& doc, const std::string& file
     s.measured = *mf;
     s.correction_law = s.eval_kind == "fsot_prediction" || s.eval_kind == "fsot_correction";
     std::optional<double> sig;
-    if (auto w = WA.find(s.name); w != WA.end() && !s.correction_law) {
+    const std::string mkey = file_name + ":" + std::to_string(idx);
+    if (auto it = measured.find(mkey); it != measured.end()) {
+      if (it->second.corrected_measured) s.measured = *it->second.corrected_measured;
+      sig = it->second.sigma;
+      s.sigma_source = it->second.sigma_source.empty() ? "worklist_measured" : it->second.sigma_source;
+    } else if (auto w = WA.find(s.name); w != WA.end() && !s.correction_law) {
       s.measured = w->second.first; sig = w->second.second; s.sigma_source = "world_average";
     } else {
       bool raised = false;

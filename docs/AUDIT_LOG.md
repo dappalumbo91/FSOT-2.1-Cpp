@@ -46,6 +46,12 @@ the Python, 13,841/13,841 lines).
   until he names one, the verdicts are a report, not a gate.** At hub 6f9c256: independent 1390 pass / 23 fail
   (8 distinct biochem rows repeated across corpora) / 39044 NO_SIGMA; correction-law 484 pass (non-evidential) /
   138700 NO_SIGMA. Golden: `golden/ledger_b_sigma_gate_6f9c2560.tsv` (ctest `ledger_b_sigma_gate`).
+  t1034u / t1036s4386 (dev/next, report-only, k on hold): a per-row table `golden/ledger_b_measured_sigma_t1034u.tsv`
+  overrides σ and the z-central for Planck H0 67.36±0.54, PDG 2026 CKM λ/δ (and sin δ), phenol 9.994±0.005
+  (scored by Damian), and halo V_c 229.0 km/s (Eilers+2019; σ = 0.2 stat ⊕ 2.02 sys). Stored benchmark JSON is
+  not edited. The SPEC 2c8264f1 conversion of remaining class-default rows to NO_SIGMA is on hold pending
+  Tracer's addendum; those rows keep `class_default_biochem_0.2pct`. pKa last-digit σ is not invented; the water
+  row is unchanged.
 
 ### A-02 · The stored Ledger B amplitudes are the older per-domain table, not f = ALPHA
 - **Observed.** For the 139,400 gated `fsot_prediction` records, f was inferred as `(c/m − 1)/|S|` from the

@@ -290,7 +290,8 @@ if(nlohmann_json_FOUND AND (Boost_FOUND OR FSOT_WITH_FLOAT128))
              --genuine-misses-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_genuine_misses.tsv
              --tier-evidence ${CMAKE_CURRENT_SOURCE_DIR}/golden/tier_evidence_6f9c2560.json
              --tiers-out ${CMAKE_CURRENT_BINARY_DIR}/evidence_tiers.tsv
-             --sigma-gate-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_sigma_gate.tsv)
+             --sigma-gate-out ${CMAKE_CURRENT_BINARY_DIR}/ledger_b_sigma_gate.tsv
+             --measured-sigma ${CMAKE_CURRENT_SOURCE_DIR}/golden/ledger_b_measured_sigma_t1034u.tsv)
     add_test(NAME evidence_tiers_report COMMAND ${CMAKE_COMMAND} -E compare_files
              ${CMAKE_CURRENT_BINARY_DIR}/evidence_tiers.tsv ${CMAKE_CURRENT_SOURCE_DIR}/golden/evidence_tiers_6f9c2560.tsv)
     set_tests_properties(evidence_tiers_report PROPERTIES DEPENDS ledger_b)

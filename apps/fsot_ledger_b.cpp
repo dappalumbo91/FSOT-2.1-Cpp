@@ -4,6 +4,7 @@
 //                 [--corrected-out corrected.tsv [--genuine-misses-out misses.tsv]]
 //                 [--tier-evidence golden/tier_evidence_X.json --tiers-out tiers.tsv]
 //                 [--sigma-gate-out sigma_gate.tsv]   (item 94: |z| <= 2 against the measurement sigma, PROVISIONAL threshold #111; see ledger_b.hpp)
+//                 [--measured-sigma golden/ledger_b_measured_sigma_t1034u.tsv]  (t1034u per-row σ / corrected-target overrides)
 // --corrected-out writes the corrected-mode report (docs/AUDIT_LOG.md "Fixed in C++"): gate errors recomputed
 // from computed/measured (old vs new counts), Ledger B structural corrections vs genuine predictions,
 // round(c,6) vs significant-digit emitter reproducibility, and NaN/Infinity tokens read per file.
@@ -16,6 +17,7 @@
 #include <map>
 #include <set>
 #include <sstream>
+#include <tuple>
 
 #include "fsot/engine.hpp"
 #include "fsot/host/ledger_a.hpp"
@@ -55,7 +57,7 @@ static std::optional<json> load(const fs::path& p, fsot::py::NonFiniteLog* log =
 }
 
 int main(int argc, char** argv) {
-  std::string hub, out, golden, corrected_out, tier_evidence, tiers_out, misses_out, sigma_out;
+  std::string hub, out, golden, corrected_out, tier_evidence, tiers_out, misses_out, sigma_out, measured_sigma;
   std::vector<std::string> misses{"file\tindex\tname\tproperty\teval_kind\tcomputed\tmeasured\tstored_error_pct\trecomputed_error_pct\taware_kind\taware_effective\twithin_display\twithin_literature"};
   for (int i = 1; i + 1 < argc; i += 2) {
     std::string a = argv[i];
@@ -67,8 +69,17 @@ int main(int argc, char** argv) {
     else if (a == "--tiers-out") tiers_out = argv[i + 1];
     else if (a == "--genuine-misses-out") misses_out = argv[i + 1];
     else if (a == "--sigma-gate-out") sigma_out = argv[i + 1];
+    else if (a == "--measured-sigma") measured_sigma = argv[i + 1];
   }
   if (hub.empty()) { std::fprintf(stderr, "usage: fsot_ledger_b --hub DIR [--out F] [--golden F]\n"); return 2; }
+  fsot::ledger_b::MeasuredSigmaTable msigma;
+  if (!measured_sigma.empty()) {
+    std::string err;
+    if (!fsot::ledger_b::load_measured_sigma_table(measured_sigma, msigma, err)) {
+      std::fprintf(stderr, "cannot load measured-sigma table %s: %s\n", measured_sigma.c_str(), err.c_str());
+      return 2;
+    }
+  }
   const auto t0 = std::chrono::steady_clock::now();
   Engine<RS> eng;
   std::map<std::string, double> S;
@@ -106,6 +117,8 @@ int main(int argc, char** argv) {
            zero_target = 0, bound_rows = 0, contraction_rows = 0, computed_rounded = 0; } C;
   std::map<std::string, long> SG;
   std::vector<std::string> sgrows;
+  struct IndZ { std::string file, name, property, source, verdict; double computed = 0, measured = 0, z = 0; };
+  std::vector<IndZ> indip;
   for (auto& p : files) {
     const std::string name = p.filename().string();
     fsot::py::NonFiniteLog nf;
@@ -121,11 +134,14 @@ int main(int argc, char** argv) {
     }
     if (!doc) { add(name, "load_error", "True"); continue; }
     if (!sigma_out.empty()) {
-      for (const auto& g : fsot::ledger_b::sigma_gate(*doc, name, lit)) {
+      for (const auto& g : fsot::ledger_b::sigma_gate(*doc, name, lit, msigma)) {
         ++SG[std::string(g.correction_law ? "correction_law " : "independent ") + g.verdict];
         if (g.verdict != "NO_SIGMA")
           ++SG[std::string(g.correction_law ? "correction_law " : "independent ") + g.verdict + " sigma=" + g.sigma_source];
-        if (g.verdict == "FAIL" || (!g.correction_law && g.verdict != "NO_SIGMA" && std::fabs(g.z) > 1.0))
+        if (!g.correction_law && g.verdict != "NO_SIGMA")
+          indip.push_back({name, g.name, g.property, g.sigma_source, g.verdict, g.computed, g.measured, g.z});
+        const bool worklist = g.sigma_source == "worklist_measured";
+        if (g.verdict == "FAIL" || worklist || (!g.correction_law && g.verdict != "NO_SIGMA" && std::fabs(g.z) > 1.0))
           sgrows.push_back(name + "\t" + std::to_string(g.index) + "\t" + g.name + "\t" + g.property + "\t" + g.eval_kind + "\t" +
                            fsot::py::repr(g.computed) + "\t" + fsot::py::repr(g.measured) + "\t" + fsot::py::repr(g.sigma) + "\t" +
                            g.sigma_source + "\t" + fsot::py::repr(g.z) + "\t" + g.verdict + (g.correction_law ? " NON_EVIDENTIAL" : ""));
@@ -257,7 +273,29 @@ int main(int argc, char** argv) {
     o << "#Ledger B sigma gate (item 94; |z| = |c - m|/sigma_m <= 2; pin " << AUTHORITY_PIN_PREFIX << ")\n";
     o << "#PROVISIONAL: the |z| <= 2 threshold is not a Damian-named gate (Tracer #111); verdicts are a report until he names one\n";
     o << "#correction_law rows read m as input: NON_EVIDENTIAL even when they pass; NO_SIGMA rows are not scored\n";
+    o << "#t1034u: worklist_measured overrides (Planck H0 67.36+/-0.54, PDG 2026 CKM, phenol 9.994+/-0.005, halo V_c 229.0 Eilers); class-default NO_SIGMA conversion ON HOLD; k report-only\n";
     for (auto& [k, n] : SG) o << "#summary\t" << k << "\t" << n << "\n";
+    {
+      double chi2 = 0;
+      for (auto& r : indip) chi2 += r.z * r.z;
+      const long N = long(indip.size());
+      std::map<std::tuple<std::string, std::string, std::string, std::string>, long> clones;
+      for (auto& r : indip) ++clones[std::make_tuple(r.name, r.property, fsot::py::repr(r.computed), fsot::py::repr(r.measured))];
+      double sumsq = 0;
+      for (auto& [_, n] : clones) sumsq += double(n) * double(n);
+      const double neff = (N && sumsq) ? (double(N) * double(N) / sumsq) : 0;
+      long n2 = 0, n3 = 0;
+      for (auto& r : indip) { if (std::fabs(r.z) >= 2) ++n2; if (std::fabs(r.z) >= 3) ++n3; }
+      o << "#summary\tindependent chi2\t" << fsot::py::repr(chi2) << "\n";
+      o << "#summary\tindependent N\t" << N << "\n";
+      o << "#summary\tindependent chi2_over_N\t" << fsot::py::repr(N ? chi2 / double(N) : 0) << "\n";
+      o << "#summary\tindependent N_eff_exact_clone\t" << fsot::py::repr(neff) << "\n";
+      o << "#summary\tindependent |z|>=2\t" << n2 << "\n";
+      o << "#summary\tindependent |z|>=3\t" << n3 << "\n";
+      std::fprintf(stderr, "sigma_gate independent: N=%ld chi2=%s chi2/N=%s N_eff=%s |z|>=2 %ld |z|>=3 %ld worklist=%zu\n",
+                   N, fsot::py::repr(chi2).c_str(), fsot::py::repr(N ? chi2 / double(N) : 0).c_str(),
+                   fsot::py::repr(neff).c_str(), n2, n3, msigma.size());
+    }
     o << "file\tindex\tname\tproperty\teval_kind\tcomputed\tmeasured\tsigma\tsigma_source\tz\tverdict\n";
     for (auto& l : sgrows) o << l << "\n";
   }

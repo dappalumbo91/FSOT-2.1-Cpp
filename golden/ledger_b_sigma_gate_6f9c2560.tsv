@@ -1,20 +1,29 @@
 #Ledger B sigma gate (item 94; |z| = |c - m|/sigma_m <= 2; pin AEB2AD)
 #PROVISIONAL: the |z| <= 2 threshold is not a Damian-named gate (Tracer #111); verdicts are a report until he names one
 #correction_law rows read m as input: NON_EVIDENTIAL even when they pass; NO_SIGMA rows are not scored
+#t1034u: worklist_measured overrides (Planck H0 67.36+/-0.54, PDG 2026 CKM, phenol 9.994+/-0.005, halo V_c 229.0 Eilers); class-default NO_SIGMA conversion ON HOLD; k report-only
 #summary	correction_law NO_SIGMA	138700
 #summary	correction_law PASS	484
 #summary	correction_law PASS sigma=class_default_behavioral_0.15pct	3
 #summary	correction_law PASS sigma=class_default_biochem_0.2pct	272
 #summary	correction_law PASS sigma=literature_anchor	5
 #summary	correction_law PASS sigma=row	204
-#summary	independent FAIL	23
+#summary	independent FAIL	25
 #summary	independent FAIL sigma=row	23
+#summary	independent FAIL sigma=worklist_measured	2
 #summary	independent NO_SIGMA	39044
-#summary	independent PASS	1390
-#summary	independent PASS sigma=class_default_biochem_0.2pct	800
+#summary	independent PASS	1388
+#summary	independent PASS sigma=class_default_biochem_0.2pct	788
 #summary	independent PASS sigma=literature_anchor	6
 #summary	independent PASS sigma=row	580
+#summary	independent PASS sigma=worklist_measured	10
 #summary	independent PASS sigma=world_average	4
+#summary	independent chi2	510.5599799865723
+#summary	independent N	1413
+#summary	independent chi2_over_N	0.3613304883132146
+#summary	independent N_eff_exact_clone	675.2008792695299
+#summary	independent |z|>=2	25
+#summary	independent |z|>=3	2
 file	index	name	property	eval_kind	computed	measured	sigma	sigma_source	z	verdict
 clinical_medicine_extension_benchmark.json	179	lysozyme	§21 Protein ΔG		-9.160572302574996	-9.2	0.0138	row	2.857079523550939	FAIL
 clinical_medicine_extension_benchmark.json	180	RNase A	§21 Protein ΔG		-8.683186676986617	-8.7	0.013049999999999999	row	1.2883772424047688	PASS
@@ -41,8 +50,13 @@ clinical_medicine_extension_benchmark.json	246	penicillinG_PBP	§65 Enzyme pKi		
 clinical_medicine_extension_benchmark.json	249	AT/TA	§71 DNA Stacking ΔG		-0.8775179415719043	-0.88	0.00132	row	1.8803472940118782	PASS
 clinical_medicine_extension_benchmark.json	257	GG/CC	§71 DNA Stacking ΔG		-1.8366053309085486	-1.84	0.0027600000000000003	row	1.2299525693664761	PASS
 crc_handbook_properties_benchmark.json	89	H₂SO₄(2)	§5b pKa		1.9944908981985554	1.99	0.00398	class_default_biochem_0.2pct	1.1283663815465867	PASS
+crc_handbook_properties_benchmark.json	91	phenol	§5b pKa		9.945907551471615	9.994	0.005	worklist_measured	-9.618489705676936	FAIL
 crc_handbook_properties_benchmark.json	92	H₂S(1)	§5b pKa		7.0	7.02	0.014039999999999999	class_default_biochem_0.2pct	-1.4245014245013943	PASS
 dark_sector_open_problems_benchmark.json	8	D_H_ratio	deuterium_abundance		2.5446825859417006e-05	2.508e-05	2.9e-07	world_average	1.2649167566103645	PASS
+foundational_ontology_spine_benchmark.json	22	zero_boundary_not_entity_panel	hubble_constant_km_s_mpc	live_formula	67.38395831285372	67.36	0.54	worklist_measured	0.04436724602541104	PASS
+founding_galactic_halo_rotation_panel_benchmark.json	0	mw_v_sun_kms	halo_rotation_velocity	literature_anchor	220.0552701541	229.0	2.0298768435548	worklist_measured	-4.406538196788162	FAIL
+h0_planck_benchmark.json	19		planck_reference_km_s_mpc_class	live_formula	67.36	67.36	0.54	worklist_measured	0.0	PASS
+hubble_dark_sector_crosswalk_benchmark.json	17	None	hubble_constant_km_s_mpc	live_formula	67.38395831285372	67.36	0.54	worklist_measured	0.04436724602541104	PASS
 immunology_benchmark.json	3	lysozyme	§21 Protein ΔG		-9.160572302574996	-9.2	0.0184	row	2.1428096426632046	FAIL
 immunology_benchmark.json	6	myoglobin	§21 Protein ΔG		-13.562305898749054	-13.6	0.027200000000000002	row	1.385812545990644	PASS
 immunology_benchmark.json	14	Val_pK₁	§22 Amino Acid pKa		2.2980601642983487	2.29	0.00458	row	1.7598612005128078	PASS
@@ -108,7 +122,14 @@ oncology_benchmark.json	44	donepezil_AChE	§65 Enzyme pKi		7.642042758526128	7.6
 oncology_benchmark.json	46	warfarin_VKORC1	§65 Enzyme pKi		6.276886301348152	6.3	0.0126	row	-1.834420527924434	PASS
 oncology_benchmark.json	49	ibuprofen_COX2	§65 Enzyme pKi		5.33631581720894	5.35	0.010700000000000001	row	-1.2788955879494586	PASS
 oncology_benchmark.json	50	penicillinG_PBP	§65 Enzyme pKi		7.321044173173944	7.3	0.0146	row	1.4413817242427642	PASS
+scientific_expansion_depth_spine_benchmark.json	3	dlmf	hubble_constant_km_s_mpc	live_formula	67.464401	67.36	0.54	worklist_measured	0.1933351851851773	PASS
 stumped_observables_panel_benchmark.json	9	D_H_ratio	fsot_compute_scalar		2.5446825859417006e-05	2.508e-05	2.9e-07	world_average	1.2649167566103645	PASS
+toe_ckm_pmns_benchmark.json	0	lambda_ckm	lambda_ckm	complex_system_emergence	0.22515006899478368	0.22517	0.00068	worklist_measured	-0.029310301788717907	PASS
+toe_ckm_pmns_benchmark.json	5	delta_ckm_rad	delta_ckm_rad	complex_system_emergence	1.1467003062072756	1.154	0.025	worklist_measured	-0.29198775170897306	PASS
+toe_gr_sm_deep_benchmark.json	29	sin_delta_ckm	sin_delta_ckm	seed_closed_form	0.9116085983144794	0.9143905836	0.0101208	worklist_measured	-0.27487800228446857	PASS
+toe_gr_sm_deep_benchmark.json	59	lambda_ckm	lambda_ckm	complex_system_emergence	0.22514958714088473	0.22517	0.00068	worklist_measured	-0.030018910463641687	PASS
+toe_gr_sm_deep_benchmark.json	64	delta_ckm_rad	delta_ckm_rad	complex_system_emergence	1.147015328140754	1.154	0.025	worklist_measured	-0.2793868743698358	PASS
+unified_db_crosswalk_spine_benchmark.json	34	fsot_aggregate_organized_panel	hubble_constant_km_s_mpc	live_formula	67.38395831285372	67.36	0.54	worklist_measured	0.04436724602541104	PASS
 virology_extension_benchmark.json	23	lysozyme	§21 Protein ΔG		-9.160572302574996	-9.2	0.0138	row	2.857079523550939	FAIL
 virology_extension_benchmark.json	24	RNase A	§21 Protein ΔG		-8.683186676986617	-8.7	0.013049999999999999	row	1.2883772424047688	PASS
 virology_extension_benchmark.json	25	cytochrome c	§21 Protein ΔG		-10.081950177328737	-10.1	0.015149999999999999	row	1.1914074370470105	PASS
