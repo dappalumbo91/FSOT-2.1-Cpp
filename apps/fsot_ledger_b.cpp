@@ -117,7 +117,7 @@ int main(int argc, char** argv) {
            zero_target = 0, bound_rows = 0, contraction_rows = 0, computed_rounded = 0; } C;
   std::map<std::string, long> SG;
   std::vector<std::string> sgrows;
-  struct IndZ { std::string file, name, property, source, verdict; double computed = 0, measured = 0, z = 0; };
+  struct IndZ { std::string file, name, property, source, verdict; double computed = 0, measured = 0, z = 0, z_5pct = 0; bool dual = false; };
   std::vector<IndZ> indip;
   for (auto& p : files) {
     const std::string name = p.filename().string();
@@ -136,15 +136,31 @@ int main(int argc, char** argv) {
     if (!sigma_out.empty()) {
       for (const auto& g : fsot::ledger_b::sigma_gate(*doc, name, lit, msigma)) {
         ++SG[std::string(g.correction_law ? "correction_law " : "independent ") + g.verdict];
-        if (g.verdict != "NO_SIGMA")
+        const bool gated = (g.verdict != "NO_SIGMA" && g.verdict != "ESTIMATE");
+        if (gated)
           ++SG[std::string(g.correction_law ? "correction_law " : "independent ") + g.verdict + " sigma=" + g.sigma_source];
-        if (!g.correction_law && g.verdict != "NO_SIGMA")
-          indip.push_back({name, g.name, g.property, g.sigma_source, g.verdict, g.computed, g.measured, g.z});
-        const bool worklist = g.sigma_source == "worklist_measured";
-        if (g.verdict == "FAIL" || worklist || (!g.correction_law && g.verdict != "NO_SIGMA" && std::fabs(g.z) > 1.0))
+        if (!g.correction_law && gated)
+          indip.push_back({name, g.name, g.property, g.sigma_source, g.verdict, g.computed, g.measured, g.z, g.z_5pct, g.dual_sigma});
+        // Emit table-driven NO_SIGMA / ESTIMATE only (sigma_source set). Resolver-path NO_SIGMA stays omitted unless FAIL/|z|>1.
+        const bool worklist = (g.sigma_source == "worklist_measured" || g.sigma_source == "worklist_measured_halo" ||
+                               g.sigma_source == "NO_SIGMA" || g.sigma_source == "ESTIMATE");
+        auto emit = [&](double sig, double z, const std::string& src, const std::string& verdict) {
           sgrows.push_back(name + "\t" + std::to_string(g.index) + "\t" + g.name + "\t" + g.property + "\t" + g.eval_kind + "\t" +
-                           fsot::py::repr(g.computed) + "\t" + fsot::py::repr(g.measured) + "\t" + fsot::py::repr(g.sigma) + "\t" +
-                           g.sigma_source + "\t" + fsot::py::repr(g.z) + "\t" + g.verdict + (g.correction_law ? " NON_EVIDENTIAL" : ""));
+                           fsot::py::repr(g.computed) + "\t" + fsot::py::repr(g.measured) + "\t" +
+                           (g.verdict == "NO_SIGMA" || g.verdict == "ESTIMATE" ? std::string("") : fsot::py::repr(sig)) + "\t" +
+                           src + "\t" +
+                           (g.verdict == "NO_SIGMA" || g.verdict == "ESTIMATE" ? std::string("") : fsot::py::repr(z)) + "\t" +
+                           verdict + (g.correction_law ? " NON_EVIDENTIAL" : ""));
+        };
+        if (g.dual_sigma) {
+          // Report both Eilers sys ends; neither is *the* σ.
+          const std::string v2 = std::fabs(g.z) <= fsot::ledger_b::SIGMA_GATE_Z_PROVISIONAL ? "PASS" : "FAIL";
+          const std::string v5 = std::fabs(g.z_5pct) <= fsot::ledger_b::SIGMA_GATE_Z_PROVISIONAL ? "PASS" : "FAIL";
+          emit(g.sigma, g.z, "worklist_measured_halo_sys2pct", v2);
+          emit(g.sigma_5pct, g.z_5pct, "worklist_measured_halo_sys5pct", v5);
+        } else if (g.verdict == "FAIL" || worklist || (!g.correction_law && gated && std::fabs(g.z) > 1.0)) {
+          emit(g.sigma, g.z, g.sigma_source, g.verdict);
+        }
       }
     }
     auto m = fsot::ledger_b::analyze_benchmark(*doc, name, lit);
@@ -273,28 +289,53 @@ int main(int argc, char** argv) {
     o << "#Ledger B sigma gate (item 94; |z| = |c - m|/sigma_m <= 2; pin " << AUTHORITY_PIN_PREFIX << ")\n";
     o << "#PROVISIONAL: the |z| <= 2 threshold is not a Damian-named gate (Tracer #111); verdicts are a report until he names one\n";
     o << "#correction_law rows read m as input: NON_EVIDENTIAL even when they pass; NO_SIGMA rows are not scored\n";
-    o << "#t1034u: worklist_measured overrides (Planck H0 67.36+/-0.54, PDG 2026 CKM, phenol 9.994+/-0.005, halo V_c 229.0 Eilers); class-default NO_SIGMA conversion ON HOLD; k report-only\n";
+    o << "#t1034u addendum 6aaf159b / 36ca0315: Planck H0 67.36+/-0.54, PDG 2026 CKM, phenol 9.994+/-0.005, halo V_c 229.0 both 2% and 5% sys ends (no single sys chosen); water pKa 14.0 NO_SIGMA; CRC pKa/AnAge/recipes NO_SIGMA; strong acids ESTIMATE; internals stay on 0.2%; engine_native_h0 not retargeted; k report-only\n";
     for (auto& [k, n] : SG) o << "#summary\t" << k << "\t" << n << "\n";
     {
-      double chi2 = 0;
-      for (auto& r : indip) chi2 += r.z * r.z;
+      double chi2_2 = 0, chi2_5 = 0;
+      for (auto& r : indip) {
+        chi2_2 += r.z * r.z;
+        chi2_5 += (r.dual ? r.z_5pct * r.z_5pct : r.z * r.z);
+      }
       const long N = long(indip.size());
       std::map<std::tuple<std::string, std::string, std::string, std::string>, long> clones;
       for (auto& r : indip) ++clones[std::make_tuple(r.name, r.property, fsot::py::repr(r.computed), fsot::py::repr(r.measured))];
       double sumsq = 0;
       for (auto& [_, n] : clones) sumsq += double(n) * double(n);
       const double neff = (N && sumsq) ? (double(N) * double(N) / sumsq) : 0;
-      long n2 = 0, n3 = 0;
-      for (auto& r : indip) { if (std::fabs(r.z) >= 2) ++n2; if (std::fabs(r.z) >= 3) ++n3; }
-      o << "#summary\tindependent chi2\t" << fsot::py::repr(chi2) << "\n";
+      long n2 = 0, n3 = 0, n2_5 = 0, n3_5 = 0, n_class = 0, n_quirk = 0, n_unity = 0;
+      for (auto& r : indip) {
+        if (std::fabs(r.z) >= 2) ++n2;
+        if (std::fabs(r.z) >= 3) ++n3;
+        const double z5 = r.dual ? r.z_5pct : r.z;
+        if (std::fabs(z5) >= 2) ++n2_5;
+        if (std::fabs(z5) >= 3) ++n3_5;
+        if (r.source == "class_default_biochem_0.2pct") ++n_class;
+        if (r.property.find("quirkmod_channel_strength") != std::string::npos) ++n_quirk;
+        if (r.property == "scalar_ratio_unity") ++n_unity;
+      }
+      o << "#summary\tindependent chi2_halo_sys2pct\t" << fsot::py::repr(chi2_2) << "\n";
+      o << "#summary\tindependent chi2_halo_sys5pct\t" << fsot::py::repr(chi2_5) << "\n";
       o << "#summary\tindependent N\t" << N << "\n";
-      o << "#summary\tindependent chi2_over_N\t" << fsot::py::repr(N ? chi2 / double(N) : 0) << "\n";
+      o << "#summary\tindependent chi2_over_N_halo_sys2pct\t" << fsot::py::repr(N ? chi2_2 / double(N) : 0) << "\n";
+      o << "#summary\tindependent chi2_over_N_halo_sys5pct\t" << fsot::py::repr(N ? chi2_5 / double(N) : 0) << "\n";
       o << "#summary\tindependent N_eff_exact_clone\t" << fsot::py::repr(neff) << "\n";
+      o << "#summary\tindependent |z|>=2_halo_sys2pct\t" << n2 << "\n";
+      o << "#summary\tindependent |z|>=2_halo_sys5pct\t" << n2_5 << "\n";
+      o << "#summary\tindependent |z|>=3_halo_sys2pct\t" << n3 << "\n";
+      o << "#summary\tindependent |z|>=3_halo_sys5pct\t" << n3_5 << "\n";
+      o << "#summary\tindependent class_default_biochem_0.2pct\t" << n_class << "\n";
+      o << "#summary\tindependent quirkmod_channel_strength\t" << n_quirk << "\n";
+      o << "#summary\tindependent scalar_ratio_unity\t" << n_unity << "\n";
+      // Keep the un-suffixed aliases pointing at the 2% end so older greps still find N / chi2, but chi2_over_N is not a chosen σ.
+      o << "#summary\tindependent chi2\t" << fsot::py::repr(chi2_2) << "\n";
+      o << "#summary\tindependent chi2_over_N\t" << fsot::py::repr(N ? chi2_2 / double(N) : 0) << "\n";
       o << "#summary\tindependent |z|>=2\t" << n2 << "\n";
       o << "#summary\tindependent |z|>=3\t" << n3 << "\n";
-      std::fprintf(stderr, "sigma_gate independent: N=%ld chi2=%s chi2/N=%s N_eff=%s |z|>=2 %ld |z|>=3 %ld worklist=%zu\n",
-                   N, fsot::py::repr(chi2).c_str(), fsot::py::repr(N ? chi2 / double(N) : 0).c_str(),
-                   fsot::py::repr(neff).c_str(), n2, n3, msigma.size());
+      std::fprintf(stderr,
+                   "sigma_gate independent: N=%ld chi2/N 2%%=%s 5%%=%s N_eff=%s |z|>=2 2%%=%ld 5%%=%ld |z|>=3 %ld/%ld class_default=%ld worklist=%zu\n",
+                   N, fsot::py::repr(N ? chi2_2 / double(N) : 0).c_str(), fsot::py::repr(N ? chi2_5 / double(N) : 0).c_str(),
+                   fsot::py::repr(neff).c_str(), n2, n2_5, n3, n3_5, n_class, msigma.size());
     }
     o << "file\tindex\tname\tproperty\teval_kind\tcomputed\tmeasured\tsigma\tsigma_source\tz\tverdict\n";
     for (auto& l : sgrows) o << l << "\n";
