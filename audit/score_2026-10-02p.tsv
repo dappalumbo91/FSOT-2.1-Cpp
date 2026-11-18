@@ -24,9 +24,9 @@ FSOT	P-1 self-consistent iteration: lowest E/M reached	same	3.355837155	-	-	-	in
 GATE	P-3 deuteron rerun with new g_piNN; KSRF/VMD -> Delta alpha_had -> Gamma_Z/M_Z	-	-	-	-	-	NOT RUN	-	-	frozen gate: g_A within 2 % with passing validation: False
 FSOT	P-4 F_pi with lbar4 = N_c + ln(4 M_Q^2/M_pi^2) - (19 - 3 sqrt3 pi)/2	FSOT m_p, pi+- leaf	92.8866215097	92.06530291	0.5657	1.4519	PASS	0.8921 %	FSOT	validation passed; F_pi/m_e = 181.774584; disclosed before freeze: about +0.9 %
 FSOT	P-4 lbar4	same	4.66210946194	4.4	0.28	0.93611	PASS	5.957 %	FSOT	FLAG 2+1 information
-FSOT	P-5 chi^1/4 = 0.65 e^(1/22) Lambda^(3) (DP instanton liquid)	FSOT alpha_s Lambda^(3) 336.939998	229.195762268	185.3	5.7	7.701	FAIL	23.689 %	HYBRID	validation FAILED; disclosed before freeze: about +24 %
-FSOT	P-5 M_eta (U(3) + WV, DP chi)	M-3a F, M-2a pi0, M-2b K0 (Q route), P-5 chi	546.948929048	547.862	0.017	53.71	PASS	-0.16666 %	HYBRID	theta = 5.8309 deg
-FSOT	P-5 M_eta'	same	1555.26148476	957.78	0.06	9958.0	FAIL	62.382 %	HYBRID	
+FSOT	P-5 chi^1/4 = 0.65 e^(1/22) Lambda^(3) (DP instanton liquid)	FSOT alpha_s Lambda^(3) 332.915902	226.458462877	185.3	5.7	7.2208	FAIL	22.212 %	HYBRID	validation FAILED; disclosed before freeze: about +24 %
+FSOT	P-5 M_eta (U(3) + WV, DP chi)	M-3a F, M-2a pi0, M-2b K0 (Q route), P-5 chi	545.911240142	547.862	0.017	114.75	PASS	-0.35607 %	HYBRID	theta = 6.1309 deg
+FSOT	P-5 M_eta'	same	1521.66188063	957.78	0.06	9398.0	FAIL	58.874 %	HYBRID	
 P-6	Cosmology T_CMB = (hbar c/k_B)(pi^2 n_gamma/(2 zeta3))^(1/3), n_gamma = Omega_b h^2 rho_c100/(u eta)	FSOT Omega_b h^2, eta, G_N, u	2.73233291325	2.7255	0.0006	11.388	FAIL	0.2507 %	FSOT	validation passed; disclosed before freeze: about +0.27 %; T_CMB record row 2.72471169
 P-6	HEP tree m_W = m_Z sqrt(1 - sin^2 theta_W(MSbar))	FSOT m_Z, sin^2 theta_W leaves	79950.3032114	80369.2	13.3	31.496	FAIL	-0.52122 %	FSOT	radiative corrections absent; disclosed before freeze: about -0.5 %; m_W leaf 80368.7519
 P-6	Particle_Physics, Nuclear_Physics	-	-	-	-	-	no own-physics derivation	-	-	frozen
