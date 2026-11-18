@@ -11,11 +11,11 @@ Deuteron_binding_MeV	P1	physical chain: m_p (FSOT leaf) [MeV]	938.27208927	938.2
 Deuteron_binding_MeV	P2	physical chain: m_n (FSOT leaf) [MeV]	939.565421802	939.56542194	4.8e-7	CODATA 2022	-0.00014644	0.2867	ok	
 Deuteron_binding_MeV	P3	physical chain: m_d (FSOT)	none	-	-	CODATA 2022 1875.61294500(58) MeV	-	-	MISSING	no FSOT deuteron mass, scattering length or effective range exists: physical chain cannot be completed
 m_H/m_W	1	S_quant, Quantum_Mechanics fold D_eff=5 (derived nest D_eff since FE23A2)	0.950197470167	-	-	no physical counterpart	-	-	no reference	with the pre-FE23A2 assigned D_eff=6: S_quant = 0.955289340092
-m_H/m_W	2	S_quant (1 + psi_con)	1.55083682601	1.5578107036	0.001393	PDG 2024 m_H/m_W (derived)	-4476.7	5.007	BREAK	lineage: D1D38A 1.559501476, 3090BC 1.559147372 (z 0.96), FE23A2..AEB2AD 1.550836826; the jump is the QM D_eff 6 -> 5 change (hub 3c74a180)
-m_H/m_W	2'	same with D_eff=6 S_quant (diagnostic only; domain parameters are not changed)	1.55914737159	1.5578107036	0.001393	PDG 2024 m_H/m_W (derived)	858.04	0.9597	ok	not a branch
-m_H/m_W	P1	physical chain: m_H leaf [GeV]	125.158097744	125.2	0.11	PDG 2024	-334.68	0.3809	ok	
+m_H/m_W	2	S_quant (1 + psi_con)	1.55083682601	1.55693972318	0.001393	PDG 2024 m_H/m_W (derived)	-3919.8	4.382	BREAK	lineage: D1D38A 1.559501476, 3090BC 1.559147372 (z 1.59), FE23A2..AEB2AD 1.550836826; the jump is the QM D_eff 6 -> 5 change (hub 3c74a180)
+m_H/m_W	2'	same with D_eff=6 S_quant (diagnostic only; domain parameters are not changed)	1.55914737159	1.55693972318	0.001393	PDG 2024 m_H/m_W (derived)	1417.9	1.585	BREAK	not a branch
+m_H/m_W	P1	physical chain: m_H leaf [GeV]	125.158097744	125.13	0.11	PDG 2024	224.55	0.2554	ok	
 m_H/m_W	P2	physical chain: m_W leaf [GeV]	80.3687519242	80.3692	0.0133	PDG 2024	-5.5752	0.03369	ok	
-m_H/m_W	P3	physical chain: m_H/m_W from leaves (= C-MHW-1, frozen-pending)	1.55729801382	1.5578107036	0.001393	PDG 2024 m_H/m_W (derived)	-329.11	0.3681	ok	
+m_H/m_W	P3	physical chain: m_H/m_W from leaves (= C-MHW-1, frozen-pending)	1.55729801382	1.55693972318	0.001393	PDG 2024 m_H/m_W (derived)	230.12	0.2573	ok	
 Dm2_21/Dm2_32	1	gamma^3	0.192315516821	-	-	no physical counterpart	-	-	no reference	
 Dm2_21/Dm2_32	2	Poof	0.153482214894	-	-	no physical counterpart	-	-	no reference	
 Dm2_21/Dm2_32	3	gamma^3 Poof	0.0295170114803	0.0306720977597	0.0008124	PDG 2024 Dm2_21/Dm2_32 (NO, derived)	-37659.0	1.422	BREAK	stored pin target 0.0295 matches neither PDG 2024 object; see DM-R1

@@ -1,0 +1,21 @@
+# Ledger B per-row measured-σ overrides (t1034u; Damian t1036s4386).
+# Keyed by file:index in material_records (hub 6f9c2560).
+# Applied only in the sigma gate; stored benchmark JSON is not edited.
+# Class-default 0.2% σ is kept for every other class-default row: the SPEC 2c8264f1
+# NO_SIGMA conversion is ON HOLD pending Tracer's superseding addendum.
+# Do not invent pKa last-digit σ (acetic, HF, H2S, H3PO4 stay on the class default).
+# Water (crc_handbook_properties_benchmark.json:87, stored 15.74) is unchanged.
+# k remains report-only (t1031u / t1034u).
+file	index	unique_id	name	property	sigma	sigma_type	corrected_measured	sigma_source	notes
+crc_handbook_properties_benchmark.json	91	CD-0508	phenol	§5b pKa	0.005	tolerance	9.994	worklist_measured	Damian t1036s4386: score phenol at IUPAC 9.994 with the Reliable class bound ±0.005 (not a measured 1σ; scored by ruling). CRC table is 9.99. Stored 9.95 was TARGET_WRONG.
+foundational_ontology_spine_benchmark.json	22	CD-0776	zero_boundary_not_entity_panel	hubble_constant_km_s_mpc	0.54	total	67.36	worklist_measured	Stored 67.4 is Planck 2018 abstract rounding. Table 2 value 67.36±0.54. SPEC t1034u.
+founding_galactic_halo_rotation_panel_benchmark.json	0	CD-0362	mw_v_sun_kms	halo_rotation_velocity	2.0298768435548	total	229.0	worklist_measured	Damian t1036s4386: score halo V_c at Eilers+2019 229.0 km/s. σ=hypot(0.2 stat, 2.02 sys) with 2.02=disjoint-wedge sys used for Tracer's −4.4σ figure (Eilers+2019 p8; abstract sys 2–5%). Stored 220.0 is IAU 1985 convention.
+h0_planck_benchmark.json	19	CD-0001		planck_reference_km_s_mpc_class	0.54	total	67.36	worklist_measured	Planck 2018 TT,TE,EE+lowE+lensing A&A 641, A6 (2020) Table 2: H0=67.36±0.54. Stored target already matches. SPEC t1034u.
+hubble_dark_sector_crosswalk_benchmark.json	17	CD-0394		hubble_constant_km_s_mpc	0.54	total	67.36	worklist_measured	Stored 67.4 is Planck 2018 abstract rounding. Table 2 value 67.36±0.54. SPEC t1034u.
+scientific_expansion_depth_spine_benchmark.json	3	CD-0128	dlmf	hubble_constant_km_s_mpc	0.54	total	67.36	worklist_measured	Stored 67.4 is Planck 2018 abstract rounding. Table 2 value 67.36±0.54. SPEC t1034u.
+toe_ckm_pmns_benchmark.json	0	CD-0297	lambda_ckm	lambda_ckm	0.00068	stat	0.22517	worklist_measured	PDG 2026 λ=0.22517±0.00068 (stored 0.22501). Unitarity FIT, disclosed. SPEC t1034u.
+toe_ckm_pmns_benchmark.json	5	CD-0124	delta_ckm_rad	delta_ckm_rad	0.025	stat	1.154	worklist_measured	PDG 2026 eq. (12.28) δ=1.154±0.025 rad (stored 1.147). Unitarity FIT, disclosed. SPEC t1034u.
+toe_gr_sm_deep_benchmark.json	29	CD-0658	sin_delta_ckm	sin_delta_ckm	0.0101208	stat	0.9143905836	worklist_measured	PDG 2026 δ=1.154±0.025 ⇒ sinδ=0.9143905836±0.0101208 (propagated). Stored was sin(1.147). SPEC t1034u.
+toe_gr_sm_deep_benchmark.json	59	CD-0297	lambda_ckm	lambda_ckm	0.00068	stat	0.22517	worklist_measured	PDG 2026 λ=0.22517±0.00068 (stored 0.22501). Clone of CD-0297. SPEC t1034u.
+toe_gr_sm_deep_benchmark.json	64	CD-0124	delta_ckm_rad	delta_ckm_rad	0.025	stat	1.154	worklist_measured	PDG 2026 eq. (12.28) δ=1.154±0.025 rad (stored 1.147). Clone of CD-0124. SPEC t1034u.
+unified_db_crosswalk_spine_benchmark.json	34	CD-0200	fsot_aggregate_organized_panel	hubble_constant_km_s_mpc	0.54	total	67.36	worklist_measured	Stored 67.4 is Planck 2018 abstract rounding. Table 2 value 67.36±0.54. SPEC t1034u.

@@ -147,3 +147,5 @@ pin:lepton_ratios|m_tau/m_e_lepton	pin	lepton_ratios|m_tau/m_e_lepton	m_tau_over
 pin:lepton_ratios|m_tau/m_mu_lepton	pin	lepton_ratios|m_tau/m_mu_lepton	m_tau_over_m_mu	1	0	superseded by wave7|m_tau/m_mu (first occurrence)
 pin:lepton_ratios|m_mu/m_e_lepton	pin	lepton_ratios|m_mu/m_e_lepton	m_mu_over_m_e	1	0	superseded by m_mu_over_m_e
 pin:predictions|CMB_tau	pin	predictions|CMB_tau	tau_reion	1	0	superseded by wave2|tau_reion (first occurrence)
+pin:validation_suite|Dark_energy_wa	pin	validation_suite|Dark_energy_wa	wa_cpl_unite	1	0	canonical w_a (addendum docs/addenda/CANONICAL_2026-11-18.md; SPEC t1027s4342 §4.1); 1D report vs Unite 2609.05053, joint (w0,w_a) chi2 pending banked rho
+lifac:pi_C_EFF	lifac	pi_C_EFF	li7_underproduction	1	0	canonical lithium underproduction factor pi*C_EFF (addendum; SPEC t1027s4342 §4.2); vs PDG 2026 BBN/obs ratio

@@ -7,3 +7,4 @@
 1012.3164	abstract	we obtain TCMB(z)=(2.725+/-0.002)x(1+z)^(1-beta) K with beta=-0.007+/-0.027	https://arxiv.org/abs/1012.3164
 nucl-th/9408016	Table 10	Static deuteron properties (Argonne v18): P_d 5.76 %; mu_d 0.847 (impulse approximation), 0.871 (+R+MEC) mu_0; experiment 0.857406(1)	https://arxiv.org/abs/nucl-th/9408016
 1911.00367	Eq. (3.15)	∆αhad (MZ2 ) = (276.09 ± 0.26stat ± 0.68sys ± 0.14vp ± 0.83fsr ) × 10−4 = (276.09 ± 1.12tot ) × 10−4 .	https://arxiv.org/abs/1911.00367 (v1 and v2 identical; _sources/knt19_v2.pdf sha256 a29d3a76...21dd2)
+2609.05053	abstract	For a flat universe with dark energy that has a time-evolving equation of state parametrized by $w_0$ and $w_a$ we find $(\Omega_{\rm m},w_0,w_a) = (0.305\pm0.004,-0.861^{+0.044}_{-0.042},-0.60^{+0.17}_{-0.19})$ with a dark energy Figure of Merit of 315.	https://arxiv.org/abs/2609.05053

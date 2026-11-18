@@ -46,6 +46,18 @@ the Python, 13,841/13,841 lines).
   until he names one, the verdicts are a report, not a gate.** At hub 6f9c256: independent 1390 pass / 23 fail
   (8 distinct biochem rows repeated across corpora) / 39044 NO_SIGMA; correction-law 484 pass (non-evidential) /
   138700 NO_SIGMA. Golden: `golden/ledger_b_sigma_gate_6f9c2560.tsv` (ctest `ledger_b_sigma_gate`).
+  t1034u / t1036s4386 (dev/next, report-only, k on hold): a per-row table `golden/ledger_b_measured_sigma_t1034u.tsv`
+  overrides σ and the z-central for Planck H0 67.36±0.54, PDG 2026 CKM λ/δ (and sin δ), phenol 9.994±0.005
+  (scored by Damian), and halo V_c 229.0 km/s (Eilers+2019; σ = 0.2 stat ⊕ 2.02 sys). Stored benchmark JSON is
+  not edited. The SPEC 2c8264f1 conversion of remaining class-default rows to NO_SIGMA is on hold pending
+  Tracer's addendum; those rows keep `class_default_biochem_0.2pct`. pKa last-digit σ is not invented; the water
+  row is unchanged.
+  CI ledger-b (PR #8): `audit/refinements_2026-10-02b.tsv`, `audit/trace_2026-10-02h.tsv` and
+  `docs/PHYSICAL_MAP.md` were regenerated with the repo tools after the t1027s4342 PDG 2026 retarget
+  (`m_H` 125.20→125.13 GeV, CKM V_ud/V_us/V_tb, sin²θ12/θ13). FSOT computed values are unchanged;
+  z and published centrals update in place. All still-confirmed. On the 02h trace, the D_eff=6
+  diagnostic of S_quant(1+ψ_con) vs the new m_H/m_W moves from z 0.96 (ok) to z 1.585 (BREAK);
+  the frozen-pending C-MHW-1 leaf ratio remains PASS (z 0.26).
 
 ### A-02 · The stored Ledger B amplitudes are the older per-domain table, not f = ALPHA
 - **Observed.** For the 139,400 gated `fsot_prediction` records, f was inferred as `(c/m − 1)/|S|` from the
@@ -217,10 +229,16 @@ physics references. A manual pass over those (e.g. arXiv 1111.2048, 1710.11129, 
 - **Observed (`golden/tier_evidence_6f9c2560.json`):**
   - **Domain-table freeze.** The hash is re-derived exactly. The file claims freeze date 2026-09-14, but the hash `8e30e85e` is
     already in git at `3c74a18` (2026-09-11, pin FE23A2).
-  - **Ledger A freeze.** Not hashed.
+  - **Ledger A freeze.** Not hashed at the pinned hub `6f9c256` (2026-10-01). Hashed since: `predictions/LEDGER_A_FREEZE_SHA256.json`
+    (sha256 `2ebfc79e…`, `hashed_at` 2026-10-02T05:13Z, added in hub commit `6b5ba06`, 2026-10-02) — 18 days after the yaml's
+    2026-09-14 comment date, so the hash proves the file is unedited since 2026-10-02, not since 2026-09-14.
   - **ToE prereg freeze.** Hashed, but at pin D1D38A. It lists `PRED-wa` = −1.018, while Ledger A's `Dark_energy_wa` value is −0.80811
     (`predictions/toe_prereg_freeze.json:24`, `LEDGER_A_FREEZE.yaml` `Dark_energy_wa`).
-  - **Prereg manifest.** Dated `registered_at: "2026-07-10"`, but first committed on 2026-08-06 (`7f29b18`), and it carries no hash.
+  - **Prereg manifest.** Dated `registered_at: "2026-07-10"`, first committed on 2026-07-10 (`6de8694c`) at
+    `data/preregistered_predictions_manifest.yaml`; `7f29b18` (2026-08-06) is its first commit at the `predictions/` path. It carries
+    no hash of its own (the ToE freeze `toe_prereg_freeze.json` hashes it as of 2026-09-09).
+  - *Correction 2026-11-18 (FSOT paper writer HOLDOUT_CHECK §5 8c): earlier text said the manifest was first committed 2026-08-06
+    and Ledger A was not hashed; both are corrected above.*
 - **Why it matters.** Under the evidence-tier rules (docs/EVIDENCE_TIERS.md), no gated record is TIER 3 and only 3 are TIER 2.
 
 ### G-05 · Look-elsewhere: how many seed formulas match as well
