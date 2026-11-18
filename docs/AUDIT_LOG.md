@@ -217,10 +217,16 @@ physics references. A manual pass over those (e.g. arXiv 1111.2048, 1710.11129, 
 - **Observed (`golden/tier_evidence_6f9c2560.json`):**
   - **Domain-table freeze.** The hash is re-derived exactly. The file claims freeze date 2026-09-14, but the hash `8e30e85e` is
     already in git at `3c74a18` (2026-09-11, pin FE23A2).
-  - **Ledger A freeze.** Not hashed.
+  - **Ledger A freeze.** Not hashed at the pinned hub `6f9c256` (2026-10-01). Hashed since: `predictions/LEDGER_A_FREEZE_SHA256.json`
+    (sha256 `2ebfc79e…`, `hashed_at` 2026-10-02T05:13Z, added in hub commit `6b5ba06`, 2026-10-02) — 18 days after the yaml's
+    2026-09-14 comment date, so the hash proves the file is unedited since 2026-10-02, not since 2026-09-14.
   - **ToE prereg freeze.** Hashed, but at pin D1D38A. It lists `PRED-wa` = −1.018, while Ledger A's `Dark_energy_wa` value is −0.80811
     (`predictions/toe_prereg_freeze.json:24`, `LEDGER_A_FREEZE.yaml` `Dark_energy_wa`).
-  - **Prereg manifest.** Dated `registered_at: "2026-07-10"`, but first committed on 2026-08-06 (`7f29b18`), and it carries no hash.
+  - **Prereg manifest.** Dated `registered_at: "2026-07-10"`, first committed on 2026-07-10 (`6de8694c`) at
+    `data/preregistered_predictions_manifest.yaml`; `7f29b18` (2026-08-06) is its first commit at the `predictions/` path. It carries
+    no hash of its own (the ToE freeze `toe_prereg_freeze.json` hashes it as of 2026-09-09).
+  - *Correction 2026-11-18 (FSOT paper writer HOLDOUT_CHECK §5 8c): earlier text said the manifest was first committed 2026-08-06
+    and Ledger A was not hashed; both are corrected above.*
 - **Why it matters.** Under the evidence-tier rules (docs/EVIDENCE_TIERS.md), no gated record is TIER 3 and only 3 are TIER 2.
 
 ### G-05 · Look-elsewhere: how many seed formulas match as well
